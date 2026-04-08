@@ -16,6 +16,28 @@ import {
 
 export const metadata: Metadata = pageMetadata.systems;
 
+// ─── Browser chrome header ─────────────────────────────────────────────────────
+function WindowBar({ label }: { label: string }) {
+  return (
+    <div className="window-bar rounded-t-xl -mx-px -mt-px">
+      <span className="window-dot-close" />
+      <span className="window-dot-min" />
+      <span className="window-dot-expand" />
+      <span className="window-label">{label}</span>
+    </div>
+  );
+}
+
+// ─── Status dot + label ────────────────────────────────────────────────────────
+function StatusLive({ label = "active" }: { label?: string }) {
+  return (
+    <div className="flex items-center gap-1.5">
+      <span className="status-live" />
+      <span className="log-line text-[10px] text-[#6D6664]">{label}</span>
+    </div>
+  );
+}
+
 // ─── Icon map for system buckets ───────────────────────────────────────────────
 function BucketIcon({ icon }: { icon: string }) {
   const icons: Record<string, React.ReactNode> = {
@@ -79,6 +101,15 @@ export default function SystemsPage() {
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
       <SectionShell compact className="bg-[#FFF7F4] border-b border-[#EDE3DE]">
         <div className="max-w-3xl">
+          {/* Browser-chrome identity strip */}
+          <div className="window-frame mb-6 max-w-sm">
+            <WindowBar label="opsbynoell-systems — dashboard" />
+            <div className="flex items-center justify-between px-3 py-2 bg-[#FAF5F0]">
+              <StatusLive label="8 systems active" />
+              <span className="log-ts">last sync · now</span>
+            </div>
+          </div>
+
           <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-4">
             {systemsHero.eyebrow}
           </p>
@@ -132,8 +163,12 @@ export default function SystemsPage() {
                   : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20"
               }`}
             >
-              <div className="w-8 h-8 rounded-lg bg-[#FAF5F0] flex items-center justify-center mb-3 border border-[#EDE3DE]">
-                <BucketIcon icon={bucket.icon} />
+              {/* Icon + status row */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-8 h-8 rounded-lg bg-[#FAF5F0] flex items-center justify-center border border-[#EDE3DE]">
+                  <BucketIcon icon={bucket.icon} />
+                </div>
+                <StatusLive label={bucket.isNova ? "nova" : "active"} />
               </div>
               <h3
                 className={`text-sm font-semibold mb-1.5 ${
@@ -143,7 +178,7 @@ export default function SystemsPage() {
                 {bucket.title}
               </h3>
               <p className="text-xs leading-relaxed text-[#6D6664]">{bucket.body}</p>
-              <p className="mt-2 text-[10px] font-medium text-[#6A2C3E]/70 uppercase tracking-wide">
+              <p className="mt-2.5 log-ts uppercase tracking-wider text-[#6A2C3E]/60">
                 {bucket.urgencyLine}
               </p>
             </a>
@@ -168,12 +203,19 @@ export default function SystemsPage() {
               <div
                 key={system.id}
                 id={system.id}
-                className="rounded-2xl border border-[#EDE3DE] bg-[#FAF5F0] p-7 md:p-8 scroll-mt-24"
+                className="window-frame scroll-mt-24"
               >
+                {/* Window chrome header for each breakdown */}
+                <WindowBar label={`${system.id} · included: ${system.included.join(", ").toLowerCase()}`} />
+
+                <div className="p-7 md:p-8 bg-[#FAF5F0]">
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <h3 className="text-lg font-bold text-[#1F1A1A]">
-                    {system.title}
-                  </h3>
+                  <div className="flex items-center gap-2.5">
+                    <StatusLive />
+                    <h3 className="text-lg font-bold text-[#1F1A1A]">
+                      {system.title}
+                    </h3>
+                  </div>
                   <div className="flex flex-wrap gap-1.5 shrink-0">
                     {system.included.map((pkg) => (
                       <span
@@ -212,6 +254,7 @@ export default function SystemsPage() {
                     </p>
                   </div>
                 </div>
+                </div>{/* end p-7 wrapper */}
               </div>
             ))}
           </div>

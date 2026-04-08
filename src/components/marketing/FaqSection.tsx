@@ -22,7 +22,7 @@ export function FaqSection({ items, headline }: FaqSectionProps) {
             {headline}
           </h2>
         )}
-        <Accordion.Root type="single" collapsible className="flex flex-col gap-2">
+        <Accordion.Root type="multiple" className="flex flex-col gap-2">
           {items.map((item, i) => (
             <Accordion.Item
               key={i}
