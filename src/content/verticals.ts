@@ -15,17 +15,17 @@ export const verticalsMeta = {
 // Psychological job: Trigger immediate fit and self-recognition
 export const verticalsHero = {
   eyebrow: "Who We Work With",
-  headline: "Built for businesses where the phone is your front door.",
+  headline: "If a missed call, slow reply, or forgotten follow-up costs you money, this was built for your kind of business.",
   subhead:
-    "We work with service businesses where a missed call, a slow response, or a forgotten follow-up quietly costs real money. If that's familiar, this was built for you.",
+    "The details change by vertical. The pain does not. Someone reaches out, no one responds fast enough, follow-up slips, and the revenue never shows up.",
   primaryCta: CTA.primary,
 };
 
 // ── Section 2: Vertical Overview ────────────────────────────────────────────────
 export const verticalsOverview = {
-  headline: "Seven industries. One common problem.",
+  headline: "Different businesses. Same leak.",
   subhead:
-    "The specific pain looks different in each business. The operational gap underneath is almost always the same.",
+    "The surface problem changes — missed consults, lost calls, weak recalls, no-shows, stale lists. Underneath, it is the same thing: response, follow-up, and consistency breaking at the exact moment they matter.",
 };
 
 // ── Section 3: Vertical Breakdowns ──────────────────────────────────────────────
@@ -35,6 +35,7 @@ export const verticals = [
     id: "med-spas",
     title: "Med Spas",
     eyebrow: "Medical Aesthetics",
+    cardPain: "High-value leads do not wait. When consult inquiries sit too long, the booking disappears before your team ever gets to it.",
     corePain:
       "High-value leads don't wait. A Botox or filler inquiry that gets no response in the first hour is usually lost. The consult volume you could be doing isn't showing up because the lead follow-up isn't consistent.",
     specificPains: [
@@ -60,6 +61,7 @@ export const verticals = [
     id: "salons",
     title: "Salons",
     eyebrow: "Hair & Beauty",
+    cardPain: "When the phone rings during a service and no one answers, the lead usually books somewhere else.",
     corePain:
       "You built this so you could do great work, not return voicemails at 9 PM. But the phone is still ringing while you're with a client, and those missed calls are walking out the door.",
     specificPains: [
@@ -84,6 +86,7 @@ export const verticals = [
     id: "massage-therapists",
     title: "Massage Therapists",
     eyebrow: "Therapeutic & Wellness",
+    cardPain: "You are in session when the call comes in. By the time you check it, the money is already gone.",
     corePain:
       "You're in session when the phone rings. By the time you check it, the lead is gone. And because you're a solo or small practice, every no-show directly hits your income.",
     specificPains: [
@@ -108,6 +111,7 @@ export const verticals = [
     id: "dental-offices",
     title: "Dental Offices",
     eyebrow: "Dental & Oral Health",
+    cardPain: "The front desk is overloaded, recalls slip, and patients who meant to come back quietly disappear.",
     corePain:
       "The front desk is overloaded, recalls are slipping, and no one has time to chase every lead or reactivation. The operational gap is in the follow-up — not the clinical work.",
     specificPains: [
@@ -134,6 +138,7 @@ export const verticals = [
     id: "hvac",
     title: "HVAC",
     eyebrow: "Heating & Cooling",
+    cardPain: "In busy season, the fastest callback wins. If the phone goes to voicemail, that job is usually gone.",
     corePain:
       "Demand is high in season, but leads call multiple contractors at once. The fastest callback wins. If your team is on a job and the phone goes to voicemail, that lead is gone.",
     specificPains: [
@@ -158,6 +163,7 @@ export const verticals = [
     id: "home-services",
     title: "Home Services",
     eyebrow: "Home & Property",
+    cardPain: "When estimates, callbacks, and follow-up depend on memory, too many jobs fall through the cracks.",
     corePain:
       "Landscaping, cleaning, pest control, painting — businesses where the crew is working and the phone is ringing at the same time. Every missed call is a job that went to a competitor.",
     specificPains: [
@@ -182,6 +188,7 @@ export const verticals = [
     id: "pool-services",
     title: "Pool Services",
     eyebrow: "Pool & Outdoor",
+    cardPain: "Seasonal spikes create chaos fast. Without systems, new inquiries and repeat-service opportunities get lost at the same time.",
     corePain:
       "Seasonal demand, recurring service routes, and new customer leads all happening at once. The operational chaos of spring startup is where revenue slips the most.",
     specificPains: [

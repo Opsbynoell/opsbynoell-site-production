@@ -7,13 +7,13 @@ import { ROUTES, CTA } from "@/lib/constants";
 
 // ─── Verticals dropdown items ──────────────────────────────────────────────────
 const verticalItems = [
-  { label: "Med Spas",           href: "/verticals#med-spas" },
-  { label: "Salons",             href: "/verticals#salons" },
-  { label: "Massage Therapists", href: "/verticals#massage-therapists" },
-  { label: "Dental Offices",     href: "/verticals#dental-offices" },
-  { label: "HVAC",               href: "/verticals#hvac" },
-  { label: "Home Services",      href: "/verticals#home-services" },
-  { label: "Pool Services",      href: "/verticals#pool-services" },
+  { label: "Med Spas",           href: "/verticals/med-spas" },
+  { label: "Salons",             href: "/verticals/salons" },
+  { label: "Massage Therapists", href: "/verticals/massage-therapists" },
+  { label: "Dental Offices",     href: "/verticals/dental-offices" },
+  { label: "HVAC",               href: "/verticals/hvac" },
+  { label: "Home Services",      href: "/verticals/home-services" },
+  { label: "Pool Services",      href: "/verticals/pool-services" },
 ];
 
 export function SiteHeader() {
@@ -39,17 +39,20 @@ export function SiteHeader() {
       <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between rounded-full bg-[#FAF5F0]/92 backdrop-blur-md border border-[#EDE3DE] px-5 py-2.5 shadow-[0_1px_8px_rgba(31,26,26,0.06)]">
 
-          {/* ── Wordmark — editorial 2-line lock-up ────────────────────────── */}
+          {/* ── Wordmark — editorial lock-up with bar accent ────────────────── */}
           <Link
             href={ROUTES.home}
-            className="flex flex-col leading-none gap-[3px] group select-none"
+            className="flex items-center gap-2 group select-none"
             aria-label="Ops by Noell — Home"
           >
-            <span className="text-[8px] font-semibold uppercase tracking-[0.22em] text-[#6D6664] group-hover:text-[#6A2C3E] transition-colors">
-              OPS BY
-            </span>
-            <span className="font-display text-[18px] font-bold text-[#1F1A1A] group-hover:text-[#6A2C3E] transition-colors leading-none tracking-tight">
-              Noell
+            <span className="w-[2px] h-7 rounded-full bg-[#6A2C3E] opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+            <span className="flex flex-col leading-none gap-[3px]">
+              <span className="text-[8px] font-semibold uppercase tracking-[0.24em] text-[#6D6664] group-hover:text-[#6A2C3E] transition-colors">
+                OPS BY
+              </span>
+              <span className="font-display text-[18px] font-bold text-[#1F1A1A] group-hover:text-[#6A2C3E] transition-colors leading-none tracking-tight">
+                Noell
+              </span>
             </span>
           </Link>
 
@@ -256,6 +259,7 @@ export function SiteHeader() {
                         </Link>
                       </li>
                     ))}
+
                     <li>
                       <Link
                         href={ROUTES.verticals}

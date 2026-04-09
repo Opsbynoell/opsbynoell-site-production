@@ -159,7 +159,7 @@ export default function SystemsPage() {
                 bucket.isFeatured
                   ? "lg:col-span-4 bg-[#1F1A1A] border-transparent hover:shadow-[0_6px_28px_rgba(31,26,26,0.18)]"
                   : bucket.isNova
-                  ? "bg-white border-[#7C5CFC]/20 hover:border-[#7C5CFC]/35 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
+                  ? "bg-[#FAF5F0] border-[#E0D4E8] hover:border-[#7C5CFC]/25 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
                   : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
               }`}
             >
@@ -168,6 +168,8 @@ export default function SystemsPage() {
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
                   bucket.isFeatured
                     ? "bg-white/10 border-white/15"
+                    : bucket.isNova
+                    ? "bg-white border-[#E0D4E8]"
                     : "bg-[#FAF5F0] border-[#EDE3DE]"
                 }`}>
                   <BucketIcon icon={bucket.icon} />
