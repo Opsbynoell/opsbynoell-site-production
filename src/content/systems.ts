@@ -16,9 +16,9 @@ export const systemsMeta = {
 // Psychological job: Immediate clarity — this page is about what we actually build
 export const systemsHero = {
   eyebrow: "What We Build",
-  headline: "The operational layer your business is missing.",
+  headline: "The money is not leaking because you need more leads. It is leaking in the moments after someone reaches out.",
   subhead:
-    "Most service businesses don't have a marketing problem. They have a response, follow-up, and consistency problem. These are the systems that fix it.",
+    "Missed calls. Delayed replies. No-shows. Follow-up that depends on memory. These are the quiet leaks that cost service businesses real money — and these are the systems that close them.",
   primaryCta: CTA.primary,
   secondaryCta: CTA.seePricing,
 };
@@ -26,9 +26,9 @@ export const systemsHero = {
 // ── Section 2: Core Systems Overview ────────────────────────────────────────────
 // Psychological job: Make the offer feel complete and concrete immediately
 export const coreSystemsOverview = {
-  headline: "Eight system categories. One operating layer.",
+  headline: "Every leak has a pattern. Every pattern needs a system.",
   subhead:
-    "Each system is built around a specific point where service businesses lose revenue. Together, they form the operational foundation that runs while you work.",
+    "Most businesses do not need more software. They need the right systems running at the right moments — so leads get answered, appointments get confirmed, reviews get asked for, and follow-up actually happens.",
 };
 
 // ── Section 3: System Buckets ────────────────────────────────────────────────────
@@ -38,42 +38,42 @@ export const systemBuckets = [
   {
     id: "lead-capture",
     title: "Lead Capture Systems",
-    body: "Capture every inquiry the moment it lands — web, phone, text — before it goes cold.",
+    body: "When someone reaches out, the system catches them before silence does.",
     urgencyLine: "Most leads decide within 5 minutes.",
     icon: "capture",
   },
   {
     id: "front-desk-booking",
     title: "Front Desk & Booking Systems",
-    body: "Automate the confirmation, intake, and scheduling workflows your front desk handles manually today.",
+    body: "When the front desk gets stretched thin, the booking system keeps the day from falling apart.",
     urgencyLine: "Inconsistent front-desk processes quietly lose revenue.",
     icon: "desk",
   },
   {
     id: "follow-up",
     title: "Follow-Up Systems",
-    body: "Keep leads warm and clients engaged with consistent, timely follow-up that doesn't require you to remember.",
+    body: "When follow-up depends on memory, revenue gets missed. The system keeps the conversation moving.",
     urgencyLine: "Most businesses follow up once. The system follows up properly.",
     icon: "followup",
   },
   {
     id: "reputation",
     title: "Reputation Systems",
-    body: "Turn satisfied clients into fresh five-star proof — automatically, after every appointment.",
+    body: "When happy clients leave without leaving a review, your proof disappears. The system asks at the right moment.",
     urgencyLine: "Reviews compound. Most businesses let them slip.",
     icon: "reputation",
   },
   {
     id: "reactivation",
     title: "Reactivation Systems",
-    body: "Bring past clients and warm leads back into the calendar with targeted, non-spammy outreach.",
+    body: "When old leads and past clients go quiet, the system brings them back before they are gone for good.",
     urgencyLine: "Your best new client is already in your contact list.",
     icon: "reactivation",
   },
   {
     id: "sales-payment",
     title: "Sales & Payment Systems",
-    body: "Reduce friction in the payment and upgrade flow so revenue stops getting stuck in the final step.",
+    body: "When someone is ready to book or pay, the system makes sure friction does not kill the sale.",
     urgencyLine: "Friction at the close is a system problem, not a people problem.",
     icon: "payment",
   },
@@ -81,14 +81,14 @@ export const systemBuckets = [
     id: "nova-ai",
     title: "Nova AI Systems",
     isNova: true,
-    body: "Nova handles the first layer of every conversation — qualifying leads, answering questions, and keeping the conversation moving.",
+    body: "When you cannot answer first, Nova does — so the conversation keeps moving instead of disappearing.",
     urgencyLine: "First response speed is the biggest predictor of conversion.",
     icon: "nova",
   },
   {
     id: "client-os",
     title: "Client Operating System",
-    body: "The full operational layer — all systems connected, running together as a single consistent experience for every client.",
+    body: "When everything is patched together, the business feels heavier than it should. The operating system makes it all run like one connected experience.",
     urgencyLine: "Individual fixes help. A connected system compounds.",
     icon: "os",
     isFeatured: true,

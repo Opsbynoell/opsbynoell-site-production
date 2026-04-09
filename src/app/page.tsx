@@ -4,7 +4,6 @@ import { HeroSection } from "@/components/marketing/HeroSection";
 import { StatsBar } from "@/components/marketing/StatsBar";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { CaseStudySection } from "@/components/marketing/CaseStudySection";
-import { FoundersSection } from "@/components/marketing/FoundersSection";
 import { DarkCtaBand } from "@/components/marketing/DarkCtaBand";
 import { pageMetadata } from "@/lib/metadata";
 import { darkCtaSection } from "@/content/home";
@@ -12,6 +11,22 @@ import { localBusinessSchema } from "@/lib/schema";
 import { ROUTES, CTA } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata.home;
+
+// ─── Era Bridge — communication-era thesis statement ──────────────────────────
+function EraBridge() {
+  return (
+    <section className="bg-white border-b border-[#EDE3DE] py-14 md:py-16">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <p className="font-display text-xl md:text-2xl font-bold text-[#1F1A1A] leading-snug tracking-tight">
+          People now expect an answer in minutes. Service businesses cannot always pick up the phone.
+        </p>
+        <p className="mt-4 text-sm md:text-base text-[#6D6664] leading-relaxed max-w-xl mx-auto">
+          That gap — between when someone reaches out and when they hear back — is where most revenue disappears. The right systems close it automatically, without adding headcount.
+        </p>
+      </div>
+    </section>
+  );
+}
 
 // ─── Nova bridge — compact teaser that routes to /nova ─────────────────────────
 function NovaBridge() {
@@ -164,14 +179,14 @@ export default function HomePage() {
       {/* 3. The Real Problem — agitate + reframe */}
       <ProblemSection />
 
-      {/* 4. Case study — resolve early skepticism */}
+      {/* 4. Era bridge — communication-era thesis */}
+      <EraBridge />
+
+      {/* 5. Case study — resolve early skepticism */}
       <CaseStudySection />
 
-      {/* 5. Nova bridge — introduce the AI layer */}
+      {/* 6. Nova bridge — introduce the AI layer */}
       <NovaBridge />
-
-      {/* 6. Founders — human trust */}
-      <FoundersSection />
 
       {/* 7. Explore paths — route to deeper pages */}
       <ExplorePaths />

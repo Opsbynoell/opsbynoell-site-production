@@ -139,7 +139,7 @@ export default function SystemsPage() {
       {/* ── 2. Core Systems Overview ─────────────────────────────────────────── */}
       <SectionShell compact className="bg-white border-b border-[#EDE3DE]">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1F1A1A] tracking-tight">
+          <h2 className="font-display text-xl md:text-2xl font-bold text-[#1F1A1A] tracking-tight">
             {coreSystemsOverview.headline}
           </h2>
           <p className="mt-3 text-base text-[#6D6664] leading-relaxed">
@@ -155,30 +155,48 @@ export default function SystemsPage() {
             <a
               key={bucket.id}
               href={`#${bucket.id}`}
-              className={`group rounded-2xl border p-5 transition-all duration-200 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)] block ${
+              className={`group rounded-2xl border p-5 transition-all duration-200 block ${
                 bucket.isFeatured
-                  ? "lg:col-span-2 bg-[#F0E4E8] border-[#6A2C3E]/20 hover:border-[#6A2C3E]/30"
+                  ? "lg:col-span-4 bg-[#1F1A1A] border-transparent hover:shadow-[0_6px_28px_rgba(31,26,26,0.18)]"
                   : bucket.isNova
-                  ? "bg-white border-[#7C5CFC]/20 hover:border-[#7C5CFC]/35"
-                  : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20"
+                  ? "bg-white border-[#7C5CFC]/20 hover:border-[#7C5CFC]/35 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
+                  : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
               }`}
             >
               {/* Icon + status row */}
               <div className="flex items-center justify-between mb-3">
-                <div className="w-8 h-8 rounded-lg bg-[#FAF5F0] flex items-center justify-center border border-[#EDE3DE]">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
+                  bucket.isFeatured
+                    ? "bg-white/10 border-white/15"
+                    : "bg-[#FAF5F0] border-[#EDE3DE]"
+                }`}>
                   <BucketIcon icon={bucket.icon} />
                 </div>
-                <StatusLive label={bucket.isNova ? "nova" : "active"} />
+                {bucket.isFeatured ? (
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#F0E4E8]/60">
+                    Full Stack
+                  </span>
+                ) : (
+                  <StatusLive label={bucket.isNova ? "nova" : "active"} />
+                )}
               </div>
               <h3
-                className={`text-sm font-semibold mb-1.5 ${
-                  bucket.isNova ? "text-[#7C5CFC]" : "text-[#1F1A1A]"
+                className={`font-semibold mb-1.5 ${
+                  bucket.isFeatured
+                    ? "text-white text-base"
+                    : bucket.isNova
+                    ? "text-[#7C5CFC] text-sm"
+                    : "text-[#1F1A1A] text-sm"
                 }`}
               >
                 {bucket.title}
               </h3>
-              <p className="text-xs leading-relaxed text-[#6D6664]">{bucket.body}</p>
-              <p className="mt-2.5 log-ts uppercase tracking-wider text-[#6A2C3E]/60">
+              <p className={`text-xs leading-relaxed ${
+                bucket.isFeatured ? "text-[#C8C4C0] max-w-2xl" : "text-[#6D6664]"
+              }`}>{bucket.body}</p>
+              <p className={`mt-2.5 log-ts uppercase tracking-wider ${
+                bucket.isFeatured ? "text-[#F0E4E8]/40" : "text-[#6A2C3E]/60"
+              }`}>
                 {bucket.urgencyLine}
               </p>
             </a>
@@ -193,7 +211,7 @@ export default function SystemsPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
               Under the Hood
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
               What each system actually does.
             </h2>
           </div>
@@ -268,7 +286,7 @@ export default function SystemsPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
               Packages
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
               {packageMapping.headline}
             </h2>
             <p className="mt-3 text-base text-[#6D6664] leading-relaxed">
@@ -338,7 +356,7 @@ export default function SystemsPage() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
               Process
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1F1A1A] tracking-tight">
               {systemsHowItWorks.headline}
             </h2>
           </div>
