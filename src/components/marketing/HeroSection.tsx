@@ -10,6 +10,17 @@ function SystemMockup() {
   return (
     <div className="relative w-full max-w-sm mx-auto lg:mx-0">
 
+      {/* Depth card behind — stacked visual weight */}
+      <div
+        className="absolute inset-0 translate-x-3 translate-y-3 rounded-[0.875rem] bg-[#E8D0D6]/50 blur-[2px] -z-10"
+        aria-hidden
+      />
+      {/* Second depth layer */}
+      <div
+        className="absolute inset-0 translate-x-6 translate-y-5 rounded-[0.875rem] bg-[#F0E4E8]/30 blur-[3px] -z-20"
+        aria-hidden
+      />
+
       {/* Browser-chrome window shell */}
       <div
         className="window-frame"
@@ -126,6 +137,18 @@ function SystemMockup() {
         <p className="text-[10px] font-semibold text-[#1F1A1A]">⭐⭐⭐⭐⭐</p>
         <p className="log-line mt-0.5 text-[#6D6664]">+40 reviews · 8 weeks</p>
       </motion.div>
+
+      {/* Nova live badge — third floating element */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, delay: 1.15 }}
+        className="absolute -bottom-2 -right-5 flex items-center gap-1.5 bg-white border border-[#E0D4E8] rounded-full px-2.5 py-1.5 shadow-[0_2px_8px_rgba(31,26,26,0.07)]"
+        aria-hidden
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-[#7C5CFC] flex-shrink-0" />
+        <span className="font-mono text-[9px] font-semibold text-[#7C5CFC]">nova · live</span>
+      </motion.div>
     </div>
   );
 }
@@ -134,9 +157,9 @@ function SystemMockup() {
 export function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-28 lg:py-32 hero-texture grain-overlay"
+      className="relative overflow-hidden py-20 md:py-28 lg:py-32 grain-overlay"
       style={{
-        background: "linear-gradient(150deg, #FFF0F5 0%, #F5EDFF 100%)",
+        background: "linear-gradient(150deg, #FFF7F4 0%, #FAF5F0 40%, #F6F1FF 100%)",
       }}
     >
       {/* Warm blush orb */}
@@ -148,6 +171,15 @@ export function HeroSection() {
       <div
         className="pointer-events-none absolute -bottom-20 -left-20 w-72 h-72 rounded-full opacity-20"
         style={{ background: "radial-gradient(circle, #F0E4E8 0%, transparent 65%)" }}
+        aria-hidden
+      />
+      {/* Subtle grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.018]"
+        style={{
+          backgroundImage: "linear-gradient(#1F1A1A 1px, transparent 1px), linear-gradient(to right, #1F1A1A 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
         aria-hidden
       />
 
@@ -221,31 +253,34 @@ export function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* System log proof trace — replaces plain micro-proof */}
+            {/* Dark terminal log trace */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.42 }}
-              className="mt-6 text-left border-l-2 border-[#EDE3DE] pl-3.5 flex flex-col gap-1.5 max-w-xs mx-auto lg:mx-0"
+              className="mt-6 max-w-xs mx-auto lg:mx-0 rounded-xl overflow-hidden border border-[#2A2020] shadow-[0_2px_12px_rgba(31,26,26,0.15)]"
               aria-label="System trace example"
             >
-              <div className="flex items-baseline gap-2 log-line">
-                <span className="log-ts">09:14</span>
-                <span>
-                  <span className="log-accent">missed-call-recovery</span>
-                  {" "}→ triggered
-                </span>
+              {/* Terminal bar */}
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1F1A1A] border-b border-[#2A2020]">
+                <span className="w-2 h-2 rounded-full bg-[#6A2C3E]/60" />
+                <span className="w-2 h-2 rounded-full bg-[#C8C4C0]/20" />
+                <span className="w-2 h-2 rounded-full bg-[#E0D4E8]/20" />
+                <span className="ml-1.5 font-mono text-[9px] text-[#6D6664] tracking-widest">live · system trace</span>
               </div>
-              <div className="flex items-baseline gap-2 log-line">
-                <span className="log-ts">09:14</span>
-                <span>auto-reply sent → lead engaged</span>
-              </div>
-              <div className="flex items-baseline gap-2 log-line">
-                <span className="log-ts">09:17</span>
-                <span>
-                  appointment confirmed →{" "}
-                  <span className="log-accent font-medium">$960 recovered</span>
-                </span>
+              <div className="px-3.5 py-3 bg-[#171415] flex flex-col gap-1.5">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-mono text-[9px] text-[#6D6664] flex-shrink-0">09:14</span>
+                  <span className="font-mono text-[10px] text-[#E8D0D6]">missed-call-recovery <span className="text-[#4ade80]">→ triggered</span></span>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-mono text-[9px] text-[#6D6664] flex-shrink-0">09:14</span>
+                  <span className="font-mono text-[10px] text-[#C8C4C0]">auto-reply sent <span className="text-[#E8D0D6]">→ lead engaged</span></span>
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-mono text-[9px] text-[#6D6664] flex-shrink-0">09:17</span>
+                  <span className="font-mono text-[10px] text-[#C8C4C0]">appt confirmed <span className="text-[#E8D0D6] font-medium">→ $960 recovered</span></span>
+                </div>
               </div>
             </motion.div>
           </div>

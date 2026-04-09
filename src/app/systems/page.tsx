@@ -99,54 +99,77 @@ export default function SystemsPage() {
   return (
     <>
       {/* ── 1. Hero ──────────────────────────────────────────────────────────── */}
-      <SectionShell compact className="bg-[#FFF7F4] border-b border-[#EDE3DE]">
-        <div className="max-w-3xl">
-          {/* Browser-chrome identity strip */}
-          <div className="window-frame mb-6 max-w-sm">
-            <WindowBar label="opsbynoell-systems — dashboard" />
-            <div className="flex items-center justify-between px-3 py-2 bg-[#FAF5F0]">
-              <StatusLive label="8 systems active" />
-              <span className="log-ts">last sync · now</span>
+      <section
+        className="relative overflow-hidden border-b border-[#EDE3DE] py-20 md:py-28 grain-overlay"
+        style={{ background: "linear-gradient(150deg, #FFF7F4 0%, #FAF5F0 50%, #F5F0FF 100%)" }}
+      >
+        {/* Blush orb */}
+        <div
+          className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle, #E0D4E8 0%, transparent 65%)" }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-16 -left-16 w-64 h-64 rounded-full opacity-15"
+          style={{ background: "radial-gradient(circle, #F0E4E8 0%, transparent 65%)" }}
+          aria-hidden
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            {/* Browser-chrome identity strip */}
+            <div className="window-frame mb-7 max-w-xs">
+              <WindowBar label="opsbynoell-systems — dashboard" />
+              <div className="flex items-center justify-between px-3 py-2 bg-[#FAF5F0]">
+                <StatusLive label="8 systems active" />
+                <span className="log-ts">last sync · now</span>
+              </div>
+            </div>
+
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-4">
+              {systemsHero.eyebrow}
+            </p>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F1A1A] leading-tight max-w-2xl">
+              {systemsHero.headline}
+            </h1>
+            <p className="mt-5 text-base md:text-lg text-[#6D6664] leading-relaxed max-w-2xl">
+              {systemsHero.subhead}
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <Link
+                href={ROUTES.book}
+                className="inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors shadow-[0_2px_16px_rgba(106,44,62,0.24)] w-full sm:w-auto"
+              >
+                {systemsHero.primaryCta}
+              </Link>
+              <Link
+                href={ROUTES.pricing}
+                className="inline-flex items-center justify-center rounded-full border border-[#EDE3DE] bg-white/70 px-7 py-3.5 text-sm font-semibold text-[#1F1A1A] hover:border-[#6A2C3E]/40 hover:bg-white transition-all w-full sm:w-auto"
+              >
+                {systemsHero.secondaryCta}
+              </Link>
             </div>
           </div>
-
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-4">
-            {systemsHero.eyebrow}
-          </p>
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F1A1A] leading-tight">
-            {systemsHero.headline}
-          </h1>
-          <p className="mt-4 text-base md:text-lg text-[#6D6664] leading-relaxed max-w-2xl">
-            {systemsHero.subhead}
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Link
-              href={ROUTES.book}
-              className="inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-6 py-3 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors shadow-[0_2px_12px_rgba(106,44,62,0.2)] w-full sm:w-auto"
-            >
-              {systemsHero.primaryCta}
-            </Link>
-            <Link
-              href={ROUTES.pricing}
-              className="inline-flex items-center justify-center rounded-full border border-[#EDE3DE] px-6 py-3 text-sm font-semibold text-[#1F1A1A] hover:border-[#6A2C3E]/40 transition-colors w-full sm:w-auto"
-            >
-              {systemsHero.secondaryCta}
-            </Link>
-          </div>
         </div>
-      </SectionShell>
+      </section>
 
       {/* ── 2. Core Systems Overview ─────────────────────────────────────────── */}
-      <SectionShell compact className="bg-white border-b border-[#EDE3DE]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-xl md:text-2xl font-bold text-[#1F1A1A] tracking-tight">
+      <section className="bg-[#1F1A1A] py-14 md:py-16 relative overflow-hidden">
+        {/* Subtle wine glow */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[36rem] h-32 opacity-[0.06]"
+          style={{ background: "radial-gradient(ellipse, #6A2C3E 0%, transparent 70%)" }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-white tracking-tight">
             {coreSystemsOverview.headline}
           </h2>
-          <p className="mt-3 text-base text-[#6D6664] leading-relaxed">
+          <p className="mt-4 text-base text-[#C8C4C0] leading-relaxed">
             {coreSystemsOverview.subhead}
           </p>
         </div>
-      </SectionShell>
+      </section>
 
       {/* ── 3. System Buckets Grid ───────────────────────────────────────────── */}
       <SectionShell className="bg-[#FAF5F0]">
@@ -157,10 +180,10 @@ export default function SystemsPage() {
               href={`#${bucket.id}`}
               className={`group rounded-2xl border p-5 transition-all duration-200 block ${
                 bucket.isFeatured
-                  ? "lg:col-span-4 bg-[#1F1A1A] border-transparent hover:shadow-[0_6px_28px_rgba(31,26,26,0.18)]"
+                  ? "lg:col-span-4 bg-[#1F1A1A] border-transparent hover:shadow-[0_8px_36px_rgba(31,26,26,0.22)]"
                   : bucket.isNova
-                  ? "bg-[#FAF5F0] border-[#E0D4E8] hover:border-[#7C5CFC]/25 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
-                  : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)]"
+                  ? "bg-[#FAF5F0] border-[#E0D4E8] hover:border-[#7C5CFC]/30 hover:shadow-[0_4px_20px_rgba(124,92,252,0.08)]"
+                  : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20 hover:shadow-[0_4px_20px_rgba(106,44,62,0.07)]"
               }`}
             >
               {/* Icon + status row */}
@@ -183,7 +206,7 @@ export default function SystemsPage() {
                 )}
               </div>
               <h3
-                className={`font-semibold mb-1.5 ${
+                className={`font-semibold mb-2 ${
                   bucket.isFeatured
                     ? "text-white text-base"
                     : bucket.isNova
@@ -196,8 +219,8 @@ export default function SystemsPage() {
               <p className={`text-xs leading-relaxed ${
                 bucket.isFeatured ? "text-[#C8C4C0] max-w-2xl" : "text-[#6D6664]"
               }`}>{bucket.body}</p>
-              <p className={`mt-2.5 log-ts uppercase tracking-wider ${
-                bucket.isFeatured ? "text-[#F0E4E8]/40" : "text-[#6A2C3E]/60"
+              <p className={`mt-3 text-[9px] font-mono uppercase tracking-wider ${
+                bucket.isFeatured ? "text-[#F0E4E8]/35" : "text-[#6A2C3E]/50"
               }`}>
                 {bucket.urgencyLine}
               </p>
@@ -207,7 +230,7 @@ export default function SystemsPage() {
       </SectionShell>
 
       {/* ── 4. Deep System Breakdown ─────────────────────────────────────────── */}
-      <SectionShell className="bg-white">
+      <SectionShell className="bg-[#FAF5F0]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
@@ -218,63 +241,64 @@ export default function SystemsPage() {
             </h2>
           </div>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6">
             {systemBreakdowns.map((system) => (
               <div
                 key={system.id}
                 id={system.id}
                 className="window-frame scroll-mt-24"
+                style={{ boxShadow: "0 2px 20px rgba(31,26,26,0.07)" }}
               >
-                {/* Window chrome header for each breakdown */}
+                {/* Window chrome header */}
                 <WindowBar label={`${system.id} · included: ${system.included.join(", ").toLowerCase()}`} />
 
-                <div className="p-7 md:p-8 bg-[#FAF5F0]">
-                <div className="flex items-start justify-between gap-4 mb-5">
-                  <div className="flex items-center gap-2.5">
-                    <StatusLive />
-                    <h3 className="text-lg font-bold text-[#1F1A1A]">
-                      {system.title}
-                    </h3>
+                <div className="p-6 md:p-8 bg-white">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="flex items-center gap-2.5">
+                      <StatusLive />
+                      <h3 className="text-base font-bold text-[#1F1A1A]">
+                        {system.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 shrink-0">
+                      {system.included.map((pkg) => (
+                        <span
+                          key={pkg}
+                          className="text-[10px] font-semibold uppercase tracking-widest text-[#6A2C3E] bg-[#F0E4E8] rounded-full px-2.5 py-1"
+                        >
+                          {pkg}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 shrink-0">
-                    {system.included.map((pkg) => (
-                      <span
-                        key={pkg}
-                        className="text-[10px] font-semibold uppercase tracking-widest text-[#6A2C3E] bg-[#F0E4E8] rounded-full px-2.5 py-1"
-                      >
-                        {pkg}
-                      </span>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="rounded-xl bg-white border border-[#EDE3DE] p-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-2">
-                      The Problem
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#6D6664]">
-                      {system.problem}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-white border border-[#EDE3DE] p-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-2">
-                      The Fix
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#6D6664]">
-                      {system.solution}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#F0E4E8] border border-[#6A2C3E]/15 p-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6A2C3E] mb-2">
-                      Outcome
-                    </p>
-                    <p className="text-sm leading-relaxed text-[#1F1A1A]">
-                      {system.outcome}
-                    </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div className="rounded-xl bg-[#FAF5F0] border border-[#EDE3DE] p-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-2">
+                        The Problem
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#6D6664]">
+                        {system.problem}
+                      </p>
+                    </div>
+                    <div className="rounded-xl bg-[#FAF5F0] border border-[#EDE3DE] p-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-2">
+                        The Fix
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#6D6664]">
+                        {system.solution}
+                      </p>
+                    </div>
+                    <div className="rounded-xl bg-[#F0E4E8] border border-[#6A2C3E]/15 p-4">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6A2C3E] mb-2">
+                        Outcome
+                      </p>
+                      <p className="text-sm leading-relaxed text-[#1F1A1A] font-medium">
+                        {system.outcome}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                </div>{/* end p-7 wrapper */}
               </div>
             ))}
           </div>
@@ -282,7 +306,7 @@ export default function SystemsPage() {
       </SectionShell>
 
       {/* ── 5. Package Mapping ───────────────────────────────────────────────── */}
-      <SectionShell className="bg-[#FFF7F4]">
+      <SectionShell className="bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
@@ -300,10 +324,10 @@ export default function SystemsPage() {
             {packageMapping.packages.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`relative rounded-2xl border p-6 flex flex-col ${
+                className={`relative rounded-2xl border p-6 flex flex-col transition-shadow ${
                   pkg.isPopular
-                    ? "bg-white border-[#6A2C3E] shadow-[0_4px_24px_rgba(106,44,62,0.1)]"
-                    : "bg-white border-[#EDE3DE]"
+                    ? "bg-white border-[#6A2C3E] shadow-[0_4px_24px_rgba(106,44,62,0.12)]"
+                    : "bg-[#FAF5F0] border-[#EDE3DE] hover:shadow-[0_4px_16px_rgba(31,26,26,0.07)]"
                 }`}
               >
                 {pkg.isPopular && (
@@ -313,16 +337,16 @@ export default function SystemsPage() {
                 )}
                 <h3 className="text-base font-bold text-[#1F1A1A]">{pkg.name}</h3>
                 <div className="mt-2 mb-3">
-                  <span className="font-display text-2xl font-bold text-[#1F1A1A]">
+                  <span className="font-display text-3xl font-bold text-[#1F1A1A]">
                     ${pkg.monthlyPrice}
                   </span>
                   <span className="text-sm text-[#6D6664]">/mo</span>
                   <p className="text-xs text-[#6D6664] mt-0.5">+ ${pkg.setupFee} setup</p>
                 </div>
-                <p className="text-xs font-medium text-[#6A2C3E] border-t border-[#EDE3DE] pt-3 mb-3">
+                <p className="text-xs font-semibold text-[#6A2C3E] border-t border-[#EDE3DE] pt-3 mb-3">
                   {pkg.focus}
                 </p>
-                <ul className="flex flex-col gap-1.5 flex-1">
+                <ul className="flex flex-col gap-2 flex-1">
                   {pkg.systems.map((sys) => (
                     <li key={sys} className="flex items-start gap-2 text-xs text-[#6D6664]">
                       <span className="mt-0.5 w-3.5 h-3.5 rounded-full bg-[#F0E4E8] flex items-center justify-center flex-shrink-0">
@@ -342,7 +366,7 @@ export default function SystemsPage() {
           <div className="mt-8 text-center">
             <Link
               href={ROUTES.pricing}
-              className="inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-7 py-3 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors shadow-[0_2px_14px_rgba(106,44,62,0.2)]"
             >
               {packageMapping.cta}
             </Link>
@@ -352,7 +376,7 @@ export default function SystemsPage() {
       </SectionShell>
 
       {/* ── 6. How It Works ──────────────────────────────────────────────────── */}
-      <SectionShell className="bg-white">
+      <SectionShell className="bg-[#FAF5F0]">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
@@ -363,16 +387,16 @@ export default function SystemsPage() {
             </h2>
           </div>
 
-          <ol className="flex flex-col gap-0">
+          <ol className="flex flex-col gap-4">
             {systemsHowItWorks.steps.map((step, i) => (
-              <li key={step.number} className="flex gap-5 items-start relative">
-                {i < systemsHowItWorks.steps.length - 1 && (
-                  <div className="absolute left-5 top-10 bottom-0 w-px bg-gradient-to-b from-[#EDE3DE] to-transparent" />
-                )}
-                <span className="relative flex-shrink-0 w-10 h-10 rounded-full border border-[#EDE3DE] bg-[#F0E4E8] flex items-center justify-center text-sm font-bold text-[#6A2C3E] z-10">
+              <li
+                key={step.number}
+                className="flex gap-5 rounded-2xl border border-[#EDE3DE] bg-white p-6 hover:shadow-[0_4px_16px_rgba(31,26,26,0.06)] transition-shadow"
+              >
+                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#F0E4E8] border border-[#6A2C3E]/15 flex items-center justify-center text-sm font-bold text-[#6A2C3E]">
                   {step.number}
                 </span>
-                <div className="pt-1.5 pb-8">
+                <div className="pt-1">
                   <h3 className="text-base font-semibold text-[#1F1A1A]">{step.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-[#6D6664]">{step.body}</p>
                 </div>
@@ -380,7 +404,7 @@ export default function SystemsPage() {
             ))}
           </ol>
 
-          <p className="text-center text-sm font-medium text-[#6D6664] bg-[#FAF5F0] rounded-xl px-6 py-4 border border-[#EDE3DE]">
+          <p className="mt-6 text-center text-sm font-medium text-[#6D6664] bg-white rounded-2xl px-6 py-4 border border-[#EDE3DE]">
             {systemsHowItWorks.supportingLine}
           </p>
         </div>

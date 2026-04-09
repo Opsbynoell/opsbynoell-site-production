@@ -12,15 +12,24 @@ import { ROUTES, CTA } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata.home;
 
-// ─── Era Bridge — communication-era thesis statement ──────────────────────────
+// ─── Era Bridge — dark thesis-break section ───────────────────────────────────
 function EraBridge() {
   return (
-    <section className="bg-white border-b border-[#EDE3DE] py-14 md:py-16">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-        <p className="font-display text-xl md:text-2xl font-bold text-[#1F1A1A] leading-snug tracking-tight">
+    <section className="bg-[#1F1A1A] py-16 md:py-20 relative overflow-hidden">
+      {/* Subtle wine glow from below */}
+      <div
+        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[36rem] h-40 opacity-[0.07]"
+        style={{ background: "radial-gradient(ellipse, #6A2C3E 0%, transparent 70%)" }}
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-5">
+          The Communication Gap
+        </p>
+        <p className="font-display text-2xl md:text-3xl font-bold text-white leading-snug tracking-tight">
           People now expect an answer in minutes. Service businesses cannot always pick up the phone.
         </p>
-        <p className="mt-4 text-sm md:text-base text-[#6D6664] leading-relaxed max-w-xl mx-auto">
+        <p className="mt-5 text-sm md:text-base text-[#C8C4C0] leading-relaxed max-w-xl mx-auto">
           That gap — between when someone reaches out and when they hear back — is where most revenue disappears. The right systems close it automatically, without adding headcount.
         </p>
       </div>
@@ -123,9 +132,9 @@ function ExplorePaths() {
   ];
 
   return (
-    <section className="bg-white border-y border-[#EDE3DE] py-10 md:py-12">
+    <section className="bg-[#FAF5F0] border-y border-[#EDE3DE] py-12 md:py-14">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#C8C4C0] text-center mb-6">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#C8C4C0] text-center mb-7">
           Explore the full picture
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -133,7 +142,11 @@ function ExplorePaths() {
             <Link
               key={p.href}
               href={p.href}
-              className="group flex flex-col gap-1 rounded-2xl border border-[#EDE3DE] bg-[#FAF5F0] px-4 py-4 hover:border-[#6A2C3E]/25 hover:shadow-[0_2px_12px_rgba(31,26,26,0.05)] transition-all"
+              className={`group flex flex-col gap-1 rounded-2xl border px-5 py-5 hover:shadow-[0_4px_20px_rgba(31,26,26,0.07)] transition-all duration-200 ${
+                p.accent
+                  ? "bg-white border-[#E0D4E8] hover:border-[#7C5CFC]/30"
+                  : "bg-white border-[#EDE3DE] hover:border-[#6A2C3E]/20"
+              }`}
             >
               <span
                 className={`text-sm font-semibold transition-colors ${
@@ -144,9 +157,9 @@ function ExplorePaths() {
               >
                 {p.label}
               </span>
-              <span className="text-xs text-[#6D6664] leading-snug">{p.desc}</span>
+              <span className="text-xs text-[#6D6664] leading-snug mt-0.5">{p.desc}</span>
               <span
-                className={`mt-1 text-xs font-medium transition-colors ${
+                className={`mt-2 text-sm font-medium transition-transform group-hover:translate-x-0.5 ${
                   p.accent ? "text-[#7C5CFC]" : "text-[#6A2C3E]"
                 }`}
               >
