@@ -106,7 +106,7 @@ function SystemMockup() {
               <span className="log-ts mr-1.5">09:17</span>
               revenue_event · <span className="log-accent font-semibold">$960 recovered</span>
             </p>
-            <span className="log-ts text-[#C8C4C0]">14d · case: santa_m</span>
+            <span className="log-ts text-[#C8C4C0]">14d · case: santa_e</span>
           </div>
         </div>
       </div>
