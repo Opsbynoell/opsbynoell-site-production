@@ -3,7 +3,7 @@
 This folder exists so Claude Code can reliably access the current brand and strategy references from inside the repo.
 
 ## Reference Priority
-1. `Final-mood-board-2.pdf`
+1. `Final-mood-board-PNG.jpg`
 - Top visual authority.
 - Use for composition, taste level, image treatment, editorial layout rhythm, and overall mood.
 
