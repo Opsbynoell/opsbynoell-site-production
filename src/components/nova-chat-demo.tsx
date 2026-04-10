@@ -1,12 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Sparkles } from "lucide-react";
 
 type Message = {
   role: "nova" | "visitor";
   text: string;
-  typing?: boolean;
 };
 
 const demoConversation: Message[] = [
@@ -23,7 +21,7 @@ const demoConversation: Message[] = [
   { role: "visitor", text: "Wednesday at 10:30 works" },
   {
     role: "nova",
-    text: "You're booked for Wednesday at 10:30 AM. I've sent a confirmation to your phone and email. You'll get a reminder 24 hours before and 2 hours before your appointment. Is there anything else I can help with?",
+    text: "You're booked for Wednesday at 10:30 AM. I've sent a confirmation to your phone and email. You'll get a reminder 24 hours before. Is there anything else?",
   },
 ];
 
@@ -64,26 +62,33 @@ export function NovaChatDemo() {
   }, [visibleMessages, isTyping]);
 
   return (
-    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl overflow-hidden max-w-md mx-auto lg:mx-0">
-      {/* Chat header */}
-      <div className="px-5 py-4 border-b border-white/10 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-cream flex items-center justify-center">
-          <Sparkles className="w-4 h-4 text-nova-purple" />
+    <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl overflow-hidden max-w-md mx-auto lg:mx-0">
+      {/* Browser chrome with connection status */}
+      <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white/5 border-b border-white/10">
+        <div className="w-2 h-2 rounded-full bg-white/20" />
+        <div className="w-2 h-2 rounded-full bg-white/20" />
+        <div className="w-2 h-2 rounded-full bg-white/20" />
+        <span className="ml-3 font-mono text-[10px] text-cream/30">
+          Nova — AI Assistant
+        </span>
+        <div className="ml-auto flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+          <span className="font-mono text-[10px] text-cream/30">
+            Connected
+          </span>
         </div>
-        <div>
-          <p className="text-sm font-medium text-cream">Nova</p>
-          <p className="text-xs text-cream/40">Always online</p>
-        </div>
-        <div className="ml-auto w-2 h-2 rounded-full bg-green-400" />
       </div>
 
       {/* Messages */}
-      <div ref={scrollRef} className="p-5 space-y-4 h-[360px] overflow-y-auto">
+      <div ref={scrollRef} className="p-5 space-y-4 h-[340px] overflow-y-auto">
         {visibleMessages.length === 0 && !isTyping && (
           <div className="flex items-center justify-center h-full">
-            <p className="text-sm text-cream/30 italic">
-              Starting conversation...
-            </p>
+            <div className="text-center space-y-2">
+              <div className="w-2 h-2 rounded-full bg-green-400 mx-auto animate-pulse" />
+              <p className="text-sm text-cream/25 italic">
+                Connection established...
+              </p>
+            </div>
           </div>
         )}
 
@@ -123,11 +128,14 @@ export function NovaChatDemo() {
         )}
       </div>
 
-      {/* Input (decorative) */}
-      <div className="px-5 py-4 border-t border-white/10">
-        <div className="bg-white/5 rounded-full px-4 py-2.5 text-sm text-cream/30">
+      {/* Status footer */}
+      <div className="px-5 py-3 border-t border-white/10 flex items-center justify-between">
+        <div className="bg-white/5 rounded-full px-4 py-2 text-sm text-cream/25 flex-1">
           Type a message...
         </div>
+        <span className="font-mono text-[9px] text-cream/15 ml-3">
+          AI-powered
+        </span>
       </div>
     </div>
   );

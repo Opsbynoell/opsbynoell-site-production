@@ -1,29 +1,29 @@
-"use client";
-
-import { AnimateIn } from "./animate-in";
-
 const capabilities = [
   {
     number: "01",
     title: "Instant Lead Response",
+    status: "Active — avg 8 sec",
     description:
-      "When a lead comes in — from a form, a missed call, or a DM — the system responds in seconds, not hours. Text, email, or voice. Before they have time to call your competitor.",
+      "When a new lead comes in — from Google, a missed call, or a DM — the system responds in seconds. Text, email, or voice. Before they have time to call your competitor.",
   },
   {
     number: "02",
     title: "Automated Booking & Confirmation",
+    status: "Active — 0 no-shows",
     description:
       "Self-serve scheduling that syncs with your calendar, sends confirmations, and follows up before appointments. No-shows drop. Your front desk gets their time back.",
   },
   {
     number: "03",
     title: "Follow-Up & Reactivation",
+    status: "Active — 340 contacts re-engaged",
     description:
       "Leads that didn't book get nurtured. Past clients get re-engaged. The system remembers everyone your team forgot — and brings them back.",
   },
   {
     number: "04",
     title: "Review & Reputation Engine",
+    status: "Active — 4× review growth",
     description:
       "Happy clients are asked to review at the right moment, on the right platform. Negative feedback is caught privately before it goes public.",
   },
@@ -31,23 +31,36 @@ const capabilities = [
 
 export function SystemsSection() {
   return (
-    <div className="space-y-16 md:space-y-20">
-      {capabilities.map((cap, i) => (
-        <AnimateIn key={cap.number} delay={i * 0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] gap-6 md:gap-12">
-            <span className="font-mono text-3xl md:text-4xl text-stone/60">
-              {cap.number}
-            </span>
-            <div className="space-y-4 max-w-2xl">
-              <h3 className="font-serif text-xl md:text-2xl text-charcoal">
+    <div className="space-y-6">
+      {capabilities.map((cap) => (
+        <div
+          key={cap.number}
+          className="bg-cream/80 border border-charcoal/5 rounded-xl overflow-hidden"
+        >
+          {/* Interface panel top bar */}
+          <div className="flex items-center justify-between px-5 py-2.5 bg-charcoal/[0.02] border-b border-charcoal/5">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs text-charcoal/30">
+                {cap.number}
+              </span>
+              <span className="font-serif text-base text-charcoal">
                 {cap.title}
-              </h3>
-              <p className="text-charcoal/60 leading-relaxed">
-                {cap.description}
-              </p>
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <span className="font-mono text-[10px] text-charcoal/30 hidden sm:inline">
+                {cap.status}
+              </span>
             </div>
           </div>
-        </AnimateIn>
+          {/* Content */}
+          <div className="px-5 py-4">
+            <p className="text-sm text-charcoal/55 leading-relaxed max-w-2xl">
+              {cap.description}
+            </p>
+          </div>
+        </div>
       ))}
     </div>
   );

@@ -1,55 +1,60 @@
-"use client";
-
 import Link from "next/link";
-import { AnimateIn } from "./animate-in";
 import { ArrowRight } from "lucide-react";
 
 const verticals = [
   {
     title: "Med Spas & Aesthetics",
-    description:
-      "Automated booking confirmations, no-show prevention, and review generation for high-ticket appointments.",
+    line: "High-ticket appointments demand instant attention.",
+    stat: "$3,800",
+    statLabel: "monthly revenue recovered",
   },
   {
     title: "Home Services",
-    description:
-      "Instant lead response, smart scheduling, and follow-up that turns estimates into booked jobs.",
+    line: "The estimate that gets there first wins the job.",
+    stat: "4×",
+    statLabel: "review growth in 90 days",
   },
   {
     title: "Dental & Health Clinics",
-    description:
-      "Patient reactivation, appointment reminders, and review flows that build trust on autopilot.",
+    line: "Patient trust is built before they walk in the door.",
+    stat: "0",
+    statLabel: "no-shows after activation",
   },
   {
     title: "Legal & Professional Services",
-    description:
-      "Lead qualification, intake automation, and follow-up sequences that convert consultations.",
+    line: "First response wins the consultation.",
+    stat: "14d",
+    statLabel: "audit to operational",
   },
 ];
 
 export function VerticalsSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {verticals.map((vertical, i) => (
-        <AnimateIn key={vertical.title} delay={i * 0.1}>
-          <Link
-            href="/verticals"
-            className="group block p-8 md:p-10 rounded-2xl border border-charcoal/5 hover:border-wine/15 bg-cream/50 hover:bg-blush/30 transition-all duration-500"
-          >
-            <div className="space-y-4">
-              <h3 className="font-serif text-xl md:text-2xl text-charcoal group-hover:text-wine transition-colors">
-                {vertical.title}
-              </h3>
-              <p className="text-sm text-charcoal/60 leading-relaxed">
-                {vertical.description}
-              </p>
-              <div className="flex items-center gap-2 text-sm text-wine opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span>Learn more</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
+    <div className="space-y-4">
+      {verticals.map((v, i) => (
+        <Link
+          key={v.title}
+          href="/verticals"
+          className="group grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center p-6 md:p-8 rounded-xl border border-charcoal/5 hover:border-wine/15 bg-cream/50 hover:bg-blush/20 transition-all"
+          style={{ transform: `rotate(${i % 2 === 0 ? -0.3 : 0.3}deg)` }}
+        >
+          <div className="space-y-2">
+            <h3 className="font-serif text-xl md:text-2xl text-charcoal group-hover:text-wine transition-colors">
+              {v.title}
+            </h3>
+            <p className="text-sm text-charcoal/45 italic">{v.line}</p>
+            <div className="flex items-center gap-2 text-sm text-wine opacity-0 group-hover:opacity-100 transition-opacity pt-1">
+              <span>Learn more</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
-          </Link>
-        </AnimateIn>
+          </div>
+          <div className="text-right border-l border-charcoal/5 pl-6">
+            <span className="font-mono text-3xl text-wine">{v.stat}</span>
+            <span className="block text-xs text-charcoal/35 mt-1 max-w-[140px]">
+              {v.statLabel}
+            </span>
+          </div>
+        </Link>
       ))}
     </div>
   );
