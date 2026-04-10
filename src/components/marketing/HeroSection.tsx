@@ -163,15 +163,34 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Headline — editorial serif */}
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.07 }}
+            {/* Headline — Text Generate Effect: word-by-word stagger */}
+            <h1
               className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold leading-[1.08] text-[#1F1A1A]"
+              aria-label={heroSection.headline}
             >
-              {heroSection.headline}
-            </motion.h1>
+              <motion.span
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: { transition: { staggerChildren: 0.045, delayChildren: 0.07 } },
+                }}
+                className="inline"
+              >
+                {heroSection.headline.split(" ").map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: 14, filter: "blur(5px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+                    }}
+                    transition={{ duration: 0.38, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="inline-block mr-[0.24em] last:mr-0"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.span>
+            </h1>
 
             {/* Subhead */}
             <motion.p

@@ -375,10 +375,10 @@ export default function SystemsPage() {
         </div>
       </SectionShell>
 
-      {/* ── 6. How It Works ──────────────────────────────────────────────────── */}
+      {/* ── 6. How It Works — Timeline pattern ───────────────────────────────── */}
       <SectionShell className="bg-[#FAF5F0]">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#6D6664] mb-3">
               Process
             </p>
@@ -387,24 +387,32 @@ export default function SystemsPage() {
             </h2>
           </div>
 
-          <ol className="flex flex-col gap-4">
+          {/* Vertical timeline */}
+          <ol className="relative pl-10">
+            {/* Connecting line */}
+            <div className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-[#6A2C3E]/50 via-[#6A2C3E]/20 to-transparent" />
+
             {systemsHowItWorks.steps.map((step, i) => (
               <li
                 key={step.number}
-                className="flex gap-5 rounded-2xl border border-[#EDE3DE] bg-white p-6 hover:shadow-[0_4px_16px_rgba(31,26,26,0.06)] transition-shadow"
+                className={`relative flex flex-col gap-1 ${
+                  i < systemsHowItWorks.steps.length - 1 ? "pb-10" : ""
+                }`}
               >
-                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#F0E4E8] border border-[#6A2C3E]/15 flex items-center justify-center text-sm font-bold text-[#6A2C3E]">
+                {/* Node */}
+                <span className="absolute -left-10 top-0.5 w-9 h-9 rounded-full bg-[#F0E4E8] border border-[#6A2C3E]/20 flex items-center justify-center text-xs font-bold text-[#6A2C3E] flex-shrink-0 z-10">
                   {step.number}
                 </span>
-                <div className="pt-1">
-                  <h3 className="text-base font-semibold text-[#1F1A1A]">{step.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-[#6D6664]">{step.body}</p>
-                </div>
+                {/* Content */}
+                <h3 className="text-base font-semibold text-[#1F1A1A] leading-snug pt-1">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-[#6D6664]">{step.body}</p>
               </li>
             ))}
           </ol>
 
-          <p className="mt-6 text-center text-sm font-medium text-[#6D6664] bg-white rounded-2xl px-6 py-4 border border-[#EDE3DE]">
+          <p className="mt-10 text-center text-sm font-medium text-[#6D6664] bg-white rounded-2xl px-6 py-4 border border-[#EDE3DE]">
             {systemsHowItWorks.supportingLine}
           </p>
         </div>

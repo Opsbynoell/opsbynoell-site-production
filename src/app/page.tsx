@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/marketing/HeroSection";
 import { StatsBar } from "@/components/marketing/StatsBar";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { CaseStudySection } from "@/components/marketing/CaseStudySection";
+import { EraBridgeSection } from "@/components/marketing/EraBridgeSection";
 import { DarkCtaBand } from "@/components/marketing/DarkCtaBand";
 import { pageMetadata } from "@/lib/metadata";
 import { darkCtaSection } from "@/content/home";
@@ -11,31 +12,6 @@ import { localBusinessSchema } from "@/lib/schema";
 import { ROUTES, CTA } from "@/lib/constants";
 
 export const metadata: Metadata = pageMetadata.home;
-
-// ─── Era Bridge — dark thesis-break section ───────────────────────────────────
-function EraBridge() {
-  return (
-    <section className="bg-[#1F1A1A] py-16 md:py-20 relative overflow-hidden">
-      {/* Subtle wine glow from below */}
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[36rem] h-40 opacity-[0.07]"
-        style={{ background: "radial-gradient(ellipse, #6A2C3E 0%, transparent 70%)" }}
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-[#6D6664] mb-5">
-          The Communication Gap
-        </p>
-        <p className="font-display text-2xl md:text-3xl font-bold text-white leading-snug tracking-tight">
-          People now expect an answer in minutes. Service businesses cannot always pick up the phone.
-        </p>
-        <p className="mt-5 text-sm md:text-base text-[#C8C4C0] leading-relaxed max-w-xl mx-auto">
-          That gap — between when someone reaches out and when they hear back — is where most revenue disappears. The right systems close it automatically, without adding headcount.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 // ─── Nova bridge — dark operational section ────────────────────────────────────
 function NovaBridge() {
@@ -233,8 +209,8 @@ export default function HomePage() {
       {/* 3. The Real Problem — editorial split, agitate + reframe */}
       <ProblemSection />
 
-      {/* 4. Era bridge — communication-era thesis (dark) */}
-      <EraBridge />
+      {/* 4. Era bridge — communication-era thesis (dark, rotating insights) */}
+      <EraBridgeSection />
 
       {/* 5. Case study — resolve early skepticism */}
       <CaseStudySection />

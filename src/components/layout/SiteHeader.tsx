@@ -159,7 +159,10 @@ export function SiteHeader() {
                   isActive(ROUTES.nova) ? "text-[#7C5CFC]" : "text-[#6D6664] hover:text-[#7C5CFC]"
                 }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#7C5CFC] flex-shrink-0 opacity-75" />
+                <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7C5CFC] opacity-40" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#7C5CFC]" />
+                </span>
                 Nova
               </Link>
             </li>
@@ -177,12 +180,18 @@ export function SiteHeader() {
             </li>
           </ul>
 
-          {/* ── Desktop CTA ──────────────────────────────────────────────────── */}
+          {/* ── Desktop CTA — Hover Border Gradient shimmer ──────────────────── */}
           <Link
             href={ROUTES.book}
-            className="hidden md:inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-5 py-2 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors"
+            className="hidden md:inline-flex items-center justify-center rounded-full bg-[#6A2C3E] px-5 py-2 text-sm font-semibold text-white hover:bg-[#5a2233] transition-colors shadow-[0_1px_8px_rgba(106,44,62,0.18)] hover:shadow-[0_2px_14px_rgba(106,44,62,0.28)] relative overflow-hidden group"
           >
-            {CTA.primary}
+            {/* Shimmer sweep on hover */}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-full -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+              style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)" }}
+              aria-hidden
+            />
+            <span className="relative">{CTA.primary}</span>
           </Link>
 
           {/* ── Mobile hamburger ─────────────────────────────────────────────── */}
@@ -289,7 +298,10 @@ export function SiteHeader() {
                   className="flex items-center gap-2 py-2.5 text-sm font-medium text-[#6D6664] hover:text-[#7C5CFC] transition-colors border-b border-[#F5EFEB]"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7C5CFC] opacity-75 flex-shrink-0" />
+                  <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7C5CFC] opacity-40" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#7C5CFC]" />
+                  </span>
                   Nova
                 </Link>
               </li>
