@@ -98,9 +98,7 @@ export default function Home() {
                   {[
                     { time: "2:14 PM", tag: "CAPTURED", tagColor: "text-green-700 bg-green-50", msg: "New lead from Google Ads", accent: "responded in 8 sec" },
                     { time: "2:15 PM", tag: "BOOKED", tagColor: "text-wine bg-wine/5", msg: "Appointment confirmed", accent: "Tue 3:00 PM" },
-                    { time: "2:15 PM", tag: "SENT", tagColor: "text-charcoal/40 bg-charcoal/[0.03]", msg: "SMS + email confirmation", accent: "delivered" },
-                    { time: "2:22 PM", tag: "CAPTURED", tagColor: "text-green-700 bg-green-50", msg: "Missed call — auto-responded", accent: "4 sec" },
-                    { time: "2:23 PM", tag: "QUALIFYING", tagColor: "text-amber-700 bg-amber-50", msg: "Nova qualifying service type", accent: "in progress" },
+                    { time: "2:22 PM", tag: "CAPTURED", tagColor: "text-green-700 bg-green-50", msg: "Missed call — auto-responded", accent: "4 sec response" },
                   ].map((entry, i) => (
                     <div key={i} className={`flex items-center gap-3 px-3 py-2 ${i % 2 === 0 ? "" : "bg-charcoal/[0.015]"}`}>
                       <span className="font-mono text-[10px] text-charcoal/20 shrink-0 w-12">{entry.time}</span>

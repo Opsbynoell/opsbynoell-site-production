@@ -21,11 +21,11 @@ const mockResponses: Record<string, string> = {
   audit:
     "The free audit is a 30-minute call where we look at your current lead response time, follow-up gaps, no-show rate, and review generation. We'll identify exactly where revenue is leaking and what the first fix should be. It's not a sales pitch — you'll leave with a clear action plan whether you work with us or not. Want me to help you book one?",
   pricing:
-    "Our Launch plan is $2,500 setup + $297/mo and includes instant lead response, automated booking, appointment reminders, and review automation. Our Growth plan is $4,500 setup + $497/mo and adds follow-up sequences, client reactivation, Nova AI assistant, and monthly reporting. Both are done-for-you — we build everything. There's no long-term contract. Would a free audit help you figure out which plan fits?",
+    "Pricing depends on your setup and which systems you need. Everything is done-for-you — we build it, test it, and launch it. The best way to get a clear picture is the free audit, where we'll walk through exactly what your business needs and what it would cost. No pressure, no obligation. Want me to help you book one?",
   fit:
     "We work best with local service businesses where missed calls and slow follow-up directly cost revenue — med spas, home services, dental clinics, and professional services. If you're spending on marketing but losing leads to slow response, late follow-up, or no-shows, our systems are built for exactly that. What type of business are you running?",
   nova:
-    "I'm an AI assistant trained on your specific business — your services, pricing, hours, and policies. I respond to leads instantly via text, email, or chat. I qualify prospects, book appointments directly into your calendar, and handle after-hours inquiries 24/7. Think of me as your best front desk person who never sleeps and never puts anyone on hold. I'm included in the Growth plan, or I can be added to Launch.",
+    "Nova is the AI layer built into every Ops by Noell system. It handles instant lead response, smart qualification, and automated booking — trained on your specific business, services, and voice. When a lead comes in, Nova responds in seconds and handles the conversation until an appointment is booked or your team is needed. The free audit will show you exactly how it would work for your business.",
   booking:
     "Absolutely! You can book your free 30-minute audit at opsbynoell.com/book. Pick a time that works and we'll walk through where your leads are slipping. No pitch deck, no pressure — just a direct look at what's costing you revenue.",
   thanks:
@@ -109,8 +109,8 @@ export function NovaLauncher() {
             <div className="flex-1">
               <p className="text-sm font-medium text-cream">Nova</p>
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                <p className="text-[11px] text-cream/50">Online — typically replies instantly</p>
+                <div className="w-1.5 h-1.5 rounded-full bg-cream/40" />
+                <p className="text-[11px] text-cream/50">Preview mode</p>
               </div>
             </div>
             <button
