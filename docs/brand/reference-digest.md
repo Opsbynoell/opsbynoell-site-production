@@ -1,6 +1,7 @@
 # Ops by Noell Brand Reference Digest
 
 This folder exists so Claude Code can reliably access the current brand and strategy references from inside the repo.
+The real template source is also now available at `docs/template-source/schedule-marketing-template/` and should be treated as the literal template foundation for implementation.
 
 ## Reference Priority
 1. `Final-mood-board-PNG.jpg`

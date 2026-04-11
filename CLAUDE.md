@@ -7,9 +7,18 @@ Use this repo's brand files as the working authority for design and implementati
 - `docs/brand/Final-mood-board-PNG.jpg`
 - `docs/brand/weeburlimporttest.pdf`
 - `docs/brand/Ops-by-Noell-Moodboard-v8-Luxe.pdf`
+- `docs/template-source/schedule-marketing-template/README.md`
+- `docs/template-source/schedule-marketing-template/app/(marketing)/page.tsx`
+- `docs/template-source/schedule-marketing-template/components/hero.tsx`
+- `docs/template-source/schedule-marketing-template/components/navbar.tsx`
+- `docs/template-source/schedule-marketing-template/components/features.tsx`
+- `docs/template-source/schedule-marketing-template/components/pricing.tsx`
+- `docs/template-source/schedule-marketing-template/components/testimonials.tsx`
+- `docs/template-source/schedule-marketing-template/components/cta.tsx`
+- `docs/template-source/schedule-marketing-template/components/footer.tsx`
 
 ## Permanent rules
-- Do not redesign from scratch. Use the existing template/base as the structural foundation.
+- Do not redesign from scratch. Use the actual Schedule Marketing Template source in `docs/template-source/schedule-marketing-template/` as the structural foundation.
 - Keep the site inside one authored world.
 - No coral.
 - Warm neutrals, blush/pink family, soft lilac, and wine/oxblood accents.
