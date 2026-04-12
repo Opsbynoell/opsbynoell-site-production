@@ -1,109 +1,325 @@
 "use client";
 
-import { useState } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { IconMessageCircle, IconX, IconSend } from "@tabler/icons-react";
+import { cn } from "@/lib/utils";
 
-const mockConversation = [
+type Message = {
+  from: "nova" | "visitor";
+  text: string;
+  timestamp?: string;
+};
+
+const initialConversation: Message[] = [
   {
     from: "nova",
-    text: "Hi! I\u2019m Nova, the first-response assistant for Ops by Noell. I can help you get started \u2014 are you looking to book a free audit, ask about our systems, or something else?",
+    text: "Hi — I'm Nova, the first-response assistant for Ops by Noell. I can help you get started. Are you looking to book a free audit, ask about our systems, or something else?",
+    timestamp: "now",
   },
+];
+
+const starterChips = [
+  "I'm missing calls",
+  "Book an audit",
+  "What does Nova do?",
+];
+
+// Scripted flow demonstrating the 6 capabilities
+const responseFlow: Record<string, Message[]> = {
+  "i'm missing calls": [
+    {
+      from: "nova",
+      text: "That's exactly what our system catches. When a call goes unanswered, we auto-text the prospect in under 10 seconds with a booking link.",
+    },
+    {
+      from: "nova",
+      text: "To get you a tailored audit, can I grab your name and the best number? I'll route this to Noell for a 15-minute call.",
+    },
+  ],
+  "book an audit": [
+    {
+      from: "nova",
+      text: "Perfect. The audit is free, 15 minutes, and you walk away with a map of where leads are leaking — whether you work with us or not.",
+    },
+    {
+      from: "nova",
+      text: "Share your name + best contact number and I'll route this straight to Noell's calendar.",
+    },
+  ],
+  "what does nova do?": [
+    {
+      from: "nova",
+      text: "I'm Nova Prospect. I handle first response, qualification, contact capture, routing, and booking-link handoff. Anything I can't resolve I escalate to a human with full context.",
+    },
+    {
+      from: "nova",
+      text: "A full AI front desk is a separate product track — we don't pretend Nova Prospect is that. Want to see an audit of what I'd catch on your site?",
+    },
+  ],
+};
+
+const contactCaptureResponse: Message[] = [
   {
-    from: "visitor",
-    text: "I keep missing calls during appointments. Can you help with that?",
+    from: "nova",
+    text: "Got it — thanks. I've captured your contact and routed this to Noell. You'll get a text with audit times within the hour. Meanwhile, the booking link is here: opsbynoell.com/book",
   },
   {
     from: "nova",
-    text: "Absolutely \u2014 that\u2019s exactly what we solve. When someone calls and you can\u2019t pick up, our system sends an instant text so the lead doesn\u2019t go cold. Can I grab your name and the best number to reach you? I\u2019ll connect you with Noell for a free audit.",
-  },
-  {
-    from: "visitor",
-    text: "Sarah, 512-555-1234",
-  },
-  {
-    from: "nova",
-    text: "Thanks Sarah! Here\u2019s a link to book your free audit directly: Book Now. You\u2019ll get a confirmation text right away. In the meantime, is there anything else I can help with?",
+    text: "Anything else I can help with? Otherwise I'll hand off from here.",
   },
 ];
 
 export function NovaChat() {
   const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>(initialConversation);
   const [inputValue, setInputValue] = useState("");
+  const [typing, setTyping] = useState(false);
+  const [stage, setStage] = useState<"intro" | "qualified" | "captured">(
+    "intro"
+  );
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages, typing]);
+
+  const pushResponses = (responses: Message[]) => {
+    responses.forEach((response, i) => {
+      setTimeout(() => {
+        setTyping(true);
+        setTimeout(() => {
+          setTyping(false);
+          setMessages((prev) => [...prev, response]);
+        }, 600);
+      }, 700 * (i + 1));
+    });
+  };
+
+  const handleChip = (chip: string) => {
+    const userMsg: Message = { from: "visitor", text: chip };
+    setMessages((prev) => [...prev, userMsg]);
+    const flow = responseFlow[chip.toLowerCase()];
+    if (flow) {
+      pushResponses(flow);
+      setStage("qualified");
+    }
+  };
+
+  const handleSend = () => {
+    if (!inputValue.trim()) return;
+    const userMsg: Message = { from: "visitor", text: inputValue };
+    setMessages((prev) => [...prev, userMsg]);
+    setInputValue("");
+
+    // If at qualified stage, treat next input as contact capture
+    if (stage === "qualified") {
+      pushResponses(contactCaptureResponse);
+      setStage("captured");
+    } else if (stage === "intro") {
+      // Generic intro response
+      pushResponses([
+        {
+          from: "nova",
+          text: "Got it. To route you to the right place, can I grab your name and best contact number? I'll make sure Noell sees this within the hour.",
+        },
+      ]);
+      setStage("qualified");
+    } else {
+      pushResponses([
+        {
+          from: "nova",
+          text: "Understood. I've logged this and you'll hear back soon. In the meantime, feel free to book directly at opsbynoell.com/book.",
+        },
+      ]);
+    }
+  };
 
   return (
     <>
-      {/* Floating Launcher */}
-      <button
+      {/* Floating launcher */}
+      <motion.button
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-lilac-dark text-white shadow-lg shadow-lilac-dark/30 flex items-center justify-center hover:bg-lilac-dark/90 transition-all"
-        aria-label="Open Nova chat"
-      >
-        {isOpen ? (
-          <X className="w-5 h-5" />
-        ) : (
-          <MessageCircle className="w-5 h-5" />
+        className={cn(
+          "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full",
+          "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white",
+          "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.45),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,111,156,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.28)_inset]",
+          "flex items-center justify-center hover:scale-105 transition-transform"
         )}
-      </button>
+        aria-label={isOpen ? "Close Nova chat" : "Open Nova chat"}
+      >
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="x"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <IconX size={22} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="msg"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <IconMessageCircle size={22} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
-      {/* Chat Panel */}
-      {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl shadow-charcoal/10 border border-warm-border overflow-hidden flex flex-col max-h-[520px]">
-          {/* Header */}
-          <div className="bg-lilac-dark px-5 py-4 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-              <span className="text-white text-xs font-bold">N</span>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-white">Nova</p>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                <p className="text-[10px] text-white/60">
-                  Prospect Assistant &middot; Online
-                </p>
+      {/* Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className={cn(
+              "fixed bottom-24 right-6 z-50",
+              "w-[380px] max-w-[calc(100vw-3rem)]",
+              "rounded-[24px] border border-warm-border bg-cream overflow-hidden",
+              "shadow-[0px_95px_27px_0px_rgba(28,25,23,0.00),_0px_61px_24px_0px_rgba(28,25,23,0.04),_0px_34px_21px_0px_rgba(28,25,23,0.10),_0px_15px_15px_0px_rgba(28,25,23,0.16),_0px_4px_8px_0px_rgba(28,25,23,0.20)]",
+              "flex flex-col max-h-[580px]"
+            )}
+          >
+            {/* Header pill */}
+            <div className="bg-gradient-to-br from-lilac via-lilac-dark to-[#6b4f80] px-5 py-4 flex items-center gap-3 relative">
+              <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                <span className="text-white text-sm font-serif font-semibold">
+                  N
+                </span>
               </div>
-            </div>
-          </div>
-
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-cream/50">
-            {mockConversation.map((msg, i) => (
-              <div
-                key={i}
-                className={`flex ${msg.from === "visitor" ? "justify-end" : "justify-start"}`}
-              >
-                <div
-                  className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
-                    msg.from === "visitor"
-                      ? "bg-lilac-dark text-white rounded-br-md"
-                      : "bg-white border border-warm-border text-charcoal rounded-bl-md"
-                  }`}
-                >
-                  {msg.text}
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-white">Nova</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_6px_rgba(74,222,128,0.8)]" />
+                  <p className="text-[10px] text-white/70">
+                    Prospect Assistant · Online
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Input */}
-          <div className="px-4 py-3 bg-white border-t border-warm-border">
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Type a message..."
-                className="flex-1 h-9 px-3 text-sm bg-cream-dark rounded-lg border border-warm-border focus:outline-none focus:border-lilac-dark/50 text-charcoal placeholder:text-warm-gray/50"
-              />
-              <button className="w-9 h-9 rounded-lg bg-lilac-dark text-white flex items-center justify-center hover:bg-lilac-dark/90 transition-colors">
-                <Send className="w-3.5 h-3.5" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white/70 hover:text-white"
+                aria-label="Close"
+              >
+                <IconX size={18} />
               </button>
             </div>
-            <p className="text-[9px] text-warm-gray/40 mt-2 text-center">
-              Nova handles first response, qualification, and booking handoff.
-            </p>
-          </div>
-        </div>
-      )}
+
+            {/* Messages */}
+            <div
+              ref={scrollRef}
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-cream"
+            >
+              {messages.map((msg, i) => (
+                <MessageBubble key={i} msg={msg} />
+              ))}
+              {typing && <TypingIndicator />}
+
+              {/* Starter chips */}
+              {messages.length === 1 && (
+                <div className="pt-2 flex flex-wrap gap-2">
+                  {starterChips.map((chip) => (
+                    <button
+                      key={chip}
+                      onClick={() => handleChip(chip)}
+                      className="text-xs px-3 py-1.5 rounded-full bg-white border border-warm-border text-charcoal/70 hover:bg-lilac-light hover:border-lilac-dark hover:text-lilac-dark transition-all"
+                    >
+                      {chip}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Input */}
+            <div className="px-4 py-3 bg-white border-t border-warm-border">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                  placeholder="Type a message..."
+                  className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/40"
+                />
+                <button
+                  onClick={handleSend}
+                  className="w-10 h-10 rounded-[10px] bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white flex items-center justify-center hover:scale-105 transition-transform shadow-md"
+                  aria-label="Send"
+                >
+                  <IconSend size={15} />
+                </button>
+              </div>
+              <p className="text-[9px] text-charcoal/40 mt-2 text-center">
+                Nova handles first response, qualification, routing, and human
+                handoff. Not a full AI front desk.
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
+  );
+}
+
+function MessageBubble({ msg }: { msg: Message }) {
+  const isNova = msg.from === "nova";
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25 }}
+      className={cn("flex", isNova ? "justify-start" : "justify-end")}
+    >
+      <div
+        className={cn(
+          "max-w-[82%] px-4 py-2.5 text-sm leading-relaxed rounded-[17px]",
+          isNova
+            ? "bg-white border border-warm-border text-charcoal rounded-bl-md shadow-sm"
+            : "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white rounded-br-md shadow-md"
+        )}
+      >
+        {msg.text}
+      </div>
+    </motion.div>
+  );
+}
+
+function TypingIndicator() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex justify-start"
+    >
+      <div className="bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 flex items-center gap-1">
+        {[0, 1, 2].map((i) => (
+          <motion.span
+            key={i}
+            className="w-1.5 h-1.5 rounded-full bg-lilac-dark"
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 0.6,
+              repeat: Infinity,
+              delay: i * 0.15,
+            }}
+          />
+        ))}
+      </div>
+    </motion.div>
   );
 }

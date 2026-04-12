@@ -1,38 +1,42 @@
 import { Hero } from "@/components/hero";
-import { ProofBand } from "@/components/proof-band";
-import { TensionBand } from "@/components/tension-band";
-import { InterruptionBand } from "@/components/interruption-band";
-import { CaseStudy } from "@/components/case-study";
-import { Verticals } from "@/components/verticals";
-import { AboutTeaser } from "@/components/about-teaser";
-import { ClosingCta } from "@/components/closing-cta";
+import { LogoCloud } from "@/components/logos-cloud";
+import { Features } from "@/components/features";
+import { Features2 } from "@/components/features2";
+import { Features3 } from "@/components/features3";
+import Pricing from "@/components/pricing";
+import { Testimonials } from "@/components/testimonials";
+import { FAQ } from "@/components/faq";
+import CTA from "@/components/cta";
 
 export default function Home() {
   return (
-    <>
+    <div>
       {/* Recognition */}
       <Hero />
 
-      {/* Proof */}
-      <ProofBand />
+      {/* Trust — who it's for */}
+      <LogoCloud />
 
-      {/* Tension */}
-      <TensionBand />
+      {/* Proof — operational stats */}
+      <Features />
 
-      {/* Bridge */}
-      <InterruptionBand />
+      {/* Tension — the real problem */}
+      <Features2 />
 
-      {/* Proof — Case Study */}
-      <CaseStudy />
+      {/* Relief — what changes */}
+      <Features3 />
 
-      {/* Relief — Verticals */}
-      <Verticals />
+      {/* Pricing — honest packages */}
+      <Pricing />
 
-      {/* Trust — About */}
-      <AboutTeaser />
+      {/* Proof — Sarah case study */}
+      <Testimonials />
 
-      {/* Action — CTA */}
-      <ClosingCta />
-    </>
+      {/* FAQ */}
+      <FAQ />
+
+      {/* Action */}
+      <CTA />
+    </div>
   );
 }
