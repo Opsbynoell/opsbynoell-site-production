@@ -17,7 +17,7 @@ export function FounderQuote() {
       <div className="max-w-4xl mx-auto">
         <div className="relative rounded-[22px] border border-warm-border bg-gradient-to-b from-white via-cream to-white px-7 py-10 md:px-14 md:py-14 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
           <div className="flex items-center justify-center mb-6">
-            <LogoMark className="h-10 w-auto opacity-90" />
+            <LogoMark size={44} className="opacity-90" />
           </div>
 
           <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-snug text-charcoal text-center tracking-tight">

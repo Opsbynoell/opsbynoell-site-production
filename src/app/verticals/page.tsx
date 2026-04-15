@@ -48,7 +48,7 @@ const verticals: Vertical[] = [
     tagline: "For aesthetic and wellness practices.",
     description:
       "Warm intent cools off quietly. The Noell system catches inquiries without degrading your premium positioning, and books consultations while the lead is still warm.",
-    status: "soon",
+    status: "live",
     proof: "Consultation bookings, held warm",
   },
   {
@@ -59,7 +59,7 @@ const verticals: Vertical[] = [
     tagline: "For full-service hair and color salons.",
     description:
       "Built around stylists as individual revenue centers. Rebooking is the retention mechanic, and the Noell system protects it without adding front desk work.",
-    status: "soon",
+    status: "live",
     proof: "Rebook rate, measured per chair",
   },
   {
@@ -70,7 +70,7 @@ const verticals: Vertical[] = [
     tagline: "For solo and small-team massage practices.",
     description:
       "Built for the solo practitioner reality. No dead calendar days, no pushy outreach, no feeling like a salesperson on top of being a therapist.",
-    status: "soon",
+    status: "live",
     proof: "Missed-call recovery, live",
   },
   {
@@ -81,7 +81,7 @@ const verticals: Vertical[] = [
     tagline: "For licensed estheticians and skincare studios.",
     description:
       "Facial, treatment, and membership flows handled with the quiet tone that matches a skincare brand. Retention-first, never pushy.",
-    status: "soon",
+    status: "live",
     proof: "Membership retention, protected",
   },
   {
@@ -92,7 +92,7 @@ const verticals: Vertical[] = [
     tagline: "For residential HVAC contractors.",
     description:
       "Service-type routing for emergency vs. scheduled calls. The Noell system triages urgency, captures the right info, and dispatches the right tech without turning your office into a call center.",
-    status: "soon",
+    status: "live",
     proof: "Emergency vs. scheduled, routed",
   },
 ];
@@ -125,31 +125,22 @@ export default function VerticalsHubPage() {
       <section className="w-full px-4 pb-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {verticals.map((v) => {
-              const card = (
-                <div
-                  className={
-                    "group relative rounded-[22px] border border-warm-border bg-white p-7 h-full flex flex-col transition-all duration-200 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] " +
-                    (v.status === "live"
-                      ? "hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]"
-                      : "opacity-75")
-                  }
-                >
+            {verticals.map((v) => (
+              <Link
+                key={v.slug}
+                id={v.slug}
+                href={v.href}
+                className="block h-full scroll-mt-32"
+              >
+                <div className="group relative rounded-[22px] border border-warm-border bg-white p-7 h-full flex flex-col transition-all duration-200 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]">
                   <div className="flex items-start justify-between mb-5">
                     <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center">
                       {v.icon}
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <span
-                        className={
-                          "w-1.5 h-1.5 rounded-full " +
-                          (v.status === "live"
-                            ? "bg-green-500"
-                            : "bg-charcoal/30")
-                        }
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                       <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/50">
-                        {v.status === "live" ? "online" : "in queue"}
+                        online
                       </span>
                     </div>
                   </div>
@@ -167,38 +158,18 @@ export default function VerticalsHubPage() {
                       {v.proof}
                     </p>
                     <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
-                      {v.status === "live" ? "See it →" : "Book an audit →"}
+                      See it &rarr;
                     </p>
                   </div>
                 </div>
-              );
-
-              return v.status === "live" ? (
-                <Link
-                  key={v.slug}
-                  id={v.slug}
-                  href={v.href}
-                  className="block h-full scroll-mt-32"
-                >
-                  {card}
-                </Link>
-              ) : (
-                <Link
-                  key={v.slug}
-                  id={v.slug}
-                  href="/book"
-                  className="block h-full scroll-mt-32"
-                >
-                  {card}
-                </Link>
-              );
-            })}
+              </Link>
+            ))}
           </div>
 
           <p className="text-center text-xs text-charcoal/50 mt-10 max-w-2xl mx-auto">
-            New vertical pages go live in order of demand. If yours is in the
-            queue and you want to see it sooner, the audit is the fastest way
-            to tell us what matters on your version of the page.
+            Each page is built around the operational reality of that
+            vertical. The install shapes the system further around your
+            specific business. The audit is where we start.
           </p>
         </div>
       </section>
@@ -207,7 +178,7 @@ export default function VerticalsHubPage() {
         eyebrow="Your vertical, or close to it?"
         headlineStart="Book a free audit"
         headlineAccent="and we will build the system around you."
-        body="Even if your vertical page is still in queue, the audit is the same. We look at your missed-call flow, your booking process, and where your specific business is leaking leads."
+        body="The audit is the same across verticals. We look at your missed-call flow, your booking process, and where your specific business is leaking leads."
         primaryCta={{ label: "Book Your Free Audit", href: "/book" }}
         secondaryCta={{
           label: "Talk to Noell Support first",

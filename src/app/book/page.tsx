@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   IconCalendarEvent,
   IconClipboardCheck,
@@ -7,78 +6,11 @@ import {
   IconBellRinging,
   IconMessage2,
   IconPhoneCall,
-  IconMail,
-  IconArrowRight,
 } from "@tabler/icons-react";
 import { Button } from "@/components/button";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
-
-function BookingSlot() {
-  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL;
-
-  if (bookingUrl) {
-    return (
-      <div
-        className="relative rounded-2xl overflow-hidden border border-warm-border bg-cream"
-        style={{ height: "640px" }}
-      >
-        <iframe
-          title="Book an audit"
-          src={bookingUrl}
-          className="absolute inset-0 w-full h-full"
-          loading="lazy"
-        />
-      </div>
-    );
-  }
-
-  // Fallback when the scheduler isn't wired yet. This is a real, usable path
-  // for visitors, not a debug skeleton.
-  return (
-    <div className="rounded-2xl border border-warm-border bg-gradient-to-b from-cream to-white p-8 md:p-10">
-      <div className="max-w-lg mx-auto text-center">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
-          Direct booking
-        </p>
-        <h3 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-4">
-          Reach out and Noell will put you on the calendar within the day.
-        </h3>
-        <p className="text-sm text-charcoal/60 leading-relaxed mb-8">
-          Audits are scheduled by hand right now. Email or text with two or
-          three windows that work for you this week, and we&apos;ll confirm
-          back in under an hour during business hours.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto">
-          <a
-            href="mailto:hello@opsbynoell.com?subject=Free%20audit%20request&body=Hi%20Noell%20%E2%80%94%20I%27d%20like%20to%20book%20a%20free%20audit.%0A%0AName%3A%20%0ABusiness%3A%20%0APhone%3A%20%0ATimes%20that%20work%3A%20"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-wine text-cream text-sm font-medium px-5 hover:bg-wine-dark transition-colors"
-          >
-            <IconMail size={16} />
-            Email to book
-          </a>
-          <Link
-            href="/noell-support"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white border border-warm-border text-charcoal text-sm font-medium px-5 hover:bg-cream-dark transition-colors"
-          >
-            Ask Noell Support
-            <IconArrowRight size={14} />
-          </Link>
-        </div>
-
-        <p className="mt-8 text-[11px] uppercase tracking-[0.2em] text-charcoal/40">
-          Why no instant calendar?
-        </p>
-        <p className="mt-2 text-xs text-charcoal/50 leading-relaxed">
-          Audits are scheduled personally right now. Booking by hand keeps the
-          quality bar high. Instant self-serve booking returns when capacity
-          allows.
-        </p>
-      </div>
-    </div>
-  );
-}
+import { BookingEmbed } from "@/components/booking-embed";
 
 export const metadata: Metadata = {
   title: "Book Your Free Audit | Ops by Noell",
@@ -234,7 +166,7 @@ export default function BookPage() {
             </div>
 
             <div className="p-6 md:p-8">
-              <BookingSlot />
+              <BookingEmbed />
             </div>
           </div>
 

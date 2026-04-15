@@ -1,54 +1,33 @@
 "use client";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 /**
- * Ops by Noell, final logo system.
+ * Ops by Noell logo system.
  *
- * LogoMark: the "ON" monogram. Serif uppercase, kerned tight so the O and N
- *   visually kiss, rendered in plum/wine-dark to match the approved direction.
- *   Uses inline SVG with real <text> in Playfair Display (already loaded
- *   site-wide) so it's crisp at any size and keeps the same typographic voice
- *   as the rest of the site.
+ * LogoMark: the "O" favicon monogram at /images/logo-favicon-o.png.
+ *   Used for: favicon, chat avatar, mobile compact marks, small badges.
  *
- * Logo: full lockup. LogoMark + "Ops by Noell" wordmark in a two-line stack.
- *   Used in the navbar and the footer.
+ * Logo: the full "Ops by Noell" lockup at /images/logo-ops-by-noell.png.
+ *   Used for: navbar, footer, email signatures, social previews.
  */
 
-const PLUM = "#6A2C3E"; // matches --color-wine in globals.css (Ops by Noell Wine)
-
-export const LogoMark = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 110 80"
-    xmlns="http://www.w3.org/2000/svg"
+export const LogoMark = ({
+  className,
+  size = 40,
+}: {
+  className?: string;
+  size?: number;
+}) => (
+  <Image
+    src="/images/logo-favicon-o.png"
+    alt="Ops by Noell"
+    width={size}
+    height={size}
     className={className}
-    aria-hidden="true"
-    role="presentation"
-  >
-    <text
-      x="0"
-      y="66"
-      fontFamily='"Playfair Display", Georgia, serif'
-      fontWeight={900}
-      fontStyle="italic"
-      fontSize="82"
-      letterSpacing="-6"
-      fill={PLUM}
-    >
-      O
-    </text>
-    <text
-      x="44"
-      y="66"
-      fontFamily='"Playfair Display", Georgia, serif'
-      fontWeight={900}
-      fontSize="82"
-      letterSpacing="-6"
-      fill={PLUM}
-    >
-      N
-    </text>
-  </svg>
+    priority
+  />
 );
 
 /** Back-compat alias, some older imports referenced `LogoIcon`. */
@@ -60,15 +39,18 @@ export const Logo = ({ className }: { className?: string }) => {
       href="/"
       aria-label="Ops by Noell, home"
       className={cn(
-        "flex gap-2.5 items-center shrink-0 relative z-20 px-1 py-1",
+        "flex items-center shrink-0 relative z-20 px-1 py-1",
         className
       )}
     >
-      <LogoMark className="h-8 w-auto md:h-9" />
-      <span className="flex flex-col leading-[0.95] font-serif font-semibold text-charcoal">
-        <span className="text-[13px] md:text-[14px] tracking-tight">Ops by</span>
-        <span className="text-[13px] md:text-[14px] tracking-tight">Noell</span>
-      </span>
+      <Image
+        src="/images/logo-ops-by-noell.png"
+        alt="Ops by Noell"
+        width={160}
+        height={40}
+        className="h-9 md:h-10 w-auto"
+        priority
+      />
     </Link>
   );
 };

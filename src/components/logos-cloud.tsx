@@ -26,35 +26,35 @@ const verticals: Vertical[] = [
   },
   {
     name: "Med Spas",
-    href: "/verticals#med-spas",
+    href: "/verticals/med-spas",
     icon: <IconSparkles size={22} />,
     identity:
       "You built a premium room. Warm intent should not cool off while the front desk is busy.",
   },
   {
     name: "Salons",
-    href: "/verticals#salons",
+    href: "/verticals/salons",
     icon: <IconScissors size={22} />,
     identity:
       "Every stylist is a revenue center. Rebooks are retention. Missed calls cost chairs.",
   },
   {
     name: "Massage Therapy",
-    href: "/verticals#massage",
+    href: "/verticals/massage",
     icon: <IconHandStop size={22} />,
     identity:
       "Solo or small team. You want a full calendar without feeling like a salesperson.",
   },
   {
     name: "Estheticians",
-    href: "/verticals#estheticians",
+    href: "/verticals/estheticians",
     icon: <IconHeart size={22} />,
     identity:
       "Retention-first, never pushy. Skincare clients want to feel cared for, not sold to.",
   },
   {
     name: "HVAC",
-    href: "/verticals#hvac",
+    href: "/verticals/hvac",
     icon: <IconSnowflake size={22} />,
     identity:
       "Emergency or scheduled, the call needs to route to the right tech in the right window.",

@@ -19,11 +19,11 @@ export function Footer() {
 
   const verticals = [
     { title: "Dental Offices", href: "/verticals/dental" },
-    { title: "Med Spas", href: "/verticals#med-spas" },
-    { title: "Salons", href: "/verticals#salons" },
-    { title: "Massage Therapy", href: "/verticals#massage" },
-    { title: "Estheticians", href: "/verticals#estheticians" },
-    { title: "HVAC", href: "/verticals#hvac" },
+    { title: "Med Spas", href: "/verticals/med-spas" },
+    { title: "Salons", href: "/verticals/salons" },
+    { title: "Massage Therapy", href: "/verticals/massage" },
+    { title: "Estheticians", href: "/verticals/estheticians" },
+    { title: "HVAC", href: "/verticals/hvac" },
     { title: "All verticals", href: "/verticals" },
   ];
 

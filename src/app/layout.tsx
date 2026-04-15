@@ -5,10 +5,18 @@ import { NovaChat } from "@/components/nova-chat";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.opsbynoell.com"),
   title:
     "Ops by Noell | Done-for-You AI Front Desk for Dental, Med Spas, Salons, Massage & HVAC",
   description:
     "Ops by Noell builds, installs, and manages a done-for-you AI front desk for service businesses in Orange County and beyond. We catch missed calls, follow up instantly, and keep your calendar full. Built for dental practices, med spas, salons, massage therapists, estheticians, and HVAC contractors.",
+  icons: {
+    icon: [
+      { url: "/images/logo-favicon-o.png", type: "image/png" },
+    ],
+    shortcut: "/images/logo-favicon-o.png",
+    apple: "/images/logo-favicon-o.png",
+  },
   openGraph: {
     title:
       "By the time you call back, they've already booked somewhere else.",
@@ -17,6 +25,20 @@ export const metadata: Metadata = {
     url: "https://www.opsbynoell.com",
     siteName: "Ops by Noell",
     type: "website",
+    images: [
+      {
+        url: "/images/logo-ops-by-noell.png",
+        alt: "Ops by Noell",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "By the time you call back, they've already booked somewhere else.",
+    description:
+      "Done-for-you AI front desk for dental, med spas, salons, massage, estheticians, and HVAC.",
+    images: ["/images/logo-ops-by-noell.png"],
   },
 };
 
