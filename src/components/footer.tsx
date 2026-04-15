@@ -18,11 +18,12 @@ export function Footer() {
   ];
 
   const verticals = [
-    { title: "Massage Therapy", href: "/#verticals" },
+    { title: "Dental Offices", href: "/#verticals" },
     { title: "Med Spas", href: "/#verticals" },
     { title: "Salons", href: "/#verticals" },
-    { title: "Dental Offices", href: "/#verticals" },
+    { title: "Massage Therapy", href: "/#verticals" },
     { title: "Estheticians", href: "/#verticals" },
+    { title: "HVAC", href: "/#verticals" },
   ];
 
   const legal = [

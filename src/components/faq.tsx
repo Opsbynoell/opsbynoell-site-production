@@ -13,7 +13,7 @@ const defaultFaqs: FaqItem[] = [
   {
     question: "How long until the system is live?",
     answer:
-      "Most practices are fully live within 14 days of signing. Install is handled by us — you do not configure the system yourself. We migrate existing contacts, write the copy, and train the workflows in your voice.",
+      "Most practices are fully live within 14 days of signing. Install is handled by us, you do not configure the system yourself. We migrate existing contacts, write the copy, and train the workflows in your voice.",
   },
   {
     question: "Do I need to replace my current booking tool?",
@@ -28,7 +28,7 @@ const defaultFaqs: FaqItem[] = [
   {
     question: "Is Noell Support really an AI receptionist?",
     answer:
-      "No, and we are careful about that. Noell Support handles new-prospect intake — first response, qualification, contact capture, routing, and booking-link handoff — then escalates to you. Noell Front Desk is the separate operations layer that handles calls, scheduling, reminders, and reactivation.",
+      "No, and we are careful about that. Noell Support handles new-prospect intake. First response, qualification, contact capture, routing, and booking-link handoff, then escalates to you. Noell Front Desk is the separate operations layer that handles calls, scheduling, reminders, and reactivation.",
   },
   {
     question: "What if it does not work for my business?",

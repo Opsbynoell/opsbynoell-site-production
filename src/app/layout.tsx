@@ -5,9 +5,19 @@ import { NovaChat } from "@/components/nova-chat";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ops by Noell — Systems That Run Themselves",
+  title:
+    "Ops by Noell | Done-for-You AI Front Desk for Dental, Med Spas, Salons, Massage & HVAC",
   description:
-    "We build, install, and manage the system that catches missed calls, follows up instantly, and keeps your calendar full. Built for massage therapists, med spas, salons, dental offices, and estheticians.",
+    "Ops by Noell builds, installs, and manages a done-for-you AI front desk for service businesses in Orange County and beyond. We catch missed calls, follow up instantly, and keep your calendar full. Built for dental practices, med spas, salons, massage therapists, estheticians, and HVAC contractors.",
+  openGraph: {
+    title:
+      "By the time you call back, they've already booked somewhere else.",
+    description:
+      "A done-for-you AI front desk for dental, med spas, salons, massage, estheticians, and HVAC. Three agents. One system. Zero setup on your end.",
+    url: "https://www.opsbynoell.com",
+    siteName: "Ops by Noell",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

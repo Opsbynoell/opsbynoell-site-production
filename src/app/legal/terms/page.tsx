@@ -26,7 +26,7 @@ export default function TermsPage() {
       <h2>Engagements</h2>
       <p>
         If you choose to install the Noell system, a separate client agreement
-        governs that work — scope, pricing, deliverables, and support. Nothing
+        governs that work (scope, pricing, deliverables, and support). Nothing
         on this website constitutes a contract for services by itself.
       </p>
 

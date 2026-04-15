@@ -14,7 +14,7 @@ type Message = {
 const initialConversation: Message[] = [
   {
     from: "nova",
-    text: "Hi — I'm Noell Support, the new-prospect intake layer for Ops by Noell. I can help you get started. Are you looking to book a free audit, ask about our systems, or something else?",
+    text: "Hi, I'm Noell Support, the new-prospect intake layer for Ops by Noell. I can help you get started. Are you looking to book a free audit, ask about our systems, or something else?",
     timestamp: "now",
   },
 ];
@@ -40,7 +40,7 @@ const responseFlow: Record<string, Message[]> = {
   "book an audit": [
     {
       from: "nova",
-      text: "Perfect. The audit is free, 30 minutes, and you walk away with a map of where leads are leaking — whether you work with us or not.",
+      text: "Perfect. The audit is free, 30 minutes, and you walk away with a map of where leads are leaking, whether you work with us or not.",
     },
     {
       from: "nova",
@@ -62,7 +62,7 @@ const responseFlow: Record<string, Message[]> = {
 const contactCaptureResponse: Message[] = [
   {
     from: "nova",
-    text: "Got it — thanks. I've captured your contact and routed this to Noell. You'll get a text with audit times within the hour. Meanwhile, the booking link is here: opsbynoell.com/book",
+    text: "Got it, thanks. I've captured your contact and routed this to Noell. You'll get a text with audit times within the hour. Meanwhile, the booking link is here: www.opsbynoell.com/book",
   },
   {
     from: "nova",
@@ -265,7 +265,7 @@ export function NovaChat() {
                 </button>
               </div>
               <p className="text-[9px] text-charcoal/40 mt-2 text-center">
-                Noell Support handles new-prospect intake — first response,
+                Noell Support handles new-prospect intake. First response,
                 qualification, routing, and human handoff.
               </p>
             </div>

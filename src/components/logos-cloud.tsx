@@ -5,25 +5,28 @@ import {
   IconScissors,
   IconDental,
   IconHeart,
-  IconBriefcase,
+  IconSnowflake,
 } from "@tabler/icons-react";
 
 const verticals = [
-  { name: "Massage Therapy", icon: <IconHandStop size={22} /> },
+  { name: "Dental Offices", icon: <IconDental size={22} /> },
   { name: "Med Spas", icon: <IconSparkles size={22} /> },
   { name: "Salons", icon: <IconScissors size={22} /> },
-  { name: "Dental Offices", icon: <IconDental size={22} /> },
+  { name: "Massage Therapy", icon: <IconHandStop size={22} /> },
   { name: "Estheticians", icon: <IconHeart size={22} /> },
-  { name: "Service Businesses", icon: <IconBriefcase size={22} /> },
+  { name: "HVAC", icon: <IconSnowflake size={22} /> },
 ];
 
 export function LogoCloud() {
   return (
     <section id="verticals" className="w-full py-16 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <p className="text-center text-[11px] uppercase tracking-[0.25em] text-charcoal/50 mb-10">
-          Built for
-        </p>
+        <div className="flex items-center justify-center gap-2 mb-10">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
+            status: online / built for
+          </p>
+        </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {verticals.map((v, i) => (
             <div

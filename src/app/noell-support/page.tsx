@@ -15,7 +15,7 @@ import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Noell Support — New Prospect Intake — Ops by Noell",
+  title: "Noell Support | New Prospect Intake | Ops by Noell",
   description:
     "Noell Support handles first response, qualification, contact capture, routing, and booking-link handoff. The new-prospect intake layer of the Noell system.",
 };
@@ -38,7 +38,7 @@ const supportCapabilities = [
     icon: <IconListCheck size={22} />,
     title: "Qualification",
     description:
-      "Noell Support asks the right questions — service type, timing, urgency — to understand what the prospect actually needs.",
+      "Noell Support asks the right questions (service type, timing, urgency) to understand what the prospect actually needs.",
   },
   {
     icon: <IconAddressBook size={22} />,
@@ -70,7 +70,7 @@ const supportFaqs = [
   {
     question: "Is Noell Support a full AI receptionist?",
     answer:
-      "No, and we're careful about that line. Noell Support is the new-prospect intake layer. It handles the critical first minutes — responding, qualifying, capturing, routing, handing off. Noell Front Desk is the separate operations layer that handles calls, scheduling, and reminders.",
+      "No, and we're careful about that line. Noell Support is the new-prospect intake layer. It handles the critical first minutes: responding, qualifying, capturing, routing, handing off. Noell Front Desk is the separate operations layer that handles calls, scheduling, and reminders.",
   },
   {
     question: "Where does Noell Support live?",
@@ -90,7 +90,7 @@ const supportFaqs = [
   {
     question: "How is this different from Noell Front Desk?",
     answer:
-      "Noell Front Desk is the operations layer of the system — calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Noell Support is the entry layer for new prospects. They run together, but they are distinct agents in the Noell system.",
+      "Noell Front Desk is the operations layer of the system: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Noell Support is the entry layer for new prospects. They run together, but they are distinct agents in the Noell system.",
   },
 ];
 
@@ -110,7 +110,7 @@ const supportScreen = (
 
     {/* Support greeting */}
     <div className="bg-white rounded-2xl rounded-bl-md p-3 mx-1 border border-warm-border/60 shadow-sm text-[11px] text-charcoal leading-snug">
-      Hi — I&apos;m Noell Support. Looking to book or ask a question?
+      Hi, I&apos;m Noell Support. Looking to book or ask a question?
     </div>
 
     {/* Visitor reply */}
@@ -177,7 +177,7 @@ export default function NoellSupportPage() {
             </h2>
             <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">
               Noell Support is not trying to be everything. It handles the
-              critical first minutes of every new prospect — the window where
+              critical first minutes of every new prospect, the window where
               most revenue is lost.
             </p>
           </div>
@@ -289,7 +289,7 @@ export default function NoellSupportPage() {
         </div>
       </section>
 
-      {/* Relief — what life looks like */}
+      {/* Relief, what life looks like */}
       <Features3
         accent="lilac"
         eyebrow="What it feels like"
@@ -350,7 +350,7 @@ export default function NoellSupportPage() {
         eyebrow="Try Noell Support"
         headlineStart="See what it would catch"
         headlineAccent="on your site."
-        body="Book a free audit and we'll show you exactly how Noell Support would handle your current missed calls and chats — with your copy, in your voice."
+        body="Book a free audit and we'll show you exactly how Noell Support would handle your current missed calls and chats, with your copy, in your voice."
         primaryCta={{ label: "Book Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "Back to home", href: "/" }}
         trustLine="Free audit · No contracts · Installed in 14 days"

@@ -5,7 +5,7 @@ import React from "react";
 export const legalUpdatedDate = "April 13, 2026";
 
 export const legalMetadataBase = (kind: "Privacy Policy" | "Terms of Service" | "Cookie Policy"): Metadata => ({
-  title: `${kind} — Ops by Noell`,
+  title: `${kind} | Ops by Noell`,
   description: `${kind} for Ops by Noell. Last updated ${legalUpdatedDate}.`,
 });
 

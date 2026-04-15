@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 /**
- * Ops by Noell — final logo system.
+ * Ops by Noell, final logo system.
  *
  * LogoMark: the "ON" monogram. Serif uppercase, kerned tight so the O and N
  *   visually kiss, rendered in plum/wine-dark to match the approved direction.
@@ -51,14 +51,14 @@ export const LogoMark = ({ className }: { className?: string }) => (
   </svg>
 );
 
-/** Back-compat alias — some older imports referenced `LogoIcon`. */
+/** Back-compat alias, some older imports referenced `LogoIcon`. */
 export const LogoIcon = LogoMark;
 
 export const Logo = ({ className }: { className?: string }) => {
   return (
     <Link
       href="/"
-      aria-label="Ops by Noell — home"
+      aria-label="Ops by Noell, home"
       className={cn(
         "flex gap-2.5 items-center shrink-0 relative z-20 px-1 py-1",
         className

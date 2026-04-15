@@ -13,12 +13,12 @@ const defaultFeatures = [
 ];
 
 const orbitingNodes = [
-  { initials: "AM", label: "⭐️⭐️⭐️⭐️⭐️", role: "Esthetician" },
-  { initials: "JR", label: "⭐️⭐️⭐️⭐️⭐️", role: "Massage" },
-  { initials: "LN", label: "⭐️⭐️⭐️⭐️⭐️", role: "Med Spa" },
-  { initials: "SM", label: "⭐️⭐️⭐️⭐️⭐️", role: "Salon" },
-  { initials: "DK", label: "⭐️⭐️⭐️⭐️⭐️", role: "Dental" },
-  { initials: "TH", label: "⭐️⭐️⭐️⭐️⭐️", role: "Studio" },
+  { initials: "AM", label: "★★★★★", role: "Esthetician" },
+  { initials: "JR", label: "★★★★★", role: "Massage" },
+  { initials: "LN", label: "★★★★★", role: "Med Spa" },
+  { initials: "SM", label: "★★★★★", role: "Salon" },
+  { initials: "DK", label: "★★★★★", role: "Dental" },
+  { initials: "TH", label: "★★★★★", role: "Studio" },
 ];
 
 export function Testimonials({
@@ -117,7 +117,7 @@ export function Testimonials({
             </Button>
           </div>
 
-          {/* Right — orbiting proof nodes */}
+          {/* Right: orbiting proof nodes */}
           <div className="relative h-[520px] md:h-[600px] overflow-hidden">
             <OrbitingIcons
               centerNode={

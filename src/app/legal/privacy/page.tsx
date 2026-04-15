@@ -13,8 +13,8 @@ export default function PrivacyPage() {
         When you book an audit, chat with Noell Support, or contact us directly,
         we collect the information you choose to share: your name, phone number,
         email address, business name, and notes about your situation. We also
-        collect basic technical information about your visit — pages viewed,
-        device type, and referrer — through standard web analytics.
+        collect basic technical information about your visit (pages viewed,
+        device type, and referrer) through standard web analytics.
       </p>
 
       <h2>How we use it</h2>

@@ -34,7 +34,7 @@ function BookingSlot() {
   }
 
   // Fallback when the scheduler isn't wired yet. This is a real, usable path
-  // for visitors — not a debug skeleton.
+  // for visitors, not a debug skeleton.
   return (
     <div className="rounded-2xl border border-warm-border bg-gradient-to-b from-cream to-white p-8 md:p-10">
       <div className="max-w-lg mx-auto text-center">
@@ -81,7 +81,7 @@ function BookingSlot() {
 }
 
 export const metadata: Metadata = {
-  title: "Book Your Free Audit — Ops by Noell",
+  title: "Book Your Free Audit | Ops by Noell",
   description:
     "30 minutes. No pitch, no pressure. See exactly where leads are falling through and what a system could recover.",
 };
@@ -106,7 +106,7 @@ const steps = [
     number: "03",
     title: "Get your action plan",
     detail:
-      "You leave with a clear map of what's leaking and exactly what to fix — whether you work with us or not. No pitch, no pressure.",
+      "You leave with a clear map of what's leaking and exactly what to fix, whether you work with us or not. No pitch, no pressure.",
   },
 ];
 
@@ -132,7 +132,7 @@ const bookFaqs = [
   {
     question: "Is this really free?",
     answer:
-      "Yes. The audit is free and the output is yours — whether or not you choose to work with us. We do this because it's the fastest way to see if we're a fit.",
+      "Yes. The audit is free and the output is yours, whether or not you choose to work with us. We do this because it's the fastest way to see if we're a fit.",
   },
   {
     question: "What do I need to prepare?",
@@ -142,7 +142,7 @@ const bookFaqs = [
   {
     question: "What if I can't make the time I booked?",
     answer:
-      "Just hit reschedule from the confirmation text. No need to email or explain — the system picks a new slot for you.",
+      "Just hit reschedule from the confirmation text. No need to email or explain. The system picks a new slot for you.",
   },
   {
     question: "Is this a sales call in disguise?",
@@ -154,7 +154,7 @@ const bookFaqs = [
 export default function BookPage() {
   return (
     <div>
-      {/* Hero — centered template pattern, no mockup */}
+      {/* Hero: centered template pattern, no mockup */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.50)] via-[rgba(240,224,214,0.70)] to-[rgba(250,246,241,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-charcoal/60 mb-6">
           The first step
@@ -281,7 +281,7 @@ export default function BookPage() {
           </h3>
           <p className="text-sm text-charcoal/60 max-w-md mx-auto mb-6">
             Noell Support is the new-prospect intake layer. Pop open the chat
-            in the bottom-right and ask anything — it routes to Noell when
+            in the bottom-right and ask anything. It routes to Noell when
             you&apos;re ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

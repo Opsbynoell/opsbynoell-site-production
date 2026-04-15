@@ -21,7 +21,7 @@ const defaultPainPoints: PainPoint[] = [
     icon: <IconClockHour4 size={22} />,
     title: "Follow-up slips when the day gets full",
     description:
-      "You mean to text them back, confirm the appointment, or ask for the review — but client work always comes first.",
+      "You mean to text them back, confirm the appointment, or ask for the review, but client work always comes first.",
   },
   {
     icon: <IconAlertCircle size={22} />,

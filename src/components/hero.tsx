@@ -15,7 +15,7 @@ export function Hero({
   headlineLine1Accent = "they've already booked",
   headlineLine2Start = "somewhere",
   headlineLine2Accent = "else.",
-  body = "We build, install, and manage the system that catches missed calls, follows up instantly, and keeps your calendar full — so you can stay focused on the client in front of you.",
+  body = "We build, install, and manage the system that catches missed calls, follows up instantly, and keeps your calendar full, so you can stay focused on the client in front of you.",
   footnote = "Built for massage therapists, med spas, salons, dental offices, and estheticians.",
   primaryCta = { label: "Get Your Free Audit", href: "/book" },
   secondaryCta = { label: "See the system", href: "/#systems" },
@@ -251,7 +251,7 @@ function DefaultMockScreen() {
           </span>
         </div>
         <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
-          "Hi Santa — sorry I missed you. I can get you in Saturday 2pm or 3pm.
+          "Hi Santa, sorry I missed you. I can get you in Saturday 2pm or 3pm.
           Which works?"
         </div>
       </div>

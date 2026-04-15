@@ -15,9 +15,9 @@ import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Noell Front Desk — Operations Layer — Ops by Noell",
+  title: "Noell Front Desk | Operations Layer | Ops by Noell",
   description:
-    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation — everything a receptionist handles.",
+    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles.",
 };
 
 const frontDeskCapabilities = [
@@ -37,7 +37,7 @@ const frontDeskCapabilities = [
     icon: <IconCircleCheck size={22} />,
     title: "Confirmations",
     description:
-      "Instant booking confirmations on the right channel — SMS, email, or both — so clients know it's locked in.",
+      "Instant booking confirmations on the right channel (SMS, email, or both) so clients know it's locked in.",
   },
   {
     icon: <IconBellRinging size={22} />,
@@ -49,7 +49,7 @@ const frontDeskCapabilities = [
     icon: <IconCalendarTime size={22} />,
     title: "Reschedules",
     description:
-      "When a client needs to move, they can — without a phone call. The system protects your calendar and keeps the appointment alive.",
+      "When a client needs to move, they can, without a phone call. The system protects your calendar and keeps the appointment alive.",
   },
   {
     icon: <IconStar size={22} />,
@@ -69,7 +69,7 @@ const frontDeskFaqs = [
   {
     question: "Is Noell Front Desk replacing my receptionist?",
     answer:
-      "Noell Front Desk handles the operational workload a receptionist runs — calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. It does not replace the human relationship. Most practices pair it with a lightly-loaded human who only handles the edge cases.",
+      "Noell Front Desk handles the operational workload a receptionist runs: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. It does not replace the human relationship. Most practices pair it with a lightly-loaded human who only handles the edge cases.",
   },
   {
     question: "How does this work with Noell Support?",
@@ -89,7 +89,7 @@ const frontDeskFaqs = [
   {
     question: "How long until it's live?",
     answer:
-      "Most practices are fully live within 14 days of signing. Install is handled by us — you do not configure the system yourself. We migrate existing contacts, write the copy, and train the workflows in your voice.",
+      "Most practices are fully live within 14 days of signing. Install is handled by us, you do not configure the system yourself. We migrate existing contacts, write the copy, and train the workflows in your voice.",
   },
 ];
 
@@ -150,7 +150,7 @@ export default function NoellFrontDeskPage() {
         headlineLine1Accent="layer."
         headlineLine2Start="Everything a"
         headlineLine2Accent="receptionist handles."
-        body="Noell Front Desk runs the operational workload of your business — calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
+        body="Noell Front Desk runs the operational workload of your business: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
         footnote="Noell Front Desk layers on top of Noell Support. Together they cover the entire client lifecycle."
         primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
@@ -172,7 +172,7 @@ export default function NoellFrontDeskPage() {
             </h2>
             <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">
               Everything a receptionist handles, running quietly in the
-              background — covered by the Noell system.
+              background, covered by the Noell system.
             </p>
           </div>
 
@@ -243,7 +243,7 @@ export default function NoellFrontDeskPage() {
             number: "03",
             title: "Reviews and reactivation on autopilot",
             description:
-              "After the visit, the system captures the review and keeps dormant clients engaged — so your pipeline doesn't go quiet.",
+              "After the visit, the system captures the review and keeps dormant clients engaged, so your pipeline doesn't go quiet.",
             points: [
               "Review capture + routing",
               "Reactivation workflows",
@@ -265,7 +265,7 @@ export default function NoellFrontDeskPage() {
         eyebrow="The first step"
         headlineStart="See exactly where"
         headlineAccent="leads are falling through."
-        body="No pitch. No pressure. A 30-minute audit that gives you a clear map of what's leaking — whether you work with us or not."
+        body="No pitch. No pressure. A 30-minute audit that gives you a clear map of what's leaking, whether you work with us or not."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
       />
     </div>

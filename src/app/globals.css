@@ -5,25 +5,30 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Brand Colors */
-  --color-cream: #FAF6F1;
+  /* Brand Colors, "Analog Signal" palette */
+  --color-cream: #FAF5F0;
   --color-cream-dark: #F2EBE3;
-  --color-blush: #F0E0D6;
+  --color-blush: #F0E4E8;
   --color-blush-light: #FBF0EB;
-  --color-wine: #6B2D3E;
+  --color-wine: #6A2C3E;
   --color-wine-dark: #5A1F30;
   --color-wine-light: #8B4D5E;
+  --color-ink-plum: #3D2430;
+  /* Noell Violet is RESERVED for /noell-support and the Noell Support chat widget only. */
+  --color-noell-violet: #7C5CFC;
   --color-lilac: #C4B5CE;
   --color-lilac-dark: #8B6F9C;
   --color-lilac-light: #E8E0ED;
-  --color-charcoal: #1C1917;
+  --color-charcoal: #3D2430;
   --color-warm-gray: #78716C;
   --color-warm-border: #E7DFD6;
 
-  /* Fonts */
+  /* Fonts: three registers, display, body, system */
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
+  --font-mono: "Courier New", ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
   --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;
+  /* System-status register for the AIM-era nostalgia layer (section labels, timestamps, uptime indicators). */
+  --font-system: "Courier New", ui-monospace, "Cascadia Mono", monospace;
 
   /* Shadcn mappings */
   --color-background: var(--background);
@@ -68,38 +73,38 @@
 }
 
 :root {
-  --background: #FAF6F1;
-  --foreground: #1C1917;
+  --background: #FAF5F0;
+  --foreground: #3D2430;
   --card: #FFFFFF;
-  --card-foreground: #1C1917;
+  --card-foreground: #3D2430;
   --popover: #FFFFFF;
-  --popover-foreground: #1C1917;
-  --primary: #6B2D3E;
-  --primary-foreground: #FAF6F1;
+  --popover-foreground: #3D2430;
+  --primary: #6A2C3E;
+  --primary-foreground: #FAF5F0;
   --secondary: #F2EBE3;
-  --secondary-foreground: #1C1917;
+  --secondary-foreground: #3D2430;
   --muted: #F2EBE3;
   --muted-foreground: #78716C;
-  --accent: #F0E0D6;
-  --accent-foreground: #1C1917;
+  --accent: #F0E4E8;
+  --accent-foreground: #3D2430;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #E7DFD6;
   --input: #E7DFD6;
-  --ring: #6B2D3E;
-  --chart-1: #6B2D3E;
+  --ring: #6A2C3E;
+  --chart-1: #6A2C3E;
   --chart-2: #8B4D5E;
   --chart-3: #C4B5CE;
-  --chart-4: #F0E0D6;
+  --chart-4: #F0E4E8;
   --chart-5: #F2EBE3;
   --radius: 0.5rem;
-  --sidebar: #FAF6F1;
-  --sidebar-foreground: #1C1917;
-  --sidebar-primary: #6B2D3E;
-  --sidebar-primary-foreground: #FAF6F1;
+  --sidebar: #FAF5F0;
+  --sidebar-foreground: #3D2430;
+  --sidebar-primary: #6A2C3E;
+  --sidebar-primary-foreground: #FAF5F0;
   --sidebar-accent: #F2EBE3;
-  --sidebar-accent-foreground: #1C1917;
+  --sidebar-accent-foreground: #3D2430;
   --sidebar-border: #E7DFD6;
-  --sidebar-ring: #6B2D3E;
+  --sidebar-ring: #6A2C3E;
 }
 
 @layer base {
