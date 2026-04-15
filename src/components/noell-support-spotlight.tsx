@@ -31,14 +31,14 @@ export function NoellSupportSpotlight() {
                   is the product.
                 </span>
               </h2>
-              <p className="mt-5 text-charcoal/65 leading-relaxed">
+              <p className="mt-5 text-charcoal/80 leading-relaxed">
                 Noell Support is the new-prospect intake layer. First
                 response, qualification, contact capture, routing, and
                 booking-link handoff. It is not trying to be a full front
                 desk. That is Noell Front Desk, the separate operations
                 layer.
               </p>
-              <p className="mt-4 text-sm text-charcoal/60 leading-relaxed">
+              <p className="mt-4 text-sm text-charcoal/75 leading-relaxed">
                 Pop the widget open if you want to see it respond. The
                 version you are looking at is the same one we install for
                 clients.

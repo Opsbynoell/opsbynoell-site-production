@@ -78,7 +78,7 @@ export function LogoCloud() {
               this was built for you.
             </span>
           </h2>
-          <p className="mt-4 text-charcoal/60">
+          <p className="mt-4 text-charcoal/75">
             Ops by Noell is for service businesses where the owner is in the
             work all day and the front desk cannot also be the marketing team.
           </p>
@@ -103,7 +103,7 @@ export function LogoCloud() {
                     &rarr;
                   </span>
                 </div>
-                <p className="text-xs md:text-sm text-charcoal/65 leading-relaxed">
+                <p className="text-xs md:text-sm text-charcoal/80 leading-relaxed">
                   {v.identity}
                 </p>
               </div>

@@ -63,7 +63,7 @@ export function Systems() {
               Zero setup on your end.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
             Your leads get qualified instantly. Your phone gets answered. Your
             clients get taken care of. All running in the background while you
             work. Start with the layer you need. Expand when you are ready.
@@ -102,7 +102,7 @@ export function Systems() {
               <p className="font-mono text-[10px] text-charcoal/40 mb-3">
                 {agent.handle}
               </p>
-              <p className="text-sm text-charcoal/70 leading-relaxed">
+              <p className="text-sm text-charcoal/80 leading-relaxed">
                 {agent.description}
               </p>
               <div className="mt-6 pt-4 border-t border-warm-border flex items-center justify-between">

@@ -71,10 +71,7 @@ export function Hero({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={cn(
-              "inline-block bg-gradient-to-b from-charcoal to-[rgba(28,25,23,0.85)]",
-              "bg-clip-text text-transparent"
-            )}
+            className="inline-block text-charcoal"
           >
             {headlineLine1Start}{" "}
             <span
@@ -87,10 +84,7 @@ export function Hero({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className={cn(
-              "inline-block bg-gradient-to-b from-charcoal to-[rgba(28,25,23,0.85)]",
-              "bg-clip-text text-transparent py-2"
-            )}
+            className="inline-block text-charcoal py-2"
           >
             {headlineLine2Start}{" "}
             <span
@@ -106,7 +100,7 @@ export function Hero({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-4 max-w-2xl px-4 text-center text-base/7 text-charcoal/70"
+        className="relative z-20 mx-auto mt-4 max-w-2xl px-4 text-center text-base/7 text-charcoal/80"
       >
         {body}
       </motion.p>
@@ -116,7 +110,7 @@ export function Hero({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/50"
+          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/65"
         >
           {footnote}
         </motion.p>

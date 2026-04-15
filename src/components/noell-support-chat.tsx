@@ -7,14 +7,14 @@ import { IconMessageCircle, IconX, IconSend } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
 type Message = {
-  from: "nova" | "visitor";
+  from: "agent" | "visitor";
   text: string;
   timestamp?: string;
 };
 
 const initialConversation: Message[] = [
   {
-    from: "nova",
+    from: "agent",
     text: "Hi, I'm Noell Support, the new-prospect intake layer for Ops by Noell. I can help you get started. Are you looking to book a free audit, ask about our systems, or something else?",
     timestamp: "now",
   },
@@ -30,31 +30,31 @@ const starterChips = [
 const responseFlow: Record<string, Message[]> = {
   "i'm missing calls": [
     {
-      from: "nova",
+      from: "agent",
       text: "That's exactly what the Noell system catches. When a call goes unanswered, we auto-text the prospect in under 10 seconds with a booking link.",
     },
     {
-      from: "nova",
+      from: "agent",
       text: "To get you a tailored audit, can I grab your name and the best number? I'll route this to Noell for a 30-minute call.",
     },
   ],
   "book an audit": [
     {
-      from: "nova",
+      from: "agent",
       text: "Perfect. The audit is free, 30 minutes, and you walk away with a map of where leads are leaking, whether you work with us or not.",
     },
     {
-      from: "nova",
+      from: "agent",
       text: "Share your name + best contact number and I'll route this straight to Noell's calendar.",
     },
   ],
   "what does noell support do?": [
     {
-      from: "nova",
+      from: "agent",
       text: "I'm Noell Support. I handle first response, qualification, contact capture, routing, and booking-link handoff. Anything I can't resolve I escalate to a human with full context.",
     },
     {
-      from: "nova",
+      from: "agent",
       text: "Noell Front Desk is the separate operations layer that handles calls, scheduling, reminders, and reactivation. Want to see an audit of what the Noell system would catch on your site?",
     },
   ],
@@ -62,16 +62,16 @@ const responseFlow: Record<string, Message[]> = {
 
 const contactCaptureResponse: Message[] = [
   {
-    from: "nova",
+    from: "agent",
     text: "Got it, thanks. I've captured your contact and routed this to Noell. You'll get a text with audit times within the hour. Meanwhile, the booking link is here: www.opsbynoell.com/book",
   },
   {
-    from: "nova",
+    from: "agent",
     text: "Anything else I can help with? Otherwise I'll hand off from here.",
   },
 ];
 
-export function NovaChat() {
+export function NoellSupportChat() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialConversation);
@@ -134,7 +134,7 @@ export function NovaChat() {
       // Generic intro response
       pushResponses([
         {
-          from: "nova",
+          from: "agent",
           text: "Got it. To route you to the right place, can I grab your name and best contact number? I'll make sure Noell sees this within the hour.",
         },
       ]);
@@ -142,7 +142,7 @@ export function NovaChat() {
     } else {
       pushResponses([
         {
-          from: "nova",
+          from: "agent",
           text: "Understood. I've logged this and you'll hear back soon. In the meantime, feel free to book directly at opsbynoell.com/book.",
         },
       ]);
@@ -289,18 +289,18 @@ export function NovaChat() {
 }
 
 function MessageBubble({ msg }: { msg: Message }) {
-  const isNova = msg.from === "nova";
+  const isAgent = msg.from === "agent";
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25 }}
-      className={cn("flex", isNova ? "justify-start" : "justify-end")}
+      className={cn("flex", isAgent ? "justify-start" : "justify-end")}
     >
       <div
         className={cn(
           "max-w-[82%] px-4 py-2.5 text-sm leading-relaxed rounded-[17px]",
-          isNova
+          isAgent
             ? "bg-white border border-warm-border text-charcoal rounded-bl-md shadow-sm"
             : "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white rounded-br-md shadow-md"
         )}

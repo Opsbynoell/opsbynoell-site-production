@@ -51,7 +51,7 @@ export function Features({
             {headlineAccent}
           </span>
         </h2>
-        <p className="text-charcoal/60 max-w-xl mx-auto">{body}</p>
+        <p className="text-charcoal/75 max-w-xl mx-auto">{body}</p>
       </div>
 
       <div
@@ -80,7 +80,7 @@ export function Features({
               <h3 className="font-serif text-4xl md:text-5xl font-bold mb-2 text-charcoal">
                 {stat.value}
               </h3>
-              <p className="text-sm text-charcoal/60 leading-relaxed">
+              <p className="text-sm text-charcoal/75 leading-relaxed">
                 {stat.detail}
               </p>
             </div>

@@ -97,7 +97,7 @@ const PricingCard = ({ tier }: { tier: PricingTier }) => {
               </span>
             )}
           </div>
-          <p className="mt-2 text-sm text-charcoal/60 leading-relaxed">
+          <p className="mt-2 text-sm text-charcoal/75 leading-relaxed">
             {tier.tagline}
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function Pricing() {
           <br className="hidden md:block" />
           <span className="italic text-wine">Three</span> ways to run it.
         </h2>
-        <p className="text-charcoal/60 max-w-xl mx-auto">
+        <p className="text-charcoal/75 max-w-xl mx-auto">
           The packages stay simple. What changes is how much Noell Support
           coverage, smart automation, and implementation support you want
           running behind the scenes for your business.

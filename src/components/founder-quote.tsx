@@ -27,7 +27,7 @@ export function FounderQuote() {
             </span>
           </p>
 
-          <p className="mt-5 text-sm md:text-base text-charcoal/65 leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="mt-5 text-sm md:text-base text-charcoal/80 leading-relaxed text-center max-w-2xl mx-auto">
             We are the Noells. We build, install, and run the system so the
             calls get answered, the follow-ups go out, and your calendar stays
             full. You stay focused on the work in front of you. We do the
@@ -37,7 +37,7 @@ export function FounderQuote() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
-              Nikki · Ops by Noell · www.opsbynoell.com/book
+              Nikki · Ops by Noell
             </p>
           </div>
         </div>

@@ -100,7 +100,7 @@ export function Features3({
               {headlineAccent}
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">{body}</p>
+          <p className="mt-5 text-charcoal/75 max-w-xl mx-auto">{body}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -134,7 +134,7 @@ export function Features3({
               <h3 className="text-xl font-semibold text-charcoal mb-2">
                 {cap.title}
               </h3>
-              <p className="text-sm text-charcoal/60 leading-relaxed mb-5">
+              <p className="text-sm text-charcoal/75 leading-relaxed mb-5">
                 {cap.description}
               </p>
               <ul className="space-y-2 pt-4 border-t border-warm-border">

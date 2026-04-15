@@ -5,10 +5,9 @@ import Link from "next/link";
 import { IconMail, IconArrowRight } from "@tabler/icons-react";
 
 /**
- * BookingEmbed, GoHighLevel scheduler embed with a branded loading state.
+ * BookingEmbed, calendar scheduler embed with a branded loading state.
  *
- * Reads the scheduler URL from NEXT_PUBLIC_BOOKING_URL. Expected format is
- * https://api.leadconnectorhq.com/widget/booking/[CALENDAR_ID].
+ * Reads the scheduler URL from NEXT_PUBLIC_BOOKING_URL.
  *
  * While the iframe loads (and during cold starts), a cream / ink plum /
  * Courier New skeleton keeps the page feeling authored rather than stuck.

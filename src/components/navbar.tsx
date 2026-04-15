@@ -16,7 +16,7 @@ interface NavbarProps {
   navItems: {
     name: string;
     link: string;
-    nova?: boolean;
+    isAccent?: boolean;
   }[];
   visible: boolean;
 }
@@ -27,7 +27,7 @@ export const Navbar = () => {
     { name: "Systems", link: "/#systems" },
     { name: "Verticals", link: "/verticals" },
     { name: "Pricing", link: "/#pricing" },
-    { name: "Noell Support", link: "/noell-support", nova: true },
+    { name: "Noell Support", link: "/noell-support", isAccent: true },
     { name: "Book", link: "/book" },
   ];
 
@@ -95,7 +95,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
               className="text-charcoal/80 hover:text-charcoal relative px-3 py-1.5 transition-colors flex items-center gap-1.5"
               href={navItem.link}
             >
-              {navItem.nova && (
+              {navItem.isAccent && (
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-lilac-dark" />
               )}
               <span className="relative z-10">{navItem.name}</span>
@@ -203,7 +203,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                   onClick={() => setOpen(false)}
                   className="relative text-charcoal/90 hover:text-charcoal transition-colors flex items-center gap-2"
                 >
-                  {navItem.nova && (
+                  {navItem.isAccent && (
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-lilac-dark" />
                   )}
                   <span className="block">{navItem.name}</span>

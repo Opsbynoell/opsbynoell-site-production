@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { NovaChat } from "@/components/nova-chat";
+import { NoellSupportChat } from "@/components/noell-support-chat";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -69,7 +69,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 pt-4">{children}</main>
         <Footer />
-        <NovaChat />
+        <NoellSupportChat />
       </body>
     </html>
   );
