@@ -5,7 +5,7 @@ export function Footer() {
   const pages = [
     { title: "Home", href: "/" },
     { title: "Systems", href: "/#systems" },
-    { title: "Verticals", href: "/#verticals" },
+    { title: "Verticals", href: "/verticals" },
     { title: "Pricing", href: "/#pricing" },
     { title: "Book", href: "/book" },
   ];
@@ -18,12 +18,13 @@ export function Footer() {
   ];
 
   const verticals = [
-    { title: "Dental Offices", href: "/#verticals" },
-    { title: "Med Spas", href: "/#verticals" },
-    { title: "Salons", href: "/#verticals" },
-    { title: "Massage Therapy", href: "/#verticals" },
-    { title: "Estheticians", href: "/#verticals" },
-    { title: "HVAC", href: "/#verticals" },
+    { title: "Dental Offices", href: "/verticals/dental" },
+    { title: "Med Spas", href: "/verticals#med-spas" },
+    { title: "Salons", href: "/verticals#salons" },
+    { title: "Massage Therapy", href: "/verticals#massage" },
+    { title: "Estheticians", href: "/verticals#estheticians" },
+    { title: "HVAC", href: "/verticals#hvac" },
+    { title: "All verticals", href: "/verticals" },
   ];
 
   const legal = [

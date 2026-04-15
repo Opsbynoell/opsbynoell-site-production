@@ -25,7 +25,7 @@ export const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Systems", link: "/#systems" },
-    { name: "Verticals", link: "/#verticals" },
+    { name: "Verticals", link: "/verticals" },
     { name: "Pricing", link: "/#pricing" },
     { name: "Noell Support", link: "/noell-support", nova: true },
     { name: "Book", link: "/book" },

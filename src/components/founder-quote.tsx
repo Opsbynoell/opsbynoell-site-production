@@ -2,7 +2,7 @@ import React from "react";
 import { LogoMark } from "./logo";
 
 /**
- * FounderQuote — a short, early founder-presence band.
+ * FounderQuote, a short early founder-presence band.
  *
  * Lives near the top of the homepage, right after the hero, to trigger the
  * "a real person built this" signal within the first 10 seconds. Done as a

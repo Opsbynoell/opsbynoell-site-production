@@ -15,7 +15,7 @@ import Link from "next/link";
  *   Used in the navbar and the footer.
  */
 
-const PLUM = "#5A1F30"; // matches --color-wine-dark in globals.css
+const PLUM = "#6A2C3E"; // matches --color-wine in globals.css (Ops by Noell Wine)
 
 export const LogoMark = ({ className }: { className?: string }) => (
   <svg

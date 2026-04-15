@@ -148,7 +148,7 @@ export default function NoellSupportPage() {
         body="Noell Support catches the prospects you can't get to. Responds instantly, qualifies the lead, captures their info, routes them, and hands them off to you or your booking link."
         footnote="Noell Support is the entry layer of the Noell system. Noell Front Desk runs operations. Noell Care looks after existing clients."
         primaryCta={{ label: "Get Noell Support on your site", href: "/book" }}
-        secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
+        secondaryCta={{ label: "See how Noell responds", href: "#how-noell-responds" }}
         mockScreen={supportScreen}
       />
 
@@ -289,7 +289,8 @@ export default function NoellSupportPage() {
         </div>
       </section>
 
-      {/* Relief, what life looks like */}
+      {/* Relief, the step-by-step flow: how Noell responds */}
+      <div id="how-noell-responds" className="scroll-mt-24" />
       <Features3
         accent="lilac"
         eyebrow="What it feels like"
