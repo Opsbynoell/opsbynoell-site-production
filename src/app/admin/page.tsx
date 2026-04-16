@@ -8,6 +8,7 @@ type Filter = "all" | AgentKind;
 
 interface Session {
   id: string;
+  client_id: string | null;
   agent: AgentKind;
   visitor_name: string | null;
   visitor_phone: string | null;
@@ -20,6 +21,13 @@ interface Session {
   trigger_type: string | null;
   created_at: string;
   updated_at: string;
+}
+
+interface MeResponse {
+  authenticated: boolean;
+  email?: string;
+  isSuperAdmin?: boolean;
+  accessibleClients?: string[];
 }
 
 const AGENT_LABELS: Record<AgentKind, string> = {
@@ -55,15 +63,35 @@ export default function AdminInbox() {
   const router = useRouter();
   const [sessions, setSessions] = useState<Session[]>([]);
   const [filter, setFilter] = useState<Filter>("all");
+  const [clientFilter, setClientFilter] = useState<string>("all");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [me, setMe] = useState<MeResponse | null>(null);
+
+  // Fetch current user info once on mount
+  useEffect(() => {
+    fetch("/api/admin/me")
+      .then((r) => r.json())
+      .then((d: MeResponse) => {
+        if (!d.authenticated) {
+          router.replace("/admin/login");
+        } else {
+          setMe(d);
+        }
+      })
+      .catch(() => router.replace("/admin/login"));
+  }, [router]);
 
   const fetchSessions = useCallback(async () => {
+    if (!me) return;
     try {
-      const url =
-        filter === "all"
-          ? "/api/admin/sessions"
-          : `/api/admin/sessions?agent=${filter}`;
+      const params = new URLSearchParams();
+      if (filter !== "all") params.set("agent", filter);
+      // Super admins can filter by client; non-super-admins are auto-scoped
+      if (me.isSuperAdmin && clientFilter !== "all") {
+        params.set("clientId", clientFilter);
+      }
+      const url = `/api/admin/sessions${params.size ? "?" + params.toString() : ""}`;
       const res = await fetch(url);
       if (res.status === 401) {
         router.replace("/admin/login");
@@ -76,13 +104,14 @@ export default function AdminInbox() {
     } finally {
       setLoading(false);
     }
-  }, [filter, router]);
+  }, [filter, clientFilter, me, router]);
 
   useEffect(() => {
+    if (!me) return;
     fetchSessions();
     const interval = setInterval(fetchSessions, 2000);
     return () => clearInterval(interval);
-  }, [fetchSessions]);
+  }, [fetchSessions, me]);
 
   async function handleLogout() {
     await fetch("/api/admin/logout", { method: "POST" });
@@ -92,6 +121,11 @@ export default function AdminInbox() {
   const active = sessions.filter((s) => !s.resolved_at);
   const resolved = sessions.filter((s) => s.resolved_at);
   const totalUnread = sessions.reduce((sum, s) => sum + (s.unread_count ?? 0), 0);
+
+  // Collect unique client IDs seen in current sessions (for super admin filter)
+  const clientIds = me?.isSuperAdmin
+    ? Array.from(new Set(sessions.map((s) => s.client_id).filter(Boolean) as string[]))
+    : [];
 
   return (
     <div className="flex flex-col h-screen">
@@ -110,40 +144,78 @@ export default function AdminInbox() {
             </span>
           )}
         </div>
-        <button
-          onClick={handleLogout}
-          className="text-xs text-charcoal/50 hover:text-charcoal transition-colors"
-        >
-          Sign out
-        </button>
-      </header>
-
-      {/* Filter tabs */}
-      <div className="bg-white border-b border-warm-border px-6 flex gap-1 shrink-0">
-        {FILTER_TABS.map((tab) => {
-          const count =
-            tab.value === "all"
-              ? sessions.length
-              : sessions.filter((s) => s.agent === tab.value).length;
-          return (
-            <button
-              key={tab.value}
-              onClick={() => setFilter(tab.value)}
-              className={`relative px-3 py-2.5 text-xs font-medium transition-colors ${
-                filter === tab.value
-                  ? "text-wine border-b-2 border-wine -mb-px"
-                  : "text-charcoal/50 hover:text-charcoal"
-              }`}
-            >
-              {tab.label}
-              {count > 0 && (
-                <span className="ml-1.5 text-[10px] text-charcoal/40">
-                  {count}
+        <div className="flex items-center gap-4">
+          {me?.email && (
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-charcoal/50">{me.email}</span>
+              {me.isSuperAdmin && (
+                <span className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-wine/10 text-wine">
+                  super admin
                 </span>
               )}
-            </button>
-          );
-        })}
+              {me.isSuperAdmin && (
+                <a
+                  href="/admin/users"
+                  className="text-xs text-charcoal/40 hover:text-charcoal transition-colors ml-1"
+                >
+                  Users
+                </a>
+              )}
+            </div>
+          )}
+          <button
+            onClick={handleLogout}
+            className="text-xs text-charcoal/50 hover:text-charcoal transition-colors"
+          >
+            Sign out
+          </button>
+        </div>
+      </header>
+
+      {/* Filter tabs + client filter */}
+      <div className="bg-white border-b border-warm-border px-6 flex items-center justify-between shrink-0">
+        <div className="flex gap-1">
+          {FILTER_TABS.map((tab) => {
+            const count =
+              tab.value === "all"
+                ? sessions.length
+                : sessions.filter((s) => s.agent === tab.value).length;
+            return (
+              <button
+                key={tab.value}
+                onClick={() => setFilter(tab.value)}
+                className={`relative px-3 py-2.5 text-xs font-medium transition-colors ${
+                  filter === tab.value
+                    ? "text-wine border-b-2 border-wine -mb-px"
+                    : "text-charcoal/50 hover:text-charcoal"
+                }`}
+              >
+                {tab.label}
+                {count > 0 && (
+                  <span className="ml-1.5 text-[10px] text-charcoal/40">
+                    {count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Client filter — super admin only */}
+        {me?.isSuperAdmin && clientIds.length > 0 && (
+          <select
+            value={clientFilter}
+            onChange={(e) => setClientFilter(e.target.value)}
+            className="text-xs bg-cream border border-warm-border rounded-lg px-2 py-1.5 text-charcoal focus:outline-none focus:border-wine/50"
+          >
+            <option value="all">All clients</option>
+            {clientIds.map((id) => (
+              <option key={id} value={id}>
+                {id}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
 
       {/* Session list */}
@@ -169,7 +241,7 @@ export default function AdminInbox() {
                   Active ({active.length})
                 </p>
                 {active.map((s) => (
-                  <SessionCard key={`${s.agent}-${s.id}`} session={s} />
+                  <SessionCard key={`${s.agent}-${s.id}`} session={s} showClient={me?.isSuperAdmin ?? false} />
                 ))}
               </div>
             )}
@@ -179,7 +251,7 @@ export default function AdminInbox() {
                   Resolved ({resolved.length})
                 </p>
                 {resolved.map((s) => (
-                  <SessionCard key={`${s.agent}-${s.id}`} session={s} />
+                  <SessionCard key={`${s.agent}-${s.id}`} session={s} showClient={me?.isSuperAdmin ?? false} />
                 ))}
               </div>
             )}
@@ -190,7 +262,13 @@ export default function AdminInbox() {
   );
 }
 
-function SessionCard({ session: s }: { session: Session }) {
+function SessionCard({
+  session: s,
+  showClient,
+}: {
+  session: Session;
+  showClient: boolean;
+}) {
   const router = useRouter();
   const display =
     s.visitor_name ??
@@ -224,6 +302,11 @@ function SessionCard({ session: s }: { session: Session }) {
             >
               {AGENT_LABELS[s.agent]}
             </span>
+            {showClient && s.client_id && (
+              <span className="shrink-0 text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/50">
+                {s.client_id}
+              </span>
+            )}
             {s.human_takeover && (
               <span className="shrink-0 text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700">
                 Human

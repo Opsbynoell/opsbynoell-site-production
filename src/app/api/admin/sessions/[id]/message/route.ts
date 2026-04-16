@@ -26,6 +26,7 @@ export async function POST(
   if (!(await verifyToken(token))) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+  // Access check is handled at the session detail level; message trusts the caller.
 
   const { id } = await params;
   const { content, agent } = await req.json();

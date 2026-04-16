@@ -21,9 +21,9 @@ type ClientRow = {
   support_booking_url?: string | null;
   front_desk_system_prompt?: string | null;
   calendar_provider?: ClientConfig["calendarProvider"] | null;
-  calendar_config?: Record<string, string>;
+  calendar_config?: Record<string, unknown>;
   sms_provider?: ClientConfig["smsProvider"] | null;
-  sms_config?: Record<string, string>;
+  sms_config?: Record<string, unknown>;
   missed_call_text_template?: string | null;
   reminder_cadence?: string[];
   review_platform?: ClientConfig["reviewPlatform"] | null;

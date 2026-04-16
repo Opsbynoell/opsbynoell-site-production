@@ -18,7 +18,7 @@ import { getClientConfig } from "@/lib/agents/config";
 import { getSmsIntegration } from "@/lib/agents/integrations/registry";
 import { sbInsert } from "@/lib/agents/supabase";
 import { sendTelegramAlert } from "@/lib/agents/telegram";
-import type { MissedCallPayload } from "@/lib/agents/types";
+import type { MissedCallPayload, TemplateParams } from "@/lib/agents/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -52,10 +52,11 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
+  const isWhatsApp = cfg.smsProvider === "ghl_whatsapp";
   const session = await sbInsert<{ id: string }>("front_desk_sessions", {
     client_id: body.clientId,
     trigger_type: "missed_call",
-    channel: "sms",
+    channel: isWhatsApp ? "whatsapp" : "sms",
     visitor_name: body.contactName,
     visitor_phone: body.from,
     notes: body.callSid ? `callSid=${body.callSid}` : null,
@@ -73,12 +74,30 @@ export async function POST(req: Request): Promise<Response> {
   let smsError: string | undefined;
   try {
     const sms = getSmsIntegration(cfg);
-    await sms.sendSMS(body.from, text);
+    // For WhatsApp providers, prefer sendTemplate if a template ID is configured.
+    // Falls back to free-form sendSMS automatically if templateId is empty
+    // (e.g. before Meta approval).
+    if (sms.isWhatsApp && sms.sendTemplate) {
+      const templateId =
+        (cfg.smsConfig?.templates as Record<string, string> | undefined)
+          ?.missedCallTextback ?? "";
+      const params: TemplateParams = {
+        BODY: {
+          params: [
+            cfg.brandName ?? cfg.businessName,
+            body.contactName?.split(" ")[0] ?? "",
+          ],
+        },
+      };
+      await sms.sendTemplate(body.from, templateId, params);
+    } else {
+      await sms.sendSMS(body.from, text);
+    }
     await sbInsert("front_desk_messages", {
       session_id: session.id,
       role: "bot",
       content: text,
-      metadata: { trigger: "missed_call" },
+      metadata: { trigger: "missed_call", channel: isWhatsApp ? "whatsapp" : "sms" },
     });
   } catch (e) {
     smsError = (e as Error).message;

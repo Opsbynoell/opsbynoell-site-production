@@ -8,6 +8,7 @@ function AdminLoginForm() {
   const params = useSearchParams();
   const next = params.get("next") ?? "/admin";
 
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ function AdminLoginForm() {
       const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ email: email || undefined, password }),
       });
       if (res.ok) {
         router.replace(next);
@@ -73,6 +74,25 @@ function AdminLoginForm() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label
+                htmlFor="email"
+                className="block text-xs font-medium text-charcoal/70 mb-1.5"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@opsbynoell.com"
+                autoFocus
+                autoComplete="email"
+                className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+              />
+            </div>
+
+            <div>
+              <label
                 htmlFor="password"
                 className="block text-xs font-medium text-charcoal/70 mb-1.5"
               >
@@ -83,8 +103,8 @@ function AdminLoginForm() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter admin password"
-                autoFocus
+                placeholder="Password"
+                autoComplete="current-password"
                 className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
               />
             </div>

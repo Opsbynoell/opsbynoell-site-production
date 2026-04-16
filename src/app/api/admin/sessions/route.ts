@@ -3,7 +3,8 @@
  *
  * Returns sessions from all three agents in a unified format,
  * sorted by last activity descending. Caller can pass ?agent=support|frontDesk|care
- * to filter.
+ * to filter, and ?clientId=<id> to filter by client (super admin only; non-super
+ * admins are automatically scoped to their accessible clients).
  *
  * The Support agent uses camelCase column names (legacy Noell Support schema).
  * Front Desk and Care use snake_case (new agent schema).
@@ -21,6 +22,7 @@ type AgentFilter = "all" | "support" | "frontDesk" | "care";
 
 interface NormalizedSession {
   id: string;
+  client_id: string | null;
   agent: "support" | "frontDesk" | "care";
   visitor_name: string | null;
   visitor_phone: string | null;
@@ -51,20 +53,30 @@ function restUrl(path: string) {
 async function fetchSessions(
   table: string,
   agent: "support" | "frontDesk" | "care",
-  messagesTable: string
+  messagesTable: string,
+  clientIds: string[] | null // null = no filter (super admin)
 ): Promise<NormalizedSession[]> {
-  // Fetch sessions
+  // Build client_id filter for snake_case tables
+  let clientFilter = "";
+  if (clientIds !== null && clientIds.length > 0) {
+    const ids = clientIds.map(encodeURIComponent).join(",");
+    // snake_case tables use client_id; camelCase legacy uses clientId
+    const col = table === "chatSessions" ? "clientId" : "client_id";
+    clientFilter = `&${col}=in.(${ids})`;
+  } else if (clientIds !== null && clientIds.length === 0) {
+    // No accessible clients — return empty
+    return [];
+  }
+
   const sessRes = await fetch(
-    `${restUrl(table)}?select=*&order=updated_at.desc,updatedAt.desc&limit=200`,
+    `${restUrl(table)}?select=*&order=updated_at.desc,updatedAt.desc&limit=200${clientFilter}`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   if (!sessRes.ok) return [];
   const sessions = (await sessRes.json()) as Record<string, unknown>[];
-
   if (!sessions.length) return [];
 
-  // Fetch latest message per session (one batch query using OR filter)
-  const ids = sessions.map((s) => s.id as string).join(",");
+  // Fetch latest message per session
   const msgRes = await fetch(
     `${restUrl(messagesTable)}?select=session_id,sessionId,content,role,created_at,createdAt&order=created_at.desc,createdAt.desc&limit=400`,
     { headers: supabaseHeaders(), cache: "no-store" }
@@ -73,7 +85,6 @@ async function fetchSessions(
     ? ((await msgRes.json()) as Record<string, unknown>[])
     : [];
 
-  // Build last-message map
   const lastMsg: Record<string, string> = {};
   for (const m of allMessages) {
     const sid = (m.session_id ?? m.sessionId) as string;
@@ -84,6 +95,8 @@ async function fetchSessions(
 
   return sessions.map((s) => ({
     id: s.id as string,
+    client_id:
+      ((s.client_id ?? s.clientId) as string | null) ?? null,
     agent,
     visitor_name: ((s.visitor_name ?? s.visitorName) as string) ?? null,
     visitor_phone: ((s.visitor_phone ?? s.visitorPhone) as string) ?? null,
@@ -92,8 +105,7 @@ async function fetchSessions(
     unread_count: ((s.unread_count ?? s.unreadCount) as number) ?? 0,
     human_takeover:
       ((s.human_takeover ?? s.humanTakeover) as boolean) ?? false,
-    resolved_at:
-      ((s.resolved_at ?? s.resolvedAt) as string) ?? null,
+    resolved_at: ((s.resolved_at ?? s.resolvedAt) as string) ?? null,
     intent: (s.intent as string) ?? null,
     trigger_type: (s.trigger_type as string) ?? null,
     created_at:
@@ -105,22 +117,39 @@ async function fetchSessions(
 
 export async function GET(req: NextRequest): Promise<Response> {
   const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (!(await verifyToken(token))) {
+  const payload = await verifyToken(token);
+  if (!payload) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const filter = (req.nextUrl.searchParams.get("agent") ?? "all") as AgentFilter;
+  const clientIdParam = req.nextUrl.searchParams.get("clientId");
+
+  // Determine client filter:
+  // - Super admin with no ?clientId filter → see everything (null = no filter)
+  // - Super admin with ?clientId → filter to that single client
+  // - Non-super-admin → always scoped to their accessibleClients
+  let clientFilter: string[] | null;
+  if (payload.isSuperAdmin) {
+    clientFilter = clientIdParam ? [clientIdParam] : null;
+  } else {
+    clientFilter = payload.accessibleClients;
+  }
+
+  // Non-super-admins don't see Noell Support (chatSessions) — those are internal
+  const showSupport =
+    (filter === "all" || filter === "support") && payload.isSuperAdmin;
 
   try {
     const [support, frontDesk, care] = await Promise.all([
-      filter === "all" || filter === "support"
-        ? fetchSessions("chatSessions", "support", "chatMessages")
+      showSupport
+        ? fetchSessions("chatSessions", "support", "chatMessages", null)
         : Promise.resolve([]),
       filter === "all" || filter === "frontDesk"
-        ? fetchSessions("front_desk_sessions", "frontDesk", "front_desk_messages")
+        ? fetchSessions("front_desk_sessions", "frontDesk", "front_desk_messages", clientFilter)
         : Promise.resolve([]),
       filter === "all" || filter === "care"
-        ? fetchSessions("care_sessions", "care", "care_messages")
+        ? fetchSessions("care_sessions", "care", "care_messages", clientFilter)
         : Promise.resolve([]),
     ]);
 

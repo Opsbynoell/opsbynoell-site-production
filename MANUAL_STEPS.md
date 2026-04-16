@@ -90,61 +90,165 @@ Or push any commit to trigger an automatic deploy.
 
 ---
 
-## Step 5 — Smoke test the admin dashboard
+## Step 5 — Supabase: Apply multi-tenant admin migration
 
-After deploy, navigate to:
+Run in the SQL editor:
+
+```
+supabase/migrations/0002_multi_tenant_admin.sql
+```
+
+This adds `email`, `password_hash`, `is_super_admin` columns to `users`, creates the `user_clients` join table, and fixes the `sms_provider` check constraint to include `ghl_whatsapp`.
+
+**Verify:**
+```sql
+SELECT column_name FROM information_schema.columns
+WHERE table_name = 'users' AND column_name IN ('email','password_hash','is_super_admin');
+-- Should return 3 rows
+
+SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'public' AND table_name = 'user_clients';
+-- Should return 1 row
+```
+
+---
+
+## Step 6 — Supabase: Seed admin users
+
+Before running, replace `EMAIL_PLACEHOLDER` in the seed with Santa's real email address:
+
+```
+supabase/seeds/0002_admin_users.sql
+```
+
+This creates:
+- **Nikki** (`nikkidowdell@gmail.com`) — super admin, sees all clients
+- **Santa** (`EMAIL_PLACEHOLDER`) — scoped to `client_id = 'santa'`
+
+Temp passwords:
+| User | Temp password |
+|---|---|
+| Nikki | `NoellAdmin2026!` |
+| Santa | `HealingHands2026!` |
+
+**Change these immediately after first login** via the Users page (`/admin/users`).
+
+---
+
+## Step 7 — Smoke test the admin dashboard
+
+Navigate to:
 
 ```
 https://www.opsbynoell.com/admin/login
 ```
 
-1. Enter the `ADMIN_PASSWORD` you set → should redirect to `/admin`
-2. `/admin` should load the inbox (may be empty if no sessions yet)
-3. Filter tabs (All / Noell Support / Front Desk / Care) should all be clickable
-4. Logout → should redirect back to `/admin/login`
+1. Log in with `nikkidowdell@gmail.com` + `NoellAdmin2026!`
+2. Should land on the inbox showing all three agent tabs
+3. Super admin badge + email should appear in the header top-right
+4. "Users" link in the header → opens `/admin/users`
+5. Create/edit/delete a test user to confirm the management UI works
+6. Log out → log in as Santa with her temp password
+7. Santa should only see Front Desk + Care sessions for `client_id = 'santa'`
+8. Santa should NOT see the "Noell Support" tab sessions
 
-**If you see a 500 on `/admin/login`:** env vars are likely not picked up — confirm they're set and redeploy.
+**Legacy ADMIN_PASSWORD still works** (no email field needed) for backward compatibility during transition.
+
+**If you see a 500 on `/admin/login`:** env vars (`ADMIN_SECRET`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) are likely not set — confirm and redeploy.
 
 ---
 
-## Step 6 — GHL wiring for Santa (Healing Hands by Santa)
+## Step 8 — GHL WhatsApp templates for Santa
 
-**GHL location ID:** `vdWqRPcn6jIx8AK0DlHF`
+**GHL location:** `vdWqRPcn6jIx8AK0DlHF`  
+**WhatsApp Business number:** `+19497849726`
 
-### 6a. Missed Call Text-Back workflow
-1. In Santa's GHL sub-account → Automation → New Workflow
-2. Trigger: **Missed Call**
-3. Action: **Send SMS** with this template (update `BOOKING_URL` first):
-   ```
-   Hi {{contact.first_name}}, this is Santa at Healing Hands. Sorry I missed your call — I was with a client. I'd love to get you on my calendar. Here are my next two open sessions: [SLOT_1] and [SLOT_2]. Book here: BOOKING_URL
-   ```
-4. Delay: 0 minutes (immediate)
-5. Enable workflow
+WhatsApp Business templates must be created in GHL and approved by Meta before outbound sends work.  
+Until approval the system falls back automatically to free-form SMS.
 
-### 6b. Appointment reminder workflow
-1. Trigger: **Appointment Scheduled**
-2. Action: **Wait** → 24 hours before appointment → **Send SMS** (confirmation reminder)
-3. Action: **Wait** → 2 hours before appointment → **Send SMS** (same-day reminder)
-4. Reminder copy:
-   ```
-   Hi {{contact.first_name}}, just a reminder you have a session with Santa tomorrow at {{appointment.start_time}}. Reply CONFIRM to confirm or call/text PHONE_PLACEHOLDER to reschedule.
-   ```
+### 6a. Create the templates in GHL
 
-### 6c. Review request workflow
-1. Trigger: **Appointment Status Changed to Completed**
-2. Action: **Wait** → 2 hours
-3. Action: **Send SMS**:
-   ```
-   Hi {{contact.first_name}}, thank you for coming in today. If you have a moment, a Google review means a lot to a small practice like mine: GOOGLE_REVIEW_PLACEHOLDER. — Santa
-   ```
+Go to Santa's GHL sub-account → **Settings → WhatsApp → Templates → New Template**  
+Create all five templates below. Set category to **UTILITY** for all of them.
 
-### 6d. Reactivation workflow
-1. Trigger: **Tag Added** → tag: `reactivation-candidate`  
-   *(Or use a date-based trigger: last appointment > 75 days ago)*
-2. Action: **Send SMS**:
-   ```
-   Hi {{contact.first_name}}, it's been a while and I'd love to see you back on my table. I have openings next week — book here: BOOKING_URL
-   ```
+---
+
+**Template name:** `healing_hands_missed_call`  
+**Body text:**
+```
+Hi {{1}}, this is {{2}} at Healing Hands. Sorry I missed your call — I was with a client. I'd love to get you on my calendar: {{3}}
+```
+Variables: `{{1}}` = first name, `{{2}}` = "Santa", `{{3}}` = booking URL
+
+---
+
+**Template name:** `healing_hands_appt_confirmation`  
+**Body text:**
+```
+Hi {{1}}, you're confirmed with Santa on {{2}} for {{3}}. Reply R to reschedule or C to confirm. See you then!
+```
+Variables: `{{1}}` = first name, `{{2}}` = date/time, `{{3}}` = service
+
+---
+
+**Template name:** `healing_hands_appt_reminder`  
+**Body text:**
+```
+Hey {{1}} — quick reminder you're on the books {{2}} for {{3}} with Santa. Reply R if anything comes up.
+```
+Variables: `{{1}}` = first name, `{{2}}` = "tomorrow at 2pm" / "today at 2pm", `{{3}}` = service
+
+---
+
+**Template name:** `healing_hands_review_request`  
+**Body text:**
+```
+Hi {{1}}, thank you for coming in today. If you have a moment, a Google review means the world to a small practice like mine: {{2}} — Santa
+```
+Variables: `{{1}}` = first name, `{{2}}` = Google review URL
+
+---
+
+**Template name:** `healing_hands_reactivation`  
+**Body text:**
+```
+Hi {{1}}, it's been a while and I'd love to see you back on my table. I have openings this week: {{2}} — Santa
+```
+Variables: `{{1}}` = first name, `{{2}}` = booking URL
+
+---
+
+### 6b. After Meta approves the templates
+
+Once Meta approves each template, GHL assigns it an internal UUID (visible in Settings → WhatsApp → Templates).  
+Copy each UUID and update the `sms_config.templates` JSON in the `santa` clients row:
+
+```sql
+UPDATE public.clients
+SET sms_config = sms_config || jsonb_build_object(
+  'templates', jsonb_build_object(
+    'missedCallTextback',      '<GHL_UUID_FOR_healing_hands_missed_call>',
+    'appointmentConfirmation', '<GHL_UUID_FOR_healing_hands_appt_confirmation>',
+    'appointmentReminder',     '<GHL_UUID_FOR_healing_hands_appt_reminder>',
+    'reviewRequest',           '<GHL_UUID_FOR_healing_hands_review_request>',
+    'reactivation',            '<GHL_UUID_FOR_healing_hands_reactivation>'
+  )
+)
+WHERE id = 'santa';
+```
+
+Until these are filled in, the system sends free-form WhatsApp messages (works within 24-hour session windows).
+
+### 6c. Smoke test after template IDs are set
+
+```bash
+curl -X POST https://www.opsbynoell.com/api/front-desk/missed-call \
+  -H "Content-Type: application/json" \
+  -d '{"clientId":"santa","from":"+17145551234","contactName":"Test User"}'
+```
+
+Expected: `{"sessionId":"...","smsSent":true,"smsError":null}`  
+Check GHL Conversations for the contact `+17145551234` — should see a WhatsApp template message.
 
 ---
 

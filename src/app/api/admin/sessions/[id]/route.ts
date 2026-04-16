@@ -40,7 +40,8 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ): Promise<Response> {
   const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (!(await verifyToken(token))) {
+  const authPayload = await verifyToken(token);
+  if (!authPayload) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -76,6 +77,18 @@ export async function GET(
 
     if (!session) {
       return NextResponse.json({ error: "Session not found" }, { status: 404 });
+    }
+
+    // Access check for non-super-admins
+    if (!authPayload.isSuperAdmin) {
+      const sessionClientId =
+        ((session.client_id ?? session.clientId) as string | null) ?? null;
+      if (
+        !sessionClientId ||
+        !authPayload.accessibleClients.includes(sessionClientId)
+      ) {
+        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+      }
     }
 
     // Normalize session

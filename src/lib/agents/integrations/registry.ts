@@ -8,11 +8,12 @@
  * lives.
  */
 
-import { GhlCalendar, GhlSms } from "./ghl";
+import { GhlCalendar, GhlSms, GhlWhatsapp } from "./ghl";
 import { GenericCalendar, TwilioSms } from "./generic";
 import type {
   CalendarIntegration,
   ClientConfig,
+  MessagingIntegration,
   SMSIntegration,
 } from "../types";
 
@@ -24,9 +25,9 @@ export function getCalendarIntegration(
   switch (provider) {
     case "ghl":
       return new GhlCalendar({
-        locationId: conf.locationId,
-        calendarId: conf.calendarId,
-        apiKey: conf.apiKey,
+        locationId: conf.locationId as string,
+        calendarId: conf.calendarId as string | undefined,
+        apiKey: conf.apiKey as string | undefined,
       });
     case "generic":
       return new GenericCalendar({
@@ -44,14 +45,21 @@ export function getCalendarIntegration(
   }
 }
 
-export function getSmsIntegration(cfg: ClientConfig): SMSIntegration {
+export function getSmsIntegration(cfg: ClientConfig): MessagingIntegration {
   const provider = cfg.smsProvider ?? "generic";
   const conf = cfg.smsConfig ?? {};
   switch (provider) {
     case "ghl":
       return new GhlSms({
-        locationId: conf.locationId,
-        apiKey: conf.apiKey,
+        locationId: conf.locationId as string,
+        apiKey: conf.apiKey as string | undefined,
+      });
+    case "ghl_whatsapp":
+      return new GhlWhatsapp({
+        locationId: conf.locationId as string,
+        apiKey: conf.apiKey as string | undefined,
+        whatsappNumber: conf.whatsappNumber as string | undefined,
+        templates: conf.templates as Record<string, string> | undefined,
       });
     case "twilio":
     case "generic":

@@ -2,17 +2,21 @@
 -- Santa (Healing Hands by Santa) — clients row + knowledge_base seed
 -- Target project: clipzfkbzupjctherijz
 -- GHL location ID: vdWqRPcn6jIx8AK0DlHF
+-- WhatsApp number: +19497849726
 --
 -- Run AFTER: supabase/migrations/0001_agents_schema.sql
 --
 -- PLACEHOLDERS — must be updated before go-live (marked with PLACEHOLDER):
---   PHONE_PLACEHOLDER       → Santa's real phone number
---   EMAIL_PLACEHOLDER       → Santa's real email address
---   BOOKING_URL_PLACEHOLDER → GHL calendar booking link for Santa
---   REVIEW_URL_PLACEHOLDER  → Google Business review link
---   GOOGLE_REVIEW_PLACEHOLDER → same Google review link
---   INSTAGRAM_PLACEHOLDER   → Santa's Instagram handle/URL
---   TELEGRAM_CHAT_ID_PLACEHOLDER → Santa's Telegram chat ID for alerts
+--   PHONE_PLACEHOLDER              → Santa's real phone number
+--   EMAIL_PLACEHOLDER              → Santa's real email address
+--   BOOKING_URL_PLACEHOLDER        → GHL calendar booking link for Santa
+--   REVIEW_URL_PLACEHOLDER         → Google Business review link
+--   TELEGRAM_CHAT_ID_PLACEHOLDER   → Santa's Telegram chat ID for alerts
+--   WA_TEMPLATE_MISSED_CALL        → GHL WhatsApp template UUID for missed-call text-back
+--   WA_TEMPLATE_CONFIRMATION       → GHL WhatsApp template UUID for appt confirmation
+--   WA_TEMPLATE_REMINDER           → GHL WhatsApp template UUID for appt reminder
+--   WA_TEMPLATE_REVIEW             → GHL WhatsApp template UUID for review request
+--   WA_TEMPLATE_REACTIVATION       → GHL WhatsApp template UUID for reactivation
 -- ============================================================
 
 
@@ -80,10 +84,20 @@ Your job is to warmly greet new visitors, answer questions about services and bo
   'You are the automated front desk assistant for Healing Hands by Santa. When a client misses a call or sends an inbound text, respond promptly with warmth and clarity. Your goals are: (1) acknowledge the missed call or inquiry, (2) offer Santa''s next two available appointment slots, (3) provide the booking link. Keep messages brief, calm, and on-brand — never pushy. If the client has an existing appointment, confirm details and offer to reschedule if needed. Always sign off warmly on behalf of Santa.',
 
   'ghl',
-  '{"location_id": "vdWqRPcn6jIx8AK0DlHF"}'::jsonb,
+  '{"locationId": "vdWqRPcn6jIx8AK0DlHF"}'::jsonb,
 
-  'ghl',
-  '{"location_id": "vdWqRPcn6jIx8AK0DlHF"}'::jsonb,
+  'ghl_whatsapp',
+  '{
+    "locationId": "vdWqRPcn6jIx8AK0DlHF",
+    "whatsappNumber": "+19497849726",
+    "templates": {
+      "missedCallTextback":      "WA_TEMPLATE_MISSED_CALL",
+      "appointmentConfirmation": "WA_TEMPLATE_CONFIRMATION",
+      "appointmentReminder":     "WA_TEMPLATE_REMINDER",
+      "reviewRequest":           "WA_TEMPLATE_REVIEW",
+      "reactivation":            "WA_TEMPLATE_REACTIVATION"
+    }
+  }'::jsonb,
 
   'Hi, this is Santa at Healing Hands. Sorry I missed your call — I was with a client. I''d love to get you on my calendar. Here are my next two open sessions: {SLOT_1} and {SLOT_2}. Book here: BOOKING_URL_PLACEHOLDER',
 
@@ -148,8 +162,8 @@ ON CONFLICT (id) DO UPDATE SET
   front_desk_system_prompt= EXCLUDED.front_desk_system_prompt,
   calendar_provider       = EXCLUDED.calendar_provider,
   calendar_config         = EXCLUDED.calendar_config,
-  sms_provider            = EXCLUDED.sms_provider,
-  sms_config              = EXCLUDED.sms_config,
+  sms_provider              = EXCLUDED.sms_provider,
+  sms_config                = EXCLUDED.sms_config,
   missed_call_text_template = EXCLUDED.missed_call_text_template,
   reminder_cadence        = EXCLUDED.reminder_cadence,
   review_platform         = EXCLUDED.review_platform,

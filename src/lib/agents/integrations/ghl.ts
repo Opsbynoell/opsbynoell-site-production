@@ -22,7 +22,9 @@ import type {
   BookingRequest,
   BookingResult,
   CalendarIntegration,
+  MessagingIntegration,
   SMSIntegration,
+  TemplateParams,
   TimeSlot,
 } from "../types";
 
@@ -31,6 +33,20 @@ interface GhlConfig {
   calendarId?: string;
   /** Optional per-location API key. Falls back to the env key. */
   apiKey?: string;
+}
+
+interface GhlWhatsappConfig extends GhlConfig {
+  /** The WhatsApp Business phone number (e.g. '+19497849726'). */
+  whatsappNumber?: string;
+  /**
+   * Map of template purpose → GHL template ID.
+   * GHL template IDs are available in GHL Settings > WhatsApp > Templates
+   * once Meta has approved the template.
+   *
+   * Keys: missedCallTextback | appointmentConfirmation | appointmentReminder
+   *       | reviewRequest | reactivation
+   */
+  templates?: Record<string, string>;
 }
 
 function headers(cfg: GhlConfig): Record<string, string> {
@@ -252,6 +268,137 @@ export class GhlSms implements SMSIntegration {
       );
     }
     const data = (await send.json()) as { messageId?: string };
+    return { messageId: data.messageId ?? "" };
+  }
+}
+
+// ---------- WhatsApp (via GHL Conversations API) ----------
+
+/**
+ * Sends messages over WhatsApp Business through GHL's Conversations API.
+ *
+ * Two modes:
+ *  • Free-form  (sendSMS)       — for replies within an active 24-hour
+ *                                  conversation window. Uses `type: 'WhatsApp'`
+ *                                  with a plain `message` field.
+ *  • Template   (sendTemplate)  — for outbound-initiated messages (missed-call
+ *                                  text-back, reminders, review requests,
+ *                                  reactivation). Uses an approved Meta template
+ *                                  referenced by its GHL template ID.
+ *
+ * Template IDs (GHL internal UUIDs) are stored in `sms_config.templates` and
+ * are only available after Meta approves the template in GHL Settings →
+ * WhatsApp → Templates. Until approval, sendTemplate falls back to sendSMS
+ * with the raw message body.
+ *
+ * The missed-call route detects `isWhatsApp === true` and calls sendTemplate
+ * when a templateId is configured for that trigger type; otherwise falls back
+ * to sendSMS.
+ */
+export class GhlWhatsapp implements MessagingIntegration {
+  readonly isWhatsApp = true;
+
+  constructor(private cfg: GhlWhatsappConfig) {
+    if (!cfg.locationId) throw new Error("GHL locationId is required");
+  }
+
+  /** Upsert a contact in GHL and return their contactId. */
+  private async upsertContact(phone: string): Promise<string> {
+    const res = await fetch(`${base()}/contacts/upsert`, {
+      method: "POST",
+      headers: headers(this.cfg),
+      body: JSON.stringify({
+        locationId: this.cfg.locationId,
+        phone,
+      }),
+    });
+    if (!res.ok) {
+      throw new Error(
+        `ghl whatsapp contact upsert failed: ${res.status} ${await res.text()}`
+      );
+    }
+    const data = (await res.json()) as {
+      contact?: { id: string };
+      id?: string;
+    };
+    const id = data.contact?.id ?? data.id;
+    if (!id) throw new Error("ghl whatsapp upsert returned no contact id");
+    return id;
+  }
+
+  /**
+   * Send a free-form WhatsApp message (usable within the 24-hour
+   * conversation window after the contact has messaged first).
+   */
+  async sendSMS(to: string, body: string): Promise<{ messageId: string }> {
+    const contactId = await this.upsertContact(to);
+    const res = await fetch(`${base()}/conversations/messages`, {
+      method: "POST",
+      headers: headers(this.cfg),
+      body: JSON.stringify({
+        type: "WhatsApp",
+        contactId,
+        message: body,
+      }),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      // If the free-form send fails (e.g., outside 24h window), surface a
+      // clear error so the caller can decide whether to retry as a template.
+      throw new Error(`ghl whatsapp free-form send failed: ${res.status} ${err}`);
+    }
+    const data = (await res.json()) as { messageId?: string };
+    return { messageId: data.messageId ?? "" };
+  }
+
+  /**
+   * Send an approved WhatsApp template message.
+   *
+   * @param to            Recipient E.164 phone number.
+   * @param templateId    GHL internal template ID (UUID shown in GHL UI after
+   *                      Meta approval). NOT the Meta template name.
+   * @param params        Optional variable sections, e.g.:
+   *                        { BODY: { params: ["John", "Dr. Lin", "Thursday"] } }
+   *
+   * Falls back to sendSMS(free-form) if templateId is empty.
+   */
+  async sendTemplate(
+    to: string,
+    templateId: string,
+    params?: TemplateParams
+  ): Promise<{ messageId: string }> {
+    if (!templateId) {
+      // Template not yet approved — fall back to free-form.
+      // The body text will have been pre-rendered by the caller.
+      return this.sendSMS(to, Object.values(params ?? {}).flatMap((s) => s.params).join(" "));
+    }
+
+    const contactId = await this.upsertContact(to);
+    const body: Record<string, unknown> = {
+      type: "WhatsApp",
+      contactId,
+      templateId,
+    };
+
+    if (params) {
+      // GHL expects templateParams as an object where each key is a section
+      // name (BODY, HEADER, etc.) and the value is { params: string[] }.
+      body.templateParams = params;
+    }
+
+    const res = await fetch(`${base()}/conversations/messages`, {
+      method: "POST",
+      headers: headers(this.cfg),
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(
+        `ghl whatsapp template send failed: ${res.status} ${errText}`
+      );
+    }
+    const data = (await res.json()) as { messageId?: string };
     return { messageId: data.messageId ?? "" };
   }
 }

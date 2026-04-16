@@ -6,8 +6,14 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest): Promise<Response> {
   const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (!(await verifyToken(token))) {
+  const payload = await verifyToken(token);
+  if (!payload) {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
-  return NextResponse.json({ authenticated: true });
+  return NextResponse.json({
+    authenticated: true,
+    email: payload.email,
+    isSuperAdmin: payload.isSuperAdmin,
+    accessibleClients: payload.accessibleClients,
+  });
 }

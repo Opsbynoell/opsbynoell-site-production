@@ -65,9 +65,9 @@ export interface ClientConfig {
   // Noell Front Desk
   frontDeskSystemPrompt?: string;
   calendarProvider?: "ghl" | "generic" | "calendly" | "acuity";
-  calendarConfig?: Record<string, string>;
-  smsProvider?: "ghl" | "twilio" | "generic";
-  smsConfig?: Record<string, string>;
+  calendarConfig?: Record<string, unknown>;
+  smsProvider?: "ghl" | "ghl_whatsapp" | "twilio" | "generic";
+  smsConfig?: Record<string, unknown>;
   missedCallTextTemplate?: string;
   reminderCadence?: string[]; // e.g. ["24h", "2h"]
   reviewPlatform?: "google" | "yelp" | "custom";
@@ -163,6 +163,30 @@ export interface CalendarIntegration {
 
 export interface SMSIntegration {
   sendSMS(to: string, body: string): Promise<{ messageId: string }>;
+}
+
+/** WhatsApp template variable sections (BODY, HEADER, etc.) */
+export interface TemplateParams {
+  [section: string]: { params: string[] };
+}
+
+/**
+ * Extended messaging integration that adds optional WhatsApp template
+ * sending on top of the basic SMSIntegration.sendSMS(). Returned by the
+ * registry when smsProvider === 'ghl_whatsapp'.
+ */
+export interface MessagingIntegration extends SMSIntegration {
+  /**
+   * Send an approved WhatsApp template message via its GHL template ID.
+   * Falls back to sendSMS() free-form if not implemented.
+   */
+  sendTemplate?(
+    to: string,
+    templateId: string,
+    params?: TemplateParams
+  ): Promise<{ messageId: string }>;
+  /** True for WhatsApp providers; used by routes to choose send path. */
+  isWhatsApp?: boolean;
 }
 
 export interface ReviewPlatformIntegration {
