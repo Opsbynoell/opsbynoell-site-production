@@ -46,8 +46,8 @@ export const Logo = ({ className }: { className?: string }) => {
       <Image
         src="/images/logo-ops-by-noell.png"
         alt="Ops by Noell"
-        width={995}
-        height={756}
+        width={979}
+        height={740}
         className="h-12 md:h-14 w-auto"
         priority
       />

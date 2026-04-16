@@ -65,9 +65,9 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
       animate={{
         width: visible ? "60%" : "85%",
         backgroundColor: visible
-          ? "rgba(250, 246, 241, 0.95)"
-          : "rgba(250, 246, 241, 0.6)",
-        backdropFilter: visible ? "blur(10px)" : "blur(5px)",
+          ? "rgba(250, 246, 241, 0.98)"
+          : "rgba(250, 246, 241, 0.92)",
+        backdropFilter: visible ? "blur(12px)" : "blur(8px)",
         y: visible ? 4 : 0,
         boxShadow: visible
           ? "0 10px 30px -10px rgba(28,25,23,0.08)"
@@ -143,8 +143,8 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
       animate={{
         backdropFilter: "blur(16px)",
         background: visible
-          ? "rgba(250, 246, 241, 0.95)"
-          : "rgba(250, 246, 241, 0.8)",
+          ? "rgba(250, 246, 241, 0.98)"
+          : "rgba(250, 246, 241, 0.95)",
         width: visible ? "92%" : "95%",
         y: visible ? 4 : 0,
         borderRadius: open ? "24px" : "9999px",
