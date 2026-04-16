@@ -22,7 +22,7 @@ export function Hero({
   mockScreen,
 }: {
   eyebrow?: string;
-  variant?: "wine" | "lilac";
+  variant?: "wine" | "lilac" | "sage";
   headlineLine1Start?: string;
   headlineLine1Accent?: string;
   headlineLine2Start?: string;
@@ -41,11 +41,13 @@ export function Hero({
     wine: "bg-gradient-to-t from-[rgba(107,45,62,0.65)] via-[rgba(240,224,214,0.75)] to-[rgba(250,246,241,1)]",
     lilac:
       "bg-gradient-to-t from-[rgba(139,111,156,0.55)] via-[rgba(232,224,237,0.75)] to-[rgba(250,246,241,1)]",
+    sage: "bg-gradient-to-t from-[rgba(79,107,78,0.55)] via-[rgba(220,232,218,0.75)] to-[rgba(250,246,241,1)]",
   };
 
   const accentGradient = {
     wine: "bg-gradient-to-b from-[rgba(139,77,94,1)] to-[rgba(107,45,62,1)]",
     lilac: "bg-gradient-to-b from-[rgba(196,181,206,1)] to-[rgba(139,111,156,1)]",
+    sage: "bg-gradient-to-b from-[rgba(122,156,121,1)] to-[rgba(79,107,78,1)]",
   };
 
   return (
@@ -153,7 +155,7 @@ export function Hero({
   );
 }
 
-function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" }) {
+function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "sage" }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const sizes = isMobile
     ? { outer: 800, middle: 600, inner: 400 }
@@ -163,11 +165,15 @@ function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" }) {
   const gradientStart =
     variant === "lilac"
       ? "rgba(232,224,237,1)"
-      : "rgba(251,240,235,1)";
+      : variant === "sage"
+        ? "rgba(220,232,218,1)"
+        : "rgba(251,240,235,1)";
   const gradientMid1 =
     variant === "lilac"
       ? "rgba(232,224,237,0.8)"
-      : "rgba(251,240,235,0.8)";
+      : variant === "sage"
+        ? "rgba(220,232,218,0.8)"
+        : "rgba(251,240,235,0.8)";
 
   return (
     <div className="absolute inset-0 z-0 flex items-center justify-center">

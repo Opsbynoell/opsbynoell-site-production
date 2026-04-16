@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { NoellSupportChat } from "@/components/noell-support-chat";
+import { AgentRouter } from "@/components/agent-router";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -69,8 +69,13 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 pt-4">{children}</main>
         <Footer />
-        {/* Noell Support chat widget — live on every page, auto-opens on /noell-support */}
-        <NoellSupportChat />
+        {/*
+          Agent router — picks the right widget per path.
+          /noell-front-desk → Front Desk demo
+          /noell-care       → Care demo
+          everything else   → Noell Support
+        */}
+        <AgentRouter />
       </body>
     </html>
   );
