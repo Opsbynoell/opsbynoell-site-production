@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "./button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { IphoneMockup } from "./iphone-mockup";
+import { ProofBar } from "./proof-bar";
 
 export function Hero({
   eyebrow = "A systems agency · Ops by Noell",
@@ -20,6 +21,8 @@ export function Hero({
   primaryCta = { label: "Get Your Free Audit", href: "/book" },
   secondaryCta = { label: "See the system", href: "/#systems" },
   mockScreen,
+  showProofBar = true,
+  priceSignal,
 }: {
   eyebrow?: string;
   variant?: "wine" | "lilac" | "sage";
@@ -32,6 +35,8 @@ export function Hero({
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   mockScreen?: React.ReactNode;
+  showProofBar?: boolean;
+  priceSignal?: React.ReactNode;
 }) {
   const parentRef = useRef<HTMLDivElement>(
     null
@@ -81,13 +86,7 @@ export function Hero({
             >
               {headlineLine1Accent}
             </span>
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-block text-charcoal py-2"
-          >
+            <br />
             {headlineLine2Start}{" "}
             <span
               className={cn(accentGradient[variant], "bg-clip-text text-transparent italic")}
@@ -139,6 +138,23 @@ export function Hero({
           {secondaryCta.label}
         </Button>
       </motion.div>
+
+      {priceSignal && (
+        <div className="relative z-20 -mt-4 mb-6 text-center text-xs text-charcoal/60">
+          {priceSignal}
+        </div>
+      )}
+
+      {showProofBar && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.75 }}
+          className="relative z-20 w-full flex justify-center px-4 mb-8 md:mb-12"
+        >
+          <ProofBar className="mt-0 md:mt-0" />
+        </motion.div>
+      )}
 
       <div className="pt-[2rem] w-full min-h-[21rem] relative">
         <motion.div
