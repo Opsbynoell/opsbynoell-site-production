@@ -55,7 +55,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal"
+                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -73,7 +73,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal"
+                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -91,7 +91,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal"
+                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -109,7 +109,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal"
+                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>

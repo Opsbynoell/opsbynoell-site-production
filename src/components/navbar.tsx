@@ -254,19 +254,19 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
     >
       <div className="flex flex-row justify-between items-center w-full">
         <Logo />
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="tap-target flex items-center justify-center"
+        >
           {open ? (
-            <IconX
-              className="text-charcoal cursor-pointer"
-              onClick={() => setOpen(!open)}
-            />
+            <IconX className="text-charcoal cursor-pointer" />
           ) : (
-            <IconMenu2
-              className="text-charcoal cursor-pointer"
-              onClick={() => setOpen(!open)}
-            />
+            <IconMenu2 className="text-charcoal cursor-pointer" />
           )}
-        </motion.div>
+        </motion.button>
       </div>
 
       <AnimatePresence>
@@ -293,7 +293,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                 <Link
                   href={navItem.link}
                   onClick={() => setOpen(false)}
-                  className="relative text-charcoal/90 hover:text-charcoal transition-colors flex items-center gap-2"
+                  className="relative text-charcoal/90 hover:text-charcoal transition-colors flex items-center gap-2 tap-target py-2"
                 >
                   {navItem.isAccent && (
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-lilac-dark" />

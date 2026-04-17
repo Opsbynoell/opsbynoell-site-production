@@ -28,7 +28,7 @@ type ButtonProps = BaseProps & {
 const baseStyles = cn(
   "px-5 py-2.5 flex rounded-[8px] text-sm font-medium relative",
   "cursor-pointer hover:-translate-y-0.5 transition duration-200",
-  "inline-flex items-center justify-center"
+  "inline-flex items-center justify-center tap-target"
 );
 
 const variantStyles: Record<ButtonVariant, string> = {
