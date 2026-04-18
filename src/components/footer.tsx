@@ -28,8 +28,10 @@ export function Footer() {
   ];
 
   const legal = [
-    { title: "Privacy Policy", href: "/legal/privacy" },
-    { title: "Terms of Service", href: "/legal/terms" },
+    { title: "Contact", href: "/contact" },
+    { title: "Privacy Policy", href: "/privacy" },
+    { title: "Terms of Service", href: "/terms" },
+    { title: "SMS Policy", href: "/sms-policy" },
     { title: "Cookie Policy", href: "/legal/cookies" },
   ];
 

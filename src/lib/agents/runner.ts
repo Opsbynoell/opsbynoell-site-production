@@ -19,6 +19,7 @@
 
 import { classifyIntent, claudeComplete } from "./claude";
 import { getClientConfig } from "./config";
+import { sendAgentEmailAlert } from "./email-alert";
 import { buildSystemPrompt } from "./prompts";
 import { sbInsert, sbSelect, sbUpdate } from "./supabase";
 import { sendTelegramAlert } from "./telegram";
@@ -225,15 +226,38 @@ export async function runTurn({
   );
 
   if (escalated) {
+    const AGENT_LABEL: Record<typeof agent, string> = {
+      support: "Noell Support",
+      frontDesk: "Noell Front Desk",
+      care: "Noell Care",
+    };
+    const reason = keywordReason ?? classification.reason ?? "classifier";
+    const visitor =
+      session.visitor_phone ?? session.visitor_name ?? "visitor";
+    const alertText =
+      `Escalation from ${visitor}\n` +
+      `Reason: ${reason}\n` +
+      `Session: ${session.id}\n` +
+      `Last message: "${payload.message}"`;
+
     await sendTelegramAlert({
       agent,
       businessName: cfg.businessName,
       chatId: cfg.telegramChatId,
-      message:
-        `Escalation from ${session.visitor_phone ?? session.visitor_name ?? "visitor"}\n` +
-        `Reason: ${keywordReason ?? classification.reason ?? "classifier"}\n` +
-        `Session: ${session.id}\n` +
-        `Last message: "${payload.message}"`,
+      message: alertText,
+    });
+
+    // Parallel email alert (interim, until Twilio SMS ships post-A2P).
+    await sendAgentEmailAlert({
+      subject: `New ${AGENT_LABEL[agent]} lead — ${session.visitor_name ?? "Unknown"}`,
+      text:
+        `New ${AGENT_LABEL[agent]} lead\n\n` +
+        `Name: ${session.visitor_name ?? "Unknown"}\n` +
+        `Business: ${cfg.businessName}${cfg.vertical ? ` (${cfg.vertical})` : ""}\n` +
+        `Problem: ${reason}\n` +
+        `Contact: ${session.visitor_email ?? "—"} / ${session.visitor_phone ?? "—"}\n` +
+        `Next step: discovery call\n\n` +
+        `Conversation snippet:\n${payload.message.slice(0, 500)}`,
     });
   }
 

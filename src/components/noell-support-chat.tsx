@@ -15,7 +15,7 @@ type Message = {
 const initialConversation: Message[] = [
   {
     from: "agent",
-    text: "Hi, I'm Noell Support, the new-prospect intake layer for Ops by Noell. I can help you get started. Are you looking to book a free audit, ask about our systems, or something else?",
+    text: "Hi, I'm Noell. I pick up when you can't, book when you're busy, and keep clients coming back.",
     timestamp: "now",
   },
 ];

@@ -15,7 +15,13 @@ export default function Home() {
   return (
     <div>
       {/* 1. Hero (Recognition) */}
-      <Hero />
+      <Hero
+        headlineLine1Start="Meet"
+        headlineLine1Accent="Noell."
+        headlineLine2Start="Your AI"
+        headlineLine2Accent="support team."
+        body="The Noell System — AI support for appointment-based businesses. Three roles, one system."
+      />
 
       {/* 2. Social proof bar, credibility numbers */}
       <Features />

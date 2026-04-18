@@ -73,7 +73,7 @@ const accentClasses: Record<
 };
 
 const endpointFor: Record<AgentKind, string> = {
-  support: "/api/chat/message", // existing Noell Support endpoint
+  support: "/api/support/message",
   frontDesk: "/api/front-desk/message",
   care: "/api/care/message",
 };
@@ -352,6 +352,14 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   <IconSend size={15} />
                 </button>
               </div>
+              <p className="text-xs text-neutral-400 mt-2 px-1">
+                By chatting, you agree to our{" "}
+                <a href="/privacy" target="_blank" rel="noopener" className="underline">Privacy Policy</a>
+                {" "}and{" "}
+                <a href="/terms" target="_blank" rel="noopener" className="underline">Terms</a>.
+                If you share your phone number, you agree to our{" "}
+                <a href="/sms-policy" target="_blank" rel="noopener" className="underline">SMS Policy</a>.
+              </p>
             </div>
           </motion.div>
         )}

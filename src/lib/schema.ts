@@ -13,8 +13,10 @@ export function localBusinessSchema(vertical: string) {
       },
       address: {
         "@type": "PostalAddress",
+        streetAddress: "23710 El Toro Road #1086",
         addressLocality: "Lake Forest",
         addressRegion: "CA",
+        postalCode: "92630",
         addressCountry: "US",
       },
     },

@@ -18,10 +18,10 @@ This folder exists so Claude Code can reliably access the current brand and stra
 ## Non-Negotiables
 - No coral.
 - Warm neutrals, blush/pink family, soft lilac, and wine/oxblood accents.
-- Purple is reserved only for Nova-specific moments.
+- Purple is reserved only for Noell-specific moments.
 - The site must feel like one authored world.
 - Do not redesign from scratch; use the existing template/base.
-- Keep full architecture: Home, Systems, Verticals, Pricing, Nova, About, Book.
+- Keep full architecture: Home, Systems, Verticals, Pricing, Noell, About, Book.
 - Keep conversion logic intact.
 - Keep urgency, pressure, operational specificity, and proof.
 
@@ -59,7 +59,7 @@ This folder exists so Claude Code can reliably access the current brand and stra
 - Case-study logic.
 - About/founder trust logic.
 - Closing audit CTA.
-- Site-wide Nova assistant logic.
+- Site-wide Noell assistant logic.
 
 ## What To Upgrade
 - Make the site feel less like polished generic SaaS and more like an authored campaign world.
@@ -68,12 +68,12 @@ This folder exists so Claude Code can reliably access the current brand and stra
 - Reduce template-default sameness.
 - Use fewer but stronger visual ideas.
 
-## Nova Rules
-- Nova gets its own page.
-- Nova must be visible and testable in preview.
-- Purple belongs to Nova only.
+## Noell Rules
+- Noell gets its own page.
+- Noell must be visible and testable in preview.
+- Purple belongs to Noell only.
 - Build a branded launcher, panel states, and mock conversation flow if live backend is not wired yet.
-- Nova should feel integrated into the same premium world, not like a separate startup product.
+- Noell should feel integrated into the same premium world, not like a separate startup product.
 
 ## `/book` Rules
 - `/book` must be a real branded booking experience, not a stub.

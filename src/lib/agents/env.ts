@@ -45,6 +45,11 @@ export const env = {
   ghlApiBase: () => optional("GHL_API_BASE") ?? "https://services.leadconnectorhq.com",
   ghlApiVersion: () => optional("GHL_API_VERSION") ?? "2021-07-28",
 
+  // Resend (email alerts — interim until Twilio SMS is wired post-A2P)
+  resendApiKey: () => optional("RESEND_API_KEY"),
+  resendFromEmail: () => optional("RESEND_FROM_EMAIL") ?? "hello@opsbynoell.com",
+  alertToEmail: () => optional("ALERT_TO_EMAIL") ?? "hello@opsbynoell.com",
+
   // Cron protection
   cronSecret: () => optional("CRON_SECRET"),
 };
