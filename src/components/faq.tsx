@@ -11,6 +11,21 @@ interface FaqItem {
 
 const defaultFaqs: FaqItem[] = [
   {
+    question: "Is this month-to-month or contract?",
+    answer:
+      "Month-to-month. No long-term contracts. Cancel anytime with 30 days notice.",
+  },
+  {
+    question: "Why a setup fee?",
+    answer:
+      "The setup fee covers installation, copy calibration for your voice, system integration, and two rounds of tuning before go-live. It's one-time, disclosed up front, and included in the audit conversation.",
+  },
+  {
+    question: "Do prices increase over time?",
+    answer:
+      "Existing clients are grandfathered into their signup price. Any future pricing changes only apply to new accounts.",
+  },
+  {
     question: "How long until the system is live?",
     answer:
       "Most practices are fully live within 14 days of signing. Install is handled by us, you do not configure the system yourself. We migrate existing contacts, write the copy, and train the workflows in your voice.",
@@ -52,7 +67,7 @@ export function FAQ({
   faqs?: FaqItem[];
   accent?: "wine" | "lilac";
 }) {
-  const [openSet, setOpenSet] = useState<Set<number>>(new Set([0]));
+  const [openSet, setOpenSet] = useState<Set<number>>(new Set([0, 1]));
 
   function toggle(index: number) {
     setOpenSet((prev) => {
@@ -106,7 +121,7 @@ export function FAQ({
             >
               <button
                 onClick={() => toggle(index)}
-                className="w-full px-6 py-5 flex items-center gap-3 text-left"
+                className="w-full px-6 py-5 flex items-center gap-3 text-left tap-target"
               >
                 <motion.div
                   initial={false}

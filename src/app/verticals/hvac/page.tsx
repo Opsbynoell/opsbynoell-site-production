@@ -9,6 +9,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -192,6 +194,12 @@ const hvacScreen = (
 export default function HvacVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema("HVAC companies")),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for HVAC"
         headlineLine1Start="The emergency call"
@@ -264,6 +272,8 @@ export default function HvacVerticalPage() {
           </div>
         </div>
       </section>
+
+      <VerticalCaseStudyPlaceholder vertical="HVAC" />
 
       <Features3
         eyebrow="What changes"

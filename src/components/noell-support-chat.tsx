@@ -71,8 +71,13 @@ const contactCaptureResponse: Message[] = [
   },
 ];
 
+const DISMISS_KEY = "noell-support-dismissed";
+
 export function NoellSupportChat() {
   const pathname = usePathname();
+  const isBookPage = pathname === "/book";
+  const isSupportPage = pathname === "/noell-support";
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialConversation);
   const [inputValue, setInputValue] = useState("");
@@ -80,17 +85,55 @@ export function NoellSupportChat() {
   const [stage, setStage] = useState<"intro" | "qualified" | "captured">(
     "intro"
   );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-open only on /noell-support. The widget is present globally but stays
-  // closed until the visitor clicks it, except on the Noell Support spotlight
-  // page where seeing the widget in action is the whole point.
   useEffect(() => {
-    if (pathname === "/noell-support") {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // Auto-expand triggers (non-/book pages, respect session dismissal)
+  useEffect(() => {
+    if (isBookPage) return;
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem(DISMISS_KEY)) return;
+
+    // On the Noell Support spotlight page, expanding the widget is the whole
+    // point. Keep a short delay so the page can render first.
+    if (isSupportPage) {
       const t = setTimeout(() => setIsOpen(true), 1400);
       return () => clearTimeout(t);
     }
-  }, [pathname]);
+
+    const openWidget = () => setIsOpen(true);
+    const timer = setTimeout(openWidget, 8000);
+
+    const onScroll = () => {
+      const max = document.body.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      if (window.scrollY / max > 0.4) openWidget();
+    };
+
+    const onMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0) openWidget();
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mouseleave", onMouseLeave);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    };
+  }, [isBookPage, isSupportPage, pathname]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -126,12 +169,10 @@ export function NoellSupportChat() {
     setMessages((prev) => [...prev, userMsg]);
     setInputValue("");
 
-    // If at qualified stage, treat next input as contact capture
     if (stage === "qualified") {
       pushResponses(contactCaptureResponse);
       setStage("captured");
     } else if (stage === "intro") {
-      // Generic intro response
       pushResponses([
         {
           from: "agent",
@@ -149,55 +190,101 @@ export function NoellSupportChat() {
     }
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem(DISMISS_KEY, "1");
+    }
+  };
+
+  const launcherMotion = prefersReducedMotion
+    ? {}
+    : {
+        initial: { scale: 0, opacity: 0 },
+        animate: { scale: 1, opacity: 1 },
+        transition: { delay: 1, type: "spring" as const, stiffness: 260, damping: 20 },
+      };
+
+  // Shared launcher button (orb) used on /book and whenever closed
+  const OrbButton = (
+    <motion.button
+      {...launcherMotion}
+      onClick={() => setIsOpen((v) => !v)}
+      className={cn(
+        "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full",
+        "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white",
+        "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.45),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,111,156,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.28)_inset]",
+        "flex items-center justify-center hover:scale-105 transition-transform"
+      )}
+      aria-label={isOpen ? "Close Noell Support chat" : "Open Noell Support chat"}
+    >
+      <AnimatePresence mode="wait">
+        {isOpen ? (
+          <motion.div
+            key="x"
+            initial={prefersReducedMotion ? false : { rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <IconX size={22} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="msg"
+            initial={prefersReducedMotion ? false : { rotate: -90, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            exit={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <IconMessageCircle size={22} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.button>
+  );
+
+  // Pill launcher (default on non-/book pages when closed)
+  const PillButton = (
+    <motion.button
+      {...launcherMotion}
+      onClick={() => setIsOpen(true)}
+      className={cn(
+        "fixed bottom-6 right-6 z-50 h-11 pl-4 pr-5 rounded-full",
+        "bg-cream text-charcoal border-2 border-lilac-dark",
+        "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.35),_0px_8px_16px_-4px_rgba(28,25,23,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.5)_inset]",
+        "flex items-center gap-2 text-sm font-medium hover:bg-white transition-colors tap-target"
+      )}
+      aria-label="Open Noell Support chat"
+    >
+      <span className="w-6 h-6 rounded-full bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white flex items-center justify-center">
+        <IconMessageCircle size={14} />
+      </span>
+      Have a question? Chat with Noell
+    </motion.button>
+  );
+
   return (
     <>
-      {/* Floating launcher */}
-      <motion.button
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full",
-          "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white",
-          "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.45),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,111,156,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.28)_inset]",
-          "flex items-center justify-center hover:scale-105 transition-transform"
-        )}
-        aria-label={isOpen ? "Close Noell Support chat" : "Open Noell Support chat"}
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="x"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <IconX size={22} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="msg"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <IconMessageCircle size={22} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
+      {/* Launcher: orb on /book, pill everywhere else (when closed). Orb also when open. */}
+      {isOpen || isBookPage ? OrbButton : PillButton}
 
       {/* Panel */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={
+              prefersReducedMotion
+                ? { opacity: 1, y: 0, scale: 1 }
+                : { opacity: 0, y: 20, scale: 0.95 }
+            }
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            exit={
+              prefersReducedMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: 20, scale: 0.95 }
+            }
+            transition={{ duration: prefersReducedMotion ? 0 : 0.2, ease: "easeOut" }}
             className={cn(
               "fixed bottom-24 right-6 z-50",
               "w-[380px] max-w-[calc(100vw-3rem)]",
@@ -223,8 +310,8 @@ export function NoellSupportChat() {
                 </div>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
-                className="text-white/70 hover:text-white"
+                onClick={handleClose}
+                className="text-white/70 hover:text-white tap-target flex items-center justify-center"
                 aria-label="Close"
               >
                 <IconX size={18} />
@@ -237,7 +324,11 @@ export function NoellSupportChat() {
               className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-cream"
             >
               {messages.map((msg, i) => (
-                <MessageBubble key={i} msg={msg} />
+                <MessageBubble
+                  key={i}
+                  msg={msg}
+                  prefersReducedMotion={prefersReducedMotion}
+                />
               ))}
               {typing && <TypingIndicator />}
 
@@ -288,13 +379,19 @@ export function NoellSupportChat() {
   );
 }
 
-function MessageBubble({ msg }: { msg: Message }) {
+function MessageBubble({
+  msg,
+  prefersReducedMotion,
+}: {
+  msg: Message;
+  prefersReducedMotion?: boolean;
+}) {
   const isAgent = msg.from === "agent";
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
       className={cn("flex", isAgent ? "justify-start" : "justify-end")}
     >
       <div

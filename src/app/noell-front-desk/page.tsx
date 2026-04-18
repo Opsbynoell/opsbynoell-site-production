@@ -8,6 +8,7 @@ import {
   IconStar,
   IconRefresh,
 } from "@tabler/icons-react";
+import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
@@ -66,6 +67,21 @@ const frontDeskCapabilities = [
 ];
 
 const frontDeskFaqs = [
+  {
+    question: "Is this month-to-month or contract?",
+    answer:
+      "Month-to-month. No long-term contracts. Cancel anytime with 30 days notice.",
+  },
+  {
+    question: "Why a setup fee?",
+    answer:
+      "The setup fee covers installation, copy calibration for your voice, system integration, and two rounds of tuning before go-live. It's one-time, disclosed up front, and included in the audit conversation.",
+  },
+  {
+    question: "Do prices increase over time?",
+    answer:
+      "Existing clients are grandfathered into their signup price. Any future pricing changes only apply to new accounts.",
+  },
   {
     question: "Is Noell Front Desk replacing my receptionist?",
     answer:
@@ -155,6 +171,14 @@ export default function NoellFrontDeskPage() {
         primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={frontDeskScreen}
+        priceSignal={
+          <>
+            Starts at $197/mo.{" "}
+            <Link href="/#pricing" className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal">
+              See all tiers.
+            </Link>
+          </>
+        }
       />
 
       {/* 7 capabilities */}

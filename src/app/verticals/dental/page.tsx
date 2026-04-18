@@ -13,6 +13,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -248,6 +250,12 @@ const dentalScreen = (
 export default function DentalVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema("dental practices")),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for Dental"
         headlineLine1Start="While you are with"
@@ -369,6 +377,8 @@ export default function DentalVerticalPage() {
           </p>
         </div>
       </section>
+
+      <VerticalCaseStudyPlaceholder vertical="dental" />
 
       {/* Relief: what changes for a dental practice */}
       <Features3

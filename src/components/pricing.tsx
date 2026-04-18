@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "./button";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { ROICalculator } from "./roi-calculator";
 
 interface PricingTier {
   tier: string;
@@ -155,6 +156,9 @@ export default function Pricing() {
           coverage, smart automation, and implementation support you want
           running behind the scenes for your business.
         </p>
+      </div>
+      <div className="mb-14">
+        <ROICalculator />
       </div>
       <div className="grid md:grid-cols-3 gap-5 items-start">
         {tiers.map((tier) => (

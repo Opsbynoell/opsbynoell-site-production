@@ -9,6 +9,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -188,6 +190,14 @@ const estheticianScreen = (
 export default function EstheticiansVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            localBusinessSchema("esthetician studios")
+          ),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for Estheticians"
         headlineLine1Start="Your clients come back"
@@ -260,6 +270,8 @@ export default function EstheticiansVerticalPage() {
           </div>
         </div>
       </section>
+
+      <VerticalCaseStudyPlaceholder vertical="esthetician" />
 
       <Features3
         eyebrow="What changes"

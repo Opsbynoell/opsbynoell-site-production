@@ -9,6 +9,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudy } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -186,6 +188,14 @@ const massageScreen = (
 export default function MassageVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            localBusinessSchema("massage therapy practices")
+          ),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for Massage Therapy"
         headlineLine1Start="Hands on"
@@ -258,6 +268,18 @@ export default function MassageVerticalPage() {
           </div>
         </div>
       </section>
+
+      <VerticalCaseStudy
+        quote="Hi Santa, sorry I missed you. I can get you in Saturday 2pm or 3pm. Which works?"
+        name="Santa E."
+        role="licensed massage therapist"
+        business="Laguna Niguel"
+        metrics={[
+          { label: "Recovered", value: "$960" },
+          { label: "Days live", value: "14" },
+          { label: "Rebooks", value: "4" },
+        ]}
+      />
 
       <Features3
         eyebrow="What changes"

@@ -9,6 +9,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -185,6 +187,12 @@ const salonScreen = (
 export default function SalonsVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema("salons")),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for Salons"
         headlineLine1Start="Every chair"
@@ -257,6 +265,8 @@ export default function SalonsVerticalPage() {
           </div>
         </div>
       </section>
+
+      <VerticalCaseStudyPlaceholder vertical="salon" />
 
       <Features3
         eyebrow="What changes"

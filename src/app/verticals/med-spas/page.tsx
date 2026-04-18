@@ -9,6 +9,8 @@ import {
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
+import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
+import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
@@ -189,6 +191,12 @@ const medSpaScreen = (
 export default function MedSpasVerticalPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema("med spas")),
+        }}
+      />
       <Hero
         eyebrow="Ops by Noell for Med Spas"
         headlineLine1Start="Warm intent"
@@ -258,6 +266,8 @@ export default function MedSpasVerticalPage() {
           </div>
         </div>
       </section>
+
+      <VerticalCaseStudyPlaceholder vertical="med spa" />
 
       <Features3
         eyebrow="What changes"

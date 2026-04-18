@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ConditionalShell } from "@/components/conditional-shell";
+import { organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -61,6 +62,12 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-cream">

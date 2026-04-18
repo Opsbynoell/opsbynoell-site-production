@@ -11,6 +11,9 @@ import { Button } from "@/components/button";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { BookingEmbed } from "@/components/booking-embed";
+import { ProofBar } from "@/components/proof-bar";
+import { DetectedTimezone } from "@/components/detected-timezone";
+import { BookExitIntent } from "@/components/book-exit-intent";
 
 export const metadata: Metadata = {
   title: "Book Your Free Audit | Ops by Noell",
@@ -86,8 +89,10 @@ const bookFaqs = [
 export default function BookPage() {
   return (
     <div>
-      {/* Hero: centered template pattern, no mockup */}
-      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.50)] via-[rgba(240,224,214,0.70)] to-[rgba(250,246,241,1)]">
+      <BookExitIntent />
+
+      {/* Hero */}
+      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-10 mx-auto flex-col items-center justify-center pt-24 md:pt-32 pb-12 md:pb-16 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.50)] via-[rgba(240,224,214,0.70)] to-[rgba(250,246,241,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-charcoal/60 mb-6">
           The first step
         </p>
@@ -102,17 +107,87 @@ export default function BookPage() {
           through, how your follow-up works today, and what a system could
           recover.
         </p>
-        <div className="relative z-20 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-charcoal/50">
-          <span>Free &amp; no obligation</span>
-          <span>·</span>
-          <span>30 minutes, focused</span>
-          <span>·</span>
-          <span>Instant confirmation</span>
+        <div className="relative z-20 mt-6 flex flex-wrap items-center justify-center gap-2">
+          {[
+            "Free & no obligation",
+            "30 minutes, focused",
+            "Instant confirmation",
+          ].map((chip) => (
+            <span
+              key={chip}
+              className="inline-flex items-center rounded-full border border-warm-border bg-white/70 px-3 py-1.5 text-xs text-charcoal/70"
+            >
+              {chip}
+            </span>
+          ))}
         </div>
       </section>
 
-      {/* 3-step process using Features3 card pattern */}
-      <section className="py-20 px-4">
+      {/* Booking embed, eager-loaded, space reserved to avoid CLS */}
+      <section className="pt-4 pb-10 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-[28px] border border-warm-border bg-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden">
+            <div className="px-8 pt-8 pb-4 border-b border-warm-border">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-wine mb-2">
+                Pick a time
+              </p>
+              <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal">
+                All times shown in your local timezone.
+              </h2>
+            </div>
+
+            <div className="p-6 md:p-8 min-h-[520px]">
+              <BookingEmbed />
+            </div>
+
+            <div className="px-8 pb-6">
+              <DetectedTimezone />
+            </div>
+          </div>
+
+          {/* Proof bar */}
+          <div className="mt-10 flex justify-center">
+            <ProofBar className="mt-0 md:mt-0" />
+          </div>
+
+          {/* Santa pull quote */}
+          <div className="mt-10 rounded-[22px] border border-warm-border bg-cream-dark p-7 md:p-10 max-w-3xl mx-auto">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+              Client voice
+            </p>
+            <blockquote className="font-serif text-xl md:text-2xl text-charcoal leading-snug">
+              &ldquo;Hi Santa, sorry I missed you. I can get you in Saturday
+              2pm or 3pm. Which works?&rdquo;
+            </blockquote>
+            <p className="mt-4 text-sm text-charcoal/70">
+              Santa E., massage therapist. $960 recovered in 14 days.
+            </p>
+          </div>
+
+          {/* What happens after */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {afterSteps.map((item, i) => (
+              <div
+                key={i}
+                className="rounded-[17px] border border-warm-border bg-cream-dark p-5"
+              >
+                <div className="w-8 h-8 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-3">
+                  {item.icon}
+                </div>
+                <p className="text-sm font-semibold text-charcoal mb-1">
+                  {item.title}
+                </p>
+                <p className="text-xs text-charcoal/60 leading-relaxed">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3-step explainer, moved below proof */}
+      <section className="py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 max-w-2xl mx-auto">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
@@ -152,51 +227,11 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Booking embed */}
-      <section className="pb-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="rounded-[28px] border border-warm-border bg-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden">
-            <div className="px-8 pt-8 pb-4 border-b border-warm-border">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-wine mb-2">
-                Pick a time
-              </p>
-              <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal">
-                All times shown in your local timezone.
-              </h2>
-            </div>
-
-            <div className="p-6 md:p-8">
-              <BookingEmbed />
-            </div>
-          </div>
-
-          {/* What happens after */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {afterSteps.map((item, i) => (
-              <div
-                key={i}
-                className="rounded-[17px] border border-warm-border bg-cream-dark p-5"
-              >
-                <div className="w-8 h-8 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-3">
-                  {item.icon}
-                </div>
-                <p className="text-sm font-semibold text-charcoal mb-1">
-                  {item.title}
-                </p>
-                <p className="text-xs text-charcoal/60 leading-relaxed">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Booking FAQ */}
       <FAQ
         eyebrow="Before you book"
-        headlineStart="Short answers,"
-        headlineAccent="zero pressure."
+        headlineStart="Short answers."
+        headlineAccent="Zero pressure."
         body="The questions people ask right before they pick a time."
         faqs={bookFaqs}
       />

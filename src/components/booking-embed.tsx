@@ -25,7 +25,7 @@ export function BookingEmbed() {
 
   return (
     <div
-      className="relative rounded-2xl overflow-hidden border border-warm-border bg-cream"
+      className="relative rounded-2xl overflow-hidden border border-warm-border bg-cream min-h-[520px]"
       style={{ height: "640px" }}
     >
       {/* Branded loading state, stays until iframe reports loaded */}
@@ -68,7 +68,7 @@ export function BookingEmbed() {
         title="Book an audit"
         src={bookingUrl}
         className="absolute inset-0 w-full h-full"
-        loading="lazy"
+        loading="eager"
         onLoad={() => setLoaded(true)}
       />
     </div>
