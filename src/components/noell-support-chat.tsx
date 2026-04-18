@@ -99,30 +99,54 @@ export function NoellSupportChat() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Auto-expand triggers (non-/book pages, respect session dismissal)
+  // Auto-expand triggers (non-/book pages, respect session dismissal).
+  // The widget auto-expands ONLY when the visitor has scrolled past the hero
+  // AND at least 8 seconds have elapsed since mount AND they have never
+  // dismissed the widget this session. Dismissal is sticky per session.
   useEffect(() => {
     if (isBookPage) return;
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(DISMISS_KEY)) return;
 
-    // On the Noell Support spotlight page, expanding the widget is the whole
-    // point. Keep a short delay so the page can render first.
+    // On the Noell Support spotlight page, seeing the widget in action is the
+    // whole point. Keep a short delay so the page can render first, but still
+    // respect session dismissal (guarded above).
     if (isSupportPage) {
-      const t = setTimeout(() => setIsOpen(true), 1400);
+      const t = setTimeout(() => {
+        if (sessionStorage.getItem(DISMISS_KEY)) return;
+        setIsOpen(true);
+      }, 1400);
       return () => clearTimeout(t);
     }
 
-    const openWidget = () => setIsOpen(true);
-    const timer = setTimeout(openWidget, 8000);
+    let elapsed = false;
+    let scrolledPastHero = false;
+
+    const openIfReady = () => {
+      if (sessionStorage.getItem(DISMISS_KEY)) return;
+      if (!elapsed || !scrolledPastHero) return;
+      setIsOpen(true);
+    };
+
+    const timer = setTimeout(() => {
+      elapsed = true;
+      openIfReady();
+    }, 8000);
 
     const onScroll = () => {
-      const max = document.body.scrollHeight - window.innerHeight;
-      if (max <= 0) return;
-      if (window.scrollY / max > 0.4) openWidget();
+      if (scrolledPastHero) return;
+      // "Past the hero" ~ one viewport of scroll. Use 85% of innerHeight so
+      // tall mobile viewports don't require a full page-length swipe.
+      if (window.scrollY >= window.innerHeight * 0.85) {
+        scrolledPastHero = true;
+        openIfReady();
+      }
     };
 
     const onMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0) openWidget();
+      if (e.clientY > 0) return;
+      if (sessionStorage.getItem(DISMISS_KEY)) return;
+      setIsOpen(true);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
