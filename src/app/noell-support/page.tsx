@@ -169,7 +169,7 @@ export default function NoellSupportPage() {
         priceSignal={
           <>
             Starts at $197/mo.{" "}
-            <Link href="/#pricing" className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal">
+            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal">
               See all tiers.
             </Link>
           </>

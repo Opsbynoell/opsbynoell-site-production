@@ -352,7 +352,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   <IconSend size={15} />
                 </button>
               </div>
-              <p className="text-xs text-[#555555] mt-2 px-1">
+              <p className="text-xs text-muted-medium mt-2 px-1">
                 By chatting, you agree to our{" "}
                 <a href="/privacy" target="_blank" rel="noopener" className="underline">Privacy Policy</a>
                 {" "}and{" "}

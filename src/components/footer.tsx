@@ -6,14 +6,15 @@ export function Footer() {
     { title: "Home", href: "/" },
     { title: "Systems", href: "/#systems" },
     { title: "Verticals", href: "/verticals" },
-    { title: "Pricing", href: "/#pricing" },
+    { title: "Pricing", href: "/pricing" },
+    { title: "ROI calculator", href: "/roi" },
     { title: "Book", href: "/book" },
   ];
 
   const products = [
     { title: "Noell Support", href: "/noell-support" },
     { title: "Noell Front Desk", href: "/noell-front-desk" },
-    { title: "Noell Care", href: "/#systems" },
+    { title: "Noell Care", href: "/noell-care" },
     { title: "Book an Audit", href: "/book" },
   ];
 

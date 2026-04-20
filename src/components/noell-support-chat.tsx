@@ -391,7 +391,7 @@ export function NoellSupportChat() {
                   <IconSend size={15} />
                 </button>
               </div>
-              <p className="text-[9px] text-[#555555] mt-2 text-center">
+              <p className="text-[9px] text-muted-medium mt-2 text-center">
                 Noell Support handles new-prospect intake. First response,
                 qualification, routing, and human handoff.
               </p>
