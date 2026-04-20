@@ -12,6 +12,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -275,6 +276,12 @@ export default function MedSpasVerticalPage() {
         headlineAccent="that hold the consult."
         body="Not a feature list. The three touchpoints that decide whether warm intent becomes a booked consult."
         capabilities={medSpaCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="med_spas"
+        auditPhrase="spa audit"
+        sourcePage="verticals_med_spas"
       />
 
       <FAQ

@@ -16,6 +16,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -387,6 +388,12 @@ export default function DentalVerticalPage() {
         headlineAccent="that close the gap."
         body="Not a 40-feature list. The three touchpoints that move the numbers in a dental practice."
         capabilities={dentalCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="dental"
+        auditPhrase="dental audit"
+        sourcePage="verticals_dental"
       />
 
       {/* Dental FAQ */}

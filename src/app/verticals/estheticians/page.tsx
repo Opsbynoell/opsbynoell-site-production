@@ -12,6 +12,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -279,6 +280,12 @@ export default function EstheticiansVerticalPage() {
         headlineAccent="that protect the routine."
         body="Not a feature list. The three plays that hold a skincare client to the plan without forcing the tone."
         capabilities={estheticianCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="estheticians"
+        auditPhrase="skincare audit"
+        sourcePage="verticals_estheticians"
       />
 
       <FAQ

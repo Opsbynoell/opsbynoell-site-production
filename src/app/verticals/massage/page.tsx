@@ -12,6 +12,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudy } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -287,6 +288,12 @@ export default function MassageVerticalPage() {
         headlineAccent="that fill the calendar."
         body="Not a feature list. The three plays that work without making you feel like a salesperson."
         capabilities={massageCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="massage"
+        auditPhrase="massage audit"
+        sourcePage="verticals_massage"
       />
 
       <FAQ

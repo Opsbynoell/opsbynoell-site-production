@@ -12,6 +12,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -281,6 +282,12 @@ export default function HvacVerticalPage() {
         headlineAccent="that triage the inbound."
         body="Not a feature list. The three plays that keep emergency, service, and maintenance in the right queues."
         capabilities={hvacCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="hvac"
+        auditPhrase="HVAC audit"
+        sourcePage="verticals_hvac"
       />
 
       <FAQ

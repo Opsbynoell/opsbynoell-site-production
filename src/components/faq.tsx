@@ -3,10 +3,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { IconPlus } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { trackMetaCustomEvent } from "@/lib/meta-pixel-track";
 
-interface FaqItem {
+export interface FaqItem {
+  id?: string;
   question: string;
   answer: string;
+  group?: string;
 }
 
 const defaultFaqs: FaqItem[] = [
@@ -76,6 +79,13 @@ export function FAQ({
         next.delete(index);
       } else {
         next.add(index);
+        const faq = faqs[index];
+        if (faq?.id) {
+          trackMetaCustomEvent("faq_open", {
+            question_id: faq.id,
+            question_group: faq.group,
+          });
+        }
       }
       return next;
     });

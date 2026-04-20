@@ -12,6 +12,7 @@ import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
+import { VerticalPricingSection } from "@/components/pricing";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -274,6 +275,12 @@ export default function SalonsVerticalPage() {
         headlineAccent="that fill the chair."
         body="Not a feature list. The three plays that protect rebook rate and chair utilization."
         capabilities={salonCapabilities}
+      />
+
+      <VerticalPricingSection
+        vertical="salons"
+        auditPhrase="salon audit"
+        sourcePage="verticals_salons"
       />
 
       <FAQ

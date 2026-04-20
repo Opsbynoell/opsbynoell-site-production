@@ -4,7 +4,7 @@ import { Logo } from "./logo";
 export function Footer() {
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Systems", href: "/#systems" },
+    { title: "Systems", href: "/systems" },
     { title: "Verticals", href: "/verticals" },
     { title: "Pricing", href: "/pricing" },
     { title: "ROI calculator", href: "/roi" },
