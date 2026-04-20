@@ -41,7 +41,7 @@ const agents: AgentCard[] = [
     description:
       "Rebooking, service questions, account help, and support for clients already in your system. Keeps your front desk clear for new business.",
     uptime: "status: online / existing clients",
-    href: "/#systems",
+    href: "/noell-care",
     icon: <IconHeartHandshake size={22} />,
   },
 ];
