@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
+import LiveSystemLog from "@/components/live-system-log";
 import { FounderQuote } from "@/components/founder-quote";
 import { Features2 } from "@/components/features2";
 import { LogoCloud } from "@/components/logos-cloud";
@@ -16,15 +17,27 @@ export default function Home() {
     <div>
       {/* 1. Hero (Recognition) */}
       <Hero
-        headlineLine1Start="Meet"
-        headlineLine1Accent="Noell."
-        headlineLine2Start="Your AI"
-        headlineLine2Accent="support team."
-        body="The Noell System — AI support for appointment-based businesses. Three roles, one system."
+        headlineLine1Start="Three agents. One system."
+        headlineLine1Accent=""
+        headlineLine2Start="Never miss a call, text, confirmation, or reschedule."
+        headlineLine2Accent=""
+        headlineLine2Smaller
+        body="Noell Support handles website chat 24/7. Noell Front Desk never misses a call, text, or confirmation. Noell Care takes reschedules and service questions. The system runs. You run the business."
+        footnote=""
+        primaryCta={{
+          label: "Start with a free 30-minute audit",
+          href: "/book",
+        }}
+        secondaryCta={{
+          label: "See how it works",
+          href: "#the-noell-system",
+        }}
       />
 
       {/* 2. Social proof bar, credibility numbers */}
       <Features />
+
+      <LiveSystemLog />
 
       {/* 3. Founder presence */}
       <FounderQuote />

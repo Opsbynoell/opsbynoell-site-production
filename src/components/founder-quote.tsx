@@ -37,7 +37,7 @@ export function FounderQuote() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
-              Nikki · Ops by Noell
+              The Noells · Ops by Noell
             </p>
           </div>
         </div>

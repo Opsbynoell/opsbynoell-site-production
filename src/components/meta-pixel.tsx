@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, Suspense } from "react";
+import { useEffect, useRef, Suspense } from "react";
 
 /**
  * Meta Pixel integration for Ops by Noell
@@ -26,11 +26,16 @@ declare global {
 function MetaPixelPageview({ pixelId }: { pixelId: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const hasMountedRef = useRef(false);
 
   useEffect(() => {
+    // Skip the initial mount, the inline base script already fires PageView on load.
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
     if (typeof window === "undefined" || !window.fbq) return;
     window.fbq("track", "PageView");
-    // Intentionally referencing values so effect re-runs on route change
     void pathname;
     void searchParams;
   }, [pathname, searchParams, pixelId]);

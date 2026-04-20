@@ -23,6 +23,7 @@ export function Hero({
   mockScreen,
   showProofBar = true,
   priceSignal,
+  headlineLine2Smaller = false,
 }: {
   eyebrow?: string;
   variant?: "wine" | "lilac" | "sage";
@@ -37,6 +38,7 @@ export function Hero({
   mockScreen?: React.ReactNode;
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
+  headlineLine2Smaller?: boolean;
 }) {
   const parentRef = useRef<HTMLDivElement>(
     null
@@ -72,7 +74,7 @@ export function Hero({
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-charcoal md:text-6xl lg:text-7xl">
+      <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-charcoal md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={{ opacity: 0 }}
@@ -80,18 +82,41 @@ export function Hero({
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block text-charcoal"
           >
-            {headlineLine1Start}{" "}
-            <span
-              className={cn(accentGradient[variant], "bg-clip-text text-transparent italic")}
-            >
-              {headlineLine1Accent}
-            </span>
+            {headlineLine1Start}
+            {headlineLine1Accent && (
+              <>
+                {" "}
+                <span
+                  className={cn(
+                    accentGradient[variant],
+                    "bg-clip-text text-transparent italic"
+                  )}
+                >
+                  {headlineLine1Accent}
+                </span>
+              </>
+            )}
             <br />
-            {headlineLine2Start}{" "}
             <span
-              className={cn(accentGradient[variant], "bg-clip-text text-transparent italic")}
+              className={cn(
+                headlineLine2Smaller &&
+                  "text-[0.78em] font-normal text-charcoal/85"
+              )}
             >
-              {headlineLine2Accent}
+              {headlineLine2Start}
+              {headlineLine2Accent && (
+                <>
+                  {" "}
+                  <span
+                    className={cn(
+                      accentGradient[variant],
+                      "bg-clip-text text-transparent italic"
+                    )}
+                  >
+                    {headlineLine2Accent}
+                  </span>
+                </>
+              )}
             </span>
           </motion.h1>
         </Balancer>
@@ -101,7 +126,7 @@ export function Hero({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-4 max-w-2xl px-4 text-center text-base/7 text-charcoal/80"
+        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-charcoal/70 font-sans"
       >
         {body}
       </motion.p>

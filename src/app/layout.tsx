@@ -21,14 +21,16 @@ export const metadata: Metadata = {
     title:
       "By the time you call back, they've already booked somewhere else.",
     description:
-      "A done-for-you AI front desk for dental, med spas, salons, massage, estheticians, and HVAC. Three agents. One system. Zero setup on your end.",
+      "Done-for-you AI systems for local service businesses. Never miss a call, text, confirmation, or reschedule.",
     url: "https://www.opsbynoell.com",
     siteName: "Ops by Noell",
     type: "website",
     images: [
       {
-        url: "/images/logo-ops-by-noell.png",
-        alt: "Ops by Noell",
+        url: "/images/og-grid-master.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The Noell System. Three agents working as one for service businesses.",
       },
     ],
   },
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
       "By the time you call back, they've already booked somewhere else.",
     description:
       "Done-for-you AI front desk for dental, med spas, salons, massage, estheticians, and HVAC.",
-    images: ["/images/logo-ops-by-noell.png"],
+    images: ["/images/og-grid-master.jpg"],
   },
 };
 
