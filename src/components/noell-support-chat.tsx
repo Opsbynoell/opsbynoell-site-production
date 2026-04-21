@@ -395,6 +395,14 @@ export function NoellSupportChat() {
                 Noell Support handles new-prospect intake. First response,
                 qualification, routing, and human handoff.
               </p>
+              <p className="text-[9px] text-muted-medium mt-1 text-center px-1">
+                By chatting, you agree to our{" "}
+                <a href="/privacy" target="_blank" rel="noopener" className="underline">Privacy Policy</a>
+                {" "}and{" "}
+                <a href="/terms" target="_blank" rel="noopener" className="underline">Terms</a>.
+                If you share your phone number, you agree to our{" "}
+                <a href="/sms-policy" target="_blank" rel="noopener" className="underline">SMS Policy</a>.
+              </p>
             </div>
           </motion.div>
         )}
