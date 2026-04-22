@@ -105,8 +105,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move from Noell Agents to Growth or Custom Ops (The Noell System), we credit your first month of agents toward the setup fee of the new tier. Your founding rate locks in on the agents portion for 24 months even after you upgrade.",
-    // TODO: Noell to review — confirm upgrade-credit mechanic and how founding rate applies post-upgrade.
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). Founder rate applies to Noell Agents specifically — the full system has its own pricing.",
   },
   {
     id: "agents_time_to_live",
@@ -127,8 +126,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "What happens after the 24-month founder rate ends?",
     answer:
-      "You roll to the standard rate of $297/mo at month 25 — no surprise increases in between. If you completed a full case study you stay on the founder rate for an additional 6 months (30 months total). You can also upgrade to the full system at any time without losing your founding status on the agents portion.",
-    // TODO: Noell to review — confirm exact post-24-month price and whether any other grandfathering applies.
+      "Your rate rolls to the standard Noell Agents price at that time (currently $297/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founders who complete a full case study during their term get an additional 6 months at $197 before the rollover — 30 months total at founder pricing.",
   },
 ];
 
