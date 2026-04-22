@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { Testimonials } from "@/components/testimonials";
 import { Systems } from "@/components/systems";
 import CTA from "@/components/cta";
+import { PickYourPath } from "@/components/pick-your-path";
+import { FullSystemFeatures } from "@/components/full-system-features";
+
+export const metadata: Metadata = {
+  title:
+    "Ops by Noell | AI Agents + Full Operations Platform for Service Businesses",
+  description:
+    "Three AI agents, or the full white-labeled operations platform. Built for dental, med spas, salons, massage, estheticians, and HVAC. Live in 14 days.",
+};
 
 export default function Home() {
   return (
@@ -25,13 +35,19 @@ export default function Home() {
         }}
       />
 
-      {/* 2. What We Do — three agents, tight */}
+      {/* 2. Pick your path — two tracks (agents-only vs full system) */}
+      <PickYourPath />
+
+      {/* 3. What We Do — three agents, tight */}
       <Systems />
 
-      {/* 3. Proof — one strong testimonial */}
+      {/* 4. What's in the full system — feature grid */}
+      <FullSystemFeatures />
+
+      {/* 5. Proof — one strong testimonial */}
       <Testimonials />
 
-      {/* 4. Final CTA band */}
+      {/* 6. Final CTA band */}
       <CTA
         eyebrow="The first step"
         headlineStart="Start with a"
