@@ -34,7 +34,9 @@ export const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Systems", link: "/systems" },
+    { name: "About", link: "/about" },
     { name: "Verticals", link: "/verticals" },
+    { name: "Agents", link: "/agents" },
     { name: "Pricing", link: "/pricing" },
     { name: "Noell Support", link: "/noell-support", isAccent: true },
     { name: "Book", link: "/book" },
@@ -90,7 +92,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
-        "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-8 rounded-full relative z-[100] border border-warm-border/40"
+        "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-5 rounded-full relative z-[100] border border-warm-border/40"
       )}
     >
       <Logo />
@@ -116,7 +118,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
             >
               {isVerticals ? (
                 <button
-                  className="text-charcoal/80 hover:text-charcoal relative px-3 py-1.5 transition-colors flex items-center gap-1"
+                  className="text-charcoal/80 hover:text-charcoal relative px-2.5 py-1.5 transition-colors flex items-center gap-1"
                   onClick={() => setVerticalsOpen((v) => !v)}
                 >
                   <span className="relative z-10">{navItem.name}</span>
@@ -145,7 +147,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
                 </button>
               ) : (
                 <Link
-                  className="text-charcoal/80 hover:text-charcoal relative px-3 py-1.5 transition-colors flex items-center gap-1.5"
+                  className="text-charcoal/80 hover:text-charcoal relative px-2.5 py-1.5 transition-colors flex items-center gap-1.5"
                   href={navItem.link}
                 >
                   {navItem.isAccent && (

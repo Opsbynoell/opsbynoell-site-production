@@ -3,15 +3,38 @@ import Link from "next/link";
 import Pricing from "@/components/pricing";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
+import { NoellAgentsCard } from "@/components/noell-agents-card";
 
 export const metadata: Metadata = {
   title: "Pricing | Ops by Noell",
   description:
-    "Transparent, flat-rate pricing for the Noell system. Essentials at $197/mo, Growth at $797/mo, Custom Ops at $1,497/mo. Each tier includes a one-time setup.",
+    "Two tracks. Noell Agents at $197/mo founding rate, or the full Noell System — Essentials $197/mo, Growth $797/mo, Custom Ops $1,497/mo. Each tier includes a one-time setup.",
 };
 
 const pricingFaqs: FaqItem[] = [
-  // Group 1 — Commitment and terms
+  // NEW — Session 3 additions, at the top
+  {
+    id: "agents_vs_system",
+    group: "tracks",
+    question: "What's the difference between Noell Agents and the Noell System?",
+    answer:
+      "Noell Agents is just the AI layer — three agents handling chat, calls, and client support. You keep whatever booking tool you already use. The Noell System is the full operations platform (CRM, calendars, marketing, reputation, etc.) that we install and manage end-to-end. Growth and Custom Ops include both.",
+  },
+  {
+    id: "agents_upgrade_path",
+    group: "tracks",
+    question: "Can I start with Noell Agents and upgrade to the full system later?",
+    answer:
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). Founder rate applies to Noell Agents specifically — the full system has its own pricing.",
+  },
+  {
+    id: "founding_member_offer",
+    group: "tracks",
+    question: "What is the founding member offer and who qualifies?",
+    answer:
+      "The first 10 founding members of Noell Agents lock in $197/mo (vs $297/mo normal) for 24 months. In return we ask for a written testimonial after 30 days and one 15-minute reference call. The offer closes June 30, 2026, or when the first 10 spots are claimed — whichever comes first.",
+  },
+  // Existing — Group 1 — Commitment and terms
   {
     id: "commitment_month_to_month",
     group: "commitment",
@@ -129,15 +152,13 @@ export default function PricingPage() {
           Pricing
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
-          One system.{" "}
+          Two tracks.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            Three ways to run it.
+            Pick the one that fits.
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-2xl text-center text-charcoal/75 text-sm md:text-base leading-relaxed">
-          Transparent, flat-rate monthly pricing. No bait pricing, no mystery
-          scope. Your audit is where we confirm the right fit and book the
-          install.
+          Run only the agents, or install the full system end-to-end.
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
@@ -149,6 +170,26 @@ export default function PricingPage() {
           </Link>
           .
         </p>
+      </section>
+
+      <NoellAgentsCard />
+
+      <section id="noell-system" className="w-full pt-16 md:pt-24 px-4 scroll-mt-20">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+            The Noell System · Done for you
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            The full operations platform,{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              installed in 14 days.
+            </span>
+          </h2>
+          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto">
+            Three tiers. All include the white-labeled platform. Agents are
+            included in Growth and up.
+          </p>
+        </div>
       </section>
 
       <Pricing />

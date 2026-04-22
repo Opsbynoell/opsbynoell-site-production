@@ -241,23 +241,7 @@ export function VerticalPricingSection({
 
 export default function Pricing() {
   return (
-    <div id="pricing" className="py-24 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12 max-w-3xl mx-auto">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
-          Packages
-        </p>
-        <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal mb-4">
-          One system.
-          <br className="hidden md:block" />
-          <span className="italic text-wine">Three</span> ways to run it.
-        </h2>
-        <p className="text-charcoal/75 max-w-xl mx-auto">
-          The packages stay simple. What changes is how much Noell Support
-          coverage, smart automation, and implementation support you want
-          running behind the scenes for your business.
-        </p>
-      </div>
-
+    <div id="pricing" className="pt-10 md:pt-12 pb-24 px-4 max-w-7xl mx-auto">
       {/* Decision D: integration depth by tier (prevents Essentials mis-sale) */}
       <div className="max-w-3xl mx-auto mb-14 rounded-[20px] border border-warm-border bg-cream/70 p-6 md:p-7 text-sm md:text-[15px] text-charcoal/80 leading-relaxed space-y-3">
         <p>

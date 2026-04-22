@@ -17,6 +17,7 @@ import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
+import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -269,6 +270,8 @@ export default function DentalVerticalPage() {
         secondaryCta={{ label: "See how it layers on your PMS", href: "#layers-on-pms" }}
         mockScreen={dentalScreen}
       />
+
+      <VerticalAgentsCallout />
 
       {/* Dental-specific stats */}
       <Features
