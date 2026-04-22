@@ -13,6 +13,7 @@ import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
 import { localBusinessSchema } from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
+import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 
@@ -214,6 +215,8 @@ export default function EstheticiansVerticalPage() {
         }}
         mockScreen={estheticianScreen}
       />
+
+      <VerticalAgentsCallout />
 
       <Features
         eyebrow="What estheticians see"
