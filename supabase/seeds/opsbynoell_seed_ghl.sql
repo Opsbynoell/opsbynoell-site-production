@@ -2,30 +2,25 @@
 -- Ops by Noell — clients row (internal support agent)
 -- Target project: clipzfkbzupjctherijz
 -- GHL location ID: Un5H1b2zXJM3agZ56j7c
--- SMS provider: Twilio (standalone account, post-A2P 10DLC approval)
+-- SMS provider: GHL LC Phone (A2P 10DLC approved 2026-04-18)
+--
+-- APPLY THIS SEED. The sibling file opsbynoell_seed.twilio.pending.sql
+-- is parked until a standalone Twilio account exists.
 --
 -- Run AFTER:
 --   supabase/migrations/0001_agents_schema.sql
 --   supabase/migrations/0002_multi_tenant_admin.sql
 --
--- PLACEHOLDERS — must be updated before go-live:
---   PHONE_PLACEHOLDER — replace with the purchased Twilio A2P number
---                      (E.164, e.g. +19499991234). Used in:
---                        - clients.phone
---                        - clients.locations[0].phone
---                        - clients.escalation_rules.qualifiedLead.smsTo
---                          (set this one to Nikki's personal cell, NOT
---                          the Twilio number)
+-- Numbers in this file:
+--   +19499973915 — "Nikki's number" in GHL LC Phone (A2P verified).
+--                  Used as the From number for outbound SMS from the
+--                  Noell Support chat widget, and as the public
+--                  business phone on the locations block.
+--   +19497849726 — Business receiving line (Verizon, James Noell).
+--                  All qualified-lead escalation SMS alerts go here.
 --
--- Notes:
---   - Ops by Noell only runs the Support tier on its own marketing site.
---     Front Desk and Care are products sold to reseller clients, not used
---     internally.
---   - sms_provider='twilio' — SMS sends go through the standalone Twilio
---     account configured via TWILIO_ACCOUNT_SID / TWILIO_AUTH_TOKEN /
---     TWILIO_FROM_NUMBER env vars (see docs/ENV_VARS.md).
---   - sms_config.from is informational only; TwilioSms reads the real
---     From number from env at send-time.
+-- Telegram is intentionally disabled (telegram_chat_id = NULL).
+-- Qualified-lead alerts route: SMS -> +19497849726, email -> hello@opsbynoell.com.
 -- ============================================================
 
 
@@ -68,11 +63,11 @@ VALUES (
   'opsbynoell',
   'Ops by Noell',
   'internal',
-  'PHONE_PLACEHOLDER',
+  '+19499973915',
   'hello@opsbynoell.com',
   '{"support": true, "frontDesk": false, "care": false}'::jsonb,
 
-  -- Support system prompt (fallback — v2 prompt file not present at seed-write time)
+  -- Support system prompt
   'You are the Support agent for Ops by Noell, a small automation agency run by Nikki. Ops by Noell sells three tiers of AI-powered agents to service businesses: Noell Support (website chat + lead capture), Noell Front Desk (24/7 missed-call text-back + booking), and Noell Care (returning-client scheduling and follow-up).
 
 Your job is to (1) greet visitors warmly, (2) answer questions about the three tiers and what each one does, (3) capture the visitor''s name, business, and contact info, and (4) route qualified leads to the contact form at https://www.opsbynoell.com/contact. When a lead is clearly qualified (they run a service business, they''ve described a concrete pain point, and they''ve given contact info), escalate to Nikki via SMS and email using the escalation rules configured on this client.
@@ -88,11 +83,11 @@ Be concise, plain-spoken, and grounded. Never invent pricing. If asked about cos
   'ghl',
   '{"locationId": "Un5H1b2zXJM3agZ56j7c"}'::jsonb,
 
-  -- KEY CHANGE: Twilio (standalone account) instead of GHL LC Phone.
-  -- The actual From number is read from TWILIO_FROM_NUMBER env at send-time;
-  -- the JSON below is informational so operators can see the source.
-  'twilio',
-  '{"from": "env:TWILIO_FROM_NUMBER"}'::jsonb,
+  -- SMS via GHL LC Phone. A2P 10DLC approved 2026-04-18.
+  -- The locationId below routes through the Ops by Noell GHL sub-account,
+  -- which sends from +19499973915 ("Nikki's number", A2P verified).
+  'ghl',
+  '{"locationId": "Un5H1b2zXJM3agZ56j7c", "fromNumber": "+19499973915"}'::jsonb,
 
   NULL,            -- missed_call_text_template (Front Desk not in use)
   'google',
@@ -108,21 +103,22 @@ Be concise, plain-spoken, and grounded. Never invent pricing. If asked about cos
   '[{
     "name": "Ops by Noell HQ",
     "address": "23710 El Toro Road #1086, Lake Forest, CA 92630",
-    "phone": "PHONE_PLACEHOLDER"
+    "phone": "+19499973915"
   }]'::jsonb,
 
   '[{"name": "Nikki", "role": "Founder"}]'::jsonb,
 
-  -- Escalation rules: qualified leads alert Nikki via SMS + email.
-  -- Replace PHONE_PLACEHOLDER with Nikki's personal cell in E.164 post-Twilio setup.
+  -- Escalation rules: qualified leads alert the Ops by Noell business line
+  -- (Verizon, James Noell) via SMS, plus email to hello@opsbynoell.com.
+  -- Telegram is intentionally disabled.
   '{
     "qualifiedLead": {
-      "smsTo":   "PHONE_PLACEHOLDER",
+      "smsTo":   "+19497849726",
       "emailTo": "hello@opsbynoell.com"
     }
   }'::jsonb,
 
-  NULL             -- telegram_chat_id (not in use)
+  NULL             -- telegram_chat_id (disabled; alerts go via SMS + email)
 )
 ON CONFLICT (id) DO UPDATE SET
   brand_name                  = EXCLUDED.brand_name,
@@ -153,6 +149,13 @@ ON CONFLICT (id) DO UPDATE SET
 
 -- ============================================================
 -- Verify with:
---   SELECT id, brand_name, sms_provider, sms_config
+--   SELECT id, brand_name, sms_provider, sms_config,
+--          escalation_rules, telegram_chat_id
 --   FROM clients WHERE id = 'opsbynoell';
+--
+-- Expected:
+--   sms_provider = 'ghl'
+--   sms_config   = {"locationId":"Un5H1b2zXJM3agZ56j7c","fromNumber":"+19499973915"}
+--   escalation_rules.qualifiedLead.smsTo = +19497849726
+--   telegram_chat_id = NULL
 -- ============================================================
