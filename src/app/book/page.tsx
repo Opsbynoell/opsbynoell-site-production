@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/book",
   title: "Book Your Free Audit",
   description:
-    "Pick a 30-minute audit slot on Nikki's calendar. No pitch, no pressure. A clear map of where leads are falling through and what a system could recover.",
+    "Request a focused Ops by Noell audit. Nikki schedules every audit personally and confirms a time by email or text.",
 });
 
 const steps = [
