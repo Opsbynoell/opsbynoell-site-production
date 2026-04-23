@@ -4,8 +4,12 @@ import { verifyToken, COOKIE_NAME } from "@/lib/admin-auth";
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Protect /admin/* but not /admin/login
-  if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
+  // Protect /admin/* but not /admin/login or /admin/accept-invite
+  if (
+    pathname.startsWith("/admin") &&
+    !pathname.startsWith("/admin/login") &&
+    !pathname.startsWith("/admin/accept-invite")
+  ) {
     const token = req.cookies.get(COOKIE_NAME)?.value;
     const payload = await verifyToken(token);
     if (!payload) {

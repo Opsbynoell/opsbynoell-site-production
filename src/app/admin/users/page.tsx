@@ -24,6 +24,7 @@ export default function UsersPage() {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [formMode, setFormMode] = useState<"create" | "invite">("invite");
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -31,6 +32,7 @@ export default function UsersPage() {
     accessibleClients: "",
   });
   const [formError, setFormError] = useState("");
+  const [formSuccess, setFormSuccess] = useState("");
   const [formLoading, setFormLoading] = useState(false);
   const [editUser, setEditUser] = useState<AdminUser | null>(null);
   const [editForm, setEditForm] = useState({
@@ -64,28 +66,44 @@ export default function UsersPage() {
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault();
     setFormError("");
+    setFormSuccess("");
     setFormLoading(true);
     try {
-      const res = await fetch("/api/admin/users", {
+      const endpoint =
+        formMode === "invite" ? "/api/admin/users/invite" : "/api/admin/users";
+      const payload: Record<string, unknown> = {
+        email: form.email,
+        isSuperAdmin: form.isSuperAdmin,
+        accessibleClients: form.accessibleClients
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+      };
+      if (formMode === "create") payload.password = form.password;
+
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: form.email,
-          password: form.password,
-          isSuperAdmin: form.isSuperAdmin,
-          accessibleClients: form.accessibleClients
-            .split(",")
-            .map((s) => s.trim())
-            .filter(Boolean),
-        }),
+        body: JSON.stringify(payload),
       });
+      const d = await res.json();
       if (!res.ok) {
-        const d = await res.json();
         setFormError(d.error ?? "Failed to create user");
         return;
       }
+
+      if (formMode === "invite") {
+        if (d.emailSent) {
+          setFormSuccess(`Invite sent to ${form.email}. Link expires in 48 hours.`);
+        } else {
+          setFormError(
+            `User created, but email failed to send (${d.emailError ?? "unknown"}). Check RESEND_API_KEY.`
+          );
+        }
+      }
+
       setForm({ email: "", password: "", isSuperAdmin: false, accessibleClients: "" });
-      setShowForm(false);
+      if (formMode === "create") setShowForm(false);
       await loadUsers();
     } finally {
       setFormLoading(false);
@@ -148,7 +166,12 @@ export default function UsersPage() {
           </span>
         </div>
         <button
-          onClick={() => setShowForm(true)}
+          onClick={() => {
+            setFormMode("invite");
+            setFormError("");
+            setFormSuccess("");
+            setShowForm(true);
+          }}
           className="text-xs bg-wine text-cream px-3 py-1.5 rounded-lg hover:bg-wine/90 transition-colors"
         >
           + New user
@@ -227,13 +250,48 @@ export default function UsersPage() {
         )}
       </div>
 
-      {/* Create user modal */}
+      {/* Create / invite user modal */}
       {showForm && (
         <div className="fixed inset-0 bg-charcoal/40 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-[20px] border border-warm-border shadow-lg p-6 w-full max-w-sm">
             <h2 className="font-serif text-lg font-semibold text-charcoal mb-4">
               New admin user
             </h2>
+
+            {/* Mode toggle */}
+            <div className="flex gap-2 mb-5 p-1 bg-cream rounded-xl border border-warm-border">
+              <button
+                type="button"
+                onClick={() => {
+                  setFormMode("invite");
+                  setFormError("");
+                  setFormSuccess("");
+                }}
+                className={`flex-1 h-8 rounded-lg text-xs font-medium transition-colors ${
+                  formMode === "invite"
+                    ? "bg-wine text-cream"
+                    : "text-charcoal/60 hover:text-charcoal"
+                }`}
+              >
+                Invite via email
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setFormMode("create");
+                  setFormError("");
+                  setFormSuccess("");
+                }}
+                className={`flex-1 h-8 rounded-lg text-xs font-medium transition-colors ${
+                  formMode === "create"
+                    ? "bg-wine text-cream"
+                    : "text-charcoal/60 hover:text-charcoal"
+                }`}
+              >
+                Create with password
+              </button>
+            </div>
+
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
                 <label className="block text-xs font-medium text-charcoal/70 mb-1">
@@ -248,18 +306,20 @@ export default function UsersPage() {
                   className="w-full h-10 px-3 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50"
                 />
               </div>
-              <div>
-                <label className="block text-xs font-medium text-charcoal/70 mb-1">
-                  Temporary password
-                </label>
-                <input
-                  type="password"
-                  value={form.password}
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
-                  placeholder="Strong password"
-                  className="w-full h-10 px-3 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50"
-                />
-              </div>
+              {formMode === "create" && (
+                <div>
+                  <label className="block text-xs font-medium text-charcoal/70 mb-1">
+                    Temporary password
+                  </label>
+                  <input
+                    type="password"
+                    value={form.password}
+                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                    placeholder="Strong password"
+                    className="w-full h-10 px-3 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50"
+                  />
+                </div>
+              )}
               <div>
                 <label className="block text-xs font-medium text-charcoal/70 mb-1">
                   Accessible clients (comma-separated, leave blank for super admin)
@@ -284,25 +344,50 @@ export default function UsersPage() {
                   Super admin (sees all clients)
                 </label>
               </div>
+              {formMode === "invite" && (
+                <p className="text-[11px] text-charcoal/50 leading-relaxed">
+                  An email from hello@opsbynoell.com will be sent with a link to set
+                  their password. The link expires in 48 hours.
+                </p>
+              )}
               {formError && (
                 <p className="text-xs text-red-500 bg-red-50 px-3 py-2 rounded-lg">
                   {formError}
                 </p>
               )}
+              {formSuccess && (
+                <p className="text-xs text-green-700 bg-green-50 px-3 py-2 rounded-lg">
+                  {formSuccess}
+                </p>
+              )}
               <div className="flex gap-3 pt-1">
                 <button
                   type="button"
-                  onClick={() => setShowForm(false)}
+                  onClick={() => {
+                    setShowForm(false);
+                    setFormSuccess("");
+                    setFormError("");
+                  }}
                   className="flex-1 h-10 rounded-xl border border-warm-border text-sm text-charcoal/60 hover:text-charcoal transition-colors"
                 >
-                  Cancel
+                  {formSuccess ? "Done" : "Cancel"}
                 </button>
                 <button
                   type="submit"
-                  disabled={!form.email || !form.password || formLoading}
+                  disabled={
+                    !form.email ||
+                    (formMode === "create" && !form.password) ||
+                    formLoading
+                  }
                   className="flex-1 h-10 rounded-xl bg-wine text-cream text-sm font-medium hover:bg-wine/90 disabled:opacity-40 transition-colors"
                 >
-                  {formLoading ? "Creating..." : "Create"}
+                  {formLoading
+                    ? formMode === "invite"
+                      ? "Sending…"
+                      : "Creating…"
+                    : formMode === "invite"
+                      ? "Send invite"
+                      : "Create"}
                 </button>
               </div>
             </form>
