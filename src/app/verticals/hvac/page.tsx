@@ -18,6 +18,7 @@ import {
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
+import { PredictiveIntelligenceVerticalExample } from "@/components/predictive-intelligence";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/json-ld";
@@ -305,6 +306,8 @@ export default function HvacVerticalPage() {
         body="Not a feature list. The three plays that keep emergency, service, and maintenance in the right queues."
         capabilities={hvacCapabilities}
       />
+
+      <PredictiveIntelligenceVerticalExample vertical="hvac" />
 
       <VerticalPricingSection
         vertical="hvac"

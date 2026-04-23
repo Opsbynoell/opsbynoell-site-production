@@ -18,6 +18,7 @@ import {
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
+import { PredictiveIntelligenceVerticalExample } from "@/components/predictive-intelligence";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/json-ld";
@@ -299,6 +300,8 @@ export default function MedSpasVerticalPage() {
         body="Not a feature list. The three touchpoints that decide whether warm intent becomes a booked consult."
         capabilities={medSpaCapabilities}
       />
+
+      <PredictiveIntelligenceVerticalExample vertical="med-spas" />
 
       <VerticalPricingSection
         vertical="med_spas"

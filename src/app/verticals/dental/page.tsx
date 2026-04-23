@@ -22,6 +22,7 @@ import {
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
+import { PredictiveIntelligenceVerticalExample } from "@/components/predictive-intelligence";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/json-ld";
@@ -412,6 +413,8 @@ export default function DentalVerticalPage() {
         body="Not a 40-feature list. The three touchpoints that move the numbers in a dental practice."
         capabilities={dentalCapabilities}
       />
+
+      <PredictiveIntelligenceVerticalExample vertical="dental" />
 
       <VerticalPricingSection
         vertical="dental"

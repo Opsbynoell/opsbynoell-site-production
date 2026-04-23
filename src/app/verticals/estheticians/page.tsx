@@ -18,6 +18,7 @@ import {
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
+import { PredictiveIntelligenceVerticalExample } from "@/components/predictive-intelligence";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/json-ld";
@@ -301,6 +302,8 @@ export default function EstheticiansVerticalPage() {
         body="Not a feature list. The three plays that hold a skincare client to the plan without forcing the tone."
         capabilities={estheticianCapabilities}
       />
+
+      <PredictiveIntelligenceVerticalExample vertical="estheticians" />
 
       <VerticalPricingSection
         vertical="estheticians"

@@ -14,14 +14,16 @@ export const metadata = pageMetadata({
 type Resource = {
   title: string;
   excerpt: string;
-  href: string;
-  kind: "Article" | "Case study";
+  href?: string;
+  kind: "Article" | "Case study" | "Roadmap";
   minutes?: string;
+  status?: "live" | "coming";
 };
 
 const resources: Resource[] = [
   {
     kind: "Article",
+    status: "live",
     title: "Missed-call recovery for service businesses",
     excerpt:
       "Why the missed call is the most expensive lead you will ever own, and how a done-for-you AI front desk catches it before the next door opens.",
@@ -30,6 +32,7 @@ const resources: Resource[] = [
   },
   {
     kind: "Article",
+    status: "live",
     title: "AI front desk vs. human receptionist",
     excerpt:
       "What an AI front desk actually does, what it does not, and how it sits alongside the humans you already pay.",
@@ -38,11 +41,20 @@ const resources: Resource[] = [
   },
   {
     kind: "Case study",
+    status: "live",
     title: "Santa E., massage therapist — $960 recovered in 14 days",
     excerpt:
       "How one solo massage therapist in Orange County recovered four missed calls and booked them inside two weeks of install.",
     href: "/case-studies/santa-e",
     minutes: "4 min",
+  },
+  {
+    kind: "Roadmap",
+    status: "coming",
+    title: "Predictive Customer Intelligence for service businesses",
+    excerpt:
+      "How the Noell system is learning to see across your book — which regulars are drifting, when to reach out, and what is quietly shifting in your service mix. Long-form piece in progress, shipping alongside the intelligence layer rollout.",
+    minutes: "Next drop",
   },
 ];
 
@@ -74,27 +86,53 @@ export default function ResourcesPage() {
 
       <section className="px-4 pb-16 md:pb-20">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
-          {resources.map((r) => (
-            <Link
-              key={r.href}
-              href={r.href}
-              className="group block rounded-[22px] border border-warm-border bg-white p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 transition-transform"
-            >
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-wine mb-4">
-                {r.kind}
-                {r.minutes ? ` · ${r.minutes}` : ""}
-              </p>
-              <h2 className="font-serif text-2xl font-semibold text-charcoal mb-3 leading-snug">
-                {r.title}
-              </h2>
-              <p className="text-sm text-charcoal/70 leading-relaxed">
-                {r.excerpt}
-              </p>
-              <p className="mt-5 text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
-                Read it &rarr;
-              </p>
-            </Link>
-          ))}
+          {resources.map((r, idx) => {
+            const card = (
+              <>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-wine mb-4">
+                  {r.kind}
+                  {r.minutes ? ` · ${r.minutes}` : ""}
+                </p>
+                <h2 className="font-serif text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                  {r.title}
+                </h2>
+                <p className="text-sm text-charcoal/70 leading-relaxed">
+                  {r.excerpt}
+                </p>
+                <p
+                  className={
+                    r.status === "coming"
+                      ? "mt-5 text-xs text-muted-strong font-medium"
+                      : "mt-5 text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity"
+                  }
+                >
+                  {r.status === "coming"
+                    ? "Coming soon · watch this space"
+                    : "Read it →"}
+                </p>
+              </>
+            );
+            if (r.href) {
+              return (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="group block rounded-[22px] border border-warm-border bg-white p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 transition-transform"
+                >
+                  {card}
+                </Link>
+              );
+            }
+            return (
+              <div
+                key={`roadmap-${idx}`}
+                aria-label={`${r.title} — coming soon`}
+                className="block rounded-[22px] border border-dashed border-warm-border bg-cream-dark/60 p-7"
+              >
+                {card}
+              </div>
+            );
+          })}
         </div>
       </section>
 

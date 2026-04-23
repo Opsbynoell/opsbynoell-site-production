@@ -4,6 +4,7 @@ import { Systems } from "@/components/systems";
 import CTA from "@/components/cta";
 import { PickYourPath } from "@/components/pick-your-path";
 import { FullSystemFeatures } from "@/components/full-system-features";
+import { PredictiveIntelligence } from "@/components/predictive-intelligence";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { servicePageSchema } from "@/lib/schema";
@@ -60,7 +61,10 @@ export default function Home() {
       {/* 4. What's in the full system — feature grid */}
       <FullSystemFeatures />
 
-      {/* 5. Proof — one strong testimonial */}
+      {/* 5. What's next — Predictive Customer Intelligence */}
+      <PredictiveIntelligence />
+
+      {/* 6. Proof — one strong testimonial */}
       <Testimonials />
 
       {/* 6. Final CTA band */}
