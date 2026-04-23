@@ -21,6 +21,7 @@ import { classifyIntent, claudeComplete } from "./claude";
 import { getClientConfig } from "./config";
 import { sendAgentEmailAlert } from "./email-alert";
 import { buildSystemPrompt } from "./prompts";
+import { sendOwnerSmsAlert } from "./sms-alert";
 import { sbInsert, sbSelect, sbUpdate } from "./supabase";
 import { sendTelegramAlert } from "./telegram";
 import type {
@@ -240,25 +241,36 @@ export async function runTurn({
       `Session: ${session.id}\n` +
       `Last message: "${payload.message}"`;
 
-    await sendTelegramAlert({
-      agent,
-      businessName: cfg.businessName,
-      chatId: cfg.telegramChatId,
-      message: alertText,
-    });
+    const agentLabel = AGENT_LABEL[agent];
+    const smsAlertBody =
+      `New ${agentLabel} lead (${cfg.businessName})\n` +
+      `${session.visitor_name ?? "Unknown"} — ${session.visitor_phone ?? session.visitor_email ?? "no contact"}\n` +
+      `Why: ${reason}\n` +
+      `Session: ${session.id.slice(0, 8)}`;
 
-    // Parallel email alert (interim, until Twilio SMS ships post-A2P).
-    await sendAgentEmailAlert({
-      subject: `New ${AGENT_LABEL[agent]} lead — ${session.visitor_name ?? "Unknown"}`,
-      text:
-        `New ${AGENT_LABEL[agent]} lead\n\n` +
-        `Name: ${session.visitor_name ?? "Unknown"}\n` +
-        `Business: ${cfg.businessName}${cfg.vertical ? ` (${cfg.vertical})` : ""}\n` +
-        `Problem: ${reason}\n` +
-        `Contact: ${session.visitor_email ?? "—"} / ${session.visitor_phone ?? "—"}\n` +
-        `Next step: discovery call\n\n` +
-        `Conversation snippet:\n${payload.message.slice(0, 500)}`,
-    });
+    await Promise.all([
+      sendTelegramAlert({
+        agent,
+        businessName: cfg.businessName,
+        chatId: cfg.telegramChatId,
+        message: alertText,
+      }),
+      sendAgentEmailAlert({
+        subject: `New ${agentLabel} lead — ${session.visitor_name ?? "Unknown"}`,
+        text:
+          `New ${agentLabel} lead\n\n` +
+          `Name: ${session.visitor_name ?? "Unknown"}\n` +
+          `Business: ${cfg.businessName}${cfg.vertical ? ` (${cfg.vertical})` : ""}\n` +
+          `Problem: ${reason}\n` +
+          `Contact: ${session.visitor_email ?? "—"} / ${session.visitor_phone ?? "—"}\n` +
+          `Next step: discovery call\n\n` +
+          `Conversation snippet:\n${payload.message.slice(0, 500)}`,
+      }),
+      sendOwnerSmsAlert({
+        cfg,
+        message: smsAlertBody,
+      }),
+    ]);
   }
 
   return {

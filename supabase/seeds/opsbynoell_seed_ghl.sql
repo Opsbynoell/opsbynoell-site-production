@@ -21,6 +21,12 @@
 --
 -- Telegram is intentionally disabled (telegram_chat_id = NULL).
 -- Qualified-lead alerts route: SMS -> +19497849726, email -> hello@opsbynoell.com.
+--
+-- sms_config.alertSmsTo is a LIVE field read by src/lib/agents/sms-alert.ts
+-- at escalation time — it is no longer just stored for future use. When
+-- the runner's escalation block fires, sendOwnerSmsAlert() reads this
+-- value and dispatches the qualified-lead SMS via the configured GHL
+-- LC Phone integration (in parallel with the Telegram + email alerts).
 -- ============================================================
 
 
@@ -87,7 +93,7 @@ Be concise, plain-spoken, and grounded. Never invent pricing. If asked about cos
   -- The locationId below routes through the Ops by Noell GHL sub-account,
   -- which sends from +19499973915 ("Nikki's number", A2P verified).
   'ghl',
-  '{"locationId": "Un5H1b2zXJM3agZ56j7c", "fromNumber": "+19499973915"}'::jsonb,
+  '{"locationId": "Un5H1b2zXJM3agZ56j7c", "fromNumber": "+19499973915", "alertSmsTo": "+19497849726"}'::jsonb,
 
   NULL,            -- missed_call_text_template (Front Desk not in use)
   'google',
@@ -155,7 +161,7 @@ ON CONFLICT (id) DO UPDATE SET
 --
 -- Expected:
 --   sms_provider = 'ghl'
---   sms_config   = {"locationId":"Un5H1b2zXJM3agZ56j7c","fromNumber":"+19499973915"}
+--   sms_config   = {"locationId":"Un5H1b2zXJM3agZ56j7c","fromNumber":"+19499973915","alertSmsTo":"+19497849726"}
 --   escalation_rules.qualifiedLead.smsTo = +19497849726
 --   telegram_chat_id = NULL
 -- ============================================================
