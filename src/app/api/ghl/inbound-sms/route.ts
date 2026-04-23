@@ -61,7 +61,7 @@ export async function POST(req: NextRequest): Promise<Response> {
 
   const payload = extractInboundPayload(rawBody);
   if (!payload) {
-    console.warn("[inbound-sms] Missing from/to phone in payload", rawBody);
+    console.warn("[inbound-sms] Missing from phone in payload", rawBody);
     return NextResponse.json(
       { ok: false, reason: "missing_phones" },
       { status: 200 }

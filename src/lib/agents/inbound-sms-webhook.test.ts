@@ -96,9 +96,17 @@ test("extractInboundPayload: LC workflow alias shape (from / to / message)", () 
   assert.equal(result.messageText, "Using aliases");
 });
 
-test("extractInboundPayload: returns null when phones are missing", () => {
+test("extractInboundPayload: returns null when fromPhone is missing", () => {
   assert.equal(extractInboundPayload({ body: "no phones" }), null);
-  assert.equal(extractInboundPayload({ phone: "+1..." }), null); // missing toPhone
+  assert.equal(extractInboundPayload({ toNumber: "+19499973915", body: "hi" }), null);
+});
+
+test("extractInboundPayload: returns payload with toPhone=null when toNumber is omitted", () => {
+  const result = extractInboundPayload({ phone: "+19497849726", body: "hello" });
+  assert.ok(result, "should return a payload even without toNumber");
+  assert.equal(result.fromPhone, "+19497849726");
+  assert.equal(result.toPhone, null);
+  assert.equal(result.messageText, "hello");
 });
 
 // ── Unit tests: resolveTables ──────────────────────────────────────────────
@@ -275,4 +283,30 @@ test("empty message body is stored as '(empty)'", async () => {
     messageText: "   ", // whitespace only
   });
   assert.equal(sbInsertCalls[0].row.content, "(empty)");
+});
+
+test("falls back to most recent row when toNumber is omitted", async () => {
+  resetCalls();
+  // toPhone is null — no toNumber in the webhook body
+  const result = await handleInboundSms({
+    fromPhone: "+19497849726",
+    toPhone: null,
+    messageText: "Calling without toNumber",
+  });
+
+  assert.equal(result.ok, true);
+  if (!result.ok) throw new Error("expected ok");
+  assert.equal(result.sessionId, "sess-uuid-001");
+
+  // Must query by from_phone only (no to_phone filter).
+  assert.equal(sbSelectCalls.length, 1);
+  const params = sbSelectCalls[0].params as Record<string, string>;
+  assert.equal(params.from_phone, "eq.+19497849726");
+  assert.equal(params.to_phone, undefined, "should NOT filter by to_phone when toPhone is null");
+
+  // Still inserts the human message and flips takeover.
+  assert.equal(sbInsertCalls.length, 1);
+  assert.equal(sbUpdateCalls.length, 1);
+  assert.equal(sbInsertCalls[0].row.content, "Calling without toNumber");
+  assert.equal(sbInsertCalls[0].row.author, "Nikki (human)");
 });
