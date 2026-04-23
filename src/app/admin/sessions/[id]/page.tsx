@@ -11,6 +11,8 @@ interface Message {
   role: "user" | "assistant" | "human" | "system";
   content: string;
   created_at: string;
+  /** Optional author label — set to "Nikki (human)" for SMS-bridged replies. */
+  author?: string | null;
 }
 
 interface Session {
@@ -318,7 +320,7 @@ function SessionDetailInner({
                       >
                         {isHuman && (
                           <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/40 mb-0.5 px-1">
-                            You
+                            {msg.author ?? "You"}
                           </span>
                         )}
                         {isBot && (

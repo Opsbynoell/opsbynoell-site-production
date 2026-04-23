@@ -267,7 +267,11 @@ export async function runTurn({
         `"${snippet}"\n` +
         `Open: ${inboxUrl}`;
       // Fire-and-forget — do not block the reply.
-      void sendOwnerSmsAlert({ cfg, message: shadowBody });
+      void sendOwnerSmsAlert({
+        cfg,
+        message: shadowBody,
+        sessionContext: { sessionId: session.id, agent },
+      });
     }
   }
 
@@ -334,6 +338,7 @@ export async function runTurn({
       sendOwnerSmsAlert({
         cfg,
         message: smsAlertBody,
+        sessionContext: { sessionId: session.id, agent },
       }),
     ]);
   }

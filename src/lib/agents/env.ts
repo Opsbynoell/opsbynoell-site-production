@@ -52,4 +52,9 @@ export const env = {
 
   // Cron protection
   cronSecret: () => optional("CRON_SECRET"),
+
+  // Two-way SMS bridge — shared secret for the inbound-SMS webhook.
+  // Generate with: openssl rand -hex 32
+  // Vercel: Settings → Environment Variables → GHL_WEBHOOK_SECRET
+  ghlWebhookSecret: () => optional("GHL_WEBHOOK_SECRET"),
 };
