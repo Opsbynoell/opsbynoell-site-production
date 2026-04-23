@@ -93,7 +93,12 @@ Be concise, plain-spoken, and grounded. Never invent pricing. If asked about cos
   -- The locationId below routes through the Ops by Noell GHL sub-account,
   -- which sends from +19499973915 ("Nikki's number", A2P verified).
   'ghl',
-  '{"locationId": "Un5H1b2zXJM3agZ56j7c", "fromNumber": "+19499973915", "alertSmsTo": "+19497849726"}'::jsonb,
+  -- alertContactId points at an existing GHL contact in the Ops by Noell
+  -- sub-account. When set (plus fromNumber), GhlSms.sendSMS skips the
+  -- /contacts/upsert call, which means the PIT does NOT need contacts.write
+  -- scope, and the alert destination number (+19497849726) is NOT stored as
+  -- a CRM contact row.
+  '{"locationId": "Un5H1b2zXJM3agZ56j7c", "fromNumber": "+19499973915", "alertSmsTo": "+19497849726", "alertContactId": "iwQMFzgvJOSu57sz9w1t"}'::jsonb,
 
   NULL,            -- missed_call_text_template (Front Desk not in use)
   'google',
@@ -161,7 +166,7 @@ ON CONFLICT (id) DO UPDATE SET
 --
 -- Expected:
 --   sms_provider = 'ghl'
---   sms_config   = {"locationId":"Un5H1b2zXJM3agZ56j7c","fromNumber":"+19499973915","alertSmsTo":"+19497849726"}
+--   sms_config   = {"locationId":"Un5H1b2zXJM3agZ56j7c","fromNumber":"+19499973915","alertSmsTo":"+19497849726","alertContactId":"iwQMFzgvJOSu57sz9w1t"}
 --   escalation_rules.qualifiedLead.smsTo = +19497849726
 --   telegram_chat_id = NULL
 -- ============================================================

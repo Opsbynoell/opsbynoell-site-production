@@ -33,6 +33,21 @@ interface GhlConfig {
   calendarId?: string;
   /** Optional per-location API key. Falls back to the env key. */
   apiKey?: string;
+  /**
+   * Optional GHL contact ID to use as the originator of owner-alert SMS
+   * sends. When set, sendSMS uses this contact + explicit toNumber /
+   * fromNumber in the Conversations Messages payload and SKIPS the
+   * /contacts/upsert call — which means the PIT does not need
+   * `contacts.write` scope, and the destination phone number is NOT
+   * persisted to GHL as a contact row.
+   */
+  alertContactId?: string;
+  /**
+   * Optional FROM phone number (E.164) for outbound SMS. Required when
+   * `alertContactId` is set. For Ops by Noell this is `+19499973915`
+   * (the A2P-approved LC Phone number).
+   */
+  fromNumber?: string;
 }
 
 interface GhlWhatsappConfig extends GhlConfig {
@@ -67,8 +82,10 @@ function base(): string {
 // ---------- Calendar ----------
 
 export class GhlCalendar implements CalendarIntegration {
-  constructor(private cfg: GhlConfig) {
+  private cfg: GhlConfig;
+  constructor(cfg: GhlConfig) {
     if (!cfg.locationId) throw new Error("GHL locationId is required");
+    this.cfg = cfg;
   }
 
   async getAvailableSlots(
@@ -227,12 +244,45 @@ export class GhlCalendar implements CalendarIntegration {
 // ---------- SMS ----------
 
 export class GhlSms implements SMSIntegration {
-  constructor(private cfg: GhlConfig) {
+  private cfg: GhlConfig;
+  constructor(cfg: GhlConfig) {
     if (!cfg.locationId) throw new Error("GHL locationId is required");
+    this.cfg = cfg;
   }
 
   async sendSMS(to: string, body: string): Promise<{ messageId: string }> {
-    // GHL requires the contact to exist before sending. Upsert first.
+    // Fast path — owner-alert style.
+    //
+    // The client has pre-configured an `alertContactId` (an internal GHL
+    // contact that serves as the thread originator) and a `fromNumber`.
+    // We send with explicit toNumber + fromNumber so GHL routes correctly
+    // without requiring `contacts.write` scope on the PIT, and without
+    // polluting the CRM with alert-line rows.
+    if (this.cfg.alertContactId && this.cfg.fromNumber) {
+      const send = await fetch(`${base()}/conversations/messages`, {
+        method: "POST",
+        headers: headers(this.cfg),
+        body: JSON.stringify({
+          type: "SMS",
+          contactId: this.cfg.alertContactId,
+          message: body,
+          toNumber: to,
+          fromNumber: this.cfg.fromNumber,
+        }),
+      });
+      if (!send.ok) {
+        throw new Error(
+          `ghl sms send failed: ${send.status} ${await send.text()}`
+        );
+      }
+      const data = (await send.json()) as { messageId?: string };
+      return { messageId: data.messageId ?? "" };
+    }
+
+    // Legacy path — upsert contact by phone, then send. Requires
+    // `contacts.write` scope on the PIT. Retained for clients where the
+    // destination SHOULD be persisted as a contact (e.g. visitor reply
+    // flows, Twilio-backed clients).
     const upsert = await fetch(`${base()}/contacts/upsert`, {
       method: "POST",
       headers: headers(this.cfg),
@@ -297,9 +347,11 @@ export class GhlSms implements SMSIntegration {
  */
 export class GhlWhatsapp implements MessagingIntegration {
   readonly isWhatsApp = true;
+  private cfg: GhlWhatsappConfig;
 
-  constructor(private cfg: GhlWhatsappConfig) {
+  constructor(cfg: GhlWhatsappConfig) {
     if (!cfg.locationId) throw new Error("GHL locationId is required");
+    this.cfg = cfg;
   }
 
   /** Upsert a contact in GHL and return their contactId. */

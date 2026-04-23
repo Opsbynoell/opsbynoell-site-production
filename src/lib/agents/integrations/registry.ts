@@ -53,6 +53,8 @@ export function getSmsIntegration(cfg: ClientConfig): MessagingIntegration {
       return new GhlSms({
         locationId: conf.locationId as string,
         apiKey: conf.apiKey as string | undefined,
+        alertContactId: conf.alertContactId as string | undefined,
+        fromNumber: conf.fromNumber as string | undefined,
       });
     case "ghl_whatsapp":
       return new GhlWhatsapp({
