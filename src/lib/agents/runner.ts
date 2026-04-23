@@ -38,6 +38,16 @@ interface RunnerTables {
   messages: string; // "front_desk_messages" | "care_messages"
 }
 
+/**
+ * In-process rate-limit map for every-turn SMS alerts.
+ *
+ * Keyed by session id, value is the epoch-ms of the last shadow-SMS send.
+ * This is intentionally memory-only: serverless instances recycle, which
+ * is fine — worst case a cold instance sends one extra SMS per session.
+ * Use sms_config.everyTurnRateLimitMs to tune (default 60_000).
+ */
+const shadowSmsLastAlert = new Map<string, number>();
+
 interface SessionRow {
   id: string;
   client_id: string;
@@ -207,6 +217,40 @@ export async function runTurn({
   );
   const escalated = classification.escalate || Boolean(keywordReason);
   const intent: Intent = classification.intent;
+
+  // Every-turn SMS alert — fires on every visitor message (not just escalations).
+  // Useful during early testing so the operator can jump into the inbox live.
+  // Gated behind sms_config.everyTurnSms === true. Skips if the turn is already
+  // being escalated (the escalation SMS below will fire with richer context).
+  // Rate-limited to one SMS per session per SHADOW_SMS_RATE_LIMIT_MS (default 60s)
+  // to prevent spam loops from rapid-fire messages.
+  const everyTurnEnabled = Boolean(cfg.smsConfig?.everyTurnSms);
+  if (everyTurnEnabled && !escalated) {
+    const rateLimitMs = Number(
+      cfg.smsConfig?.everyTurnRateLimitMs ?? 60_000
+    );
+    const lastAlertAt = shadowSmsLastAlert.get(session.id) ?? 0;
+    const now = Date.now();
+    if (now - lastAlertAt >= rateLimitMs) {
+      shadowSmsLastAlert.set(session.id, now);
+      const who =
+        session.visitor_name ??
+        session.visitor_phone ??
+        session.visitor_email ??
+        "anon visitor";
+      const snippet = payload.message
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 140);
+      const shadowBody =
+        `Chat turn (${cfg.businessName})\n` +
+        `From: ${who}\n` +
+        `"${snippet}"\n` +
+        `Session: ${session.id.slice(0, 8)}`;
+      // Fire-and-forget — do not block the reply.
+      void sendOwnerSmsAlert({ cfg, message: shadowBody });
+    }
+  }
 
   // Persist the assistant reply.
   await sbInsert(tables.messages, {
