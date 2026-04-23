@@ -28,8 +28,13 @@ export interface SmsAlertSessionRow {
 export interface InboundSmsPayload {
   /** Sender phone (E.164) — the owner / alertSmsTo. Maps to from_phone in table. */
   fromPhone: string;
-  /** Receiving LC Phone (E.164) — the fromNumber used for outbound. Maps to to_phone. */
-  toPhone: string;
+  /**
+   * Receiving LC Phone (E.164) — the fromNumber used for outbound. Maps to to_phone.
+   * Optional: when absent the handler falls back to the most recent session row
+   * matching from_phone (ORDER BY created_at DESC LIMIT 1). Safe because one owner
+   * phone normally has only one active session at a time.
+   */
+  toPhone: string | null;
   /** The SMS body text sent by the owner. */
   messageText: string;
 }
@@ -103,15 +108,32 @@ export async function handleInboundSms(
   // ── 1. Look up session mapping ───────────────────────────────────────────
   let mapping: SmsAlertSessionRow | null = null;
   try {
-    const rows = await sbSelect<SmsAlertSessionRow>(
-      "sms_alert_sessions",
-      {
-        from_phone: `eq.${fromPhone}`,
-        to_phone:   `eq.${toPhone}`,
-      },
-      { limit: 1 }
-    );
-    mapping = rows[0] ?? null;
+    if (toPhone) {
+      // Exact match when toNumber is provided.
+      const rows = await sbSelect<SmsAlertSessionRow>(
+        "sms_alert_sessions",
+        {
+          from_phone: `eq.${fromPhone}`,
+          to_phone:   `eq.${toPhone}`,
+        },
+        { limit: 1 }
+      );
+      mapping = rows[0] ?? null;
+    } else {
+      // toNumber was absent from the webhook — fall back to most recent session
+      // for this sender. One owner phone normally has only one active session.
+      console.info(
+        `[inbound-sms] toPhone missing for ${fromPhone} — falling back to most recent session`
+      );
+      const rows = await sbSelect<SmsAlertSessionRow>(
+        "sms_alert_sessions",
+        {
+          from_phone: `eq.${fromPhone}`,
+        },
+        { limit: 1, order: "created_at.desc" }
+      );
+      mapping = rows[0] ?? null;
+    }
   } catch (err) {
     console.error("[inbound-sms] Supabase lookup failed:", err);
     return { ok: false, reason: "db_error" };
@@ -204,6 +226,6 @@ export function extractInboundPayload(
     (body.message as string | undefined) ??
     "";
 
-  if (!fromPhone || !toPhone) return null;
-  return { fromPhone, toPhone, messageText };
+  if (!fromPhone) return null;
+  return { fromPhone, toPhone: toPhone ?? null, messageText };
 }
