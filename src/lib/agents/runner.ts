@@ -48,6 +48,24 @@ interface RunnerTables {
  */
 const shadowSmsLastAlert = new Map<string, number>();
 
+/**
+ * Build a deep-link to the agent inbox page for a session.
+ *
+ * The inbox UI lives at /admin/sessions/[id]?agent=<kind>. Auth is
+ * handled in-app — if Nikki's browser session is expired the admin
+ * login page catches her and bounces back after sign-in.
+ *
+ * Base URL order: sms_config.inboxBaseUrl → NEXT_PUBLIC_SITE_URL env
+ * → hard-coded production default. Keeps preview deployments and
+ * local dev flexible without touching code.
+ */
+function buildInboxUrl(sessionId: string, agent: AgentKind): string {
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    "https://www.opsbynoell.com";
+  return `${base}/admin/sessions/${sessionId}?agent=${agent}`;
+}
+
 interface SessionRow {
   id: string;
   client_id: string;
@@ -242,11 +260,12 @@ export async function runTurn({
         .replace(/\s+/g, " ")
         .trim()
         .slice(0, 140);
+      const inboxUrl = buildInboxUrl(session.id, agent);
       const shadowBody =
         `Chat turn (${cfg.businessName})\n` +
         `From: ${who}\n` +
         `"${snippet}"\n` +
-        `Session: ${session.id.slice(0, 8)}`;
+        `Open: ${inboxUrl}`;
       // Fire-and-forget — do not block the reply.
       void sendOwnerSmsAlert({ cfg, message: shadowBody });
     }
@@ -286,11 +305,12 @@ export async function runTurn({
       `Last message: "${payload.message}"`;
 
     const agentLabel = AGENT_LABEL[agent];
+    const inboxUrl = buildInboxUrl(session.id, agent);
     const smsAlertBody =
       `New ${agentLabel} lead (${cfg.businessName})\n` +
       `${session.visitor_name ?? "Unknown"} — ${session.visitor_phone ?? session.visitor_email ?? "no contact"}\n` +
       `Why: ${reason}\n` +
-      `Session: ${session.id.slice(0, 8)}`;
+      `Open: ${inboxUrl}`;
 
     await Promise.all([
       sendTelegramAlert({
@@ -308,6 +328,7 @@ export async function runTurn({
           `Problem: ${reason}\n` +
           `Contact: ${session.visitor_email ?? "—"} / ${session.visitor_phone ?? "—"}\n` +
           `Next step: discovery call\n\n` +
+          `Open inbox: ${inboxUrl}\n\n` +
           `Conversation snippet:\n${payload.message.slice(0, 500)}`,
       }),
       sendOwnerSmsAlert({
