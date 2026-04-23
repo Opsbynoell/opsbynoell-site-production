@@ -21,6 +21,12 @@
 --
 -- Telegram is intentionally disabled (telegram_chat_id = NULL).
 -- Qualified-lead alerts route: SMS -> +19497849726, email -> hello@opsbynoell.com.
+--
+-- sms_config.alertSmsTo is a LIVE field read by src/lib/agents/sms-alert.ts
+-- at escalation time — it is no longer just stored for future use. When
+-- the runner's escalation block fires, sendOwnerSmsAlert() reads this
+-- value and dispatches the qualified-lead SMS via the configured GHL
+-- LC Phone integration (in parallel with the Telegram + email alerts).
 -- ============================================================
 
 
