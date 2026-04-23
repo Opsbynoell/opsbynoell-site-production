@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconScissors,
@@ -10,18 +9,26 @@ import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
-import { localBusinessSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  localBusinessSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Ops by Noell for Salons | AI Front Desk for Hair and Color Salons",
+export const metadata = pageMetadata({
+  path: "/verticals/salons",
+  title: "AI Front Desk for Salons",
   description:
     "Every chair is a P&L. Ops by Noell protects rebook rate, catches missed calls before they walk next door, and keeps chair utilization climbing without adding front desk work.",
-};
+});
 
 const salonStats = [
   {
@@ -189,11 +196,24 @@ const salonScreen = (
 export default function SalonsVerticalPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema("salons")),
-        }}
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "AI front desk for salons",
+            description:
+              "Done-for-you AI front desk for full-service hair and color salons. Protects rebook rate, catches missed calls, and keeps chair utilization climbing.",
+            path: "/verticals/salons",
+            vertical: "salons",
+          }),
+          localBusinessSchema("salons"),
+          faqPageSchema(salonFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "Salons", path: "/verticals/salons" },
+          ]),
+        ]}
+        id="vertical-salons"
       />
       <Hero
         eyebrow="Ops by Noell for Salons"

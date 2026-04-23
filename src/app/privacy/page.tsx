@@ -5,6 +5,8 @@ export const dynamic = "force-static";
 export const metadata = {
   title: "Privacy Policy — Ops by Noell",
   description: "How Ops by Noell collects, uses, and protects your information.",
+  alternates: { canonical: "https://www.opsbynoell.com/legal/privacy" },
+  robots: { index: false, follow: true },
 };
 
 const content = `# Privacy Policy

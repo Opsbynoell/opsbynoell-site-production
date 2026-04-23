@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconDental,
@@ -9,13 +8,17 @@ import {
   IconSnowflake,
 } from "@tabler/icons-react";
 import CTA from "@/components/cta";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/verticals",
   title:
-    "Verticals | Ops by Noell | AI Front Desk for Dental, Med Spas, Salons, Massage, Estheticians, and HVAC",
+    "Verticals — AI Front Desk for Dental, Med Spas, Salons, Massage, Estheticians, HVAC",
   description:
-    "Ops by Noell is the done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is built around your specific operational reality.",
-};
+    "Ops by Noell is a done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is shaped around the operational reality of your specific business.",
+});
 
 type Vertical = {
   slug: string;
@@ -28,7 +31,9 @@ type Vertical = {
   proof: string;
 };
 
-const verticals: Vertical[] = [
+type VerticalLink = Vertical & { ctaLabel: string };
+
+const verticals: VerticalLink[] = [
   {
     slug: "dental",
     href: "/verticals/dental",
@@ -36,9 +41,10 @@ const verticals: Vertical[] = [
     icon: <IconDental size={24} />,
     tagline: "For general, family, cosmetic, and pediatric practices.",
     description:
-      "Layers on top of Dentrix, Eaglesoft, Open Dental, and Curve. Catches new patient calls in under 60 seconds and reactivates unscheduled treatment.",
+      "Installed around your practice management software. Catches new patient calls in under 60 seconds and reactivates unscheduled treatment.",
     status: "live",
     proof: "New patient callback: under 60s",
+    ctaLabel: "AI front desk for dental offices",
   },
   {
     slug: "med-spas",
@@ -50,6 +56,7 @@ const verticals: Vertical[] = [
       "Warm intent cools off quietly. The Noell system catches inquiries without degrading your premium positioning, and books consultations while the lead is still warm.",
     status: "live",
     proof: "Consultation bookings, held warm",
+    ctaLabel: "AI front desk for med spas",
   },
   {
     slug: "salons",
@@ -61,6 +68,7 @@ const verticals: Vertical[] = [
       "Built around stylists as individual revenue centers. Rebooking is the retention mechanic, and the Noell system protects it without adding front desk work.",
     status: "live",
     proof: "Rebook rate, measured per chair",
+    ctaLabel: "AI front desk for salons",
   },
   {
     slug: "massage",
@@ -72,6 +80,7 @@ const verticals: Vertical[] = [
       "Built for the solo practitioner reality. No dead calendar days, no pushy outreach, no feeling like a salesperson on top of being a therapist.",
     status: "live",
     proof: "Missed-call recovery, live",
+    ctaLabel: "Missed-call recovery for massage therapists",
   },
   {
     slug: "estheticians",
@@ -83,6 +92,7 @@ const verticals: Vertical[] = [
       "Facial, treatment, and membership flows handled with the quiet tone that matches a skincare brand. Retention-first, never pushy.",
     status: "live",
     proof: "Membership retention, protected",
+    ctaLabel: "AI front desk for estheticians",
   },
   {
     slug: "hvac",
@@ -94,12 +104,20 @@ const verticals: Vertical[] = [
       "Service-type routing for emergency vs. scheduled calls. The Noell system triages urgency, captures the right info, and dispatches the right tech without turning your office into a call center.",
     status: "live",
     proof: "Emergency vs. scheduled, routed",
+    ctaLabel: "AI front desk for HVAC contractors",
   },
 ];
 
 export default function VerticalsHubPage() {
   return (
     <div>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Verticals", path: "/verticals" },
+        ])}
+        id="verticals-hub"
+      />
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(106,44,62,0.45)] via-[rgba(240,228,232,0.70)] to-[rgba(250,245,240,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
@@ -158,7 +176,7 @@ export default function VerticalsHubPage() {
                       {v.proof}
                     </p>
                     <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
-                      See it &rarr;
+                      {v.ctaLabel} &rarr;
                     </p>
                   </div>
                 </div>

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   IconCalendarEvent,
   IconClipboardCheck,
@@ -15,12 +14,16 @@ import { BookingLeadTracker } from "@/components/booking-lead-tracker";
 import { ProofBar } from "@/components/proof-bar";
 import { DetectedTimezone } from "@/components/detected-timezone";
 import { BookExitIntent } from "@/components/book-exit-intent";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Book Your Free Audit | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/book",
+  title: "Book Your Free Audit",
   description:
-    "30 minutes. No pitch, no pressure. See exactly where leads are falling through and what a system could recover.",
-};
+    "Pick a 30-minute audit slot on Nikki's calendar. No pitch, no pressure. A clear map of where leads are falling through and what a system could recover.",
+});
 
 const steps = [
   {
@@ -28,14 +31,14 @@ const steps = [
     number: "01",
     title: "Pick a time",
     detail:
-      "Choose a 30-minute slot on Noell's calendar. You'll get a confirmation text immediately and a reminder the day before.",
+      "Choose a 30-minute slot on Nikki's calendar. You'll get a confirmation by text or email and a reminder the day before your audit.",
   },
   {
     icon: <IconClipboardCheck size={24} />,
     number: "02",
-    title: "We audit your systems",
+    title: "We audit your front desk flow",
     detail:
-      "We review your follow-up flow, response time, booking process, and communication gaps. You share your stack, we do the digging.",
+      "We review your follow-up flow, response time, booking process, and communication gaps. You share how it runs today, we do the digging.",
   },
   {
     icon: <IconRoute size={24} />,
@@ -49,13 +52,14 @@ const steps = [
 const afterSteps = [
   {
     icon: <IconMessage2 size={18} />,
-    title: "Instant confirmation text",
-    detail: "You'll get a text within 30 seconds of booking.",
+    title: "Confirmation on its way",
+    detail:
+      "You'll receive a booking confirmation by text or email, usually within a few minutes.",
   },
   {
     icon: <IconBellRinging size={18} />,
-    title: "Smart reminder",
-    detail: "A gentle reminder lands the day before your audit.",
+    title: "Reminder the day before",
+    detail: "A gentle reminder lands the day before your audit call.",
   },
   {
     icon: <IconPhoneCall size={18} />,
@@ -90,6 +94,16 @@ const bookFaqs = [
 export default function BookPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          faqPageSchema(bookFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Book your audit", path: "/book" },
+          ]),
+        ]}
+        id="book"
+      />
       <BookExitIntent />
       <BookingLeadTracker />
 
@@ -113,7 +127,7 @@ export default function BookPage() {
           {[
             "Free & no obligation",
             "30 minutes, focused",
-            "Instant confirmation",
+            "Booked on a real calendar",
           ].map((chip) => (
             <span
               key={chip}
@@ -167,23 +181,31 @@ export default function BookPage() {
           </div>
 
           {/* What happens after */}
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {afterSteps.map((item, i) => (
-              <div
-                key={i}
-                className="rounded-[17px] border border-warm-border bg-cream-dark p-5"
-              >
-                <div className="w-8 h-8 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-3">
-                  {item.icon}
+          <div className="mt-10">
+            <h2 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-5">
+              What happens after you book
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {afterSteps.map((item, i) => (
+                <div
+                  key={i}
+                  className="rounded-[17px] border border-warm-border bg-cream-dark p-5"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="w-8 h-8 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-3"
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="text-sm font-semibold text-charcoal mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-charcoal/60 leading-relaxed">
+                    {item.detail}
+                  </p>
                 </div>
-                <p className="text-sm font-semibold text-charcoal mb-1">
-                  {item.title}
-                </p>
-                <p className="text-xs text-charcoal/60 leading-relaxed">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

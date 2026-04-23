@@ -5,6 +5,8 @@ export const dynamic = "force-static";
 export const metadata = {
   title: "Terms of Service — Ops by Noell",
   description: "Terms governing use of Ops by Noell and the Noell System.",
+  alternates: { canonical: "https://www.opsbynoell.com/legal/terms" },
+  robots: { index: false, follow: true },
 };
 
 const content = `# Terms of Service

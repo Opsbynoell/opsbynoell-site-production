@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconBolt,
@@ -11,35 +10,25 @@ import { cn } from "@/lib/utils";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { AgentsPageAnalytics } from "@/components/agents-page-analytics";
 import { AgentsFoundingCta } from "@/components/agents-founding-cta";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Noell Agents — AI for Service Businesses | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/agents",
+  title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three AI agents handling chat, calls, and client support. Works alongside any booking tool. Founding rate $197/mo locked for 24 months.",
-  openGraph: {
-    title: "Noell Agents — AI for Service Businesses",
-    description:
-      "Three AI agents handling chat, calls, and client support. Works alongside any booking tool. Founding rate $197/mo locked for 24 months.",
-    url: "https://www.opsbynoell.com/agents",
-    siteName: "Ops by Noell",
-    type: "website",
-    images: [
-      {
-        url: "/images/og-grid-master.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Noell Agents. Three AI agents for service businesses.",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Noell Agents — AI for Service Businesses",
-    description:
-      "Three AI agents handling chat, calls, and client support. Works alongside any booking tool.",
-    images: ["/images/og-grid-master.jpg"],
-  },
-};
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside the booking tool you already use. Founding rate $197/mo, locked for 24 months.",
+  ogTitle: "Noell Agents — AI Operations for Service Businesses",
+  ogDescription:
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
+  imageAlt:
+    "Noell Agents. Three AI agents for service businesses.",
+});
 
 type Agent = {
   title: string;
@@ -135,6 +124,23 @@ const agentsFaqs: FaqItem[] = [
 export default function AgentsPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "Noell Agents",
+            description:
+              "Three managed AI agents for service businesses: website chat, calls and scheduling, and existing-client support.",
+            path: "/agents",
+            serviceType: "AI operations for service businesses",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Noell Agents", path: "/agents" },
+          ]),
+          faqPageSchema(agentsFaqs),
+        ]}
+        id="agents"
+      />
       <AgentsPageAnalytics />
 
       {/* Urgency strip */}

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconCalendarEvent,
@@ -10,19 +9,26 @@ import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
-import { localBusinessSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  localBusinessSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title:
-    "Ops by Noell for Med Spas | AI Front Desk for Aesthetic and Wellness Practices",
+export const metadata = pageMetadata({
+  path: "/verticals/med-spas",
+  title: "AI Front Desk for Med Spas",
   description:
     "Warm intent cools off quietly. Ops by Noell catches med spa consult inquiries in seconds without degrading your premium positioning. Built for aesthetic and wellness practices.",
-};
+});
 
 const medSpaStats = [
   {
@@ -193,11 +199,24 @@ const medSpaScreen = (
 export default function MedSpasVerticalPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema("med spas")),
-        }}
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "AI front desk for med spas",
+            description:
+              "Done-for-you AI front desk for med spas and aesthetic practices. Catches consult inquiries, holds warm intent, and protects premium positioning.",
+            path: "/verticals/med-spas",
+            vertical: "med spas",
+          }),
+          localBusinessSchema("med spas"),
+          faqPageSchema(medSpaFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "Med Spas", path: "/verticals/med-spas" },
+          ]),
+        ]}
+        id="vertical-med-spas"
       />
       <Hero
         eyebrow="Ops by Noell for Med Spas"

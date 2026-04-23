@@ -23,8 +23,12 @@ export function ConditionalShell({
 
   return (
     <>
-      <Navbar />
-      <main className="flex-1 pt-4">{children}</main>
+      <header role="banner">
+        <Navbar />
+      </header>
+      <main id="main-content" className="flex-1 pt-4" tabIndex={-1}>
+        {children}
+      </main>
       <Footer />
       <AgentRouter />
     </>

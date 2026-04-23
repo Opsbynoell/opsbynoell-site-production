@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconSnowflake,
@@ -10,19 +9,26 @@ import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
-import { localBusinessSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  localBusinessSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title:
-    "Ops by Noell for HVAC | AI Front Desk for Residential HVAC Contractors",
+export const metadata = pageMetadata({
+  path: "/verticals/hvac",
+  title: "AI Front Desk for HVAC Contractors",
   description:
     "The emergency call and the maintenance call do not belong in the same queue. Ops by Noell triages HVAC inbound by service type, dispatches the right tech in the right window, and handles the seasonal surge without turning your office into a call center.",
-};
+});
 
 const hvacStats = [
   {
@@ -196,11 +202,24 @@ const hvacScreen = (
 export default function HvacVerticalPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema("HVAC companies")),
-        }}
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "AI front desk for HVAC contractors",
+            description:
+              "Done-for-you AI front desk for residential HVAC contractors. Triages emergencies vs. maintenance, handles dispatch capture, and covers the seasonal surge.",
+            path: "/verticals/hvac",
+            vertical: "HVAC companies",
+          }),
+          localBusinessSchema("HVAC companies"),
+          faqPageSchema(hvacFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "HVAC", path: "/verticals/hvac" },
+          ]),
+        ]}
+        id="vertical-hvac"
       />
       <Hero
         eyebrow="Ops by Noell for HVAC"

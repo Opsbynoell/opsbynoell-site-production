@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import {
   IconUser,
@@ -6,37 +5,22 @@ import {
   IconHeart,
 } from "@tabler/icons-react";
 import { Button } from "@/components/button";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, personSchema } from "@/lib/schema";
 
 const FAMILY_PHOTO = "/images/about-noell-family.jpg";
 const FAMILY_PHOTO_ALT =
   "James and Nikki Noell with their daughter — the family behind Ops by Noell, photographed in black and white.";
 
-export const metadata: Metadata = {
-  title: "About James & Nikki Noell | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/about",
+  title: "About James & Nikki Noell",
   description:
-    "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. Helping service-business owners keep more of the money they're already making — with AI agents that work quietly in the background.",
-  openGraph: {
-    title: "About James & Nikki Noell | Ops by Noell",
-    description:
-      "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. Helping service-business owners keep more of the money they're already making — with AI agents that work quietly in the background.",
-    url: "https://www.opsbynoell.com/about",
-    siteName: "Ops by Noell",
-    type: "website",
-    images: [
-      {
-        url: FAMILY_PHOTO,
-        alt: FAMILY_PHOTO_ALT,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About James & Nikki Noell | Ops by Noell",
-    description:
-      "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell.",
-    images: [FAMILY_PHOTO],
-  },
-};
+    "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. We help service-business owners keep more of the money they are already making, with a managed AI front desk that works quietly in the background.",
+  image: FAMILY_PHOTO,
+  imageAlt: FAMILY_PHOTO_ALT,
+});
 
 const credos = [
   {
@@ -56,6 +40,16 @@ const credos = [
 export default function AboutPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          personSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
+        id="about"
+      />
       {/* 1. Hero — split layout */}
       <section className="relative w-full max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-28 pb-12 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">

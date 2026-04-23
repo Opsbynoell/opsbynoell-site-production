@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconHandStop,
@@ -10,19 +9,26 @@ import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { VerticalCaseStudy } from "@/components/vertical-case-study";
-import { localBusinessSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  localBusinessSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title:
-    "Ops by Noell for Massage Therapy | AI Front Desk for Solo and Small-Team Practices",
+export const metadata = pageMetadata({
+  path: "/verticals/massage",
+  title: "AI Front Desk for Massage Therapy",
   description:
     "Hands on a client while the phone rings. Ops by Noell catches missed calls, confirms appointments, and keeps your calendar full without making you feel like a salesperson on top of being a therapist.",
-};
+});
 
 const massageStats = [
   {
@@ -190,13 +196,24 @@ const massageScreen = (
 export default function MassageVerticalPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            localBusinessSchema("massage therapy practices")
-          ),
-        }}
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "AI front desk for massage therapists",
+            description:
+              "Done-for-you AI front desk for solo and small-team massage practices. Missed-call recovery, confirmations, rebooking, and gentle retention.",
+            path: "/verticals/massage",
+            vertical: "massage therapy practices",
+          }),
+          localBusinessSchema("massage therapy practices"),
+          faqPageSchema(massageFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "Massage Therapy", path: "/verticals/massage" },
+          ]),
+        ]}
+        id="vertical-massage"
       />
       <Hero
         eyebrow="Ops by Noell for Massage Therapy"

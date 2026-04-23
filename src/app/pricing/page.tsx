@@ -1,15 +1,22 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Pricing from "@/components/pricing";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
 import { NoellAgentsCard } from "@/components/noell-agents-card";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  pricingProductSchema,
+} from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Pricing | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/pricing",
+  title: "Pricing",
   description:
     "Two tracks. Noell Agents at $197/mo founding rate, or the full Noell System — Essentials $197/mo, Growth $797/mo, Custom Ops $1,497/mo. Each tier includes a one-time setup.",
-};
+});
 
 const pricingFaqs: FaqItem[] = [
   // NEW — Session 3 additions, at the top
@@ -147,6 +154,43 @@ const pricingFaqs: FaqItem[] = [
 export default function PricingPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          pricingProductSchema([
+            {
+              name: "Noell Agents",
+              priceMonthly: 197,
+              description:
+                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate locked for 24 months.",
+              url: "/agents",
+            },
+            {
+              name: "Noell System — Essentials",
+              priceMonthly: 197,
+              description:
+                "Entry tier of the managed Noell System for service businesses.",
+            },
+            {
+              name: "Noell System — Growth",
+              priceMonthly: 797,
+              description:
+                "Full managed Noell System, expanded hours and deeper integrations.",
+            },
+            {
+              name: "Noell System — Custom Ops",
+              priceMonthly: 1497,
+              description:
+                "Custom-scoped operations engagement for multi-location and higher-volume service businesses.",
+            },
+          ]),
+          faqPageSchema(pricingFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Pricing", path: "/pricing" },
+          ]),
+        ]}
+        id="pricing"
+      />
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-6 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           Pricing

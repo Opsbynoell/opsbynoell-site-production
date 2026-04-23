@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   IconPhoneCall,
   IconCalendarEvent,
@@ -14,12 +13,16 @@ import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Noell Front Desk | Operations Layer | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/noell-front-desk",
+  title: "Noell Front Desk — Operations Layer",
   description:
-    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles.",
-};
+    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles, managed for you.",
+});
 
 const frontDeskCapabilities = [
   {
@@ -159,6 +162,22 @@ const frontDeskScreen = (
 export default function NoellFrontDeskPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "Noell Front Desk — Operations Layer",
+            description:
+              "Operations layer of the Noell system: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation.",
+            path: "/noell-front-desk",
+            serviceType: "Managed AI front desk",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Noell Front Desk", path: "/noell-front-desk" },
+          ]),
+        ]}
+        id="noell-front-desk"
+      />
       <Hero
         variant="wine"
         eyebrow="Noell Front Desk · Operations layer"

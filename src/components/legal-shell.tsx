@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+import { pageMetadata } from "@/lib/seo";
 
 export const legalUpdatedDate = "April 13, 2026";
 
-export const legalMetadataBase = (kind: "Privacy Policy" | "Terms of Service" | "Cookie Policy"): Metadata => ({
-  title: `${kind} | Ops by Noell`,
-  description: `${kind} for Ops by Noell. Last updated ${legalUpdatedDate}.`,
-});
+type LegalKind = "Privacy Policy" | "Terms of Service" | "Cookie Policy";
+
+const LEGAL_PATHS: Record<LegalKind, string> = {
+  "Privacy Policy": "/legal/privacy",
+  "Terms of Service": "/legal/terms",
+  "Cookie Policy": "/legal/cookies",
+};
+
+export const legalMetadataBase = (kind: LegalKind): Metadata =>
+  pageMetadata({
+    path: LEGAL_PATHS[kind],
+    title: kind,
+    description: `${kind} for Ops by Noell. Last updated ${legalUpdatedDate}.`,
+  });
 
 export function LegalShell({
   title,

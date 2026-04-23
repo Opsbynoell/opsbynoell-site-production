@@ -68,7 +68,7 @@ export function Hero({
       )}
     >
       <motion.p
-        initial={{ opacity: 0, y: 10 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
         className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-6"
@@ -79,7 +79,7 @@ export function Hero({
       <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-charcoal md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block text-charcoal"
@@ -125,7 +125,7 @@ export function Hero({
       </div>
 
       <motion.p
-        initial={{ opacity: 0, y: 10 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
         className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-charcoal/70 font-sans"
@@ -135,7 +135,7 @@ export function Hero({
 
       {footnote && (
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
           className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/65"
@@ -145,7 +145,7 @@ export function Hero({
       )}
 
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.7 }}
         className="mb-8 mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
@@ -174,7 +174,7 @@ export function Hero({
 
       {showProofBar && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.75 }}
           className="relative z-20 w-full flex justify-center px-4 mb-8 md:mb-12"
@@ -185,7 +185,7 @@ export function Hero({
 
       <div className="pt-[2rem] w-full min-h-[21rem] relative">
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={false}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="absolute top-0 left-0 right-0 z-10 flex justify-center pb-8"

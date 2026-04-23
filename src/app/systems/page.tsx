@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconBolt,
@@ -11,13 +10,17 @@ import {
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
 import { SystemsPageAnalytics } from "@/components/systems-page-analytics";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/systems",
   title:
-    "The Noell System | One System. Three Agents. Managed End-to-End. | Ops by Noell",
+    "The Noell System — One System. Three Agents. Managed End-to-End.",
   description:
-    "The Noell system is a done-for-you front desk, intake, and retention engine for service businesses. Three agents run in the background, layered on top of the tools you already use. Audit, install, live in 14 days.",
-};
+    "The Noell system is a done-for-you front desk, intake, and retention layer for service businesses. Three managed agents run in the background, layered on top of the tools you already use. Audit, install, live in 14 days.",
+});
 
 type Agent = {
   title: string;
@@ -106,6 +109,22 @@ const marqueeIntegrations = [
 export default function SystemsPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "The Noell System",
+            description:
+              "Done-for-you operations layer that catches missed calls, handles scheduling, and protects retention for service businesses.",
+            path: "/systems",
+            serviceType: "Managed AI front desk and operations",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "The Noell System", path: "/systems" },
+          ]),
+        ]}
+        id="systems"
+      />
       <SystemsPageAnalytics />
 
       {/* Hero */}

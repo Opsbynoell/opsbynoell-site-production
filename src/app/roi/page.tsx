@@ -1,17 +1,27 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ROICalculator } from "@/components/roi-calculator";
 import CTA from "@/components/cta";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "ROI Calculator | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/roi",
+  title: "ROI Calculator",
   description:
-    "Estimate what a missed-call recovery system could return for your service business. Enter your missed calls per week and average ticket to see monthly recovery and payback.",
-};
+    "Estimate what a missed-call recovery system could return for your service business. Enter your missed calls per week and average ticket to see monthly recovery and payback by tier.",
+});
 
 export default function RoiPage() {
   return (
     <div>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "ROI calculator", path: "/roi" },
+        ])}
+        id="roi"
+      />
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-6 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           ROI calculator

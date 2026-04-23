@@ -124,65 +124,86 @@ export function FAQ({
         </div>
 
         <div className="space-y-3 rounded-[22px] bg-warm-border/40 p-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="rounded-[17px] border border-warm-border bg-gradient-to-b from-white via-cream to-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),_0px_34px_21px_0px_rgba(28,25,23,0.04),_0px_15px_15px_0px_rgba(28,25,23,0.06),_0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden"
-            >
-              <button
-                onClick={() => toggle(index)}
-                className="w-full px-6 py-5 flex items-center gap-3 text-left tap-target"
+          {faqs.map((faq, index) => {
+            const isOpen = openSet.has(index);
+            const buttonId = `faq-${faq.id ?? `q${index}`}-button`;
+            const panelId = `faq-${faq.id ?? `q${index}`}-panel`;
+            return (
+              <div
+                key={index}
+                className="rounded-[17px] border border-warm-border bg-gradient-to-b from-white via-cream to-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),_0px_34px_21px_0px_rgba(28,25,23,0.04),_0px_15px_15px_0px_rgba(28,25,23,0.06),_0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden"
               >
-                <motion.div
-                  initial={false}
-                  animate={{ rotate: openSet.has(index) ? 45 : 0 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                >
-                  <IconPlus size={20} className={accentText} />
-                </motion.div>
-                <span className="text-base md:text-lg text-charcoal font-medium">
-                  {faq.question}
-                </span>
-              </button>
-              <AnimatePresence mode="sync">
-                {openSet.has(index) && (
-                  <motion.div
-                    key={`content-${index}`}
-                    initial="collapsed"
-                    animate="open"
-                    exit="collapsed"
-                    variants={{
-                      open: {
-                        height: "auto",
-                        opacity: 1,
-                        transition: {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 40,
-                        },
-                      },
-                      collapsed: {
-                        height: 0,
-                        opacity: 0,
-                        transition: {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 40,
-                        },
-                      },
-                    }}
-                    className="px-6 overflow-hidden"
+                <h3 className="m-0">
+                  <button
+                    type="button"
+                    id={buttonId}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => toggle(index)}
+                    className="w-full px-6 py-5 flex items-center gap-3 text-left tap-target"
                   >
-                    <div className="pb-5 pl-8">
-                      <p className="text-charcoal/70 leading-relaxed text-sm md:text-base">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                    <motion.span
+                      aria-hidden="true"
+                      initial={false}
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      className="inline-flex"
+                    >
+                      <IconPlus
+                        size={20}
+                        aria-hidden="true"
+                        focusable="false"
+                        className={accentText}
+                      />
+                    </motion.span>
+                    <span className="text-base md:text-lg text-charcoal font-medium">
+                      {faq.question}
+                    </span>
+                  </button>
+                </h3>
+                <AnimatePresence mode="sync" initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key={`content-${index}`}
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      variants={{
+                        open: {
+                          height: "auto",
+                          opacity: 1,
+                          transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 40,
+                          },
+                        },
+                        collapsed: {
+                          height: 0,
+                          opacity: 0,
+                          transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 40,
+                          },
+                        },
+                      }}
+                      className="px-6 overflow-hidden"
+                    >
+                      <div className="pb-5 pl-8">
+                        <p className="text-charcoal/70 leading-relaxed text-sm md:text-base">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

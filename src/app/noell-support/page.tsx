@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   IconBolt,
   IconListCheck,
@@ -14,12 +13,16 @@ import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Noell Support | New Prospect Intake | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/noell-support",
+  title: "Noell Support — New-Prospect Intake",
   description:
     "Noell Support handles first response, qualification, contact capture, routing, and booking-link handoff. The new-prospect intake layer of the Noell system.",
-};
+});
 
 const supportStats = [
   { value: "<10s", label: "First response", detail: "average text/chat reply" },
@@ -154,6 +157,22 @@ const supportScreen = (
 export default function NoellSupportPage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "Noell Support — New-Prospect Intake",
+            description:
+              "New-prospect intake layer of the Noell system: first response, qualification, contact capture, routing, and booking-link handoff.",
+            path: "/noell-support",
+            serviceType: "AI new-prospect intake layer",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Noell Support", path: "/noell-support" },
+          ]),
+        ]}
+        id="noell-support"
+      />
       <Hero
         variant="lilac"
         eyebrow="Noell Support · New prospect intake"

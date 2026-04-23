@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   IconUser,
   IconRefresh,
@@ -12,12 +11,16 @@ import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Noell Care | Existing-Client Support | Ops by Noell",
+export const metadata = pageMetadata({
+  path: "/noell-care",
+  title: "Noell Care — Existing-Client Support",
   description:
-    "Noell Care is the existing-client support layer of the Noell system. Rebooking, appointment changes, service questions, location logistics, and account support — for the clients you already have.",
-};
+    "Noell Care is the existing-client support layer of the Noell system. Rebooking, appointment changes, service questions, location logistics, and account support for the clients you already have.",
+});
 
 const careCapabilities = [
   {
@@ -72,7 +75,7 @@ const careFaqs = [
   {
     question: "Does Noell Care book appointments?",
     answer:
-      "Care captures the intent conversationally and hands off to Noell Front Desk's scheduling path, which pushes the booking to whatever calendar you use (GHL, Calendly, Acuity, or our generic). One system, two roles — Care handles the conversation, Front Desk handles the calendar.",
+      "Care captures the intent conversationally and hands off to Noell Front Desk's scheduling path, which pushes the booking to whatever calendar you already use (Calendly, Acuity, Vagaro, or your practice management system). One system, two roles — Care handles the conversation, Front Desk handles the calendar.",
   },
   {
     question: "What happens if Care cannot answer something?",
@@ -120,6 +123,22 @@ const careScreen = (
 export default function NoellCarePage() {
   return (
     <div>
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "Noell Care — Existing-Client Support",
+            description:
+              "Existing-client support layer of the Noell system: rebooking, appointment changes, service questions, location logistics, and account support.",
+            path: "/noell-care",
+            serviceType: "Existing-client AI support layer",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Noell Care", path: "/noell-care" },
+          ]),
+        ]}
+        id="noell-care"
+      />
       <Hero
         variant="sage"
         eyebrow="Noell Care · Existing-client layer"

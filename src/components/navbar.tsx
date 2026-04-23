@@ -54,16 +54,17 @@ export const Navbar = () => {
   });
 
   return (
-    <motion.div
+    <motion.nav
       ref={ref}
-      initial={{ opacity: 0 }}
+      aria-label="Main navigation"
+      initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       className="w-full fixed top-2 inset-x-0 z-50"
     >
       <DesktopNav visible={visible} navItems={navItems} />
       <MobileNav visible={visible} navItems={navItems} />
-    </motion.div>
+    </motion.nav>
   );
 };
 
@@ -88,8 +89,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
           ? "0 10px 30px -10px rgba(28,25,23,0.08)"
           : "0 0 0 transparent",
       }}
-      initial={{ width: "85%", scale: 0.95, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
+      initial={{ width: "85%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
         "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-5 rounded-full relative z-[100] border border-warm-border/40"
@@ -118,11 +118,17 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
             >
               {isVerticals ? (
                 <button
+                  type="button"
+                  aria-haspopup="menu"
+                  aria-expanded={verticalsOpen}
+                  aria-controls="verticals-menu"
                   className="text-charcoal/80 hover:text-charcoal relative px-2.5 py-1.5 transition-colors flex items-center gap-1"
                   onClick={() => setVerticalsOpen((v) => !v)}
                 >
                   <span className="relative z-10">{navItem.name}</span>
                   <IconChevronDown
+                    aria-hidden="true"
+                    focusable="false"
                     size={13}
                     className={cn(
                       "transition-transform duration-200",
@@ -183,12 +189,16 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                       onMouseEnter={() => setVerticalsOpen(true)}
                       onMouseLeave={() => setVerticalsOpen(false)}
+                      id="verticals-menu"
+                      role="menu"
+                      aria-label="Verticals"
                       className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl border border-warm-border bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_-8px_rgba(28,25,23,0.12)] p-2 z-50"
                     >
                       {VERTICAL_LINKS.map((v) => (
                         <Link
                           key={v.href}
                           href={v.href}
+                          role="menuitem"
                           onClick={() => setVerticalsOpen(false)}
                           className="block px-3 py-2 text-sm text-charcoal/70 hover:text-charcoal hover:bg-cream rounded-xl transition-colors"
                         >
@@ -247,8 +257,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
           ? "0 10px 30px -10px rgba(28,25,23,0.08)"
           : "0 0 0 transparent",
       }}
-      initial={{ width: "95%", scale: 0.95, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
+      initial={{ width: "95%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
         "flex relative flex-col lg:hidden w-full justify-between items-center max-w-[calc(100vw-1rem)] mx-auto z-50 border border-warm-border/40"
@@ -257,16 +266,19 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
       <div className="flex flex-row justify-between items-center w-full">
         <Logo />
         <motion.button
+          type="button"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav-menu"
           className="tap-target flex items-center justify-center"
         >
           {open ? (
-            <IconX className="text-charcoal cursor-pointer" />
+            <IconX aria-hidden="true" focusable="false" className="text-charcoal cursor-pointer" />
           ) : (
-            <IconMenu2 className="text-charcoal cursor-pointer" />
+            <IconMenu2 aria-hidden="true" focusable="false" className="text-charcoal cursor-pointer" />
           )}
         </motion.button>
       </div>
@@ -278,6 +290,9 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
+            id="mobile-nav-menu"
+            role="menu"
+            aria-label="Mobile navigation"
             className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-cream/95 inset-x-0 z-50 flex-col items-start justify-start gap-3 w-full px-6 py-6 shadow-lg border border-warm-border/40"
           >
             {navItems.map((navItem, idx) => (

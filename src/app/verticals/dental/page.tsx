@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconPhoneCall,
@@ -14,18 +13,26 @@ import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { VerticalCaseStudyPlaceholder } from "@/components/vertical-case-study";
-import { localBusinessSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  localBusinessSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 import { FAQ } from "@/components/faq";
 import { VerticalPricingSection } from "@/components/pricing";
 import { VerticalAgentsCallout } from "@/components/vertical-agents-callout";
 import CTA from "@/components/cta";
 import { cn } from "@/lib/utils";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Ops by Noell for Dental Offices | AI Front Desk for Dentrix, Eaglesoft, and Curve Practices",
+export const metadata = pageMetadata({
+  path: "/verticals/dental",
+  title: "AI Front Desk for Dental Offices",
   description:
-    "A done-for-you AI front desk for dental practices. Catch every new patient call in under 60 seconds, reactivate unscheduled treatment, and stop losing chair time to missed calls. Layers on top of Dentrix, Eaglesoft, Open Dental, and Curve.",
-};
+    "A done-for-you AI front desk for dental practices. Catch every new patient call in under 60 seconds, reactivate unscheduled treatment, and stop losing chair time to missed calls. Installed around your booking system.",
+});
 
 const dentalStats = [
   {
@@ -252,11 +259,24 @@ const dentalScreen = (
 export default function DentalVerticalPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema("dental practices")),
-        }}
+      <JsonLd
+        data={[
+          servicePageSchema({
+            name: "AI front desk for dental offices",
+            description:
+              "Done-for-you AI front desk for dental practices. Catches missed calls, reactivates unscheduled treatment, handles confirmations and reminders.",
+            path: "/verticals/dental",
+            vertical: "dental practices",
+          }),
+          localBusinessSchema("dental practices"),
+          faqPageSchema(dentalFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "Dental Offices", path: "/verticals/dental" },
+          ]),
+        ]}
+        id="vertical-dental"
       />
       <Hero
         eyebrow="Ops by Noell for Dental"

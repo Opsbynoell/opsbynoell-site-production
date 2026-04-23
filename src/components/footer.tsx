@@ -8,6 +8,7 @@ export function Footer() {
     { title: "Verticals", href: "/verticals" },
     { title: "Pricing", href: "/pricing" },
     { title: "ROI calculator", href: "/roi" },
+    { title: "Resources", href: "/resources" },
     { title: "Book", href: "/book" },
   ];
 
@@ -30,8 +31,8 @@ export function Footer() {
 
   const legal = [
     { title: "Contact", href: "/contact" },
-    { title: "Privacy Policy", href: "/privacy" },
-    { title: "Terms of Service", href: "/terms" },
+    { title: "Privacy Policy", href: "/legal/privacy" },
+    { title: "Terms of Service", href: "/legal/terms" },
     { title: "SMS Policy", href: "/sms-policy" },
     { title: "Cookie Policy", href: "/legal/cookies" },
   ];
