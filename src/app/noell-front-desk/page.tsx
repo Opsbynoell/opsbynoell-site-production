@@ -276,7 +276,7 @@ export default function NoellFrontDeskPage() {
               "Smart booking logic, confirmations, reminders, and reschedules keep your calendar full without anyone babysitting it.",
             points: [
               "Smart booking logic",
-              "Instant confirmations",
+              "Automatic confirmations",
               "Reminder cadence",
               "Self-serve reschedules",
             ],

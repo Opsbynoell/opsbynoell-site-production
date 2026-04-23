@@ -25,7 +25,7 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What's the difference between Noell Agents and the Noell System?",
     answer:
-      "Noell Agents is just the AI layer — three agents handling chat, calls, and client support. You keep whatever booking tool you already use. The Noell System is the full operations platform (CRM, calendars, marketing, reputation, etc.) that we install and manage end-to-end. Growth and Custom Ops include both.",
+      "Noell Agents is just the AI layer — three agents handling chat, calls, and client support. You keep whatever booking tool you already use. The Noell System is the full done-for-you operations layer (client communication, scheduling, reminders, reviews, and reactivation) that we install and manage end-to-end around your booking system. Growth and Custom Ops include both.",
   },
   {
     id: "agents_upgrade_path",
@@ -230,8 +230,8 @@ export default function PricingPage() {
             </span>
           </h2>
           <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto">
-            Three tiers. All include the white-labeled platform. Agents are
-            included in Growth and up.
+            Three tiers. All include the done-for-you operations layer under
+            your brand. Agents are included in Growth and up.
           </p>
         </div>
       </section>

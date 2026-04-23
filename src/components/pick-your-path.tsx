@@ -37,11 +37,11 @@ const cards: CardProps[] = [
     eyebrow: "Done-for-you · 14-day install",
     title: "The Noell System",
     oneLiner:
-      "The entire operations platform, your brand, installed and managed by our team.",
+      "The entire operations layer, your brand, installed and managed by our team.",
     bullets: [
-      "Full white-labeled operations platform (CRM, calendars, marketing)",
+      "Full done-for-you operations layer for client communication, scheduling, reminders, reviews, and reactivation.",
       "Three AI agents included (Growth tier and up)",
-      "Two-way integration with your PMS/booking tool",
+      "Two-way integration with your booking system",
       "Free 30-minute audit before you commit",
       "Managed install in 14 days",
       "Ongoing updates, no maintenance on your end",

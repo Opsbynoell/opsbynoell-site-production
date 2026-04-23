@@ -31,7 +31,7 @@ const steps = [
     number: "01",
     title: "Pick a time",
     detail:
-      "Choose a 30-minute slot on Nikki's calendar. You'll get a confirmation by text or email and a reminder the day before your audit.",
+      "Send two or three times that work for you, and Nikki will confirm one personally. You will get a confirmation by text or email and a reminder the day before your audit.",
   },
   {
     icon: <IconClipboardCheck size={24} />,
@@ -291,7 +291,7 @@ export default function BookPage() {
         headlineStart="The audit is"
         headlineAccent="waiting when you are."
         body="You can always come back. We don't chase, and we don't add you to a list."
-        trustLine="Free · 30 minutes · Instant confirmation"
+        trustLine="Free · focused working call · personally scheduled"
       />
     </div>
   );
