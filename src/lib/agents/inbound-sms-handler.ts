@@ -210,7 +210,7 @@ export async function handleInboundSms(
  */
 export function extractInboundPayload(
   body: Record<string, unknown>
-): { fromPhone: string; toPhone: string; messageText: string } | null {
+): { fromPhone: string; toPhone: string | null; messageText: string } | null {
   const fromPhone =
     (body.phone as string | undefined) ??
     (body.from as string | undefined) ??
