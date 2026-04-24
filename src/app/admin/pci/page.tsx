@@ -77,6 +77,28 @@ function prettyType(t: string): string {
   return t.replaceAll("_", " ");
 }
 
+interface GenerateRuleResult {
+  rule: string;
+  scanned: number;
+  drafts: number;
+  created: number;
+  skipped_existing: number;
+  events_written: number;
+}
+
+interface GenerateResponse {
+  dryRun: boolean;
+  now: string;
+  results: GenerateRuleResult[];
+  totals: {
+    scanned: number;
+    drafts: number;
+    created: number;
+    skipped_existing: number;
+    events_written: number;
+  };
+}
+
 export default function PciDashboard() {
   const router = useRouter();
   const [signals, setSignals] = useState<Signal[]>([]);
@@ -85,6 +107,9 @@ export default function PciDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [me, setMe] = useState<MeResponse | null>(null);
+  const [generating, setGenerating] = useState(false);
+  const [lastGenerate, setLastGenerate] = useState<GenerateResponse | null>(null);
+  const [generateError, setGenerateError] = useState("");
 
   useEffect(() => {
     fetch("/api/admin/me")
@@ -133,6 +158,44 @@ export default function PciDashboard() {
     const interval = setInterval(fetchSignals, 10_000);
     return () => clearInterval(interval);
   }, [fetchSignals, me]);
+
+  const runGenerate = useCallback(
+    async (dryRun: boolean) => {
+      if (generating) return;
+      setGenerating(true);
+      setGenerateError("");
+      try {
+        const body: Record<string, unknown> = { dryRun };
+        if (me?.isSuperAdmin && clientFilter !== "all") {
+          body.clientIds = [clientFilter];
+        }
+        const res = await fetch("/api/admin/pci/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        if (res.status === 401) {
+          router.replace("/admin/login");
+          return;
+        }
+        const data = (await res.json()) as GenerateResponse | { error: string };
+        if (!res.ok || "error" in data) {
+          setGenerateError(
+            "error" in data ? data.error : "Signal generation failed."
+          );
+          return;
+        }
+        setLastGenerate(data);
+        // If we actually persisted, refresh the open-signals list.
+        if (!dryRun) await fetchSignals();
+      } catch {
+        setGenerateError("Signal generation failed.");
+      } finally {
+        setGenerating(false);
+      }
+    },
+    [generating, me, clientFilter, router, fetchSignals]
+  );
 
   const clientIds = me?.isSuperAdmin
     ? Array.from(new Set(signals.map((s) => s.client_id))).sort()
@@ -212,8 +275,68 @@ export default function PciDashboard() {
               ))}
             </select>
           )}
+
+          <div className="flex items-center gap-1.5 pl-2 border-l border-warm-border">
+            <button
+              type="button"
+              onClick={() => runGenerate(true)}
+              disabled={generating}
+              className="text-xs px-2.5 py-1.5 rounded-lg border border-warm-border bg-white hover:bg-cream text-charcoal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              title="Preview what signals would be created without writing to the database."
+            >
+              {generating ? "Scanning…" : "Preview (dry run)"}
+            </button>
+            <button
+              type="button"
+              onClick={() => runGenerate(false)}
+              disabled={generating}
+              className="text-xs px-2.5 py-1.5 rounded-lg bg-wine text-white hover:bg-wine/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              title="Run rules against existing records and persist new signals."
+            >
+              {generating ? "Generating…" : "Generate signals"}
+            </button>
+          </div>
         </div>
       </div>
+
+      {(lastGenerate || generateError) && (
+        <div className="bg-cream/60 border-b border-warm-border px-6 py-2 shrink-0 text-xs">
+          {generateError ? (
+            <p className="text-red-600">{generateError}</p>
+          ) : lastGenerate ? (
+            <div className="flex items-center gap-3 text-charcoal/70">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+                {lastGenerate.dryRun ? "Dry run" : "Generated"}
+              </span>
+              <span>
+                scanned <strong>{lastGenerate.totals.scanned}</strong>
+              </span>
+              <span>
+                drafts <strong>{lastGenerate.totals.drafts}</strong>
+              </span>
+              <span>
+                created <strong>{lastGenerate.totals.created}</strong>
+              </span>
+              <span>
+                skipped{" "}
+                <strong>{lastGenerate.totals.skipped_existing}</strong>
+              </span>
+              <span className="text-charcoal/40">
+                events {lastGenerate.totals.events_written}
+              </span>
+              <div className="flex gap-2 ml-2 text-charcoal/50">
+                {lastGenerate.results
+                  .filter((r) => r.drafts > 0)
+                  .map((r) => (
+                    <span key={r.rule} className="font-mono text-[10px]">
+                      {r.rule}:{r.drafts}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      )}
 
       <div className="flex-1 overflow-y-auto">
         {loading ? (

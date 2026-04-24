@@ -10,7 +10,7 @@
  * try/catch or fire-and-forget pattern as appropriate.
  */
 
-import { sbInsert, sbSelect } from "@/lib/agents/supabase";
+import { sbInsert, sbSelect } from "../agents/supabase";
 import type { AgentSource, CustomerEvent, CustomerEventType } from "./types";
 
 const TABLE = "customer_events";

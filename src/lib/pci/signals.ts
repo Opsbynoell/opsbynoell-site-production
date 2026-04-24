@@ -11,7 +11,7 @@
  * relying on an insert conflict.
  */
 
-import { sbInsert, sbSelect } from "@/lib/agents/supabase";
+import { sbInsert, sbSelect } from "../agents/supabase";
 import type {
   CustomerSignal,
   SignalDraft,
@@ -128,6 +128,6 @@ export async function updateSignalStatus(args: {
   // can't accidentally rewrite severity/reason.
   const patch: Record<string, unknown> = { status: args.status };
   if (args.status === "resolved") patch.resolved_at = new Date().toISOString();
-  const { sbUpdate } = await import("@/lib/agents/supabase");
+  const { sbUpdate } = await import("../agents/supabase");
   await sbUpdate(TABLE, { id: `eq.${args.id}` }, patch);
 }
