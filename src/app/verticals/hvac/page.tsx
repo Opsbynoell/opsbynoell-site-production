@@ -348,6 +348,7 @@ export default function HvacVerticalPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · Live on your FSM in 14 days · No contracts"
+        sourcePage="verticals_hvac"
       />
     </div>
   );

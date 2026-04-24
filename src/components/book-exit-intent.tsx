@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { trackConversion, ConversionEvents } from "@/lib/analytics";
 
 const STORAGE_KEY = "book-exit-shown";
 
@@ -29,6 +30,10 @@ export function BookExitIntent() {
       if (e.clientY <= 0) {
         setOpen(true);
         sessionStorage.setItem(STORAGE_KEY, "1");
+        trackConversion(ConversionEvents.AUDIT_EXIT_INTENT_SHOWN, {
+          source_page: "book",
+          source_section: "book_exit_intent",
+        });
       }
     };
 
@@ -48,6 +53,10 @@ export function BookExitIntent() {
       });
       if (!res.ok) throw new Error("send failed");
       setState("sent");
+      trackConversion(ConversionEvents.AUDIT_WORKSHEET_REQUEST, {
+        source_page: "book",
+        source_section: "book_exit_intent",
+      });
     } catch {
       setState("error");
     }

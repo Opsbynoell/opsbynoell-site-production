@@ -246,7 +246,7 @@ export default function PricingPage() {
         faqs={pricingFaqs}
       />
 
-      <CTA />
+      <CTA sourcePage="pricing" />
     </div>
   );
 }

@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { trackAuditCtaClick } from "@/lib/analytics";
 
 type CardProps = {
   eyebrow: string;
@@ -105,6 +107,18 @@ function Card({ card }: { card: CardProps }) {
         </p>
         <Link
           href={card.ctaHref}
+          onClick={() => {
+            if (card.ctaHref === "/book") {
+              trackAuditCtaClick("home", "pick_your_path", {
+                destination: card.ctaHref,
+                cta_label: card.ctaLabel,
+                path_choice: card.title,
+              });
+            }
+          }}
+          data-event={card.ctaHref === "/book" ? "audit_cta_click" : "pick_your_path_click"}
+          data-source-page="home"
+          data-source-section="pick_your_path"
           className={cn(
             "inline-flex w-full items-center justify-center rounded-[8px] h-12 px-6 text-sm font-medium transition-colors tap-target",
             card.highlighted

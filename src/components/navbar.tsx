@@ -11,6 +11,7 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { Button } from "./button";
 import { Logo } from "./logo";
+import { trackAuditCtaClick } from "@/lib/analytics";
 
 const VERTICAL_LINKS = [
   { name: "Dental Offices", href: "/verticals/dental" },
@@ -230,7 +231,19 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
             animate={{ opacity: 1, x: 0, transition: { duration: 0.2 } }}
             exit={{ opacity: 0, x: 20, transition: { duration: 0.2 } }}
           >
-            <Button href="/book" variant="primary">
+            <Button
+              href="/book"
+              variant="primary"
+              data-event="audit_cta_click"
+              data-source-page="navbar"
+              data-source-section="navbar_primary"
+              onClick={() =>
+                trackAuditCtaClick("navbar", "navbar_primary", {
+                  destination: "/book",
+                  cta_label: "Get Your Free Audit",
+                })
+              }
+            >
               Get Your Free Audit
             </Button>
           </motion.div>
@@ -323,6 +336,15 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
               href="/book"
               variant="primary"
               className="w-full mt-2"
+              data-event="audit_cta_click"
+              data-source-page="navbar"
+              data-source-section="navbar_mobile"
+              onClick={() =>
+                trackAuditCtaClick("navbar", "navbar_mobile", {
+                  destination: "/book",
+                  cta_label: "Get Your Free Audit",
+                })
+              }
             >
               Get Your Free Audit
             </Button>

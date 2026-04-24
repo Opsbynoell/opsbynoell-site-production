@@ -68,6 +68,7 @@ export default function Compare() {
         id="compare-lbp"
       />
       <CompareLayout
+        sourcePage="compare_local_business_messaging_platforms"
         alternativeName={ALT}
         title="Ops by Noell vs. broad local-business messaging platforms"
         lead="Two different philosophies. One is a wide platform your team operates. The other is a narrow, managed front desk layer that runs itself."

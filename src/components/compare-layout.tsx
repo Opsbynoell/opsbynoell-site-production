@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CTA from "@/components/cta";
+import type { SourcePage } from "@/lib/analytics";
 
 export type CompareRow = {
   capability: string;
@@ -16,6 +17,7 @@ export function CompareLayout({
   rows,
   verdict,
   internalLinks,
+  sourcePage = "compare_index",
 }: {
   alternativeName: string;
   title: string;
@@ -24,6 +26,7 @@ export function CompareLayout({
   rows: CompareRow[];
   verdict: React.ReactNode;
   internalLinks?: { label: string; href: string }[];
+  sourcePage?: SourcePage;
 }) {
   return (
     <div>
@@ -140,6 +143,8 @@ export function CompareLayout({
           href: "/systems",
         }}
         trustLine="Free 30-minute audit · Live in 14 days · No contracts"
+        sourcePage={sourcePage}
+        sourceSection="comparison_cta"
       />
     </div>
   );

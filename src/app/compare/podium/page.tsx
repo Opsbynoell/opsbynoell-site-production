@@ -67,6 +67,7 @@ export default function Compare() {
         id="compare-podium"
       />
       <CompareLayout
+        sourcePage="compare_podium"
         alternativeName={ALT}
         title={`Ops by Noell vs. ${ALT}`}
         lead="One is a done-for-you AI front desk managed end-to-end. The other is a broad messaging and reviews platform your team runs."

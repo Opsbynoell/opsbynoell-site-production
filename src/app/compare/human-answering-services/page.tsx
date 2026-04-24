@@ -67,6 +67,7 @@ export default function Compare() {
         id="compare-human-answering"
       />
       <CompareLayout
+        sourcePage="compare_human_answering_services"
         alternativeName={ALT}
         title={`Ops by Noell vs. ${ALT}`}
         lead="Two ways to stop missing the phone. One is a person you&apos;ve never met reading a script. The other is a front desk layer installed in your voice, running 24/7."

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { IconMail, IconArrowRight } from "@tabler/icons-react";
+import { trackConversion, ConversionEvents } from "@/lib/analytics";
 
 /**
  * BookingEmbed, calendar scheduler embed with a branded loading state.
@@ -116,6 +117,15 @@ function BookingFallback() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
           <a
             href="mailto:hello@opsbynoell.com?subject=Free%20audit%20request&body=Hi%20Nikki%2C%20I%27d%20like%20to%20book%20a%20free%20audit.%0A%0AName%3A%20%0ABusiness%3A%20%0APhone%3A%20%0ATimes%20that%20work%3A%20"
+            data-event="booking_fallback_email_click"
+            data-source-page="book"
+            data-source-section="booking_fallback"
+            onClick={() =>
+              trackConversion(ConversionEvents.BOOKING_FALLBACK_EMAIL_CLICK, {
+                source_page: "book",
+                source_section: "booking_fallback",
+              })
+            }
             className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-wine text-cream text-sm font-medium px-6 hover:bg-wine-dark transition-colors"
           >
             <IconMail size={16} aria-hidden="true" focusable="false" />

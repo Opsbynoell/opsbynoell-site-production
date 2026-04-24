@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
+import { trackConversion, ConversionEvents } from "@/lib/analytics";
 
 export function BookingLeadTracker() {
+  useEffect(() => {
+    trackConversion(ConversionEvents.AUDIT_PAGE_VIEW, {
+      source_page: "book",
+    });
+  }, []);
+
   useEffect(() => {
     const handler = (event: MessageEvent) => {
       const data = event.data;

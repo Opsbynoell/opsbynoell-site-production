@@ -65,6 +65,7 @@ export default function Compare() {
         id="compare-alternatives"
       />
       <CompareLayout
+        sourcePage="compare_ai_front_desk_alternatives"
         alternativeName="Other options"
         title="AI front desk alternatives"
         lead="A short, honest map of the options, and where a done-for-you install fits among them."

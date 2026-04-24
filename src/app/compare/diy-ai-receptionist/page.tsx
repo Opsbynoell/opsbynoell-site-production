@@ -65,6 +65,7 @@ export default function Compare() {
         id="compare-diy-ai"
       />
       <CompareLayout
+        sourcePage="compare_diy_ai_receptionist"
         alternativeName={ALT}
         title={`Ops by Noell vs. ${ALT}`}
         lead="Two ways to bring AI to the front of your business. One is a weekend project. The other is an installed, managed front desk."

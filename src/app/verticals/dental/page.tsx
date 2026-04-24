@@ -290,6 +290,7 @@ export default function DentalVerticalPage() {
         primaryCta={{ label: "Get Your Free Dental Audit", href: "/book" }}
         secondaryCta={{ label: "See how it layers on your PMS", href: "#layers-on-pms" }}
         mockScreen={dentalScreen}
+        sourcePage="verticals_dental"
       />
 
       <VerticalAgentsCallout />
@@ -458,6 +459,7 @@ export default function DentalVerticalPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · Live on your PMS in 14 days · No contracts"
+        sourcePage="verticals_dental"
       />
     </div>
   );

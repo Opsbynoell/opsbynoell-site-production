@@ -75,6 +75,10 @@ export function Systems() {
             <Link
               key={index}
               href={agent.href}
+              data-event="systems_grid_click"
+              data-source-page="home"
+              data-source-section="systems_grid"
+              data-agent={agent.handle.replace(/^@/, "")}
               className={cn(
                 "group relative rounded-[22px] border border-warm-border bg-white",
                 "p-7 md:p-8 transition-all duration-200",

@@ -74,6 +74,7 @@ export default function Home() {
         headlineAccent="free 30-minute audit."
         body="No pitch. No pressure. A clear map of where leads are falling through, whether you work with us or not."
         trustLine="Free · 30 minutes · Live in 14 days"
+        sourcePage="home"
       />
     </div>
   );

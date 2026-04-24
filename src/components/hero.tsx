@@ -3,11 +3,15 @@ import React, { useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
-import Link from "next/link";
 import { Button } from "./button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { IphoneMockup } from "./iphone-mockup";
 import { ProofBar } from "./proof-bar";
+import {
+  trackAuditCtaClick,
+  type SourcePage,
+  type SourceSection,
+} from "@/lib/analytics";
 
 export function Hero({
   eyebrow = "A systems agency · Ops by Noell",
@@ -24,6 +28,8 @@ export function Hero({
   showProofBar = true,
   priceSignal,
   headlineLine2Smaller = false,
+  sourcePage = "home",
+  sourceSection = "hero",
 }: {
   eyebrow?: string;
   variant?: "wine" | "lilac" | "sage";
@@ -39,7 +45,17 @@ export function Hero({
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
   headlineLine2Smaller?: boolean;
+  sourcePage?: SourcePage;
+  sourceSection?: SourceSection;
 }) {
+  const handlePrimaryCta = () => {
+    if (primaryCta.href === "/book") {
+      trackAuditCtaClick(sourcePage, sourceSection, {
+        destination: primaryCta.href,
+        cta_label: primaryCta.label,
+      });
+    }
+  };
   const parentRef = useRef<HTMLDivElement>(
     null
   ) as React.RefObject<HTMLDivElement>;
@@ -154,6 +170,10 @@ export function Hero({
           href={primaryCta.href}
           variant={variant === "lilac" ? "lilac" : "primary"}
           className="w-full sm:w-auto h-12 px-7"
+          onClick={handlePrimaryCta}
+          data-event={primaryCta.href === "/book" ? "audit_cta_click" : undefined}
+          data-source-page={sourcePage}
+          data-source-section={sourceSection}
         >
           {primaryCta.label}
         </Button>
@@ -161,6 +181,8 @@ export function Hero({
           href={secondaryCta.href}
           variant="secondary"
           className="w-full sm:w-auto h-12 px-7"
+          data-source-page={sourcePage}
+          data-source-section={sourceSection}
         >
           {secondaryCta.label}
         </Button>

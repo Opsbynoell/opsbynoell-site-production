@@ -9,6 +9,9 @@ type BaseProps = {
   children: React.ReactNode;
   className?: string;
   variant?: ButtonVariant;
+  "data-event"?: string;
+  "data-source-page"?: string;
+  "data-source-section"?: string;
 };
 
 type AnchorProps = BaseProps & {
@@ -61,6 +64,9 @@ const variantStyles: Record<ButtonVariant, string> = {
 
 export function Button(props: AnchorProps | ButtonProps) {
   const { variant = "primary", className, children } = props;
+  const dataEvent = props["data-event"];
+  const dataSourcePage = props["data-source-page"];
+  const dataSourceSection = props["data-source-section"];
   const composedClass = cn(baseStyles, variantStyles[variant], className);
 
   if ("href" in props && props.href !== undefined) {
@@ -74,13 +80,23 @@ export function Button(props: AnchorProps | ButtonProps) {
           onClick={onClick}
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+          data-event={dataEvent}
+          data-source-page={dataSourcePage}
+          data-source-section={dataSourceSection}
         >
           {children}
         </a>
       );
     }
     return (
-      <NextLink href={href} className={composedClass} onClick={onClick}>
+      <NextLink
+        href={href}
+        className={composedClass}
+        onClick={onClick}
+        data-event={dataEvent}
+        data-source-page={dataSourcePage}
+        data-source-section={dataSourceSection}
+      >
         {children}
       </NextLink>
     );
@@ -88,7 +104,14 @@ export function Button(props: AnchorProps | ButtonProps) {
 
   const { type = "button", onClick } = props as ButtonProps;
   return (
-    <button type={type} className={composedClass} onClick={onClick}>
+    <button
+      type={type}
+      className={composedClass}
+      onClick={onClick}
+      data-event={dataEvent}
+      data-source-page={dataSourcePage}
+      data-source-section={dataSourceSection}
+    >
       {children}
     </button>
   );

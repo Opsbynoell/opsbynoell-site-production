@@ -148,6 +148,10 @@ export default function VerticalsHubPage() {
                 key={v.slug}
                 id={v.slug}
                 href={v.href}
+                data-event="vertical_card_click"
+                data-source-page="verticals_index"
+                data-source-section="vertical_card"
+                data-vertical={v.slug}
                 className="block h-full scroll-mt-32"
               >
                 <div className="group relative rounded-[22px] border border-warm-border bg-white p-7 h-full flex flex-col transition-all duration-200 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]">
@@ -203,6 +207,7 @@ export default function VerticalsHubPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · No contracts · Live in 14 days"
+        sourcePage="verticals_index"
       />
     </div>
   );

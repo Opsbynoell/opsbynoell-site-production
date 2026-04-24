@@ -1,9 +1,13 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 import { motion } from "motion/react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
+import {
+  trackAuditCtaClick,
+  type SourcePage,
+  type SourceSection,
+} from "@/lib/analytics";
 
 export default function CTA({
   eyebrow = "The first step",
@@ -14,6 +18,8 @@ export default function CTA({
   secondaryCta = { label: "Talk to Noell Support first", href: "/noell-support" },
   trustLine = "Free 30-minute audit · No contracts required · Live in 14 days",
   accent = "wine",
+  sourcePage,
+  sourceSection = "final_cta",
 }: {
   eyebrow?: string;
   headlineStart?: string;
@@ -23,7 +29,17 @@ export default function CTA({
   secondaryCta?: { label: string; href: string };
   trustLine?: string;
   accent?: "wine" | "lilac";
+  sourcePage?: SourcePage;
+  sourceSection?: SourceSection;
 }) {
+  const handlePrimary = () => {
+    if (primaryCta.href === "/book") {
+      trackAuditCtaClick(sourcePage ?? "home", sourceSection, {
+        destination: primaryCta.href,
+        cta_label: primaryCta.label,
+      });
+    }
+  };
   const gradientBg =
     accent === "wine"
       ? "bg-gradient-to-br from-wine via-wine-light to-wine-dark"
@@ -72,6 +88,10 @@ export default function CTA({
               href={primaryCta.href}
               variant="secondary"
               className="h-12 px-8 bg-white text-charcoal hover:bg-cream"
+              onClick={handlePrimary}
+              data-event={primaryCta.href === "/book" ? "audit_cta_click" : undefined}
+              data-source-page={sourcePage}
+              data-source-section={sourceSection}
             >
               {primaryCta.label}
             </Button>
@@ -79,6 +99,8 @@ export default function CTA({
               href={secondaryCta.href}
               variant="secondary"
               className="h-12 px-8 bg-transparent border border-white/30 text-white hover:bg-white/10"
+              data-source-page={sourcePage}
+              data-source-section={sourceSection}
             >
               {secondaryCta.label}
             </Button>

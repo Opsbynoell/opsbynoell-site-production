@@ -67,6 +67,7 @@ export default function Compare() {
         id={`compare-my-ai-front-desk`}
       />
       <CompareLayout
+        sourcePage="compare_my_ai_front_desk"
         alternativeName={ALT}
         title={`Ops by Noell vs. ${ALT}`}
         lead="One is a done-for-you AI front desk managed by a small team. The other is a DIY AI receptionist product you configure yourself."

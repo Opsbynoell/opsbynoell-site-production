@@ -342,6 +342,7 @@ export default function SalonsVerticalPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · Live on your booking tool in 14 days · No contracts"
+        sourcePage="verticals_salons"
       />
     </div>
   );
