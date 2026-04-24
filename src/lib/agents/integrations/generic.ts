@@ -165,24 +165,88 @@ export class GenericCalendar implements CalendarIntegration {
 
 // ---------- Twilio SMS ----------
 
+/**
+ * Twilio SMS sender (A2P 10DLC).
+ *
+ * Sender selection (in priority order):
+ *   1. cfg.messagingServiceSid  — per-client override (recommended for multi-tenant)
+ *   2. TWILIO_MESSAGING_SERVICE_SID env  — default Messaging Service for all clients
+ *   3. cfg.fromNumber  — explicit E.164 sender (fallback / dev / smoke test)
+ *   4. TWILIO_FROM_NUMBER env  — last-resort fallback
+ *
+ * Auth (in priority order):
+ *   1. TWILIO_API_KEY_SID + TWILIO_API_KEY_SECRET (recommended — rotatable, scoped)
+ *   2. TWILIO_ACCOUNT_SID + TWILIO_AUTH_TOKEN  (fallback)
+ *
+ * If TWILIO_STATUS_CALLBACK_URL is set, delivery status callbacks (sent /
+ * delivered / failed / undelivered) are POSTed back to that URL by Twilio.
+ */
+export interface TwilioSmsConfig {
+  /** Per-client Messaging Service SID override (e.g. "MGd2131b4ca062be6705d95e671a35a33d"). */
+  messagingServiceSid?: string;
+  /** Per-client explicit FROM number override. Ignored if messagingServiceSid is set. */
+  fromNumber?: string;
+  /** Per-client status callback URL override. */
+  statusCallback?: string;
+}
+
 export class TwilioSms implements SMSIntegration {
+  private readonly cfg: TwilioSmsConfig;
+
+  constructor(cfg: TwilioSmsConfig = {}) {
+    this.cfg = cfg;
+  }
+
   async sendSMS(to: string, body: string): Promise<{ messageId: string }> {
     const sid = env.twilioAccountSid();
-    const token = env.twilioAuthToken();
-    const from = env.twilioFromNumber();
-    if (!sid || !token || !from) {
-      throw new Error("Twilio env vars not configured");
+    if (!sid) {
+      throw new Error("Twilio not configured: missing TWILIO_ACCOUNT_SID");
     }
+
+    // Auth header — prefer scoped API Key over Account auth token.
+    const apiKeySid = env.twilioApiKeySid();
+    const apiKeySecret = env.twilioApiKeySecret();
+    const authUser = apiKeySid ?? sid;
+    const authPass = apiKeySid ? apiKeySecret : env.twilioAuthToken();
+    if (!authPass) {
+      throw new Error(
+        "Twilio not configured: missing TWILIO_API_KEY_SECRET or TWILIO_AUTH_TOKEN"
+      );
+    }
+
+    // Sender selection — Messaging Service wins.
+    const messagingServiceSid =
+      this.cfg.messagingServiceSid ?? env.twilioMessagingServiceSid();
+    const fromNumber = this.cfg.fromNumber ?? env.twilioFromNumber();
+    if (!messagingServiceSid && !fromNumber) {
+      throw new Error(
+        "Twilio not configured: set TWILIO_MESSAGING_SERVICE_SID (recommended) or TWILIO_FROM_NUMBER"
+      );
+    }
+
+    const params = new URLSearchParams({ To: to, Body: body });
+    if (messagingServiceSid) {
+      params.set("MessagingServiceSid", messagingServiceSid);
+    } else if (fromNumber) {
+      params.set("From", fromNumber);
+    }
+
+    const statusCallback =
+      this.cfg.statusCallback ?? env.twilioStatusCallbackUrl();
+    if (statusCallback) {
+      params.set("StatusCallback", statusCallback);
+    }
+
     const res = await fetch(
       `https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`,
       {
         method: "POST",
         headers: {
           Authorization:
-            "Basic " + Buffer.from(`${sid}:${token}`).toString("base64"),
+            "Basic " + Buffer.from(`${authUser}:${authPass}`).toString("base64"),
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: new URLSearchParams({ To: to, From: from, Body: body }),
+        body: params,
       }
     );
     if (!res.ok) {

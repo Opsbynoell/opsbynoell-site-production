@@ -35,9 +35,19 @@ export const env = {
   telegramDefaultChatId: () => optional("TELEGRAM_DEFAULT_CHAT_ID"),
 
   // Twilio (generic SMS provider)
+  //
+  // A2P 10DLC sender pool is configured via a Messaging Service. When
+  // TWILIO_MESSAGING_SERVICE_SID is set, the Twilio integration uses
+  // MessagingServiceSid (recommended) — Twilio handles sender selection,
+  // sticky sender, and rate-limit smoothing. TWILIO_FROM_NUMBER is kept
+  // for the dev/smoke fallback path only.
   twilioAccountSid: () => optional("TWILIO_ACCOUNT_SID"),
   twilioAuthToken: () => optional("TWILIO_AUTH_TOKEN"),
+  twilioApiKeySid: () => optional("TWILIO_API_KEY_SID"),
+  twilioApiKeySecret: () => optional("TWILIO_API_KEY_SECRET"),
+  twilioMessagingServiceSid: () => optional("TWILIO_MESSAGING_SERVICE_SID"),
   twilioFromNumber: () => optional("TWILIO_FROM_NUMBER"),
+  twilioStatusCallbackUrl: () => optional("TWILIO_STATUS_CALLBACK_URL"),
 
   // GHL (shared across all clients on GHL — individual location configs
   // live in `clients.calendar_config` / `clients.sms_config`).

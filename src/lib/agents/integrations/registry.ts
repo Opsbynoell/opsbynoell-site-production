@@ -65,7 +65,11 @@ export function getSmsIntegration(cfg: ClientConfig): MessagingIntegration {
       });
     case "twilio":
     case "generic":
-      return new TwilioSms();
+      return new TwilioSms({
+        messagingServiceSid: conf.messagingServiceSid as string | undefined,
+        fromNumber: conf.fromNumber as string | undefined,
+        statusCallback: conf.statusCallback as string | undefined,
+      });
     default:
       throw new Error(`Unknown SMS provider: ${provider}`);
   }
