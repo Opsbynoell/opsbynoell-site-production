@@ -55,8 +55,9 @@ export async function GET(req: NextRequest): Promise<Response> {
     const signals = await listOpenSignals({ client_ids, signal_type, limit });
     return NextResponse.json({ signals });
   } catch (e) {
+    console.error("[admin/pci/signals] list failed:", e);
     return NextResponse.json(
-      { error: (e as Error).message },
+      { error: "Failed to load signals." },
       { status: 500 }
     );
   }

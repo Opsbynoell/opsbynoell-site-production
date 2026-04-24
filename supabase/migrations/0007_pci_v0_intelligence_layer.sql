@@ -106,18 +106,40 @@ CREATE INDEX IF NOT EXISTS customer_signals_contact_idx
 CREATE INDEX IF NOT EXISTS customer_signals_type_idx
   ON public.customer_signals (signal_type, status, created_at DESC);
 
--- Partial unique index: one open/in-progress signal of a given type
--- per client+contact. This is what prevents duplicate signals from
--- piling up on repeated rule runs.
+-- Partial unique indexes: prevent duplicate open signals from piling up
+-- on repeated rule runs. Two keys are needed because Postgres unique
+-- indexes treat NULLs as distinct by default — without the NULL-safe
+-- second index, contact-less signals (slow_week_fill, owner_followup
+-- without an attached contact) could be inserted repeatedly.
+--
+-- We use COALESCE-based expression indexes (portable across all
+-- supported Postgres versions) instead of `NULLS NOT DISTINCT` (PG 15+
+-- only) so this migration stays compatible with older targets. The
+-- zero-UUID sentinel is safe: `gen_random_uuid()` never produces it,
+-- so no real row can collide with the NULL-coalesced value.
+
+-- Primary key: one open/in-progress signal per (client, contact, type)
+-- when contact is known. Matches the contract in openSignalFor().
+-- Scoped to contact_id IS NOT NULL so the NULL-contact case is handled
+-- by the secondary index below (distinct sources must stay separate).
 CREATE UNIQUE INDEX IF NOT EXISTS customer_signals_open_unique_idx
   ON public.customer_signals (client_id, contact_id, signal_type)
-  WHERE status IN ('open', 'in_progress');
+  WHERE status IN ('open', 'in_progress') AND contact_id IS NOT NULL;
 
--- Some signals (slow_week_fill, owner_followup_needed for a session
--- with no contact) have NULL contact_id. Ensure we don't create
--- duplicate contact-less open signals of the same type either.
+-- Secondary key: when contact_id IS NULL, dedupe on
+-- (client, type, source_record_id) so distinct contactless signals
+-- attached to different sessions/appointments (e.g. owner_followup
+-- for unrelated escalations) remain separate, while repeated rule
+-- runs for the same source are collapsed. NULL source_record_id
+-- coalesces to a zero-UUID sentinel so fully-unattached contactless
+-- signals (one per client+type) are also deduped — gen_random_uuid()
+-- never produces the sentinel, so real rows cannot collide with it.
 CREATE UNIQUE INDEX IF NOT EXISTS customer_signals_open_unique_no_contact_idx
-  ON public.customer_signals (client_id, signal_type, source_record_id)
+  ON public.customer_signals (
+    client_id,
+    signal_type,
+    COALESCE(source_record_id, '00000000-0000-0000-0000-000000000000'::uuid)
+  )
   WHERE status IN ('open', 'in_progress') AND contact_id IS NULL;
 
 -- Keep updated_at fresh. set_updated_at() already exists (see

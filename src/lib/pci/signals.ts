@@ -15,6 +15,7 @@ import { sbInsert, sbSelect } from "@/lib/agents/supabase";
 import type {
   CustomerSignal,
   SignalDraft,
+  SignalSeverity,
   SignalStatus,
   SignalType,
 } from "./types";
@@ -73,24 +74,50 @@ export async function upsertSignalFromDraft(
   return { signal: inserted, created: true };
 }
 
+/**
+ * Semantic severity ordering. PostgREST can only sort lexicographically
+ * on the `severity` text column ("high" < "low" < "medium" < "urgent"),
+ * which is not the urgency order we want to surface. We run one query
+ * per severity bucket in semantic order, each bucket fully ordered by
+ * created_at DESC and capped at the caller's limit, then concatenate
+ * and slice. This guarantees the semantic sort is applied BEFORE the
+ * final LIMIT.
+ */
+const SEVERITY_ORDER: readonly SignalSeverity[] = [
+  "urgent",
+  "high",
+  "medium",
+  "low",
+] as const;
+
 export async function listOpenSignals(args: {
   client_ids: string[] | null;
   signal_type?: SignalType;
   limit?: number;
 }): Promise<CustomerSignal[]> {
-  const params: Record<string, string> = {
+  const limit = args.limit ?? 200;
+
+  const baseParams: Record<string, string> = {
     status: "in.(open,in_progress)",
   };
   if (args.client_ids !== null) {
     if (args.client_ids.length === 0) return [];
-    params.client_id = `in.(${args.client_ids.map(encodeURIComponent).join(",")})`;
+    baseParams.client_id = `in.(${args.client_ids.map(encodeURIComponent).join(",")})`;
   }
-  if (args.signal_type) params.signal_type = `eq.${args.signal_type}`;
+  if (args.signal_type) baseParams.signal_type = `eq.${args.signal_type}`;
 
-  return sbSelect<CustomerSignal>(TABLE, params, {
-    order: "severity.asc,created_at.desc",
-    limit: args.limit ?? 200,
-  });
+  const out: CustomerSignal[] = [];
+  for (const severity of SEVERITY_ORDER) {
+    if (out.length >= limit) break;
+    const remaining = limit - out.length;
+    const rows = await sbSelect<CustomerSignal>(
+      TABLE,
+      { ...baseParams, severity: `eq.${severity}` },
+      { order: "created_at.desc", limit: remaining }
+    );
+    out.push(...rows);
+  }
+  return out;
 }
 
 export async function updateSignalStatus(args: {
