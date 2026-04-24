@@ -161,6 +161,12 @@ export default function AdminInbox() {
                   Users
                 </a>
               )}
+              <a
+                href="/admin/pci"
+                className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+              >
+                Intelligence
+              </a>
             </div>
           )}
           <button
