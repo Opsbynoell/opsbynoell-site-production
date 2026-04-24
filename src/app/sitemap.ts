@@ -55,6 +55,21 @@ const entries: Entry[] = [
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  {
+    path: "/resources/dental-missed-call-leakage",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    path: "/resources/salon-after-hours-booking",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    path: "/resources/review-velocity-local-seo-service-business",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
 
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7 },
 

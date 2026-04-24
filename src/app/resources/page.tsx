@@ -51,6 +51,33 @@ const resources: Resource[] = [
   {
     kind: "Article",
     status: "live",
+    title: "Dental missed-call leakage",
+    excerpt:
+      "For most single-location dental offices, the largest source of lost new-patient revenue is a handful of calls that ring out between 11:30 and 1:00. What's actually happening, and what a front desk layer does about it.",
+    href: "/resources/dental-missed-call-leakage",
+    minutes: "7 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
+    title: "Salon after-hours booking",
+    excerpt:
+      "Most salon owners think their week is built at the chair. It isn't — it's built between 7 and 10 p.m., when clients are on the couch with their phones. What an after-hours booking layer actually looks like.",
+    href: "/resources/salon-after-hours-booking",
+    minutes: "7 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
+    title: "Review velocity and local SEO for service businesses",
+    excerpt:
+      "A one-time batch of reviews barely moves the needle. A steady weekly cadence of honest five-star reviews is what moves you up the map pack. The quiet discipline behind it.",
+    href: "/resources/review-velocity-local-seo-service-business",
+    minutes: "8 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
     title: "Missed-call recovery for service businesses",
     excerpt:
       "Why the missed call is the most expensive lead you will ever own, and how a done-for-you AI front desk catches it before the next door opens.",
