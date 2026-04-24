@@ -258,6 +258,48 @@ Check GHL Conversations for the contact `+17145551234` — should see a WhatsApp
 
 ---
 
+## Step 9 — Enable frontDesk for `opsbynoell` (inbound visitor-SMS bridge)
+
+The `/api/ghl/inbound-visitor-sms` webhook always runs under `agent=frontDesk`
+because the shared runner writes to `front_desk_sessions` / `front_desk_messages`.
+The original `opsbynoell` seed set `agents.frontDesk = false`, which makes
+`runTurn` abort with `agent_not_enabled` before any session row is written.
+
+The seed file has been updated to `true`, but production rows are only
+overwritten when the `opsbynoell_seed_ghl.sql` is re-run (the `ON CONFLICT
+... DO UPDATE ... agents = EXCLUDED.agents` clause takes care of that).
+If you don't want to re-run the full seed, patch just the one column:
+
+```sql
+UPDATE public.clients
+SET agents = agents || '{"frontDesk": true}'::jsonb
+WHERE id = 'opsbynoell';
+```
+
+Verify:
+
+```sql
+SELECT id, agents FROM public.clients WHERE id = 'opsbynoell';
+```
+
+Expected: `agents` JSON should contain `"frontDesk": true`.
+
+Smoke test (without sending live SMS — dispatch fails soft and is visible
+via `replyError` in the response):
+
+```bash
+curl -X POST "https://www.opsbynoell.com/api/ghl/inbound-visitor-sms?secret=$GHL_WEBHOOK_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"phone":"+19497849726","body":"Controlled bridge test after frontDesk enable."}'
+```
+
+Expected response shape: `{"ok":true, "clientId":"opsbynoell", "sessionId":"...", ...}`.
+A new row should appear in `public.front_desk_sessions` and two rows (visitor
++ bot) in `public.front_desk_messages`. If `ok:false` with
+`reason:"agent_not_enabled"`, the DB update above has not been applied.
+
+---
+
 ## What is already done (no action required)
 
 - **Task 1 — Widget site-wide:** `AgentRouter` component in `src/app/layout.tsx` already renders the correct widget on every page. No changes needed.

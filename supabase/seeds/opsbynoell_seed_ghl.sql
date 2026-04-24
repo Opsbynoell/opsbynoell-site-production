@@ -71,7 +71,10 @@ VALUES (
   'internal',
   '+19499973915',
   'hello@opsbynoell.com',
-  '{"support": true, "frontDesk": false, "care": false}'::jsonb,
+  -- frontDesk=true so the inbound-visitor-SMS webhook (which hard-codes
+  -- agent=frontDesk) can reply to leads who text +19499973915. See
+  -- src/app/api/ghl/inbound-visitor-sms/route.ts + MANUAL_STEPS Step 9.
+  '{"support": true, "frontDesk": true, "care": false}'::jsonb,
 
   -- Support system prompt
   'You are the Support agent for Ops by Noell, a small automation agency run by Nikki. Ops by Noell sells three tiers of AI-powered agents to service businesses: Noell Support (website chat + lead capture), Noell Front Desk (24/7 missed-call text-back + booking), and Noell Care (returning-client scheduling and follow-up).
