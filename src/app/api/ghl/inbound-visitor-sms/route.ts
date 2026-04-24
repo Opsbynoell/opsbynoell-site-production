@@ -58,7 +58,7 @@ import {
   resolveClientForInboundVisitorSms,
 } from "@/lib/agents/inbound-visitor-sms-handler";
 import { getSmsIntegration } from "@/lib/agents/integrations/registry";
-import { runTurn } from "@/lib/agents/runner";
+import { RunTurnError, runTurn } from "@/lib/agents/runner";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -175,7 +175,22 @@ export async function POST(req: NextRequest): Promise<Response> {
       defaultTriggerType: "inbound_text",
     });
   } catch (err) {
-    console.error("[inbound-visitor-sms] runTurn failed:", err);
+    // Map runner preconditions onto stable reason codes so the caller
+    // (and production logs) can tell a config-mismatch apart from a
+    // generic runtime blow-up without exposing raw error text.
+    if (err instanceof RunTurnError) {
+      console.error(
+        `[inbound-visitor-sms] runTurn precondition failed — code=${err.code} client=${clientId} agent=frontDesk: ${err.message}`
+      );
+      return NextResponse.json(
+        { ok: false, reason: err.code },
+        { status: 200 }
+      );
+    }
+    console.error(
+      `[inbound-visitor-sms] runTurn failed — client=${clientId} agent=frontDesk:`,
+      err
+    );
     return NextResponse.json(
       { ok: false, reason: "run_turn_failed" },
       { status: 200 }

@@ -39,6 +39,26 @@ interface RunnerTables {
 }
 
 /**
+ * Precondition failure raised by `runTurn` before any database writes.
+ *
+ * Callers map `code` to a stable machine-readable reason in their HTTP
+ * response without leaking the internal message text. Existing callers
+ * that only log `err.message` keep working because we still set it.
+ */
+export type RunTurnErrorCode =
+  | "client_not_active"
+  | "agent_not_enabled";
+
+export class RunTurnError extends Error {
+  readonly code: RunTurnErrorCode;
+  constructor(code: RunTurnErrorCode, message: string) {
+    super(message);
+    this.name = "RunTurnError";
+    this.code = code;
+  }
+}
+
+/**
  * In-process rate-limit map for every-turn SMS alerts.
  *
  * Keyed by session id, value is the epoch-ms of the last shadow-SMS send.
@@ -146,10 +166,14 @@ export async function runTurn({
 }): Promise<AgentMessageResponse> {
   const cfg = await getClientConfig(payload.clientId);
   if (!cfg.active) {
-    throw new Error(`Client ${payload.clientId} is not active`);
+    throw new RunTurnError(
+      "client_not_active",
+      `Client ${payload.clientId} is not active`
+    );
   }
   if (!cfg.agents[agent]) {
-    throw new Error(
+    throw new RunTurnError(
+      "agent_not_enabled",
       `Agent "${agent}" is not enabled for client ${payload.clientId}`
     );
   }
