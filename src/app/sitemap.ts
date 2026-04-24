@@ -40,6 +40,21 @@ const entries: Entry[] = [
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  {
+    path: "/resources/missed-calls-to-missed-bookings",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    path: "/resources/ai-front-desk-vs-answering-service",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    path: "/resources/rebooking-and-reactivation-for-med-spas-and-massage",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
 
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7 },
 
