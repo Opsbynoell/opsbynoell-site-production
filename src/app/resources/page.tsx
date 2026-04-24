@@ -24,6 +24,33 @@ const resources: Resource[] = [
   {
     kind: "Article",
     status: "live",
+    title: "From missed calls to missed bookings",
+    excerpt:
+      "Warm intent cools off quietly. The leak between the first ring and the empty chair — and what a full front desk layer actually does about it.",
+    href: "/resources/missed-calls-to-missed-bookings",
+    minutes: "8 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
+    title: "AI front desk vs. answering service",
+    excerpt:
+      "An answering service takes messages. An AI front desk books appointments. Which one your numbers actually support, and when the answer is both.",
+    href: "/resources/ai-front-desk-vs-answering-service",
+    minutes: "6 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
+    title: "Rebooking and reactivation for med spas and massage",
+    excerpt:
+      "The biggest growth lever in a premium service business isn't new leads — it's the regulars who quietly stopped coming in. How to bring them back without sounding like a promo blast.",
+    href: "/resources/rebooking-and-reactivation-for-med-spas-and-massage",
+    minutes: "7 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
     title: "Missed-call recovery for service businesses",
     excerpt:
       "Why the missed call is the most expensive lead you will ever own, and how a done-for-you AI front desk catches it before the next door opens.",
