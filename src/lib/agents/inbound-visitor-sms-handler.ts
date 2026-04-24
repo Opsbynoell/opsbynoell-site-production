@@ -7,7 +7,13 @@
  *                                existing conversation)
  *
  * On each inbound visitor SMS we:
- *   1. Resolve which client owns the LC Phone (by `sms_config.fromNumber`)
+ *   1. Resolve which client owns the LC Phone. Resolution tries in order:
+ *        a. `toPhone` matches `clients.sms_config->>fromNumber`
+ *        b. `locationId` matches `clients.sms_config->>locationId`
+ *        c. exactly one active client has a `sms_config.fromNumber`
+ *           configured (single-tenant fallback — safe for the current
+ *           one-tenant-per-LC-Phone install; explicitly errors out when
+ *           multiple clients would match)
  *   2. Call runTurn() to persist the visitor message and generate a reply
  *   3. If human_takeover is on OR the reply is empty, skip the outbound
  *   4. Otherwise, send the bot's reply back to the visitor via the
@@ -27,8 +33,15 @@ import type { AgentKind, ClientConfig, MessagingIntegration } from "./types";
 export interface InboundVisitorSmsPayload {
   /** The visitor / lead phone number (E.164). */
   fromPhone: string;
-  /** The LC Phone number that received the SMS (E.164) — used to resolve client. */
-  toPhone: string;
+  /**
+   * The LC Phone number that received the SMS (E.164) — preferred way to
+   * resolve the client. Optional because GHL rejects `{{message.to_number}}`
+   * in some workflow triggers; in that case we fall back to `locationId`
+   * or the single-client shortcut.
+   */
+  toPhone?: string;
+  /** Optional GHL locationId — used as a fallback for client resolution. */
+  locationId?: string;
   /** Message body as sent by the visitor. */
   messageText: string;
   /** Optional GHL contact id, when the webhook supplies it. */
@@ -73,13 +86,15 @@ export type InboundVisitorSmsResult =
  * Normalise a GHL / LeadConnector Conversations webhook body into the
  * shape we need.
  *
- * GHL Conversations webhook (primary):
+ * GHL Conversations webhook (canonical — no toNumber required):
+ *   { phone, body, contactId?, conversationId?, locationId? }
+ *
+ * Legacy / richer shapes (still supported):
  *   { phone, toNumber, body, contactId?, conversationId? }
+ *   { from, to, message }                       // LC workflow aliases
  *
- * LC workflow action (alternate aliases):
- *   { from, to, message }
- *
- * Returns null when either phone is missing — we can't route without both.
+ * Returns null when the visitor phone is missing — we can't do anything
+ * without knowing who texted in.
  */
 export function extractInboundVisitorPayload(
   body: Record<string, unknown>
@@ -91,8 +106,14 @@ export function extractInboundVisitorPayload(
 
   const toPhone =
     (body.toNumber as string | undefined) ??
+    (body.to_number as string | undefined) ??
     (body.to as string | undefined) ??
-    null;
+    undefined;
+
+  const locationId =
+    (body.locationId as string | undefined) ??
+    (body.location_id as string | undefined) ??
+    undefined;
 
   const messageText =
     (body.body as string | undefined) ??
@@ -109,12 +130,19 @@ export function extractInboundVisitorPayload(
     (body.conversation_id as string | undefined) ??
     undefined;
 
-  if (!fromPhone || !toPhone) return null;
-  return { fromPhone, toPhone, messageText, contactId, conversationId };
+  if (!fromPhone) return null;
+  return {
+    fromPhone,
+    toPhone: toPhone || undefined,
+    locationId: locationId || undefined,
+    messageText,
+    contactId,
+    conversationId,
+  };
 }
 
 // ---------------------------------------------------------------------------
-// Client resolution by LC Phone number
+// Client resolution
 // ---------------------------------------------------------------------------
 
 interface ClientSmsIndexRow {
@@ -128,10 +156,6 @@ interface ClientSmsIndexRow {
  *
  * Returns the `client_id` of the first match, or null when no client is
  * configured for that LC Phone.
- *
- * NOTE: We intentionally select by the narrow pair of fields rather than
- * pulling the full config — getClientConfig() will fetch + memoize the full
- * row afterwards.
  */
 export async function findClientIdByInboundToPhone(
   toPhone: string
@@ -142,6 +166,105 @@ export async function findClientIdByInboundToPhone(
     { limit: 1, select: "client_id,sms_config" }
   );
   return rows[0]?.client_id ?? null;
+}
+
+/**
+ * Fallback resolver — match on `sms_config.locationId` (the GHL location
+ * that owns the LC Phone). Used when the webhook payload omits `toNumber`
+ * but supplies `locationId` instead (either explicitly in the body or
+ * via the LC `{{location.id}}` merge field).
+ */
+export async function findClientIdByLocationId(
+  locationId: string
+): Promise<string | null> {
+  const rows = await sbSelect<ClientSmsIndexRow>(
+    "clients",
+    {
+      "sms_config->>locationId": `eq.${locationId}`,
+      active: "eq.true",
+    },
+    { limit: 2, select: "client_id,sms_config" }
+  );
+  if (rows.length === 0) return null;
+  if (rows.length > 1) {
+    // Two clients sharing a locationId is a config bug — refuse rather
+    // than silently routing to the first row.
+    throw new Error(
+      `multiple active clients share sms_config.locationId=${locationId}`
+    );
+  }
+  return rows[0].client_id;
+}
+
+/**
+ * Last-resort resolver for the single-tenant case. Returns a `client_id`
+ * only when there is EXACTLY ONE active client with a configured
+ * `sms_config.fromNumber` — in other words, the resolution is
+ * unambiguous. Returns `{ambiguous:true, candidates:[...]}` if more than
+ * one would match, and `null` when none do.
+ */
+export async function findSoleActiveSmsClient(): Promise<
+  | { kind: "ok"; clientId: string; fromNumber?: string }
+  | { kind: "none" }
+  | { kind: "ambiguous"; candidates: string[] }
+> {
+  const rows = await sbSelect<ClientSmsIndexRow>(
+    "clients",
+    {
+      "sms_config->>fromNumber": "not.is.null",
+      active: "eq.true",
+    },
+    { limit: 5, select: "client_id,sms_config" }
+  );
+  if (rows.length === 0) return { kind: "none" };
+  if (rows.length > 1) {
+    return { kind: "ambiguous", candidates: rows.map((r) => r.client_id) };
+  }
+  const fromNumber =
+    (rows[0].sms_config?.fromNumber as string | undefined) ?? undefined;
+  return { kind: "ok", clientId: rows[0].client_id, fromNumber };
+}
+
+export type ResolveClientResult =
+  | { kind: "ok"; clientId: string; via: "toPhone" | "locationId" | "sole" }
+  | { kind: "none" }
+  | { kind: "ambiguous"; candidates: string[] };
+
+/**
+ * High-level client resolution — tries the strategies in order and
+ * returns a tagged result the route can map onto response codes.
+ *
+ * Priority:
+ *   1. toPhone → sms_config.fromNumber
+ *   2. locationId → sms_config.locationId
+ *   3. exactly one active client with sms_config.fromNumber set
+ *
+ * The `sole` fallback intentionally errors out if two or more clients
+ * would match — that guarantees we never misroute a visitor message to
+ * the wrong tenant.
+ */
+export async function resolveClientForInboundVisitorSms(input: {
+  toPhone?: string;
+  locationId?: string;
+}): Promise<ResolveClientResult> {
+  if (input.toPhone) {
+    const id = await findClientIdByInboundToPhone(input.toPhone);
+    if (id) return { kind: "ok", clientId: id, via: "toPhone" };
+  }
+
+  if (input.locationId) {
+    const id = await findClientIdByLocationId(input.locationId);
+    if (id) return { kind: "ok", clientId: id, via: "locationId" };
+  }
+
+  const sole = await findSoleActiveSmsClient();
+  if (sole.kind === "ok") {
+    return { kind: "ok", clientId: sole.clientId, via: "sole" };
+  }
+  if (sole.kind === "ambiguous") {
+    return { kind: "ambiguous", candidates: sole.candidates };
+  }
+  return { kind: "none" };
 }
 
 // ---------------------------------------------------------------------------
@@ -168,6 +291,26 @@ export function buildOutboundVisitorReplyPayload(params: {
     sessionId: params.sessionId,
     clientId: params.cfg.clientId,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Loop-guard — refuse to reply when fromPhone equals our own LC Phone.
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns true when the inbound `fromPhone` matches the client's own
+ * `sms_config.fromNumber` — which would mean either GHL looped an
+ * outbound send back into the webhook OR someone mis-wired the payload.
+ * Either way, we must not reply.
+ */
+export function isOwnNumberLoop(
+  cfg: ClientConfig,
+  fromPhone: string
+): boolean {
+  const ownNumber =
+    ((cfg.smsConfig ?? {}) as Record<string, unknown>).fromNumber ?? undefined;
+  if (!ownNumber) return false;
+  return String(ownNumber) === fromPhone;
 }
 
 // ---------------------------------------------------------------------------

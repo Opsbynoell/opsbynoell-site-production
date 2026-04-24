@@ -10,8 +10,11 @@
  *   1. Visitor sends SMS to client's LC Phone (e.g. +1 949-997-3915)
  *   2. GHL Conversations webhook POSTs the inbound event to this route
  *      with ?secret=<GHL_WEBHOOK_SECRET>
- *   3. We resolve the client by matching the `toNumber` against
- *      `clients.sms_config.fromNumber`
+ *   3. We resolve the client, in priority order, by:
+ *        a. `toNumber` → `clients.sms_config.fromNumber`
+ *        b. `locationId` → `clients.sms_config.locationId`
+ *        c. the single active client that has `sms_config.fromNumber` set
+ *           (single-tenant fallback; multi-tenant ambiguity is an error)
  *   4. runTurn() stores the visitor message in front_desk_messages,
  *      generates a Claude reply, and applies escalation rules
  *   5. If the reply is non-empty and human_takeover is off, we send the
@@ -23,9 +26,13 @@
  * Shared secret ?secret=<GHL_WEBHOOK_SECRET> — same scheme as
  * /api/ghl/inbound-sms. Configure the value in Vercel.
  *
- * Webhook body (either shape accepted):
- *   GHL Conversations:  { phone, toNumber, body, contactId?, conversationId? }
- *   LC workflow:        { from, to, message }
+ * Webhook body (all shapes accepted):
+ *   GHL Conversations (recommended — GHL rejects {{message.to_number}}):
+ *     { "phone": "{{contact.phone}}", "body": "{{message.body}}" }
+ *   Optional fields that help disambiguate:
+ *     { ..., toNumber, locationId, contactId, conversationId }
+ *   LC workflow aliases:
+ *     { from, to, message, location_id, ... }
  *
  * Deploy-side config required
  * ---------------------------
@@ -47,7 +54,8 @@ import {
   buildOutboundVisitorReplyPayload,
   dispatchVisitorReply,
   extractInboundVisitorPayload,
-  findClientIdByInboundToPhone,
+  isOwnNumberLoop,
+  resolveClientForInboundVisitorSms,
 } from "@/lib/agents/inbound-visitor-sms-handler";
 import { getSmsIntegration } from "@/lib/agents/integrations/registry";
 import { runTurn } from "@/lib/agents/runner";
@@ -83,7 +91,7 @@ export async function POST(req: NextRequest): Promise<Response> {
   const payload = extractInboundVisitorPayload(rawBody);
   if (!payload) {
     console.warn(
-      "[inbound-visitor-sms] missing phones in payload — ignoring",
+      "[inbound-visitor-sms] missing visitor phone in payload — ignoring",
       rawBody
     );
     return NextResponse.json(
@@ -92,10 +100,13 @@ export async function POST(req: NextRequest): Promise<Response> {
     );
   }
 
-  // ── Resolve client by LC Phone (toNumber) ─────────────────────────────────
-  let clientId: string | null;
+  // ── Resolve client ────────────────────────────────────────────────────────
+  let resolution;
   try {
-    clientId = await findClientIdByInboundToPhone(payload.toPhone);
+    resolution = await resolveClientForInboundVisitorSms({
+      toPhone: payload.toPhone,
+      locationId: payload.locationId,
+    });
   } catch (err) {
     console.error("[inbound-visitor-sms] client lookup failed:", err);
     return NextResponse.json(
@@ -103,12 +114,44 @@ export async function POST(req: NextRequest): Promise<Response> {
       { status: 200 }
     );
   }
-  if (!clientId) {
+
+  if (resolution.kind === "ambiguous") {
+    console.error(
+      `[inbound-visitor-sms] ambiguous client resolution — candidates=${resolution.candidates.join(
+        ","
+      )} toPhone=${payload.toPhone ?? "-"} locationId=${payload.locationId ?? "-"}`
+    );
+    return NextResponse.json(
+      {
+        ok: false,
+        reason: "ambiguous_client",
+        candidates: resolution.candidates,
+      },
+      { status: 200 }
+    );
+  }
+  if (resolution.kind === "none") {
     console.warn(
-      `[inbound-visitor-sms] no client configured for toPhone=${payload.toPhone} — ignoring`
+      `[inbound-visitor-sms] no client configured (toPhone=${
+        payload.toPhone ?? "-"
+      } locationId=${payload.locationId ?? "-"}) — ignoring`
     );
     return NextResponse.json(
       { ok: false, reason: "no_client_for_to_phone" },
+      { status: 200 }
+    );
+  }
+
+  const clientId = resolution.clientId;
+
+  // ── Loop guard — refuse if visitor phone equals our own LC Phone ─────────
+  const cfg = await getClientConfig(clientId);
+  if (isOwnNumberLoop(cfg, payload.fromPhone)) {
+    console.warn(
+      `[inbound-visitor-sms] loop guard tripped — fromPhone=${payload.fromPhone} matches own LC Phone for client=${clientId}`
+    );
+    return NextResponse.json(
+      { ok: false, reason: "loop_guard" },
       { status: 200 }
     );
   }
@@ -140,7 +183,6 @@ export async function POST(req: NextRequest): Promise<Response> {
   }
 
   // ── Dispatch outbound reply (when appropriate) ────────────────────────────
-  const cfg = await getClientConfig(clientId);
   const out = buildOutboundVisitorReplyPayload({
     cfg,
     agent: "frontDesk",
@@ -158,6 +200,8 @@ export async function POST(req: NextRequest): Promise<Response> {
   return NextResponse.json(
     {
       ok: true,
+      clientId,
+      resolvedVia: resolution.via,
       sessionId: runResult.sessionId,
       reply: runResult.reply,
       replySent: dispatch.sent,
