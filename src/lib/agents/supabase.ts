@@ -99,6 +99,24 @@ export async function sbUpdate<T>(
   return (await res.json()) as T[];
 }
 
+/** DELETE by filter (PostgREST query params). */
+export async function sbDelete(
+  table: string,
+  filter: Record<string, QueryValue>
+): Promise<void> {
+  const search = new URLSearchParams();
+  for (const [k, v] of Object.entries(filter)) search.append(k, String(v));
+  const res = await fetch(`${restUrl(table)}?${search.toString()}`, {
+    method: "DELETE",
+    headers: baseHeaders(),
+  });
+  if (!res.ok) {
+    throw new Error(
+      `supabase delete ${table} failed: ${res.status} ${await res.text()}`
+    );
+  }
+}
+
 /** UPSERT — honors the primary key or the unique constraint set on the table. */
 export async function sbUpsert<T>(
   table: string,
