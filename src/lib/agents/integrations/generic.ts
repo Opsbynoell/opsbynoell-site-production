@@ -47,8 +47,10 @@ function parseRange(range: string): { start: number; end: number } | null {
 }
 
 export class GenericCalendar implements CalendarIntegration {
-  constructor(private cfg: GenericCalendarConfig) {
+  private readonly cfg: GenericCalendarConfig;
+  constructor(cfg: GenericCalendarConfig) {
     if (!cfg.clientId) throw new Error("generic calendar clientId required");
+    this.cfg = cfg;
   }
 
   async getAvailableSlots(

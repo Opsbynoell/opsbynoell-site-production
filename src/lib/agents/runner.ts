@@ -20,6 +20,7 @@
 import { classifyIntent, claudeComplete } from "./claude";
 import { getClientConfig } from "./config";
 import { sendAgentEmailAlert } from "./email-alert";
+import { extractEmail, extractName, extractPhone } from "./extractors";
 import { buildSystemPrompt } from "./prompts";
 import { sendOwnerSmsAlert } from "./sms-alert";
 import { sbInsert, sbSelect, sbUpdate } from "./supabase";
@@ -184,6 +185,51 @@ export async function runTurn({
     defaultTriggerType
   );
 
+  // Backfill visitor_* columns from the chat message itself. The widget
+  // creates a session with payload.from.* (often empty for anonymous web
+  // visitors), so contact info typed into chat ("Sarah Mendez,
+  // 949-555-0142, sarah@derma.co") used to never make it onto the row —
+  // which silently broke the qualified-lead SMS path. We run the
+  // extractors every turn but only PATCH columns that are still NULL,
+  // so the first capture wins and a session is never overwritten.
+  const sessionPatch: Record<string, unknown> = {};
+  if (!session.visitor_name) {
+    const name = extractName(payload.message);
+    if (name) {
+      sessionPatch.visitor_name = name;
+      session.visitor_name = name;
+    }
+  }
+  const phoneJustCaptured = !session.visitor_phone;
+  if (!session.visitor_phone) {
+    const phone = extractPhone(payload.message);
+    if (phone) {
+      sessionPatch.visitor_phone = phone;
+      session.visitor_phone = phone;
+    }
+  }
+  if (!session.visitor_email) {
+    const email = extractEmail(payload.message);
+    if (email) {
+      sessionPatch.visitor_email = email;
+      session.visitor_email = email;
+    }
+  }
+  // A phone is the strongest hot-lead signal — when one is captured for
+  // the first time on this session, force escalation so the SMS to
+  // Nikki fires even if the classifier scored the turn as "warm".
+  const leadCaptureReason: string | null =
+    phoneJustCaptured && sessionPatch.visitor_phone
+      ? "lead captured (phone provided)"
+      : null;
+  if (Object.keys(sessionPatch).length > 0) {
+    await sbUpdate(
+      tables.sessions,
+      { id: `eq.${session.id}` },
+      sessionPatch
+    );
+  }
+
   // Persist the visitor message.
   await sbInsert(tables.messages, {
     session_id: session.id,
@@ -257,7 +303,8 @@ export async function runTurn({
     payload.message,
     cfg.escalationRules
   );
-  const escalated = classification.escalate || Boolean(keywordReason);
+  const escalated =
+    classification.escalate || Boolean(keywordReason) || Boolean(leadCaptureReason);
   const intent: Intent = classification.intent;
 
   // Every-turn SMS alert — fires on every visitor message (not just escalations).
@@ -323,7 +370,8 @@ export async function runTurn({
       frontDesk: "Noell Front Desk",
       care: "Noell Care",
     };
-    const reason = keywordReason ?? classification.reason ?? "classifier";
+    const reason =
+      leadCaptureReason ?? keywordReason ?? classification.reason ?? "classifier";
     const visitor =
       session.visitor_phone ?? session.visitor_name ?? "visitor";
     const alertText =
