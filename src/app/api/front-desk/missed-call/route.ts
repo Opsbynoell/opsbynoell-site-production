@@ -13,15 +13,43 @@
  * POST /api/front-desk/message.
  */
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
 import { getSmsIntegration } from "@/lib/agents/integrations/registry";
+import {
+  clientIdentity,
+  hasClientAccess,
+  rateLimit,
+  rateLimitResponse,
+  verifyAdminFromCookie,
+} from "@/lib/agents/request-security";
 import { sbInsert } from "@/lib/agents/supabase";
 import { sendTelegramAlert } from "@/lib/agents/telegram";
 import type { MissedCallPayload, TemplateParams } from "@/lib/agents/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+/**
+ * Missed-call is triggered by the client's phone system (GHL/Twilio
+ * webhook). That traffic authenticates with AGENT_ACTION_SECRET —
+ * admins with client access may also call this directly for manual
+ * textbacks.
+ */
+async function authorize(
+  req: Request,
+  clientId: string
+): Promise<{ ok: true } | { ok: false; response: Response }> {
+  const expected = process.env.AGENT_ACTION_SECRET;
+  const auth = req.headers.get("authorization") ?? "";
+  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  const admin = await verifyAdminFromCookie(req);
+  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  return {
+    ok: false,
+    response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
+  };
+}
 
 function renderTemplate(
   template: string,
@@ -30,7 +58,14 @@ function renderTemplate(
   return template.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
 }
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response> {
+  const rl = rateLimit(
+    `front-desk-missed:${clientIdentity(req)}`,
+    60,
+    60_000
+  );
+  if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
+
   let body: MissedCallPayload;
   try {
     body = (await req.json()) as MissedCallPayload;
@@ -43,6 +78,9 @@ export async function POST(req: Request): Promise<Response> {
       { status: 400 }
     );
   }
+
+  const authz = await authorize(req, body.clientId);
+  if (!authz.ok) return authz.response;
 
   const cfg = await getClientConfig(body.clientId);
   if (!cfg.active || !cfg.agents.frontDesk) {

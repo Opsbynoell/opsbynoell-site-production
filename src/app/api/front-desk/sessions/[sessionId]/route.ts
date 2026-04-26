@@ -4,22 +4,29 @@
  * Operator-view helper. Returns a single Front Desk session plus its
  * full message history and the related appointment (if any).
  *
- * This endpoint is intended to be called from the admin inbox UI (which
- * is authenticated elsewhere). For the public widget, do not expose
- * this — the widget only knows its own session via the handle returned
- * from /message.
+ * Admin-only: transcripts contain visitor PII. Requires an
+ * authenticated admin with access to the session's client.
  */
 
 import { NextResponse } from "next/server";
+import {
+  hasClientAccess,
+  verifyAdminFromCookie,
+} from "@/lib/agents/request-security";
 import { sbSelect } from "@/lib/agents/supabase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ sessionId: string }> }
 ): Promise<Response> {
+  const auth = await verifyAdminFromCookie(req);
+  if (!auth) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { sessionId } = await params;
   const sessionRows = await sbSelect(
     "front_desk_sessions",
@@ -31,8 +38,14 @@ export async function GET(
   }
   const session = sessionRows[0] as {
     id: string;
+    client_id: string;
     appointment_id: string | null;
   };
+
+  if (!hasClientAccess(auth, session.client_id)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   const messages = await sbSelect(
     "front_desk_messages",
     { session_id: `eq.${sessionId}` },

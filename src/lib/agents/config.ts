@@ -43,13 +43,28 @@ type ClientRow = {
   active: boolean;
 };
 
-const cache = new Map<string, ClientConfig>();
+interface CacheEntry {
+  cfg: ClientConfig;
+  expiresAt: number;
+}
+
+// Short TTL so a bad system prompt or killswitch flip rolls out in at
+// most CONFIG_CACHE_TTL_MS. Set to 0 to disable the cache entirely.
+const CONFIG_CACHE_TTL_MS = (() => {
+  const raw = process.env.CLIENT_CONFIG_TTL_MS;
+  if (!raw) return 30_000; // 30s default
+  const n = parseInt(raw, 10);
+  return Number.isFinite(n) && n >= 0 ? n : 30_000;
+})();
+
+const cache = new Map<string, CacheEntry>();
 
 export async function getClientConfig(
   clientId: string
 ): Promise<ClientConfig> {
+  const now = Date.now();
   const cached = cache.get(clientId);
-  if (cached) return cached;
+  if (cached && cached.expiresAt > now) return cached.cfg;
   const rows = await sbSelect<ClientRow>(
     "clients",
     { client_id: `eq.${clientId}` },
@@ -91,6 +106,15 @@ export async function getClientConfig(
     services: row.services ?? [],
     active: row.active,
   };
-  cache.set(clientId, cfg);
+  if (CONFIG_CACHE_TTL_MS > 0) {
+    cache.set(clientId, { cfg, expiresAt: now + CONFIG_CACHE_TTL_MS });
+  }
   return cfg;
+}
+
+/** Force-clear the cache for a client (or all clients). Exported for
+ *  admin tooling that mutates clients rows and wants the change live now. */
+export function invalidateClientConfig(clientId?: string): void {
+  if (clientId) cache.delete(clientId);
+  else cache.clear();
 }

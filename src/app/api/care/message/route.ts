@@ -12,17 +12,27 @@
  * different table pair.
  */
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import {
   formatKnowledgeContext,
   queryKnowledgeBase,
 } from "@/lib/agents/knowledge-base";
+import {
+  clampPublicMessage,
+  clientIdentity,
+  isOriginAllowed,
+  rateLimit,
+  rateLimitResponse,
+} from "@/lib/agents/request-security";
 import { runTurn } from "@/lib/agents/runner";
 import { sbSelect } from "@/lib/agents/supabase";
 import type { AgentMessagePayload } from "@/lib/agents/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+const PER_IP_LIMIT = 30;
+const PER_IP_WINDOW_MS = 60_000;
 
 interface ContactRow {
   id: string;
@@ -60,7 +70,18 @@ async function lookupContact(
   return null;
 }
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response> {
+  if (!isOriginAllowed(req)) {
+    return NextResponse.json({ error: "Forbidden origin" }, { status: 403 });
+  }
+
+  const rl = rateLimit(
+    `care:${clientIdentity(req)}`,
+    PER_IP_LIMIT,
+    PER_IP_WINDOW_MS
+  );
+  if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
+
   let payload: AgentMessagePayload;
   try {
     payload = (await req.json()) as AgentMessagePayload;
@@ -72,6 +93,10 @@ export async function POST(req: Request): Promise<Response> {
       { error: "clientId and message are required" },
       { status: 400 }
     );
+  }
+  payload.message = clampPublicMessage(payload.message);
+  if (!payload.message) {
+    return NextResponse.json({ error: "empty message" }, { status: 400 });
   }
 
   const contact = await lookupContact(
@@ -107,6 +132,10 @@ export async function POST(req: Request): Promise<Response> {
       defaultTriggerType:
         payload.channel === "sms" ? "sms" : "website_chat",
       runtimeContext,
+      audit: {
+        route: "/api/care/message",
+        extra: { kbHits: kbHits.length },
+      },
     });
     return NextResponse.json({ ...result, recognizedContactId: contact?.id ?? null });
   } catch (e) {

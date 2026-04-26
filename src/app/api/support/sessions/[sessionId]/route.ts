@@ -3,18 +3,30 @@
  *
  * Operator-view helper. Returns a single Support session plus its
  * message history and any recognized contact record.
+ *
+ * Admin-only: transcripts contain visitor PII. Requires an
+ * authenticated admin with access to the session's client.
  */
 
 import { NextResponse } from "next/server";
+import {
+  hasClientAccess,
+  verifyAdminFromCookie,
+} from "@/lib/agents/request-security";
 import { sbSelect } from "@/lib/agents/supabase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ sessionId: string }> }
 ): Promise<Response> {
+  const auth = await verifyAdminFromCookie(req);
+  if (!auth) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { sessionId } = await params;
   const sessionRows = await sbSelect(
     "support_sessions",
@@ -26,8 +38,14 @@ export async function GET(
   }
   const session = sessionRows[0] as {
     id: string;
+    client_id: string;
     contact_id: string | null;
   };
+
+  if (!hasClientAccess(auth, session.client_id)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   const messages = await sbSelect(
     "support_messages",
     { session_id: `eq.${sessionId}` },

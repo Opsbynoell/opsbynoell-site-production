@@ -6,13 +6,35 @@
  * for the old time, and schedules fresh reminders for the new time.
  */
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
 import { getCalendarIntegration, getSmsIntegration } from "@/lib/agents/integrations/registry";
+import {
+  clientIdentity,
+  hasClientAccess,
+  rateLimit,
+  rateLimitResponse,
+  verifyAdminFromCookie,
+} from "@/lib/agents/request-security";
 import { sbInsert, sbSelect, sbUpdate } from "@/lib/agents/supabase";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+async function authorize(
+  req: Request,
+  clientId: string
+): Promise<{ ok: true } | { ok: false; response: Response }> {
+  const expected = process.env.AGENT_ACTION_SECRET;
+  const auth = req.headers.get("authorization") ?? "";
+  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  const admin = await verifyAdminFromCookie(req);
+  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  return {
+    ok: false,
+    response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
+  };
+}
 
 interface RescheduleBody {
   clientId: string;
@@ -27,7 +49,14 @@ function parseCadenceToken(token: string): number | null {
   return m[2].toLowerCase() === "m" ? n : m[2].toLowerCase() === "h" ? n * 60 : n * 1440;
 }
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response> {
+  const rl = rateLimit(
+    `front-desk-reschedule:${clientIdentity(req)}`,
+    20,
+    60_000
+  );
+  if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
+
   let body: RescheduleBody;
   try {
     body = (await req.json()) as RescheduleBody;
@@ -42,16 +71,28 @@ export async function POST(req: Request): Promise<Response> {
     return NextResponse.json({ error: "invalid newTime" }, { status: 400 });
   }
 
+  const authz = await authorize(req, body.clientId);
+  if (!authz.ok) return authz.response;
+
   const cfg = await getClientConfig(body.clientId);
   const calendar = getCalendarIntegration(cfg);
 
-  // Resolve the row in our table to find the external id if needed.
+  // Resolve the row in our table, filtering by client_id so an
+  // attacker cannot move *another* client's appointment by ID.
   const rows = await sbSelect<{
     id: string;
     external_calendar_id: string | null;
     visitor_phone: string | null;
     service_type: string | null;
-  }>("appointments", { id: `eq.${body.appointmentId}` }, { limit: 1 });
+    client_id: string;
+  }>(
+    "appointments",
+    {
+      id: `eq.${body.appointmentId}`,
+      client_id: `eq.${body.clientId}`,
+    },
+    { limit: 1 }
+  );
   if (rows.length === 0) {
     return NextResponse.json({ error: "appointment not found" }, { status: 404 });
   }

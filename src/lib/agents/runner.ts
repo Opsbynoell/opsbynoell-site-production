@@ -151,12 +151,30 @@ function checkEscalationKeywords(
   return null;
 }
 
+/**
+ * Per-turn audit envelope. Attached to the assistant message metadata
+ * and updated on the session row. Used for post-hoc review, abuse
+ * analysis, and future classifier/safety tooling.
+ */
+export interface AuditEnvelope {
+  /** Route that produced the turn, e.g. "/api/care/message". */
+  route?: string;
+  /** Prompt version / hash — wire when the prompt is versioned. */
+  promptVersion?: string;
+  promptHash?: string;
+  /** Placeholder for safety / classifier scores. */
+  safety?: Record<string, unknown>;
+  /** Free-form annotations (experiment flag, trigger reason, etc). */
+  extra?: Record<string, unknown>;
+}
+
 export async function runTurn({
   agent,
   payload,
   tables,
   defaultTriggerType,
   runtimeContext,
+  audit,
 }: {
   agent: AgentKind;
   payload: AgentMessagePayload;
@@ -164,6 +182,8 @@ export async function runTurn({
   defaultTriggerType: string;
   /** Optional per-turn extra context (e.g. KB hits for Care). */
   runtimeContext?: string;
+  /** Optional audit envelope passed by the caller. */
+  audit?: AuditEnvelope;
 }): Promise<AgentMessageResponse> {
   const cfg = await getClientConfig(payload.clientId);
   if (!cfg.active) {
@@ -346,7 +366,7 @@ export async function runTurn({
     }
   }
 
-  // Persist the assistant reply.
+  // Persist the assistant reply with a full audit envelope.
   await sbInsert(tables.messages, {
     session_id: session.id,
     role: "bot",
@@ -355,6 +375,22 @@ export async function runTurn({
       intent,
       escalated,
       usage: ai.usage,
+      audit: {
+        agent,
+        clientId: payload.clientId,
+        channel: session.channel,
+        triggerType: session.trigger_type,
+        route: audit?.route,
+        promptVersion: audit?.promptVersion,
+        promptHash: audit?.promptHash,
+        safety: audit?.safety ?? null,
+        classifier: {
+          intent: classification.intent,
+          escalate: classification.escalate,
+          reason: classification.reason,
+        },
+        ...(audit?.extra ?? {}),
+      },
     },
   });
 

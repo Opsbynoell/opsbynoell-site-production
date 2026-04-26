@@ -20,17 +20,45 @@
  *   }
  */
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
 import {
   getCalendarIntegration,
   getSmsIntegration,
 } from "@/lib/agents/integrations/registry";
+import {
+  clientIdentity,
+  hasClientAccess,
+  rateLimit,
+  rateLimitResponse,
+  verifyAdminFromCookie,
+} from "@/lib/agents/request-security";
 import { sbInsert, sbUpdate } from "@/lib/agents/supabase";
 import { sendTelegramAlert } from "@/lib/agents/telegram";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+/**
+ * Auth model: either an authenticated admin with access to the target
+ * client OR a server-to-server call with the AGENT_ACTION_SECRET bearer
+ * token. The secret is used by the internal agent runner / inbound-SMS
+ * bridge so Nikki's chat flows can still book without cookies.
+ */
+async function authorize(
+  req: Request,
+  clientId: string
+): Promise<{ ok: true } | { ok: false; response: Response }> {
+  const expected = process.env.AGENT_ACTION_SECRET;
+  const auth = req.headers.get("authorization") ?? "";
+  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  const admin = await verifyAdminFromCookie(req);
+  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  return {
+    ok: false,
+    response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
+  };
+}
 
 interface ScheduleBody {
   clientId: string;
@@ -60,7 +88,14 @@ function parseCadenceToken(token: string): number | null {
   return null;
 }
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: NextRequest): Promise<Response> {
+  const rl = rateLimit(
+    `front-desk-schedule:${clientIdentity(req)}`,
+    20,
+    60_000
+  );
+  if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
+
   let body: ScheduleBody;
   try {
     body = (await req.json()) as ScheduleBody;
@@ -79,6 +114,9 @@ export async function POST(req: Request): Promise<Response> {
       { status: 400 }
     );
   }
+
+  const authz = await authorize(req, body.clientId);
+  if (!authz.ok) return authz.response;
 
   const cfg = await getClientConfig(body.clientId);
   if (!cfg.active || !cfg.agents.frontDesk) {

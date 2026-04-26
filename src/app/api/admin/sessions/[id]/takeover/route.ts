@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken, COOKIE_NAME } from "@/lib/admin-auth";
 import { env } from "@/lib/agents/env";
+import {
+  hasClientAccess,
+  readAdminHeaders,
+} from "@/lib/agents/request-security";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,15 +21,28 @@ function restUrl(path: string) {
   return `${env.supabaseUrl()}/rest/v1/${path}`;
 }
 
+async function fetchSessionClientId(
+  table: string,
+  id: string
+): Promise<string | null> {
+  const res = await fetch(
+    `${restUrl(table)}?id=eq.${id}&select=client_id,clientId`,
+    { headers: supabaseHeaders(), cache: "no-store" }
+  );
+  if (!res.ok) return null;
+  const rows = (await res.json()) as Array<Record<string, unknown>>;
+  if (!rows.length) return null;
+  return (rows[0].client_id ?? rows[0].clientId ?? null) as string | null;
+}
+
 export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ): Promise<Response> {
-  const token = req.cookies.get(COOKIE_NAME)?.value;
-  if (!(await verifyToken(token))) {
+  const authPayload = readAdminHeaders(req);
+  if (!authPayload) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  // Access check is handled at the session detail level; takeover trusts the caller.
 
   const { id } = await params;
   const { agent } = await req.json().catch(() => ({ agent: "support" }));
@@ -37,6 +53,14 @@ export async function POST(
       : agent === "care"
         ? "care_sessions"
         : "chatSessions";
+
+  const sessionClientId = await fetchSessionClientId(table, id);
+  if (!sessionClientId) {
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
+  }
+  if (!hasClientAccess(authPayload, sessionClientId)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const patch =
     table === "chatSessions"

@@ -6,8 +6,11 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { verifyToken, COOKIE_NAME } from "@/lib/admin-auth";
 import { env } from "@/lib/agents/env";
+import {
+  hasClientAccess,
+  readAdminHeaders,
+} from "@/lib/agents/request-security";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -39,8 +42,7 @@ export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ): Promise<Response> {
-  const token = req.cookies.get(COOKIE_NAME)?.value;
-  const authPayload = await verifyToken(token);
+  const authPayload = readAdminHeaders(req);
   if (!authPayload) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -80,15 +82,10 @@ export async function GET(
     }
 
     // Access check for non-super-admins
-    if (!authPayload.isSuperAdmin) {
-      const sessionClientId =
-        ((session.client_id ?? session.clientId) as string | null) ?? null;
-      if (
-        !sessionClientId ||
-        !authPayload.accessibleClients.includes(sessionClientId)
-      ) {
-        return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-      }
+    const sessionClientId =
+      ((session.client_id ?? session.clientId) as string | null) ?? "";
+    if (!hasClientAccess(authPayload, sessionClientId)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
     // Normalize session
