@@ -26,7 +26,7 @@ export default function CTA({
   headlineAccent?: string;
   body?: string;
   primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string } | null;
   trustLine?: string;
   accent?: "wine" | "lilac";
   sourcePage?: SourcePage;
@@ -65,19 +65,26 @@ export default function CTA({
         <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-white/60 mb-5">
-            {eyebrow}
-          </p>
+          {eyebrow && (
+            <p className="text-[11px] uppercase tracking-[0.25em] text-white/60 mb-5">
+              {eyebrow}
+            </p>
+          )}
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-            {headlineStart}{" "}
-            <span
-              className={cn(
-                "bg-gradient-to-b bg-clip-text text-transparent italic",
-                accentGrad
-              )}
-            >
-              {headlineAccent}
-            </span>
+            {headlineStart}
+            {headlineAccent && (
+              <>
+                {" "}
+                <span
+                  className={cn(
+                    "bg-gradient-to-b bg-clip-text text-transparent italic",
+                    accentGrad
+                  )}
+                >
+                  {headlineAccent}
+                </span>
+              </>
+            )}
           </h2>
           <p className="mt-6 text-white/70 text-lg max-w-xl mx-auto leading-relaxed">
             {body}
@@ -95,18 +102,22 @@ export default function CTA({
             >
               {primaryCta.label}
             </Button>
-            <Button
-              href={secondaryCta.href}
-              variant="secondary"
-              className="h-12 px-8 bg-transparent border border-white/30 text-white hover:bg-white/10"
-              data-source-page={sourcePage}
-              data-source-section={sourceSection}
-            >
-              {secondaryCta.label}
-            </Button>
+            {secondaryCta && (
+              <Button
+                href={secondaryCta.href}
+                variant="secondary"
+                className="h-12 px-8 bg-transparent border border-white/30 text-white hover:bg-white/10"
+                data-source-page={sourcePage}
+                data-source-section={sourceSection}
+              >
+                {secondaryCta.label}
+              </Button>
+            )}
           </div>
 
-          <p className="mt-8 text-xs text-on-dark-soft">{trustLine}</p>
+          {trustLine && (
+            <p className="mt-8 text-xs text-on-dark-soft">{trustLine}</p>
+          )}
         </div>
       </motion.div>
     </section>

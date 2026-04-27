@@ -1,8 +1,15 @@
 "use client";
 
+import React from "react";
 import { motion } from "motion/react";
 
-const rows = [
+export interface LogRow {
+  time: string;
+  action: string;
+  result?: string;
+}
+
+const defaultRows: LogRow[] = [
   {
     time: "06:12",
     action: "missed-call",
@@ -30,18 +37,30 @@ const rows = [
   },
 ];
 
-export function LiveSystemLog() {
+export function LiveSystemLog({
+  eyebrow = "LIVE  /  system log  /  last 12 hours",
+  rows = defaultRows,
+  caption = "The system runs. You run the business.",
+  separator = ">",
+  children,
+}: {
+  eyebrow?: string;
+  rows?: LogRow[];
+  caption?: string;
+  separator?: string;
+  children?: React.ReactNode;
+}) {
   return (
     <section className="w-full bg-blush">
       <div className="max-w-4xl mx-auto py-16 md:py-24 px-4">
         <p className="font-mono text-[11px] uppercase tracking-widest text-charcoal/60 text-center mb-8">
-          LIVE &nbsp;/&nbsp; system log &nbsp;/&nbsp; last 12 hours
+          {eyebrow}
         </p>
 
         <ul className="font-mono text-xs md:text-sm space-y-2 text-left">
           {rows.map((row, i) => (
             <motion.li
-              key={`${row.time}-${row.action}`}
+              key={`${row.time}-${row.action}-${i}`}
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -50,15 +69,23 @@ export function LiveSystemLog() {
             >
               <span className="text-charcoal/50 tabular-nums">{row.time}</span>
               <span className="text-wine font-semibold">{row.action}</span>
-              <span className="text-charcoal/30">&gt;</span>
-              <span className="text-charcoal">{row.result}</span>
+              {row.result && (
+                <>
+                  <span className="text-charcoal/30">{separator}</span>
+                  <span className="text-charcoal">{row.result}</span>
+                </>
+              )}
             </motion.li>
           ))}
         </ul>
 
-        <p className="text-charcoal/60 italic text-sm mt-8 text-center">
-          The system runs. You run the business.
-        </p>
+        {children}
+
+        {caption && (
+          <p className="text-charcoal/60 italic text-sm mt-8 text-center">
+            {caption}
+          </p>
+        )}
       </div>
     </section>
   );
