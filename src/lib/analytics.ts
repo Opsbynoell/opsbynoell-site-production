@@ -57,7 +57,8 @@ export type SourcePage =
   | "resources"
   | "navbar"
   | "footer"
-  | "global_chat";
+  | "global_chat"
+  | "predictive-customer-intelligence";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and
@@ -81,7 +82,10 @@ export type SourceSection =
   | "booking_fallback"
   | "booking_embed"
   | "audit_request_soft_exit"
-  | "founding_cta";
+  | "founding_cta"
+  | "proof"
+  | "offer"
+  | "final";
 
 /**
  * The canonical conversion events. Narrow set on purpose — each has a
