@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ConditionalShell } from "@/components/conditional-shell";
 import { MetaPixel } from "@/components/meta-pixel";
 import { JsonLd } from "@/components/json-ld";
@@ -95,6 +96,7 @@ export default function RootLayout({
         </a>
         <MetaPixel />
         <ConditionalShell>{children}</ConditionalShell>
+        <Analytics />
       </body>
     </html>
   );
