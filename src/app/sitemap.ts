@@ -12,6 +12,11 @@ const entries: Entry[] = [
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/agents", changeFrequency: "weekly", priority: 0.9 },
   { path: "/systems", changeFrequency: "weekly", priority: 0.9 },
+  {
+    path: "/predictive-customer-intelligence",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
   { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
   { path: "/roi", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.6 },
