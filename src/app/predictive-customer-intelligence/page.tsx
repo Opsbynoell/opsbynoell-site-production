@@ -220,52 +220,21 @@ function PciMockScreen() {
         </span>
       </div>
 
-      <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
-              Ghost-risk signal
-            </p>
-            <p className="text-sm text-charcoal font-medium mt-0.5">
-              Marina D.
-            </p>
-            <p className="text-[11px] text-charcoal/50">
-              last visit · 41 days ago
-            </p>
-          </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine font-mono">
-            87 / 100
-          </span>
-        </div>
-      </div>
-
-      <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
-              Reactivation triggered
-            </p>
-            <p className="text-sm text-charcoal font-medium mt-0.5">
-              SMS sent · 11s
-            </p>
-            <p className="text-[11px] text-charcoal/50">
-              Auto-sequence engaged
-            </p>
-          </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-wine text-cream">
-            firing
-          </span>
-        </div>
-      </div>
-
-      <div className="bg-wine rounded-2xl p-3 mx-1 mt-2 shadow-sm">
+      <div className="bg-wine rounded-2xl p-6 md:p-7 mx-1 mt-2 shadow-sm">
         <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
-          Recovered
+          Recovered before she rebooked elsewhere
         </p>
-        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$240</p>
-        <p className="text-[11px] text-cream/60">
-          before she rebooked elsewhere
+        <p className="font-serif text-4xl md:text-5xl font-bold text-cream mt-3">
+          $240
         </p>
+        <p className="text-[11px] text-cream/60 mt-2">
+          Marina D. · ghost-risk 87 / 100
+        </p>
+        <div className="mt-5 pt-4 border-t border-cream/15">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+            pattern caught · day 03
+          </p>
+        </div>
       </div>
     </div>
   );
