@@ -93,7 +93,7 @@ const careScreen = (
           Noell Care · Recognized
         </span>
       </div>
-      <span className="text-[10px] uppercase tracking-widest text-charcoal/40">
+      <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
         regular
       </span>
     </div>
@@ -113,7 +113,7 @@ const careScreen = (
     </div>
 
     <div className="bg-cream-dark rounded-2xl p-2 mx-1 mt-2 border border-warm-border/60 text-center">
-      <p className="text-[9px] uppercase tracking-widest text-charcoal/60 font-medium">
+      <p className="text-[9px] uppercase tracking-widest text-charcoal/70 font-medium">
         Handed to Front Desk · booked
       </p>
     </div>
@@ -165,7 +165,7 @@ export default function NoellCarePage() {
                 done warmly.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">
+            <p className="mt-5 text-charcoal/70 max-w-xl mx-auto">
               Noell Care is the returning-client desk. Recognized, informed,
               warm, and honest about what it does not know.
             </p>
@@ -184,14 +184,14 @@ export default function NoellCarePage() {
                   <div className="w-10 h-10 rounded-lg bg-[#7a9c79]/10 text-[#4f6b4e] flex items-center justify-center">
                     {cap.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/30">
+                  <span className="text-[10px] font-mono text-charcoal/70">
                     0{i + 1}
                   </span>
                 </div>
                 <h3 className="text-base font-semibold text-charcoal mb-1.5">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed">
+                <p className="text-sm text-charcoal/70 leading-relaxed">
                   {cap.description}
                 </p>
               </div>

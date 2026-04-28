@@ -154,7 +154,7 @@ export default function UsersPage() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => router.push("/admin")}
-            className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+            className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
           >
             ← Inbox
           </button>
@@ -187,7 +187,7 @@ export default function UsersPage() {
           <div className="max-w-2xl">
             <div className="bg-white rounded-[16px] border border-warm-border overflow-hidden">
               {users.length === 0 ? (
-                <p className="text-sm text-charcoal/50 px-6 py-8 text-center">
+                <p className="text-sm text-charcoal/70 px-6 py-8 text-center">
                   No admin users yet.
                 </p>
               ) : (
@@ -210,11 +210,11 @@ export default function UsersPage() {
                         )}
                       </div>
                       <div className="flex items-center gap-3 mt-0.5">
-                        <span className="text-[10px] text-charcoal/40">
+                        <span className="text-[10px] text-charcoal/70">
                           Created {relativeDate(u.created_at)}
                         </span>
                         {!u.is_super_admin && u.accessible_clients.length > 0 && (
-                          <span className="text-[10px] text-charcoal/50">
+                          <span className="text-[10px] text-charcoal/70">
                             Clients: {u.accessible_clients.join(", ")}
                           </span>
                         )}
@@ -231,7 +231,7 @@ export default function UsersPage() {
                           });
                           setEditError("");
                         }}
-                        className="text-xs text-charcoal/50 hover:text-charcoal transition-colors"
+                        className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
                       >
                         Edit
                       </button>
@@ -270,7 +270,7 @@ export default function UsersPage() {
                 className={`flex-1 h-8 rounded-lg text-xs font-medium transition-colors ${
                   formMode === "invite"
                     ? "bg-wine text-cream"
-                    : "text-charcoal/60 hover:text-charcoal"
+                    : "text-charcoal/70 hover:text-charcoal"
                 }`}
               >
                 Invite via email
@@ -285,7 +285,7 @@ export default function UsersPage() {
                 className={`flex-1 h-8 rounded-lg text-xs font-medium transition-colors ${
                   formMode === "create"
                     ? "bg-wine text-cream"
-                    : "text-charcoal/60 hover:text-charcoal"
+                    : "text-charcoal/70 hover:text-charcoal"
                 }`}
               >
                 Create with password
@@ -345,7 +345,7 @@ export default function UsersPage() {
                 </label>
               </div>
               {formMode === "invite" && (
-                <p className="text-[11px] text-charcoal/50 leading-relaxed">
+                <p className="text-[11px] text-charcoal/70 leading-relaxed">
                   An email from hello@opsbynoell.com will be sent with a link to set
                   their password. The link expires in 48 hours.
                 </p>
@@ -368,7 +368,7 @@ export default function UsersPage() {
                     setFormSuccess("");
                     setFormError("");
                   }}
-                  className="flex-1 h-10 rounded-xl border border-warm-border text-sm text-charcoal/60 hover:text-charcoal transition-colors"
+                  className="flex-1 h-10 rounded-xl border border-warm-border text-sm text-charcoal/70 hover:text-charcoal transition-colors"
                 >
                   {formSuccess ? "Done" : "Cancel"}
                 </button>
@@ -402,7 +402,7 @@ export default function UsersPage() {
             <h2 className="font-serif text-lg font-semibold text-charcoal mb-1">
               Edit user
             </h2>
-            <p className="text-xs text-charcoal/50 mb-4">{editUser.email}</p>
+            <p className="text-xs text-charcoal/70 mb-4">{editUser.email}</p>
             <form onSubmit={handleEdit} className="space-y-4">
               <div>
                 <label className="block text-xs font-medium text-charcoal/70 mb-1">
@@ -449,7 +449,7 @@ export default function UsersPage() {
                 <button
                   type="button"
                   onClick={() => setEditUser(null)}
-                  className="flex-1 h-10 rounded-xl border border-warm-border text-sm text-charcoal/60 hover:text-charcoal transition-colors"
+                  className="flex-1 h-10 rounded-xl border border-warm-border text-sm text-charcoal/70 hover:text-charcoal transition-colors"
                 >
                   Cancel
                 </button>

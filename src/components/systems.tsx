@@ -92,7 +92,7 @@ export function Systems() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                  <span className="text-[10px] font-mono text-charcoal/40">
+                  <span className="text-[10px] font-mono text-charcoal/70">
                     0{index + 1}
                   </span>
                 </div>
@@ -103,14 +103,14 @@ export function Systems() {
               <h3 className="font-serif text-2xl font-semibold text-charcoal mb-1">
                 {agent.title}
               </h3>
-              <p className="font-mono text-[10px] text-charcoal/40 mb-3">
+              <p className="font-mono text-[10px] text-charcoal/70 mb-3">
                 {agent.handle}
               </p>
               <p className="text-sm text-charcoal/80 leading-relaxed">
                 {agent.description}
               </p>
               <div className="mt-6 pt-4 border-t border-warm-border flex items-center justify-between">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                   {agent.uptime}
                 </p>
                 <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">

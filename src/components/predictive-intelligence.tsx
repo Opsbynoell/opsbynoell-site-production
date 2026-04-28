@@ -79,7 +79,7 @@ export function PredictiveIntelligence({
               <h3 className="font-serif text-xl font-semibold text-charcoal mb-2 leading-snug">
                 {s.title}
               </h3>
-              <p className="text-sm text-charcoal/65 leading-relaxed">
+              <p className="text-sm text-charcoal/70 leading-relaxed">
                 {s.detail}
               </p>
             </div>

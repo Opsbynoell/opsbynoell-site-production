@@ -208,7 +208,7 @@ export default function PricingPage() {
           Curious what you could recover?{" "}
           <Link
             href="/roi"
-            className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal"
+            className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
           >
             Run the ROI calculator
           </Link>

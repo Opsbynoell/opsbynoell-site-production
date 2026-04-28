@@ -158,7 +158,7 @@ const hvacScreen = (
           Noell Front Desk, HVAC
         </span>
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
         triage
       </span>
     </div>
@@ -172,7 +172,7 @@ const hvacScreen = (
           <p className="text-sm text-charcoal font-medium mt-0.5">
             Parker residence
           </p>
-          <p className="text-[11px] text-charcoal/50">
+          <p className="text-[11px] text-charcoal/70">
             Routed to Diego, on-call
           </p>
         </div>
@@ -187,13 +187,13 @@ const hvacScreen = (
     </div>
 
     <div className="bg-cream-dark rounded-2xl p-3 mx-1 mt-2 shadow-sm border border-warm-border">
-      <p className="text-[10px] uppercase tracking-widest text-charcoal/60 font-medium">
+      <p className="text-[10px] uppercase tracking-widest text-charcoal/70 font-medium">
         Maintenance renewal, scheduled
       </p>
       <p className="font-serif text-lg font-semibold text-charcoal mt-0.5">
         Tues · 9:00 AM
       </p>
-      <p className="text-[11px] text-charcoal/50">
+      <p className="text-[11px] text-charcoal/70">
         Fall tune-up, plan client, Tech: Marcus
       </p>
     </div>
@@ -278,14 +278,14 @@ export default function HvacVerticalPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {c.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
                     {c.tag}
                   </span>
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-charcoal mb-3 leading-snug">
                   {c.title}
                 </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
                   {c.worry}
                 </p>
                 <p className="text-sm text-charcoal/80 leading-relaxed">
@@ -325,7 +325,7 @@ export default function HvacVerticalPage() {
 
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
             run a different kind of trade?
           </p>
           <Link

@@ -37,7 +37,7 @@ export function ROICalculator() {
             onChange={(e) => setMissedCalls(Number(e.target.value))}
             className="mt-3 w-full accent-wine cursor-pointer"
           />
-          <div className="flex justify-between text-[10px] text-charcoal/40 mt-1">
+          <div className="flex justify-between text-[10px] text-charcoal/70 mt-1">
             <span>0</span>
             <span>50</span>
           </div>
@@ -56,7 +56,7 @@ export function ROICalculator() {
             onChange={(e) => setAvgTicket(Number(e.target.value))}
             className="mt-3 w-full accent-wine cursor-pointer"
           />
-          <div className="flex justify-between text-[10px] text-charcoal/40 mt-1">
+          <div className="flex justify-between text-[10px] text-charcoal/70 mt-1">
             <span>$25</span>
             <span>$1,000</span>
           </div>
@@ -69,7 +69,7 @@ export function ROICalculator() {
           </div>
           <div className="font-serif text-3xl md:text-4xl text-wine mt-1">
             ${monthly.toLocaleString("en-US", { maximumFractionDigits: 0 })}
-            <span className="font-sans text-base font-normal text-charcoal/60 ml-2">/month</span>
+            <span className="font-sans text-base font-normal text-charcoal/70 ml-2">/month</span>
           </div>
         </div>
         <div className="text-sm text-charcoal/75 leading-relaxed">

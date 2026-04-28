@@ -120,7 +120,7 @@ export function FAQ({
               {headlineAccent}
             </span>
           </h2>
-          <p className="text-charcoal/60 max-w-2xl mx-auto">{body}</p>
+          <p className="text-charcoal/70 max-w-2xl mx-auto">{body}</p>
         </div>
 
         <div className="space-y-3 rounded-[22px] bg-warm-border/40 p-4">

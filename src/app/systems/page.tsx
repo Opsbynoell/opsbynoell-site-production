@@ -131,7 +131,7 @@ export default function SystemsPage() {
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-12 md:pb-16 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70">
             the noell system / what it is
           </p>
         </div>
@@ -195,7 +195,7 @@ export default function SystemsPage() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    <span className="text-[10px] font-mono text-charcoal/40">
+                    <span className="text-[10px] font-mono text-charcoal/70">
                       0{index + 1}
                     </span>
                   </div>
@@ -206,14 +206,14 @@ export default function SystemsPage() {
                 <h3 className="font-serif text-2xl font-semibold text-charcoal mb-1">
                   {agent.title}
                 </h3>
-                <p className="font-mono text-[10px] text-charcoal/40 mb-3">
+                <p className="font-mono text-[10px] text-charcoal/70 mb-3">
                   {agent.handle}
                 </p>
                 <p className="text-sm text-charcoal/80 leading-relaxed">
                   {agent.description}
                 </p>
                 <div className="mt-6 pt-4 border-t border-warm-border flex items-center justify-between">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                     {agent.status}
                   </p>
                   <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
@@ -255,7 +255,7 @@ export default function SystemsPage() {
                   <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center">
                     {step.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/30">
+                  <span className="text-[10px] font-mono text-charcoal/70">
                     {step.number}
                   </span>
                 </div>
@@ -293,7 +293,7 @@ export default function SystemsPage() {
                 className="rounded-[14px] border border-white/10 bg-white/[0.04] px-4 py-5 text-center"
               >
                 <p className="font-serif text-lg text-cream">{tool}</p>
-                <p className="font-mono text-[9px] uppercase tracking-widest text-cream/40 mt-1">
+                <p className="font-mono text-[9px] uppercase tracking-widest text-cream/60 mt-1">
                   supported
                 </p>
               </div>
@@ -304,7 +304,7 @@ export default function SystemsPage() {
             Booker, Jobber, and most vertical-standard tools. If yours isn&apos;t
             listed, the audit tells us whether it&apos;s supported.
           </p>
-          <p className="text-center text-xs text-cream/50 mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-xs text-cream/65 mt-6 max-w-2xl mx-auto leading-relaxed">
             Deep two-way integration (read availability, write bookings back)
             is available on Growth and Custom Ops. Essentials uses SMS/text
             automations that work alongside any existing booking tool.{" "}

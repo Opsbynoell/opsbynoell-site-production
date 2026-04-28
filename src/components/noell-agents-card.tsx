@@ -47,12 +47,12 @@ export function NoellAgentsCard() {
                 <span className="font-serif text-5xl md:text-6xl font-bold text-charcoal leading-none">
                   $297
                 </span>
-                <span className="ml-1 text-lg text-charcoal/50">/mo</span>
+                <span className="ml-1 text-lg text-charcoal/70">/mo</span>
               </div>
               <p className="mt-3 text-sm text-wine font-medium">
                 $197/mo for founding members (locked 24 months)
               </p>
-              <p className="mt-1 text-sm text-charcoal/60">No setup fee</p>
+              <p className="mt-1 text-sm text-charcoal/70">No setup fee</p>
               <div className="mt-6">
                 <Button href="/agents" variant="primary" className="h-11 px-6">
                   Start the agents
@@ -62,7 +62,7 @@ export function NoellAgentsCard() {
 
             {/* Two-column included list */}
             <div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-charcoal/50 font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-charcoal/70 font-medium mb-4">
                 What&apos;s included
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">

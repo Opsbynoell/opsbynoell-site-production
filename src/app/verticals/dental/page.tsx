@@ -195,7 +195,7 @@ const dentalScreen = (
           Noell Front Desk, Dental
         </span>
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
         09:42
       </span>
     </div>
@@ -210,7 +210,7 @@ const dentalScreen = (
           <p className="text-sm text-charcoal font-medium mt-0.5">
             Rebecca K.
           </p>
-          <p className="text-[11px] text-charcoal/50">
+          <p className="text-[11px] text-charcoal/70">
             Callback sent, 42s
           </p>
         </div>
@@ -245,7 +245,7 @@ const dentalScreen = (
           <p className="text-sm text-charcoal font-medium mt-0.5">
             Thursday · 2:00 PM
           </p>
-          <p className="text-[11px] text-charcoal/50">
+          <p className="text-[11px] text-charcoal/70">
             6-month cleaning · Hygienist: Maya
           </p>
         </div>
@@ -320,7 +320,7 @@ export default function DentalVerticalPage() {
                 before saying yes.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/60 max-w-2xl mx-auto">
+            <p className="mt-5 text-charcoal/70 max-w-2xl mx-auto">
               We have had these conversations with dozens of dental office
               managers. The worries are specific to dental. The answers should
               be too.
@@ -340,14 +340,14 @@ export default function DentalVerticalPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {concern.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
                     {concern.tag}
                   </span>
                 </div>
                 <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
                   {concern.title}
                 </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
                   {concern.worry}
                 </p>
                 <p className="text-sm text-charcoal/80 leading-relaxed">
@@ -390,13 +390,13 @@ export default function DentalVerticalPage() {
                 className="rounded-[14px] border border-white/10 bg-white/[0.04] px-4 py-4 text-center"
               >
                 <p className="font-serif text-lg text-cream">{pms}</p>
-                <p className="font-mono text-[9px] uppercase tracking-widest text-cream/40 mt-1">
+                <p className="font-mono text-[9px] uppercase tracking-widest text-cream/60 mt-1">
                   supported
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-cream/50 mt-6 max-w-xl mx-auto">
+          <p className="text-center text-xs text-cream/65 mt-6 max-w-xl mx-auto">
             Not listed? We have likely worked around it. Most dental PMS
             platforms expose the hooks we need, and anything we cannot reach
             directly we bridge through the appointment and SMS layer.
@@ -435,7 +435,7 @@ export default function DentalVerticalPage() {
       {/* Back to verticals index for discovery */}
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
             run a different kind of office?
           </p>
           <Link

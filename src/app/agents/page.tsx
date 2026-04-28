@@ -219,7 +219,7 @@ export default function AgentsPage() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    <span className="text-[10px] font-mono text-charcoal/40">
+                    <span className="text-[10px] font-mono text-charcoal/70">
                       0{index + 1}
                     </span>
                   </div>
@@ -234,7 +234,7 @@ export default function AgentsPage() {
                   {agent.description}
                 </p>
                 <div className="mt-6 pt-4 border-t border-warm-border">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                     {agent.status}
                   </p>
                 </div>
@@ -302,7 +302,7 @@ export default function AgentsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
               Noell agents &middot; founding rate
             </p>
-            <p className="font-serif text-2xl text-charcoal/40 line-through decoration-charcoal/30 mb-1">
+            <p className="font-serif text-2xl text-charcoal/70 line-through decoration-charcoal/55 mb-1">
               $297/mo
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">

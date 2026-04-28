@@ -129,7 +129,7 @@ export function Features3({
                 >
                   {cap.icon}
                 </div>
-                <span className="text-[10px] font-mono text-charcoal/30">
+                <span className="text-[10px] font-mono text-charcoal/70">
                   {cap.number}
                 </span>
               </div>

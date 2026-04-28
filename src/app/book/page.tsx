@@ -132,7 +132,7 @@ export default function BookPage() {
                 key={step.number}
                 className="rounded-[20px] border border-warm-border bg-white p-6 md:p-7"
               >
-                <span className="font-mono text-[10px] text-charcoal/40">
+                <span className="font-mono text-[10px] text-charcoal/70">
                   {step.number}
                 </span>
                 <h3 className="mt-3 font-serif text-xl font-semibold text-charcoal">
@@ -188,7 +188,7 @@ export default function BookPage() {
           <h3 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-3">
             Ask Noell Support a question first.
           </h3>
-          <p className="text-sm text-charcoal/60 max-w-md mx-auto mb-6">
+          <p className="text-sm text-charcoal/70 max-w-md mx-auto mb-6">
             Pop open the chat in the bottom-right and ask anything. It routes
             to Noell when you are ready.
           </p>

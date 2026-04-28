@@ -95,7 +95,7 @@ export function NoellSupportSpotlight() {
               <p className="text-sm text-cream/60 mb-3 leading-relaxed">
                 It does not try to do:
               </p>
-              <ul className="space-y-2 text-sm text-cream/50">
+              <ul className="space-y-2 text-sm text-cream/65">
                 {[
                   "Run your calendar end to end",
                   "Process payments",

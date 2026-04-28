@@ -122,7 +122,7 @@ const supportScreen = (
           Noell Support · Online
         </span>
       </div>
-      <span className="text-[10px] uppercase tracking-widest text-charcoal/40">
+      <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
         live
       </span>
     </div>
@@ -188,7 +188,7 @@ export default function NoellSupportPage() {
         priceSignal={
           <>
             Starts at $197/mo.{" "}
-            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal">
+            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal">
               See all tiers.
             </Link>
           </>
@@ -218,7 +218,7 @@ export default function NoellSupportPage() {
                 done well.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">
+            <p className="mt-5 text-charcoal/70 max-w-xl mx-auto">
               Noell Support is not trying to be everything. It handles the
               critical first minutes of every new prospect, the window where
               most revenue is lost.
@@ -238,14 +238,14 @@ export default function NoellSupportPage() {
                   <div className="w-10 h-10 rounded-lg bg-lilac-dark/10 text-lilac-dark flex items-center justify-center">
                     {cap.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/30">
+                  <span className="text-[10px] font-mono text-charcoal/70">
                     0{i + 1}
                   </span>
                 </div>
                 <h3 className="text-base font-semibold text-charcoal mb-1.5">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed">
+                <p className="text-sm text-charcoal/70 leading-relaxed">
                   {cap.description}
                 </p>
               </div>
@@ -264,7 +264,7 @@ export default function NoellSupportPage() {
             Prospect intake,{" "}
             <span className="italic text-lilac">not full front desk.</span>
           </h2>
-          <p className="mt-5 text-cream/50 max-w-xl mx-auto">
+          <p className="mt-5 text-cream/65 max-w-xl mx-auto">
             Noell Support handles the first minutes with new prospects. Noell
             Front Desk is the separate operations layer that handles calls,
             scheduling, and everything a receptionist runs.
@@ -299,7 +299,7 @@ export default function NoellSupportPage() {
 
           {/* Does Not */}
           <div className="rounded-[17px] border border-white/10 bg-white/[0.04] p-6 md:p-7">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-4 font-semibold">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-4 font-semibold">
               Noell Support does not
             </p>
             <ul className="space-y-3">
@@ -313,7 +313,7 @@ export default function NoellSupportPage() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="text-sm text-cream/50 flex items-center gap-2.5"
+                  className="text-sm text-cream/65 flex items-center gap-2.5"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-cream/20" />
                   {item}

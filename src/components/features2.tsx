@@ -53,7 +53,7 @@ export function Features2({
       <div className="text-center mb-14 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 mb-4">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-wine-light" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/50">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/65">
             {eyebrow}
           </p>
         </div>
@@ -61,7 +61,7 @@ export function Features2({
           {headlineStart}{" "}
           <span className="italic text-wine-light">{headlineAccent}</span>
         </h2>
-        <p className="mt-5 text-cream/50 max-w-xl mx-auto">{body}</p>
+        <p className="mt-5 text-cream/65 max-w-xl mx-auto">{body}</p>
 
         {/* 85% visual callout: the operational diagnosis number */}
         <div className="mt-8 inline-flex items-stretch rounded-[14px] border border-wine/40 bg-wine/15 overflow-hidden">
@@ -101,7 +101,7 @@ export function Features2({
                 <h3 className="text-lg font-semibold text-cream mb-1.5">
                   {point.title}
                 </h3>
-                <p className="text-sm text-cream/50 leading-relaxed">
+                <p className="text-sm text-cream/65 leading-relaxed">
                   {point.description}
                 </p>
               </div>

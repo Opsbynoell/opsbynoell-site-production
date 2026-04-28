@@ -201,7 +201,7 @@ function SessionDetailInner({
         <p className="text-sm text-red-500">{error || "Session not found"}</p>
         <button
           onClick={() => router.push("/admin")}
-          className="text-xs text-charcoal/50 hover:text-charcoal"
+          className="text-xs text-charcoal/70 hover:text-charcoal"
         >
           Back to inbox
         </button>
@@ -217,7 +217,7 @@ function SessionDetailInner({
         <header className="bg-white border-b border-warm-border px-4 py-3 flex items-center gap-3 shrink-0">
           <button
             onClick={() => router.push("/admin")}
-            className="text-charcoal/40 hover:text-charcoal transition-colors p-1 -ml-1"
+            className="text-charcoal/70 hover:text-charcoal transition-colors p-1 -ml-1"
             aria-label="Back"
           >
             <svg
@@ -235,7 +235,7 @@ function SessionDetailInner({
           </button>
 
           {/* Avatar */}
-          <div className="w-8 h-8 rounded-full bg-warm-border flex items-center justify-center text-charcoal/50 font-semibold text-xs shrink-0">
+          <div className="w-8 h-8 rounded-full bg-warm-border flex items-center justify-center text-charcoal/70 font-semibold text-xs shrink-0">
             {(display[0] ?? "?").toUpperCase()}
           </div>
 
@@ -261,14 +261,14 @@ function SessionDetailInner({
                       ? "bg-red-100 text-red-600"
                       : session.intent === "warm"
                         ? "bg-orange-100 text-orange-600"
-                        : "bg-charcoal/5 text-charcoal/40"
+                        : "bg-charcoal/5 text-charcoal/70"
                   }`}
                 >
                   {session.intent}
                 </span>
               )}
             </div>
-            <p className="text-[10px] text-charcoal/40">
+            <p className="text-[10px] text-charcoal/70">
               Started {formatDate(session.created_at)} at{" "}
               {formatTime(session.created_at)}
             </p>
@@ -290,7 +290,7 @@ function SessionDetailInner({
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
           {messages.length === 0 ? (
             <div className="flex items-center justify-center h-32">
-              <p className="text-sm text-charcoal/40">No messages yet.</p>
+              <p className="text-sm text-charcoal/70">No messages yet.</p>
             </div>
           ) : (
             <>
@@ -307,7 +307,7 @@ function SessionDetailInner({
                   <div key={msg.id ?? i}>
                     {showDate && (
                       <div className="flex items-center justify-center py-3">
-                        <span className="text-[10px] text-charcoal/35 font-mono uppercase tracking-wider">
+                        <span className="text-[10px] text-charcoal/65 font-mono uppercase tracking-wider">
                           {formatDate(msg.created_at)}
                         </span>
                       </div>
@@ -319,12 +319,12 @@ function SessionDetailInner({
                         className={`max-w-[72%] group flex flex-col ${isUser ? "items-start" : "items-end"}`}
                       >
                         {isHuman && (
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/40 mb-0.5 px-1">
+                          <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/70 mb-0.5 px-1">
                             {msg.author ?? "You"}
                           </span>
                         )}
                         {isBot && (
-                          <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/40 mb-0.5 px-1">
+                          <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/70 mb-0.5 px-1">
                             {AGENT_LABELS[agent]}
                           </span>
                         )}
@@ -339,7 +339,7 @@ function SessionDetailInner({
                         >
                           {msg.content}
                         </div>
-                        <span className="text-[9px] text-charcoal/30 mt-0.5 px-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-[9px] text-charcoal/70 mt-0.5 px-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           {formatTime(msg.created_at)}
                         </span>
                       </div>
@@ -356,7 +356,7 @@ function SessionDetailInner({
         {!session.resolved_at && (
           <div className="bg-white border-t border-warm-border px-4 py-3 shrink-0">
             {!session.human_takeover && (
-              <p className="text-[10px] text-charcoal/40 mb-2 font-mono">
+              <p className="text-[10px] text-charcoal/70 mb-2 font-mono">
                 Sending a message will take over this conversation from the AI.
               </p>
             )}
@@ -368,7 +368,7 @@ function SessionDetailInner({
                 onKeyDown={handleKeyDown}
                 placeholder="Type a message... (Enter to send, Shift+Enter for newline)"
                 rows={1}
-                className="flex-1 resize-none px-3.5 py-2.5 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35 max-h-32 overflow-y-auto"
+                className="flex-1 resize-none px-3.5 py-2.5 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65 max-h-32 overflow-y-auto"
                 style={{ minHeight: "40px" }}
               />
               <button
@@ -400,7 +400,7 @@ function SessionDetailInner({
 
         {session.resolved_at && (
           <div className="bg-white border-t border-warm-border px-4 py-3 shrink-0">
-            <p className="text-xs text-center text-charcoal/40">
+            <p className="text-xs text-center text-charcoal/70">
               This conversation was resolved on{" "}
               {formatDate(session.resolved_at)} at{" "}
               {formatTime(session.resolved_at)}.
@@ -413,7 +413,7 @@ function SessionDetailInner({
       <aside className="w-72 shrink-0 bg-white border-l border-warm-border overflow-y-auto flex flex-col">
         {/* Visitor info */}
         <div className="p-4 border-b border-warm-border">
-          <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/40 mb-3">
+          <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/70 mb-3">
             Visitor
           </p>
           <div className="space-y-2">
@@ -435,7 +435,7 @@ function SessionDetailInner({
         {/* Appointment details (Front Desk) */}
         {agent === "frontDesk" && appointment && (
           <div className="p-4 border-b border-warm-border">
-            <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/40 mb-3">
+            <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/70 mb-3">
               Appointment
             </p>
             <div className="space-y-2">
@@ -461,7 +461,7 @@ function SessionDetailInner({
         {/* Contact details (Care) */}
         {agent === "care" && contact && (
           <div className="p-4 border-b border-warm-border">
-            <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/40 mb-3">
+            <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/70 mb-3">
               Client
             </p>
             <div className="space-y-2">
@@ -493,7 +493,7 @@ function SessionDetailInner({
 
         {/* Session metadata */}
         <div className="p-4">
-          <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/40 mb-3">
+          <p className="text-[10px] uppercase tracking-widest font-mono text-charcoal/70 mb-3">
             Session
           </p>
           <div className="space-y-2">
@@ -539,7 +539,7 @@ export default function SessionDetailPage({
 function SidebarRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/35">
+      <span className="text-[9px] font-mono uppercase tracking-wider text-charcoal/65">
         {label}
       </span>
       <span className="text-xs text-charcoal/70 break-words">{value}</span>

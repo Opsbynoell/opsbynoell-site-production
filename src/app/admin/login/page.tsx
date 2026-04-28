@@ -62,7 +62,7 @@ function AdminLoginForm() {
       <div className="w-full max-w-sm">
         {/* Header */}
         <div className="mb-8 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-2">
             Ops by Noell
           </p>
           <h1 className="font-serif text-2xl font-semibold text-charcoal">
@@ -88,7 +88,7 @@ function AdminLoginForm() {
                 placeholder="you@opsbynoell.com"
                 autoFocus
                 autoComplete="email"
-                className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
               />
             </div>
 
@@ -106,7 +106,7 @@ function AdminLoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 autoComplete="current-password"
-                className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
               />
             </div>
 
@@ -127,7 +127,7 @@ function AdminLoginForm() {
             <div className="text-center pt-1">
               <Link
                 href="/admin/forgot-password"
-                className="text-xs text-charcoal/60 hover:text-charcoal underline underline-offset-2"
+                className="text-xs text-charcoal/70 hover:text-charcoal underline underline-offset-2"
               >
                 Forgot password?
               </Link>
@@ -135,7 +135,7 @@ function AdminLoginForm() {
           </form>
         </div>
 
-        <p className="text-center text-[10px] text-charcoal/35 mt-6 font-mono">
+        <p className="text-center text-[10px] text-charcoal/65 mt-6 font-mono">
           three agents · one inbox
         </p>
       </div>

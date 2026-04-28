@@ -215,7 +215,7 @@ function PciMockScreen() {
             Intelligence layer · live
           </span>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-charcoal/40">
+        <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
           today
         </span>
       </div>
@@ -231,7 +231,7 @@ function PciMockScreen() {
           Marina D. · ghost-risk 87 / 100
         </p>
         <div className="mt-5 pt-4 border-t border-cream/15">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-cream/65">
             pattern caught · day 03
           </p>
         </div>
@@ -251,14 +251,14 @@ function CaseSummaryPanel() {
         <p className="font-serif text-3xl font-semibold text-wine mt-2">
           87 / 100
         </p>
-        <p className="text-[11px] text-charcoal/55 mt-1">ghost-risk score</p>
+        <p className="text-[11px] text-charcoal/70 mt-1">ghost-risk score</p>
       </div>
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70 mb-2">
           Reactivation triggered
         </p>
         <p className="text-sm font-medium text-charcoal">SMS · 11s</p>
-        <p className="font-mono text-[11px] text-charcoal/55 mt-2">
+        <p className="font-mono text-[11px] text-charcoal/70 mt-2">
           auto-sequence
         </p>
       </div>
@@ -269,7 +269,7 @@ function CaseSummaryPanel() {
         <p className="font-serif text-3xl font-semibold text-wine mt-1">
           $240 recovered
         </p>
-        <p className="text-[11px] text-charcoal/55 mt-1">
+        <p className="text-[11px] text-charcoal/70 mt-1">
           before she rebooked elsewhere
         </p>
       </div>
@@ -358,7 +358,7 @@ function SolutionSection() {
               <p className="text-sm md:text-base text-charcoal/70 leading-relaxed flex-1">
                 {s.body}
               </p>
-              <p className="mt-5 pt-4 border-t border-warm-border font-mono text-[10px] uppercase tracking-widest text-charcoal/55">
+              <p className="mt-5 pt-4 border-t border-warm-border font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                 {s.status}
               </p>
             </div>
@@ -400,7 +400,7 @@ function DeploymentSection() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70">
                   {d.label}
                 </p>
-                <span className="font-mono text-[10px] text-charcoal/40">
+                <span className="font-mono text-[10px] text-charcoal/70">
                   {d.n}
                 </span>
               </div>
@@ -422,7 +422,7 @@ function DeploymentSection() {
                 ))}
               </ul>
               <div className="mt-6 pt-4 border-t border-warm-border flex items-center justify-between gap-3">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/55">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                   {d.status}
                 </p>
                 <Link

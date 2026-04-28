@@ -122,7 +122,7 @@ export default function VerticalsHubPage() {
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(106,44,62,0.45)] via-[rgba(240,228,232,0.70)] to-[rgba(250,245,240,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70">
             the noell system / verticals
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function VerticalsHubPage() {
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/50">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                         online
                       </span>
                     </div>
@@ -171,12 +171,12 @@ export default function VerticalsHubPage() {
                     {v.name}
                   </h2>
                   <p className="text-xs text-wine/80 mb-4">{v.tagline}</p>
-                  <p className="text-sm text-charcoal/65 leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-charcoal/70 leading-relaxed mb-6 flex-1">
                     {v.description}
                   </p>
 
                   <div className="flex items-center justify-between pt-4 border-t border-warm-border">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/50">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                       {v.proof}
                     </p>
                     <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
@@ -188,7 +188,7 @@ export default function VerticalsHubPage() {
             ))}
           </div>
 
-          <p className="text-center text-xs text-charcoal/50 mt-10 max-w-2xl mx-auto">
+          <p className="text-center text-xs text-charcoal/70 mt-10 max-w-2xl mx-auto">
             Each page is built around the operational reality of that
             vertical. The install shapes the system further around your
             specific business. The audit is where we start.

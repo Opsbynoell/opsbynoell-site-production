@@ -92,7 +92,7 @@ function ResetPasswordForm() {
     <div className="min-h-screen bg-cream flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-2">
             Ops by Noell
           </p>
           <h1 className="font-serif text-2xl font-semibold text-charcoal">
@@ -147,7 +147,7 @@ function ResetPasswordForm() {
                   autoFocus
                   required
                   autoComplete="new-password"
-                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
                 />
               </div>
 
@@ -166,7 +166,7 @@ function ResetPasswordForm() {
                   placeholder="Re-enter password"
                   required
                   autoComplete="new-password"
-                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
                 />
               </div>
 
@@ -187,7 +187,7 @@ function ResetPasswordForm() {
           )}
         </div>
 
-        <p className="text-center text-[10px] text-charcoal/35 mt-6 font-mono">
+        <p className="text-center text-[10px] text-charcoal/65 mt-6 font-mono">
           three agents &middot; one inbox
         </p>
       </div>

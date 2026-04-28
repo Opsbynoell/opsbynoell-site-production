@@ -440,7 +440,7 @@ export default async function ClientDashboardPage({
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <Link
             href="/admin"
-            className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 hover:text-charcoal shrink-0"
+            className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70 hover:text-charcoal shrink-0"
           >
             ← Inbox
           </Link>
@@ -453,7 +453,7 @@ export default async function ClientDashboardPage({
             className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
               isActive
                 ? "bg-emerald-100 text-emerald-700"
-                : "bg-charcoal/5 text-charcoal/50"
+                : "bg-charcoal/5 text-charcoal/70"
             }`}
           >
             {isActive ? "Active" : "Paused"}
@@ -481,7 +481,7 @@ export default async function ClientDashboardPage({
         <section className="bg-white rounded-2xl shadow-sm border border-warm-border p-4 sm:p-5">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/40">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/70">
                 Phone
               </p>
               <p className="text-sm text-charcoal mt-0.5">
@@ -489,7 +489,7 @@ export default async function ClientDashboardPage({
               </p>
             </div>
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/40">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/70">
                 Last activity
               </p>
               <p className="text-sm text-charcoal mt-0.5">
@@ -554,11 +554,11 @@ export default async function ClientDashboardPage({
                     <span className="font-mono text-sm text-charcoal">
                       {lastFour(c.phone)}
                     </span>
-                    <span className="text-[10px] text-charcoal/40 shrink-0">
+                    <span className="text-[10px] text-charcoal/70 shrink-0">
                       {relativeTime(c.createdAt)}
                     </span>
                   </div>
-                  <p className="text-xs text-charcoal/60 mb-1.5">
+                  <p className="text-xs text-charcoal/70 mb-1.5">
                     {truncate(c.firstReply, 80)}
                   </p>
                   <div className="flex gap-1.5">
@@ -594,11 +594,11 @@ export default async function ClientDashboardPage({
                     <span className="text-sm text-charcoal truncate">
                       {c.name ?? lastFour(c.phone)}
                     </span>
-                    <span className="text-[10px] text-charcoal/40 shrink-0">
+                    <span className="text-[10px] text-charcoal/70 shrink-0">
                       {relativeTime(c.nudgeSent)}
                     </span>
                   </div>
-                  <p className="text-xs text-charcoal/60 mb-1.5">
+                  <p className="text-xs text-charcoal/70 mb-1.5">
                     Last visit: {c.lastVisit
                       ? `${daysBetween(c.lastVisit, now)} ago`
                       : "—"}
@@ -640,11 +640,11 @@ export default async function ClientDashboardPage({
                       </span>
                       <AgentPill agent={c.agent} />
                     </div>
-                    <p className="text-[10px] text-charcoal/40">
+                    <p className="text-[10px] text-charcoal/70">
                       {relativeTime(c.updatedAt)}
                     </p>
                   </div>
-                  <span className="text-charcoal/30 text-lg shrink-0">›</span>
+                  <span className="text-charcoal/70 text-lg shrink-0">›</span>
                 </Link>
               ))}
             </div>
@@ -668,7 +668,7 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="text-[10px] font-mono uppercase tracking-widest text-charcoal/40 mb-2 px-1">
+      <h2 className="text-[10px] font-mono uppercase tracking-widest text-charcoal/70 mb-2 px-1">
         {title}
       </h2>
       {children}
@@ -686,7 +686,7 @@ function StatCard({ value, label }: { value: number; label: string }) {
       <p className="text-3xl sm:text-4xl font-serif font-semibold text-charcoal leading-none">
         {value}
       </p>
-      <p className="text-[10px] sm:text-[11px] text-charcoal/50 mt-2 leading-tight">
+      <p className="text-[10px] sm:text-[11px] text-charcoal/70 mt-2 leading-tight">
         {label}
       </p>
     </div>
@@ -695,7 +695,7 @@ function StatCard({ value, label }: { value: number; label: string }) {
 
 function EmptyRow({ text }: { text: string }) {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-warm-border px-4 py-6 text-center text-xs text-charcoal/40">
+    <div className="bg-white rounded-2xl shadow-sm border border-warm-border px-4 py-6 text-center text-xs text-charcoal/70">
       {text}
     </div>
   );
@@ -713,7 +713,7 @@ function Pill({
       ? "bg-emerald-100 text-emerald-700"
       : tone === "warn"
         ? "bg-amber-100 text-amber-700"
-        : "bg-charcoal/5 text-charcoal/50";
+        : "bg-charcoal/5 text-charcoal/70";
   return (
     <span
       className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${cls}`}

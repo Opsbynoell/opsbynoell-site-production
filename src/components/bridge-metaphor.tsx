@@ -26,7 +26,7 @@ export function BridgeMetaphor() {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/60">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70">
               signal check / then and now
             </p>
           </div>
@@ -36,7 +36,7 @@ export function BridgeMetaphor() {
               running your front desk.
             </span>
           </h2>
-          <p className="mt-4 text-sm md:text-base text-charcoal/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-sm md:text-base text-charcoal/70 max-w-2xl mx-auto leading-relaxed">
             The bridge between warm, familiar communication and the AI layer
             that now runs underneath it.
           </p>
@@ -46,7 +46,7 @@ export function BridgeMetaphor() {
           {/* Header row */}
           <div className="grid grid-cols-2 bg-charcoal/[0.03] border-b border-warm-border">
             <div className="px-5 py-3 md:px-8 md:py-4 border-r border-warm-border">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50">
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70">
                 then · 2003
               </p>
             </div>
@@ -88,7 +88,7 @@ export function BridgeMetaphor() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-charcoal/50 mt-6 max-w-xl mx-auto">
+        <p className="text-center text-xs text-charcoal/70 mt-6 max-w-xl mx-auto">
           Same idea, new weight class. The Noell system keeps the human
           tone and replaces the manual work.
         </p>

@@ -58,7 +58,7 @@ export function BookingEmbed() {
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="h-12 rounded-md border border-warm-border bg-white/70 font-mono text-[10px] flex items-center justify-center text-charcoal/30"
+                className="h-12 rounded-md border border-warm-border bg-white/70 font-mono text-[10px] flex items-center justify-center text-charcoal/70"
               >
                 {String.fromCharCode(9604)}
               </div>
@@ -108,7 +108,7 @@ function BookingFallback() {
             30-minute audit.
           </span>
         </h2>
-        <p className="text-sm text-charcoal/60 leading-relaxed mb-8 max-w-md mx-auto">
+        <p className="text-sm text-charcoal/70 leading-relaxed mb-8 max-w-md mx-auto">
           Nikki schedules every audit personally. Send two or three times that
           work for you this week and you&apos;ll hear back with a confirmed
           slot, usually within one business hour on weekdays.

@@ -105,7 +105,7 @@ export function ProofBar({ className }: ProofBarProps) {
         <motion.p
           key={`label-${sceneIndex}`}
           {...labelMotion}
-          className="font-mono text-[11px] uppercase tracking-widest text-charcoal/60 text-center mb-3"
+          className="font-mono text-[11px] uppercase tracking-widest text-charcoal/70 text-center mb-3"
         >
           {label}
         </motion.p>
@@ -119,9 +119,9 @@ export function ProofBar({ className }: ProofBarProps) {
           >
             {rows.map((row) => (
               <li key={`${row.time}-${row.action}`} className="flex items-baseline gap-2 md:gap-3">
-                <span className="text-charcoal/50 tabular-nums">{row.time}</span>
+                <span className="text-charcoal/70 tabular-nums">{row.time}</span>
                 <span className="text-wine font-semibold">{row.action}</span>
-                <span className="text-charcoal/30">{row.sep}</span>
+                <span className="text-charcoal/70">{row.sep}</span>
                 <span className="text-charcoal">{row.result}</span>
               </li>
             ))}

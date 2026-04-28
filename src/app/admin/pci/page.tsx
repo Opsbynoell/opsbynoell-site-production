@@ -60,7 +60,7 @@ const SEVERITY_COLORS: Record<SignalSeverity, string> = {
   urgent: "bg-red-100 text-red-700",
   high: "bg-orange-100 text-orange-700",
   medium: "bg-amber-100 text-amber-700",
-  low: "bg-charcoal/10 text-charcoal/60",
+  low: "bg-charcoal/10 text-charcoal/70",
 };
 
 function relativeTime(ts: string): string {
@@ -216,19 +216,19 @@ export default function PciDashboard() {
           <span className="font-serif text-lg font-semibold text-charcoal">
             Ops by Noell
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
             Intelligence · Open signals
           </span>
         </div>
         <div className="flex items-center gap-4">
           <a
             href="/admin"
-            className="text-xs text-charcoal/50 hover:text-charcoal transition-colors"
+            className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
           >
             ← Inbox
           </a>
           {me?.email && (
-            <span className="text-xs text-charcoal/50">{me.email}</span>
+            <span className="text-xs text-charcoal/70">{me.email}</span>
           )}
         </div>
       </header>
@@ -242,7 +242,7 @@ export default function PciDashboard() {
               >
                 {sev}
               </span>
-              <span className="text-charcoal/60">{bySeverity[sev]}</span>
+              <span className="text-charcoal/70">{bySeverity[sev]}</span>
             </div>
           ))}
         </div>
@@ -305,7 +305,7 @@ export default function PciDashboard() {
             <p className="text-red-600">{generateError}</p>
           ) : lastGenerate ? (
             <div className="flex items-center gap-3 text-charcoal/70">
-              <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
                 {lastGenerate.dryRun ? "Dry run" : "Generated"}
               </span>
               <span>
@@ -321,10 +321,10 @@ export default function PciDashboard() {
                 skipped{" "}
                 <strong>{lastGenerate.totals.skipped_existing}</strong>
               </span>
-              <span className="text-charcoal/40">
+              <span className="text-charcoal/70">
                 events {lastGenerate.totals.events_written}
               </span>
-              <div className="flex gap-2 ml-2 text-charcoal/50">
+              <div className="flex gap-2 ml-2 text-charcoal/70">
                 {lastGenerate.results
                   .filter((r) => r.drafts > 0)
                   .map((r) => (
@@ -347,8 +347,8 @@ export default function PciDashboard() {
           <p className="text-center text-sm text-red-500 py-8">{error}</p>
         ) : signals.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-sm text-charcoal/50">No open signals.</p>
-            <p className="text-xs text-charcoal/35 mt-1">
+            <p className="text-sm text-charcoal/70">No open signals.</p>
+            <p className="text-xs text-charcoal/65 mt-1">
               Signals appear here as the intelligence layer generates them.
             </p>
           </div>
@@ -370,25 +370,25 @@ export default function PciDashboard() {
                       {prettyType(s.signal_type)}
                     </span>
                     {me?.isSuperAdmin && (
-                      <span className="shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/50">
+                      <span className="shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/70">
                         {s.client_id}
                       </span>
                     )}
-                    <span className="shrink-0 text-[10px] font-mono text-charcoal/35">
+                    <span className="shrink-0 text-[10px] font-mono text-charcoal/65">
                       conf {(s.confidence * 100).toFixed(0)}%
                     </span>
                   </div>
-                  <span className="shrink-0 text-[10px] text-charcoal/40">
+                  <span className="shrink-0 text-[10px] text-charcoal/70">
                     {relativeTime(s.created_at)}
                   </span>
                 </div>
 
                 <p className="text-xs text-charcoal/70 mb-1">{s.reason}</p>
-                <p className="text-xs text-charcoal/50">
-                  <span className="text-charcoal/35">→ </span>
+                <p className="text-xs text-charcoal/70">
+                  <span className="text-charcoal/65">→ </span>
                   {s.recommended_action}
                   {s.estimated_value !== null && (
-                    <span className="ml-2 text-charcoal/35">
+                    <span className="ml-2 text-charcoal/65">
                       (est. ${s.estimated_value.toFixed(0)})
                     </span>
                   )}

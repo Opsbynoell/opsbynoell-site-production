@@ -60,11 +60,11 @@ export function PricingCard({
               <span className="font-serif text-3xl font-bold text-charcoal">
                 {tier.priceFrom}
               </span>
-              <span className="ml-1 text-xs text-charcoal/50">
+              <span className="ml-1 text-xs text-charcoal/70">
                 {tier.cadence}
               </span>
             </div>
-            <p className="text-[11px] text-charcoal/50 mt-1">{tier.note}</p>
+            <p className="text-[11px] text-charcoal/70 mt-1">{tier.note}</p>
           </div>
 
           <ul className="space-y-2 pt-1">
@@ -118,7 +118,7 @@ export function PricingCard({
               {tier.priceFrom}
             </span>
             {tier.cadence && (
-              <span className="ml-1 text-sm text-charcoal/50">
+              <span className="ml-1 text-sm text-charcoal/70">
                 {tier.cadence}
               </span>
             )}
@@ -158,7 +158,7 @@ export function PricingCard({
         </ul>
 
         {tier.note && (
-          <p className="text-[11px] text-charcoal/40 italic mt-2">
+          <p className="text-[11px] text-charcoal/70 italic mt-2">
             {tier.note}
           </p>
         )}
@@ -266,12 +266,12 @@ export default function Pricing() {
           <PricingCard key={tier.id} tier={tier} sourcePage="pricing" />
         ))}
       </div>
-      <p className="text-center text-xs text-charcoal/50 mt-10 max-w-2xl mx-auto">
+      <p className="text-center text-xs text-charcoal/70 mt-10 max-w-2xl mx-auto">
         Each package includes a one-time setup in addition to the monthly
         subscription. Your audit is where we confirm the right fit, answer any
         questions, and book the install. No bait pricing, no mystery scope.
       </p>
-      <p className="text-center text-[11px] italic text-charcoal/45 mt-3 max-w-2xl mx-auto">
+      <p className="text-center text-[11px] italic text-charcoal/70 mt-3 max-w-2xl mx-auto">
         Upgrading between tiers is prorated and takes effect immediately.
         Downgrades take effect at the start of the next billing month.
       </p>

@@ -35,7 +35,7 @@ export default function AdminForgotPasswordPage() {
     <div className="min-h-screen bg-cream flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-2">
             Ops by Noell
           </p>
           <h1 className="font-serif text-2xl font-semibold text-charcoal">
@@ -81,7 +81,7 @@ export default function AdminForgotPasswordPage() {
                   autoFocus
                   required
                   autoComplete="email"
-                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
                 />
               </div>
 
@@ -102,7 +102,7 @@ export default function AdminForgotPasswordPage() {
               <div className="text-center pt-2">
                 <Link
                   href="/admin/login"
-                  className="text-xs text-charcoal/60 hover:text-charcoal underline underline-offset-2"
+                  className="text-xs text-charcoal/70 hover:text-charcoal underline underline-offset-2"
                 >
                   Back to sign in
                 </Link>
@@ -111,7 +111,7 @@ export default function AdminForgotPasswordPage() {
           )}
         </div>
 
-        <p className="text-center text-[10px] text-charcoal/35 mt-6 font-mono">
+        <p className="text-center text-[10px] text-charcoal/65 mt-6 font-mono">
           three agents &middot; one inbox
         </p>
       </div>

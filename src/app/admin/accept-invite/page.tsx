@@ -78,7 +78,7 @@ function AcceptInviteForm() {
     <div className="min-h-screen bg-cream flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/50 mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-2">
             Ops by Noell
           </p>
           <h1 className="font-serif text-2xl font-semibold text-charcoal">
@@ -90,13 +90,13 @@ function AcceptInviteForm() {
           {loadError ? (
             <>
               <p className="text-sm text-charcoal/80 mb-4">{loadError}</p>
-              <p className="text-xs text-charcoal/50">
+              <p className="text-xs text-charcoal/70">
                 Ask your super admin to send a new invite.
               </p>
             </>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="text-xs text-charcoal/60 mb-2">
+              <p className="text-xs text-charcoal/70 mb-2">
                 Set your password for{" "}
                 <span className="font-medium text-charcoal">{email}</span>
               </p>
@@ -116,7 +116,7 @@ function AcceptInviteForm() {
                   placeholder="At least 8 characters"
                   autoFocus
                   autoComplete="new-password"
-                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
                 />
               </div>
 
@@ -134,7 +134,7 @@ function AcceptInviteForm() {
                   onChange={(e) => setConfirm(e.target.value)}
                   placeholder="Retype password"
                   autoComplete="new-password"
-                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/35"
+                  className="w-full h-11 px-4 text-sm bg-cream rounded-xl border border-warm-border focus:outline-none focus:border-wine/50 text-charcoal placeholder:text-charcoal/65"
                 />
               </div>
 
@@ -152,14 +152,14 @@ function AcceptInviteForm() {
                 {submitting ? "Saving…" : "Set password"}
               </button>
 
-              <p className="text-[10px] text-charcoal/40 text-center pt-1">
+              <p className="text-[10px] text-charcoal/70 text-center pt-1">
                 This invite link expires 48 hours after it was sent.
               </p>
             </form>
           )}
         </div>
 
-        <p className="text-center text-[10px] text-charcoal/35 mt-6 font-mono">
+        <p className="text-center text-[10px] text-charcoal/65 mt-6 font-mono">
           three agents · one inbox
         </p>
       </div>

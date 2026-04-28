@@ -339,7 +339,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Type a message..."
-                  className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none text-charcoal placeholder:text-charcoal/40"
+                  className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none text-charcoal placeholder:text-charcoal/70"
                 />
                 <button
                   onClick={handleSend}

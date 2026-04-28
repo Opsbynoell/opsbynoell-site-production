@@ -86,7 +86,7 @@ export function BookExitIntent() {
           type="button"
           onClick={() => setOpen(false)}
           aria-label="Close"
-          className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center text-charcoal/50 hover:text-charcoal tap-target"
+          className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center text-charcoal/70 hover:text-charcoal tap-target"
         >
           <IconX size={18} />
         </button>

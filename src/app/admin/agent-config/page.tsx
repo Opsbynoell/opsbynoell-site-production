@@ -156,14 +156,14 @@ export default function AgentConfigPage() {
           >
             Ops by Noell
           </a>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
             Agent Config
           </span>
         </div>
         <div className="flex items-center gap-4">
           {me.email && (
             <div className="flex items-center gap-2">
-              <span className="text-xs text-charcoal/50">{me.email}</span>
+              <span className="text-xs text-charcoal/70">{me.email}</span>
               {me.isSuperAdmin && (
                 <span className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-wine/10 text-wine">
                   super admin
@@ -173,13 +173,13 @@ export default function AgentConfigPage() {
           )}
           <a
             href="/admin"
-            className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+            className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
           >
             Inbox
           </a>
           <a
             href="/admin/pci"
-            className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+            className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
           >
             Intelligence
           </a>
@@ -205,7 +205,7 @@ export default function AgentConfigPage() {
             className="text-xs bg-cream border border-warm-border rounded-lg px-2 py-1.5 text-charcoal focus:outline-none focus:border-wine/50 w-48"
           />
         ) : (
-          <span className="text-xs text-charcoal/50">
+          <span className="text-xs text-charcoal/70">
             Editing: <span className="font-mono">{clientId}</span>
           </span>
         )}
@@ -215,7 +215,7 @@ export default function AgentConfigPage() {
       <div className="flex-1 overflow-y-auto bg-[#f8f4f0]">
         {!clientId ? (
           <div className="text-center py-16">
-            <p className="text-sm text-charcoal/50">
+            <p className="text-sm text-charcoal/70">
               Enter a client_id above to start editing.
             </p>
           </div>
@@ -244,7 +244,7 @@ function TabButton({
       className={`relative px-3 py-2.5 text-xs font-medium transition-colors ${
         active
           ? "text-wine border-b-2 border-wine -mb-px"
-          : "text-charcoal/50 hover:text-charcoal"
+          : "text-charcoal/70 hover:text-charcoal"
       }`}
     >
       {children}
@@ -358,7 +358,7 @@ function PromptTab({ clientId }: { clientId: string }) {
   return (
     <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
       {config && (
-        <p className="text-xs text-charcoal/50">
+        <p className="text-xs text-charcoal/70">
           Editing <span className="font-mono">{config.client_id}</span> ·{" "}
           {config.business_name}
         </p>
@@ -369,7 +369,7 @@ function PromptTab({ clientId }: { clientId: string }) {
           <label className="block text-sm font-medium text-charcoal mb-1">
             {f.label}
           </label>
-          <p className="text-[11px] text-charcoal/50 mb-3">{f.hint}</p>
+          <p className="text-[11px] text-charcoal/70 mb-3">{f.hint}</p>
           {f.type === "text" ? (
             <input
               value={merged[f.key]}
@@ -389,7 +389,7 @@ function PromptTab({ clientId }: { clientId: string }) {
             />
           )}
           <div className="flex justify-between items-center mt-2">
-            <span className="text-[10px] text-charcoal/40">
+            <span className="text-[10px] text-charcoal/70">
               {merged[f.key].length} chars
             </span>
             {dirty[f.key] !== undefined && (
@@ -424,7 +424,7 @@ function PromptTab({ clientId }: { clientId: string }) {
               setSavedAt(null);
             }}
             disabled={!hasChanges || saving}
-            className="px-3 py-2 text-xs font-medium text-charcoal/60 hover:text-charcoal disabled:opacity-40"
+            className="px-3 py-2 text-xs font-medium text-charcoal/70 hover:text-charcoal disabled:opacity-40"
           >
             Discard
           </button>
@@ -540,7 +540,7 @@ function KbTab({ clientId }: { clientId: string }) {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-base font-semibold text-charcoal">Knowledge Base</h1>
-          <p className="text-xs text-charcoal/50 mt-1">
+          <p className="text-xs text-charcoal/70 mt-1">
             {entries.length} entries · injected into the agent at runtime when
             the visitor&apos;s message matches the keywords or content.
           </p>
@@ -559,15 +559,15 @@ function KbTab({ clientId }: { clientId: string }) {
 
       {entries.length === 0 ? (
         <div className="text-center py-16 bg-white rounded-xl border border-warm-border">
-          <p className="text-sm text-charcoal/50">No entries yet.</p>
-          <p className="text-xs text-charcoal/35 mt-1">
+          <p className="text-sm text-charcoal/70">No entries yet.</p>
+          <p className="text-xs text-charcoal/65 mt-1">
             Add the first one to start grounding the agent.
           </p>
         </div>
       ) : (
         KB_CATEGORIES.filter((c) => grouped[c]?.length).map((cat) => (
           <div key={cat} className="mb-6">
-            <h2 className="text-[10px] uppercase tracking-widest font-mono text-charcoal/40 mb-2">
+            <h2 className="text-[10px] uppercase tracking-widest font-mono text-charcoal/70 mb-2">
               {cat} ({grouped[cat].length})
             </h2>
             <div className="space-y-2">
@@ -583,7 +583,7 @@ function KbTab({ clientId }: { clientId: string }) {
                       <p className="text-sm font-medium text-charcoal">
                         {e.question}
                       </p>
-                      <p className="text-xs text-charcoal/60 mt-1 line-clamp-2">
+                      <p className="text-xs text-charcoal/70 mt-1 line-clamp-2">
                         {e.answer}
                       </p>
                       {e.keywords.length > 0 && (
@@ -591,7 +591,7 @@ function KbTab({ clientId }: { clientId: string }) {
                           {e.keywords.map((k) => (
                             <span
                               key={k}
-                              className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/50"
+                              className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/70"
                             >
                               {k}
                             </span>
@@ -602,13 +602,13 @@ function KbTab({ clientId }: { clientId: string }) {
                     <div className="flex flex-col gap-1 shrink-0">
                       <button
                         onClick={() => setEditing(e)}
-                        className="text-[11px] text-charcoal/60 hover:text-wine"
+                        className="text-[11px] text-charcoal/70 hover:text-wine"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleToggleActive(e)}
-                        className="text-[11px] text-charcoal/60 hover:text-wine"
+                        className="text-[11px] text-charcoal/70 hover:text-wine"
                       >
                         {e.active ? "Deactivate" : "Activate"}
                       </button>
@@ -697,7 +697,7 @@ function KbEditor({
         <button
           type="button"
           onClick={onCancel}
-          className="text-xs text-charcoal/60 hover:text-charcoal"
+          className="text-xs text-charcoal/70 hover:text-charcoal"
         >
           Cancel
         </button>
@@ -727,7 +727,7 @@ function KbEditor({
           <label className="block text-xs font-medium text-charcoal mb-1">
             Question
           </label>
-          <p className="text-[11px] text-charcoal/50 mb-1.5">
+          <p className="text-[11px] text-charcoal/70 mb-1.5">
             What might a visitor ask that should pull this entry?
           </p>
           <input
@@ -743,7 +743,7 @@ function KbEditor({
           <label className="block text-xs font-medium text-charcoal mb-1">
             Answer
           </label>
-          <p className="text-[11px] text-charcoal/50 mb-1.5">
+          <p className="text-[11px] text-charcoal/70 mb-1.5">
             What the agent should know. Plain text. The agent will rephrase in
             its own voice — don&apos;t worry about exact wording.
           </p>
@@ -755,7 +755,7 @@ function KbEditor({
             maxLength={4000}
             className="w-full text-sm bg-cream border border-warm-border rounded-lg px-3 py-2 text-charcoal focus:outline-none focus:border-wine/50 resize-y"
           />
-          <span className="text-[10px] text-charcoal/40">
+          <span className="text-[10px] text-charcoal/70">
             {answer.length} / 4000
           </span>
         </div>
@@ -764,7 +764,7 @@ function KbEditor({
           <label className="block text-xs font-medium text-charcoal mb-1">
             Keywords
           </label>
-          <p className="text-[11px] text-charcoal/50 mb-1.5">
+          <p className="text-[11px] text-charcoal/70 mb-1.5">
             Comma-separated, lowercase. Used for retrieval. 3–6 is plenty.
           </p>
           <input
@@ -792,7 +792,7 @@ function KbEditor({
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 text-xs font-medium text-charcoal/60 hover:text-charcoal"
+          className="px-4 py-2 text-xs font-medium text-charcoal/70 hover:text-charcoal"
         >
           Cancel
         </button>

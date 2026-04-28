@@ -16,11 +16,11 @@ export function DetectedTimezone() {
   if (!tz) return null;
 
   return (
-    <p className="text-xs text-charcoal/60">
+    <p className="text-xs text-charcoal/70">
       Detected: {tz} ·{" "}
       <a
         href="mailto:hello@opsbynoell.com?subject=Wrong%20timezone"
-        className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal"
+        className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
       >
         Not right? change
       </a>

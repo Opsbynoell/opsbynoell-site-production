@@ -121,7 +121,7 @@ const frontDeskScreen = (
           Noell Front Desk · Live
         </span>
       </div>
-      <span className="text-[10px] uppercase tracking-widest text-charcoal/40">
+      <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
         today
       </span>
     </div>
@@ -134,7 +134,7 @@ const frontDeskScreen = (
       <p className="text-sm text-charcoal font-medium mt-0.5">
         Saturday · 2:00 PM
       </p>
-      <p className="text-[11px] text-charcoal/50">Deep tissue · 60 min</p>
+      <p className="text-[11px] text-charcoal/70">Deep tissue · 60 min</p>
     </div>
 
     {/* Reminder */}
@@ -193,7 +193,7 @@ export default function NoellFrontDeskPage() {
         priceSignal={
           <>
             Starts at $197/mo.{" "}
-            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/30 hover:text-charcoal">
+            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal">
               See all tiers.
             </Link>
           </>
@@ -213,7 +213,7 @@ export default function NoellFrontDeskPage() {
                 handled end to end.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/60 max-w-xl mx-auto">
+            <p className="mt-5 text-charcoal/70 max-w-xl mx-auto">
               Everything a receptionist handles, running quietly in the
               background, covered by the Noell system.
             </p>
@@ -232,14 +232,14 @@ export default function NoellFrontDeskPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {cap.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/30">
+                  <span className="text-[10px] font-mono text-charcoal/70">
                     0{i + 1}
                   </span>
                 </div>
                 <h3 className="text-base font-semibold text-charcoal mb-1.5">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed">
+                <p className="text-sm text-charcoal/70 leading-relaxed">
                   {cap.description}
                 </p>
               </div>

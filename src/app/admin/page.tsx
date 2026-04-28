@@ -135,7 +135,7 @@ export default function AdminInbox() {
           <span className="font-serif text-lg font-semibold text-charcoal">
             Ops by Noell
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/40">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
             Admin Inbox
           </span>
           {totalUnread > 0 && (
@@ -147,7 +147,7 @@ export default function AdminInbox() {
         <div className="flex items-center gap-4">
           {me?.email && (
             <div className="flex items-center gap-2">
-              <span className="text-xs text-charcoal/50">{me.email}</span>
+              <span className="text-xs text-charcoal/70">{me.email}</span>
               {me.isSuperAdmin && (
                 <span className="text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-wine/10 text-wine">
                   super admin
@@ -156,20 +156,20 @@ export default function AdminInbox() {
               {me.isSuperAdmin && (
                 <a
                   href="/admin/users"
-                  className="text-xs text-charcoal/40 hover:text-charcoal transition-colors ml-1"
+                  className="text-xs text-charcoal/70 hover:text-charcoal transition-colors ml-1"
                 >
                   Users
                 </a>
               )}
               <a
                 href="/admin/agent-config"
-                className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+                className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
               >
                 Agent
               </a>
               <a
                 href="/admin/pci"
-                className="text-xs text-charcoal/40 hover:text-charcoal transition-colors"
+                className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
               >
                 Intelligence
               </a>
@@ -177,7 +177,7 @@ export default function AdminInbox() {
           )}
           <button
             onClick={handleLogout}
-            className="text-xs text-charcoal/50 hover:text-charcoal transition-colors"
+            className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
           >
             Sign out
           </button>
@@ -199,12 +199,12 @@ export default function AdminInbox() {
                 className={`relative px-3 py-2.5 text-xs font-medium transition-colors ${
                   filter === tab.value
                     ? "text-wine border-b-2 border-wine -mb-px"
-                    : "text-charcoal/50 hover:text-charcoal"
+                    : "text-charcoal/70 hover:text-charcoal"
                 }`}
               >
                 {tab.label}
                 {count > 0 && (
-                  <span className="ml-1.5 text-[10px] text-charcoal/40">
+                  <span className="ml-1.5 text-[10px] text-charcoal/70">
                     {count}
                   </span>
                 )}
@@ -240,8 +240,8 @@ export default function AdminInbox() {
           <p className="text-center text-sm text-red-500 py-8">{error}</p>
         ) : sessions.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-sm text-charcoal/50">No conversations yet.</p>
-            <p className="text-xs text-charcoal/35 mt-1">
+            <p className="text-sm text-charcoal/70">No conversations yet.</p>
+            <p className="text-xs text-charcoal/65 mt-1">
               Sessions will appear here as visitors chat.
             </p>
           </div>
@@ -249,7 +249,7 @@ export default function AdminInbox() {
           <div>
             {active.length > 0 && (
               <div>
-                <p className="px-6 pt-4 pb-2 text-[10px] uppercase tracking-widest font-mono text-charcoal/40">
+                <p className="px-6 pt-4 pb-2 text-[10px] uppercase tracking-widest font-mono text-charcoal/70">
                   Active ({active.length})
                 </p>
                 {active.map((s) => (
@@ -259,7 +259,7 @@ export default function AdminInbox() {
             )}
             {resolved.length > 0 && (
               <div>
-                <p className="px-6 pt-4 pb-2 text-[10px] uppercase tracking-widest font-mono text-charcoal/40">
+                <p className="px-6 pt-4 pb-2 text-[10px] uppercase tracking-widest font-mono text-charcoal/70">
                   Resolved ({resolved.length})
                 </p>
                 {resolved.map((s) => (
@@ -296,7 +296,7 @@ function SessionCard({
       className="w-full text-left px-6 py-4 border-b border-warm-border hover:bg-cream/60 transition-colors flex gap-4 items-start"
     >
       {/* Avatar */}
-      <div className="w-9 h-9 rounded-full bg-warm-border flex items-center justify-center text-charcoal/50 font-semibold text-sm shrink-0">
+      <div className="w-9 h-9 rounded-full bg-warm-border flex items-center justify-center text-charcoal/70 font-semibold text-sm shrink-0">
         {(display[0] ?? "?").toUpperCase()}
       </div>
 
@@ -315,7 +315,7 @@ function SessionCard({
               {AGENT_LABELS[s.agent]}
             </span>
             {showClient && s.client_id && (
-              <span className="shrink-0 text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/50">
+              <span className="shrink-0 text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-charcoal/5 text-charcoal/70">
                 {s.client_id}
               </span>
             )}
@@ -325,15 +325,15 @@ function SessionCard({
               </span>
             )}
           </div>
-          <span className="shrink-0 text-[10px] text-charcoal/40">
+          <span className="shrink-0 text-[10px] text-charcoal/70">
             {relativeTime(s.updated_at)}
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <p className="text-xs text-charcoal/60 truncate">
+          <p className="text-xs text-charcoal/70 truncate">
             {s.trigger_type ? (
-              <span className="text-charcoal/40 mr-1">[{s.trigger_type}]</span>
+              <span className="text-charcoal/70 mr-1">[{s.trigger_type}]</span>
             ) : null}
             {s.last_message ?? "No messages yet"}
           </p>
@@ -351,7 +351,7 @@ function SessionCard({
                 ? "bg-red-100 text-red-600"
                 : s.intent === "warm"
                   ? "bg-orange-100 text-orange-600"
-                  : "bg-charcoal/5 text-charcoal/40"
+                  : "bg-charcoal/5 text-charcoal/70"
             }`}
           >
             {s.intent}

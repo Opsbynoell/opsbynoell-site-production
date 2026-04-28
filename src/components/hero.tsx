@@ -154,7 +154,7 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/65"
+          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/70"
         >
           {footnote}
         </motion.p>
@@ -296,7 +296,7 @@ function DefaultMockScreen() {
             System active
           </span>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-charcoal/40">
+        <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
           today
         </span>
       </div>
@@ -309,7 +309,7 @@ function DefaultMockScreen() {
               Missed-call recovery
             </p>
             <p className="text-sm text-charcoal font-medium mt-0.5">Santa E.</p>
-            <p className="text-[11px] text-charcoal/50">Auto-text sent · 8s</p>
+            <p className="text-[11px] text-charcoal/70">Auto-text sent · 8s</p>
           </div>
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine">
             triggered
@@ -340,7 +340,7 @@ function DefaultMockScreen() {
             <p className="text-sm text-charcoal font-medium mt-0.5">
               Saturday · 2:00 PM
             </p>
-            <p className="text-[11px] text-charcoal/50">
+            <p className="text-[11px] text-charcoal/70">
               Deep tissue · 60 min
             </p>
           </div>
