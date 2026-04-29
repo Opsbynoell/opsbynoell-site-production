@@ -6,6 +6,12 @@ import { NoellAgentsCard } from "@/components/noell-agents-card";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import {
+  PRICING_FAQ_EYEBROW,
+  PRICING_FAQ_HEADLINE_START,
+  PRICING_FAQ_HEADLINE_ACCENT,
+  PRICING_FAQ_BODY,
+} from "@/content/pricing";
+import {
   breadcrumbSchema,
   faqPageSchema,
   pricingProductSchema,
@@ -239,10 +245,10 @@ export default function PricingPage() {
       <Pricing />
 
       <FAQ
-        eyebrow="Before you book"
-        headlineStart="Pricing questions,"
-        headlineAccent="answered."
-        body="No sales theater. These are the real questions we get before someone books an audit. If yours isn't here, chat with Noell Support — she has the answers too."
+        eyebrow={PRICING_FAQ_EYEBROW}
+        headlineStart={PRICING_FAQ_HEADLINE_START}
+        headlineAccent={PRICING_FAQ_HEADLINE_ACCENT}
+        body={PRICING_FAQ_BODY}
         faqs={pricingFaqs}
       />
 

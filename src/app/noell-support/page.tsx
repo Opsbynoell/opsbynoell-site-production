@@ -16,6 +16,12 @@ import { cn } from "@/lib/utils";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
+import {
+  NOVA_FAQ_EYEBROW,
+  NOVA_FAQ_HEADLINE_START,
+  NOVA_FAQ_HEADLINE_ACCENT,
+  NOVA_FAQ_BODY,
+} from "@/content/nova";
 
 export const metadata = pageMetadata({
   path: "/noell-support",
@@ -382,10 +388,10 @@ export default function NoellSupportPage() {
 
       <FAQ
         accent="lilac"
-        eyebrow="Noell Support questions"
-        headlineStart="Honest"
-        headlineAccent="answers."
-        body="What people ask before they install the prospect-intake layer."
+        eyebrow={NOVA_FAQ_EYEBROW}
+        headlineStart={NOVA_FAQ_HEADLINE_START}
+        headlineAccent={NOVA_FAQ_HEADLINE_ACCENT}
+        body={NOVA_FAQ_BODY}
         faqs={supportFaqs}
       />
 
