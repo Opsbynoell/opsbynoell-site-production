@@ -59,7 +59,8 @@ export type SourcePage =
   | "navbar"
   | "footer"
   | "global_chat"
-  | "predictive-customer-intelligence";
+  | "predictive-customer-intelligence"
+  | "revenue_calculator";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and
@@ -87,7 +88,9 @@ export type SourceSection =
   | "founding_cta"
   | "proof"
   | "offer"
-  | "final";
+  | "final"
+  | "calculator_results"
+  | "calculator_lead_form";
 
 /**
  * The canonical conversion events. Narrow set on purpose — each has a
