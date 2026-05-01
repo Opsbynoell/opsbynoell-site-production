@@ -88,43 +88,53 @@ export async function POST(req: NextRequest): Promise<Response> {
   } catch {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
+  // Defensive payload shape — a probe with `{}` previously crashed in
+  // `lookupContact` reading `payload.from.phone` and surfaced as an
+  // empty 500. Coerce `from` to a usable object before any downstream
+  // DB / model / provider call.
+  if (!payload || typeof payload !== "object") {
+    return NextResponse.json({ error: "invalid payload" }, { status: 400 });
+  }
   if (!payload.clientId || !payload.message) {
     return NextResponse.json(
       { error: "clientId and message are required" },
       { status: 400 }
     );
   }
+  if (!payload.from || typeof payload.from !== "object") {
+    payload.from = {};
+  }
   payload.message = clampPublicMessage(payload.message);
   if (!payload.message) {
     return NextResponse.json({ error: "empty message" }, { status: 400 });
   }
 
-  const contact = await lookupContact(
-    payload.clientId,
-    payload.from.phone,
-    payload.from.email
-  );
-  const kbHits = await queryKnowledgeBase(payload.clientId, payload.message);
-
-  const runtimeContext = [
-    contact
-      ? `Recognized contact: ${contact.name ?? "(no name on file)"}` +
-        (contact.last_visit_at
-          ? ` · last visit ${contact.last_visit_at}`
-          : "") +
-        (contact.visit_count
-          ? ` · ${contact.visit_count} visits total`
-          : "") +
-        (contact.preferred_service
-          ? ` · usual service: ${contact.preferred_service}`
-          : "") +
-        (contact.vip ? " · VIP" : "") +
-        (contact.notes ? ` · notes: ${contact.notes}` : "")
-      : "Contact is not recognized in `client_contacts`. If they claim to be a regular, ask name + phone to pull their file.",
-    formatKnowledgeContext(kbHits),
-  ].join("\n\n");
-
   try {
+    const contact = await lookupContact(
+      payload.clientId,
+      payload.from.phone,
+      payload.from.email
+    );
+    const kbHits = await queryKnowledgeBase(payload.clientId, payload.message);
+
+    const runtimeContext = [
+      contact
+        ? `Recognized contact: ${contact.name ?? "(no name on file)"}` +
+          (contact.last_visit_at
+            ? ` · last visit ${contact.last_visit_at}`
+            : "") +
+          (contact.visit_count
+            ? ` · ${contact.visit_count} visits total`
+            : "") +
+          (contact.preferred_service
+            ? ` · usual service: ${contact.preferred_service}`
+            : "") +
+          (contact.vip ? " · VIP" : "") +
+          (contact.notes ? ` · notes: ${contact.notes}` : "")
+        : "Contact is not recognized in `client_contacts`. If they claim to be a regular, ask name + phone to pull their file.",
+      formatKnowledgeContext(kbHits),
+    ].join("\n\n");
+
     const result = await runTurn({
       agent: "care",
       payload: { ...payload, agent: "care" },
@@ -139,8 +149,10 @@ export async function POST(req: NextRequest): Promise<Response> {
     });
     return NextResponse.json({ ...result, recognizedContactId: contact?.id ?? null });
   } catch (e) {
+    // Never reflect raw error text to unauthenticated callers.
+    console.error("[care/message] handler failed:", e);
     return NextResponse.json(
-      { error: (e as Error).message },
+      { error: "internal_error" },
       { status: 500 }
     );
   }

@@ -27,6 +27,7 @@ import {
   getSmsIntegration,
 } from "@/lib/agents/integrations/registry";
 import {
+  type AdminContext,
   clientIdentity,
   hasClientAccess,
   rateLimit,
@@ -40,20 +41,29 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 /**
- * Auth model: either an authenticated admin with access to the target
- * client OR a server-to-server call with the AGENT_ACTION_SECRET bearer
- * token. The secret is used by the internal agent runner / inbound-SMS
- * bridge so Nikki's chat flows can still book without cookies.
+ * Auth model — runs BEFORE body parsing so unauthenticated probes get
+ * a consistent 401 instead of leaking shape errors / 400s. Two paths:
+ *
+ *   1. Server-to-server: AGENT_ACTION_SECRET bearer token (used by the
+ *      internal agent runner / inbound-SMS bridge so chat flows can
+ *      still book without cookies).
+ *   2. Admin cookie: authenticated admin who passes `hasClientAccess`
+ *      against the target client. Because we don't know `clientId`
+ *      until the body is parsed, we accept the cookie here and re-check
+ *      access against `body.clientId` once it's known.
  */
-async function authorize(
-  req: Request,
-  clientId: string
-): Promise<{ ok: true } | { ok: false; response: Response }> {
+type AuthResult =
+  | { ok: true; admin: AdminContext | null; mode: "bearer" | "admin" }
+  | { ok: false; response: Response };
+
+async function preauthorize(req: Request): Promise<AuthResult> {
   const expected = process.env.AGENT_ACTION_SECRET;
   const auth = req.headers.get("authorization") ?? "";
-  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  if (expected && auth === `Bearer ${expected}`) {
+    return { ok: true, admin: null, mode: "bearer" };
+  }
   const admin = await verifyAdminFromCookie(req);
-  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  if (admin) return { ok: true, admin, mode: "admin" };
   return {
     ok: false,
     response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
@@ -96,6 +106,10 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
 
+  // Auth FIRST — before body parse / field validation / DB or provider calls.
+  const authz = await preauthorize(req);
+  if (!authz.ok) return authz.response;
+
   let body: ScheduleBody;
   try {
     body = (await req.json()) as ScheduleBody;
@@ -103,6 +117,8 @@ export async function POST(req: NextRequest): Promise<Response> {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
   if (
+    !body ||
+    typeof body !== "object" ||
     !body.clientId ||
     !body.clientName ||
     !body.clientPhone ||
@@ -115,8 +131,10 @@ export async function POST(req: NextRequest): Promise<Response> {
     );
   }
 
-  const authz = await authorize(req, body.clientId);
-  if (!authz.ok) return authz.response;
+  // Admin-cookie path: now that we know `clientId`, enforce access.
+  if (authz.mode === "admin" && authz.admin && !hasClientAccess(authz.admin, body.clientId)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const cfg = await getClientConfig(body.clientId);
   if (!cfg.active || !cfg.agents.frontDesk) {

@@ -17,6 +17,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
 import { getSmsIntegration } from "@/lib/agents/integrations/registry";
 import {
+  type AdminContext,
   clientIdentity,
   hasClientAccess,
   rateLimit,
@@ -34,17 +35,21 @@ export const dynamic = "force-dynamic";
  * Missed-call is triggered by the client's phone system (GHL/Twilio
  * webhook). That traffic authenticates with AGENT_ACTION_SECRET —
  * admins with client access may also call this directly for manual
- * textbacks.
+ * textbacks. Auth runs BEFORE body parse / DB writes / SMS dispatch
+ * so unauth probes get 401, not 400.
  */
-async function authorize(
-  req: Request,
-  clientId: string
-): Promise<{ ok: true } | { ok: false; response: Response }> {
+type AuthResult =
+  | { ok: true; admin: AdminContext | null; mode: "bearer" | "admin" }
+  | { ok: false; response: Response };
+
+async function preauthorize(req: Request): Promise<AuthResult> {
   const expected = process.env.AGENT_ACTION_SECRET;
   const auth = req.headers.get("authorization") ?? "";
-  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  if (expected && auth === `Bearer ${expected}`) {
+    return { ok: true, admin: null, mode: "bearer" };
+  }
   const admin = await verifyAdminFromCookie(req);
-  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  if (admin) return { ok: true, admin, mode: "admin" };
   return {
     ok: false,
     response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
@@ -66,21 +71,26 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
 
+  // Auth FIRST — before body parse / field validation / DB or provider calls.
+  const authz = await preauthorize(req);
+  if (!authz.ok) return authz.response;
+
   let body: MissedCallPayload;
   try {
     body = (await req.json()) as MissedCallPayload;
   } catch {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
-  if (!body.clientId || !body.from) {
+  if (!body || typeof body !== "object" || !body.clientId || !body.from) {
     return NextResponse.json(
       { error: "clientId and from are required" },
       { status: 400 }
     );
   }
 
-  const authz = await authorize(req, body.clientId);
-  if (!authz.ok) return authz.response;
+  if (authz.mode === "admin" && authz.admin && !hasClientAccess(authz.admin, body.clientId)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const cfg = await getClientConfig(body.clientId);
   if (!cfg.active || !cfg.agents.frontDesk) {

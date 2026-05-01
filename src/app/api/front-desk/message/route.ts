@@ -48,11 +48,21 @@ export async function POST(req: NextRequest): Promise<Response> {
   } catch {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
+  // Defensive: a probe with `{}` or a bad shape must not blow up the
+  // route inside runTurn (which leaked `Cannot read properties of
+  // undefined (reading 'name')` to unauthenticated probes). Coerce
+  // `from` to an object before any downstream code reads it.
+  if (!payload || typeof payload !== "object") {
+    return NextResponse.json({ error: "invalid payload" }, { status: 400 });
+  }
   if (!payload.clientId || !payload.message) {
     return NextResponse.json(
       { error: "clientId and message are required" },
       { status: 400 }
     );
+  }
+  if (!payload.from || typeof payload.from !== "object") {
+    payload.from = {};
   }
   payload.message = clampPublicMessage(payload.message);
   if (!payload.message) {
@@ -72,8 +82,12 @@ export async function POST(req: NextRequest): Promise<Response> {
     });
     return NextResponse.json(result);
   } catch (e) {
+    // Never reflect raw error text — internal messages leak
+    // implementation details (stack-shape strings, table names, etc.).
+    // Log server-side; return an opaque 500.
+    console.error("[front-desk/message] runTurn failed:", e);
     return NextResponse.json(
-      { error: (e as Error).message },
+      { error: "internal_error" },
       { status: 500 }
     );
   }
