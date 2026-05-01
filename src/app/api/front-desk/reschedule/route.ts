@@ -10,6 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
 import { getCalendarIntegration, getSmsIntegration } from "@/lib/agents/integrations/registry";
 import {
+  type AdminContext,
   clientIdentity,
   hasClientAccess,
   rateLimit,
@@ -21,15 +22,19 @@ import { sbInsert, sbSelect, sbUpdate } from "@/lib/agents/supabase";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-async function authorize(
-  req: Request,
-  clientId: string
-): Promise<{ ok: true } | { ok: false; response: Response }> {
+/** Auth gate that fires BEFORE body parsing — see schedule/route.ts. */
+type AuthResult =
+  | { ok: true; admin: AdminContext | null; mode: "bearer" | "admin" }
+  | { ok: false; response: Response };
+
+async function preauthorize(req: Request): Promise<AuthResult> {
   const expected = process.env.AGENT_ACTION_SECRET;
   const auth = req.headers.get("authorization") ?? "";
-  if (expected && auth === `Bearer ${expected}`) return { ok: true };
+  if (expected && auth === `Bearer ${expected}`) {
+    return { ok: true, admin: null, mode: "bearer" };
+  }
   const admin = await verifyAdminFromCookie(req);
-  if (admin && hasClientAccess(admin, clientId)) return { ok: true };
+  if (admin) return { ok: true, admin, mode: "admin" };
   return {
     ok: false,
     response: NextResponse.json({ error: "Unauthorized" }, { status: 401 }),
@@ -57,13 +62,23 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
 
+  // Auth FIRST — before body parse / field validation / DB or provider calls.
+  const authz = await preauthorize(req);
+  if (!authz.ok) return authz.response;
+
   let body: RescheduleBody;
   try {
     body = (await req.json()) as RescheduleBody;
   } catch {
     return NextResponse.json({ error: "invalid json" }, { status: 400 });
   }
-  if (!body.clientId || !body.appointmentId || !body.newTime) {
+  if (
+    !body ||
+    typeof body !== "object" ||
+    !body.clientId ||
+    !body.appointmentId ||
+    !body.newTime
+  ) {
     return NextResponse.json({ error: "missing fields" }, { status: 400 });
   }
   const newTime = new Date(body.newTime);
@@ -71,8 +86,9 @@ export async function POST(req: NextRequest): Promise<Response> {
     return NextResponse.json({ error: "invalid newTime" }, { status: 400 });
   }
 
-  const authz = await authorize(req, body.clientId);
-  if (!authz.ok) return authz.response;
+  if (authz.mode === "admin" && authz.admin && !hasClientAccess(authz.admin, body.clientId)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
   const cfg = await getClientConfig(body.clientId);
   const calendar = getCalendarIntegration(cfg);
