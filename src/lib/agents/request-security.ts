@@ -189,6 +189,106 @@ export function clampPublicMessage(text: unknown): string {
 }
 
 // ---------------------------------------------------------------------------
+// Public-chat payload validation
+// ---------------------------------------------------------------------------
+
+const ALLOWED_CHANNELS = new Set(["chat", "sms", "voice"]);
+const CLIENT_ID_RE = /^[A-Za-z0-9_-]{1,64}$/;
+
+/**
+ * Shape returned to the route after validation. Channel is normalized
+ * to the legitimate widget default ("chat") if missing, and `from` is
+ * coerced to an object so downstream code never reads `.phone` off
+ * undefined.
+ */
+export interface ValidatedPublicMessagePayload {
+  clientId: string;
+  sessionId?: string;
+  channel: "chat" | "sms" | "voice";
+  from: { name?: string; phone?: string; email?: string; ip?: string };
+  message: string;
+}
+
+/**
+ * Fail-closed validator for the public agent message routes
+ * (/api/{support,care,front-desk}/message). Rejects malformed payloads
+ * with an opaque 400 BEFORE any context lookup, runTurn, DB write,
+ * model call, or fanout. Any anomaly maps to a single
+ * {"error":"invalid_request"} body so probes cannot fingerprint which
+ * field they got wrong.
+ *
+ * A legitimate website-widget payload (clientId + chat channel + {} from
+ * + non-empty message) must pass through unchanged.
+ */
+export function validatePublicMessagePayload(
+  raw: unknown
+): { ok: true; payload: ValidatedPublicMessagePayload } | { ok: false } {
+  if (!raw || typeof raw !== "object") return { ok: false };
+  const p = raw as Record<string, unknown>;
+
+  const clientId = p.clientId;
+  if (typeof clientId !== "string" || !CLIENT_ID_RE.test(clientId)) {
+    return { ok: false };
+  }
+
+  const messageRaw = p.message;
+  if (typeof messageRaw !== "string") return { ok: false };
+  const message = clampPublicMessage(messageRaw);
+  if (!message) return { ok: false };
+
+  // Channel is required and must be one of the known values. The
+  // legitimate website widget always sends "chat"; SMS/voice come in
+  // through internal bridges that also set this explicitly. Refusing
+  // missing/unknown channel here means an anonymous probe with just
+  // {clientId, message} fails closed before any downstream call.
+  if (typeof p.channel !== "string" || !ALLOWED_CHANNELS.has(p.channel)) {
+    return { ok: false };
+  }
+  const channel = p.channel as ValidatedPublicMessagePayload["channel"];
+
+  // `from` is required (the widget always sends at least `{}`). It must
+  // be a plain object — no arrays, no scalars — and each known field,
+  // if present, must be a string.
+  if (
+    p.from === undefined ||
+    p.from === null ||
+    typeof p.from !== "object" ||
+    Array.isArray(p.from)
+  ) {
+    return { ok: false };
+  }
+  const from: ValidatedPublicMessagePayload["from"] = {};
+  const f = p.from as Record<string, unknown>;
+  for (const k of ["name", "phone", "email", "ip"] as const) {
+    const v = f[k];
+    if (v === undefined) continue;
+    if (typeof v !== "string") return { ok: false };
+    from[k] = v;
+  }
+
+  let sessionId: string | undefined;
+  if (p.sessionId !== undefined && p.sessionId !== null) {
+    if (typeof p.sessionId !== "string" || p.sessionId.length > 128) {
+      return { ok: false };
+    }
+    sessionId = p.sessionId;
+  }
+
+  return {
+    ok: true,
+    payload: { clientId, sessionId, channel, from, message },
+  };
+}
+
+/** Standard opaque 400 used by the public message routes. */
+export function invalidRequestResponse(): Response {
+  return new Response(JSON.stringify({ error: "invalid_request" }), {
+    status: 400,
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Response helpers
 // ---------------------------------------------------------------------------
 

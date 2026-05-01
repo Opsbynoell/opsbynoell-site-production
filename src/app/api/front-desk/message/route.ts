@@ -14,13 +14,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { runTurn } from "@/lib/agents/runner";
 import {
-  clampPublicMessage,
   clientIdentity,
+  invalidRequestResponse,
   isOriginAllowed,
   rateLimit,
   rateLimitResponse,
+  validatePublicMessagePayload,
 } from "@/lib/agents/request-security";
-import type { AgentMessagePayload } from "@/lib/agents/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -42,32 +42,19 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
 
-  let payload: AgentMessagePayload;
+  let raw: unknown;
   try {
-    payload = (await req.json()) as AgentMessagePayload;
+    raw = await req.json();
   } catch {
-    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+    return invalidRequestResponse();
   }
-  // Defensive: a probe with `{}` or a bad shape must not blow up the
-  // route inside runTurn (which leaked `Cannot read properties of
-  // undefined (reading 'name')` to unauthenticated probes). Coerce
-  // `from` to an object before any downstream code reads it.
-  if (!payload || typeof payload !== "object") {
-    return NextResponse.json({ error: "invalid payload" }, { status: 400 });
-  }
-  if (!payload.clientId || !payload.message) {
-    return NextResponse.json(
-      { error: "clientId and message are required" },
-      { status: 400 }
-    );
-  }
-  if (!payload.from || typeof payload.from !== "object") {
-    payload.from = {};
-  }
-  payload.message = clampPublicMessage(payload.message);
-  if (!payload.message) {
-    return NextResponse.json({ error: "empty message" }, { status: 400 });
-  }
+  // Single fail-closed gate. Anything malformed (missing clientId,
+  // missing/empty message, bogus channel, bad `from` shape) returns an
+  // opaque 400 BEFORE we touch the DB, the model, or fanout — so probes
+  // cannot fingerprint fields and cannot drive a 500.
+  const validated = validatePublicMessagePayload(raw);
+  if (!validated.ok) return invalidRequestResponse();
+  const payload = validated.payload;
 
   try {
     const result = await runTurn({

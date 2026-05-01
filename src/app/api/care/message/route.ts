@@ -18,15 +18,15 @@ import {
   queryKnowledgeBase,
 } from "@/lib/agents/knowledge-base";
 import {
-  clampPublicMessage,
   clientIdentity,
+  invalidRequestResponse,
   isOriginAllowed,
   rateLimit,
   rateLimitResponse,
+  validatePublicMessagePayload,
 } from "@/lib/agents/request-security";
 import { runTurn } from "@/lib/agents/runner";
 import { sbSelect } from "@/lib/agents/supabase";
-import type { AgentMessagePayload } from "@/lib/agents/types";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -82,32 +82,20 @@ export async function POST(req: NextRequest): Promise<Response> {
   );
   if (!rl.ok) return rateLimitResponse(rl.retryAfterMs);
 
-  let payload: AgentMessagePayload;
+  let raw: unknown;
   try {
-    payload = (await req.json()) as AgentMessagePayload;
+    raw = await req.json();
   } catch {
-    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+    return invalidRequestResponse();
   }
-  // Defensive payload shape — a probe with `{}` previously crashed in
-  // `lookupContact` reading `payload.from.phone` and surfaced as an
-  // empty 500. Coerce `from` to a usable object before any downstream
-  // DB / model / provider call.
-  if (!payload || typeof payload !== "object") {
-    return NextResponse.json({ error: "invalid payload" }, { status: 400 });
-  }
-  if (!payload.clientId || !payload.message) {
-    return NextResponse.json(
-      { error: "clientId and message are required" },
-      { status: 400 }
-    );
-  }
-  if (!payload.from || typeof payload.from !== "object") {
-    payload.from = {};
-  }
-  payload.message = clampPublicMessage(payload.message);
-  if (!payload.message) {
-    return NextResponse.json({ error: "empty message" }, { status: 400 });
-  }
+  // Single fail-closed gate. Anything malformed (missing clientId,
+  // missing/empty message, bogus channel, bad `from` shape) returns an
+  // opaque 400 BEFORE contact lookup, knowledge-base query, runTurn, DB
+  // writes, model calls, or fanout. Legitimate widget POSTs are
+  // unaffected.
+  const validated = validatePublicMessagePayload(raw);
+  if (!validated.ok) return invalidRequestResponse();
+  const payload = validated.payload;
 
   try {
     const contact = await lookupContact(
