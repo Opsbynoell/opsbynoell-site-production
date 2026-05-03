@@ -1,36 +1,22 @@
 /**
- * GET/POST /api/front-desk/whisper?clientId=santa
+ * GET/POST /api/front-desk/whisper?clientId=santa&caller=%2B19495551234
  *
  * Twilio fetches this URL on the called leg of a simultaneous-ring
  * <Dial> when the call is answered (via the <Number url="..."/>
  * attribute set by /api/front-desk/inbound-call). The caller hears
  * silence until one of the called legs presses 1; the rest hang up.
  *
- * Returns TwiML that:
- *   1. <Gather> a single digit with a 10s timeout, posting to
- *      /api/front-desk/whisper-confirm.
- *   2. Speaks "Incoming call for <brand>. Press 1 to accept."
- *   3. On no input, <Hangup/> so the leg drops cleanly without the
- *      caller ever being bridged to voicemail.
- *
- * GET is supported because Twilio's "Make a Test Call" tool defaults
- * to GET on configured webhook URLs.
+ * TwiML body is built by `src/lib/agents/voice/twiml.ts` so prompt
+ * shape and digit-by-digit phone formatting are unit-testable without
+ * importing `next/server`.
  */
 
 import { NextRequest } from "next/server";
 import { getClientConfig } from "@/lib/agents/config";
+import { buildWhisperTwiml } from "@/lib/agents/voice/twiml";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function escapeXml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
-}
 
 function twimlResponse(xml: string): Response {
   return new Response(xml, {
@@ -39,13 +25,12 @@ function twimlResponse(xml: string): Response {
   });
 }
 
-function pickClientId(req: NextRequest): string | null {
-  const url = new URL(req.url);
-  return url.searchParams.get("clientId");
+function pickQuery(req: NextRequest, key: string): string | null {
+  return new URL(req.url).searchParams.get(key);
 }
 
 async function handle(req: NextRequest): Promise<Response> {
-  const clientId = pickClientId(req);
+  const clientId = pickQuery(req, "clientId");
   if (!clientId) {
     return twimlResponse(
       `<?xml version="1.0" encoding="UTF-8"?>\n<Response><Hangup/></Response>`
@@ -71,17 +56,11 @@ async function handle(req: NextRequest): Promise<Response> {
     clientId
   )}`;
 
-  const prompt = `Incoming call for ${brandName}. Press 1 to accept.`;
-
-  const xml = [
-    `<?xml version="1.0" encoding="UTF-8"?>`,
-    `<Response>`,
-    `  <Gather numDigits="1" timeout="10" action="${escapeXml(confirmAction)}" method="POST">`,
-    `    <Say voice="Polly.Joanna">${escapeXml(prompt)}</Say>`,
-    `  </Gather>`,
-    `  <Hangup/>`,
-    `</Response>`,
-  ].join("\n");
+  const xml = buildWhisperTwiml({
+    brandName,
+    caller: pickQuery(req, "caller"),
+    confirmAction,
+  });
 
   return twimlResponse(xml);
 }
