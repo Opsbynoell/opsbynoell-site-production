@@ -43,7 +43,7 @@ const cards: CardProps[] = [
     bullets: [
       "Full done-for-you operations layer for client communication, scheduling, reminders, reviews, and reactivation.",
       "Three AI agents included (Growth tier and up)",
-      "Two-way integration with your booking system",
+      "Read integration with your booking system",
       "Free 30-minute audit before you commit",
       "Managed install in 14 days",
       "Ongoing updates, no maintenance on your end",

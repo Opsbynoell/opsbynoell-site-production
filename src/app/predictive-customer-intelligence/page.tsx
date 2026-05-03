@@ -68,24 +68,24 @@ const problems = [
 const solutions = [
   {
     n: "01",
-    title: "Predicts churn before it happens",
+    title: "Surfaces churn risk before it costs you the client",
     body:
-      "Every active client gets a ghost-risk score, updated continuously. You see who's drifting before they're gone, with a one-click outreach sequence ready to deploy.",
-    status: "status: monitoring · always-on",
+      "Every active client gets a ghost-risk score, scored 4x daily. You see who's drifting before they're gone, with a one-click outreach sequence ready to deploy.",
+    status: "status: monitoring · 4x daily sweeps",
   },
   {
     n: "02",
-    title: "Resurrects dead leads on autopilot",
+    title: "Resurfaces dead leads when they heat back up",
     body:
-      "Stale leads get re-scored as new signals come in. When one heats back up, you know, and the agents can re-engage them while they're warm.",
-    status: "status: triggered on signal",
+      "Stale leads get re-scored on every signal sweep. When one heats back up, you know, and the agents can re-engage them while they're warm.",
+    status: "status: queued on signal",
   },
   {
     n: "03",
     title: "Closes the rebooking loop",
     body:
-      "A missed rebooking gets caught within 24 hours. The right follow-up (text, email, or live agent) fires automatically based on what converts for your business.",
-    status: "status: runs after every visit",
+      "A missed rebooking gets caught within 24 hours. The right follow-up (text, email, or live agent) is queued for one-click send, based on what converts for your business.",
+    status: "status: queued after every visit",
   },
 ];
 
@@ -95,7 +95,7 @@ const deployments = [
     label: "intelligence + agents",
     title: "Recover what's already in your funnel.",
     body:
-      "The intelligence layer watches your existing clients and leads. Noell Agents handle the outreach (calls, texts, chat, rebookings) the moment a signal fires. Best for businesses with strong inbound and gaps in the follow-through.",
+      "The intelligence layer watches your existing clients and leads. Noell Agents handle the outreach (calls, texts, chat, rebookings) as soon as a signal fires in your queue. Best for businesses with strong inbound and gaps in the follow-through.",
     bullets: [
       "Ghost-risk monitoring on every active client",
       "Dead lead resurrection sequences",
@@ -114,7 +114,7 @@ const deployments = [
     bullets: [
       "Full white-labeled operations platform",
       "Three AI agents included (Growth tier and up)",
-      "Two-way integration with your PMS or booking tool",
+      "Read integration with your PMS or booking tool",
       "Managed install in 14 days, ongoing updates, no maintenance on your end",
     ],
     status: "status: best for consolidation and replatforming",
@@ -125,10 +125,10 @@ const deployments = [
     label: "intelligence + media",
     title: "Buy ads with your own customer data, not Facebook's guess.",
     body:
-      "Most agencies running ads for service businesses have no idea who their client's best customers actually are. The intelligence layer does. Every active client is already scored by LTV and behavior. That data drives the targeting.",
+      "Most agencies running ads for service businesses have no idea who their client's best customers actually are. The intelligence layer does. Every active client is scored by behavior and projected LTV. That data drives the targeting.",
     bullets: [
-      "Lookalike audiences built from your real high-LTV cohorts",
-      "Retargeting your ghost-risk list before they leave",
+      "Audience exports for your ad platform from your real client cohorts",
+      "Ghost-risk audience exports for retargeting before they leave",
       "Budget allocation weighted to your highest-lifecycle services",
       "Creative briefs informed by what your existing clients actually book",
     ],
@@ -255,11 +255,11 @@ function CaseSummaryPanel() {
       </div>
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70 mb-2">
-          Reactivation triggered
+          Reactivation queued
         </p>
-        <p className="text-sm font-medium text-charcoal">SMS · 11s</p>
+        <p className="text-sm font-medium text-charcoal">SMS</p>
         <p className="font-mono text-[11px] text-charcoal/70 mt-2">
-          auto-sequence
+          ready to send
         </p>
       </div>
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
@@ -338,7 +338,7 @@ function SolutionSection() {
           <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
             Predictive Customer Intelligence is the operating layer underneath
             everything Ops by Noell deploys. It connects to the systems you
-            already use, scores every client, lead, and rebooking in real time,
+            already use, scores every client, lead, and rebooking on a 6-hour cadence,
             and tells the rest of the stack exactly what to do next.
           </p>
         </div>
@@ -482,6 +482,69 @@ function HowItWorksSection() {
   );
 }
 
+function IntelligenceRunsSection() {
+  const items = [
+    {
+      n: "01",
+      title: "Scored 4x daily.",
+      body:
+        "Signal scoring runs at 1am, 7am, 1pm, and 7pm Pacific. Real-time event-driven scoring is on the roadmap.",
+    },
+    {
+      n: "02",
+      title: "Queue, not autopilot.",
+      body:
+        "When a signal fires, the right outreach sequence is queued for your one-click approval. Optional auto-send is available per signal type for vetted templates.",
+    },
+    {
+      n: "03",
+      title: "Audience exports.",
+      body:
+        "High-LTV and ghost-risk cohorts export as ad-platform-ready CSVs. Direct API sync to Meta and Google Ads is on the roadmap.",
+    },
+  ];
+  return (
+    <section className="w-full px-4 py-20 md:py-28">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14 max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+            under the hood
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            How the intelligence{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              layer runs.
+            </span>
+          </h2>
+          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            What is shipped today, and what is on the roadmap. So you know
+            exactly what you are buying when you book the audit.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {items.map((s) => (
+            <div
+              key={s.n}
+              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+            >
+              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/70 mb-3">
+                {s.n}
+              </p>
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                {s.title}
+              </h3>
+              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
+                {s.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PricingTeaserSection() {
   return (
     <section className="w-full px-4 py-20 md:py-28">
@@ -542,6 +605,8 @@ export default function PredictiveCustomerIntelligencePage() {
       <ProblemSection />
 
       <SolutionSection />
+
+      <IntelligenceRunsSection />
 
       <DeploymentSection />
 

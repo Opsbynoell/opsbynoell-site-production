@@ -42,7 +42,7 @@ export const PRICING_TIERS: PricingTier[] = [
     features: [
       "Everything in Essentials",
       "All three AI agents (Noell Support, Front Desk, Care)",
-      "Two-way integration with your booking system",
+      "Read integration with your booking system",
       "Full email + SMS marketing workflows",
       "Funnels + landing pages",
       "Reputation dashboard with review automation",
