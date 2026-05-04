@@ -22,12 +22,12 @@ const PATH = "/what-you-get";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "What You Get — Ops by Noell",
+  title: "What's Included — Done-for-You AI Front Desk",
   description:
-    "What you actually get when you sign up for Ops by Noell: a business line that never misses a call, three AI agents working in the background, the dashboard that runs your front office, the tap-in feature, done-for-you setup, and compliance built in.",
+    "A business line that never misses a call, three AI agents in the background, the dashboard that runs your front office, and done-for-you setup.",
   ogTitle: "Stay focused on the client in front of you. We'll handle the phone.",
   ogDescription:
-    "An AI front desk that answers your calls, books your appointments, and texts your customers — so you can be present with the client you're serving without losing the next booking.",
+    "An AI front desk that answers your calls, books appointments, and texts customers — without losing the next booking.",
 });
 
 type GetItem = {

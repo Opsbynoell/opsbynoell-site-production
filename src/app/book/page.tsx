@@ -10,9 +10,9 @@ import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/book",
-  title: "Request a working call with Ops by Noell.",
+  title: "Book a Free Audit Call",
   description:
-    "Audits are scheduled personally right now. Tell us about your front desk. We reply within one business day with two or three times that work for a focused twenty-minute walkthrough.",
+    "Tell us about your front desk. We reply within one business day with two or three times that work for a focused twenty-minute walkthrough.",
 });
 
 const bookFaqs: FaqItem[] = [

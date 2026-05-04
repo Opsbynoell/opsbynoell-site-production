@@ -114,6 +114,10 @@ export function Hero({
                 </span>
               </>
             )}
+            {/* Whitespace before the line break ensures screen readers and
+                text extractors do not join the last word of line 1 with the
+                first word of line 2 (e.g. "Intelligencefor"). */}
+            {" "}
             <br />
             <span
               className={cn(
@@ -305,7 +309,7 @@ function DefaultMockScreen() {
       <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+            <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
               Missed-call recovery
             </p>
             <p className="text-sm text-charcoal font-medium mt-0.5">Santa E.</p>
@@ -334,7 +338,7 @@ function DefaultMockScreen() {
       <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+            <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
               Booking confirmed
             </p>
             <p className="text-sm text-charcoal font-medium mt-0.5">

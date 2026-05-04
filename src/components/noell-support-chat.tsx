@@ -261,6 +261,7 @@ export function NoellSupportChat() {
   // Shared launcher button (orb) used on /book and whenever closed
   const OrbButton = (
     <motion.button
+      type="button"
       {...launcherMotion}
       onClick={() => setIsOpen((v) => !v)}
       className={cn(
@@ -280,7 +281,7 @@ export function NoellSupportChat() {
             exit={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <IconX size={22} />
+            <IconX size={22} aria-hidden="true" />
           </motion.div>
         ) : (
           <motion.div
@@ -290,7 +291,7 @@ export function NoellSupportChat() {
             exit={prefersReducedMotion ? undefined : { rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <IconMessageCircle size={22} />
+            <IconMessageCircle size={22} aria-hidden="true" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -300,6 +301,7 @@ export function NoellSupportChat() {
   // Pill launcher (default on non-/book pages when closed)
   const PillButton = (
     <motion.button
+      type="button"
       {...launcherMotion}
       onClick={() => setIsOpen(true)}
       className={cn(
@@ -311,7 +313,7 @@ export function NoellSupportChat() {
       aria-label="Open Noell Support chat"
     >
       <span className="w-6 h-6 rounded-full bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white flex items-center justify-center">
-        <IconMessageCircle size={14} />
+        <IconMessageCircle size={14} aria-hidden="true" />
       </span>
       Have a question? Chat with Noell
     </motion.button>
@@ -363,11 +365,12 @@ export function NoellSupportChat() {
                 </div>
               </div>
               <button
+                type="button"
                 onClick={handleClose}
                 className="text-white/70 hover:text-white tap-target flex items-center justify-center"
                 aria-label="Close"
               >
-                <IconX size={18} />
+                <IconX size={18} aria-hidden="true" />
               </button>
             </div>
 
@@ -391,6 +394,7 @@ export function NoellSupportChat() {
                   {starterChips.map((chip) => (
                     <button
                       key={chip}
+                      type="button"
                       onClick={() => handleChip(chip)}
                       className="text-xs px-3 py-1.5 rounded-full bg-white border border-warm-border text-charcoal/70 hover:bg-lilac-light hover:border-lilac-dark hover:text-lilac-dark transition-all"
                     >
@@ -414,12 +418,13 @@ export function NoellSupportChat() {
                   className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
                 />
                 <button
+                  type="button"
                   onClick={handleSend}
                   disabled={sending || !inputValue.trim()}
                   className="w-10 h-10 rounded-[10px] bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white flex items-center justify-center hover:scale-105 transition-transform shadow-md disabled:opacity-50 disabled:hover:scale-100"
                   aria-label="Send"
                 >
-                  <IconSend size={15} />
+                  <IconSend size={15} aria-hidden="true" />
                 </button>
               </div>
               <p className="text-[9px] text-muted-medium mt-2 text-center">

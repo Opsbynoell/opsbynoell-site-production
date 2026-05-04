@@ -5,19 +5,27 @@ import { Testimonials } from "@/components/testimonials";
 import CTA from "@/components/cta";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { Button } from "@/components/button";
+import { JsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  servicePageSchema,
+} from "@/lib/schema";
 
-export const metadata = {
-  title: "Predictive Customer Intelligence | Ops by Noell",
+const PATH = "/predictive-customer-intelligence";
+
+export const metadata = pageMetadata({
+  path: PATH,
+  title: "Predictive Customer Intelligence for Service Businesses",
   description:
-    "We find the revenue your booking software is missing. Then we deploy the agents and the ads that recover it. Free 30-minute audit.",
-  openGraph: {
-    title: "Predictive Customer Intelligence | Ops by Noell",
-    description:
-      "The intelligence layer behind your agents, your system, and your ads.",
-    url: "https://www.opsbynoell.com/predictive-customer-intelligence",
-    type: "website" as const,
-  },
-};
+    "Score every client, lead, and rebooking 4x daily. Surface revenue your booking software misses, then recover it before it cools. Free 30-minute audit.",
+  ogTitle: "Predictive Customer Intelligence for Service Businesses",
+  ogDescription:
+    "Score every client, lead, and rebooking 4x daily. Recover revenue before it cools. Free audit.",
+  imageAlt:
+    "Predictive Customer Intelligence by Ops by Noell — score every client, lead, and rebooking before revenue walks out the door.",
+});
 
 const SOURCE_PAGE = "predictive-customer-intelligence" as const;
 
@@ -244,7 +252,7 @@ function CaseSummaryPanel() {
   return (
     <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70 mb-2">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Pattern caught
         </p>
         <p className="text-sm font-medium text-charcoal">Marina D.</p>
@@ -254,7 +262,7 @@ function CaseSummaryPanel() {
         <p className="text-[11px] text-charcoal/70 mt-1">ghost-risk score</p>
       </div>
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70 mb-2">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Reactivation queued
         </p>
         <p className="text-sm font-medium text-charcoal">SMS</p>
@@ -263,7 +271,7 @@ function CaseSummaryPanel() {
         </p>
       </div>
       <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70 mb-2">
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Outcome
         </p>
         <p className="font-serif text-3xl font-semibold text-wine mt-1">
@@ -304,7 +312,7 @@ function ProblemSection() {
               key={p.n}
               className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
-              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/70 mb-3">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {p.n}
               </p>
               <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
@@ -349,7 +357,7 @@ function SolutionSection() {
               key={s.n}
               className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
             >
-              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/70 mb-3">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {s.n}
               </p>
               <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
@@ -397,7 +405,7 @@ function DeploymentSection() {
               className="rounded-[22px] border border-warm-border bg-white p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/70">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85">
                   {d.label}
                 </p>
                 <span className="font-mono text-[10px] text-charcoal/70">
@@ -465,7 +473,7 @@ function HowItWorksSection() {
               key={s.n}
               className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
-              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/70 mb-3">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 step {s.n}
               </p>
               <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
@@ -528,7 +536,7 @@ function IntelligenceRunsSection() {
               key={s.n}
               className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
-              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/70 mb-3">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {s.n}
               </p>
               <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
@@ -576,6 +584,25 @@ function PricingTeaserSection() {
 export default function PredictiveCustomerIntelligencePage() {
   return (
     <div>
+      <JsonLd
+        id="pci-page"
+        data={[
+          servicePageSchema({
+            name: "Predictive Customer Intelligence",
+            description:
+              "Score every active client, lead, and rebooking 4x daily. Surface revenue your booking software misses, then queue the outreach that recovers it before demand cools.",
+            path: PATH,
+            serviceType: "Predictive customer intelligence for service businesses",
+          }),
+          faqPageSchema(
+            pciFaqs.map((f) => ({ question: f.question, answer: f.answer })),
+          ),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Predictive Customer Intelligence", path: PATH },
+          ]),
+        ]}
+      />
       <Hero
         eyebrow="A systems agency · Ops by Noell · Intelligence layer"
         headlineLine1Start="Predictive Customer"

@@ -3,23 +3,34 @@ import { ROICalculator } from "@/components/roi-calculator";
 import CTA from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  calculatorApplicationSchema,
+} from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/roi",
-  title: "ROI Calculator",
+  title: "Missed-Call Recovery ROI Calculator",
   description:
-    "Estimate what a missed-call recovery system could return for your service business. Enter your missed calls per week and average ticket to see monthly recovery and payback by tier.",
+    "Estimate the monthly recovery a missed-call system could return for your service business. Enter calls per week and average ticket to see payback by tier.",
 });
 
 export default function RoiPage() {
   return (
     <div>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "ROI calculator", path: "/roi" },
-        ])}
+        data={[
+          calculatorApplicationSchema({
+            name: "Missed-Call Recovery ROI Calculator",
+            description:
+              "Estimate monthly missed-call recovery and payback by tier for a local service business.",
+            path: "/roi",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "ROI calculator", path: "/roi" },
+          ]),
+        ]}
         id="roi"
       />
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-6 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">

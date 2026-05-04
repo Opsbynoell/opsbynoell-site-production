@@ -66,7 +66,7 @@ function Card({ card }: { card: CardProps }) {
           : "border border-warm-border"
       )}
     >
-      <p className="text-[11px] uppercase tracking-[0.2em] text-wine/70 mb-2">
+      <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-2">
         {card.eyebrow}
       </p>
       <h3 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-3">

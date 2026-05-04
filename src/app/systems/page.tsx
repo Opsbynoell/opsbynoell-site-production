@@ -16,10 +16,9 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/systems",
-  title:
-    "The Noell System — One System. Three Agents. Managed End-to-End.",
+  title: "The Noell System — One System, Three Agents, Managed",
   description:
-    "The Noell system is a done-for-you front desk, intake, and retention layer for service businesses. Three managed agents run in the background, layered on top of the tools you already use. Audit, install, live in 14 days.",
+    "A done-for-you front desk, intake, and retention layer for service businesses. Three managed agents on top of your existing tools. Live in 14 days.",
 });
 
 type Agent = {
@@ -201,7 +200,7 @@ export default function SystemsPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/70 mb-1">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
                   {agent.eyebrow}
                 </p>
                 <h3 className="font-serif text-2xl font-semibold text-charcoal mb-1">

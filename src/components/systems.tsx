@@ -97,7 +97,7 @@ export function Systems() {
                   </span>
                 </div>
               </div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/70 mb-1">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
                 {agent.eyebrow}
               </p>
               <h3 className="font-serif text-2xl font-semibold text-charcoal mb-1">

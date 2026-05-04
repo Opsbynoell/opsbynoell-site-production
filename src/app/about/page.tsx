@@ -7,7 +7,11 @@ import {
 import { Button } from "@/components/button";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
-import { breadcrumbSchema, personSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  jamesPersonSchema,
+  personSchema,
+} from "@/lib/schema";
 
 const FAMILY_PHOTO = "/images/about-noell-family.jpg";
 const FAMILY_PHOTO_ALT =
@@ -17,7 +21,7 @@ export const metadata = pageMetadata({
   path: "/about",
   title: "About James & Nikki Noell",
   description:
-    "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. We help service-business owners keep more of the money they are already making, with a managed AI front desk that works quietly in the background.",
+    "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. We help service-business owners keep more of the revenue they are already earning.",
   image: FAMILY_PHOTO,
   imageAlt: FAMILY_PHOTO_ALT,
 });
@@ -43,6 +47,7 @@ export default function AboutPage() {
       <JsonLd
         data={[
           personSchema(),
+          jamesPersonSchema(),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },

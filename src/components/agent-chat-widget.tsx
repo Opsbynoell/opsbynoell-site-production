@@ -199,6 +199,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
   return (
     <>
       <motion.button
+        type="button"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
@@ -219,7 +220,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <IconX size={22} />
+              <IconX size={22} aria-hidden="true" />
             </motion.div>
           ) : (
             <motion.div
@@ -229,7 +230,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <IconMessageCircle size={22} />
+              <IconMessageCircle size={22} aria-hidden="true" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -265,11 +266,12 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
                 className="text-white/70 hover:text-white"
                 aria-label="Close"
               >
-                <IconX size={18} />
+                <IconX size={18} aria-hidden="true" />
               </button>
             </div>
 
@@ -321,6 +323,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   {props.starterChips.map((chip) => (
                     <button
                       key={chip}
+                      type="button"
                       onClick={() => void send(chip)}
                       className="text-xs px-3 py-1.5 rounded-full bg-white border border-warm-border text-charcoal/70 hover:bg-lilac-light transition-all"
                     >
@@ -342,6 +345,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none text-charcoal placeholder:text-charcoal/70"
                 />
                 <button
+                  type="button"
                   onClick={handleSend}
                   className={cn(
                     "w-10 h-10 rounded-[10px] text-white flex items-center justify-center shadow-md",
@@ -349,7 +353,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   )}
                   aria-label="Send"
                 >
-                  <IconSend size={15} />
+                  <IconSend size={15} aria-hidden="true" />
                 </button>
               </div>
               <p className="text-xs text-muted-medium mt-2 px-1">

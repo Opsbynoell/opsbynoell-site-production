@@ -131,6 +131,41 @@ export function personSchema() {
   };
 }
 
+export function jamesPersonSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "James Noell",
+    jobTitle: "Co-founder",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    affiliation: { "@id": `${SITE_URL}/#organization` },
+    url: `${SITE_URL}/about`,
+  };
+}
+
+export function calculatorApplicationSchema(input: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any (browser)",
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: 0,
+      priceCurrency: "USD",
+    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
 export function servicePageSchema(input: {
   name: string;
   description: string;

@@ -204,7 +204,7 @@ const dentalScreen = (
     <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+          <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             New patient, missed call
           </p>
           <p className="text-sm text-charcoal font-medium mt-0.5">
@@ -239,7 +239,7 @@ const dentalScreen = (
     <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+          <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             Hygiene recall, confirmed
           </p>
           <p className="text-sm text-charcoal font-medium mt-0.5">
