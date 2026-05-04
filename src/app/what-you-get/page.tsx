@@ -22,12 +22,12 @@ const PATH = "/what-you-get";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "What's Included — Done-for-You AI Front Desk",
+  title: "What's Included — The Ops by Noell Revenue Recovery System",
   description:
-    "A business line that never misses a call, three AI agents in the background, the dashboard that runs your front office, and done-for-you setup.",
-  ogTitle: "Stay focused on the client in front of you. We'll handle the phone.",
+    "Everything inside the revenue recovery system: a business line that never misses a call, three agents working in the background, the dashboard that runs your front office, and done-for-you setup.",
+  ogTitle: "Stay focused on the client in front of you. We'll handle the rest.",
   ogDescription:
-    "An AI front desk that answers your calls, books appointments, and texts customers — without losing the next booking.",
+    "The intelligence layer and agents that recover the revenue your booking software is about to lose — answering calls, booking appointments, and re-engaging clients before they ghost.",
 });
 
 type GetItem = {
