@@ -10,9 +10,9 @@ import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/book",
-  title: "Book a Free Audit Call",
+  title: "Get Your Free Revenue Signal Report",
   description:
-    "Tell us about your front desk. We reply within one business day with two or three times that work for a focused twenty-minute walkthrough.",
+    "Tell us what you use to book, where the front desk is leaking, and what kind of business you run. We will review it personally and reply within one business day with two or three times for a focused walkthrough.",
 });
 
 const bookFaqs: FaqItem[] = [
@@ -20,7 +20,7 @@ const bookFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. It is a working call. You will leave with a clear picture of what is leaking at the front of your business and whether a done-for-you AI front desk is a fit. If it is not, we will say so.",
+      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
   },
   {
     id: "switch-booking-systems",
@@ -57,21 +57,27 @@ const bookFaqs: FaqItem[] = [
 const whatHappensNext = [
   {
     number: "01",
-    title: "You send the form.",
+    title: "A real person reviews your booking flow.",
     detail:
-      "A real person on our team reads it, usually the same day, within one business day always.",
+      "Someone on our team reads what you sent, usually the same day, within one business day always.",
   },
   {
     number: "02",
-    title: "We reply with two or three times.",
+    title: "We reply with two or three working-call times.",
     detail:
       "By email or text, with windows that fit your schedule. You pick one.",
   },
   {
     number: "03",
-    title: "We walk your front desk.",
+    title: "We walk through the leaks on the call.",
     detail:
-      "On the call, we cover the leaks we already spotted from your booking flow and what we would install around your booking system.",
+      "We cover what we already spotted, estimate what those leaks may be worth, and answer your questions.",
+  },
+  {
+    number: "04",
+    title: "If it is a fit, you get a recommended track.",
+    detail:
+      "We map the right Ops by Noell track and install path. If it is not a fit, we will say so.",
   },
 ];
 
@@ -97,36 +103,46 @@ export default function BookPage() {
           The first step
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal">
-          Request a{" "}
+          Get your free{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            working call
-          </span>{" "}
-          with Ops by Noell.
+            Revenue Signal Report.
+          </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/80 text-base md:text-lg leading-relaxed">
-          Audits are scheduled personally right now. Tell us about your front
-          desk. We reply within one business day with two or three times that
-          work for a focused twenty-minute walkthrough.
+          Tell us what you use to book, where the front desk is leaking, and
+          what kind of business you run. We will review it personally and
+          reply within one business day with two or three times for a focused
+          walkthrough.
         </p>
       </section>
 
+      {/* Form intro */}
+      <section className="px-4 pt-8 pb-2">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-sm md:text-base text-charcoal/75 leading-relaxed">
+            The report starts here. Six quick details help us map your
+            missed-call, rebooking, and follow-up leaks before the call.
+          </p>
+        </div>
+      </section>
+
       {/* Form */}
-      <section className="px-4 pt-8 pb-10">
+      <section className="px-4 pt-4 pb-10">
         <BookRequestForm />
       </section>
 
-      {/* What happens next */}
+      {/* What happens after you send it */}
       <section className="px-4 py-14 md:py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
-              What happens next
+              What happens after you send it
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-tight">
               No widget. No queue. A human reply.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {whatHappensNext.map((step) => (
               <div
                 key={step.number}
@@ -144,6 +160,10 @@ export default function BookPage() {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-center text-xs md:text-sm text-charcoal/70 italic max-w-xl mx-auto leading-relaxed">
+            We do not chase. We do not add you to a list. If it is not a fit,
+            we will say so.
+          </p>
         </div>
       </section>
 
@@ -205,10 +225,12 @@ export default function BookPage() {
 
       <CTA
         eyebrow="Still thinking"
-        headlineStart="The working call is"
+        headlineStart="The Revenue Signal Report is"
         headlineAccent="here when you are."
         body="You can always come back. We do not chase, and we do not add you to a list."
-        trustLine="Twenty focused minutes. Personally scheduled."
+        trustLine="Free · Reviewed personally · Reply within one business day"
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        secondaryCta={null}
         sourcePage="book"
       />
     </div>

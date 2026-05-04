@@ -22,12 +22,12 @@ import {
 export const metadata = pageMetadata({
   path: "/",
   absoluteTitle: true,
-  title: "AI Front Desk for Local Service Businesses — Ops by Noell",
+  title: "Predictive Customer Intelligence for Service Businesses — Ops by Noell",
   description:
-    "Predictive Customer Intelligence for service businesses. Catch missed revenue, prioritize high-intent leads, and recover bookings before demand cools. Live in 14 days.",
+    "We find the clients, leads, and rebookings your booking software is about to lose, then deploy the agents that recover them. Get your free Revenue Signal Report.",
   ogTitle: "Ops by Noell — Predictive Customer Intelligence for Service Businesses",
   ogDescription:
-    "$960 recovered in 14 days. 75% fewer no-shows. The intelligence layer that catches revenue your booking software misses.",
+    "$960 recovered in 14 days. The intelligence layer that catches revenue your booking software misses. Free Revenue Signal Report.",
 });
 
 const homepageFaqs: FaqItem[] = [
@@ -35,7 +35,13 @@ const homepageFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. It is a working call. You will leave with a clear picture of what is leaking at the front of your business and whether a done-for-you AI front desk is a fit. If it is not, we will say so.",
+      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
+  },
+  {
+    id: "what-is-revenue-signal-report",
+    question: "What is the Revenue Signal Report?",
+    answer:
+      "A free review of where your front desk, booking flow, and follow-up system are leaking revenue. You tell us about your business and current tools, we review personally and reply within one business day with a focused walkthrough.",
   },
   {
     id: "switch-booking-systems",
@@ -86,15 +92,15 @@ export default function Home() {
 
       {/* 1. Hero */}
       <Hero
-        headlineLine1Start="The revenue your booking software"
-        headlineLine1Accent="never sees."
-        headlineLine2Start="We catch it before it"
-        headlineLine2Accent="walks out the door."
+        headlineLine1Start="Your booking software shows what happened."
+        headlineLine1Accent=""
+        headlineLine2Start="We show who is about to"
+        headlineLine2Accent="slip away."
         headlineLine2Smaller={false}
-        body="Predictive Customer Intelligence for service businesses. We score every client, lead, and rebooking four times a day, surface the ones about to slip, and recover them before they cool. Live in 14 days, running quietly around the booking system you already use."
-        footnote="Built for massage therapists, dental practices, med spas, salons, estheticians, and HVAC."
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
-        secondaryCta={{ label: "See what you’re losing", href: "/resources/revenue-calculator" }}
+        body="Ops by Noell finds the clients, leads, and rebookings your front desk is about to lose, then deploys AI agents that recover the revenue before it leaves your book."
+        footnote="Done for you. Built around the booking and practice management tools you already use. Live in 14 days."
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        secondaryCta={{ label: "See How It Works", href: "/predictive-customer-intelligence" }}
         showProofBar={false}
       />
 
@@ -104,32 +110,32 @@ export default function Home() {
       {/* 3. PCI band */}
       <PciBand />
 
-      {/* 4. ProofBar / #live-recovery */}
+      {/* 4. Predictive Customer Intelligence detail (moved up — PCI is the differentiator) */}
+      <PredictiveIntelligence />
+
+      {/* 5. ProofBar / #live-recovery */}
       <section className="w-full flex justify-center px-4 pb-12 md:pb-16">
         <ProofBar />
       </section>
 
-      {/* 5. Pick your path */}
+      {/* 6. Pick your path */}
       <PickYourPath />
 
-      {/* 6. Integration band */}
+      {/* 7. Integration band */}
       <IntegrationBand />
 
-      {/* 7. ROI Calculator */}
+      {/* 8. ROI Calculator */}
       <section className="w-full py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <ROICalculator />
         </div>
       </section>
 
-      {/* 8. Systems. Three agents, tight. */}
+      {/* 9. Systems. Three agents, tight. */}
       <Systems />
 
-      {/* 9. Full system features (kept from prior layout) */}
+      {/* 10. Full system features (kept from prior layout) */}
       <FullSystemFeatures />
-
-      {/* 10. Predictive Customer Intelligence detail */}
-      <PredictiveIntelligence />
 
       {/* 11. Proof. Santa case study block. */}
       <Testimonials />
@@ -140,16 +146,18 @@ export default function Home() {
         eyebrow="Questions"
         headlineStart="Straight"
         headlineAccent="answers."
-        body="Real questions from service business owners before they book a working call."
+        body="Real questions from service business owners before they request a Revenue Signal Report."
       />
 
       {/* 13. Final CTA band */}
       <CTA
         eyebrow="The first step"
-        headlineStart="Start with a"
-        headlineAccent="working call."
-        body="No pitch. No pressure. We walk your front desk and show you where warm intent is cooling off in your business."
-        trustLine="Twenty focused minutes. Personally scheduled."
+        headlineStart="Find the revenue your booking software is"
+        headlineAccent="missing."
+        body="In your free Revenue Signal Report, we map the leaks in your front desk, booking flow, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
+        trustLine="No pitch. No pressure. If it is not a fit, we will say so."
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
         sourcePage="home"
       />
     </div>

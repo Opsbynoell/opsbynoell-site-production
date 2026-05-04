@@ -53,7 +53,7 @@ export function PricingCard({
               </h3>
               {tier.isHighlighted && (
                 <span className="text-[10px] font-mono uppercase tracking-widest text-wine">
-                  most popular
+                  recommended
                 </span>
               )}
             </div>
@@ -111,9 +111,16 @@ export function PricingCard({
     >
       <div className="space-y-6 p-5 bg-cream rounded-[28px] shadow-[0px_95px_27px_0px_rgba(28,25,23,0.00),_0px_61px_24px_0px_rgba(28,25,23,0.03),_0px_34px_21px_0px_rgba(28,25,23,0.08),_0px_15px_15px_0px_rgba(28,25,23,0.12),_0px_4px_8px_0px_rgba(28,25,23,0.15)] pb-8 px-5">
         <div className="flex flex-col">
-          <h3 className="text-sm w-fit font-medium text-charcoal rounded-full border border-warm-border bg-white flex justify-center items-center px-4 py-1">
-            {tier.tier}
-          </h3>
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <h3 className="text-sm w-fit font-medium text-charcoal rounded-full border border-warm-border bg-white flex justify-center items-center px-4 py-1">
+              {tier.tier}
+            </h3>
+            {tier.isHighlighted && (
+              <span className="inline-flex items-center rounded-full bg-wine text-cream px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em]">
+                Recommended for revenue recovery
+              </span>
+            )}
+          </div>
           <div className="mt-3 flex items-baseline">
             <span className="font-serif text-4xl font-bold text-charcoal">
               {tier.priceFrom}

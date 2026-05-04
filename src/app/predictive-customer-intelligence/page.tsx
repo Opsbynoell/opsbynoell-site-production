@@ -19,12 +19,12 @@ export const metadata = pageMetadata({
   path: PATH,
   title: "Predictive Customer Intelligence for Service Businesses",
   description:
-    "Score every client, lead, and rebooking 4x daily. Surface revenue your booking software misses, then recover it before it cools. Free 30-minute audit.",
+    "Know who is about to ghost before your calendar shows the gap. We watch your leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface. Get your free Revenue Signal Report.",
   ogTitle: "Predictive Customer Intelligence for Service Businesses",
   ogDescription:
-    "Score every client, lead, and rebooking 4x daily. Recover revenue before it cools. Free audit.",
+    "Know who is about to ghost before your calendar shows the gap. Free Revenue Signal Report.",
   imageAlt:
-    "Predictive Customer Intelligence by Ops by Noell — score every client, lead, and rebooking before revenue walks out the door.",
+    "Predictive Customer Intelligence by Ops by Noell — know who is about to ghost before your calendar shows the gap.",
 });
 
 const SOURCE_PAGE = "predictive-customer-intelligence" as const;
@@ -201,9 +201,15 @@ const pciFaqs: FaqItem[] = [
   },
   {
     id: "pci-no-action",
-    question: "What if I don't act on the audit?",
+    question: "What if I don't act on the Revenue Signal Report?",
     answer:
       "You still walk away with a free, prioritized list of revenue you're leaving on the table. Take it, fix it yourself, and we part as friends.",
+  },
+  {
+    id: "pci-what-do-i-get",
+    question: "What do I get from the free Revenue Signal Report?",
+    answer:
+      "A clear map of where your front desk, booking flow, and follow-up system are leaking revenue, plus the recommended Ops by Noell track for recovering it.",
   },
   {
     id: "pci-cancel",
@@ -282,6 +288,156 @@ function CaseSummaryPanel() {
         </p>
       </div>
     </div>
+  );
+}
+
+function ComparisonBlock() {
+  const rows: { booking: string; pci: string }[] = [
+    {
+      booking: "A client has not rebooked.",
+      pci: "Which clients are drifting before they disappear.",
+    },
+    {
+      booking: "A lead did not schedule.",
+      pci: "Which dead leads are still warm enough to recover.",
+    },
+    {
+      booking: "A no-show happened.",
+      pci: "Which no-show needs which follow-up sequence.",
+    },
+    {
+      booking: "A service was booked.",
+      pci: "Which service mix signals higher lifetime value.",
+    },
+    {
+      booking: "A calendar has gaps.",
+      pci: "Which recovery action should be queued first.",
+    },
+  ];
+  return (
+    <section className="w-full px-4 py-20 md:py-28 bg-cream-dark/40">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14 max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+            Booking software vs. PCI
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            Your booking software tells you what happened.{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              PCI tells you what to do next.
+            </span>
+          </h2>
+        </div>
+
+        <div className="rounded-[22px] border border-warm-border bg-white overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 border-b border-warm-border bg-cream/60">
+            <div className="px-6 py-4 md:px-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70">
+                Your booking software shows
+              </p>
+            </div>
+            <div className="px-6 py-4 md:px-8 border-t md:border-t-0 md:border-l border-warm-border">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine">
+                Predictive Customer Intelligence catches
+              </p>
+            </div>
+          </div>
+          <ul className="divide-y divide-warm-border">
+            {rows.map((r) => (
+              <li
+                key={r.booking}
+                className="grid grid-cols-1 md:grid-cols-2"
+              >
+                <div className="px-6 py-5 md:px-8 text-charcoal/75 leading-relaxed">
+                  {r.booking}
+                </div>
+                <div className="px-6 py-5 md:px-8 border-t md:border-t-0 md:border-l border-warm-border text-charcoal leading-relaxed">
+                  {r.pci}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SampleSignalModule() {
+  const fields: { label: string; value: string }[] = [
+    { label: "Client", value: "Marina D." },
+    { label: "Signal", value: "Ghost-risk" },
+    { label: "Score", value: "87 / 100" },
+    { label: "Pattern", value: "Monthly client · last visit 41 days ago" },
+    { label: "Recommended action", value: "Send warm rebooking text" },
+    { label: "Agent", value: "Noell Care" },
+    { label: "Owner control", value: "One-click approval" },
+    { label: "Expected recovery", value: "$240 appointment" },
+  ];
+  return (
+    <section
+      id="sample-signal"
+      className="w-full px-4 py-20 md:py-28 scroll-mt-24"
+    >
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+            Sample Revenue Signal
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            Marina is three days past her usual{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              cadence.
+            </span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+          <div className="md:col-span-3 rounded-[22px] border border-warm-border bg-white shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] overflow-hidden">
+            <div className="px-6 py-4 md:px-7 bg-cream/60 border-b border-warm-border flex items-center justify-between">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine">
+                signal · ghost-risk
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70">
+                queued for review
+              </p>
+            </div>
+            <ul className="divide-y divide-warm-border">
+              {fields.map((f) => (
+                <li
+                  key={f.label}
+                  className="grid grid-cols-3 gap-4 px-6 py-4 md:px-7"
+                >
+                  <span className="col-span-1 font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70 self-center">
+                    {f.label}
+                  </span>
+                  <span className="col-span-2 text-sm md:text-base text-charcoal leading-relaxed">
+                    {f.value}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="md:col-span-2 rounded-[22px] border border-warm-border bg-cream-dark p-6 md:p-7">
+            <p className="font-serif text-lg md:text-xl text-charcoal leading-snug">
+              The owner does not need another dashboard. The signal appears
+              with the context, recommended message, and next action. Noell
+              Care can queue the outreach, send the approved follow-up, and
+              update the record when the client rebooks.
+            </p>
+            <div className="mt-6">
+              <Button
+                href="/book"
+                variant="primary"
+                className="h-11 px-6"
+              >
+                Show me my revenue signals
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -590,7 +746,7 @@ export default function PredictiveCustomerIntelligencePage() {
           servicePageSchema({
             name: "Predictive Customer Intelligence",
             description:
-              "Score every active client, lead, and rebooking 4x daily. Surface revenue your booking software misses, then queue the outreach that recovers it before demand cools.",
+              "Know who is about to ghost before your calendar shows the gap. Watches leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface, then queues the right recovery action for your agents.",
             path: PATH,
             serviceType: "Predictive customer intelligence for service businesses",
           }),
@@ -604,21 +760,25 @@ export default function PredictiveCustomerIntelligencePage() {
         ]}
       />
       <Hero
-        eyebrow="A systems agency · Ops by Noell · Intelligence layer"
-        headlineLine1Start="Predictive Customer"
-        headlineLine1Accent="Intelligence"
-        headlineLine2Start="for service businesses."
-        headlineLine2Accent=""
+        eyebrow="Predictive Customer Intelligence · Ops by Noell"
+        headlineLine1Start="Know who is about to"
+        headlineLine1Accent="ghost"
+        headlineLine2Start="before your calendar shows the"
+        headlineLine2Accent="gap."
         headlineLine2Smaller
-        body="We find the revenue your booking software is missing. Then we deploy the agents and the ads that recover it."
-        footnote=""
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
-        secondaryCta={{ label: "See how it works", href: "#how-it-works" }}
+        body="Ops by Noell watches your leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface. When a signal fires, the right recovery action is queued for your agents."
+        footnote="The same system recovered $960 in 14 days for a solo massage practice in Orange County."
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        secondaryCta={{ label: "See a Sample Signal", href: "#sample-signal" }}
         showProofBar={false}
         sourcePage={SOURCE_PAGE}
         sourceSection="hero"
         mockScreen={<PciMockScreen />}
       />
+
+      <ComparisonBlock />
+
+      <SampleSignalModule />
 
       <LiveSystemLog
         eyebrow="case: marina_d  /  signal > ghost-risk > 87"
@@ -641,21 +801,21 @@ export default function PredictiveCustomerIntelligencePage() {
 
       <Testimonials
         eyebrow="Proof"
-        headlineStart="The system that recovered $960 in 14 days for one massage therapist"
-        headlineAccent="runs the same way for you."
-        body="Santa, owner of Healing Hands by Santa, a licensed massage therapist in Laguna Niguel, went from digital patchwork to a system that watched her client patterns, caught her missed calls, and protected her calendar. Inside 14 days, the system had paid for itself."
-        ctaLabel="Book your free audit"
+        headlineStart="The first proof came from a"
+        headlineAccent="solo practice."
+        body="Healing Hands by Santa recovered $960 in 14 days after Ops by Noell caught missed-call and booking-flow leakage. The next step is turning that same recovery logic into Revenue Signal Reports for every service business vertical we serve."
+        ctaLabel="Get your Revenue Signal Report"
         sourcePage={SOURCE_PAGE}
         sourceSection="proof"
       />
 
       <CTA
         eyebrow="The first step"
-        headlineStart="Start with a"
-        headlineAccent="free 30-minute audit."
-        body="No pitch. No pressure. A clear map of where leads, clients, and rebookings are falling through, whether you work with us or not."
-        trustLine="Free · 30 minutes · Live in 14 days"
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        headlineStart="Find the revenue before it"
+        headlineAccent="leaves."
+        body="Your first Revenue Signal Report shows what your booking software is not telling you yet. No pitch. No pressure. If it is not a fit, we will say so."
+        trustLine="Free · Reviewed personally · Reply within one business day"
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={null}
         sourcePage={SOURCE_PAGE}
         sourceSection="offer"
@@ -675,9 +835,9 @@ export default function PredictiveCustomerIntelligencePage() {
         eyebrow=""
         headlineStart="The revenue is"
         headlineAccent="already yours."
-        body="Spend 30 minutes. Get the map of what's leaking. Decide what's next from there."
+        body="Spend a few minutes. Get the map of what's leaking. Decide what's next from there."
         trustLine=""
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={null}
         sourcePage={SOURCE_PAGE}
         sourceSection="final"

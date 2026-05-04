@@ -34,12 +34,13 @@ interface NavbarProps {
 export const Navbar = () => {
   const navItems = [
     { name: "Home", link: "/" },
+    { name: "PCI", link: "/predictive-customer-intelligence" },
     { name: "Systems", link: "/systems" },
-    { name: "About", link: "/about" },
     { name: "Verticals", link: "/verticals" },
     { name: "Agents", link: "/agents" },
     { name: "What You Get", link: "/what-you-get" },
     { name: "Pricing", link: "/pricing" },
+    { name: "About", link: "/about" },
     { name: "Noell Support", link: "/noell-support", isAccent: true },
     { name: "Book", link: "/book" },
   ];
@@ -241,11 +242,11 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
               onClick={() =>
                 trackAuditCtaClick("navbar", "navbar_primary", {
                   destination: "/book",
-                  cta_label: "Get Your Free Audit",
+                  cta_label: "Free Revenue Signal Report",
                 })
               }
             >
-              Get Your Free Audit
+              Free Revenue Signal Report
             </Button>
           </motion.div>
         )}
@@ -343,11 +344,11 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
               onClick={() =>
                 trackAuditCtaClick("navbar", "navbar_mobile", {
                   destination: "/book",
-                  cta_label: "Get Your Free Audit",
+                  cta_label: "Free Revenue Signal Report",
                 })
               }
             >
-              Get Your Free Audit
+              Free Revenue Signal Report
             </Button>
           </motion.div>
         )}
