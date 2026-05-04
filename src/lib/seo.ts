@@ -22,6 +22,12 @@ export type PageSeoInput = {
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
+  /**
+   * If true, the page's title is rendered exactly as given without the
+   * parent layout's "%s | Ops by Noell" suffix template. Use for the
+   * homepage and any page whose title already contains the brand name.
+   */
+  absoluteTitle?: boolean;
 };
 
 export function pageMetadata(input: PageSeoInput): Metadata {
@@ -32,7 +38,9 @@ export function pageMetadata(input: PageSeoInput): Metadata {
   const ogDescription = input.ogDescription ?? input.description;
 
   const meta: Metadata = {
-    title: input.title,
+    title: input.absoluteTitle
+      ? { absolute: input.title }
+      : input.title,
     description: input.description,
     alternates: { canonical: url },
     openGraph: {

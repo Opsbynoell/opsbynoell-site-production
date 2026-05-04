@@ -94,12 +94,19 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
       aria-label="Request a working call"
     >
       <div className="rounded-[22px] border border-warm-border bg-white p-7 md:p-9 max-w-2xl mx-auto shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+        <p className="text-xs text-charcoal/70 mb-5">
+          All fields marked <span aria-hidden="true" className="text-wine">*</span> are required.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">Name</span>
+            <span className="block text-sm text-charcoal/80 mb-2">
+              Name <span aria-hidden="true" className="text-wine">*</span>
+              <span className="sr-only"> (required)</span>
+            </span>
             <input
               type="text"
               required
+              aria-required="true"
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoComplete="name"
@@ -107,10 +114,14 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             />
           </label>
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">Business name</span>
+            <span className="block text-sm text-charcoal/80 mb-2">
+              Business name <span aria-hidden="true" className="text-wine">*</span>
+              <span className="sr-only"> (required)</span>
+            </span>
             <input
               type="text"
               required
+              aria-required="true"
               value={business}
               onChange={(e) => setBusiness(e.target.value)}
               autoComplete="organization"
@@ -118,10 +129,14 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             />
           </label>
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">Phone</span>
+            <span className="block text-sm text-charcoal/80 mb-2">
+              Phone <span aria-hidden="true" className="text-wine">*</span>
+              <span className="sr-only"> (required)</span>
+            </span>
             <input
               type="tel"
               required
+              aria-required="true"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               autoComplete="tel"
@@ -129,10 +144,14 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             />
           </label>
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">Email</span>
+            <span className="block text-sm text-charcoal/80 mb-2">
+              Email <span aria-hidden="true" className="text-wine">*</span>
+              <span className="sr-only"> (required)</span>
+            </span>
             <input
               type="email"
               required
+              aria-required="true"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
@@ -143,11 +162,14 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
 
         <label className="block mt-5">
           <span className="block text-sm text-charcoal/80 mb-2">
-            Current booking or practice management software
+            Current booking or practice management software{" "}
+            <span aria-hidden="true" className="text-wine">*</span>
+            <span className="sr-only"> (required)</span>
           </span>
           <input
             type="text"
             required
+            aria-required="true"
             value={bookingSystem}
             onChange={(e) => setBookingSystem(e.target.value)}
             placeholder="What you use to manage appointments"
@@ -158,10 +180,13 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
 
         <label className="block mt-5">
           <span className="block text-sm text-charcoal/80 mb-2">
-            One sentence on what is leaking at the front desk right now.
+            One sentence on what is leaking at the front desk right now.{" "}
+            <span aria-hidden="true" className="text-wine">*</span>
+            <span className="sr-only"> (required)</span>
           </span>
           <textarea
             required
+            aria-required="true"
             value={leakDescription}
             onChange={(e) => setLeakDescription(e.target.value)}
             rows={3}

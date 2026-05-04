@@ -77,9 +77,16 @@ export function Features({
               <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/70 mb-2">
                 {stat.label}
               </p>
-              <h3 className="font-serif text-4xl md:text-5xl font-bold mb-2 text-charcoal">
+              {/* Visually a heading-sized number, but it is a metric callout,
+                  not a real document heading. Using <p> keeps the heading
+                  outline accurate so screen readers do not announce
+                  "72h", "3x", "<90s" as section headings. */}
+              <p
+                className="font-serif text-4xl md:text-5xl font-bold mb-2 text-charcoal"
+                aria-label={`${stat.value} ${stat.label}`}
+              >
                 {stat.value}
-              </h3>
+              </p>
               <p className="text-sm text-charcoal/75 leading-relaxed">
                 {stat.detail}
               </p>

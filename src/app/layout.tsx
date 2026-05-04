@@ -9,6 +9,11 @@ import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
 import "./globals.css";
 
+// Block Vercel preview/branch deployments from being indexed. Production
+// (VERCEL_ENV=production or absent in local builds) stays indexable.
+const IS_NON_PROD_VERCEL_ENV =
+  !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -66,17 +71,19 @@ export const metadata: Metadata = {
       "Done-for-you AI operations for service businesses. Catch missed calls, follow up instantly, keep the calendar full.",
     images: [absoluteUrl(DEFAULT_OG_IMAGE)],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: IS_NON_PROD_VERCEL_ENV
+    ? { index: false, follow: false, googleBot: { index: false, follow: false } }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      },
 };
 
 export default function RootLayout({

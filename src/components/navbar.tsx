@@ -211,7 +211,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
                         <Link
                           href="/verticals"
                           onClick={() => setVerticalsOpen(false)}
-                          className="block px-3 py-2 text-xs text-wine/70 hover:text-wine hover:bg-blush rounded-xl transition-colors font-medium"
+                          className="block px-3 py-2 text-xs text-wine/85 hover:text-wine hover:bg-blush rounded-xl transition-colors font-medium"
                         >
                           View all verticals &rarr;
                         </Link>

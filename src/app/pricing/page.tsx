@@ -19,9 +19,9 @@ import {
 
 export const metadata = pageMetadata({
   path: "/pricing",
-  title: "Pricing",
+  title: "Pricing — AI Front Desk for Service Businesses",
   description:
-    "Two tracks. Noell Agents at $197/mo founding rate, or the full Noell System — Essentials $197/mo, Growth $797/mo, Custom Ops $1,497/mo. Each tier includes a one-time setup.",
+    "Two tracks. Noell Agents at $197/mo founding rate, or the full Noell System — Essentials $197, Growth $797, Custom Ops $1,497/mo.",
 });
 
 const pricingFaqs: FaqItem[] = [

@@ -21,12 +21,13 @@ import {
 
 export const metadata = pageMetadata({
   path: "/",
+  absoluteTitle: true,
   title: "AI Front Desk for Local Service Businesses — Ops by Noell",
   description:
-    "Done-for-you AI front desk for massage therapists, dental practices, med spas, and local service businesses. Missed-call recovery, booking automation, client reactivation — installed in 14 days.",
-  ogTitle: "Ops by Noell — AI Front Desk That Keeps Your Business Moving",
+    "Predictive Customer Intelligence for service businesses. Catch missed revenue, prioritize high-intent leads, and recover bookings before demand cools. Live in 14 days.",
+  ogTitle: "Ops by Noell — Predictive Customer Intelligence for Service Businesses",
   ogDescription:
-    "$960 recovered in 14 days. 75% fewer no-shows. We build the front desk layer your business needs.",
+    "$960 recovered in 14 days. 75% fewer no-shows. The intelligence layer that catches revenue your booking software misses.",
 });
 
 const homepageFaqs: FaqItem[] = [
@@ -85,15 +86,15 @@ export default function Home() {
 
       {/* 1. Hero */}
       <Hero
-        headlineLine1Start="You’re losing clients between"
-        headlineLine1Accent="appointments."
-        headlineLine2Start="We build the systems"
-        headlineLine2Accent="that stop that."
+        headlineLine1Start="The revenue your booking software"
+        headlineLine1Accent="never sees."
+        headlineLine2Start="We catch it before it"
+        headlineLine2Accent="walks out the door."
         headlineLine2Smaller={false}
-        body="Every missed call, every no-show, every slow follow-up is revenue walking out the door. We build done-for-you AI front desks for massage therapists, dental practices, med spas, and local service businesses — installed in 14 days, running in the background while you do the work you’re actually good at."
-        footnote="Done for you. Built around the booking and practice management software your business already uses."
-        primaryCta={{ label: "See What You’re Losing", href: "/resources/revenue-calculator" }}
-        secondaryCta={{ label: "Book a Free Audit", href: "/book" }}
+        body="Predictive Customer Intelligence for service businesses. We score every client, lead, and rebooking four times a day, surface the ones about to slip, and recover them before they cool. Live in 14 days, running quietly around the booking system you already use."
+        footnote="Built for massage therapists, dental practices, med spas, salons, estheticians, and HVAC."
+        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        secondaryCta={{ label: "See what you’re losing", href: "/resources/revenue-calculator" }}
         showProofBar={false}
       />
 

@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside the booking tool you already use. Founding rate $197/mo, locked for 24 months.",
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $197/mo.",
   ogTitle: "Noell Agents — AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
@@ -224,7 +224,7 @@ export default function AgentsPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/70 mb-1">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
                   {agent.eyebrow}
                 </p>
                 <h3 className="font-serif text-2xl font-semibold text-charcoal mb-3">

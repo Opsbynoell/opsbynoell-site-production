@@ -24,6 +24,16 @@ const resources: Resource[] = [
   {
     kind: "Article",
     status: "live",
+    title:
+      "How much are massage therapist no-shows actually costing you? The real math",
+    excerpt:
+      "Industry data puts massage no-show rates near 18% without reminders. The real revenue math, the 48-hour recovery window, and what to do inside it.",
+    href: "/resources/massage-therapist-no-show-cost",
+    minutes: "7 min",
+  },
+  {
+    kind: "Article",
+    status: "live",
     title: "From missed calls to missed bookings",
     excerpt:
       "Warm intent cools off quietly. The leak between the first ring and the empty chair — and what a full front desk layer actually does about it.",

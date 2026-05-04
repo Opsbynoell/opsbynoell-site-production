@@ -128,7 +128,7 @@ const frontDeskScreen = (
 
     {/* Confirmation */}
     <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
-      <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+      <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
         Booking confirmed
       </p>
       <p className="text-sm text-charcoal font-medium mt-0.5">
@@ -139,7 +139,7 @@ const frontDeskScreen = (
 
     {/* Reminder */}
     <div className="bg-cream-dark rounded-2xl p-3 mx-1 mt-2 border border-warm-border/60 shadow-sm">
-      <p className="text-[10px] uppercase tracking-widest text-wine/70 font-medium">
+      <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
         Reminder sent
       </p>
       <p className="text-[11px] text-charcoal/80 mt-1 leading-snug">

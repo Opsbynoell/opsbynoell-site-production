@@ -3,7 +3,10 @@ import { SantaProofBlock } from "@/components/santa-proof-block";
 import CTA from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  calculatorApplicationSchema,
+} from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/resources/revenue-calculator",
@@ -19,11 +22,19 @@ export default function RevenueCalculatorPage() {
   return (
     <div id="main-content">
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Resources", path: "/resources" },
-          { name: "Revenue Calculator", path: "/resources/revenue-calculator" },
-        ])}
+        data={[
+          calculatorApplicationSchema({
+            name: "Service Business Revenue Calculator",
+            description:
+              "Estimate revenue lost to missed calls and no-shows for service businesses, with the recovery a managed AI front desk would return.",
+            path: "/resources/revenue-calculator",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Resources", path: "/resources" },
+            { name: "Revenue Calculator", path: "/resources/revenue-calculator" },
+          ]),
+        ]}
         id="revenue-calculator"
       />
 

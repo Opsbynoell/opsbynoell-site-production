@@ -43,7 +43,7 @@ export function SantaProofBlock({ className }: SantaProofBlockProps) {
             Now I open my calendar and it’s just full. The reminders go out and people show up.
             I don’t think about it anymore.”
           </p>
-          <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/60">
+          <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/80">
             Santa E. · Licensed Massage Therapist · Laguna Niguel CA
           </footer>
         </blockquote>
