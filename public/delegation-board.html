@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Late-Night Delegation Board</title>
+<style>
+  :root {
+    --wine: #6A2C3E;
+    --wine-light: #8B3A52;
+    --wine-dark: #4A1E2B;
+    --bg: #0F0D0E;
+    --bg-elev: #1A1618;
+    --bg-card: #221C1F;
+    --bg-hover: #2C2428;
+    --border: #3A2F33;
+    --text: #F5EFEC;
+    --text-dim: #B8A8AD;
+    --text-muted: #7A6B70;
+    --p0: #E63946;
+    --p1: #F4A261;
+    --p2: #6FA8DC;
+    --green: #6FCF97;
+    --yellow: #F2C94C;
+    --code-bg: #15100F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  .container { max-width: 1500px; margin: 0 auto; padding: 24px; }
+
+  header { margin-bottom: 24px; }
+  .title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .subtitle { color: var(--text-dim); font-size: 14px; }
+  .timestamp { color: var(--text-muted); font-size: 12px; margin-left: auto; }
+
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+  .kpi {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .kpi-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-value { font-size: 24px; font-weight: 700; margin-top: 4px; }
+  .kpi.p0 .kpi-value { color: var(--p0); }
+  .kpi.p1 .kpi-value { color: var(--p1); }
+  .kpi.p2 .kpi-value { color: var(--p2); }
+  .kpi.blocked .kpi-value { color: var(--yellow); }
+
+  .toolbar {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .filter-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; min-width: 60px; }
+  .pill {
+    background: var(--bg-card);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .pill:hover { background: var(--bg-hover); color: var(--text); }
+  .pill.active { background: var(--wine); border-color: var(--wine-light); color: white; }
+  .pill .count { color: var(--text-muted); margin-left: 6px; font-size: 11px; }
+  .pill.active .count { color: rgba(255,255,255,0.7); }
+
+  .search-row { display: flex; gap: 8px; align-items: center; }
+  input[type="text"] {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  input[type="text"]:focus { outline: none; border-color: var(--wine-light); }
+  button {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  button:hover { background: var(--bg-hover); border-color: var(--wine-light); }
+  button.primary { background: var(--wine); border-color: var(--wine-light); }
+  button.primary:hover { background: var(--wine-light); }
+
+  .section { margin-bottom: 32px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0 16px;
+    border-bottom: 2px solid var(--wine);
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .section-header h2 { font-size: 18px; font-weight: 600; }
+  .section-count {
+    background: var(--bg-card);
+    color: var(--text-dim);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  .section-toggle {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+  .section.collapsed .section-toggle { transform: rotate(-90deg); }
+  .section.collapsed .task-grid { display: none; }
+
+  .task-grid { display: grid; gap: 10px; }
+
+  .task-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .task-card:hover { background: var(--bg-hover); border-color: var(--wine-light); }
+  .task-card.p-p0 { border-left-color: var(--p0); }
+  .task-card.p-p1 { border-left-color: var(--p1); }
+  .task-card.p-p2 { border-left-color: var(--p2); }
+
+  .task-row { display: flex; align-items: flex-start; gap: 12px; }
+  .priority-badge {
+    background: var(--p2);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .priority-badge.p0 { background: var(--p0); }
+  .priority-badge.p1 { background: var(--p1); }
+  .priority-badge.p2 { background: var(--p2); }
+
+  .task-main { flex: 1; min-width: 0; }
+  .task-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 12px;
+    color: var(--text-dim);
+    align-items: center;
+  }
+  .meta-item { display: inline-flex; align-items: center; gap: 4px; }
+  .meta-label { color: var(--text-muted); }
+  .lane-tag {
+    background: var(--wine-dark);
+    color: var(--text);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+
+  .task-details {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .task-card.expanded .task-details { display: block; }
+  .detail-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .detail-label {
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 90px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .detail-value { color: var(--text); flex: 1; }
+  .detail-value a { color: var(--wine-light); text-decoration: none; }
+  .detail-value a:hover { text-decoration: underline; }
+  .blocker-warning { color: var(--yellow); }
+
+  .source-link {
+    color: var(--wine-light);
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 24px;
+  }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .modal h3 { font-size: 18px; font-weight: 600; }
+  .close-btn { background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; padding: 0 8px; }
+  .close-btn:hover { color: var(--text); background: transparent; }
+
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text);
+    font-family: 'SF Mono', Monaco, Consolas, monospace;
+  }
+
+  .lane-rules-grid { display: grid; gap: 12px; margin-top: 12px; }
+  .lane-rule {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .lane-rule h4 { color: var(--wine-light); font-size: 13px; margin-bottom: 4px; }
+  .lane-rule p { color: var(--text-dim); font-size: 12px; }
+
+  .quick-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* Parking lot */
+  .parking-lot {
+    background: var(--bg-elev);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+  }
+  .parking-lot h3 { font-size: 14px; color: var(--text-dim); margin-bottom: 12px; }
+  .parking-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .parking-item:last-child { border: none; }
+  .parking-item strong { color: var(--text); }
+
+  @media (max-width: 768px) {
+    .container { padding: 12px; }
+    h1 { font-size: 22px; }
+    .filter-group { flex-direction: column; align-items: flex-start; }
+    .quick-actions { flex-direction: column; }
+    .quick-actions button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="title-row">
+      <h1>Late-Night Delegation Board</h1>
+      <span class="subtitle">Lane rules first. Then work the queue top to bottom.</span>
+      <span class="timestamp" id="timestamp"></span>
+    </div>
+  </header>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <div class="toolbar">
+    <div class="search-row">
+      <input type="text" id="search" placeholder="Search tasks, owners, blockers...">
+      <button id="btnLaneRules">Lane rules</button>
+      <button id="btnHandoffs" class="primary">Handoff prompts</button>
+      <button id="btnReset">Reset</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Priority</span>
+      <span class="pill priority-filter active" data-value="all">All</span>
+      <span class="pill priority-filter" data-value="P0">P0</span>
+      <span class="pill priority-filter" data-value="P1">P1</span>
+      <span class="pill priority-filter" data-value="P2">P2</span>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Lane</span>
+      <span class="pill lane-filter active" data-value="all">All</span>
+      <span class="pill lane-filter" data-value="Browser work">Browser work</span>
+      <span class="pill lane-filter" data-value="Code changes">Code changes</span>
+      <span class="pill lane-filter" data-value="Writing">Writing</span>
+      <span class="pill lane-filter" data-value="Research">Research</span>
+      <span class="pill lane-filter" data-value="Nikki decision">Nikki decision</span>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Owner</span>
+      <span class="pill owner-filter active" data-value="all">All</span>
+      <span class="pill owner-filter" data-value="Perplexity">Perplexity Computer</span>
+      <span class="pill owner-filter" data-value="Claude Code">Claude Code</span>
+      <span class="pill owner-filter" data-value="Claude Cowork">Claude Cowork</span>
+      <span class="pill owner-filter" data-value="Nikki">Nikki</span>
+    </div>
+  </div>
+
+  <div id="board"></div>
+
+  <div class="parking-lot">
+    <h3>Parking lot — resume only when trigger fires</h3>
+    <div class="parking-item"><strong>Peptide blend / supplier research</strong> — Resume when purchase or supplier decision is on deck. Keep separate from build-night board.</div>
+    <div class="parking-item"><strong>LabCorp bloodwork / ferritin follow-up</strong> — Resume when comparing labs or preparing provider questions. Use health-specific lane.</div>
+    <div class="parking-item"><strong>Sleep / white-noise / meditation automation research</strong> — Resume when Sleep When It Hurts content factory becomes P1 again.</div>
+    <div class="parking-item"><strong>Notion backup / session archival check</strong> — Resume when documentation hygiene becomes the focus.</div>
+  </div>
+</div>
+
+<!-- Lane Rules Modal -->
+<div class="modal-overlay" id="laneRulesModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Lane rules</h3>
+      <button class="close-btn" data-close>&times;</button>
+    </div>
+    <div class="lane-rules-grid" id="laneRulesContent"></div>
+  </div>
+</div>
+
+<!-- Handoff Prompts Modal -->
+<div class="modal-overlay" id="handoffsModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Handoff prompts</h3>
+      <button class="close-btn" data-close>&times;</button>
+    </div>
+    <div id="handoffsContent"></div>
+  </div>
+</div>
+
+<script>
+const TASKS = [
+  // Ops by Noell website and offer system
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Launch Night Execution: Website First", lane: "Browser work plus coordination", owner: "Perplexity Computer", inputs: "Live site, ClickUp launch checklist, GitHub repo", action: "Keep only website blockers in scope tonight, capture findings, and dispatch code/copy tasks", status: "In progress", source: "https://app.clickup.com/t/86b9ct0y0", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Full-page screenshot audit of www.opsbynoell.com", lane: "Browser work", owner: "Perplexity Computer", inputs: "Site URL, CSS override to disable animations", action: "Capture desktop and mobile full-page screenshots and note section-level issues", status: "Urgent", source: "https://app.clickup.com/t/86b9cj2zh", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Finalize website correction pass", lane: "Browser work plus writing plus code changes", owner: "Perplexity Computer coordinates, Claude Cowork drafts, Claude Code implements", inputs: "Screenshots, audit notes, accepted brand direction", action: "Convert audit into precise copy, color, layout, and responsive fixes", status: "Urgent", source: "https://app.clickup.com/t/86b9cgucq", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Rewrite homepage copy from features-based to pain-mirroring", lane: "Writing", owner: "Claude Cowork", inputs: "Locked hero headline, self-reference effect, current homepage copy", action: "Draft replacement copy section by section for approval or implementation", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0n5", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Replace all teal with Wine #6A2C3E", lane: "Code changes", owner: "Claude Code", inputs: "Repo: Opsbynoell/opsbynoell-site-production (main). Tailwind config, CSS variables, Analog Signal color system", action: "Search all teal instances, apply Wine palette, run build, push to main", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0mw", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Update site pricing to entry offer", lane: "Code changes", owner: "Claude Code", inputs: "Repo: Opsbynoell/opsbynoell-site-production. Entry offer: $297 setup plus $197/month", action: "Update pricing components and verify all visible pricing", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0rp", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P0", title: "Fix pricing and offer ladder", lane: "Writing plus Nikki decision", owner: "Claude Cowork drafts, Nikki approves", inputs: "Current offer structure and final price points", action: "Lock offer ladder copy before code changes beyond entry pricing", status: "Urgent", source: "https://app.clickup.com/t/86b9cgucn", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Add Digital Foundation Add-On", lane: "Code changes", owner: "Claude Code", inputs: "Repo: Opsbynoell/opsbynoell-site-production. $497 one-time add-on copy and pricing page location", action: "Add add-on to pricing page and confirm deploy", status: "High", source: "https://app.clickup.com/t/86b9ch0t1", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Audit all CTAs point to /book", lane: "Browser work", owner: "Perplexity Computer", inputs: "Live site and expected destination", action: "Click every CTA and record mismatches with screenshots", status: "High", source: "https://app.clickup.com/t/86b9cj2zr", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "SEO audit: meta tags, OG tags, sitemap, robots.txt", lane: "Browser work", owner: "Perplexity Computer", inputs: "Live site and social preview checker", action: "Check title/meta/OG/sitemap/robots and identify missing items", status: "High", source: "https://app.clickup.com/t/86b9cj2zx", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Verify Vercel deployment pipeline after color swap", lane: "Browser work", owner: "Perplexity Computer", inputs: "Repo: Opsbynoell/opsbynoell-site-production. Vercel project: opsbynoell-marketing-review. Live pages: www.opsbynoell.com", action: "Confirm auto-deploy from main and pages render with new palette", status: "High", source: "https://app.clickup.com/t/86b9ch0ne", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Drop full-page screenshots for below-fold site audit", lane: "Browser work", owner: "Perplexity Computer", inputs: "CSS override and live site", action: "Capture below-fold sections after disabling animations", status: "High", source: "https://app.clickup.com/t/86b9ch0n9", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Review hero section: locked headline and CTA", lane: "Browser work", owner: "Perplexity Computer", inputs: "Locked headline and /book CTA destination", action: "Verify headline, CTA, styling, and mobile behavior", status: "High", source: "https://app.clickup.com/t/86b9ch0pd", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P1", title: "Match live site to Figma moodboard", lane: "Browser work plus writing", owner: "Perplexity Computer", inputs: "Figma moodboard slide 4/page 14 and site screenshots", action: "Create gap list for typography, palette, spacing, image treatment", status: "High", source: "https://app.clickup.com/t/86b9ch0nh", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P2", title: "Confirm Bridge table section renders correctly", lane: "Browser work", owner: "Perplexity Computer", inputs: "Live section and intended AIM-era mapping", action: "Check desktop and mobile rendering", status: "Normal", source: "https://app.clickup.com/t/86b9ch0p0", sourceLabel: "ClickUp" },
+  { section: "Ops by Noell website and offer system", priority: "P2", title: "Competitive audit of top 5 AI automation agency sites", lane: "Research", owner: "Perplexity Computer", inputs: "Target: local service business AI automation agencies", action: "Identify 5 competitors, screenshot homepages, compare pricing, hero, CTA, lead capture", status: "Normal", source: "https://app.clickup.com/t/86b9cj305", sourceLabel: "ClickUp" },
+
+  // AI Front Desk and Noell Agents
+  { section: "AI Front Desk and Noell Agents", priority: "P0", title: "End-to-end test: visitor to Noell Support to lead captured to GHL notification", lane: "Browser work", owner: "Perplexity Computer", inputs: "Live site, Supabase, GHL, Telegram", action: "Run full smoke test and document every system handoff", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0qv", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P0", title: "Test Noell Support chat widget live with screenshots", lane: "Browser work", owner: "Perplexity Computer", inputs: "Live site and prospect persona", action: "Run full dental-practice-owner conversation and capture every step", status: "Urgent", source: "https://app.clickup.com/t/86b9cj309", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P0", title: "Verify Noell Support to GHL lead flow", lane: "Browser work plus data verification", owner: "Perplexity Computer", inputs: "Supabase tables, GHL location, test lead", action: "Confirm chat lead stores in Supabase and syncs to GHL contact", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0r9", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P0", title: "Confirm Noell Support widget script tag embed works", lane: "Browser work", owner: "Perplexity Computer", inputs: "Script tag, live site, desktop/mobile", action: "Verify widget renders and opens correctly", status: "Urgent", source: "https://app.clickup.com/t/86b9ch0qb", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Confirm Telegram notification fires on new Noell Support lead", lane: "Browser work plus data verification", owner: "Perplexity Computer", inputs: "Noell Agents Telegram notification path, test lead", action: "Trigger lead and confirm notification content", status: "High", source: "https://app.clickup.com/t/86b9ch0r3", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Test Noell Support widget on mobile browsers", lane: "Browser work", owner: "Perplexity Computer", inputs: "iOS Safari and Chrome Android or emulation", action: "Test open state, input, keyboard overlap, lead capture", status: "High", source: "https://app.clickup.com/t/86b9ch0qx", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Verify Noell Support widget renders on mobile viewport", lane: "Browser work", owner: "Perplexity Computer", inputs: "375px iPhone and 412px Android viewports", action: "Screenshot each widget state and record usability issues", status: "High", source: "https://app.clickup.com/t/86b9cj30b", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Lock AI Front Desk and Noell Agents product truth", lane: "Writing plus Nikki decision", owner: "Claude Cowork drafts, Nikki approves", inputs: "Product truth, target user, proof points, public agent names", action: "Draft single source of truth and get Nikki yes/no/adjust", status: "Urgent", source: "https://app.clickup.com/t/86b9cgucm", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Document AI Front Desk feature set and positioning", lane: "Writing", owner: "Claude Cowork", inputs: "Current Noell Support behavior, offer ladder, homepage terminology", action: "Produce positioning doc for website and sales use", status: "High", source: "https://app.clickup.com/t/86b9ch0qk", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Define Noell Front Desk scope", lane: "Nikki decision", owner: "Nikki", inputs: "Noell Support vs Noell Front Desk vs Noell Care options", action: "Decide what Noell Front Desk covers before anyone documents or builds", status: "High", source: "https://app.clickup.com/t/86b9cgucp", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Differentiate Noell Support, Noell Front Desk, and Noell Care", lane: "Writing plus Nikki decision", owner: "Claude Cowork drafts, Nikki approves", inputs: "Scope decision and feature inventory", action: "Draft feature split, then get approval", status: "High", source: "https://app.clickup.com/t/86b9ch0rc", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P1", title: "Define missed-call text-back flow in GHL", lane: "Code changes or browser work", owner: "Claude Code", inputs: "GHL workflow requirements and entry offer", action: "Build or configure reliable missed-call text-back before selling", status: "High", source: "https://app.clickup.com/t/86b9ch0rh", sourceLabel: "ClickUp" },
+  { section: "AI Front Desk and Noell Agents", priority: "P2", title: "Build review generation workflow in GHL", lane: "Code changes or browser work", owner: "Claude Code", inputs: "Post-appointment trigger and review request copy", action: "Build reusable GHL workflow for Santa and future clients", status: "Normal", source: "https://app.clickup.com/t/86b9ch0rk", sourceLabel: "ClickUp" },
+
+  // Outreach, ads, and content
+  { section: "Outreach, ads, and content", priority: "P0", title: "Configure DNS on 5 Namecheap cold email sending domains", lane: "Browser work", owner: "Perplexity Computer", inputs: "opsbynoell.net, .org, .online, .site, .space; SPF/DKIM/DMARC records", action: "Add DNS records and document each domain status", status: "High, blocks Instantly warmup", source: "https://app.clickup.com/t/86b9ch0u4", sourceLabel: "ClickUp", blocked: true },
+  { section: "Outreach, ads, and content", priority: "P0", title: "Complete Instantly domain warmup", lane: "Browser work", owner: "Perplexity Computer", inputs: "Five sending domains and Instantly account", action: "Confirm domains are connected and warmup is running", status: "High, blocked by DNS", source: "https://app.clickup.com/t/86b9ch0um", sourceLabel: "ClickUp", blocked: true },
+  { section: "Outreach, ads, and content", priority: "P1", title: "Verify domain warmup status in Instantly", lane: "Browser work", owner: "Perplexity Computer", inputs: "Instantly dashboard", action: "Check deliverability scores and warmup progress", status: "Normal, after DNS", source: "https://app.clickup.com/t/86b9ch0u9", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P1", title: "Research OC dental practices for cold email", lane: "Research", owner: "Perplexity Computer", inputs: "Orange County, CA; solo/small practices; 50+ target", action: "Build lead table with business, contact, site, reviews, owner if available", status: "High", source: "https://app.clickup.com/t/86b9cj30n", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P1", title: "Run Apify Google Maps scraper for OC service businesses", lane: "Browser work plus research", owner: "Perplexity Computer", inputs: "Target verticals: dental, med spa, salon, chiropractic", action: "Produce structured Google Maps lead list for Instantly", status: "Normal", source: "https://app.clickup.com/t/86b9ch0uq", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P1", title: "Build first cold email sequence targeting OC dental", lane: "Writing", owner: "Claude Cowork", inputs: "Lead list, pain point, CTA to /book", action: "Write 3 to 5 email sequence after warmup is ready", status: "Normal, blocked by warmup", source: "https://app.clickup.com/t/86b9ch0up", sourceLabel: "ClickUp", blocked: true },
+  { section: "Outreach, ads, and content", priority: "P2", title: "Set up Meta Ads A/B/C split to AI Front Desk landing page", lane: "Browser work plus writing", owner: "Nikki future, with Perplexity support", inputs: "Budget, ads manager, creative concepts, final campaign landing URL", action: "Defer until month 3+ unless Nikki overrides", status: "Low, deferred", source: "https://app.clickup.com/t/86b9ch0uv", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P2", title: "Research Sunday Scaries Instagram angle", lane: "Research", owner: "Perplexity Computer", inputs: "Solo service business owner audience", action: "Find emotional identity examples and content patterns", status: "Normal", source: "https://app.clickup.com/t/86b9cj313", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P2", title: "Plan 9-grid Instagram layout", lane: "Writing", owner: "Claude Cowork", inputs: "Research findings and brand voice", action: "Draft 9-post layout and copy direction", status: "Normal", source: "https://app.clickup.com/t/86b9ch0ud", sourceLabel: "ClickUp" },
+  { section: "Outreach, ads, and content", priority: "P2", title: "Connect social accounts to GHL Social Planner", lane: "Browser work plus Nikki action", owner: "Nikki", inputs: "Personal social logins", action: "Connect accounts directly or approve browser-assisted setup", status: "Normal, requires personal login", source: "https://app.clickup.com/t/86b9ch0uj", sourceLabel: "ClickUp" },
+
+  // Healing Hands by Santa
+  { section: "Healing Hands by Santa", priority: "P0", title: "Publish GHL 'Inbound SMS Webhook Forwarding' workflow", lane: "Browser work", owner: "Nikki or Perplexity with approval", inputs: "GHL sub-account Un5H1b2zXJM3agZ56j7c, webhook URL, shared secret", action: "Publish workflow if everything is confirmed", status: "Draft workflow blocks two-way SMS bridge", source: "https://www.notion.so/3555f492e40f81608ed9eafb2512397c", sourceLabel: "Notion Live Status", blocked: true },
+  { section: "Healing Hands by Santa", priority: "P0", title: "Verify Santa's GHL booking flow end to end", lane: "Browser work", owner: "Perplexity Computer", inputs: "Booking flow, test booking data, GHL calendars", action: "Submit test booking and verify SMS, email, calendar sync", status: "High", source: "https://app.clickup.com/t/86b9cjn3t", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P0", title: "Confirm whether /privacy, /terms, /sms-policy exist", lane: "Browser work plus legal-safe QA", owner: "Perplexity Computer", inputs: "Healing Hands site, A2P frozen paths list", action: "Check paths and flag missing pages before A2P-sensitive edits", status: "Buildable without Santa", source: "https://www.notion.so/3555f492e40f81608ed9eafb2512397c", sourceLabel: "Notion Live Status" },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Run language/naming Prompt 2 on Santa site", lane: "Writing plus code review", owner: "Claude Code or Claude Cowork", inputs: "Repo Opsbynoell/healinghandsbysanta-site, prompt archive, frozen A2P paths", action: "Surface copy issues; do not edit frozen compliance paths without Nikki", status: "Buildable without Santa", source: "https://www.notion.so/3555f492e40f81608ed9eafb2512397c", sourceLabel: "Notion Live Status" },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Voice smoke test on 949-919-6118", lane: "Browser work plus human coordination", owner: "Nikki with Santa", inputs: "Santa present, third phone not operator phones", action: "Call, confirm AI/front desk or forward behavior, confirm logging", status: "Blocked by Santa/third phone", source: "https://www.notion.so/3555f492e40f81608ed9eafb2512397c", sourceLabel: "Notion Live Status", blocked: true },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Save 949-919-6118 as contact on operator phones", lane: "Nikki action", owner: "Nikki", inputs: "Operator phones", action: "Save number after voice path is confirmed", status: "Blocked by Santa/phone access", source: "https://www.notion.so/3555f492e40f81608ed9eafb2512397c", sourceLabel: "Notion Live Status", blocked: true },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Do not solo-change HighLevel forwarding for 949-919-6118", lane: "Nikki and Santa live session", owner: "Nikki with Santa", inputs: "Santa present on call or screen-share", action: "Walk through forwarding setup live with Santa before changes", status: "Parked, not active solo work", source: "https://app.clickup.com/t/86b9qxy2m", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Verify Santa's Google Business Profile is live and optimized", lane: "Browser work", owner: "Perplexity Computer", inputs: "GBP listing, correct services, hours, photos, review state", action: "Screenshot listing and flag corrections", status: "Normal", source: "https://app.clickup.com/t/86b9cjn3z", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Plan smart ad budget for Santa", lane: "Research", owner: "Perplexity Computer", inputs: "Laguna Niguel solo massage therapist, minimal spend constraint", action: "Compare Google Local Services, Meta, Yelp, organic Maps; recommend lowest-risk path", status: "Normal", source: "https://app.clickup.com/t/86b9cjn40", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P1", title: "Audit healinghandsbysanta.com", lane: "Browser work", owner: "Perplexity Computer", inputs: "Site URL, mobile viewport, booking link", action: "Screenshot pages, test responsiveness, booking, and performance", status: "Normal", source: "https://app.clickup.com/t/86b9cj30z", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P2", title: "Post-setup Google Business Profile, StyleSeat, polish", lane: "Browser work", owner: "Perplexity Computer", inputs: "Post-setup checklist and business details", action: "Execute only after core GHL setup state is confirmed current", status: "High but potentially stale", source: "https://app.clickup.com/t/86b9d6dzm", sourceLabel: "ClickUp" },
+  { section: "Healing Hands by Santa", priority: "P2", title: "Tonight with Santa: GHL Payment, Phone, and Go-Live", lane: "Browser work plus Nikki/Santa", owner: "Nikki with Santa", inputs: "In-person session items", action: "Treat as historical checklist; reconcile against current Notion status before action", status: "Urgent label, likely stale from Apr. 13", source: "https://app.clickup.com/t/86b9d6dd4", sourceLabel: "ClickUp" },
+
+  // Sleep When It Hurts
+  { section: "Sleep When It Hurts", priority: "P1", title: "Set GHL_WEBHOOK_URL env var in Vercel", lane: "Browser work", owner: "Perplexity Computer or Nikki", inputs: "Vercel project and GHL webhook URL", action: "Add Production env var and redeploy/test signup", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P1", title: "Approve Video #01 final MP4 before YouTube upload", lane: "Nikki decision", owner: "Nikki", inputs: "Final MP4 and thumbnail", action: "Watch or skim, then approve upload or request changes", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P1", title: "Upload Video #01 to YouTube", lane: "Browser work", owner: "Perplexity Computer after approval", inputs: "YouTube channel, title, description, thumbnail, final MP4", action: "Upload only after Nikki approves final MP4", status: "Pending approval", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ", blocked: true },
+  { section: "Sleep When It Hurts", priority: "P1", title: "Decide whether to use Nikki's own voice for future videos", lane: "Nikki decision", owner: "Nikki", inputs: "Voice-clone samples, authenticity strategy", action: "Pick own voice, synthetic voice, or hybrid", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P1", title: "Paste ElevenLabs API key into secrets file", lane: "Nikki action plus code environment", owner: "Nikki", inputs: "ElevenLabs key and .secrets/meditation.env", action: "Add secret locally or provide secure setup path", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P2", title: "Complete OAuth connections: fal.ai, YouTube Data, YouTube Analytics, Stripe, Resend", lane: "Browser work", owner: "Nikki or Perplexity with approval", inputs: "Account access and connector auth", action: "Connect accounts one by one, then document status", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P2", title: "Build Pain Flare Kit", lane: "Writing plus media production", owner: "Claude Cowork plus Claude Code", inputs: "5 audios, 2 PDFs, Gumroad positioning", action: "Draft product contents and production checklist", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P2", title: "Set up Patreon tiers", lane: "Browser work plus writing", owner: "Perplexity Computer drafts, Nikki approves", inputs: "$3/$8/$22 tier strategy", action: "Draft tier copy and setup checklist", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P2", title: "Build Figma brand template", lane: "Writing/design", owner: "Claude Cowork or design lane", inputs: "Dusk palette, banner/avatar/thumbnail needs", action: "Create template spec or Figma build task", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+  { section: "Sleep When It Hurts", priority: "P2", title: "Create YouTube channel and brand assets", lane: "Browser work plus design", owner: "Perplexity Computer, Nikki approval", inputs: "Channel name, banner, avatar, description", action: "Create or configure channel after assets are approved", status: "Pending", source: "https://www.notion.so/3535f492e40f81eda5f3c71a1e332f6a", sourceLabel: "Notion Sleep HQ" },
+
+  // Docs, GitHub, project infrastructure
+  { section: "Docs, GitHub, and project infrastructure", priority: "P1", title: "Use Ops by Noell audit and delegation docs as source material", lane: "Writing plus browser work", owner: "Perplexity Computer", inputs: "Audit deck, implementation kit, branded website audit kit", action: "Keep docs linked as source-of-truth inputs when writing tasks", status: "Docs found in Drive", source: "https://docs.google.com/presentation/d/1XK0L2rCyzrTjCtTbLxwNV2GValZ_CxoTaAI5eilEkwY/edit", sourceLabel: "Google Slides audit" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P0", title: "Active site repo is Opsbynoell/opsbynoell-site-production (not the personal fork)", lane: "Code changes", owner: "Claude Code", inputs: "Org repo: Opsbynoell/opsbynoell-site-production, branch main, TypeScript/Next.js, last push May 3 2026", action: "Point ALL Claude Code site tasks at this repo. The nikkinoell/opsbynoell-site-1 fork is stale and has issues disabled. Use the production repo for teal->Wine, pricing, Digital Foundation add-on, and Vercel verification.", status: "Active. Issues enabled. Vercel preview at opsbynoell-marketing-review.vercel.app", source: "https://github.com/Opsbynoell/opsbynoell-site-production", sourceLabel: "Production repo" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P1", title: "Triage 2 open Vercel bot PRs on production repo (#47 Web Analytics, #48 Speed Insights)", lane: "Code changes", owner: "Claude Code or Nikki review", inputs: "PR #47: @vercel/analytics, PR #48: @vercel/speed-insights. Both draft, opened Apr 27. Build/tests pass per PR notes.", action: "Decide: merge both (recommended for marketing site instrumentation), close, or hold. Then enable in Vercel dashboard after merge.", status: "Draft PRs, not blocking but should be resolved", source: "https://github.com/Opsbynoell/opsbynoell-site-production/pulls", sourceLabel: "Open PRs" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P1", title: "Verify access to swih-landing, the3amcompanion, healinghandsbysanta-site repos", lane: "Browser work", owner: "Nikki or Perplexity Computer", inputs: "Three repos cited in board but returning 404 on public API: nikkinoell/swih-landing, nikkinoell/the3amcompanion, Opsbynoell/healinghandsbysanta-site", action: "Confirm whether private, renamed, deleted, or under a different account. Update board with correct paths before any Claude Code handoff to those projects.", status: "Public API: 404. Likely private or relocated.", source: "https://github.com/nikkinoell?tab=repositories", sourceLabel: "Nikki's repos" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P2", title: "Migrate or retire Opsbynoell/opsbynoell-site (older org repo)", lane: "Code changes", owner: "Claude Code or Nikki", inputs: "Opsbynoell/opsbynoell-site, last push Apr 29 2026, 1 fork, 1 watcher", action: "Confirm production has fully replaced this. If yes, archive. If no, document which repo owns what.", status: "Possibly superseded by opsbynoell-site-production", source: "https://github.com/Opsbynoell/opsbynoell-site", sourceLabel: "Older org repo" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P2", title: "Sleep When It Hurts repo state: only sleepwhenithurts exists publicly", lane: "Code changes", owner: "Claude Code", inputs: "nikkinoell/sleepwhenithurts: created May 1, 132KB, master branch, no commits beyond initial", action: "Treat as active scaffold only. Use Notion Sleep HQ as task source until repo has real code. swih-landing and the3amcompanion not publicly accessible.", status: "Scaffolded May 1, minimal content", source: "https://github.com/nikkinoell/sleepwhenithurts", sourceLabel: "Sleep repo" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P2", title: "Delete empty placeholder repo Opsbynoell/-opsbynoell-site", lane: "Browser work", owner: "Nikki", inputs: "https://github.com/Opsbynoell/-opsbynoell-site (size 0, never pushed, leading dash typo)", action: "Delete or archive to clean up the org repo list.", status: "Empty placeholder", source: "https://github.com/Opsbynoell/-opsbynoell-site", sourceLabel: "Empty repo" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P2", title: "Keep old scraper workspace parked unless lead-scraper work resumes", lane: "Research plus code changes", owner: "Perplexity Computer or Claude Code", inputs: "Historical scraper workspace and Maps automation notes", action: "Reopen only when lead scraping or Maps automation is the current focus", status: "Repo activity older than main cluster", source: "", sourceLabel: "Internal" },
+  { section: "Docs, GitHub, and project infrastructure", priority: "P2", title: "Reconcile Linear Ops website rebuild issues against current site state", lane: "Browser work plus writing", owner: "Perplexity Computer", inputs: "Linear project/issue links surfaced in Notion search", action: "Mark stale/done/todo after comparing to live site and ClickUp launch tasks", status: "Potential duplicate planning system", source: "https://linear.app/opsbynoell/project/ef7eaa3e-dd80-45b4-954b-6466e7eb98ac", sourceLabel: "Linear project" },
+];
+
+const LANE_RULES = [
+  { lane: "Browser work", owner: "Perplexity Computer", needs: "Logged-in dashboards, setup screens, test bookings, smoke tests, DNS, ads, GHL, Twilio, Vercel, Instantly, screenshots", input: "URL, account/location, exact success condition, approval if anything irreversible", output: "Screenshot or written verification with pass/fail and next blocker" },
+  { lane: "Code changes", owner: "Claude Code", needs: "Repo edits, CSS/theme changes, API endpoints, widget fixes, build/deploy work, scripts, schema changes", input: "GitHub repo, branch, acceptance criteria, env var locations, test command", output: "Commit/PR or pushed branch, build result, deploy verification" },
+  { lane: "Research", owner: "Perplexity Computer", needs: "Competitors, lead lists, ad strategy, market examples, supplier comparisons, fact gathering", input: "Target market, geography, filters, minimum result count, decision needed", output: "Table plus recommendation, with sources" },
+  { lane: "Writing", owner: "Claude Cowork or Perplexity Computer", needs: "Copy, positioning, product truth, offer ladder, scripts, launch docs, prompts, handoffs", input: "Source docs, voice rules, locked facts, approval owner", output: "Draft ready for Nikki approval or direct implementation" },
+  { lane: "Nikki decision", owner: "Nikki", needs: "Pricing decisions, product scope, client-sensitive actions, payment, personal phone/client approval, voice clone, final brand calls", input: "A 1-screen recommendation with 2 to 3 options", output: "Yes/no/adjust decision, then delegate back out" }
+];
+
+const HANDOFF_PROMPTS = {
+  "Claude Code": `You own implementation only. Source of truth: [link task + source doc].
+Repo: [repo]
+  - Default for site work: Opsbynoell/opsbynoell-site-production (main branch, Next.js/TS)
+  - Sleep When It Hurts: nikkinoell/sleepwhenithurts
+  - Santa: Opsbynoell/healinghandsbysanta-site (verify access first, may be private)
+  - DO NOT use nikkinoell/opsbynoell-site-1 — it is a stale fork.
+Task: [one exact change].
+Acceptance criteria:
+- [visual/functional outcome]
+- Build passes (npm run build)
+- Tests pass (npm run test)
+- No unrelated changes
+- Push to main (or feature branch + PR if breaking) and report files changed
+Do not decide pricing, product scope, compliance language, or client-sensitive settings. Ask Nikki/Perplexity for those.`,
+
+  "Claude Cowork": `You own draft quality and structure. Source of truth: [link task + source doc].
+Audience: [who this is for].
+Voice rules: [brand voice].
+Output needed: [homepage copy, product truth, offer ladder, email sequence, etc.].
+Preserve locked facts exactly:
+- [pricing]
+- [CTA]
+- [product claims]
+Flag any missing decision instead of inventing it.`,
+
+  "Perplexity Computer": `Objective: [test/research/configure].
+Systems to inspect: [URLs/accounts].
+Do not modify anything unless explicitly approved.
+Capture:
+- pass/fail
+- screenshots or source links
+- exact blocker
+- next owner
+Return a board-ready update with the next action.`
+};
+
+const state = {
+  priority: 'all',
+  lane: 'all',
+  owner: 'all',
+  search: ''
+};
+
+function matchesLane(taskLane, filter) {
+  if (filter === 'all') return true;
+  return taskLane.toLowerCase().includes(filter.toLowerCase());
+}
+function matchesOwner(taskOwner, filter) {
+  if (filter === 'all') return true;
+  return taskOwner.toLowerCase().includes(filter.toLowerCase());
+}
+function matchesSearch(task, q) {
+  if (!q) return true;
+  const hay = (task.title + ' ' + task.action + ' ' + task.owner + ' ' + task.inputs + ' ' + task.status + ' ' + task.lane).toLowerCase();
+  return hay.includes(q.toLowerCase());
+}
+
+function getFiltered() {
+  return TASKS.filter(t =>
+    (state.priority === 'all' || t.priority === state.priority) &&
+    matchesLane(t.lane, state.lane) &&
+    matchesOwner(t.owner, state.owner) &&
+    matchesSearch(t, state.search)
+  );
+}
+
+function renderKPIs() {
+  const filtered = getFiltered();
+  const total = filtered.length;
+  const p0 = filtered.filter(t => t.priority === 'P0').length;
+  const p1 = filtered.filter(t => t.priority === 'P1').length;
+  const p2 = filtered.filter(t => t.priority === 'P2').length;
+  const blocked = filtered.filter(t => t.blocked).length;
+  document.getElementById('kpiRow').innerHTML = `
+    <div class="kpi"><div class="kpi-label">Visible tasks</div><div class="kpi-value">${total}</div></div>
+    <div class="kpi p0"><div class="kpi-label">P0 — work first</div><div class="kpi-value">${p0}</div></div>
+    <div class="kpi p1"><div class="kpi-label">P1 — next up</div><div class="kpi-value">${p1}</div></div>
+    <div class="kpi p2"><div class="kpi-label">P2 — when ready</div><div class="kpi-value">${p2}</div></div>
+    <div class="kpi blocked"><div class="kpi-label">Blocked</div><div class="kpi-value">${blocked}</div></div>
+  `;
+}
+
+function renderBoard() {
+  const filtered = getFiltered();
+  const sections = [...new Set(TASKS.map(t => t.section))];
+  const board = document.getElementById('board');
+
+  if (filtered.length === 0) {
+    board.innerHTML = '<div class="empty-state">No tasks match these filters. Hit Reset to see everything.</div>';
+    return;
+  }
+
+  let html = '';
+  for (const section of sections) {
+    const sectionTasks = filtered.filter(t => t.section === section);
+    if (sectionTasks.length === 0) continue;
+
+    sectionTasks.sort((a, b) => {
+      const order = { P0: 0, P1: 1, P2: 2 };
+      return order[a.priority] - order[b.priority];
+    });
+
+    html += `<div class="section">
+      <div class="section-header" onclick="this.parentElement.classList.toggle('collapsed')">
+        <h2>${section}</h2>
+        <span class="section-count">${sectionTasks.length}</span>
+        <span class="section-toggle">▼</span>
+      </div>
+      <div class="task-grid">`;
+
+    for (const t of sectionTasks) {
+      const pClass = t.priority.toLowerCase();
+      const blockedClass = t.blocked ? 'blocker-warning' : '';
+      const sourceLink = t.source ? `<a href="${t.source}" target="_blank" rel="noopener" class="source-link" onclick="event.stopPropagation()">${t.sourceLabel} →</a>` : '';
+
+      html += `<div class="task-card p-${pClass}" onclick="this.classList.toggle('expanded')">
+        <div class="task-row">
+          <span class="priority-badge ${pClass}">${t.priority}</span>
+          <div class="task-main">
+            <div class="task-title">${escapeHtml(t.title)}</div>
+            <div class="task-meta">
+              <span class="lane-tag">${escapeHtml(t.lane)}</span>
+              <span class="meta-item"><span class="meta-label">Owner:</span> ${escapeHtml(t.owner)}</span>
+              <span class="meta-item ${blockedClass}"><span class="meta-label">Status:</span> ${escapeHtml(t.status)}</span>
+            </div>
+          </div>
+          ${sourceLink}
+        </div>
+        <div class="task-details">
+          <div class="detail-row">
+            <span class="detail-label">Inputs</span>
+            <span class="detail-value">${escapeHtml(t.inputs)}</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Next action</span>
+            <span class="detail-value">${escapeHtml(t.action)}</span>
+          </div>
+        </div>
+      </div>`;
+    }
+    html += '</div></div>';
+  }
+  board.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function render() {
+  renderKPIs();
+  renderBoard();
+}
+
+function wireFilters(selector, key) {
+  document.querySelectorAll(selector).forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelectorAll(selector).forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      state[key] = el.dataset.value;
+      render();
+    });
+  });
+}
+wireFilters('.priority-filter', 'priority');
+wireFilters('.lane-filter', 'lane');
+wireFilters('.owner-filter', 'owner');
+
+document.getElementById('search').addEventListener('input', e => {
+  state.search = e.target.value;
+  render();
+});
+
+document.getElementById('btnReset').addEventListener('click', () => {
+  state.priority = 'all'; state.lane = 'all'; state.owner = 'all'; state.search = '';
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.value === 'all');
+  });
+  render();
+});
+
+document.getElementById('btnLaneRules').addEventListener('click', () => {
+  const html = LANE_RULES.map(r => `
+    <div class="lane-rule">
+      <h4>${r.lane} → ${r.owner}</h4>
+      <p><strong>Use when:</strong> ${r.needs}</p>
+      <p><strong>Required input:</strong> ${r.input}</p>
+      <p><strong>Output standard:</strong> ${r.output}</p>
+    </div>
+  `).join('');
+  document.getElementById('laneRulesContent').innerHTML = html;
+  document.getElementById('laneRulesModal').classList.add('open');
+});
+
+document.getElementById('btnHandoffs').addEventListener('click', () => {
+  const html = Object.entries(HANDOFF_PROMPTS).map(([name, prompt]) => `
+    <div style="margin-bottom: 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h4 style="color: var(--wine-light); font-size: 14px;">Send to ${name}</h4>
+        <button onclick="copyPrompt(this, \`${prompt.replace(/`/g, '\\`')}\`)">Copy</button>
+      </div>
+      <pre>${escapeHtml(prompt)}</pre>
+    </div>
+  `).join('');
+  document.getElementById('handoffsContent').innerHTML = html;
+  document.getElementById('handoffsModal').classList.add('open');
+});
+
+function copyPrompt(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('primary');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('primary'); }, 1500);
+  });
+}
+
+document.querySelectorAll('[data-close]').forEach(el => {
+  el.addEventListener('click', () => el.closest('.modal-overlay').classList.remove('open'));
+});
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+});
+
+const now = new Date();
+document.getElementById('timestamp').textContent = `Loaded ${now.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
+
+render();
+</script>
+</body>
+</html>
