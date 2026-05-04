@@ -262,7 +262,10 @@ function CaseSummaryPanel() {
           Pattern caught
         </p>
         <p className="text-sm font-medium text-charcoal">Marina D.</p>
-        <p className="font-serif text-3xl font-semibold text-wine mt-2">
+        <p
+          className="font-serif text-3xl font-semibold text-wine mt-2"
+          aria-label="ghost-risk score: 87 out of 100"
+        >
           87 / 100
         </p>
         <p className="text-[11px] text-charcoal/70 mt-1">ghost-risk score</p>
