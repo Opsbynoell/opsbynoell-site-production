@@ -171,19 +171,19 @@ type PricingCard = {
 
 const pricingCards: PricingCard[] = [
   {
-    name: "Starter",
-    body: "Dedicated line, NOELL Front Desk, dashboard, 500 conversations/mo.",
-    bestFor: "Best for solo operators.",
+    name: "Noell Agents",
+    body: "Three AI agents working alongside the booking tool you already use. From $197/mo founding rate.",
+    bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {
     name: "Growth",
-    body: "Everything in Starter + NOELL Care, website chat widget, no-show recovery.",
-    bestFor: "Best for 1–3 person teams.",
+    body: "The full recovery system: operations layer, three agents, no-show recovery, reputation workflows, and Predictive Customer Intelligence signals as they roll out.",
+    bestFor: "Recommended for revenue recovery.",
     highlighted: true,
   },
   {
-    name: "Pro",
-    body: "Everything in Growth + advanced analytics, custom agent training, priority support.",
+    name: "Custom Ops",
+    body: "The full system for multi-location practices and operators running reactivation at scale. Dedicated account manager, custom reporting, and priority support.",
     bestFor: "Best for 4+ teams or multi-location.",
   },
 ];
@@ -264,7 +264,7 @@ export default function WhatYouGetPage() {
             data-source-page="what_you_get"
             data-source-section="hero"
           >
-            Book a 15-min walkthrough &rarr;
+            Get Your Free Revenue Signal Report &rarr;
           </Button>
         </div>
       </section>
@@ -381,7 +381,7 @@ export default function WhatYouGetPage() {
               >
                 {card.highlighted && (
                   <p className="text-[10px] uppercase tracking-[0.22em] text-wine font-medium mb-3">
-                    Most teams start here
+                    Recommended for revenue recovery
                   </p>
                 )}
                 <h3 className="font-serif text-2xl font-semibold text-charcoal mb-3">
@@ -405,10 +405,10 @@ export default function WhatYouGetPage() {
               data-source-page="what_you_get"
               data-source-section="pricing"
             >
-              Start with Starter &rarr;
+              Get Your Free Revenue Signal Report &rarr;
             </Button>
-            <Button href="/book" variant="secondary">
-              Talk to us first &rarr;
+            <Button href="/pricing" variant="secondary">
+              See full pricing &rarr;
             </Button>
           </div>
         </div>
@@ -428,10 +428,10 @@ export default function WhatYouGetPage() {
         eyebrow="The first step"
         headlineStart="Stop missing the next booking"
         headlineAccent="while you're with the current one."
-        body="A 15-minute walkthrough. We show you exactly what gets installed, what it costs, and how fast you'd be live."
-        primaryCta={{ label: "Book a 15-min walkthrough", href: "/book" }}
+        body="Your free Revenue Signal Report maps the leaks in your front desk, booking flow, and follow-up system, and shows what fits."
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
-        trustLine="Done-for-you setup · Live in a week · No contracts"
+        trustLine="Done-for-you setup · Live in 14 days · No contracts"
         sourcePage="what_you_get"
       />
     </div>

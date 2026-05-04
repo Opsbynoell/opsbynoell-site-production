@@ -4,19 +4,21 @@ import { Logo } from "./logo";
 export function Footer() {
   const pages = [
     { title: "Home", href: "/" },
+    { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
     { title: "Systems", href: "/systems" },
     { title: "Verticals", href: "/verticals" },
     { title: "Pricing", href: "/pricing" },
     { title: "ROI calculator", href: "/roi" },
     { title: "Resources", href: "/resources" },
-    { title: "Book", href: "/book" },
+    { title: "Revenue Signal Report", href: "/book" },
   ];
 
   const products = [
     { title: "Noell Support", href: "/noell-support" },
     { title: "Noell Front Desk", href: "/noell-front-desk" },
     { title: "Noell Care", href: "/noell-care" },
-    { title: "Book an Audit", href: "/book" },
+    { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
+    { title: "Revenue Signal Report", href: "/book" },
   ];
 
   const verticals = [

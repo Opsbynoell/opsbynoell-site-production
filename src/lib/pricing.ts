@@ -20,7 +20,7 @@ export const PRICING_TIERS: PricingTier[] = [
     priceFrom: "$197",
     cadence: "/mo",
     tagline:
-      "The operations layer plus SMS-led automations. No AI agents at this tier. Ideal for solo practitioners who want the system running but don't yet need AI handling calls or chat.",
+      "Best when you need the operating layer in place before adding agents. The foundation layer for businesses that are not ready for managed intelligence yet.",
     features: [
       "Operations layer (CRM, booking calendar, forms) under your brand",
       "Missed-call text-back automation",
@@ -30,7 +30,7 @@ export const PRICING_TIERS: PricingTier[] = [
     ],
     ctaLabel: "Start with Essentials",
     ctaHref: "/book",
-    note: "Not included: three AI agents, two-way booking-system integration, no-show recovery, Predictive Customer Intelligence. + $497 one-time setup",
+    note: "Essentials does not include AI agents or PCI. + $497 one-time setup",
   },
   {
     id: "growth",
@@ -38,7 +38,7 @@ export const PRICING_TIERS: PricingTier[] = [
     priceFrom: "$797",
     cadence: "/mo",
     tagline:
-      "The full system. Operations layer plus all three AI agents, installed around your booking system. Built for practices ready to run everything through one layer.",
+      "The full recovery system: operations layer, three agents, no-show recovery, reputation workflows, and Predictive Customer Intelligence signals as they roll out.",
     features: [
       "Everything in Essentials",
       "All three AI agents (Noell Support, Front Desk, Care)",
@@ -50,10 +50,10 @@ export const PRICING_TIERS: PricingTier[] = [
       "Predictive Customer Intelligence signals (rolling in)",
       "Priority support",
     ],
-    ctaLabel: "Get Growth",
+    ctaLabel: "Start with Growth",
     ctaHref: "/book",
     isHighlighted: true,
-    note: "Most popular · + $997 one-time setup",
+    note: "Recommended for revenue recovery · Built for businesses that want to recover missed calls, rebookings, no-shows, and lapsed-client revenue from one managed system. + $997 one-time setup",
   },
   {
     id: "custom_ops",

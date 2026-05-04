@@ -39,6 +39,10 @@ export function NoellAgentsCard() {
             Three AI agents. No platform migration. Works on top of what you
             have.
           </p>
+          <p className="mt-2 text-sm text-charcoal/75 leading-relaxed max-w-2xl">
+            Best when you already like your booking tool and need calls, chat,
+            and client support covered without a platform migration.
+          </p>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-start">
             {/* Price block */}
@@ -95,15 +99,15 @@ export function NoellAgentsCard() {
           </div>
 
           <p className="mt-8 pt-6 border-t border-warm-border text-sm italic text-muted-strong leading-relaxed max-w-3xl">
-            No platform migration, no PMS integration, no managed install, no
-            reactivation campaigns. For that, see{" "}
+            Need PMS integration, reactivation, or Predictive Customer
+            Intelligence? Start with{" "}
             <Link
               href="#noell-system"
               className="text-wine hover:text-wine-dark underline underline-offset-4 decoration-wine/30"
             >
-              The Noell System
+              Growth
             </Link>{" "}
-            below.
+            instead.
           </p>
         </div>
       </div>

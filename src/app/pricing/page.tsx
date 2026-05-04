@@ -202,13 +202,15 @@ export default function PricingPage() {
           Pricing
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
-          Two tracks.{" "}
+          Two ways to recover the revenue your front desk is{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            Pick the one that fits.
+            missing.
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-2xl text-center text-charcoal/75 text-sm md:text-base leading-relaxed">
-          Run only the agents, or install the full system end-to-end.
+          Start with the agents if you need coverage fast. Choose the full
+          system if you want Ops by Noell to install and manage the recovery
+          layer end to end.
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
@@ -217,6 +219,13 @@ export default function PricingPage() {
             className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
           >
             Run the ROI calculator
+          </Link>
+          {" · "}
+          <Link
+            href="/predictive-customer-intelligence"
+            className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
+          >
+            See how PCI works
           </Link>
           .
         </p>

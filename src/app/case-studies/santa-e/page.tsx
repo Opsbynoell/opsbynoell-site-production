@@ -118,6 +118,31 @@ export default function CaseStudy() {
           </li>
         </ul>
 
+        <h2>What made the recovery possible</h2>
+        <p>
+          Santa did not need another dashboard. She needed a system that
+          could catch missed intent, respond quickly, and protect her
+          calendar while she was with clients.
+        </p>
+        <ul>
+          <li>
+            <strong>Noell Support</strong> — captured and qualified missed
+            inbound intent.
+          </li>
+          <li>
+            <strong>Noell Front Desk</strong> — helped turn missed calls into
+            booked appointments.
+          </li>
+          <li>
+            <strong>Noell Care</strong> — protected existing-client
+            follow-up and rebooking.
+          </li>
+          <li>
+            <strong>Predictive Customer Intelligence</strong> — identified
+            the patterns that should become recovery signals.
+          </li>
+        </ul>
+
         <h2>What Santa kept</h2>
         <p>
           Santa still runs her practice herself. She still takes real calls
