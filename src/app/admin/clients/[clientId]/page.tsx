@@ -432,6 +432,19 @@ export default async function ClientDashboardPage({
     cfg?.businessName ?? clientId.charAt(0).toUpperCase() + clientId.slice(1);
   const phone = cfg?.phone ?? null;
   const isActive = cfg?.active ?? true;
+  const pciTier = cfg?.pciCronTier ?? "disabled";
+  const pciTierLabel =
+    pciTier === "standard"
+      ? "Standard / nightly"
+      : pciTier === "realtime"
+        ? "Real-Time / 4x daily"
+        : "PCI off";
+  const pciTierClass =
+    pciTier === "realtime"
+      ? "bg-[#7C5CFC]/10 text-[#7C5CFC]"
+      : pciTier === "standard"
+        ? "bg-emerald-100 text-emerald-700"
+        : "bg-charcoal/5 text-charcoal/70";
 
   return (
     <div className="min-h-screen bg-cream pb-12">
@@ -449,6 +462,12 @@ export default async function ClientDashboardPage({
           </span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          <span
+            className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${pciTierClass}`}
+            title="PCI scheduled generation tier"
+          >
+            {pciTierLabel}
+          </span>
           <span
             className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
               isActive

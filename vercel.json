@@ -12,6 +12,14 @@
     {
       "path": "/api/cron/reactivations",
       "schedule": "0 14 * * *"
+    },
+    {
+      "path": "/api/cron/pci-generate?tier=standard",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "path": "/api/cron/pci-generate?tier=realtime",
+      "schedule": "0 8,14,20,2 * * *"
     }
   ]
 }
