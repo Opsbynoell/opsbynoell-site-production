@@ -428,6 +428,21 @@ export default async function ClientDashboardPage({
   // A2P pending banner
   const a2pPending = cfg?.smsConfig?.pendingA2P === true;
 
+  // PCI cron tier — read-only badge. Defaults to "disabled" when missing.
+  const pciCronTier = cfg?.pciCronTier ?? "disabled";
+  const pciTierLabel =
+    pciCronTier === "standard"
+      ? "Standard / nightly"
+      : pciCronTier === "realtime"
+        ? "Real-Time / 4x daily"
+        : "PCI off";
+  const pciTierBadgeClass =
+    pciCronTier === "realtime"
+      ? "bg-[#7C5CFC]/10 text-[#7C5CFC]"
+      : pciCronTier === "standard"
+        ? "bg-emerald-100 text-emerald-700"
+        : "bg-charcoal/5 text-charcoal/70";
+
   const businessName =
     cfg?.businessName ?? clientId.charAt(0).toUpperCase() + clientId.slice(1);
   const phone = cfg?.phone ?? null;
@@ -449,6 +464,12 @@ export default async function ClientDashboardPage({
           </span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          <span
+            className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${pciTierBadgeClass}`}
+            title="Predictive Customer Intelligence cron tier"
+          >
+            {pciTierLabel}
+          </span>
           <span
             className={`text-[9px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
               isActive

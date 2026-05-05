@@ -45,11 +45,18 @@ export interface EscalationRule {
   reason: string; // human-readable reason for the alert
 }
 
+export type PciCronTier = "disabled" | "standard" | "realtime";
+
 export interface ClientConfig {
   clientId: string;
   businessName: string;
   brandName?: string;
   vertical: string; // "massage" | "dental" | ...
+
+  // Predictive Customer Intelligence cron tier. Defaults to
+  // "disabled" when missing. "standard" runs nightly at 1am Pacific;
+  // "realtime" runs every 6 hours at 1am, 7am, 1pm, 7pm Pacific.
+  pciCronTier?: PciCronTier;
 
   agents: {
     support: boolean;

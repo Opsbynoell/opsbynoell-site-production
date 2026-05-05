@@ -8,7 +8,7 @@
  */
 
 import { sbSelect } from "./supabase";
-import type { ClientConfig } from "./types";
+import type { ClientConfig, PciCronTier } from "./types";
 
 type ClientRow = {
   client_id: string;
@@ -40,8 +40,16 @@ type ClientRow = {
   escalation_rules?: ClientConfig["escalationRules"];
   telegram_chat_id?: string | null;
   services?: ClientConfig["services"];
+  pci_config?: { cronTier?: string } & Record<string, unknown>;
   active: boolean;
 };
+
+function parsePciCronTier(raw: unknown): PciCronTier {
+  if (raw === "standard" || raw === "realtime" || raw === "disabled") {
+    return raw;
+  }
+  return "disabled";
+}
 
 interface CacheEntry {
   cfg: ClientConfig;
@@ -104,6 +112,7 @@ export async function getClientConfig(
     escalationRules: row.escalation_rules ?? [],
     telegramChatId: row.telegram_chat_id ?? undefined,
     services: row.services ?? [],
+    pciCronTier: parsePciCronTier(row.pci_config?.cronTier),
     active: row.active,
   };
   if (CONFIG_CACHE_TTL_MS > 0) {
