@@ -38,8 +38,12 @@ export async function POST(req: Request): Promise<Response> {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  const expectedSecret = process.env.ADMIN_SECRET ?? "";
-  if (!expectedSecret || !body.secret || !timingSafeEqual(body.secret, expectedSecret)) {
+  const adminSecret = process.env.ADMIN_SECRET ?? "";
+  const oneshotSecret = process.env.ONESHOT_RESET_SECRET ?? "";
+  const provided = body.secret ?? "";
+  const adminOk = adminSecret && timingSafeEqual(provided, adminSecret);
+  const oneshotOk = oneshotSecret && timingSafeEqual(provided, oneshotSecret);
+  if (!provided || (!adminOk && !oneshotOk)) {
     return NextResponse.json({ error: "forbidden" }, { status: 403 });
   }
 
