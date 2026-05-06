@@ -18,6 +18,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
   const [email, setEmail] = useState("");
   const [bookingSystem, setBookingSystem] = useState<string>("");
   const [leakDescription, setLeakDescription] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,6 +27,11 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
     if (!name.trim() || !business.trim() || !phone.trim() || !email.trim() || !bookingSystem || !leakDescription.trim()) {
       setState("error");
       setErrorMessage("Please complete every field before sending.");
+      return;
+    }
+    if (!smsConsent) {
+      setState("error");
+      setErrorMessage("Please confirm your consent to receive SMS messages to continue.");
       return;
     }
 
@@ -194,6 +200,22 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             className="w-full rounded-lg border border-warm-border bg-cream px-3 py-3 tap-target text-charcoal focus:outline-none focus:border-wine/60 focus:bg-white resize-y"
           />
         </label>
+
+        {/* SMS / TCPA consent */}
+        <div className="mt-6 flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="sms-consent"
+            checked={smsConsent}
+            onChange={(e) => setSmsConsent(e.target.checked)}
+            className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-warm-border accent-wine cursor-pointer"
+          />
+          <label htmlFor="sms-consent" className="text-xs text-charcoal/65 leading-relaxed cursor-pointer select-none">
+            By checking this box, I consent to receive SMS messages from Ops by Noell regarding my Revenue Signal Report and related services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. View our{" "}
+            <a href="/sms-policy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">SMS Policy</a>{" "}and{" "}
+            <a href="/legal/privacy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">Privacy Policy</a>.
+          </label>
+        </div>
 
         <div className="mt-7 flex flex-col items-stretch gap-3">
           <button
