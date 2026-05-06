@@ -5,6 +5,8 @@ export interface PricingTier {
   tier: string;
   priceFrom: string;
   cadence: string;
+  bestFor?: string;
+  summary?: string;
   tagline: string;
   features: string[];
   ctaLabel: string;
@@ -19,6 +21,8 @@ export const PRICING_TIERS: PricingTier[] = [
     tier: "Essentials",
     priceFrom: "$197",
     cadence: "/mo",
+    bestFor: "Best for businesses that want the full system, done for them",
+    summary: "Full system. Onboarding. Support. Live in 14 days.",
     tagline:
       "Best when you need the operating layer in place before adding agents. The foundation layer for businesses that are not ready for managed intelligence yet.",
     features: [

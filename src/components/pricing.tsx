@@ -121,6 +121,11 @@ export function PricingCard({
               </span>
             )}
           </div>
+          {tier.bestFor && (
+            <p className="mt-3 text-xs font-medium text-wine">
+              {tier.bestFor}
+            </p>
+          )}
           <div className="mt-3 flex items-baseline">
             <span className="font-serif text-4xl font-bold text-charcoal">
               {tier.priceFrom}
@@ -131,6 +136,11 @@ export function PricingCard({
               </span>
             )}
           </div>
+          {tier.summary && (
+            <p className="mt-2 text-sm font-medium text-charcoal">
+              {tier.summary}
+            </p>
+          )}
           <p className="mt-2 text-sm text-charcoal/75 leading-relaxed">
             {tier.tagline}
           </p>
