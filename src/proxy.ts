@@ -108,6 +108,7 @@ export async function proxy(req: NextRequest) {
       pathname.startsWith("/api/admin/accept-invite") ||
       pathname.startsWith("/api/admin/forgot-password") ||
       pathname.startsWith("/api/admin/reset-password") ||
+      pathname.startsWith("/api/admin/oneshot-reset") ||
       pathname.startsWith("/api/admin/logout");
 
     if (publicAdminApi) return NextResponse.next();
