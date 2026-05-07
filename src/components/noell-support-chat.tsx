@@ -113,7 +113,8 @@ export function NoellSupportChat() {
 
   // Auto-expand triggers (non-/book pages, respect session dismissal).
   // The widget auto-expands ONLY when the visitor has scrolled past the hero
-  // AND at least 8 seconds have elapsed since mount AND they have never
+  // AND at least 14 seconds have elapsed since mount AND they have never
+  // GTM item 2: delay increased from 8s to 14s so visitors read the headline first.
   // dismissed the widget this session. Dismissal is sticky per session.
   useEffect(() => {
     if (isBookPage) return;
@@ -145,7 +146,7 @@ export function NoellSupportChat() {
     const timer = setTimeout(() => {
       elapsed = true;
       openIfReady();
-    }, 8000);
+    }, 14000);
 
     const onScroll = () => {
       if (scrolledPastHero) return;
