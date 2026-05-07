@@ -6,8 +6,7 @@
  * to filter, and ?clientId=<id> to filter by client (super admin only; non-super
  * admins are automatically scoped to their accessible clients).
  *
- * The Support agent uses camelCase column names (legacy Noell Support schema).
- * Front Desk and Care use snake_case (new agent schema).
+ * All three agents use snake_case column names (support_sessions, front_desk_sessions, care_sessions).
  * This route normalizes everything to snake_case.
  */
 
@@ -60,9 +59,8 @@ async function fetchSessions(
   let clientFilter = "";
   if (clientIds !== null && clientIds.length > 0) {
     const ids = clientIds.map(encodeURIComponent).join(",");
-    // snake_case tables use client_id; camelCase legacy uses clientId
-    const col = table === "chatSessions" ? "clientId" : "client_id";
-    clientFilter = `&${col}=in.(${ids})`;
+    // All current tables use snake_case client_id column
+    clientFilter = `&client_id=in.(${ids})`;
   } else if (clientIds !== null && clientIds.length === 0) {
     // No accessible clients — return empty
     return [];
@@ -136,14 +134,14 @@ export async function GET(req: NextRequest): Promise<Response> {
     clientFilter = payload.accessibleClients;
   }
 
-  // Non-super-admins don't see Noell Support (chatSessions) — those are internal
+  // Non-super-admins don't see Noell Support (support_sessions) — those are internal
   const showSupport =
     (filter === "all" || filter === "support") && payload.isSuperAdmin;
 
   try {
     const [support, frontDesk, care] = await Promise.all([
       showSupport
-        ? fetchSessions("chatSessions", "support", "chatMessages", null)
+        ? fetchSessions("support_sessions", "support", "support_messages", null)
         : Promise.resolve([]),
       filter === "all" || filter === "frontDesk"
         ? fetchSessions("front_desk_sessions", "frontDesk", "front_desk_messages", clientFilter)
