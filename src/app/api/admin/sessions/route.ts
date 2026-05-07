@@ -67,7 +67,7 @@ async function fetchSessions(
   }
 
   const sessRes = await fetch(
-    `${restUrl(table)}?select=*&order=updated_at.desc,updatedAt.desc&limit=200${clientFilter}`,
+    `${restUrl(table)}?select=*&order=updated_at.desc&limit=200${clientFilter}`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   if (!sessRes.ok) return [];
@@ -76,7 +76,7 @@ async function fetchSessions(
 
   // Fetch latest message per session
   const msgRes = await fetch(
-    `${restUrl(messagesTable)}?select=session_id,sessionId,content,role,created_at,createdAt&order=created_at.desc,createdAt.desc&limit=400`,
+    `${restUrl(messagesTable)}?select=session_id,content,role,created_at&order=created_at.desc&limit=400`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   const allMessages = msgRes.ok
