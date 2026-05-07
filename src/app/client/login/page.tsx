@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { IconBolt } from "@tabler/icons-react";
 
-export default function ClientLoginPage() {
+function ClientLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
@@ -148,5 +148,19 @@ export default function ClientLoginPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function ClientLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#f8f4f0] flex items-center justify-center">
+          <div className="w-5 h-5 border-2 border-wine/30 border-t-wine rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <ClientLoginForm />
+    </Suspense>
   );
 }
