@@ -2,6 +2,7 @@ export type TierId = "essentials" | "growth" | "custom_ops";
 
 export interface PricingTier {
   id: TierId;
+  planId: string;
   tier: string;
   priceFrom: string;
   cadence: string;
@@ -11,6 +12,7 @@ export interface PricingTier {
   features: string[];
   ctaLabel: string;
   ctaHref: string;
+  useCheckout?: boolean;
   isHighlighted?: boolean;
   note: string;
 }
@@ -18,6 +20,7 @@ export interface PricingTier {
 export const PRICING_TIERS: PricingTier[] = [
   {
     id: "essentials",
+    planId: "essentials",
     tier: "Essentials",
     priceFrom: "$197",
     cadence: "/mo",
@@ -33,11 +36,13 @@ export const PRICING_TIERS: PricingTier[] = [
       "Email support",
     ],
     ctaLabel: "Start with Essentials",
-    ctaHref: "/book",
+    ctaHref: "",
+    useCheckout: true,
     note: "Essentials does not include AI agents or PCI. + $497 one-time setup",
   },
   {
     id: "growth",
+    planId: "growth",
     tier: "Growth",
     priceFrom: "$797",
     cadence: "/mo",
@@ -55,12 +60,14 @@ export const PRICING_TIERS: PricingTier[] = [
       "Priority support",
     ],
     ctaLabel: "Start with Growth",
-    ctaHref: "/book",
+    ctaHref: "",
+    useCheckout: true,
     isHighlighted: true,
     note: "Recommended for revenue recovery · Built for businesses that want to recover missed calls, rebookings, no-shows, and lapsed-client revenue from one managed system. + $997 one-time setup",
   },
   {
     id: "custom_ops",
+    planId: "custom_ops",
     tier: "Custom Ops",
     priceFrom: "$1,497",
     cadence: "/mo",
@@ -78,6 +85,7 @@ export const PRICING_TIERS: PricingTier[] = [
     ],
     ctaLabel: "Book a scoping call",
     ctaHref: "/book",
+    useCheckout: false,
     note: "+ $1,497 one-time setup",
   },
 ];

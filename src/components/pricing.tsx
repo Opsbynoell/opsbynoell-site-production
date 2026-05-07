@@ -1,11 +1,77 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "./button";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { PRICING_TIERS, type PricingTier, type TierId } from "@/lib/pricing";
 import { trackMetaCustomEvent } from "@/lib/meta-pixel-track";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Stripe Checkout CTA button
+// ─────────────────────────────────────────────────────────────────────────────
+function PricingCtaButton({
+  tier,
+  sourcePage,
+}: {
+  tier: PricingTier;
+  sourcePage: PricingSourcePage;
+}) {
+  const [loading, setLoading] = useState(false);
+
+  if (!tier.useCheckout || tier.ctaHref) {
+    return (
+      <Button
+        href={tier.ctaHref || "/book"}
+        variant={tier.isHighlighted ? "primary" : "secondary"}
+        className="w-full py-3"
+        onClick={() => trackTierClick(tier.id, sourcePage)}
+      >
+        {tier.ctaLabel}
+      </Button>
+    );
+  }
+
+  async function handleClick() {
+    if (loading) return;
+    setLoading(true);
+    trackTierClick(tier.id, sourcePage);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ planId: tier.planId }),
+      });
+      if (res.ok) {
+        const { url } = await res.json();
+        if (url) { window.location.href = url; return; }
+      }
+      window.location.href = "/book";
+    } catch {
+      window.location.href = "/book";
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <Button
+      variant={tier.isHighlighted ? "primary" : "secondary"}
+      className="w-full py-3"
+      onClick={handleClick}
+      type="button"
+    >
+      {loading ? (
+        <span className="flex items-center justify-center gap-2">
+          <span className="w-3.5 h-3.5 border-2 border-current/30 border-t-current rounded-full animate-spin" />
+          Loading...
+        </span>
+      ) : (
+        tier.ctaLabel
+      )}
+    </Button>
+  );
+}
 
 type PricingSourcePage =
   | "pricing"
@@ -146,14 +212,7 @@ export function PricingCard({
           </p>
         </div>
 
-        <Button
-          href={tier.ctaHref}
-          variant={tier.isHighlighted ? "primary" : "secondary"}
-          className="w-full py-3"
-          onClick={() => trackTierClick(tier.id, sourcePage)}
-        >
-          {tier.ctaLabel}
-        </Button>
+        <PricingCtaButton tier={tier} sourcePage={sourcePage} />
 
         <ul className="space-y-3 pt-2">
           {tier.features.map((feature, index) => (
