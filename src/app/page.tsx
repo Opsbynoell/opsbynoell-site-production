@@ -8,6 +8,7 @@ import { PredictiveIntelligence } from "@/components/predictive-intelligence";
 import { ROICalculator } from "@/components/roi-calculator";
 import { ProofBar } from "@/components/proof-bar";
 import { SantaProofBlock } from "@/components/santa-proof-block";
+import { FounderQuote } from "@/components/founder-quote";
 import { PciBand } from "@/components/pci-band";
 import { IntegrationBand } from "@/components/integration-band";
 import { FAQ, type FaqItem } from "@/components/faq";
@@ -107,7 +108,10 @@ export default function Home() {
       {/* 2. Santa proof block */}
       <SantaProofBlock />
 
-      {/* 3. PCI band */}
+      {/* 3. Founder presence band — "a real person built this" signal */}
+      <FounderQuote />
+
+      {/* 4. PCI band */}
       <PciBand />
 
       {/* 4. Predictive Customer Intelligence detail (moved up — PCI is the differentiator) */}

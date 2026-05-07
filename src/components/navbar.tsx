@@ -13,6 +13,17 @@ import { Button } from "./button";
 import { Logo } from "./logo";
 import { trackAuditCtaClick } from "@/lib/analytics";
 
+// ─── Systems dropdown links ────────────────────────────────────────────────
+const SYSTEMS_LINKS = [
+  { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
+  { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
+  { name: "What You Get", href: "/what-you-get", description: "Everything included, end to end" },
+  { name: "Noell Support", href: "/noell-support", description: "24/7 AI front desk agent" },
+  { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Signals before revenue leaves" },
+  { name: "Pricing", href: "/pricing", description: "Three tiers, plain pricing" },
+];
+
+// ─── Verticals dropdown links ──────────────────────────────────────────────
 const VERTICAL_LINKS = [
   { name: "Dental Offices", href: "/verticals/dental" },
   { name: "Med Spas", href: "/verticals/med-spas" },
@@ -22,36 +33,20 @@ const VERTICAL_LINKS = [
   { name: "HVAC", href: "/verticals/hvac" },
 ];
 
+type DropdownKey = "systems" | "verticals" | null;
+
 interface NavbarProps {
-  navItems: {
-    name: string;
-    link: string;
-    isAccent?: boolean;
-  }[];
   visible: boolean;
 }
 
+// ─── Navbar root ──────────────────────────────────────────────────────────
 export const Navbar = () => {
-  const navItems = [
-    { name: "Home", link: "/" },
-    { name: "PCI", link: "/predictive-customer-intelligence" },
-    { name: "Systems", link: "/systems" },
-    { name: "Verticals", link: "/verticals" },
-    { name: "Agents", link: "/agents" },
-    { name: "What You Get", link: "/what-you-get" },
-    { name: "Pricing", link: "/pricing" },
-    { name: "About", link: "/about" },
-    { name: "Noell Support", link: "/noell-support", isAccent: true },
-    { name: "Book", link: "/book" },
-  ];
-
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
   const [visible, setVisible] = useState<boolean>(false);
-
   useMotionValueEvent(scrollY, "change", (latest) => {
     setVisible(latest > 100);
   });
@@ -65,24 +60,21 @@ export const Navbar = () => {
       transition={{ duration: 0.3 }}
       className="w-full fixed top-2 inset-x-0 z-50"
     >
-      <DesktopNav visible={visible} navItems={navItems} />
-      <MobileNav visible={visible} navItems={navItems} />
+      <DesktopNav visible={visible} />
+      <MobileNav visible={visible} />
     </motion.nav>
   );
 };
 
-const DesktopNav = ({ navItems, visible }: NavbarProps) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [verticalsOpen, setVerticalsOpen] = useState(false);
+// ─── Desktop nav ──────────────────────────────────────────────────────────
+const DesktopNav = ({ visible }: NavbarProps) => {
+  const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
 
   return (
     <motion.div
-      onMouseLeave={() => {
-        setHoveredIndex(null);
-        setVerticalsOpen(false);
-      }}
+      onMouseLeave={() => setOpenDropdown(null)}
       animate={{
-        width: visible ? "60%" : "85%",
+        width: visible ? "70%" : "88%",
         backgroundColor: visible
           ? "rgba(250, 246, 241, 0.98)"
           : "rgba(250, 246, 241, 0.92)",
@@ -92,140 +84,158 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
           ? "0 10px 30px -10px rgba(28,25,23,0.08)"
           : "0 0 0 transparent",
       }}
-      initial={{ width: "85%", scale: 1, opacity: 1 }}
+      initial={{ width: "88%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
         "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-5 rounded-full relative z-[100] border border-warm-border/40"
       )}
     >
       <Logo />
-      <motion.div
-        className="lg:flex flex-row flex-1 items-center justify-center space-x-1 text-sm"
-        animate={{ scale: 1, justifyContent: visible ? "flex-end" : "center" }}
-      >
-        {navItems.map((navItem, idx) => {
-          const isVerticals = navItem.name === "Verticals";
-          return (
-            <motion.div
-              key={`nav-item-${idx}`}
-              onHoverStart={() => {
-                setHoveredIndex(idx);
-                if (isVerticals) setVerticalsOpen(true);
-              }}
-              onHoverEnd={() => {
-                if (isVerticals) {
-                  // keep open briefly so user can move cursor to dropdown
-                }
-              }}
-              className="relative"
-            >
-              {isVerticals ? (
-                <button
-                  type="button"
-                  aria-haspopup="menu"
-                  aria-expanded={verticalsOpen}
-                  aria-controls="verticals-menu"
-                  className="text-charcoal/80 hover:text-charcoal relative px-2.5 py-1.5 transition-colors flex items-center gap-1"
-                  onClick={() => setVerticalsOpen((v) => !v)}
-                >
-                  <span className="relative z-10">{navItem.name}</span>
-                  <IconChevronDown
-                    aria-hidden="true"
-                    focusable="false"
-                    size={13}
-                    className={cn(
-                      "transition-transform duration-200",
-                      verticalsOpen ? "rotate-180" : ""
-                    )}
-                  />
-                  {hoveredIndex === idx && (
-                    <motion.div
-                      layoutId="menu-hover"
-                      className="absolute inset-0 rounded-full"
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: 1,
-                        background:
-                          "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,224,214,0.35) 100%)",
-                        boxShadow: "0 4px 15px rgba(28,25,23,0.06)",
-                      }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.05 }}
-                    />
-                  )}
-                </button>
-              ) : (
-                <Link
-                  className="text-charcoal/80 hover:text-charcoal relative px-2.5 py-1.5 transition-colors flex items-center gap-1.5"
-                  href={navItem.link}
-                >
-                  {navItem.isAccent && (
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-lilac-dark" />
-                  )}
-                  <span className="relative z-10">{navItem.name}</span>
-                  {hoveredIndex === idx && (
-                    <motion.div
-                      layoutId="menu-hover"
-                      className="absolute inset-0 rounded-full"
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: 1,
-                        background:
-                          "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(240,224,214,0.35) 100%)",
-                        boxShadow: "0 4px 15px rgba(28,25,23,0.06)",
-                      }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.05 }}
-                    />
-                  )}
-                </Link>
-              )}
 
-              {/* Verticals dropdown */}
-              {isVerticals && (
-                <AnimatePresence>
-                  {verticalsOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -6, scale: 0.97 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -6, scale: 0.97 }}
-                      transition={{ duration: 0.15, ease: "easeOut" }}
-                      onMouseEnter={() => setVerticalsOpen(true)}
-                      onMouseLeave={() => setVerticalsOpen(false)}
-                      id="verticals-menu"
-                      role="menu"
-                      aria-label="Verticals"
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl border border-warm-border bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_-8px_rgba(28,25,23,0.12)] p-2 z-50"
-                    >
-                      {VERTICAL_LINKS.map((v) => (
-                        <Link
-                          key={v.href}
-                          href={v.href}
-                          role="menuitem"
-                          onClick={() => setVerticalsOpen(false)}
-                          className="block px-3 py-2 text-sm text-charcoal/70 hover:text-charcoal hover:bg-cream rounded-xl transition-colors"
-                        >
-                          {v.name}
-                        </Link>
-                      ))}
-                      <div className="mt-1 pt-1 border-t border-warm-border">
-                        <Link
-                          href="/verticals"
-                          onClick={() => setVerticalsOpen(false)}
-                          className="block px-3 py-2 text-xs text-wine/85 hover:text-wine hover:bg-blush rounded-xl transition-colors font-medium"
-                        >
-                          View all verticals &rarr;
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              )}
-            </motion.div>
-          );
-        })}
-      </motion.div>
+      {/* Nav items */}
+      <div className="flex items-center gap-1">
+        {/* Home */}
+        <Link
+          href="/"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+        >
+          Home
+        </Link>
 
+        {/* Systems dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("systems")}
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "systems" ? null : "systems")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "systems"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Systems
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "systems" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "systems" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {SYSTEMS_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                  >
+                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Verticals dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("verticals")}
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "verticals" ? null : "verticals")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "verticals"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Verticals
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "verticals" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "verticals" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {VERTICAL_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-charcoal/80 hover:text-wine hover:bg-blush/50 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                <div className="border-t border-warm-border mt-1.5 pt-1.5">
+                  <Link
+                    href="/verticals"
+                    onClick={() => setOpenDropdown(null)}
+                    className="block px-3.5 py-2 rounded-xl text-[11px] uppercase tracking-widest text-wine/70 hover:text-wine hover:bg-blush/50 transition-colors"
+                  >
+                    All verticals &rarr;
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Pricing */}
+        <Link
+          href="/pricing"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+        >
+          Pricing
+        </Link>
+
+        {/* About */}
+        <Link
+          href="/about"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+        >
+          About
+        </Link>
+      </div>
+
+      {/* Primary CTA */}
       <AnimatePresence mode="popLayout" initial={false}>
         {!visible && (
           <motion.div
@@ -255,8 +265,15 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
   );
 };
 
-const MobileNav = ({ navItems, visible }: NavbarProps) => {
+// ─── Mobile nav ───────────────────────────────────────────────────────────
+const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<DropdownKey>(null);
+
+  const toggleSection = (key: "systems" | "verticals") => {
+    setOpenSection((prev) => (prev === key ? null : key));
+  };
+
   return (
     <motion.div
       animate={{
@@ -291,9 +308,17 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
           className="tap-target flex items-center justify-center"
         >
           {open ? (
-            <IconX aria-hidden="true" focusable="false" className="text-charcoal cursor-pointer" />
+            <IconX
+              aria-hidden="true"
+              focusable="false"
+              className="text-charcoal cursor-pointer"
+            />
           ) : (
-            <IconMenu2 aria-hidden="true" focusable="false" className="text-charcoal cursor-pointer" />
+            <IconMenu2
+              aria-hidden="true"
+              focusable="false"
+              className="text-charcoal cursor-pointer"
+            />
           )}
         </motion.button>
       </div>
@@ -308,32 +333,128 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
             id="mobile-nav-menu"
             role="menu"
             aria-label="Mobile navigation"
-            className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-cream/95 inset-x-0 z-50 flex-col items-start justify-start gap-3 w-full px-6 py-6 shadow-lg border border-warm-border/40"
+            className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-cream/95 inset-x-0 z-50 flex-col items-start justify-start gap-1 w-full px-4 py-4 shadow-lg border border-warm-border/40"
           >
-            {navItems.map((navItem, idx) => (
-              <motion.div
-                key={`link=${idx}`}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                  transition: { delay: idx * 0.05 },
-                }}
-                whileHover={{ x: 5 }}
-                className="w-full"
+            {/* Home */}
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
+            >
+              Home
+            </Link>
+
+            {/* Systems accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("systems")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
               >
-                <Link
-                  href={navItem.link}
-                  onClick={() => setOpen(false)}
-                  className="relative text-charcoal/90 hover:text-charcoal transition-colors flex items-center gap-2 tap-target py-2"
-                >
-                  {navItem.isAccent && (
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-lilac-dark" />
+                Systems
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "systems" ? "rotate-180" : "rotate-0"
                   )}
-                  <span className="block">{navItem.name}</span>
-                </Link>
-              </motion.div>
-            ))}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "systems" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {SYSTEMS_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                      >
+                        <span className="text-sm text-charcoal/85">
+                          {link.name}
+                        </span>
+                        <span className="text-[11px] text-charcoal/50">
+                          {link.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Verticals accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("verticals")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+              >
+                Verticals
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "verticals" ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "verticals" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {VERTICAL_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="block px-3 py-2 rounded-xl text-sm text-charcoal/85 hover:text-wine hover:bg-blush/40 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/verticals"
+                      onClick={() => setOpen(false)}
+                      className="block px-3 py-2 rounded-xl text-[11px] uppercase tracking-widest text-wine/70 hover:text-wine hover:bg-blush/40 transition-colors"
+                    >
+                      All verticals &rarr;
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Pricing */}
+            <Link
+              href="/pricing"
+              onClick={() => setOpen(false)}
+              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
+            >
+              Pricing
+            </Link>
+
+            {/* About */}
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
+            >
+              About
+            </Link>
+
+            {/* Book CTA */}
             <Button
               href="/book"
               variant="primary"

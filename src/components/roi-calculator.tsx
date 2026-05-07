@@ -14,7 +14,7 @@ export function ROICalculator() {
     Number.isFinite(months) ? `${months.toFixed(1)} months` : "n/a";
 
   return (
-    <div className="rounded-2xl border border-warm-border bg-white p-8 md:p-10 max-w-3xl mx-auto">
+    <div className="rounded-2xl border border-warm-border bg-white p-8 md:p-10 max-w-3xl mx-auto relative z-10">
       <div className="mb-6">
         <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
           ROI calculator
@@ -35,7 +35,8 @@ export function ROICalculator() {
             max={50}
             value={missedCalls}
             onChange={(e) => setMissedCalls(Number(e.target.value))}
-            className="mt-3 w-full accent-wine cursor-pointer"
+            className="mt-3 w-full accent-wine cursor-pointer relative z-10"
+            style={{ touchAction: "pan-x" }}
           />
           <div className="flex justify-between text-[10px] text-charcoal/70 mt-1">
             <span>0</span>
@@ -54,7 +55,8 @@ export function ROICalculator() {
             step={25}
             value={avgTicket}
             onChange={(e) => setAvgTicket(Number(e.target.value))}
-            className="mt-3 w-full accent-wine cursor-pointer"
+            className="mt-3 w-full accent-wine cursor-pointer relative z-10"
+            style={{ touchAction: "pan-x" }}
           />
           <div className="flex justify-between text-[10px] text-charcoal/70 mt-1">
             <span>$25</span>
