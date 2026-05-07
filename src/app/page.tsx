@@ -1,16 +1,11 @@
 import { Hero } from "@/components/hero";
-import { Testimonials } from "@/components/testimonials";
-import { Systems } from "@/components/systems";
 import CTA from "@/components/cta";
-import { PickYourPath } from "@/components/pick-your-path";
-import { FullSystemFeatures } from "@/components/full-system-features";
-import { PredictiveIntelligence } from "@/components/predictive-intelligence";
 import { ROICalculator } from "@/components/roi-calculator";
-import { ProofBar } from "@/components/proof-bar";
 import { SantaProofBlock } from "@/components/santa-proof-block";
 import { FounderQuote } from "@/components/founder-quote";
 import { PciBand } from "@/components/pci-band";
 import { IntegrationBand } from "@/components/integration-band";
+import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -31,18 +26,13 @@ export const metadata = pageMetadata({
     "$960 recovered in 14 days. The intelligence layer that catches revenue your booking software misses. Free Revenue Signal Report.",
 });
 
+// Three questions that kill the three most common objections before the CTA.
 const homepageFaqs: FaqItem[] = [
   {
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
       "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
-  },
-  {
-    id: "what-is-revenue-signal-report",
-    question: "What is the Revenue Signal Report?",
-    answer:
-      "A free review of where your front desk, booking flow, and follow-up system are leaking revenue. You tell us about your business and current tools, we review personally and reply within one business day with a focused walkthrough.",
   },
   {
     id: "switch-booking-systems",
@@ -55,18 +45,6 @@ const homepageFaqs: FaqItem[] = [
     question: "Who is this for?",
     answer:
       "Dental practices, med spas, salons, massage therapists, estheticians, and HVAC companies. Solo operators and small teams whose front desk has gone quiet while the owner is with a client.",
-  },
-  {
-    id: "what-does-it-cost",
-    question: "What does it cost?",
-    answer:
-      "Done-for-you pricing. We share specifics on the working call once we understand what your front desk needs. We do not quote in advance because the install depends on what we find.",
-  },
-  {
-    id: "pci-extra-charge",
-    question: "Is Predictive Customer Intelligence an extra charge?",
-    answer:
-      "No. It is built into every Ops by Noell install. The front desk that answers your calls is the same front desk that watches your patterns. They are one system, not two.",
   },
 ];
 
@@ -91,7 +69,9 @@ export default function Home() {
         id="home-faq"
       />
 
-      {/* 1. Hero */}
+      {/* ─── 1. HOOK ─────────────────────────────────────────────────────────
+          One headline. One body line. One CTA. The visitor decides in 5 sec.
+      ─────────────────────────────────────────────────────────────────────── */}
       <Hero
         headlineLine1Start="Your booking software shows what happened."
         headlineLine1Accent=""
@@ -101,50 +81,45 @@ export default function Home() {
         body="Ops by Noell finds the clients, leads, and rebookings your front desk is about to lose, then deploys AI agents that recover the revenue before it leaves your book."
         footnote="Done for you. Built around the booking and practice management tools you already use. Live in 14 days."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
-        secondaryCta={{ label: "See How It Works", href: "/predictive-customer-intelligence" }}
+        secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
       />
 
-      {/* 2. Santa proof block */}
+      {/* ─── 2. PROOF ────────────────────────────────────────────────────────
+          Kill skepticism immediately. Real result, real number, real timeline.
+      ─────────────────────────────────────────────────────────────────────── */}
       <SantaProofBlock />
 
-      {/* 3. Founder presence band — "a real person built this" signal */}
+      {/* ─── 3. TRUST ────────────────────────────────────────────────────────
+          "A real person built this." Photo + one paragraph. Short.
+      ─────────────────────────────────────────────────────────────────────── */}
       <FounderQuote />
 
-      {/* 4. PCI band */}
-      <PciBand />
-
-      {/* 4. Predictive Customer Intelligence detail (moved up — PCI is the differentiator) */}
-      <PredictiveIntelligence />
-
-      {/* 5. ProofBar / #live-recovery */}
-      <section className="w-full flex justify-center px-4 pb-12 md:pb-16">
-        <ProofBar />
-      </section>
-
-      {/* 6. Pick your path */}
-      <PickYourPath />
-
-      {/* 7. Integration band */}
-      <IntegrationBand />
-
-      {/* 8. ROI Calculator */}
-      <section className="w-full py-16 px-4">
+      {/* ─── 4. PAIN MADE PERSONAL ───────────────────────────────────────────
+          The ROI calculator. Visitor stops skimming and starts calculating.
+          Moved up — this is the conversion engine, not a footer feature.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section id="roi-calculator" className="w-full py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <ROICalculator />
         </div>
       </section>
 
-      {/* 9. Systems. Three agents, tight. */}
+      {/* ─── 5. HOW IT WORKS ─────────────────────────────────────────────────
+          PCI differentiator band (tight, editorial) + three agents.
+          Together these answer: "okay but what actually happens?"
+      ─────────────────────────────────────────────────────────────────────── */}
+      <PciBand />
       <Systems />
 
-      {/* 10. Full system features (kept from prior layout) */}
-      <FullSystemFeatures />
+      {/* ─── 6. REMOVES THE LAST OBJECTION ───────────────────────────────────
+          "Works with the tools I already use." One row. No switching required.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <IntegrationBand />
 
-      {/* 11. Proof. Santa case study block. */}
-      <Testimonials />
-
-      {/* 12. Homepage FAQ */}
+      {/* ─── 7. ONE ACTION + THREE OBJECTION KILLERS ─────────────────────────
+          Three FAQs max. Then the button. End clean.
+      ─────────────────────────────────────────────────────────────────────── */}
       <FAQ
         faqs={homepageFaqs}
         eyebrow="Questions"
@@ -153,7 +128,6 @@ export default function Home() {
         body="Real questions from service business owners before they request a Revenue Signal Report."
       />
 
-      {/* 13. Final CTA band */}
       <CTA
         eyebrow="The first step"
         headlineStart="Find the revenue your booking software is"
