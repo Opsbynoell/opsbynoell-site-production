@@ -58,6 +58,7 @@ export async function POST(req: Request): Promise<Response> {
       ...(body.email ? { customer_email: body.email } : {}),
       success_url: `${SITE_URL}/onboarding?session_id={CHECKOUT_SESSION_ID}&plan=${planId}`,
       cancel_url: `${SITE_URL}/pricing?checkout=canceled`,
+      currency: "usd",
       allow_promotion_codes: true,
       subscription_data: {
         metadata: {
