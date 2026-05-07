@@ -173,6 +173,18 @@ export default function AdminInbox() {
               >
                 Intelligence
               </a>
+              <a
+                href="/admin/revenue"
+                className="text-xs text-charcoal/70 hover:text-charcoal transition-colors font-medium"
+              >
+                Revenue
+              </a>
+              <a
+                href="/admin/clients"
+                className="text-xs text-charcoal/70 hover:text-charcoal transition-colors"
+              >
+                Clients
+              </a>
             </div>
           )}
           <button
