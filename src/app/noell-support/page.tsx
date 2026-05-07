@@ -189,7 +189,7 @@ export default function NoellSupportPage() {
         body="Noell Support catches the prospects you can't get to. Responds instantly, qualifies the lead, captures their info, routes them, and hands them off to you or your booking link."
         footnote="Noell Support is the entry layer of the Noell system. Noell Front Desk runs operations. Noell Care looks after existing clients."
         primaryCta={{ label: "Get Noell Support on your site", href: "/book" }}
-        secondaryCta={{ label: "See how Noell responds", href: "#how-noell-responds" }}
+        secondaryCta={{ label: "Watch how Noell handles this", href: "#how-noell-responds" }}
         mockScreen={supportScreen}
         priceSignal={
           <>
@@ -340,6 +340,68 @@ export default function NoellSupportPage() {
 
       {/* Relief, the step-by-step flow: how Noell responds */}
       <div id="how-noell-responds" className="scroll-mt-24" />
+      {/* GTM item 8: Scripted demo transcript — shows a full polished conversation */}
+      <section className="py-16 md:py-20 px-4 bg-cream-dark">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
+              Sample conversation
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal">
+              A missed call, handled in{" "}
+              <span className="italic text-lilac-dark">under 60 seconds.</span>
+            </h2>
+            <p className="mt-3 text-sm text-charcoal/60">
+              This is a real example of how Noell Support responds to a missed call via SMS.
+            </p>
+          </div>
+          <div className="bg-white rounded-[24px] border border-warm-border shadow-lg overflow-hidden">
+            <div className="bg-gradient-to-br from-lilac via-lilac-dark to-[#6b4f80] px-5 py-4 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center border border-white/20">
+                <span className="text-white text-xs font-serif font-semibold">N</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">Noell Support</p>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                  <p className="text-[10px] text-white/70">Responding in under 10 seconds</p>
+                </div>
+              </div>
+            </div>
+            <div className="px-5 py-6 space-y-4">
+              <div className="flex justify-start">
+                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                  Hi, I noticed we just missed your call. I&apos;m Noell, the front desk assistant for Glow Medspa. Can I help you get booked or answer a quick question?
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="max-w-[82%] bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white rounded-[17px] rounded-br-md px-4 py-3 text-sm shadow-md">
+                  Yes, I was calling about a HydraFacial. Do you have anything this week?
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                  We do. Can I grab your name so I can check availability for you?
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <div className="max-w-[82%] bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white rounded-[17px] rounded-br-md px-4 py-3 text-sm shadow-md">
+                  Sarah
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                  Hi Sarah. Here&apos;s a direct link to book your HydraFacial. Takes about 30 seconds: opsbynoell.com/book. Let me know if you need anything else.
+                </div>
+              </div>
+              <div className="bg-lilac-light rounded-2xl p-3 border border-lilac-dark/20 text-center">
+                <p className="text-[10px] uppercase tracking-widest text-lilac-dark font-medium">Lead captured · Booking link sent · 47 seconds elapsed</p>
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-xs text-charcoal/40 mt-4">Names changed. Timing is representative of live installs.</p>
+        </div>
+      </section>
       <Features3
         accent="lilac"
         eyebrow="What it feels like"
