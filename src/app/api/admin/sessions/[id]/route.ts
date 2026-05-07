@@ -55,14 +55,14 @@ export async function GET(
       ? "front_desk_sessions"
       : agent === "care"
         ? "care_sessions"
-        : "chatSessions";
+        : "support_sessions";
 
   const messagesTable =
     agent === "frontDesk"
       ? "front_desk_messages"
       : agent === "care"
         ? "care_messages"
-        : "chatMessages";
+        : "support_messages";
 
   try {
     const [session, messages] = await Promise.all([
