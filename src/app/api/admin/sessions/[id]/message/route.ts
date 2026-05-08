@@ -56,14 +56,14 @@ export async function POST(
       ? "front_desk_messages"
       : agent === "care"
         ? "care_messages"
-        : "chatMessages";
+        : "support_messages";
 
   const sessionTable =
     agent === "frontDesk"
       ? "front_desk_sessions"
       : agent === "care"
         ? "care_sessions"
-        : "chatSessions";
+        : "support_sessions";
 
   const sessionClientId = await fetchSessionClientId(sessionTable, id);
   if (!sessionClientId) {
@@ -73,15 +73,9 @@ export async function POST(
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  const messageRow =
-    messagesTable === "chatMessages"
-      ? { sessionId: id, role: "human", content }
-      : { session_id: id, role: "human", content };
-
-  const sessionPatch =
-    sessionTable === "chatSessions"
-      ? { humanTakeover: true, updatedAt: new Date().toISOString() }
-      : { human_takeover: true, updated_at: new Date().toISOString() };
+  // All current tables use snake_case column names
+  const messageRow = { session_id: id, role: "human", content };
+  const sessionPatch = { human_takeover: true, updated_at: new Date().toISOString() };
 
   const [msgRes] = await Promise.all([
     fetch(restUrl(messagesTable), {

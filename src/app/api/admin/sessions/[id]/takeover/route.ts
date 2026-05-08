@@ -52,7 +52,7 @@ export async function POST(
       ? "front_desk_sessions"
       : agent === "care"
         ? "care_sessions"
-        : "chatSessions";
+        : "support_sessions";
 
   const sessionClientId = await fetchSessionClientId(table, id);
   if (!sessionClientId) {
@@ -62,10 +62,8 @@ export async function POST(
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  const patch =
-    table === "chatSessions"
-      ? { humanTakeover: true }
-      : { human_takeover: true };
+  // All current tables use snake_case column names
+  const patch = { human_takeover: true };
 
   const res = await fetch(`${restUrl(table)}?id=eq.${id}`, {
     method: "PATCH",

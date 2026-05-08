@@ -3,6 +3,7 @@ import Pricing from "@/components/pricing";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
 import { NoellAgentsCard } from "@/components/noell-agents-card";
+import { ROICalculator } from "@/components/roi-calculator";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import {
@@ -214,12 +215,12 @@ export default function PricingPage() {
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
-          <Link
-            href="/roi"
+          <a
+            href="#roi-calculator"
             className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
           >
-            Run the ROI calculator
-          </Link>
+            Run the ROI calculator below
+          </a>
           {" · "}
           <Link
             href="/predictive-customer-intelligence"
@@ -229,6 +230,17 @@ export default function PricingPage() {
           </Link>
           .
         </p>
+      </section>
+
+      <section className="w-full px-4 pt-6 md:pt-10">
+        <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-cream-dark/60 px-5 py-4 text-center">
+          <p className="text-sm md:text-base text-charcoal/85 leading-relaxed">
+            <span className="font-semibold text-charcoal">
+              Both plans start at $197/mo.
+            </span>{" "}
+            The difference is scope — agents only, or the full system.
+          </p>
+        </div>
       </section>
 
       <NoellAgentsCard />
@@ -252,6 +264,18 @@ export default function PricingPage() {
       </section>
 
       <Pricing />
+
+      <section id="roi-calculator" className="w-full py-12 md:py-16 px-4 scroll-mt-20">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
+            Estimate your recovery
+          </p>
+          <h2 className="font-serif text-2xl md:text-4xl font-semibold text-charcoal leading-tight">
+            See what either plan could recover for you.
+          </h2>
+        </div>
+        <ROICalculator />
+      </section>
 
       <FAQ
         eyebrow={PRICING_FAQ_EYEBROW}

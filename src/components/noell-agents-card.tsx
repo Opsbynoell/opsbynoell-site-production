@@ -35,6 +35,9 @@ export function NoellAgentsCard() {
           <h2 className="mt-3 font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
             Noell Agents
           </h2>
+          <p className="mt-2 text-sm font-medium text-wine">
+            Best for businesses adding AI to an existing stack
+          </p>
           <p className="mt-3 text-charcoal/75 text-base md:text-lg leading-relaxed max-w-2xl">
             Three AI agents. No platform migration. Works on top of what you
             have.
@@ -48,13 +51,17 @@ export function NoellAgentsCard() {
             {/* Price block */}
             <div className="md:border-r md:border-warm-border md:pr-10">
               <div className="flex items-baseline">
+                <span className="text-base text-charcoal/70 mr-2">From</span>
                 <span className="font-serif text-5xl md:text-6xl font-bold text-charcoal leading-none">
-                  $297
+                  $197
                 </span>
                 <span className="ml-1 text-lg text-charcoal/70">/mo</span>
               </div>
+              <p className="mt-2 text-sm font-medium text-charcoal">
+                3 AI agents. Plug in. Go.
+              </p>
               <p className="mt-3 text-sm text-wine font-medium">
-                $197/mo for founding members (locked 24 months)
+                Founding rate locked 24 months ($297/mo after)
               </p>
               <p className="mt-1 text-sm text-charcoal/70">No setup fee</p>
               <div className="mt-6">

@@ -1,70 +1,71 @@
 /**
  * GET /api/cron/pci-generate?tier=standard|realtime
  *
- * Vercel cron entry point that runs PCI signal generation for every
- * client whose `pciCronTier` matches the incoming `tier` query string.
- * Two scheduled invocations are wired in `vercel.json`:
+ * Vercel cron entry point for scheduled PCI signal generation.
  *
- *   tier=standard  → 0 8 * * *           (1am Pacific, nightly)
- *   tier=realtime  → 0 8,14,20,2 * * *   (1am, 7am, 1pm, 7pm Pacific)
+ *   tier=standard  → fired daily at 1am Pacific
+ *   tier=realtime  → fired every 6 hours at 1am, 7am, 1pm, 7pm Pacific
  *
- * Clients without a tier (or set to "disabled") are skipped by both.
- * Auth is the shared `assertCron` bearer-secret check used by the other
- * cron routes. Generation logic delegates to `handleGenerate` so the
- * scope and validation rules stay aligned with the manual admin path.
+ * Per-client tier is read from clients.pci_config.cronTier, surfaced
+ * as ClientConfig.pciCronTier. Clients without a tier are treated as
+ * "disabled" and skipped by both schedules. The pure logic lives in
+ * src/lib/pci/cron-generate-handler.ts so the route is a thin adapter.
  */
-
-import { NextResponse } from "next/server";
-import { assertCron } from "@/lib/agents/cron-auth";
 import { getClientConfig } from "@/lib/agents/config";
+import { assertCron } from "@/lib/agents/cron-auth";
 import { sbSelect } from "@/lib/agents/supabase";
-import { handleGenerate } from "@/lib/pci/generate-handler";
-import { parseTier, runPciGenerateCron } from "@/lib/pci/cron-generate";
+import {
+  runPciGenerateCron,
+  type PciCronRunTier,
+} from "@/lib/pci/cron-generate-handler";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+interface ClientIdRow {
+  client_id: string;
+}
+
+function parseTier(raw: string | null): PciCronRunTier {
+  if (raw === "realtime") return "realtime";
+  return "standard";
+}
+
+function jsonResponse(body: unknown, status = 200): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "content-type": "application/json" },
+  });
+}
 
 export async function GET(req: Request): Promise<Response> {
   try {
     assertCron(req);
   } catch {
-    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+    return jsonResponse({ error: "unauthorized" }, 401);
   }
 
-  const tier = parseTier(new URL(req.url).searchParams);
+  const url = new URL(req.url);
+  const tier = parseTier(url.searchParams.get("tier"));
 
-  const result = await runPciGenerateCron(tier, {
-    listClientIds: async () => {
-      const rows = await sbSelect<{ client_id: string }>(
-        "clients",
-        {},
-        { select: "client_id" }
-      );
-      return rows.map((r) => r.client_id);
-    },
-    getTierFor: async (clientId) => {
-      const cfg = await getClientConfig(clientId);
-      return cfg.pciCronTier ?? "disabled";
-    },
-    generateForClient: async (clientId) => {
-      const res = await handleGenerate({
-        session: {
-          userId: "cron",
-          email: "cron@opsbynoell.com",
-          isSuperAdmin: true,
-          accessibleClients: [],
-          exp: Date.now() + 60_000,
-        },
-        body: { clientIds: [clientId], dryRun: false },
-      });
-      if (res.status !== 200) {
-        const body = res.body as { error?: string };
-        throw new Error(
-          body?.error ?? `pci generate failed (status ${res.status})`
-        );
-      }
-    },
+  let rows: ClientIdRow[];
+  try {
+    rows = await sbSelect<ClientIdRow>(
+      "clients",
+      {},
+      { select: "client_id" }
+    );
+  } catch (e) {
+    console.error("[cron/pci-generate] client list load failed:", e);
+    return jsonResponse({ error: "client list load failed" }, 500);
+  }
+
+  const clientIds = rows.map((r) => r.client_id);
+  const result = await runPciGenerateCron({
+    tier,
+    clientIds,
+    loadConfig: getClientConfig,
   });
 
-  return NextResponse.json(result);
+  return jsonResponse(result);
 }

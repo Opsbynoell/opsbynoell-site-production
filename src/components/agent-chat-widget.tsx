@@ -8,19 +8,15 @@
  *   - mode="live"  — POSTs to /api/front-desk/message or /api/care/message
  *                    with a clientId provided via script tag data-*.
  *
- * In live mode the widget persists a sessionId in sessionStorage so the
- * conversation survives a page refresh within the same tab. It does
- * NOT write to localStorage — a client never wants their visitor's
- * conversation to leak across browser tabs or devices.
- *
- * White-label: when embedded as a standalone bundle (widget.js) we
- * mount inside a Shadow DOM. In-site React usage skips Shadow DOM
- * because the marketing site owns its own CSS.
+ * GTM improvements applied:
+ *   - Item 4: "Replay demo" button resets the conversation to a clean state.
+ *   - Item 6: Social proof badge ("94% leads captured") shown in widget header.
+ *   - Item 7: headerSubtitle now carries social proof copy (set in agent-router.tsx).
  */
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { IconMessageCircle, IconX, IconSend } from "@tabler/icons-react";
+import { IconMessageCircle, IconX, IconSend, IconRefresh } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
 export type AgentKind = "support" | "frontDesk" | "care";
@@ -86,6 +82,8 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
   const [inputValue, setInputValue] = useState("");
   const [typing, setTyping] = useState(false);
   const [sessionId, setSessionId] = useState<string | undefined>();
+  // GTM item 4: track whether the conversation has progressed past the greeting
+  const hasConversation = messages.length > 1;
   const scrollRef = useRef<HTMLDivElement>(null);
   const styles = accentClasses[props.accent];
 
@@ -112,6 +110,17 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
     }
   }, [messages, typing]);
 
+  // GTM item 4: reset the demo conversation to a clean state.
+  function handleReplay() {
+    setMessages([{ from: "agent", text: props.greeting }]);
+    setInputValue("");
+    setTyping(false);
+    if (props.mode === "live" && typeof window !== "undefined") {
+      window.sessionStorage.removeItem(`noell:${props.agent}:sessionId`);
+      setSessionId(undefined);
+    }
+  }
+
   async function send(message: string) {
     const userMsg: Message = { from: "visitor", text: message };
     setMessages((prev) => [...prev, userMsg]);
@@ -121,7 +130,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
       const flow =
         props.scriptedResponses?.[message.toLowerCase().trim()] ??
         props.scriptedResponses?.["*"] ?? [
-          "Got it — I've logged this. Someone from the team will follow up soon.",
+          "Got it. Someone from the team will follow up soon.",
         ];
       for (let i = 0; i < flow.length; i++) {
         await new Promise((r) => setTimeout(r, 700));
@@ -250,6 +259,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               "shadow-xl flex flex-col max-h-[580px]"
             )}
           >
+            {/* Header — GTM item 7: subtitle carries social proof copy */}
             <div className={cn("px-5 py-4 flex items-center gap-3", styles.header)}>
               <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center border border-white/20">
                 <span className="text-white text-sm font-serif font-semibold">N</span>
@@ -265,6 +275,18 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   </p>
                 </div>
               </div>
+              {/* GTM item 4: Replay button — only shown after conversation has started */}
+              {hasConversation && props.mode === "demo" && (
+                <button
+                  type="button"
+                  onClick={handleReplay}
+                  className="text-white/60 hover:text-white mr-1 transition-colors"
+                  aria-label="Replay demo from the start"
+                  title="Replay demo"
+                >
+                  <IconRefresh size={16} aria-hidden="true" />
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}

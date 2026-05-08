@@ -81,6 +81,13 @@ export function NoellSupportChat() {
   const [inputValue, setInputValue] = useState("");
   const [typing, setTyping] = useState(false);
   const [sending, setSending] = useState(false);
+  // When the agent backend is unreachable we switch the input area to a
+  // simple name+email lead-capture form. Sticky for the rest of the
+  // session — once we know the backend is down, don't keep poking it.
+  const [fallbackMode, setFallbackMode] = useState(false);
+  const [leadName, setLeadName] = useState("");
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadStatus, setLeadStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const sessionIdRef = useRef<string | null>(null);
   const visitorRef = useRef<{ name?: string; phone?: string }>({});
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
@@ -106,12 +113,18 @@ export function NoellSupportChat() {
 
   // Auto-expand triggers (non-/book pages, respect session dismissal).
   // The widget auto-expands ONLY when the visitor has scrolled past the hero
-  // AND at least 8 seconds have elapsed since mount AND they have never
+  // AND at least 14 seconds have elapsed since mount AND they have never
+  // GTM item 2: delay increased from 8s to 14s so visitors read the headline first.
   // dismissed the widget this session. Dismissal is sticky per session.
   useEffect(() => {
     if (isBookPage) return;
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(DISMISS_KEY)) return;
+
+    // Don't auto-open on mobile — too intrusive on small screens.
+    // The launcher pill remains tappable; we just don't pop the panel.
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) return;
 
     if (isSupportPage) {
       const t = setTimeout(() => {
@@ -133,7 +146,7 @@ export function NoellSupportChat() {
     const timer = setTimeout(() => {
       elapsed = true;
       openIfReady();
-    }, 8000);
+    }, 14000);
 
     const onScroll = () => {
       if (scrolledPastHero) return;
@@ -214,12 +227,16 @@ export function NoellSupportChat() {
       ]);
     } catch {
       setTyping(false);
+      setFallbackMode(true);
+      // Prefill the lead form with whatever name we may have detected
+      // earlier so the visitor doesn't have to re-type it.
+      if (visitorRef.current.name) setLeadName(visitorRef.current.name);
       setMessages((prev) => [
         ...prev,
         {
           from: "agent",
           text:
-            "I'm having trouble reaching the team right now. You can text Noell directly or book a time at https://www.opsbynoell.com/book and we'll follow up.",
+            "Our team is setting things up — drop your name and email below and we'll reach out within 24 hours. You can also book a time at https://www.opsbynoell.com/book.",
         },
       ]);
     } finally {
@@ -241,6 +258,40 @@ export function NoellSupportChat() {
     setMessages((prev) => [...prev, userMsg]);
     setInputValue("");
     void sendToAgent(value);
+  };
+
+  // Submit name+email to the fallback lead-capture endpoint when the
+  // primary agent backend is down. Resolves to an inline confirmation;
+  // never re-attempts the agent endpoint.
+  const submitLead = async () => {
+    const name = leadName.trim();
+    const email = leadEmail.trim();
+    if (!name || !email || leadStatus === "sending") return;
+    setLeadStatus("sending");
+    try {
+      const res = await fetch("/api/support/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          // Pass the most recent visitor message (if any) so the operator
+          // has context for the follow-up.
+          message: [...messages].reverse().find((m) => m.from === "visitor")?.text,
+        }),
+      });
+      if (!res.ok) throw new Error(`API ${res.status}`);
+      setLeadStatus("sent");
+      setMessages((prev) => [
+        ...prev,
+        {
+          from: "agent",
+          text: `Got it, ${name}. We'll reach out at ${email} within 24 hours.`,
+        },
+      ]);
+    } catch {
+      setLeadStatus("error");
+    }
   };
 
   const handleClose = () => {
@@ -407,6 +458,53 @@ export function NoellSupportChat() {
 
             {/* Input */}
             <div className="px-4 py-3 bg-white border-t border-warm-border">
+              {fallbackMode ? (
+                leadStatus === "sent" ? (
+                  <p className="text-sm text-charcoal/80 text-center py-2">
+                    Thanks — we&apos;ll be in touch soon.
+                  </p>
+                ) : (
+                  <div className="space-y-2">
+                    <input
+                      type="text"
+                      value={leadName}
+                      onChange={(e) => setLeadName(e.target.value)}
+                      placeholder="Your name"
+                      disabled={leadStatus === "sending"}
+                      className="w-full h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
+                    />
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="email"
+                        value={leadEmail}
+                        onChange={(e) => setLeadEmail(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && submitLead()}
+                        placeholder="Email address"
+                        disabled={leadStatus === "sending"}
+                        className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
+                      />
+                      <button
+                        type="button"
+                        onClick={submitLead}
+                        disabled={
+                          leadStatus === "sending" ||
+                          !leadName.trim() ||
+                          !leadEmail.trim()
+                        }
+                        className="h-10 px-4 rounded-[10px] bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white text-sm font-medium flex items-center justify-center hover:scale-105 transition-transform shadow-md disabled:opacity-50 disabled:hover:scale-100"
+                      >
+                        {leadStatus === "sending" ? "Sending…" : "Send"}
+                      </button>
+                    </div>
+                    {leadStatus === "error" && (
+                      <p className="text-[11px] text-wine">
+                        Couldn&apos;t send. Try again or email
+                        hello@opsbynoell.com directly.
+                      </p>
+                    )}
+                  </div>
+                )
+              ) : (
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -427,6 +525,7 @@ export function NoellSupportChat() {
                   <IconSend size={15} aria-hidden="true" />
                 </button>
               </div>
+              )}
               <p className="text-[9px] text-muted-medium mt-2 text-center">
                 Noell Support handles new-prospect intake. First response,
                 qualification, routing, and human handoff.

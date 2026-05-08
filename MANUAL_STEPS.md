@@ -332,3 +332,23 @@ A new row should appear in `public.front_desk_sessions` and two rows (visitor
 | `src/app/api/admin/sessions/[id]/message/route.ts` | POST operator message |
 | `src/components/faq.tsx` | Multi-open FAQ accordion (fixed) |
 | `src/components/navbar.tsx` | Navbar with verticals dropdown (added) |
+
+
+---
+
+## PCI cron tier (per-client scheduled signal generation)
+
+Two new Vercel crons run scheduled PCI signal generation:
+
+- `/api/cron/pci-generate?tier=standard` fires daily at `0 8 * * *` UTC (1am Pacific).
+- `/api/cron/pci-generate?tier=realtime` fires every 6 hours at `0 8,14,20,2 * * *` UTC (1am, 7am, 1pm, 7pm Pacific).
+
+Both routes use the same `CRON_SECRET` Bearer auth as the existing crons (no new env var). To opt a client in, set `clients.pci_config.cronTier` in Supabase. See `cron_tier_supabase_sql.sql` at the repo root for the paste-ready SQL.
+
+Tiers:
+
+- `standard` runs once nightly.
+- `realtime` runs four times daily.
+- `disabled` or missing is skipped by both crons (default).
+
+The admin client detail page surfaces the active tier as a read-only badge next to the Active/Paused pill.
