@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $197/mo.",
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $197/mo, locked for your first 12 months.",
   ogTitle: "Noell Agents — AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
@@ -94,7 +94,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). Founder rate applies to Noell Agents specifically — the full system has its own pricing.",
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
   },
   {
     id: "agents_time_to_live",
@@ -113,9 +113,9 @@ const agentsFaqs: FaqItem[] = [
   {
     id: "agents_post_founder_rate",
     group: "agents",
-    question: "What happens after the 24-month founder rate ends?",
+    question: "What happens after the 12-month founding rate ends?",
     answer:
-      "Your rate rolls to the standard Noell Agents price at that time (currently $297/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founders who complete a full case study during their term get an additional 6 months at $197 before the rollover — 30 months total at founder pricing.",
+      "Your rate rolls to the standard Noell Agents price at that time (currently $297/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founding clients who complete a full case study during their term get an additional 3 months at $197 before the rollover — 15 months total at the founding rate.",
   },
 ];
 
@@ -145,7 +145,7 @@ export default function AgentsPage() {
       <div className="w-full bg-wine text-cream">
         <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
           <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-center">
-            10 founding spots &middot; closes June 30, 2026
+            10 founding spots &middot; $197/mo locked 12 months &middot; first come, first served
           </p>
         </div>
       </div>
@@ -183,8 +183,7 @@ export default function AgentsPage() {
         </div>
 
         <p className="relative z-20 mt-6 max-w-xl text-center text-xs italic text-muted-strong">
-          Founding rate locked for 24 months &middot; 10 spots &middot; Offer
-          closes June 30, 2026
+          Founding rate locked 12 months &middot; 10 spots only &middot; $297/mo after
         </p>
       </section>
 
@@ -309,7 +308,7 @@ export default function AgentsPage() {
               $197<span className="text-2xl md:text-3xl font-normal">/mo</span>
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
-              Founding rate &middot; Locked for 24 months &middot; 10 spots only
+              Founding rate &middot; Locked 12 months &middot; 10 spots only
             </p>
             <AgentsFoundingCta
               variant="primary"
@@ -346,8 +345,7 @@ export default function AgentsPage() {
             </li>
             <li className="rounded-[18px] border border-warm-border bg-white p-5 md:p-6">
               <p className="font-serif text-lg md:text-xl text-charcoal italic leading-snug">
-                Optional: a full case study &mdash; in exchange, 6 additional
-                months at the founder rate (30 months total).
+                Optional: a full case study — in exchange, 3 additional months at the founding rate (15 months total).
               </p>
             </li>
           </ul>
@@ -367,7 +365,7 @@ export default function AgentsPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-cream-dark/70 border border-warm-border px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-charcoal leading-snug">
-            Founding members only. Through June 30, 2026.
+            First 10 clients. $197/mo, locked for 12 months.
           </p>
           <div className="mt-8 flex justify-center">
             <AgentsFoundingCta
@@ -378,8 +376,7 @@ export default function AgentsPage() {
             </AgentsFoundingCta>
           </div>
           <p className="mt-6 text-xs italic text-muted-strong">
-            Founding rate locked for 24 months &middot; 10 spots &middot; Offer
-            closes June 30, 2026
+            Founding rate locked 12 months &middot; 10 spots only &middot; $297/mo after
           </p>
         </div>
       </section>

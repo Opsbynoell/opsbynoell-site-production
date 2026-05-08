@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { IconCheck, IconBolt, IconPhoneCall, IconHeartHandshake } from "@tabler/icons-react";
 
 const PLAN_LABELS: Record<string, string> = {
-  agents_founding: "Noell Agents — Founding Rate ($197/mo)",
+  agents_founding: "Noell Agents — Founding Rate ($197/mo, locked 12 months)",
   agents_standard: "Noell Agents ($297/mo)",
   essentials: "Noell System — Essentials ($197/mo)",
   growth: "Noell System — Growth ($797/mo)",

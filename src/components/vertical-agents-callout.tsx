@@ -10,7 +10,7 @@ export function VerticalAgentsCallout() {
           </p>
           <p className="text-sm md:text-base text-charcoal/85 leading-relaxed">
             Want just the AI agents without the full system? See Noell Agents —
-            $197/mo founding rate.{" "}
+            $197/mo, locked for your first 12 months.{" "}
             <Link
               href="/agents"
               className="text-wine hover:text-wine-dark font-medium underline underline-offset-4 decoration-wine/30 whitespace-nowrap"

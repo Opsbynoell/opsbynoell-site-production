@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/pricing",
   title: "Pricing — Revenue Recovery Systems for Service Businesses",
   description:
-    "Pricing for the intelligence layer that recovers revenue your booking software misses. Noell Agents at $197/mo founding rate, or the full Noell System — Essentials $197, Growth $797, Custom Ops $1,497/mo.",
+    "Pricing for the intelligence layer that recovers revenue your booking software misses. Noell Agents at $197/mo, locked for your first 12 months. Or the full Noell System — Essentials $197, Growth $797, Custom Ops $1,497/mo.",
 });
 
 const pricingFaqs: FaqItem[] = [
@@ -39,14 +39,14 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "Can I start with Noell Agents and upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). Founder rate applies to Noell Agents specifically — the full system has its own pricing.",
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
   },
   {
     id: "founding_member_offer",
     group: "tracks",
-    question: "What is the founding member offer and who qualifies?",
+    question: "What is the founding rate and who qualifies?",
     answer:
-      "The first 10 founding members of Noell Agents lock in $197/mo (vs $297/mo normal) for 24 months. In return we ask for a written testimonial after 30 days and one 15-minute reference call. The offer closes June 30, 2026, or when the first 10 spots are claimed — whichever comes first.",
+      "The first 10 clients lock in $197/mo (vs $297/mo standard) for their first 12 months. In return we ask for a written testimonial after 30 days and one 15-minute reference call. Available to the first 10 clients — no expiry date, first come first served.",
   },
   // Existing — Group 1 — Commitment and terms
   {
@@ -168,7 +168,7 @@ export default function PricingPage() {
               name: "Noell Agents",
               priceMonthly: 197,
               description:
-                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate locked for 24 months.",
+                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate $197/mo, locked for your first 12 months.",
               url: "/agents",
             },
             {
@@ -236,7 +236,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-cream-dark/60 px-5 py-4 text-center">
           <p className="text-sm md:text-base text-charcoal/85 leading-relaxed">
             <span className="font-semibold text-charcoal">
-              Both plans start at $197/mo.
+              Both plans start at $197/mo founding rate.
             </span>{" "}
             The difference is scope — agents only, or the full system.
           </p>

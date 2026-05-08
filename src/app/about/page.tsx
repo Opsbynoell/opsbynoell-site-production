@@ -193,15 +193,14 @@ export default function AboutPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-cream-dark/70 border border-warm-border px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-charcoal leading-snug">
-            Right now, we&apos;re looking for ten founding members.
+            First 10 clients lock in $197/month for their first 12 months.
           </p>
           <p className="mt-4 text-sm md:text-base text-charcoal/70">
-            Locked pricing, direct access, a real relationship with the team
-            building this.
+            Standard rate is $297/month. You get the founding rate, direct access, and a real relationship with the team building this.
           </p>
           <div className="mt-8 flex justify-center">
             <Button href="/agents" variant="primary" className="h-12 px-8">
-              See the founding offer &rarr;
+              See the founding rate &rarr;
             </Button>
           </div>
         </div>
