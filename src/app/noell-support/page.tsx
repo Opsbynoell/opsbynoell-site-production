@@ -7,7 +7,7 @@ import {
   IconUserCheck,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import { Hero } from "@/components/hero";
+import { AdHero } from "@/components/ad-hero";
 import { Features } from "@/components/features";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
@@ -179,15 +179,15 @@ export default function NoellSupportPage() {
         ]}
         id="noell-support"
       />
-      <Hero
+      <AdHero
+        page="support"
         variant="lilac"
-        eyebrow="Noell Support · New prospect intake"
-        headlineLine1Start="Your first"
-        headlineLine1Accent="response."
-        headlineLine2Start="Not your"
-        headlineLine2Accent="whole front desk."
-        body="Noell Support catches the prospects you can't get to. Responds instantly, qualifies the lead, captures their info, routes them, and hands them off to you or your booking link."
-        footnote="Noell Support is the entry layer of the Noell system. Noell Front Desk runs operations. Noell Care looks after existing clients."
+        defaultEyebrow="Noell Support · New prospect intake"
+        defaultHeadlineLine1Start="Your first"
+        defaultHeadlineLine1Accent="response."
+        defaultHeadlineLine2Start="Not your"
+        defaultHeadlineLine2Accent="whole front desk."
+        defaultBody="Noell Support catches the prospects you can't get to. Responds instantly, qualifies the lead, captures their info, routes them, and hands them off to you or your booking link."
         primaryCta={{ label: "Get Noell Support on your site", href: "/book" }}
         secondaryCta={{ label: "Watch how Noell handles this", href: "#how-noell-responds" }}
         mockScreen={supportScreen}
@@ -199,6 +199,7 @@ export default function NoellSupportPage() {
             </Link>
           </>
         }
+        sourcePage="noell-support"
       />
 
       {/* Stats */}

@@ -6,7 +6,7 @@ import {
   IconHelpCircle,
   IconShieldCheck,
 } from "@tabler/icons-react";
-import { Hero } from "@/components/hero";
+import { AdHero } from "@/components/ad-hero";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
@@ -139,18 +139,19 @@ export default function NoellCarePage() {
         ]}
         id="noell-care"
       />
-      <Hero
+      <AdHero
+        page="care"
         variant="sage"
-        eyebrow="Noell Care · Existing-client layer"
-        headlineLine1Start="For the clients"
-        headlineLine1Accent="who already stayed."
-        headlineLine2Start="Recognized."
-        headlineLine2Accent="Not re-interrogated."
-        body="Noell Care is the desk for your returning clients. It recognizes them, pulls their history, answers from your knowledge base, and hands rebooking to Front Desk. The warm third layer of the Noell system."
-        footnote="Noell Support catches new prospects. Noell Front Desk runs operations. Noell Care looks after the people you already have."
+        defaultEyebrow="Noell Care · Existing-client layer"
+        defaultHeadlineLine1Start="For the clients"
+        defaultHeadlineLine1Accent="who already stayed."
+        defaultHeadlineLine2Start="Recognized."
+        defaultHeadlineLine2Accent="Not re-interrogated."
+        defaultBody="Noell Care is the desk for your returning clients. It recognizes them, pulls their history, answers from your knowledge base, and hands rebooking to Front Desk. The warm third layer of the Noell system."
         primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
+        sourcePage="noell-care"
       />
 
       <section id="capabilities" className="py-20 md:py-28 px-4">

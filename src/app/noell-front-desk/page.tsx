@@ -8,7 +8,7 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import { Hero } from "@/components/hero";
+import { AdHero } from "@/components/ad-hero";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
 import CTA from "@/components/cta";
@@ -178,15 +178,15 @@ export default function NoellFrontDeskPage() {
         ]}
         id="noell-front-desk"
       />
-      <Hero
+      <AdHero
+        page="frontDesk"
         variant="wine"
-        eyebrow="Noell Front Desk · Operations layer"
-        headlineLine1Start="The operations"
-        headlineLine1Accent="layer."
-        headlineLine2Start="Everything a"
-        headlineLine2Accent="receptionist handles."
-        body="Noell Front Desk runs the operational workload of your business: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
-        footnote="Noell Front Desk layers on top of Noell Support. Together they cover the entire client lifecycle."
+        defaultEyebrow="Noell Front Desk · Operations layer"
+        defaultHeadlineLine1Start="The operations"
+        defaultHeadlineLine1Accent="layer."
+        defaultHeadlineLine2Start="Everything a"
+        defaultHeadlineLine2Accent="receptionist handles."
+        defaultBody="Noell Front Desk runs the operational workload of your business: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
         primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={frontDeskScreen}
@@ -198,6 +198,7 @@ export default function NoellFrontDeskPage() {
             </Link>
           </>
         }
+        sourcePage="front-desk"
       />
 
       {/* 7 capabilities */}

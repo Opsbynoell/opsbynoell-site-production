@@ -1,13 +1,19 @@
 /**
  * GET /api/admin/sessions
  *
- * Returns sessions from all three agents in a unified format,
+ * Returns sessions from all four agents in a unified format,
  * sorted by last activity descending. Caller can pass ?agent=support|frontDesk|care
  * to filter, and ?clientId=<id> to filter by client (super admin only; non-super
  * admins are automatically scoped to their accessible clients).
  *
- * All three agents use snake_case column names (support_sessions, front_desk_sessions, care_sessions).
+ * The legacy Noell Support agent uses camelCase column names (chatSessions).
+ * The new Support agent uses snake_case (support_sessions) — this is where the
+ * 57 warm lead sessions live.
+ * Front Desk and Care use snake_case (new agent schema).
  * This route normalizes everything to snake_case.
+ *
+ * FIX (GTM item 6): Added support_sessions + support_messages to the query so
+ * the 57 warm leads that were invisible in the admin inbox are now visible.
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -17,7 +23,7 @@ import { env } from "@/lib/agents/env";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type AgentFilter = "all" | "support" | "frontDesk" | "care";
+type AgentFilter = "all" | "support" | "frontDesk" | "care" | "supportNew";
 
 interface NormalizedSession {
   id: string;
@@ -59,15 +65,16 @@ async function fetchSessions(
   let clientFilter = "";
   if (clientIds !== null && clientIds.length > 0) {
     const ids = clientIds.map(encodeURIComponent).join(",");
-    // All current tables use snake_case client_id column
-    clientFilter = `&client_id=in.(${ids})`;
+    // snake_case tables use client_id; camelCase legacy uses clientId
+    const col = table === "chatSessions" ? "clientId" : "client_id";
+    clientFilter = `&${col}=in.(${ids})`;
   } else if (clientIds !== null && clientIds.length === 0) {
     // No accessible clients — return empty
     return [];
   }
 
   const sessRes = await fetch(
-    `${restUrl(table)}?select=*&order=updated_at.desc&limit=200${clientFilter}`,
+    `${restUrl(table)}?select=*&order=updated_at.desc,updatedAt.desc&limit=200${clientFilter}`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   if (!sessRes.ok) return [];
@@ -76,7 +83,7 @@ async function fetchSessions(
 
   // Fetch latest message per session
   const msgRes = await fetch(
-    `${restUrl(messagesTable)}?select=session_id,content,role,created_at&order=created_at.desc&limit=400`,
+    `${restUrl(messagesTable)}?select=session_id,sessionId,content,role,created_at,createdAt&order=created_at.desc,createdAt.desc&limit=400`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   const allMessages = msgRes.ok
@@ -134,14 +141,20 @@ export async function GET(req: NextRequest): Promise<Response> {
     clientFilter = payload.accessibleClients;
   }
 
-  // Non-super-admins don't see Noell Support (support_sessions) — those are internal
-  const showSupport =
+  // Non-super-admins don't see legacy Noell Support (chatSessions) — those are internal
+  const showLegacySupport =
     (filter === "all" || filter === "support") && payload.isSuperAdmin;
 
+  // support_sessions (new schema) — visible to all admins, scoped by client
+  const showNewSupport = filter === "all" || filter === "support";
+
   try {
-    const [support, frontDesk, care] = await Promise.all([
-      showSupport
-        ? fetchSessions("support_sessions", "support", "support_messages", null)
+    const [legacySupport, newSupport, frontDesk, care] = await Promise.all([
+      showLegacySupport
+        ? fetchSessions("chatSessions", "support", "chatMessages", null)
+        : Promise.resolve([]),
+      showNewSupport
+        ? fetchSessions("support_sessions", "support", "support_messages", clientFilter)
         : Promise.resolve([]),
       filter === "all" || filter === "frontDesk"
         ? fetchSessions("front_desk_sessions", "frontDesk", "front_desk_messages", clientFilter)
@@ -151,10 +164,18 @@ export async function GET(req: NextRequest): Promise<Response> {
         : Promise.resolve([]),
     ]);
 
-    const all = [...support, ...frontDesk, ...care].sort(
-      (a, b) =>
-        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
-    );
+    // Deduplicate by id in case a session appears in both legacy and new tables
+    const seen = new Set<string>();
+    const all = [...legacySupport, ...newSupport, ...frontDesk, ...care]
+      .filter((s) => {
+        if (seen.has(s.id)) return false;
+        seen.add(s.id);
+        return true;
+      })
+      .sort(
+        (a, b) =>
+          new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+      );
 
     return NextResponse.json({ sessions: all });
   } catch (e) {
