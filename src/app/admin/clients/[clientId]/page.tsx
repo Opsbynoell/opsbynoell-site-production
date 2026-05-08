@@ -448,6 +448,7 @@ export default async function ClientDashboardPage({
   const phone = cfg?.phone ?? null;
   const isActive = cfg?.active ?? true;
 
+
   return (
     <div className="min-h-screen bg-cream pb-12">
       {/* Top bar — stripped down version of the existing admin top bar */}

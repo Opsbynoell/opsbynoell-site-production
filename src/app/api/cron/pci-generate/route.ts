@@ -10,14 +10,7 @@
  * as ClientConfig.pciCronTier. Clients without a tier are treated as
  * "disabled" and skipped by both schedules. The pure logic lives in
  * src/lib/pci/cron-generate-handler.ts so the route is a thin adapter.
- *
- * The route uses the standard Response.json helper rather than
- * NextResponse.json so the unit test under __tests__/route.test.ts
- * can import it without a Next.js runtime present. Functionally
- * identical: NextResponse.json is a thin wrapper around the same
- * Response constructor.
  */
-
 import { getClientConfig } from "@/lib/agents/config";
 import { assertCron } from "@/lib/agents/cron-auth";
 import { sbSelect } from "@/lib/agents/supabase";
@@ -68,7 +61,6 @@ export async function GET(req: Request): Promise<Response> {
   }
 
   const clientIds = rows.map((r) => r.client_id);
-
   const result = await runPciGenerateCron({
     tier,
     clientIds,

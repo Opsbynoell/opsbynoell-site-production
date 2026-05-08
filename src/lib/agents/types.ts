@@ -45,6 +45,12 @@ export interface EscalationRule {
   reason: string; // human-readable reason for the alert
 }
 
+/**
+ * Per-client PCI cron tier.
+ *   "disabled" — no scheduled signal generation (default)
+ *   "standard" — nightly run at 1am Pacific
+ *   "realtime" — every 6 hours at 1am, 7am, 1pm, 7pm Pacific
+ */
 export type PciCronTier = "disabled" | "standard" | "realtime";
 
 export interface ClientConfig {
@@ -52,11 +58,6 @@ export interface ClientConfig {
   businessName: string;
   brandName?: string;
   vertical: string; // "massage" | "dental" | ...
-
-  // Predictive Customer Intelligence cron tier. Defaults to
-  // "disabled" when missing. "standard" runs nightly at 1am Pacific;
-  // "realtime" runs every 6 hours at 1am, 7am, 1pm, 7pm Pacific.
-  pciCronTier?: PciCronTier;
 
   agents: {
     support: boolean;
@@ -95,6 +96,10 @@ export interface ClientConfig {
   escalationRules?: EscalationRule[];
   telegramChatId?: string;
   services?: ServiceDefinition[];
+
+  // PCI scheduled-generation tier. Read from clients.pci_config.cronTier.
+  // Defaults to "disabled" when missing.
+  pciCronTier?: PciCronTier;
 
   active: boolean;
 }

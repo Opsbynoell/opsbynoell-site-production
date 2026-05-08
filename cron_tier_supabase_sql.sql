@@ -6,21 +6,24 @@
 -- ones whose tier matches the run's tier.
 --
 -- Tiers:
---   "standard". nightly at 1am Pacific
---   "realtime". every 6 hours at 1am, 7am, 1pm, 7pm Pacific
---   "disabled" or missing. skipped by both crons (default)
+--   "standard"  → nightly at 1am Pacific
+--   "realtime"  → every 6 hours at 1am, 7am, 1pm, 7pm Pacific
+--   "disabled" or missing → skipped by both crons (default)
+
+-- Add pci_config column if it does not exist yet.
+ALTER TABLE clients ADD COLUMN IF NOT EXISTS pci_config jsonb NOT NULL DEFAULT '{}'::jsonb;
 
 -- Set Santa to Standard (nightly).
 UPDATE clients
 SET pci_config = COALESCE(pci_config, '{}'::jsonb) || jsonb_build_object('cronTier', 'standard')
-WHERE id = 'santa';
+WHERE client_id = 'santa';
 
 -- Set opsbynoell to Real-Time (4x daily).
 UPDATE clients
 SET pci_config = COALESCE(pci_config, '{}'::jsonb) || jsonb_build_object('cronTier', 'realtime')
-WHERE id = 'opsbynoell';
+WHERE client_id = 'opsbynoell';
 
 -- Verify.
-SELECT id, pci_config->>'cronTier' AS cron_tier
+SELECT client_id, pci_config->>'cronTier' AS cron_tier
 FROM clients
-WHERE id IN ('santa', 'opsbynoell');
+WHERE client_id IN ('santa', 'opsbynoell');
