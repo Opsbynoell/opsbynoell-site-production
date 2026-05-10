@@ -23,6 +23,12 @@ const SYSTEMS_LINKS = [
   { name: "Pricing", href: "/pricing", description: "Three tiers, plain pricing" },
 ];
 
+// ─── Who We Help links ───────────────────────────────────────────────────────
+const WHO_WE_HELP_LINKS = [
+  { name: "Service Businesses", href: "/for-service-businesses", description: "Consultants, agencies, coaches, and professional services" },
+  { name: "B2B and Enterprise", href: "/for-b2b", description: "SaaS, AI vendors, and tech companies selling to enterprise" },
+];
+
 // ─── Verticals dropdown links ──────────────────────────────────────────────
 const VERTICAL_LINKS = [
   { name: "Dental Offices", href: "/verticals/dental" },
@@ -33,7 +39,7 @@ const VERTICAL_LINKS = [
   { name: "HVAC", href: "/verticals/hvac" },
 ];
 
-type DropdownKey = "systems" | "verticals" | null;
+type DropdownKey = "systems" | "verticals" | "who-we-help" | null;
 
 interface NavbarProps {
   visible: boolean;
@@ -218,6 +224,62 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           </AnimatePresence>
         </div>
 
+        {/* Who We Help dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("who-we-help")}
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "who-we-help" ? null : "who-we-help")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "who-we-help"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Who We Help
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "who-we-help" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "who-we-help" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {WHO_WE_HELP_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                  >
+                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
         {/* Pricing */}
         <Link
           href="/pricing"
@@ -270,7 +332,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
 
-  const toggleSection = (key: "systems" | "verticals") => {
+  const toggleSection = (key: "systems" | "verticals" | "who-we-help") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
 
@@ -431,6 +493,51 @@ const MobileNav = ({ visible }: NavbarProps) => {
                     >
                       All verticals &rarr;
                     </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Who We Help accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("who-we-help")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+              >
+                Who We Help
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "who-we-help" ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "who-we-help" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {WHO_WE_HELP_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                      >
+                        <span className="text-sm text-charcoal/85">
+                          {link.name}
+                        </span>
+                        <span className="text-[11px] text-charcoal/50">
+                          {link.description}
+                        </span>
+                      </Link>
+                    ))}
                   </motion.div>
                 )}
               </AnimatePresence>
