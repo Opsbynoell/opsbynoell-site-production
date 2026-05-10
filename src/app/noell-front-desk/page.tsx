@@ -198,7 +198,7 @@ export default function NoellFrontDeskPage() {
             </Link>
           </>
         }
-        sourcePage="front-desk"
+        sourcePage="noell_front_desk"
       />
 
       {/* 7 capabilities */}

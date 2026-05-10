@@ -199,7 +199,7 @@ export default function NoellSupportPage() {
             </Link>
           </>
         }
-        sourcePage="noell-support"
+        sourcePage="noell_support"
       />
 
       {/* Stats */}
