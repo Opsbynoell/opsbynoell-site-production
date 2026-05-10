@@ -151,7 +151,7 @@ export default function NoellCarePage() {
         primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
-        sourcePage="noell-care"
+        sourcePage="noell_care"
       />
 
       <section id="capabilities" className="py-20 md:py-28 px-4">

@@ -106,8 +106,13 @@ const entries: Entry[] = [
     lastmod: LAUNCH_FIXES,
   },
 
+  { path: "/case-studies", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7, lastmod: "2026-04-18" },
 
+  { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
+  { path: "/for-b2b", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
+
+  { path: "/compare", changeFrequency: "monthly", priority: 0.7, lastmod: TODAY },
   { path: "/compare/my-ai-front-desk", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/podium", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/diy-ai-receptionist", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
@@ -120,8 +125,6 @@ const entries: Entry[] = [
   { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
   { path: "/sms-policy", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
 ];
-
-void TODAY;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return entries.map((e) => ({
