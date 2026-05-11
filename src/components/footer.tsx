@@ -37,12 +37,12 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full max-w-7xl mx-auto rounded-3xl mb-10 mx-auto bg-cream-dark border border-warm-border">
+    <footer className="w-full max-w-7xl mx-auto rounded-3xl mb-10 mx-auto bg-[#301A26] border border-white/10">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-20">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="flex items-start flex-col max-w-sm">
             <Logo />
-            <h2 className="font-serif text-xl md:text-2xl font-medium text-charcoal mt-6 leading-snug">
+            <h2 className="font-serif text-xl md:text-2xl font-medium text-cream mt-6 leading-snug">
               AI-powered operations for service businesses and B2B teams. Built, installed, and managed end-to-end.
             </h2>
           </div>
@@ -57,7 +57,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
+                      className="text-sm text-cream/70 hover:text-cream inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -75,7 +75,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
+                      className="text-sm text-cream/70 hover:text-cream inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -93,7 +93,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
+                      className="text-sm text-cream/70 hover:text-cream inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -111,7 +111,7 @@ export function Footer() {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-sm text-charcoal/70 hover:text-charcoal inline-flex items-center tap-target"
+                      className="text-sm text-cream/70 hover:text-cream inline-flex items-center tap-target"
                     >
                       {item.title}
                     </Link>
@@ -122,7 +122,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 mt-12 border-t border-warm-border gap-3">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-12 mt-12 border-t border-white/10 gap-3">
           <p className="text-xs text-muted-strong">
             &copy; {new Date().getFullYear()} Ops by Noell. Quiet operations for service businesses and B2B teams.
           </p>
@@ -130,7 +130,7 @@ export function Footer() {
             Built for both tracks. Managed end-to-end.
           </p>
         </div>
-        <div className="pt-6 mt-6 border-t border-warm-border/60">
+        <div className="pt-6 mt-6 border-t border-white/10/60">
           <p className="text-[11px] leading-relaxed text-muted-strong/80 max-w-4xl">
             Ops by Noell is an independent service provider. We are not
             affiliated with, endorsed by, or a certified partner of any

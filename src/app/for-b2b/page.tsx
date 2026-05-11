@@ -210,13 +210,13 @@ export default function ForB2BPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               The boardroom disconnect
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight max-w-3xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
               The pitch is excellent.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 The website is not.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
               Enterprise buying committees do not make decisions in the room. They do their own research. Here is where the trust collapses.
             </p>
           </div>
@@ -226,7 +226,7 @@ export default function ForB2BPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative rounded-[22px] bg-white p-7 border border-warm-border",
+                  "relative rounded-[22px] bg-[#271520] p-7 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -236,10 +236,10 @@ export default function ForB2BPage() {
                     {signal.tag}
                   </p>
                 </div>
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-charcoal leading-snug mb-3">
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-cream leading-snug mb-3">
                   {signal.title}
                 </h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed">
+                <p className="text-sm text-cream/75 leading-relaxed">
                   {signal.body}
                 </p>
               </div>
@@ -249,7 +249,7 @@ export default function ForB2BPage() {
       </section>
 
       {/* ─── 3. PCI BAND ──────────────────────────────────────────────────── */}
-      <section className="w-full bg-cream-dark py-16 md:py-20">
+      <section className="w-full bg-[#301A26] py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             Predictive Customer Intelligence
@@ -257,10 +257,10 @@ export default function ForB2BPage() {
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-wine leading-tight">
             Your pipeline tells you what happened. We tell you what is about to.
           </h2>
-          <p className="mt-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-cream/85 leading-relaxed">
             Every signal in your pipeline, from engagement patterns to buying committee behavior, is data your CRM is not reading. Ops by Noell reads it every day and surfaces the accounts most likely to close, expand, or churn before your team notices the shift. Not a dashboard you check. An operational layer that tells your team what to do next.
           </p>
-          <p className="mt-8 font-serif italic text-lg md:text-xl text-charcoal">
+          <p className="mt-8 font-serif italic text-lg md:text-xl text-cream">
             We do not just tell you who is interested. We tell you who is about to go quiet.
           </p>
           <div className="mt-10">
@@ -278,13 +278,13 @@ export default function ForB2BPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               What we build
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight max-w-3xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
               Three systems.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 One enterprise-grade operation.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
               Every B2B engagement is built around three interconnected systems that cover the full enterprise buyer journey, from first signal to closed deal.
             </p>
           </div>
@@ -294,24 +294,24 @@ export default function ForB2BPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative flex flex-col rounded-[22px] bg-white p-7 md:p-8 border border-warm-border",
+                  "relative flex flex-col rounded-[22px] bg-[#271520] p-7 md:p-8 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
                 <p className="text-[10px] uppercase tracking-[0.2em] text-wine/85 font-medium mb-2">
                   {system.eyebrow}
                 </p>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                   {system.title}
                 </h3>
-                <p className="text-sm md:text-base text-charcoal/75 leading-relaxed mb-6">
+                <p className="text-sm md:text-base text-cream/75 leading-relaxed mb-6">
                   {system.description}
                 </p>
                 <ul className="space-y-2 flex-1">
                   {system.bullets.map((bullet, j) => (
                     <li key={j} className="flex items-start gap-2.5">
                       <IconCheck size={14} className="text-wine shrink-0 mt-0.5" />
-                      <span className="text-sm text-charcoal/80">{bullet}</span>
+                      <span className="text-sm text-cream/80">{bullet}</span>
                     </li>
                   ))}
                 </ul>
@@ -369,8 +369,8 @@ export default function ForB2BPage() {
                 key={i}
                 href={agent.href}
                 className={cn(
-                  "relative flex flex-col rounded-[22px] bg-white/5 border border-white/10 p-7 md:p-8",
-                  "hover:bg-white/10 transition-colors"
+                  "relative flex flex-col rounded-[22px] bg-[#271520]/5 border border-white/10 p-7 md:p-8",
+                  "hover:bg-[#271520]/10 transition-colors"
                 )}
               >
                 <p className="text-[10px] uppercase tracking-[0.2em] text-lilac-light font-medium mb-2">
@@ -402,16 +402,16 @@ export default function ForB2BPage() {
       {/* ─── 5.5 PIPELINE DASHBOARD CALLOUT ───────────────────────────────── */}
       <section className="w-full px-4 py-12 md:py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-[22px] bg-white border border-warm-border p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="rounded-[22px] bg-[#271520] border border-white/10 p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
                   B2B Pipeline Dashboard
                 </p>
-                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-snug mb-4">
+                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug mb-4">
                   Your entire pipeline, visible in one place.
                 </h2>
-                <p className="text-charcoal/75 leading-relaxed mb-6">
+                <p className="text-cream/75 leading-relaxed mb-6">
                   Every account your Noell agents touch is tracked in a live B2B pipeline dashboard. Deal stages, ICP scores, outreach status, pipeline value, and win rate. Table view or kanban. You see exactly what is moving and what is stalled.
                 </p>
                 <ul className="space-y-2.5">
@@ -421,7 +421,7 @@ export default function ForB2BPage() {
                     "Pipeline value and win rate at a glance",
                     "Full conversation threads from every B2B agent",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-cream/80">
                       <IconCheck size={14} className="text-wine shrink-0 mt-0.5" />
                       {item}
                     </li>
@@ -433,7 +433,7 @@ export default function ForB2BPage() {
                   <p className="font-serif text-3xl font-semibold text-lilac-light mb-1">Live</p>
                   <p className="text-[11px] text-white/60 uppercase tracking-wide">included with<br />every engagement</p>
                 </div>
-                <p className="text-[11px] text-charcoal/50 text-center">
+                <p className="text-[11px] text-cream/50 text-center">
                   Included in all B2B engagements
                 </p>
               </div>
@@ -443,34 +443,34 @@ export default function ForB2BPage() {
       </section>
 
       {/* ─── 6. LIVE PROOF ───────────────────────────────────────────────────── */}
-      <section className="w-full px-4 py-14 md:py-16 bg-cream-dark">
+      <section className="w-full px-4 py-14 md:py-16 bg-[#301A26]">
         <div className="mx-auto max-w-2xl">
-          <div className="rounded-[22px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               Live implementation · Premier Tech Sales Inc.
             </p>
-            <p className="font-serif text-xl md:text-2xl text-charcoal leading-snug mb-5">
+            <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
               Our current flagship B2B implementation is running inside a live enterprise sales operation today. Three agents, PCI, and a live pipeline dashboard. We show it on every Digital Readiness Review call because it is the most honest demonstration we can offer.
             </p>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">3</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">B2B agents<br />running live</p>
+                <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">B2B agents<br />running live</p>
               </div>
               <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">Live</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">pipeline<br />dashboard</p>
+                <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">pipeline<br />dashboard</p>
               </div>
               <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">PCI</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">signal layer<br />active</p>
+                <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">signal layer<br />active</p>
               </div>
             </div>
             <div className="border-l-2 border-wine/40 pl-4">
-              <p className="text-sm md:text-base text-charcoal/80 italic leading-relaxed">
+              <p className="text-sm md:text-base text-cream/80 italic leading-relaxed">
                 "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and enterprise-grade operational systems. That is the brief. That is what we built. And it is running right now."
               </p>
-              <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/80">
+              <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/80">
                 Nikki Noell · Ops by Noell
               </footer>
             </div>
@@ -485,13 +485,13 @@ export default function ForB2BPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               The process
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               We do not send proposals.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 We run working sessions.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-xl mx-auto leading-relaxed">
               Every B2B engagement starts with a Digital Readiness Review. No pitch. No deck. A direct conversation about what is broken and what it is costing you in pipeline.
             </p>
           </div>
@@ -501,17 +501,17 @@ export default function ForB2BPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative rounded-[22px] bg-white p-7 border border-warm-border",
+                  "relative rounded-[22px] bg-[#271520] p-7 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-3">
                   {step.number}
                 </p>
-                <h3 className="font-serif text-xl font-semibold text-charcoal mb-3">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-charcoal/75 leading-relaxed">
+                <p className="text-sm md:text-base text-cream/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>

@@ -44,7 +44,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     "text-white"
   ),
   secondary: cn(
-    "bg-white rounded-[8px] border border-warm-border text-charcoal"
+    "bg-[#271520] rounded-[8px] border border-white/10 text-cream"
   ),
   dark: cn("bg-charcoal text-cream rounded-[8px]"),
   wine: cn(

@@ -22,10 +22,10 @@ export function ArticleLayout({
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           {eyebrow}
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           {title}
         </h1>
-        <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
           {lead}
         </p>
         {meta && (
@@ -36,13 +36,13 @@ export function ArticleLayout({
       </section>
 
       <section className="px-4 pb-16 md:pb-20">
-        <article className="max-w-3xl mx-auto rounded-[22px] border border-warm-border bg-white p-8 md:p-12 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] prose prose-sm md:prose-base prose-headings:font-serif prose-headings:text-charcoal prose-headings:font-semibold prose-p:text-charcoal/75 prose-li:text-charcoal/75 prose-a:text-wine prose-strong:text-charcoal prose-blockquote:text-charcoal/80 prose-blockquote:border-wine/30">
+        <article className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#271520] p-8 md:p-12 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] prose prose-sm md:prose-base prose-headings:font-serif prose-headings:text-cream prose-headings:font-semibold prose-p:text-cream/75 prose-li:text-cream/75 prose-a:text-wine prose-strong:text-cream prose-blockquote:text-cream/80 prose-blockquote:border-wine/30">
           {children}
 
           {footerCta && (
             <>
-              <hr className="my-10 border-warm-border" />
-              <p className="text-sm text-charcoal/70">
+              <hr className="my-10 border-white/10" />
+              <p className="text-sm text-cream/70">
                 Want your own look at where leads are leaking?{" "}
                 <Link
                   href="/book"

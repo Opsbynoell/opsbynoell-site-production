@@ -102,13 +102,13 @@ export default function BookPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           The first step
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream">
           Get your free{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             Revenue Signal Report.
           </span>
         </h1>
-        <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/80 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           Tell us what you use to book, where the front desk is leaking, and
           what kind of business you run. We will review it personally and
           reply within one business day with two or three times for a focused
@@ -119,7 +119,7 @@ export default function BookPage() {
       {/* Form intro */}
       <section className="px-4 pt-8 pb-2">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm md:text-base text-charcoal/75 leading-relaxed">
+          <p className="text-sm md:text-base text-cream/75 leading-relaxed">
             The report starts here. Six quick details help us map your
             missed-call, rebooking, and follow-up leaks before the call.
           </p>
@@ -138,7 +138,7 @@ export default function BookPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
               What happens after you send it
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight">
               No widget. No queue. A human reply.
             </h2>
           </div>
@@ -146,21 +146,21 @@ export default function BookPage() {
             {whatHappensNext.map((step) => (
               <div
                 key={step.number}
-                className="rounded-[20px] border border-warm-border bg-white p-6 md:p-7"
+                className="rounded-[20px] border border-white/10 bg-[#271520] p-6 md:p-7"
               >
-                <span className="font-mono text-[10px] text-charcoal/70">
+                <span className="font-mono text-[10px] text-cream/70">
                   {step.number}
                 </span>
-                <h3 className="mt-3 font-serif text-xl font-semibold text-charcoal">
+                <h3 className="mt-3 font-serif text-xl font-semibold text-cream">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm text-charcoal/70 leading-relaxed">
+                <p className="mt-3 text-sm text-cream/70 leading-relaxed">
                   {step.detail}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-xs md:text-sm text-charcoal/70 italic max-w-xl mx-auto leading-relaxed">
+          <p className="mt-8 text-center text-xs md:text-sm text-cream/70 italic max-w-xl mx-auto leading-relaxed">
             We do not chase. We do not add you to a list. If it is not a fit,
             we will say so.
           </p>
@@ -169,11 +169,11 @@ export default function BookPage() {
 
       {/* Trust and proof block */}
       <section className="px-4 py-12 md:py-14">
-        <div className="max-w-2xl mx-auto rounded-[22px] border border-warm-border bg-cream-dark p-7 md:p-9">
+        <div className="max-w-2xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-9">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
             Currently running
           </p>
-          <p className="font-serif text-lg md:text-xl text-charcoal leading-snug">
+          <p className="font-serif text-lg md:text-xl text-cream leading-snug">
             Currently keeping the front desk moving for Healing Hands by
             Santa — a solo licensed therapeutic massage practice in Laguna
             Niguel run by Santa, the owner. In fourteen days, four missed
@@ -181,7 +181,7 @@ export default function BookPage() {
             <span className="text-wine">nine hundred sixty dollars</span> in
             recovered revenue.
           </p>
-          <p className="mt-5 text-sm text-charcoal/70 leading-relaxed">
+          <p className="mt-5 text-sm text-cream/70 leading-relaxed">
             We work alongside the booking and practice management software
             your business already uses. Based in Orange County, California.
             Served nationally.
@@ -200,15 +200,15 @@ export default function BookPage() {
 
       {/* Soft exit. Noell Support fallback. */}
       <section className="px-4 pb-20">
-        <div className="max-w-3xl mx-auto rounded-[22px] border border-warm-border bg-cream-dark p-8 text-center">
+        <div className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.2em] text-muted-strong mb-3 inline-flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-lilac-dark" />
             Not ready to send the form?
           </p>
-          <h3 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-3">
+          <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-3">
             Ask Noell Support a question first.
           </h3>
-          <p className="text-sm text-charcoal/70 max-w-md mx-auto mb-6">
+          <p className="text-sm text-cream/70 max-w-md mx-auto mb-6">
             Pop open the chat in the bottom-right and ask anything. It routes
             to Noell when you are ready.
           </p>

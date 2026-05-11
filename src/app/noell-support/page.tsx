@@ -124,17 +124,17 @@ const supportScreen = (
     <div className="flex justify-between items-center w-full px-2 pb-2">
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-        <span className="text-xs text-charcoal/70 font-medium">
+        <span className="text-xs text-cream/70 font-medium">
           Noell Support · Online
         </span>
       </div>
-      <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
+      <span className="text-[10px] uppercase tracking-widest text-cream/70">
         live
       </span>
     </div>
 
     {/* Support greeting */}
-    <div className="bg-white rounded-2xl rounded-bl-md p-3 mx-1 border border-warm-border/60 shadow-sm text-[11px] text-charcoal leading-snug">
+    <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
       Hi, I&apos;m Noell Support. Looking to book or ask a question?
     </div>
 
@@ -146,7 +146,7 @@ const supportScreen = (
     </div>
 
     {/* Support qualification */}
-    <div className="bg-white rounded-2xl rounded-bl-md p-3 mx-1 mt-2 border border-warm-border/60 shadow-sm text-[11px] text-charcoal leading-snug">
+    <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 mt-2 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
       That&apos;s exactly what we solve. Can I grab your name and best number?
       I&apos;ll route this to Noell.
     </div>
@@ -194,7 +194,7 @@ export default function NoellSupportPage() {
         priceSignal={
           <>
             Starts at $197/mo.{" "}
-            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal">
+            <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/55 hover:text-cream">
               See all tiers.
             </Link>
           </>
@@ -220,13 +220,13 @@ export default function NoellSupportPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
               What Noell Support does
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Six things,{" "}
               <span className="italic bg-gradient-to-b from-lilac-dark to-lilac bg-clip-text text-transparent">
                 done well.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/70 max-w-xl mx-auto">
+            <p className="mt-5 text-cream/70 max-w-xl mx-auto">
               Noell Support is not trying to be everything. It handles the
               critical first minutes of every new prospect, the window where
               most revenue is lost.
@@ -238,7 +238,7 @@ export default function NoellSupportPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[17px] border border-warm-border bg-white p-6",
+                  "rounded-[17px] border border-white/10 bg-[#271520] p-6",
                   "shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.04)]"
                 )}
               >
@@ -246,14 +246,14 @@ export default function NoellSupportPage() {
                   <div className="w-10 h-10 rounded-lg bg-lilac-dark/10 text-lilac-dark flex items-center justify-center">
                     {cap.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/70">
+                  <span className="text-[10px] font-mono text-cream/70">
                     0{i + 1}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold text-charcoal mb-1.5">
+                <h3 className="text-base font-semibold text-cream mb-1.5">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
+                <p className="text-sm text-cream/70 leading-relaxed">
                   {cap.description}
                 </p>
               </div>
@@ -306,7 +306,7 @@ export default function NoellSupportPage() {
           </div>
 
           {/* Does Not */}
-          <div className="rounded-[17px] border border-white/10 bg-white/[0.04] p-6 md:p-7">
+          <div className="rounded-[17px] border border-white/10 bg-[#271520]/[0.04] p-6 md:p-7">
             <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-4 font-semibold">
               Noell Support does not
             </p>
@@ -323,7 +323,7 @@ export default function NoellSupportPage() {
                   key={item}
                   className="text-sm text-cream/65 flex items-center gap-2.5"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-cream/20" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1F1219]/20" />
                   {item}
                 </li>
               ))}
@@ -343,23 +343,23 @@ export default function NoellSupportPage() {
       {/* Relief, the step-by-step flow: how Noell responds */}
       <div id="how-noell-responds" className="scroll-mt-24" />
       {/* GTM item 8: Scripted demo transcript — shows a full polished conversation */}
-      <section className="py-16 md:py-20 px-4 bg-cream-dark">
+      <section className="py-16 md:py-20 px-4 bg-[#301A26]">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
               Sample conversation
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">
               A missed call, handled in{" "}
               <span className="italic text-lilac-dark">under 60 seconds.</span>
             </h2>
-            <p className="mt-3 text-sm text-charcoal/60">
+            <p className="mt-3 text-sm text-cream/60">
               This is a real example of how Noell Support responds to a missed call via SMS.
             </p>
           </div>
-          <div className="bg-white rounded-[24px] border border-warm-border shadow-lg overflow-hidden">
+          <div className="bg-[#271520] rounded-[24px] border border-white/10 shadow-lg overflow-hidden">
             <div className="bg-gradient-to-br from-lilac via-lilac-dark to-[#6b4f80] px-5 py-4 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center border border-white/20">
+              <div className="w-8 h-8 rounded-full bg-[#271520]/20 flex items-center justify-center border border-white/20">
                 <span className="text-white text-xs font-serif font-semibold">N</span>
               </div>
               <div>
@@ -372,7 +372,7 @@ export default function NoellSupportPage() {
             </div>
             <div className="px-5 py-6 space-y-4">
               <div className="flex justify-start">
-                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                <div className="max-w-[82%] bg-[#271520] border border-white/10 rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-cream shadow-sm">
                   Hi, I noticed we just missed your call. I&apos;m Noell, the front desk assistant for Glow Medspa. Can I help you get booked or answer a quick question?
                 </div>
               </div>
@@ -382,7 +382,7 @@ export default function NoellSupportPage() {
                 </div>
               </div>
               <div className="flex justify-start">
-                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                <div className="max-w-[82%] bg-[#271520] border border-white/10 rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-cream shadow-sm">
                   We do. Can I grab your name so I can check availability for you?
                 </div>
               </div>
@@ -392,7 +392,7 @@ export default function NoellSupportPage() {
                 </div>
               </div>
               <div className="flex justify-start">
-                <div className="max-w-[82%] bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-charcoal shadow-sm">
+                <div className="max-w-[82%] bg-[#271520] border border-white/10 rounded-[17px] rounded-bl-md px-4 py-3 text-sm text-cream shadow-sm">
                   Hi Sarah. Here&apos;s a direct link to book your HydraFacial. Takes about 30 seconds: opsbynoell.com/book. Let me know if you need anything else.
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function NoellSupportPage() {
               </div>
             </div>
           </div>
-          <p className="text-center text-xs text-charcoal/40 mt-4">Names changed. Timing is representative of live installs.</p>
+          <p className="text-center text-xs text-cream/40 mt-4">Names changed. Timing is representative of live installs.</p>
         </div>
       </section>
       <Features3

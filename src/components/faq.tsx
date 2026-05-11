@@ -109,7 +109,7 @@ export function FAQ({
           >
             {eyebrow}
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal mb-4">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream mb-4">
             {headlineStart}{" "}
             <span
               className={cn(
@@ -120,7 +120,7 @@ export function FAQ({
               {headlineAccent}
             </span>
           </h2>
-          <p className="text-charcoal/70 max-w-2xl mx-auto">{body}</p>
+          <p className="text-cream/70 max-w-2xl mx-auto">{body}</p>
         </div>
 
         <div className="space-y-3 rounded-[22px] bg-warm-border/40 p-4">
@@ -131,7 +131,7 @@ export function FAQ({
             return (
               <div
                 key={index}
-                className="rounded-[17px] border border-warm-border bg-gradient-to-b from-white via-cream to-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),_0px_34px_21px_0px_rgba(28,25,23,0.04),_0px_15px_15px_0px_rgba(28,25,23,0.06),_0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden"
+                className="rounded-[17px] border border-white/10 bg-gradient-to-b from-white via-cream to-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),_0px_34px_21px_0px_rgba(28,25,23,0.04),_0px_15px_15px_0px_rgba(28,25,23,0.06),_0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden"
               >
                 <h3 className="m-0">
                   <button
@@ -156,7 +156,7 @@ export function FAQ({
                         className={accentText}
                       />
                     </motion.span>
-                    <span className="text-base md:text-lg text-charcoal font-medium">
+                    <span className="text-base md:text-lg text-cream font-medium">
                       {faq.question}
                     </span>
                   </button>
@@ -194,7 +194,7 @@ export function FAQ({
                       className="px-6 overflow-hidden"
                     >
                       <div className="pb-5 pl-8">
-                        <p className="text-charcoal/70 leading-relaxed text-sm md:text-base">
+                        <p className="text-cream/70 leading-relaxed text-sm md:text-base">
                           {faq.answer}
                         </p>
                       </div>

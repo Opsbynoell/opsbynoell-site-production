@@ -208,13 +208,13 @@ export default function ForServiceBusinessesPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               The quiet revenue leak
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight max-w-3xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
               You are not losing clients because your work is bad.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 You are losing them between sessions.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
               The gap between delivering excellent work and running a business that captures and retains every client is an operations problem. Here is what it looks like in practice.
             </p>
           </div>
@@ -224,7 +224,7 @@ export default function ForServiceBusinessesPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative rounded-[22px] bg-white p-7 border border-warm-border",
+                  "relative rounded-[22px] bg-[#271520] p-7 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -234,10 +234,10 @@ export default function ForServiceBusinessesPage() {
                     {signal.tag}
                   </p>
                 </div>
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-charcoal leading-snug mb-3">
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-cream leading-snug mb-3">
                   {signal.title}
                 </h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed">
+                <p className="text-sm text-cream/75 leading-relaxed">
                   {signal.body}
                 </p>
               </div>
@@ -247,33 +247,33 @@ export default function ForServiceBusinessesPage() {
       </section>
 
       {/* ─── 3. PROOF BAND ────────────────────────────────────────────────── */}
-      <section className="w-full px-4 py-14 md:py-16 bg-cream-dark">
-        <div className="mx-auto max-w-2xl rounded-[22px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+      <section className="w-full px-4 py-14 md:py-16 bg-[#301A26]">
+        <div className="mx-auto max-w-2xl rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             Case study · Healing Hands by Santa · Laguna Niguel, CA
           </p>
-          <p className="font-serif text-xl md:text-2xl text-charcoal leading-snug mb-5">
+          <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
             Santa, a licensed massage therapist with 25 years of experience, was losing clients every time she was with a client. Her phone went quiet. No follow-up went out. Clients booked elsewhere.
           </p>
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">4</p>
-              <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">missed calls<br />recovered</p>
+              <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">missed calls<br />recovered</p>
             </div>
             <div className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">$960</p>
-              <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">recovered<br />in 14 days</p>
+              <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">recovered<br />in 14 days</p>
             </div>
             <div className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">75%</p>
-              <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">fewer<br />no-shows</p>
+              <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">fewer<br />no-shows</p>
             </div>
           </div>
           <blockquote className="border-l-2 border-wine/40 pl-4">
-            <p className="text-sm md:text-base text-charcoal/80 italic leading-relaxed">
+            <p className="text-sm md:text-base text-cream/80 italic leading-relaxed">
               "I used to dread Mondays because there would always be gaps I didn't expect. Now I open my calendar and it's just full. The reminders go out and people show up. I don't think about it anymore."
             </p>
-            <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/80">
+            <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/80">
               Santa E. · Licensed Massage Therapist · Laguna Niguel CA
             </footer>
           </blockquote>
@@ -287,13 +287,13 @@ export default function ForServiceBusinessesPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               What we build
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight max-w-3xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
               Three agents.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 One complete front desk.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
               Every Ops by Noell engagement is built around three AI agents that cover the full client lifecycle, from first contact to retention. Installed and managed by our team.
             </p>
           </div>
@@ -303,24 +303,24 @@ export default function ForServiceBusinessesPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative flex flex-col rounded-[22px] bg-white p-7 md:p-8 border border-warm-border",
+                  "relative flex flex-col rounded-[22px] bg-[#271520] p-7 md:p-8 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
                 <p className="text-[10px] uppercase tracking-[0.2em] text-wine/85 font-medium mb-2">
                   {system.eyebrow}
                 </p>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                   {system.title}
                 </h3>
-                <p className="text-sm md:text-base text-charcoal/75 leading-relaxed mb-6">
+                <p className="text-sm md:text-base text-cream/75 leading-relaxed mb-6">
                   {system.description}
                 </p>
                 <ul className="space-y-2 mb-7 flex-1">
                   {system.bullets.map((bullet, j) => (
                     <li key={j} className="flex items-start gap-2.5">
                       <IconCheck size={14} className="text-wine shrink-0 mt-0.5" />
-                      <span className="text-sm text-charcoal/80">{bullet}</span>
+                      <span className="text-sm text-cream/80">{bullet}</span>
                     </li>
                   ))}
                 </ul>
@@ -337,18 +337,18 @@ export default function ForServiceBusinessesPage() {
       </section>
 
       {/* ─── 4.5 DASHBOARD CALLOUT ───────────────────────────────────────── */}
-      <section className="w-full px-4 py-12 md:py-16 bg-cream-dark">
+      <section className="w-full px-4 py-12 md:py-16 bg-[#301A26]">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-[22px] bg-white border border-warm-border p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="rounded-[22px] bg-[#271520] border border-white/10 p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
                   Lead Intelligence Dashboard
                 </p>
-                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-snug mb-4">
+                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug mb-4">
                   See every lead, conversation, and recovery in real time.
                 </h2>
-                <p className="text-charcoal/75 leading-relaxed mb-6">
+                <p className="text-cream/75 leading-relaxed mb-6">
                   Every client who contacts your business through Noell is tracked in a live dashboard. You see which leads are HOT, which are WARM, which agent handled them, and the full conversation thread. No guessing what the system is doing. No waiting for a monthly report.
                 </p>
                 <ul className="space-y-2.5">
@@ -358,7 +358,7 @@ export default function ForServiceBusinessesPage() {
                     "Conversion funnel from first contact to booked",
                     "Date range filtering: 7D, 30D, 90D, All Time",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-cream/80">
                       <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
                         <IconCheck size={10} />
                       </span>
@@ -372,7 +372,7 @@ export default function ForServiceBusinessesPage() {
                   <p className="font-serif text-3xl font-semibold text-wine mb-1">Live</p>
                   <p className="text-[11px] text-white/60 uppercase tracking-wide">included with<br />every system</p>
                 </div>
-                <p className="text-[11px] text-charcoal/50 text-center">
+                <p className="text-[11px] text-cream/50 text-center">
                   Included in all Noell System tiers
                 </p>
               </div>
@@ -382,19 +382,19 @@ export default function ForServiceBusinessesPage() {
       </section>
 
       {/* ─── 5. HOW IT STARTS ─────────────────────────────────────────────── */}
-      <section className="w-full px-4 py-16 md:py-24 bg-cream-dark">
+      <section className="w-full px-4 py-16 md:py-24 bg-[#301A26]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               The process
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               We do not send proposals.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 We run working sessions.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-xl mx-auto leading-relaxed">
               Every engagement starts with a free Revenue Signal Report. No pitch. No deck. Just a direct conversation about what is broken and what it is costing you.
             </p>
           </div>
@@ -404,17 +404,17 @@ export default function ForServiceBusinessesPage() {
               <div
                 key={i}
                 className={cn(
-                  "relative rounded-[22px] bg-white p-7 border border-warm-border",
+                  "relative rounded-[22px] bg-[#271520] p-7 border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.15),0_8px_32px_rgba(139,42,66,0.08)]",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-3">
                   {step.number}
                 </p>
-                <h3 className="font-serif text-xl font-semibold text-charcoal mb-3">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm md:text-base text-charcoal/75 leading-relaxed">
+                <p className="text-sm md:text-base text-cream/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>

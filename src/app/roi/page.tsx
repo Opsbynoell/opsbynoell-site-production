@@ -37,13 +37,13 @@ export default function RoiPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           ROI calculator
         </p>
-        <h1 className="relative z-20 max-w-3xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-3xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           What could this{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             recover for you?
           </span>
         </h1>
-        <p className="relative z-20 mt-4 max-w-xl text-center text-charcoal/75 text-sm md:text-base leading-relaxed">
+        <p className="relative z-20 mt-4 max-w-xl text-center text-cream/75 text-sm md:text-base leading-relaxed">
           A quick back-of-napkin estimate. Tune the inputs to your shop, see the
           monthly recovery, and check payback against each tier.
         </p>

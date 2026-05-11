@@ -154,22 +154,22 @@ export function RevenueCalculator() {
   return (
     <div className="max-w-4xl mx-auto px-4">
       {/* Inputs */}
-      <div className="rounded-[24px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+      <div className="rounded-[24px] border border-white/10 bg-[#271520] p-7 md:p-10 shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
         <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-2">
           Revenue calculator
         </p>
-        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-6">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-6">
           Your numbers. Your leak.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Industry */}
           <div className="md:col-span-2">
-            <label className="block text-sm text-charcoal/80 mb-2">Industry</label>
+            <label className="block text-sm text-cream/80 mb-2">Industry</label>
             <select
               value={inputs.industry}
               onChange={(e) => setField("industry", e.target.value as Industry | "")}
-              className="w-full rounded-lg border border-warm-border bg-cream px-3 py-3 text-charcoal focus:outline-none focus:border-wine/60 focus:bg-white"
+              className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
             >
               <option value="" disabled>
                 Select your industry
@@ -182,9 +182,9 @@ export function RevenueCalculator() {
 
           {/* Monthly leads */}
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">
+            <span className="block text-sm text-cream/80 mb-2">
               Monthly leads (calls + inquiries):{" "}
-              <span className="font-semibold text-charcoal">{inputs.monthlyLeads}</span>
+              <span className="font-semibold text-cream">{inputs.monthlyLeads}</span>
             </span>
             <input
               type="range"
@@ -195,7 +195,7 @@ export function RevenueCalculator() {
               onChange={(e) => setField("monthlyLeads", Number(e.target.value))}
               className="w-full accent-wine cursor-pointer mt-2"
             />
-            <div className="flex justify-between text-[10px] text-charcoal/60 mt-1">
+            <div className="flex justify-between text-[10px] text-cream/60 mt-1">
               <span>5</span>
               <span>500</span>
             </div>
@@ -203,9 +203,9 @@ export function RevenueCalculator() {
 
           {/* Current booking rate */}
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">
+            <span className="block text-sm text-cream/80 mb-2">
               Current booking conversion rate:{" "}
-              <span className="font-semibold text-charcoal">{inputs.bookingRate}%</span>
+              <span className="font-semibold text-cream">{inputs.bookingRate}%</span>
             </span>
             <input
               type="range"
@@ -216,7 +216,7 @@ export function RevenueCalculator() {
               onChange={(e) => setField("bookingRate", Number(e.target.value))}
               className="w-full accent-wine cursor-pointer mt-2"
             />
-            <div className="flex justify-between text-[10px] text-charcoal/60 mt-1">
+            <div className="flex justify-between text-[10px] text-cream/60 mt-1">
               <span>5%</span>
               <span>95%</span>
             </div>
@@ -224,9 +224,9 @@ export function RevenueCalculator() {
 
           {/* Average ticket */}
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">
+            <span className="block text-sm text-cream/80 mb-2">
               Average ticket value:{" "}
-              <span className="font-semibold text-charcoal">${inputs.avgTicket}</span>
+              <span className="font-semibold text-cream">${inputs.avgTicket}</span>
             </span>
             <input
               type="range"
@@ -237,7 +237,7 @@ export function RevenueCalculator() {
               onChange={(e) => setField("avgTicket", Number(e.target.value))}
               className="w-full accent-wine cursor-pointer mt-2"
             />
-            <div className="flex justify-between text-[10px] text-charcoal/60 mt-1">
+            <div className="flex justify-between text-[10px] text-cream/60 mt-1">
               <span>$50</span>
               <span>$2,000</span>
             </div>
@@ -245,9 +245,9 @@ export function RevenueCalculator() {
 
           {/* No-show rate */}
           <label className="block">
-            <span className="block text-sm text-charcoal/80 mb-2">
+            <span className="block text-sm text-cream/80 mb-2">
               Current no-show rate:{" "}
-              <span className="font-semibold text-charcoal">{inputs.noShowRate}%</span>
+              <span className="font-semibold text-cream">{inputs.noShowRate}%</span>
             </span>
             <input
               type="range"
@@ -258,7 +258,7 @@ export function RevenueCalculator() {
               onChange={(e) => setField("noShowRate", Number(e.target.value))}
               className="w-full accent-wine cursor-pointer mt-2"
             />
-            <div className="flex justify-between text-[10px] text-charcoal/60 mt-1">
+            <div className="flex justify-between text-[10px] text-cream/60 mt-1">
               <span>0%</span>
               <span>50%</span>
             </div>
@@ -268,63 +268,63 @@ export function RevenueCalculator() {
 
       {/* Results */}
       {results && inputs.industry ? (
-        <div className="mt-6 rounded-[24px] border border-warm-border bg-cream-dark p-7 md:p-10">
+        <div className="mt-6 rounded-[24px] border border-white/10 bg-[#301A26] p-7 md:p-10">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             Your results · {INDUSTRY_LABELS[inputs.industry as Industry]}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
-            <div className="rounded-[16px] bg-white border border-warm-border p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
+            <div className="rounded-[16px] bg-[#271520] border border-white/10 p-5">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-2">
                 Current monthly revenue
               </p>
-              <p className="font-serif text-3xl md:text-4xl font-semibold text-charcoal">
+              <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">
                 {formatMoney(results.currentMonthlyRevenue)}
               </p>
-              <p className="text-xs text-charcoal/60 mt-1">
+              <p className="text-xs text-cream/60 mt-1">
                 {results.currentBookings} booked, ~{Math.round(results.currentBookings * (1 - inputs.noShowRate / 100))} show
               </p>
             </div>
 
-            <div className="rounded-[16px] bg-white border border-wine/20 p-5 ring-1 ring-wine/10">
+            <div className="rounded-[16px] bg-[#271520] border border-wine/20 p-5 ring-1 ring-wine/10">
               <p className="text-[10px] uppercase tracking-[0.2em] text-wine mb-2">
                 Projected monthly revenue with PCI
               </p>
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">
                 {formatMoney(results.projectedMonthlyRevenue)}
               </p>
-              <p className="text-xs text-charcoal/60 mt-1">
+              <p className="text-xs text-cream/60 mt-1">
                 {results.projectedBookings} booked · 75% fewer no-shows
               </p>
             </div>
 
-            <div className="rounded-[16px] bg-white border border-warm-border p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
+            <div className="rounded-[16px] bg-[#271520] border border-white/10 p-5">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-2">
                 Projected annual revenue lift
               </p>
-              <p className="font-serif text-3xl md:text-4xl font-semibold text-charcoal">
+              <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">
                 {formatMoney(results.annualLift)}
               </p>
-              <p className="text-xs text-charcoal/60 mt-1">
+              <p className="text-xs text-cream/60 mt-1">
                 +{formatMoney(results.monthlyLift)}/mo in recovered revenue
               </p>
             </div>
 
-            <div className="rounded-[16px] bg-white border border-warm-border p-5">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
+            <div className="rounded-[16px] bg-[#271520] border border-white/10 p-5">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-2">
                 Breakeven on Ops by Noell
               </p>
               {results.breakevenDays !== null ? (
                 <>
-                  <p className="font-serif text-3xl md:text-4xl font-semibold text-charcoal">
+                  <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">
                     {results.breakevenDays} days
                   </p>
-                  <p className="text-xs text-charcoal/60 mt-1">
+                  <p className="text-xs text-cream/60 mt-1">
                     Based on Growth tier · $797/mo
                   </p>
                 </>
               ) : (
-                <p className="font-serif text-xl text-charcoal/60 mt-2">
+                <p className="font-serif text-xl text-cream/60 mt-2">
                   Adjust inputs above
                 </p>
               )}
@@ -332,15 +332,15 @@ export function RevenueCalculator() {
           </div>
 
           {/* Assumption note */}
-          <p className="text-[11px] text-charcoal/50 leading-relaxed mb-6">
+          <p className="text-[11px] text-cream/50 leading-relaxed mb-6">
             Model assumes +21.5% booking conversion lift and 67.5% no-show reduction (midpoints of verified ranges).
             Healing Hands by Santa saw 75% no-show reduction and $960 recovered in 14 days.
             Your results depend on lead volume, timing, and existing workflow.
           </p>
 
           {/* CTA to book */}
-          <div className="border-t border-warm-border pt-6">
-            <p className="text-sm text-charcoal/80 mb-4">
+          <div className="border-t border-white/10 pt-6">
+            <p className="text-sm text-cream/80 mb-4">
               At {formatMoney(results.monthlyLift)}/month in preventable losses, your revenue leak is{" "}
               {results.monthlyLift > 797 ? "larger than" : "close to"} the cost of the full automation stack.
             </p>
@@ -348,7 +348,7 @@ export function RevenueCalculator() {
             {formState === "sent" ? (
               <div className="rounded-[16px] bg-wine/5 border border-wine/20 p-5 text-center">
                 <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-2">Got it</p>
-                <p className="font-serif text-lg text-charcoal">
+                <p className="font-serif text-lg text-cream">
                   Your results are on their way. We&apos;ll follow up within one business day.
                 </p>
               </div>
@@ -356,7 +356,7 @@ export function RevenueCalculator() {
               <form onSubmit={handleSubmit} aria-label="Send my results">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <label className="block">
-                    <span className="block text-sm text-charcoal/80 mb-2">Your name</span>
+                    <span className="block text-sm text-cream/80 mb-2">Your name</span>
                     <input
                       type="text"
                       required
@@ -364,11 +364,11 @@ export function RevenueCalculator() {
                       onChange={(e) => setField("name", e.target.value)}
                       autoComplete="name"
                       placeholder="First Last"
-                      className="w-full rounded-lg border border-warm-border bg-white px-3 py-3 text-charcoal focus:outline-none focus:border-wine/60"
+                      className="w-full rounded-lg border border-white/10 bg-[#271520] px-3 py-3 text-cream focus:outline-none focus:border-wine/60"
                     />
                   </label>
                   <label className="block">
-                    <span className="block text-sm text-charcoal/80 mb-2">Email</span>
+                    <span className="block text-sm text-cream/80 mb-2">Email</span>
                     <input
                       type="email"
                       required
@@ -376,7 +376,7 @@ export function RevenueCalculator() {
                       onChange={(e) => setField("email", e.target.value)}
                       autoComplete="email"
                       placeholder="you@yourpractice.com"
-                      className="w-full rounded-lg border border-warm-border bg-white px-3 py-3 text-charcoal focus:outline-none focus:border-wine/60"
+                      className="w-full rounded-lg border border-white/10 bg-[#271520] px-3 py-3 text-cream focus:outline-none focus:border-wine/60"
                     />
                   </label>
                 </div>
@@ -393,7 +393,7 @@ export function RevenueCalculator() {
                   </button>
                   <a
                     href="/book"
-                    className="rounded-full border border-warm-border bg-white text-charcoal text-sm font-medium px-7 py-3 hover:bg-cream transition-colors text-center"
+                    className="rounded-full border border-white/10 bg-[#271520] text-cream text-sm font-medium px-7 py-3 hover:bg-[#1F1219] transition-colors text-center"
                   >
                     Just book a call
                   </a>
@@ -401,7 +401,7 @@ export function RevenueCalculator() {
                 {formState === "error" && errorMessage && (
                   <p className="text-sm text-wine mt-3">{errorMessage}</p>
                 )}
-                <p className="text-[11px] text-charcoal/50 mt-3">
+                <p className="text-[11px] text-cream/50 mt-3">
                   No pitch. No pressure. We reply within one business day.
                 </p>
               </form>
@@ -409,8 +409,8 @@ export function RevenueCalculator() {
           </div>
         </div>
       ) : (
-        <div className="mt-6 rounded-[24px] border border-dashed border-warm-border bg-cream p-8 text-center">
-          <p className="text-sm text-charcoal/60">
+        <div className="mt-6 rounded-[24px] border border-dashed border-white/10 bg-[#1F1219] p-8 text-center">
+          <p className="text-sm text-cream/60">
             Select an industry and tune the sliders above to see your revenue projection.
           </p>
         </div>

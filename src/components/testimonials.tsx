@@ -57,7 +57,7 @@ export function Testimonials({
           >
             {eyebrow}
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             {headlineStart}
             {headlineAccent ? (
               <>
@@ -70,7 +70,7 @@ export function Testimonials({
           </h2>
 
           <div className={`rounded-[22px] p-6 relative ${accentBg}`}>
-            <p className="text-charcoal/80 leading-relaxed">{body}</p>
+            <p className="text-cream/80 leading-relaxed">{body}</p>
             <div className="mt-5 flex items-center gap-3">
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white ${accentSolid}`}
@@ -78,7 +78,7 @@ export function Testimonials({
                 SE
               </div>
               <div>
-                <p className="text-sm font-medium text-charcoal">Santa E.</p>
+                <p className="text-sm font-medium text-cream">Santa E.</p>
                 <p className="text-xs text-muted-medium">
                   Massage therapist · Laguna Niguel, CA
                 </p>

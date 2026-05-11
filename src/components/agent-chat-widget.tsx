@@ -255,13 +255,13 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
             className={cn(
               "fixed bottom-24 right-6 z-50",
               "w-[380px] max-w-[calc(100vw-3rem)]",
-              "rounded-[24px] border border-warm-border bg-cream overflow-hidden",
+              "rounded-[24px] border border-white/10 bg-[#1F1219] overflow-hidden",
               "shadow-xl flex flex-col max-h-[580px]"
             )}
           >
             {/* Header — GTM item 7: subtitle carries social proof copy */}
             <div className={cn("px-5 py-4 flex items-center gap-3", styles.header)}>
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center border border-white/20">
+              <div className="w-9 h-9 rounded-full bg-[#271520]/20 flex items-center justify-center border border-white/20">
                 <span className="text-white text-sm font-serif font-semibold">N</span>
               </div>
               <div className="flex-1">
@@ -299,7 +299,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
 
             <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-cream"
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#1F1219]"
             >
               {messages.map((msg, i) => (
                 <div
@@ -313,7 +313,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                     className={cn(
                       "max-w-[82%] px-4 py-2.5 text-sm leading-relaxed rounded-[17px]",
                       msg.from === "agent"
-                        ? "bg-white border border-warm-border text-charcoal rounded-bl-md shadow-sm"
+                        ? "bg-[#271520] border border-white/10 text-cream rounded-bl-md shadow-sm"
                         : cn(styles.visitor, "rounded-br-md shadow-md")
                     )}
                   >
@@ -323,7 +323,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               ))}
               {typing && (
                 <div className="flex justify-start">
-                  <div className="bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 flex items-center gap-1">
+                  <div className="bg-[#271520] border border-white/10 rounded-[17px] rounded-bl-md px-4 py-3 flex items-center gap-1">
                     {[0, 1, 2].map((i) => (
                       <motion.span
                         key={i}
@@ -347,7 +347,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                       key={chip}
                       type="button"
                       onClick={() => void send(chip)}
-                      className="text-xs px-3 py-1.5 rounded-full bg-white border border-warm-border text-charcoal/70 hover:bg-lilac-light transition-all"
+                      className="text-xs px-3 py-1.5 rounded-full bg-[#271520] border border-white/10 text-cream/70 hover:bg-lilac-light transition-all"
                     >
                       {chip}
                     </button>
@@ -356,7 +356,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               )}
             </div>
 
-            <div className="px-4 py-3 bg-white border-t border-warm-border">
+            <div className="px-4 py-3 bg-[#271520] border-t border-white/10">
               <div className="flex items-center gap-2">
                 <input
                   type="text"
@@ -364,7 +364,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Type a message..."
-                  className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none text-charcoal placeholder:text-charcoal/70"
+                  className="flex-1 h-10 px-3.5 text-sm bg-[#301A26] rounded-[10px] border border-white/10 focus:outline-none text-cream placeholder:text-cream/70"
                 />
                 <button
                   type="button"

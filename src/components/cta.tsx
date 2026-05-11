@@ -61,8 +61,8 @@ export default function CTA({
         )}
       >
         {/* Ambient shapes */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#271520]/5 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#271520]/5 blur-3xl" />
 
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           {eyebrow && (
@@ -94,7 +94,7 @@ export default function CTA({
             <Button
               href={primaryCta.href}
               variant="secondary"
-              className="h-12 px-8 bg-white text-charcoal hover:bg-cream"
+              className="h-12 px-8 bg-[#271520] text-cream hover:bg-[#1F1219]"
               onClick={handlePrimary}
               data-event={primaryCta.href === "/book" ? "audit_cta_click" : undefined}
               data-source-page={sourcePage}
@@ -106,7 +106,7 @@ export default function CTA({
               <Button
                 href={secondaryCta.href}
                 variant="secondary"
-                className="h-12 px-8 bg-transparent border border-white/30 text-white hover:bg-white/10"
+                className="h-12 px-8 bg-transparent border border-white/30 text-white hover:bg-[#271520]/10"
                 data-source-page={sourcePage}
                 data-source-section={sourceSection}
               >

@@ -89,16 +89,16 @@ const careScreen = (
     <div className="flex justify-between items-center w-full px-2 pb-2">
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-        <span className="text-xs text-charcoal/70 font-medium">
+        <span className="text-xs text-cream/70 font-medium">
           Noell Care · Recognized
         </span>
       </div>
-      <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
+      <span className="text-[10px] uppercase tracking-widest text-cream/70">
         regular
       </span>
     </div>
 
-    <div className="bg-white rounded-2xl rounded-bl-md p-3 mx-1 border border-warm-border/60 shadow-sm text-[11px] text-charcoal leading-snug">
+    <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
       Hey Sarah — good to hear from you. How was your deep tissue on Saturday?
     </div>
 
@@ -108,12 +108,12 @@ const careScreen = (
       </div>
     </div>
 
-    <div className="bg-white rounded-2xl rounded-bl-md p-3 mx-1 mt-2 border border-warm-border/60 shadow-sm text-[11px] text-charcoal leading-snug">
+    <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 mt-2 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
       Got it — Saturday at 2 with Maya, deep tissue 60. I&apos;ll lock it in.
     </div>
 
-    <div className="bg-cream-dark rounded-2xl p-2 mx-1 mt-2 border border-warm-border/60 text-center">
-      <p className="text-[9px] uppercase tracking-widest text-charcoal/70 font-medium">
+    <div className="bg-[#301A26] rounded-2xl p-2 mx-1 mt-2 border border-white/10/60 text-center">
+      <p className="text-[9px] uppercase tracking-widest text-cream/70 font-medium">
         Handed to Front Desk · booked
       </p>
     </div>
@@ -161,13 +161,13 @@ export default function NoellCarePage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-[#4f6b4e] mb-4">
               What Noell Care runs
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Six things,{" "}
               <span className="italic bg-gradient-to-b from-[#4f6b4e] to-[#7a9c79] bg-clip-text text-transparent">
                 done warmly.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/70 max-w-xl mx-auto">
+            <p className="mt-5 text-cream/70 max-w-xl mx-auto">
               Noell Care is the returning-client desk. Recognized, informed,
               warm, and honest about what it does not know.
             </p>
@@ -178,7 +178,7 @@ export default function NoellCarePage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[17px] border border-warm-border bg-white p-6",
+                  "rounded-[17px] border border-white/10 bg-[#271520] p-6",
                   "shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.04)]"
                 )}
               >
@@ -186,14 +186,14 @@ export default function NoellCarePage() {
                   <div className="w-10 h-10 rounded-lg bg-[#7a9c79]/10 text-[#4f6b4e] flex items-center justify-center">
                     {cap.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-charcoal/70">
+                  <span className="text-[10px] font-mono text-cream/70">
                     0{i + 1}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold text-charcoal mb-1.5">
+                <h3 className="text-base font-semibold text-cream mb-1.5">
                   {cap.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
+                <p className="text-sm text-cream/70 leading-relaxed">
                   {cap.description}
                 </p>
               </div>

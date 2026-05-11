@@ -91,7 +91,7 @@ export function Features3({
           >
             {eyebrow}
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             {headlineStart}{" "}
             <span
               className={cn(
@@ -102,7 +102,7 @@ export function Features3({
               {headlineAccent}
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-xl mx-auto">{body}</p>
+          <p className="mt-5 text-cream/75 max-w-xl mx-auto">{body}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -114,7 +114,7 @@ export function Features3({
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className={cn(
-                "relative rounded-[22px] border border-warm-border bg-white",
+                "relative rounded-[22px] border border-white/10 bg-[#271520]",
                 "p-7 md:p-8",
                 "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
               )}
@@ -129,21 +129,21 @@ export function Features3({
                 >
                   {cap.icon}
                 </div>
-                <span className="text-[10px] font-mono text-charcoal/70">
+                <span className="text-[10px] font-mono text-cream/70">
                   {cap.number}
                 </span>
               </div>
-              <h3 className="text-xl font-semibold text-charcoal mb-2">
+              <h3 className="text-xl font-semibold text-cream mb-2">
                 {cap.title}
               </h3>
-              <p className="text-sm text-charcoal/75 leading-relaxed mb-5">
+              <p className="text-sm text-cream/75 leading-relaxed mb-5">
                 {cap.description}
               </p>
-              <ul className="space-y-2 pt-4 border-t border-warm-border">
+              <ul className="space-y-2 pt-4 border-t border-white/10">
                 {cap.points.map((point, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-2 text-sm text-charcoal/70"
+                    className="flex items-start gap-2 text-sm text-cream/70"
                   >
                     <span
                       className={cn(

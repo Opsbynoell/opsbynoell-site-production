@@ -43,13 +43,13 @@ export default function RevenueCalculatorPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           Takes 60 seconds
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           See what you&apos;re{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             actually losing.
           </span>
         </h1>
-        <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/80 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           Every missed call, every no-show, every slow follow-up is revenue walking out the door.
           Enter your numbers. We&apos;ll show you what the Noell System would recover — based on real proof.
         </p>
@@ -58,26 +58,26 @@ export default function RevenueCalculatorPage() {
         <div className="relative z-20 mt-8 flex flex-wrap justify-center gap-6 md:gap-10">
           <div className="text-center">
             <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">75%</p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/70 mt-1">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-cream/70 mt-1">
               fewer no-shows
             </p>
           </div>
           <div className="hidden md:block w-px bg-warm-border self-stretch" />
           <div className="text-center">
             <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">$960</p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/70 mt-1">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-cream/70 mt-1">
               recovered in 14 days
             </p>
           </div>
           <div className="hidden md:block w-px bg-warm-border self-stretch" />
           <div className="text-center">
             <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">40+</p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/70 mt-1">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-cream/70 mt-1">
               Google reviews in 8 weeks
             </p>
           </div>
         </div>
-        <p className="relative z-20 mt-3 text-[10px] text-charcoal/50 text-center">
+        <p className="relative z-20 mt-3 text-[10px] text-cream/50 text-center">
           Results from our pilot client, Healing Hands by Santa — Laguna Niguel, CA.
         </p>
       </section>

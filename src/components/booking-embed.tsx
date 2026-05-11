@@ -25,14 +25,14 @@ export function BookingEmbed() {
 
   return (
     <div
-      className="relative rounded-2xl overflow-hidden border border-warm-border bg-cream min-h-[520px]"
+      className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#1F1219] min-h-[520px]"
       style={{ height: "640px" }}
     >
       {/* Branded loading state, stays until iframe reports loaded */}
       {!loaded && (
         <div
           aria-hidden={loaded}
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-cream text-charcoal px-6 text-center"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#1F1219] text-cream px-6 text-center"
         >
           <div className="flex items-center gap-2 mb-5">
             <span
@@ -44,7 +44,7 @@ export function BookingEmbed() {
             </span>
           </div>
 
-          <p className="font-mono text-sm md:text-base tracking-tight text-charcoal">
+          <p className="font-mono text-sm md:text-base tracking-tight text-cream">
             Fetching Nikki&apos;s open audit slots
             <LoadingDots />
           </p>
@@ -58,7 +58,7 @@ export function BookingEmbed() {
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="h-12 rounded-md border border-warm-border bg-white/70 font-mono text-[10px] flex items-center justify-center text-charcoal/70"
+                className="h-12 rounded-md border border-white/10 bg-[#271520]/70 font-mono text-[10px] flex items-center justify-center text-cream/70"
               >
                 {String.fromCharCode(9604)}
               </div>
@@ -90,7 +90,7 @@ function LoadingDots() {
 
 function BookingFallback() {
   return (
-    <div className="rounded-2xl border border-warm-border bg-gradient-to-b from-cream to-white p-8 md:p-12">
+    <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-cream to-white p-8 md:p-12">
       <div className="max-w-lg mx-auto text-center">
         <div className="inline-flex items-center gap-2 mb-5">
           <span
@@ -102,13 +102,13 @@ function BookingFallback() {
           </p>
         </div>
 
-        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-4 leading-snug">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
           Book your free{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             30-minute audit.
           </span>
         </h2>
-        <p className="text-sm text-charcoal/70 leading-relaxed mb-8 max-w-md mx-auto">
+        <p className="text-sm text-cream/70 leading-relaxed mb-8 max-w-md mx-auto">
           Nikki schedules every audit personally. Send two or three times that
           work for you this week and you&apos;ll hear back with a confirmed
           slot, usually within one business hour on weekdays.
@@ -133,7 +133,7 @@ function BookingFallback() {
           </a>
           <Link
             href="/noell-support"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white border border-warm-border text-charcoal text-sm font-medium px-6 hover:bg-cream-dark transition-colors"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#271520] border border-white/10 text-cream text-sm font-medium px-6 hover:bg-[#301A26] transition-colors"
           >
             Or ask Noell Support
             <IconArrowRight size={14} aria-hidden="true" focusable="false" />

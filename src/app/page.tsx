@@ -29,19 +29,25 @@ const homepageFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your operations are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
+      "No. The Revenue Signal Report and the Digital Readiness Review are both working deliverables. You leave with a clear map of what is leaking, what it is worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
   },
   {
     id: "who-is-this-for",
     question: "Who is this for?",
     answer:
-      "Service businesses including dental practices, med spas, salons, massage therapists, and HVAC companies, as well as B2B companies including SaaS, AI vendors, and tech startups selling into enterprise accounts.",
+      "Two types of business. Service businesses including dental practices, med spas, salons, coaches, agencies, and professional service firms where every missed call or slow follow-up costs a client. And B2B companies including SaaS, AI vendors, and tech startups selling into enterprise accounts where the gap between your pitch and your website is costing you deals.",
+  },
+  {
+    id: "what-does-done-for-you-mean",
+    question: "What does done for you actually mean?",
+    answer:
+      "It means we build it, install it, and run it. You do not manage agents, write prompts, or monitor dashboards unless you want to. We handle the build, the ongoing tuning, and the monthly reporting. You focus on the business.",
   },
   {
     id: "how-long-to-go-live",
-    question: "How long does it take to go live?",
+    question: "How long until the system is live?",
     answer:
-      "Most clients are live within 14 days of their first working session. We handle the build, the installation, and the ongoing operations. You do not manage the system — we do.",
+      "Most service business installs are live within 14 days. B2B engagements vary based on scope but start with a Digital Readiness Review that delivers findings within the first session.",
   },
 ];
 
@@ -75,8 +81,8 @@ export default function Home() {
         headlineLine2Start="is"
         headlineLine2Accent="missing."
         headlineLine2Smaller={false}
-        body="Ops by Noell builds and runs AI-powered operational systems that catch missed revenue, recover lost clients, and make sure your digital presence holds up when it matters most."
-        footnote="Done for you. Built around the tools you already use. Live in 14 days."
+        body="Every missed call, unanswered inquiry, and unprepared enterprise buyer is revenue that left quietly. Ops by Noell builds the operational layer that catches it. Done for you, live in 14 days, managed by our team."
+        footnote="Service businesses and B2B companies. Two tracks. One standard."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
@@ -91,13 +97,13 @@ export default function Home() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               Who we work with
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Two types of business.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 One operational standard.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/70 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+            <p className="mt-5 text-cream/70 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
               Tell us which describes you and we will show you exactly what we build.
             </p>
           </div>
@@ -106,24 +112,24 @@ export default function Home() {
             {/* Track 1: Service Businesses */}
             <Link
               href="/for-service-businesses"
-              className="group relative flex flex-col rounded-[22px] bg-white p-8 md:p-10 border border-warm-border hover:border-wine/40 transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05),0px_15px_15px_0px_rgba(28,25,23,0.04)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.12)]"
+              className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-white/10 hover:border-wine/40 transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05),0px_15px_15px_0px_rgba(28,25,23,0.04)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.12)]"
             >
               <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-3">
                 Track 01
               </p>
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-4 leading-snug">
+              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
                 Service-Based Businesses
               </h3>
-              <p className="text-charcoal/75 leading-relaxed mb-6 flex-1">
-                Consultants, agencies, coaches, salons, med spas, dental practices, and professional services. You deliver excellent work. We make sure your front desk, follow-up, and client retention reflect that.
+              <p className="text-cream/75 leading-relaxed mb-6 flex-1">
+                Consultants, agencies, coaches, salons, med spas, dental practices, and professional service businesses. You deliver excellent work. Every missed call, slow follow-up, and lapsed client is revenue your front desk is losing silently.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
-                  "Missed-call recovery and front desk automation",
-                  "Client retention and rebooking systems",
-                  "Live lead intelligence dashboard included",
+                  "Every missed call recovered within 5 minutes via SMS",
+                  "Lapsed clients reactivated automatically before they book elsewhere",
+                  "Live lead intelligence dashboard included with every system",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-cream/80">
                     <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
                       ✓
                     </span>
@@ -149,16 +155,16 @@ export default function Home() {
                 B2B and Enterprise
               </h3>
               <p className="text-cream/80 leading-relaxed mb-6 flex-1">
-                SaaS companies, AI vendors, and tech startups selling into enterprise accounts. You win in boardrooms. We make sure you do not lose on the internet when procurement does their research.
+                SaaS companies, AI vendors, and tech startups selling into enterprise accounts. Your pitch lands in the boardroom. Then procurement visits your website. In seven seconds, the deal either holds or collapses.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
-                  "Predictive Customer Intelligence for pipeline signals",
-                  "AI-optimized GTM strategy for enterprise buyers",
-                  "Live B2B pipeline dashboard included",
+                  "Predictive Customer Intelligence surfaces accounts before they move",
+                  "Digital presence rebuilt to survive the procurement research window",
+                  "Live B2B pipeline dashboard tracks every deal and ICP score",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-cream/85">
-                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-cream/20 text-cream flex items-center justify-center text-[10px] font-bold">
+                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#1F1219]/20 text-cream flex items-center justify-center text-[10px] font-bold">
                       ✓
                     </span>
                     {item}

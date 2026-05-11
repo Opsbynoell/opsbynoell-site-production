@@ -154,31 +154,31 @@ const salonScreen = (
     <div className="flex justify-between items-center w-full px-2 pb-2">
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-        <span className="text-xs text-charcoal/70 font-medium">
+        <span className="text-xs text-cream/70 font-medium">
           Noell Front Desk, Salon
         </span>
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
         by column
       </span>
     </div>
 
-    <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
+    <div className="bg-[#271520] rounded-2xl p-3 mx-1 border border-white/10/60 shadow-sm">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             Rebook nudge, color
           </p>
-          <p className="text-sm text-charcoal font-medium mt-0.5">
+          <p className="text-sm text-cream font-medium mt-0.5">
             Ashley P. · Stylist: Mara
           </p>
-          <p className="text-[11px] text-charcoal/70">6-week window, auto</p>
+          <p className="text-[11px] text-cream/70">6-week window, auto</p>
         </div>
-        <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine">
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#2A1520] text-wine">
           booked
         </span>
       </div>
-      <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
+      <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
         Hi Ashley, Mara has openings Thursday 11:00 and Saturday 2:00 for your
         color refresh. Want me to hold one?
       </div>
@@ -251,7 +251,7 @@ export default function SalonsVerticalPage() {
                 salon operations / answered
               </p>
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Three things every salon owner is trying{" "}
               <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
                 to protect.
@@ -264,7 +264,7 @@ export default function SalonsVerticalPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[22px] border border-warm-border bg-white p-7",
+                  "rounded-[22px] border border-white/10 bg-[#271520] p-7",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -272,17 +272,17 @@ export default function SalonsVerticalPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {c.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">
                     {c.tag}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-3 leading-snug">
                   {c.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-cream/70 leading-relaxed mb-4 border-l-2 border-white/10 pl-4 italic">
                   {c.worry}
                 </p>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-sm text-cream/80 leading-relaxed">
                   {c.answer}
                 </p>
               </div>
@@ -319,7 +319,7 @@ export default function SalonsVerticalPage() {
 
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70 mb-3">
             run a different kind of shop?
           </p>
           <Link

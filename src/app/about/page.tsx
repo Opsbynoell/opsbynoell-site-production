@@ -60,7 +60,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* LEFT: photo with cream frame */}
           <div className="order-1 md:order-1">
-            <div className="rounded-[28px] bg-cream-dark p-3 md:p-4 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+            <div className="rounded-[28px] bg-[#301A26] p-3 md:p-4 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
               <div className="relative rounded-[22px] overflow-hidden aspect-[4/5] bg-charcoal/5">
                 <Image
                   src={FAMILY_PHOTO}
@@ -79,14 +79,14 @@ export default function AboutPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-5">
               James &amp; Nikki Noell · Mission Viejo, CA
             </p>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-[1.1]">
+            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-[1.1]">
               Built by a family who watched too many good businesses bleed.
             </h1>
             <p className="mt-6 font-serif italic text-lg md:text-xl text-muted-strong leading-relaxed">
               Ops by Noell is a family-run studio from Mission Viejo,
               California.
             </p>
-            <p className="mt-6 text-base md:text-lg text-charcoal/80 leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
               We&apos;re James and Nikki Noell — a husband-and-wife team based
               in Mission Viejo. Between us we&apos;ve spent years inside
               growing businesses, from sales to operations, watching the same
@@ -99,15 +99,15 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Why we built this */}
-      <section className="w-full px-4 py-16 md:py-24 bg-cream">
+      <section className="w-full px-4 py-16 md:py-24 bg-[#1F1219]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight text-center">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight text-center">
             We built the system{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               we wished existed.
             </span>
           </h2>
-          <div className="mt-10 space-y-6 text-base md:text-lg text-charcoal/80 leading-relaxed">
+          <div className="mt-10 space-y-6 text-base md:text-lg text-cream/80 leading-relaxed">
             <p>
               We kept watching the same pattern. Brilliant owners running
               service businesses — dental practices, med spas, salons, lash
@@ -152,7 +152,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-wine/10 text-wine flex items-center justify-center mb-5">
                   {credo.icon}
                 </div>
-                <p className="font-serif italic text-lg md:text-xl text-charcoal leading-snug max-w-xs">
+                <p className="font-serif italic text-lg md:text-xl text-cream leading-snug max-w-xs">
                   {credo.text}
                 </p>
               </div>
@@ -162,12 +162,12 @@ export default function AboutPage() {
       </section>
 
       {/* 4. Who we are — short bio */}
-      <section className="w-full px-4 py-16 md:py-20 bg-cream">
+      <section className="w-full px-4 py-16 md:py-20 bg-[#1F1219]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-4xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-2xl md:text-4xl font-semibold text-cream leading-tight">
             Who we are.
           </h2>
-          <p className="mt-6 text-base md:text-lg text-charcoal/80 leading-relaxed">
+          <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
             James and Nikki Noell, based in Mission Viejo. Between us, years
             of working inside growing businesses — sales, operations, the kind
             of behind-the-scenes systems work that keeps good companies from
@@ -191,11 +191,11 @@ export default function AboutPage() {
 
       {/* 5. Closing — echo founder offer */}
       <section className="w-full px-4 my-16 md:my-20">
-        <div className="max-w-5xl mx-auto rounded-[32px] bg-cream-dark/70 border border-warm-border px-6 py-14 md:py-20 text-center">
-          <p className="font-serif italic text-xl md:text-3xl text-charcoal leading-snug">
+        <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
+          <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
             First 10 clients lock in $197/month for their first 12 months.
           </p>
-          <p className="mt-4 text-sm md:text-base text-charcoal/70">
+          <p className="mt-4 text-sm md:text-base text-cream/70">
             Standard rate is $297/month. You get the founding rate, direct access, and a real relationship with the team building this.
           </p>
           <div className="mt-8 flex justify-center">

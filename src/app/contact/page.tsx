@@ -20,10 +20,10 @@ export default function ContactPage() {
         ])}
         id="contact"
       />
-      <h1 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-charcoal">
+      <h1 className="font-serif text-4xl md:text-5xl font-semibold tracking-tight text-cream">
         Let&apos;s talk
       </h1>
-      <p className="mt-4 text-lg text-charcoal/70">
+      <p className="mt-4 text-lg text-cream/70">
         Tell us about your service business and what you&apos;re trying to fix.
         Nikki personally reviews every inquiry and replies within one business
         day. If you opt in to SMS, we&apos;ll also send you a confirmation text

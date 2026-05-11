@@ -225,11 +225,11 @@ function PciMockScreen() {
       <div className="flex justify-between items-center w-full px-2 pb-2">
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-green-500" />
-          <span className="text-xs text-charcoal/70 font-medium">
+          <span className="text-xs text-cream/70 font-medium">
             Intelligence layer · live
           </span>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
+        <span className="text-[10px] uppercase tracking-widest text-cream/70">
           today
         </span>
       </div>
@@ -257,36 +257,36 @@ function PciMockScreen() {
 function CaseSummaryPanel() {
   return (
     <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-      <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
+      <div className="rounded-[18px] border border-white/10 bg-[#271520] p-5 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Pattern caught
         </p>
-        <p className="text-sm font-medium text-charcoal">Marina D.</p>
+        <p className="text-sm font-medium text-cream">Marina D.</p>
         <p
           className="font-serif text-3xl font-semibold text-wine mt-2"
           aria-label="ghost-risk score: 87 out of 100"
         >
           87 / 100
         </p>
-        <p className="text-[11px] text-charcoal/70 mt-1">ghost-risk score</p>
+        <p className="text-[11px] text-cream/70 mt-1">ghost-risk score</p>
       </div>
-      <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
+      <div className="rounded-[18px] border border-white/10 bg-[#271520] p-5 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Reactivation queued
         </p>
-        <p className="text-sm font-medium text-charcoal">SMS</p>
-        <p className="font-mono text-[11px] text-charcoal/70 mt-2">
+        <p className="text-sm font-medium text-cream">SMS</p>
+        <p className="font-mono text-[11px] text-cream/70 mt-2">
           ready to send
         </p>
       </div>
-      <div className="rounded-[18px] border border-warm-border bg-white p-5 text-center">
+      <div className="rounded-[18px] border border-white/10 bg-[#271520] p-5 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85 mb-2">
           Outcome
         </p>
         <p className="font-serif text-3xl font-semibold text-wine mt-1">
           $240 recovered
         </p>
-        <p className="text-[11px] text-charcoal/70 mt-1">
+        <p className="text-[11px] text-cream/70 mt-1">
           before she rebooked elsewhere
         </p>
       </div>
@@ -318,13 +318,13 @@ function ComparisonBlock() {
     },
   ];
   return (
-    <section className="w-full px-4 py-20 md:py-28 bg-cream-dark/40">
+    <section className="w-full px-4 py-20 md:py-28 bg-[#301A26]/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             Booking software vs. PCI
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Your booking software tells you what happened.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               PCI tells you what to do next.
@@ -332,14 +332,14 @@ function ComparisonBlock() {
           </h2>
         </div>
 
-        <div className="rounded-[22px] border border-warm-border bg-white overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 border-b border-warm-border bg-cream/60">
+        <div className="rounded-[22px] border border-white/10 bg-[#271520] overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/10 bg-[#1F1219]/60">
             <div className="px-6 py-4 md:px-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/70">
                 Your booking software shows
               </p>
             </div>
-            <div className="px-6 py-4 md:px-8 border-t md:border-t-0 md:border-l border-warm-border">
+            <div className="px-6 py-4 md:px-8 border-t md:border-t-0 md:border-l border-white/10">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine">
                 Predictive Customer Intelligence catches
               </p>
@@ -351,10 +351,10 @@ function ComparisonBlock() {
                 key={r.booking}
                 className="grid grid-cols-1 md:grid-cols-2"
               >
-                <div className="px-6 py-5 md:px-8 text-charcoal/75 leading-relaxed">
+                <div className="px-6 py-5 md:px-8 text-cream/75 leading-relaxed">
                   {r.booking}
                 </div>
-                <div className="px-6 py-5 md:px-8 border-t md:border-t-0 md:border-l border-warm-border text-charcoal leading-relaxed">
+                <div className="px-6 py-5 md:px-8 border-t md:border-t-0 md:border-l border-white/10 text-cream leading-relaxed">
                   {r.pci}
                 </div>
               </li>
@@ -387,7 +387,7 @@ function SampleSignalModule() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             Sample Revenue Signal
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Marina is three days past her usual{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               cadence.
@@ -396,12 +396,12 @@ function SampleSignalModule() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-          <div className="md:col-span-3 rounded-[22px] border border-warm-border bg-white shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] overflow-hidden">
-            <div className="px-6 py-4 md:px-7 bg-cream/60 border-b border-warm-border flex items-center justify-between">
+          <div className="md:col-span-3 rounded-[22px] border border-white/10 bg-[#271520] shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] overflow-hidden">
+            <div className="px-6 py-4 md:px-7 bg-[#1F1219]/60 border-b border-white/10 flex items-center justify-between">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine">
                 signal · ghost-risk
               </p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/70">
                 queued for review
               </p>
             </div>
@@ -411,18 +411,18 @@ function SampleSignalModule() {
                   key={f.label}
                   className="grid grid-cols-3 gap-4 px-6 py-4 md:px-7"
                 >
-                  <span className="col-span-1 font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal/70 self-center">
+                  <span className="col-span-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/70 self-center">
                     {f.label}
                   </span>
-                  <span className="col-span-2 text-sm md:text-base text-charcoal leading-relaxed">
+                  <span className="col-span-2 text-sm md:text-base text-cream leading-relaxed">
                     {f.value}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="md:col-span-2 rounded-[22px] border border-warm-border bg-cream-dark p-6 md:p-7">
-            <p className="font-serif text-lg md:text-xl text-charcoal leading-snug">
+          <div className="md:col-span-2 rounded-[22px] border border-white/10 bg-[#301A26] p-6 md:p-7">
+            <p className="font-serif text-lg md:text-xl text-cream leading-snug">
               The owner does not need another dashboard. The signal appears
               with the context, recommended message, and next action. Noell
               Care can queue the outreach, send the approved follow-up, and
@@ -452,13 +452,13 @@ function ProblemSection() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             the gap
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Your booking software shows you what happened.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               Not what&rsquo;s about to.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
             Most service businesses lose 15 to 30 percent of revenue to signals
             their software never surfaces. Not because the work isn&rsquo;t
             getting done, because the patterns aren&rsquo;t getting caught.
@@ -469,15 +469,15 @@ function ProblemSection() {
           {problems.map((p) => (
             <div
               key={p.n}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
               <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {p.n}
               </p>
-              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                 {p.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
+              <p className="text-sm md:text-base text-cream/70 leading-relaxed">
                 {p.body}
               </p>
             </div>
@@ -490,19 +490,19 @@ function ProblemSection() {
 
 function SolutionSection() {
   return (
-    <section className="w-full px-4 py-20 md:py-28 bg-cream-dark/40">
+    <section className="w-full px-4 py-20 md:py-28 bg-[#301A26]/40">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             the intelligence layer
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             One brain. Watching everything.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               Always on.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
             Predictive Customer Intelligence is the operating layer underneath
             everything Ops by Noell deploys. It connects to the systems you
             already use, scores every client, lead, and rebooking on a 6-hour cadence,
@@ -514,18 +514,18 @@ function SolutionSection() {
           {solutions.map((s) => (
             <div
               key={s.n}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
             >
               <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {s.n}
               </p>
-              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                 {s.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed flex-1">
+              <p className="text-sm md:text-base text-cream/70 leading-relaxed flex-1">
                 {s.body}
               </p>
-              <p className="mt-5 pt-4 border-t border-warm-border font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+              <p className="mt-5 pt-4 border-t border-white/10 font-mono text-[10px] uppercase tracking-widest text-cream/70">
                 {s.status}
               </p>
             </div>
@@ -544,13 +544,13 @@ function DeploymentSection() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             how you deploy it
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Three ways the intelligence{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               becomes revenue.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
             The intelligence layer is the brain. The hands are how the work
             gets done. Pick the deployment that fits where your business is
             leaking the most.
@@ -561,23 +561,23 @@ function DeploymentSection() {
           {deployments.map((d) => (
             <div
               key={d.n}
-              className="rounded-[22px] border border-warm-border bg-white p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] flex flex-col"
             >
               <div className="flex items-center justify-between mb-5">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine/85">
                   {d.label}
                 </p>
-                <span className="font-mono text-[10px] text-charcoal/70">
+                <span className="font-mono text-[10px] text-cream/70">
                   {d.n}
                 </span>
               </div>
-              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                 {d.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
+              <p className="text-sm md:text-base text-cream/70 leading-relaxed">
                 {d.body}
               </p>
-              <ul className="mt-5 space-y-2.5 text-sm text-charcoal/80">
+              <ul className="mt-5 space-y-2.5 text-sm text-cream/80">
                 {d.bullets.map((b) => (
                   <li key={b} className="flex gap-2.5">
                     <span
@@ -588,8 +588,8 @@ function DeploymentSection() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 pt-4 border-t border-warm-border flex items-center justify-between gap-3">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                   {d.status}
                 </p>
                 <Link
@@ -611,14 +611,14 @@ function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="w-full px-4 py-20 md:py-28 bg-cream-dark/40 scroll-mt-24"
+      className="w-full px-4 py-20 md:py-28 bg-[#301A26]/40 scroll-mt-24"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             how it works
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Three steps.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               Live in under a week.
@@ -630,15 +630,15 @@ function HowItWorksSection() {
           {steps.map((s) => (
             <div
               key={s.n}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
               <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 step {s.n}
               </p>
-              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                 {s.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
+              <p className="text-sm md:text-base text-cream/70 leading-relaxed">
                 {s.body}
               </p>
             </div>
@@ -677,13 +677,13 @@ function IntelligenceRunsSection() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             under the hood
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             How the intelligence{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               layer runs.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
             What is shipped today, and what is on the roadmap. So you know
             exactly what you are buying when you book the audit.
           </p>
@@ -693,15 +693,15 @@ function IntelligenceRunsSection() {
           {items.map((s) => (
             <div
               key={s.n}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
               <p className="font-mono text-[10px] tracking-[0.22em] text-wine/85 mb-3">
                 {s.n}
               </p>
-              <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                 {s.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
+              <p className="text-sm md:text-base text-cream/70 leading-relaxed">
                 {s.body}
               </p>
             </div>
@@ -719,13 +719,13 @@ function PricingTeaserSection() {
         <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           pricing
         </p>
-        <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+        <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
           Two ways to run it.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             Three deployments under each.
           </span>
         </h2>
-        <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
           Self-serve agents start at $197/mo founding rate. The full
           done-for-you operation runs $197 to $1,497/mo. Media buying retainers
           are quoted based on spend and scope.

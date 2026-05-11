@@ -75,18 +75,18 @@ export default function ComparePage() {
       />
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="w-full bg-cream pt-32 pb-20 px-4">
+      <section className="w-full bg-[#1F1219] pt-32 pb-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-wine/70 font-medium mb-4">
             Comparisons
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-charcoal leading-tight mb-6">
+          <h1 className="font-serif text-4xl md:text-5xl text-cream leading-tight mb-6">
             How Ops by Noell compares to{" "}
             <em className="italic bg-gradient-to-r from-wine to-wine/70 bg-clip-text text-transparent">
               the alternatives.
             </em>
           </h1>
-          <p className="text-charcoal/70 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-cream/70 text-lg leading-relaxed max-w-2xl mx-auto">
             Every comparison below is written for service business owners who are
             evaluating their options honestly. No hype. Just what each tool
             actually covers, what it leaves out, and where Ops by Noell fits.
@@ -95,30 +95,30 @@ export default function ComparePage() {
       </section>
 
       {/* ─── COMPARISON CARDS ─────────────────────────────────────────────── */}
-      <section className="w-full bg-cream pb-24 px-4">
+      <section className="w-full bg-[#1F1219] pb-24 px-4">
         <div className="max-w-3xl mx-auto grid gap-4">
           {comparisons.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group flex items-start justify-between gap-4 p-6 rounded-2xl border border-warm-border bg-white/60 hover:bg-white hover:shadow-[0_4px_20px_-4px_rgba(92,45,62,0.12)] transition-all"
+              className="group flex items-start justify-between gap-4 p-6 rounded-2xl border border-white/10 bg-[#271520]/60 hover:bg-[#271520] hover:shadow-[0_4px_20px_-4px_rgba(92,45,62,0.12)] transition-all"
             >
               <div className="flex items-start gap-4">
-                <div className="mt-0.5 flex-shrink-0 w-9 h-9 rounded-xl bg-blush flex items-center justify-center">
+                <div className="mt-0.5 flex-shrink-0 w-9 h-9 rounded-xl bg-[#2A1520] flex items-center justify-center">
                   <IconScale size={18} className="text-wine" />
                 </div>
                 <div>
-                  <p className="font-serif text-lg text-charcoal group-hover:text-wine transition-colors leading-snug mb-1">
+                  <p className="font-serif text-lg text-cream group-hover:text-wine transition-colors leading-snug mb-1">
                     {item.name}
                   </p>
-                  <p className="text-sm text-charcoal/60 leading-relaxed">
+                  <p className="text-sm text-cream/60 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
               </div>
               <IconArrowRight
                 size={18}
-                className="flex-shrink-0 mt-1 text-charcoal/30 group-hover:text-wine transition-colors"
+                className="flex-shrink-0 mt-1 text-cream/30 group-hover:text-wine transition-colors"
               />
             </Link>
           ))}

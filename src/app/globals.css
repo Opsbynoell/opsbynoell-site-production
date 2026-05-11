@@ -6,36 +6,45 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Brand Colors, "Analog Signal" palette */
-  --color-cream: #FAF5F0;
-  --color-cream-dark: #F2EBE3;
-  --color-blush: #F0E4E8;
-  --color-blush-light: #FBF0EB;
-  --color-wine: #6A2C3E;
-  --color-wine-dark: #5A1F30;
-  --color-wine-light: #8B4D5E;
-  --color-ink-plum: #3D2430;
+  /* Brand Colors — "Analog Signal" dark palette */
+  /* Cream is now the primary TEXT color on dark backgrounds */
+  --color-cream: #F5EAE0;
+  --color-cream-dark: #EBD9CC;
+  /* Blush repurposed as dark card/section surfaces */
+  --color-blush: #2A1520;
+  --color-blush-light: #231019;
+  /* Wine — slightly brighter for legibility on dark */
+  --color-wine: #8B2A42;
+  --color-wine-dark: #6B1A2E;
+  --color-wine-light: #B5415E;
+  --color-ink-plum: #F5EAE0;    /* repurposed: cream for text */
   /* Noell Violet is RESERVED for /noell-support and the Noell Support chat widget only. */
   --color-noell-violet: #7C5CFC;
-  --color-lilac: #C4B5CE;
-  --color-lilac-dark: #8B6F9C;
-  --color-lilac-light: #E8E0ED;
-  --color-charcoal: #3D2430;
-  --color-warm-gray: #78716C;
-  --color-warm-border: #E7DFD6;
+  --color-lilac: #C4A8D4;
+  --color-lilac-dark: #9B6FB8;
+  --color-lilac-light: #D4BCDF;
+  /* Charcoal repurposed: cream for body text on dark bg */
+  --color-charcoal: #F5EAE0;
+  --color-warm-gray: #A89090;
+  --color-warm-border: rgba(245, 234, 224, 0.10);
 
-  /* Readable-gray tokens for muted text on cream backgrounds (WCAG AA). */
-  --color-muted-strong: #5A4A50;
-  --color-muted-medium: #6E5E64;
-  /* For reassurance copy on dark wine backgrounds (passes 4.5:1 on wine). */
-  --color-on-dark-soft: rgba(255, 255, 255, 0.82);
+  /* Dark surface tokens (used directly in components) */
+  --color-bg-base:    #1F1219;
+  --color-bg-surface: #271520;
+  --color-bg-raised:  #301A26;
+
+  /* Muted text tokens for dark backgrounds */
+  --color-muted-strong: #C4A8A8;
+  --color-muted-medium: #A88888;
+  /* Reassurance copy on wine backgrounds */
+  --color-on-dark-soft: rgba(245, 234, 224, 0.82);
 
   /* Fonts: three registers, display, body, system.
      --font-inter and --font-playfair come from next/font in layout.tsx. */
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "Courier New", ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
   --font-serif: var(--font-playfair), "Playfair Display", "Georgia", "Times New Roman", serif;
-  /* System-status register for the AIM-era nostalgia layer (section labels, timestamps, uptime indicators). */
+  /* System-status register for the AIM-era nostalgia layer */
   --font-system: "Courier New", ui-monospace, "Cascadia Mono", monospace;
 
   /* Shadcn mappings */
@@ -81,38 +90,39 @@
 }
 
 :root {
-  --background: #FAF5F0;
-  --foreground: #3D2430;
-  --card: #FFFFFF;
-  --card-foreground: #3D2430;
-  --popover: #FFFFFF;
-  --popover-foreground: #3D2430;
-  --primary: #6A2C3E;
-  --primary-foreground: #FAF5F0;
-  --secondary: #F2EBE3;
-  --secondary-foreground: #3D2430;
-  --muted: #F2EBE3;
-  --muted-foreground: #78716C;
-  --accent: #F0E4E8;
-  --accent-foreground: #3D2430;
+  /* ── Dark theme applied globally ── */
+  --background: #1F1219;
+  --foreground: #F5EAE0;
+  --card: #271520;
+  --card-foreground: #F5EAE0;
+  --popover: #301A26;
+  --popover-foreground: #F5EAE0;
+  --primary: #8B2A42;
+  --primary-foreground: #F5EAE0;
+  --secondary: #301A26;
+  --secondary-foreground: #F5EAE0;
+  --muted: #271520;
+  --muted-foreground: #A89090;
+  --accent: #2A1520;
+  --accent-foreground: #F5EAE0;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #E7DFD6;
-  --input: #E7DFD6;
-  --ring: #6A2C3E;
-  --chart-1: #6A2C3E;
-  --chart-2: #8B4D5E;
-  --chart-3: #C4B5CE;
-  --chart-4: #F0E4E8;
-  --chart-5: #F2EBE3;
+  --border: rgba(245, 234, 224, 0.10);
+  --input: rgba(245, 234, 224, 0.12);
+  --ring: #8B2A42;
+  --chart-1: #8B2A42;
+  --chart-2: #B5415E;
+  --chart-3: #C4A8D4;
+  --chart-4: #301A26;
+  --chart-5: #271520;
   --radius: 0.5rem;
-  --sidebar: #FAF5F0;
-  --sidebar-foreground: #3D2430;
-  --sidebar-primary: #6A2C3E;
-  --sidebar-primary-foreground: #FAF5F0;
-  --sidebar-accent: #F2EBE3;
-  --sidebar-accent-foreground: #3D2430;
-  --sidebar-border: #E7DFD6;
-  --sidebar-ring: #6A2C3E;
+  --sidebar: #1F1219;
+  --sidebar-foreground: #F5EAE0;
+  --sidebar-primary: #8B2A42;
+  --sidebar-primary-foreground: #F5EAE0;
+  --sidebar-accent: #271520;
+  --sidebar-accent-foreground: #F5EAE0;
+  --sidebar-border: rgba(245, 234, 224, 0.10);
+  --sidebar-ring: #8B2A42;
 }
 
 @layer base {
@@ -120,7 +130,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-cream text-charcoal;
+    background-color: #1F1219;
+    color: #F5EAE0;
   }
   html {
     @apply font-sans;
@@ -158,7 +169,7 @@
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-wine);
+  outline: 2px solid var(--color-wine-light);
   outline-offset: 2px;
   border-radius: 4px;
 }

@@ -90,19 +90,19 @@ export default function NoellInboundPage() {
         sourcePage="noell_inbound"
       />
       {/* ─── THE PROBLEM ─────────────────────────────────────────────────── */}
-      <section className="w-full px-4 py-16 md:py-24 bg-white">
+      <section className="w-full px-4 py-16 md:py-24 bg-[#271520]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               The problem
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               The average B2B response time is{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 47 hours.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
               By the time your team follows up, the prospect has already had three conversations with your competitors. Noell Inbound responds in seconds — not hours — and qualifies the lead while their intent is highest.
             </p>
           </div>
@@ -127,17 +127,17 @@ export default function NoellInboundPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[17px] bg-[#f5f0eb] border border-warm-border p-6",
+                  "rounded-[17px] bg-[#f5f0eb] border border-white/10 p-6",
                   "shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
                 <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-4">
                   {card.icon}
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-charcoal mb-2">
+                <h3 className="font-serif text-lg font-semibold text-cream mb-2">
                   {card.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed">{card.body}</p>
+                <p className="text-sm text-cream/70 leading-relaxed">{card.body}</p>
               </div>
             ))}
           </div>
@@ -224,7 +224,7 @@ export default function NoellInboundPage() {
             ].map((card, i) => (
               <div
                 key={i}
-                className="rounded-[17px] border border-white/10 bg-white/5 p-6"
+                className="rounded-[17px] border border-white/10 bg-[#271520]/5 p-6"
               >
                 <h3 className="font-serif text-lg font-semibold text-white mb-2">
                   {card.title}

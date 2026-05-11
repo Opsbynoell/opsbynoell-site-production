@@ -97,13 +97,13 @@ export function FullSystemFeatures() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
             The full system &middot; Included in Growth and Custom Ops
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Everything the front of your{" "}
             <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
               business runs on.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
             The agents are one layer. The full system gives you the platform
             underneath.
           </p>
@@ -116,10 +116,10 @@ export function FullSystemFeatures() {
                 {feature.icon}
               </span>
               <div>
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-charcoal mb-1.5 leading-snug">
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-cream mb-1.5 leading-snug">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
+                <p className="text-sm text-cream/70 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -130,7 +130,7 @@ export function FullSystemFeatures() {
         <div className="mt-14 text-center">
           <Link
             href="/pricing"
-            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-charcoal hover:text-wine transition-colors"
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-cream hover:text-wine transition-colors"
           >
             See how it&apos;s priced
             <span className="text-wine">&rarr;</span>

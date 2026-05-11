@@ -51,9 +51,9 @@ export function LiveSystemLog({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="w-full bg-blush">
+    <section className="w-full bg-[#2A1520]">
       <div className="max-w-4xl mx-auto py-16 md:py-24 px-4">
-        <p className="font-mono text-[11px] uppercase tracking-widest text-charcoal/70 text-center mb-8">
+        <p className="font-mono text-[11px] uppercase tracking-widest text-cream/70 text-center mb-8">
           {eyebrow}
         </p>
 
@@ -67,12 +67,12 @@ export function LiveSystemLog({
               transition={{ duration: 0.4, delay: i * 0.2 }}
               className="flex items-baseline gap-2 md:gap-3"
             >
-              <span className="text-charcoal/70 tabular-nums">{row.time}</span>
+              <span className="text-cream/70 tabular-nums">{row.time}</span>
               <span className="text-wine font-semibold">{row.action}</span>
               {row.result && (
                 <>
-                  <span className="text-charcoal/70">{separator}</span>
-                  <span className="text-charcoal">{row.result}</span>
+                  <span className="text-cream/70">{separator}</span>
+                  <span className="text-cream">{row.result}</span>
                 </>
               )}
             </motion.li>
@@ -82,7 +82,7 @@ export function LiveSystemLog({
         {children}
 
         {caption && (
-          <p className="text-charcoal/70 italic text-sm mt-8 text-center">
+          <p className="text-cream/70 italic text-sm mt-8 text-center">
             {caption}
           </p>
         )}

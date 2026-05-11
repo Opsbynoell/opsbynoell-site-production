@@ -42,7 +42,7 @@ export function Features({
         <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           {eyebrow}
         </p>
-        <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal mb-4 max-w-3xl mx-auto">
+        <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream mb-4 max-w-3xl mx-auto">
           {headlineStart}{" "}
           <span className={cn(
             "bg-gradient-to-b bg-clip-text text-transparent italic",
@@ -51,7 +51,7 @@ export function Features({
             {headlineAccent}
           </span>
         </h2>
-        <p className="text-charcoal/75 max-w-xl mx-auto">{body}</p>
+        <p className="text-cream/75 max-w-xl mx-auto">{body}</p>
       </div>
 
       <div
@@ -62,7 +62,7 @@ export function Features({
           <div
             key={index}
             className={cn(
-              "relative p-6 rounded-xl border border-warm-border bg-cream/50 backdrop-blur-sm",
+              "relative p-6 rounded-xl border border-white/10 bg-[#1F1219]/50 backdrop-blur-sm",
               "hover:shadow-xl transition-all duration-300",
               "before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:h-[2px] before:w-12",
               accent === "wine"
@@ -74,7 +74,7 @@ export function Features({
             <BackgroundGrid className="absolute rounded-xl inset-0 z-0" />
             <div className="absolute z-0 inset-0 rounded-xl h-full bg-gradient-radial from-white/50 via-white/60 to-cream" />
             <div className="relative">
-              <p className="text-[10px] font-mono uppercase tracking-widest text-charcoal/70 mb-2">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-cream/70 mb-2">
                 {stat.label}
               </p>
               {/* Visually a heading-sized number, but it is a metric callout,
@@ -82,12 +82,12 @@ export function Features({
                   outline accurate so screen readers do not announce
                   "72h", "3x", "<90s" as section headings. */}
               <p
-                className="font-serif text-4xl md:text-5xl font-bold mb-2 text-charcoal"
+                className="font-serif text-4xl md:text-5xl font-bold mb-2 text-cream"
                 aria-label={`${stat.value} ${stat.label}`}
               >
                 {stat.value}
               </p>
-              <p className="text-sm text-charcoal/75 leading-relaxed">
+              <p className="text-sm text-cream/75 leading-relaxed">
                 {stat.detail}
               </p>
             </div>

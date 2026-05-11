@@ -136,13 +136,13 @@ export default function ResourcesPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           Resources
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           The reading list for operators who{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             do not want to be sold to.
           </span>
         </h1>
-        <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
           Missed-call recovery, AI operations, and what the numbers actually
           say. No hype. No pitch. Just what works.
         </p>
@@ -157,10 +157,10 @@ export default function ResourcesPage() {
                   {r.kind}
                   {r.minutes ? ` · ${r.minutes}` : ""}
                 </p>
-                <h2 className="font-serif text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                <h2 className="font-serif text-2xl font-semibold text-cream mb-3 leading-snug">
                   {r.title}
                 </h2>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
+                <p className="text-sm text-cream/70 leading-relaxed">
                   {r.excerpt}
                 </p>
                 <p
@@ -181,7 +181,7 @@ export default function ResourcesPage() {
                 <Link
                   key={r.href}
                   href={r.href}
-                  className="group block rounded-[22px] border border-warm-border bg-white p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 transition-transform"
+                  className="group block rounded-[22px] border border-white/10 bg-[#271520] p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 transition-transform"
                 >
                   {card}
                 </Link>
@@ -191,7 +191,7 @@ export default function ResourcesPage() {
               <div
                 key={`roadmap-${idx}`}
                 aria-label={`${r.title} — coming soon`}
-                className="block rounded-[22px] border border-dashed border-warm-border bg-cream-dark/60 p-7"
+                className="block rounded-[22px] border border-dashed border-white/10 bg-[#301A26]/60 p-7"
               >
                 {card}
               </div>

@@ -88,9 +88,9 @@ export function Features2({
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className={cn(
-              "rounded-[17px] border border-white/[0.08] bg-white/[0.04]",
+              "rounded-[17px] border border-white/[0.08] bg-[#271520]/[0.04]",
               "p-6 md:p-7",
-              "hover:bg-white/[0.06] transition-colors"
+              "hover:bg-[#271520]/[0.06] transition-colors"
             )}
           >
             <div className="flex items-start gap-4">

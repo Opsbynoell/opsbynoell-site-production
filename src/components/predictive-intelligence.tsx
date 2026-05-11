@@ -44,13 +44,13 @@ export function PredictiveIntelligence({
               {eyebrow}
             </p>
           </div>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             The system doesn&rsquo;t just react.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               It learns your book.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Predictive Customer Intelligence is the next layer of the Noell
             system. It watches patterns across every call, text, and booking,
             quietly, and surfaces the small signals that protect retention
@@ -68,7 +68,7 @@ export function PredictiveIntelligence({
           {signals.map((s, i) => (
             <div
               key={i}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
               <div
                 aria-hidden="true"
@@ -76,10 +76,10 @@ export function PredictiveIntelligence({
               >
                 {s.icon}
               </div>
-              <h3 className="font-serif text-xl font-semibold text-charcoal mb-2 leading-snug">
+              <h3 className="font-serif text-xl font-semibold text-cream mb-2 leading-snug">
                 {s.title}
               </h3>
-              <p className="text-sm text-charcoal/70 leading-relaxed">
+              <p className="text-sm text-cream/70 leading-relaxed">
                 {s.detail}
               </p>
             </div>
@@ -257,13 +257,13 @@ export function PredictiveIntelligenceVerticalExample({
               Rolling in &middot; Predictive Customer Intelligence
             </p>
           </div>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             What the system learns{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               about your book.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-cream/70 max-w-2xl mx-auto leading-relaxed">
             The intelligence layer watches quietly across calls, texts, and
             bookings and surfaces the signals specific to how your business
             actually runs. Here are three examples for your vertical.
@@ -274,12 +274,12 @@ export function PredictiveIntelligenceVerticalExample({
           {items.map((it, i) => (
             <div
               key={i}
-              className="rounded-[22px] border border-warm-border bg-white p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+              className="rounded-[22px] border border-white/10 bg-[#271520] p-6 md:p-7 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
             >
-              <h3 className="font-serif text-xl font-semibold text-charcoal mb-3 leading-snug">
+              <h3 className="font-serif text-xl font-semibold text-cream mb-3 leading-snug">
                 {it.title}
               </h3>
-              <p className="text-sm text-charcoal/70 leading-relaxed">
+              <p className="text-sm text-cream/70 leading-relaxed">
                 {it.detail}
               </p>
             </div>

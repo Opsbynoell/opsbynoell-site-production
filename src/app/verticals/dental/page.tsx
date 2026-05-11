@@ -191,34 +191,34 @@ const dentalScreen = (
     <div className="flex justify-between items-center w-full px-2 pb-2">
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-        <span className="text-xs text-charcoal/70 font-medium">
+        <span className="text-xs text-cream/70 font-medium">
           Noell Front Desk, Dental
         </span>
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
         09:42
       </span>
     </div>
 
     {/* New patient callback card */}
-    <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
+    <div className="bg-[#271520] rounded-2xl p-3 mx-1 border border-white/10/60 shadow-sm">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             New patient, missed call
           </p>
-          <p className="text-sm text-charcoal font-medium mt-0.5">
+          <p className="text-sm text-cream font-medium mt-0.5">
             Rebecca K.
           </p>
-          <p className="text-[11px] text-charcoal/70">
+          <p className="text-[11px] text-cream/70">
             Callback sent, 42s
           </p>
         </div>
-        <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine">
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#2A1520] text-wine">
           under 60s
         </span>
       </div>
-      <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
+      <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
         Hi Rebecca, thanks for calling Dr. Lin's office. We can get you in
         Thursday 8:30 or Friday 11:00 for your new patient exam. Which works?
       </div>
@@ -236,16 +236,16 @@ const dentalScreen = (
     </div>
 
     {/* Hygiene recall card */}
-    <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
+    <div className="bg-[#231019] rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             Hygiene recall, confirmed
           </p>
-          <p className="text-sm text-charcoal font-medium mt-0.5">
+          <p className="text-sm text-cream font-medium mt-0.5">
             Thursday · 2:00 PM
           </p>
-          <p className="text-[11px] text-charcoal/70">
+          <p className="text-[11px] text-cream/70">
             6-month cleaning · Hygienist: Maya
           </p>
         </div>
@@ -314,13 +314,13 @@ export default function DentalVerticalPage() {
                 dental office worries / answered
               </p>
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               The four things every dental office asks{" "}
               <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
                 before saying yes.
               </span>
             </h2>
-            <p className="mt-5 text-charcoal/70 max-w-2xl mx-auto">
+            <p className="mt-5 text-cream/70 max-w-2xl mx-auto">
               We have had these conversations with dozens of dental office
               managers. The worries are specific to dental. The answers should
               be too.
@@ -332,7 +332,7 @@ export default function DentalVerticalPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[22px] border border-warm-border bg-white p-7 md:p-8",
+                  "rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -340,17 +340,17 @@ export default function DentalVerticalPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {concern.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">
                     {concern.tag}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                   {concern.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-cream/70 leading-relaxed mb-4 border-l-2 border-white/10 pl-4 italic">
                   {concern.worry}
                 </p>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-sm text-cream/80 leading-relaxed">
                   {concern.answer}
                 </p>
               </div>
@@ -387,7 +387,7 @@ export default function DentalVerticalPage() {
             {pmsCategories.map((cat) => (
               <div
                 key={cat.label}
-                className="rounded-[14px] border border-white/10 bg-white/[0.04] px-4 py-4 text-center"
+                className="rounded-[14px] border border-white/10 bg-[#271520]/[0.04] px-4 py-4 text-center"
               >
                 <p className="font-serif text-base text-cream leading-snug">{cat.label}</p>
                 <p className="font-mono text-[9px] uppercase tracking-widest text-cream/60 mt-1">
@@ -435,7 +435,7 @@ export default function DentalVerticalPage() {
       {/* Back to verticals index for discovery */}
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70 mb-3">
             run a different kind of office?
           </p>
           <Link

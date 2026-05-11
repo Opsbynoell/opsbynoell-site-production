@@ -105,12 +105,12 @@ export function ProofBar({ className }: ProofBarProps) {
         <motion.p
           key={`label-${sceneIndex}`}
           {...labelMotion}
-          className="font-mono text-[11px] uppercase tracking-widest text-charcoal/70 text-center mb-3"
+          className="font-mono text-[11px] uppercase tracking-widest text-cream/70 text-center mb-3"
         >
           {label}
         </motion.p>
       </AnimatePresence>
-      <div className="rounded-2xl bg-cream-dark border border-warm-border p-4 md:p-5">
+      <div className="rounded-2xl bg-[#301A26] border border-white/10 p-4 md:p-5">
         <AnimatePresence mode="wait">
           <motion.ul
             key={`scene-${sceneIndex}`}
@@ -119,10 +119,10 @@ export function ProofBar({ className }: ProofBarProps) {
           >
             {rows.map((row) => (
               <li key={`${row.time}-${row.action}`} className="flex items-baseline gap-2 md:gap-3">
-                <span className="text-charcoal/70 tabular-nums">{row.time}</span>
+                <span className="text-cream/70 tabular-nums">{row.time}</span>
                 <span className="text-wine font-semibold">{row.action}</span>
-                <span className="text-charcoal/70">{row.sep}</span>
-                <span className="text-charcoal">{row.result}</span>
+                <span className="text-cream/70">{row.sep}</span>
+                <span className="text-cream">{row.result}</span>
               </li>
             ))}
           </motion.ul>

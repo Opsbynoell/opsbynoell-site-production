@@ -154,25 +154,25 @@ const hvacScreen = (
     <div className="flex justify-between items-center w-full px-2 pb-2">
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-        <span className="text-xs text-charcoal/70 font-medium">
+        <span className="text-xs text-cream/70 font-medium">
           Noell Front Desk, HVAC
         </span>
       </div>
-      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
         triage
       </span>
     </div>
 
-    <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
+    <div className="bg-[#271520] rounded-2xl p-3 mx-1 border border-white/10/60 shadow-sm">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
             Emergency, no cool
           </p>
-          <p className="text-sm text-charcoal font-medium mt-0.5">
+          <p className="text-sm text-cream font-medium mt-0.5">
             Parker residence
           </p>
-          <p className="text-[11px] text-charcoal/70">
+          <p className="text-[11px] text-cream/70">
             Routed to Diego, on-call
           </p>
         </div>
@@ -180,20 +180,20 @@ const hvacScreen = (
           priority
         </span>
       </div>
-      <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
+      <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
         Got it, your AC went out around 2pm today. Diego is on call and can be
         there by 4:30. Address confirmed, ETA en route.
       </div>
     </div>
 
-    <div className="bg-cream-dark rounded-2xl p-3 mx-1 mt-2 shadow-sm border border-warm-border">
-      <p className="text-[10px] uppercase tracking-widest text-charcoal/70 font-medium">
+    <div className="bg-[#301A26] rounded-2xl p-3 mx-1 mt-2 shadow-sm border border-white/10">
+      <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
         Maintenance renewal, scheduled
       </p>
-      <p className="font-serif text-lg font-semibold text-charcoal mt-0.5">
+      <p className="font-serif text-lg font-semibold text-cream mt-0.5">
         Tues · 9:00 AM
       </p>
-      <p className="text-[11px] text-charcoal/70">
+      <p className="text-[11px] text-cream/70">
         Fall tune-up, plan client, Tech: Marcus
       </p>
     </div>
@@ -257,7 +257,7 @@ export default function HvacVerticalPage() {
                 hvac intake / answered
               </p>
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Three things every HVAC owner already knows{" "}
               <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
                 is broken on intake.
@@ -270,7 +270,7 @@ export default function HvacVerticalPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[22px] border border-warm-border bg-white p-7",
+                  "rounded-[22px] border border-white/10 bg-[#271520] p-7",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -278,17 +278,17 @@ export default function HvacVerticalPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {c.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">
                     {c.tag}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-3 leading-snug">
                   {c.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-cream/70 leading-relaxed mb-4 border-l-2 border-white/10 pl-4 italic">
                   {c.worry}
                 </p>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-sm text-cream/80 leading-relaxed">
                   {c.answer}
                 </p>
               </div>
@@ -325,7 +325,7 @@ export default function HvacVerticalPage() {
 
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70 mb-3">
             run a different kind of trade?
           </p>
           <Link

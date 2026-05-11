@@ -235,7 +235,7 @@ export default function ChiropractorAutomationPage() {
                 chiropractic front desk problems / solved
               </p>
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Three things that cost chiropractic practices revenue{" "}
               <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
                 every week.
@@ -248,7 +248,7 @@ export default function ChiropractorAutomationPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[22px] border border-warm-border bg-white p-7",
+                  "rounded-[22px] border border-white/10 bg-[#271520] p-7",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >
@@ -256,17 +256,17 @@ export default function ChiropractorAutomationPage() {
                   <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {c.icon}
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">
                     {c.tag}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-3 leading-snug">
                   {c.title}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-4 border-l-2 border-warm-border pl-4 italic">
+                <p className="text-sm text-cream/70 leading-relaxed mb-4 border-l-2 border-white/10 pl-4 italic">
                   {c.worry}
                 </p>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-sm text-cream/80 leading-relaxed">
                   {c.answer}
                 </p>
               </div>
@@ -303,7 +303,7 @@ export default function ChiropractorAutomationPage() {
 
       <section className="w-full px-4 my-10">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70 mb-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70 mb-3">
             run a different kind of practice?
           </p>
           <Link

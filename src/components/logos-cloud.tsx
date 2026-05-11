@@ -72,13 +72,13 @@ export function LogoCloud() {
               who this is for
             </p>
           </div>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             If you recognize yourself here,{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               this was built for you.
             </span>
           </h2>
-          <p className="mt-4 text-charcoal/75">
+          <p className="mt-4 text-cream/75">
             Ops by Noell is for service businesses where the owner is in the
             work all day and the front desk cannot also be the marketing team.
           </p>
@@ -89,21 +89,21 @@ export function LogoCloud() {
             <Link
               key={v.name}
               href={v.href}
-              className="group rounded-[17px] border border-warm-border bg-white hover:bg-cream-dark/60 transition-colors px-5 py-5 flex gap-4 items-start"
+              className="group rounded-[17px] border border-white/10 bg-[#271520] hover:bg-[#301A26]/60 transition-colors px-5 py-5 flex gap-4 items-start"
             >
               <div className="w-10 h-10 rounded-lg bg-wine/10 text-wine flex items-center justify-center flex-shrink-0">
                 {v.icon}
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <p className="font-serif text-base md:text-lg font-semibold text-charcoal leading-snug">
+                  <p className="font-serif text-base md:text-lg font-semibold text-cream leading-snug">
                     {v.name}
                   </p>
                   <span className="font-mono text-[10px] text-wine/60 opacity-0 group-hover:opacity-100 transition-opacity">
                     &rarr;
                   </span>
                 </div>
-                <p className="text-xs md:text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-xs md:text-sm text-cream/80 leading-relaxed">
                   {v.identity}
                 </p>
               </div>

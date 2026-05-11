@@ -210,27 +210,27 @@ export default function PricingPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           Pricing
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           Two tracks.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             One operational standard.
           </span>
         </h1>
-        <p className="relative z-20 mt-4 max-w-2xl text-center text-charcoal/75 text-sm md:text-base leading-relaxed">
+        <p className="relative z-20 mt-4 max-w-2xl text-center text-cream/75 text-sm md:text-base leading-relaxed">
           Service businesses: start with the agents or the full done-for-you system. B2B and enterprise: scoped individually, starting with a free Digital Readiness Review.
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
           <a
             href="#roi-calculator"
-            className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
+            className="underline underline-offset-4 decoration-charcoal/55 hover:text-cream"
           >
             Run the ROI calculator below
           </a>
           {" · "}
           <Link
             href="/for-b2b"
-            className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
+            className="underline underline-offset-4 decoration-charcoal/55 hover:text-cream"
           >
             B2B pricing
           </Link>
@@ -239,9 +239,9 @@ export default function PricingPage() {
       </section>
 
       <section className="w-full px-4 pt-6 md:pt-10">
-        <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-cream-dark/60 px-5 py-4 text-center">
-          <p className="text-sm md:text-base text-charcoal/85 leading-relaxed">
-            <span className="font-semibold text-charcoal">
+        <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-[#301A26]/60 px-5 py-4 text-center">
+          <p className="text-sm md:text-base text-cream/85 leading-relaxed">
+            <span className="font-semibold text-cream">
               Both plans start at $197/mo founding rate.
             </span>{" "}
             The difference is scope — agents only, or the full system.
@@ -256,13 +256,13 @@ export default function PricingPage() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
             The Noell System · Done for you
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             The full operations platform,{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
               installed in 14 days.
             </span>
           </h2>
-          <p className="mt-5 text-charcoal/75 max-w-2xl mx-auto">
+          <p className="mt-5 text-cream/75 max-w-2xl mx-auto">
             Three tiers. All include the done-for-you operations layer under
             your brand. Agents are included in Growth and up.
           </p>
@@ -276,7 +276,7 @@ export default function PricingPage() {
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
             Estimate your recovery
           </p>
-          <h2 className="font-serif text-2xl md:text-4xl font-semibold text-charcoal leading-tight">
+          <h2 className="font-serif text-2xl md:text-4xl font-semibold text-cream leading-tight">
             See what either plan could recover for you.
           </h2>
         </div>

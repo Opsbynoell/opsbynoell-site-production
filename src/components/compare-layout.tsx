@@ -34,20 +34,20 @@ export function CompareLayout({
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           Comparison
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           {title}
         </h1>
-        <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
           {lead}
         </p>
       </section>
 
       <section className="px-4 pb-12">
-        <div className="max-w-4xl mx-auto rounded-[22px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
-          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-4">
+        <div className="max-w-4xl mx-auto rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4">
             The short version
           </h2>
-          <div className="text-charcoal/80 space-y-4 leading-relaxed">
+          <div className="text-cream/80 space-y-4 leading-relaxed">
             {summary}
           </div>
         </div>
@@ -55,23 +55,23 @@ export function CompareLayout({
 
       <section className="px-4 pb-12">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-6 text-center">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-6 text-center">
             Side by side
           </h2>
-          <div className="overflow-x-auto rounded-[22px] border border-warm-border bg-white">
+          <div className="overflow-x-auto rounded-[22px] border border-white/10 bg-[#271520]">
             <table className="w-full text-sm md:text-base border-collapse">
               <caption className="sr-only">
                 Capability comparison between Ops by Noell and {alternativeName}
               </caption>
               <thead>
-                <tr className="bg-cream-dark text-charcoal">
-                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-warm-border w-1/3">
+                <tr className="bg-[#301A26] text-cream">
+                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-white/10 w-1/3">
                     Capability
                   </th>
-                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-warm-border">
+                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-white/10">
                     Ops by Noell
                   </th>
-                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-warm-border">
+                  <th scope="col" className="text-left px-4 md:px-6 py-4 font-semibold border-b border-white/10">
                     {alternativeName}
                   </th>
                 </tr>
@@ -80,18 +80,18 @@ export function CompareLayout({
                 {rows.map((row, i) => (
                   <tr
                     key={i}
-                    className="border-t border-warm-border align-top"
+                    className="border-t border-white/10 align-top"
                   >
                     <th
                       scope="row"
-                      className="text-left text-charcoal font-medium px-4 md:px-6 py-4"
+                      className="text-left text-cream font-medium px-4 md:px-6 py-4"
                     >
                       {row.capability}
                     </th>
-                    <td className="px-4 md:px-6 py-4 text-charcoal/80">
+                    <td className="px-4 md:px-6 py-4 text-cream/80">
                       {row.opsByNoell}
                     </td>
-                    <td className="px-4 md:px-6 py-4 text-charcoal/70">
+                    <td className="px-4 md:px-6 py-4 text-cream/70">
                       {row.alternative}
                     </td>
                   </tr>
@@ -108,11 +108,11 @@ export function CompareLayout({
       </section>
 
       <section className="px-4 pb-12">
-        <div className="max-w-4xl mx-auto rounded-[22px] border border-warm-border bg-cream-dark p-7 md:p-10">
-          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal mb-4">
+        <div className="max-w-4xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-10">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4">
             The verdict
           </h2>
-          <div className="text-charcoal/80 space-y-4 leading-relaxed">
+          <div className="text-cream/80 space-y-4 leading-relaxed">
             {verdict}
           </div>
           {internalLinks && internalLinks.length > 0 && (

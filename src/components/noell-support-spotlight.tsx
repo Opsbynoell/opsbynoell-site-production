@@ -15,7 +15,7 @@ export function NoellSupportSpotlight() {
   return (
     <section className="w-full px-4 my-16 md:my-24">
       <div className="max-w-6xl mx-auto">
-        <div className="rounded-[32px] border border-warm-border bg-gradient-to-br from-white via-cream to-blush-light overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+        <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-white via-cream to-blush-light overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left: message */}
             <div className="px-7 py-10 md:px-12 md:py-14 flex flex-col justify-center">
@@ -25,20 +25,20 @@ export function NoellSupportSpotlight() {
                   noell support · online
                 </p>
               </div>
-              <h2 className="font-serif text-2xl md:text-4xl font-semibold text-charcoal leading-tight">
+              <h2 className="font-serif text-2xl md:text-4xl font-semibold text-cream leading-tight">
                 The chat widget you can see in the corner{" "}
                 <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                   is the product.
                 </span>
               </h2>
-              <p className="mt-5 text-charcoal/80 leading-relaxed">
+              <p className="mt-5 text-cream/80 leading-relaxed">
                 Noell Support is the new-prospect intake layer. First
                 response, qualification, contact capture, routing, and
                 booking-link handoff. It is not trying to be a full front
                 desk. That is Noell Front Desk, the separate operations
                 layer.
               </p>
-              <p className="mt-4 text-sm text-charcoal/75 leading-relaxed">
+              <p className="mt-4 text-sm text-cream/75 leading-relaxed">
                 Pop the widget open if you want to see it respond. The
                 version you are looking at is the same one we install for
                 clients.
@@ -54,7 +54,7 @@ export function NoellSupportSpotlight() {
                 </Button>
                 <Link
                   href="/noell-front-desk"
-                  className="inline-flex items-center justify-center gap-1.5 text-sm text-charcoal/70 hover:text-charcoal px-4 py-2 transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 text-sm text-cream/70 hover:text-cream px-4 py-2 transition-colors"
                 >
                   How it pairs with Front Desk
                   <IconArrowRight size={14} />
@@ -86,7 +86,7 @@ export function NoellSupportSpotlight() {
                     key={item}
                     className="flex items-center gap-2.5 text-sm text-cream"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blush" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2A1520]" />
                     {item}
                   </li>
                 ))}
@@ -102,7 +102,7 @@ export function NoellSupportSpotlight() {
                   "Replace Noell Front Desk",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cream/25" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#1F1219]/25" />
                     {item}
                   </li>
                 ))}

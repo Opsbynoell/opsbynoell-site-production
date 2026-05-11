@@ -99,8 +99,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
       animate={{
         width: visible ? "70%" : "88%",
         backgroundColor: visible
-          ? "rgba(250, 246, 241, 0.98)"
-          : "rgba(250, 246, 241, 0.92)",
+          ? "rgba(31, 18, 25, 0.97)"
+          : "rgba(31, 18, 25, 0.88)",
         backdropFilter: visible ? "blur(12px)" : "blur(8px)",
         y: visible ? 4 : 0,
         boxShadow: visible
@@ -110,7 +110,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
       initial={{ width: "88%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
-        "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-5 rounded-full relative z-[100] border border-warm-border/40"
+        "hidden lg:flex flex-row self-center items-center justify-between py-3 mx-auto px-5 rounded-full relative z-[100] border border-white/10/40"
       )}
     >
       <Logo />
@@ -129,8 +129,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             className={cn(
               "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
               openDropdown === "who-we-help"
-                ? "text-wine bg-blush/60"
-                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+                ? "text-wine bg-wine/15"
+                : "text-cream/80 hover:text-cream hover:bg-wine/10"
             )}
           >
             Who We Help
@@ -150,19 +150,19 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                 exit={{ opacity: 0, y: 8, scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
                 {WHO_WE_HELP_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpenDropdown(null)}
-                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                   >
-                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                    <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors">
                       {link.name}
                     </span>
-                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                    <span className="text-[11px] text-cream/55 mt-0.5">
                       {link.description}
                     </span>
                   </Link>
@@ -184,8 +184,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             className={cn(
               "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
               openDropdown === "systems"
-                ? "text-wine bg-blush/60"
-                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+                ? "text-wine bg-wine/15"
+                : "text-cream/80 hover:text-cream hover:bg-wine/10"
             )}
           >
             Systems
@@ -205,19 +205,19 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                 exit={{ opacity: 0, y: 8, scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
                 {SYSTEMS_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpenDropdown(null)}
-                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                   >
-                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                    <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors">
                       {link.name}
                     </span>
-                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                    <span className="text-[11px] text-cream/55 mt-0.5">
                       {link.description}
                     </span>
                   </Link>
@@ -239,8 +239,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             className={cn(
               "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
               openDropdown === "platform"
-                ? "text-wine bg-blush/60"
-                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+                ? "text-wine bg-wine/15"
+                : "text-cream/80 hover:text-cream hover:bg-wine/10"
             )}
           >
             Platform
@@ -260,9 +260,9 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                 exit={{ opacity: 0, y: 8, scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
-                <p className="px-3.5 pt-1.5 pb-2 text-[10px] uppercase tracking-[0.2em] text-charcoal/40 font-medium">
+                <p className="px-3.5 pt-1.5 pb-2 text-[10px] uppercase tracking-[0.2em] text-cream/40 font-medium">
                   Live dashboards
                 </p>
                 {PLATFORM_LINKS.map((link) => (
@@ -273,13 +273,13 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setOpenDropdown(null)}
-                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                     >
-                      <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors flex items-center gap-1.5">
+                      <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors flex items-center gap-1.5">
                         {link.name}
                         <span className="text-[9px] uppercase tracking-wider bg-wine/10 text-wine px-1.5 py-0.5 rounded-full font-semibold">Live</span>
                       </span>
-                      <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      <span className="text-[11px] text-cream/55 mt-0.5">
                         {link.description}
                       </span>
                     </a>
@@ -288,12 +288,12 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpenDropdown(null)}
-                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                     >
-                      <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                      <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors">
                         {link.name}
                       </span>
-                      <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      <span className="text-[11px] text-cream/55 mt-0.5">
                         {link.description}
                       </span>
                     </Link>
@@ -316,8 +316,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             className={cn(
               "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
               openDropdown === "resources"
-                ? "text-wine bg-blush/60"
-                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+                ? "text-wine bg-wine/15"
+                : "text-cream/80 hover:text-cream hover:bg-wine/10"
             )}
           >
             Resources
@@ -337,19 +337,19 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                 exit={{ opacity: 0, y: 8, scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
                 {RESOURCES_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpenDropdown(null)}
-                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                   >
-                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                    <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors">
                       {link.name}
                     </span>
-                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                    <span className="text-[11px] text-cream/55 mt-0.5">
                       {link.description}
                     </span>
                   </Link>
@@ -361,14 +361,14 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         {/* Pricing */}
         <Link
           href="/pricing"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
         >
           Pricing
         </Link>
         {/* About */}
         <Link
           href="/about"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
         >
           About
         </Link>
@@ -414,8 +414,8 @@ const MobileNav = ({ visible }: NavbarProps) => {
       animate={{
         backdropFilter: "blur(16px)",
         background: visible
-          ? "rgba(250, 246, 241, 0.98)"
-          : "rgba(250, 246, 241, 0.95)",
+          ? "rgba(31, 18, 25, 0.97)"
+          : "rgba(31, 18, 25, 0.95)",
         width: visible ? "92%" : "95%",
         y: visible ? 4 : 0,
         borderRadius: open ? "24px" : "9999px",
@@ -427,7 +427,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
       initial={{ width: "95%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
-        "flex lg:hidden self-center mx-auto relative z-[100] border border-warm-border/40"
+        "flex lg:hidden self-center mx-auto relative z-[100] border border-white/10/40"
       )}
     >
       <div className="flex w-full items-center justify-between">
@@ -444,13 +444,13 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <IconX
               aria-hidden="true"
               focusable="false"
-              className="text-charcoal cursor-pointer"
+              className="text-cream cursor-pointer"
             />
           ) : (
             <IconMenu2
               aria-hidden="true"
               focusable="false"
-              className="text-charcoal cursor-pointer"
+              className="text-cream cursor-pointer"
             />
           )}
         </motion.button>
@@ -465,14 +465,14 @@ const MobileNav = ({ visible }: NavbarProps) => {
             id="mobile-nav-menu"
             role="menu"
             aria-label="Mobile navigation"
-            className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-cream/95 inset-x-0 z-50 flex-col items-start justify-start gap-1 w-full px-4 py-4 shadow-lg border border-warm-border/40"
+            className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-[#1F1219]/95 inset-x-0 z-50 flex-col items-start justify-start gap-1 w-full px-4 py-4 shadow-lg border border-white/10/40"
           >
             {/* Who We Help accordion */}
             <div className="w-full">
               <button
                 type="button"
                 onClick={() => toggleSection("who-we-help")}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
               >
                 Who We Help
                 <IconChevronDown
@@ -497,12 +497,12 @@ const MobileNav = ({ visible }: NavbarProps) => {
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                       >
-                        <span className="text-sm font-medium text-charcoal/85">
+                        <span className="text-sm font-medium text-cream/85">
                           {link.name}
                         </span>
-                        <span className="text-[11px] text-charcoal/50">
+                        <span className="text-[11px] text-cream/50">
                           {link.description}
                         </span>
                       </Link>
@@ -516,7 +516,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               <button
                 type="button"
                 onClick={() => toggleSection("systems")}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
               >
                 Systems
                 <IconChevronDown
@@ -541,12 +541,12 @@ const MobileNav = ({ visible }: NavbarProps) => {
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                       >
-                        <span className="text-sm text-charcoal/85">
+                        <span className="text-sm text-cream/85">
                           {link.name}
                         </span>
-                        <span className="text-[11px] text-charcoal/50">
+                        <span className="text-[11px] text-cream/50">
                           {link.description}
                         </span>
                       </Link>
@@ -560,7 +560,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               <button
                 type="button"
                 onClick={() => toggleSection("platform")}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
               >
                 Platform
                 <IconChevronDown
@@ -588,13 +588,13 @@ const MobileNav = ({ visible }: NavbarProps) => {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setOpen(false)}
-                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                         >
-                          <span className="text-sm text-charcoal/85 flex items-center gap-1.5">
+                          <span className="text-sm text-cream/85 flex items-center gap-1.5">
                             {link.name}
                             <span className="text-[9px] uppercase tracking-wider bg-wine/10 text-wine px-1.5 py-0.5 rounded-full font-semibold">Live</span>
                           </span>
-                          <span className="text-[11px] text-charcoal/50">
+                          <span className="text-[11px] text-cream/50">
                             {link.description}
                           </span>
                         </a>
@@ -603,12 +603,12 @@ const MobileNav = ({ visible }: NavbarProps) => {
                           key={link.href}
                           href={link.href}
                           onClick={() => setOpen(false)}
-                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                         >
-                          <span className="text-sm text-charcoal/85">
+                          <span className="text-sm text-cream/85">
                             {link.name}
                           </span>
-                          <span className="text-[11px] text-charcoal/50">
+                          <span className="text-[11px] text-cream/50">
                             {link.description}
                           </span>
                         </Link>
@@ -623,7 +623,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               <button
                 type="button"
                 onClick={() => toggleSection("resources")}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
               >
                 Resources
                 <IconChevronDown
@@ -648,12 +648,12 @@ const MobileNav = ({ visible }: NavbarProps) => {
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                       >
-                        <span className="text-sm text-charcoal/85">
+                        <span className="text-sm text-cream/85">
                           {link.name}
                         </span>
-                        <span className="text-[11px] text-charcoal/50">
+                        <span className="text-[11px] text-cream/50">
                           {link.description}
                         </span>
                       </Link>
@@ -666,7 +666,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <Link
               href="/pricing"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
+              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
             >
               Pricing
             </Link>
@@ -674,7 +674,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <Link
               href="/about"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
+              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
             >
               About
             </Link>

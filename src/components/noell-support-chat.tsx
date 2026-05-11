@@ -357,9 +357,9 @@ export function NoellSupportChat() {
       onClick={() => setIsOpen(true)}
       className={cn(
         "fixed bottom-6 right-6 z-50 h-11 pl-4 pr-5 rounded-full",
-        "bg-cream text-charcoal border-2 border-lilac-dark",
+        "bg-[#1F1219] text-cream border-2 border-lilac-dark",
         "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.35),_0px_8px_16px_-4px_rgba(28,25,23,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.5)_inset]",
-        "flex items-center gap-2 text-sm font-medium hover:bg-white transition-colors tap-target"
+        "flex items-center gap-2 text-sm font-medium hover:bg-[#271520] transition-colors tap-target"
       )}
       aria-label="Open Noell Support chat"
     >
@@ -394,14 +394,14 @@ export function NoellSupportChat() {
             className={cn(
               "fixed bottom-24 right-6 z-50",
               "w-[380px] max-w-[calc(100vw-3rem)]",
-              "rounded-[24px] border border-warm-border bg-cream overflow-hidden",
+              "rounded-[24px] border border-white/10 bg-[#1F1219] overflow-hidden",
               "shadow-[0px_95px_27px_0px_rgba(28,25,23,0.00),_0px_61px_24px_0px_rgba(28,25,23,0.04),_0px_34px_21px_0px_rgba(28,25,23,0.10),_0px_15px_15px_0px_rgba(28,25,23,0.16),_0px_4px_8px_0px_rgba(28,25,23,0.20)]",
               "flex flex-col max-h-[580px]"
             )}
           >
             {/* Header pill */}
             <div className="bg-gradient-to-br from-lilac via-lilac-dark to-[#6b4f80] px-5 py-4 flex items-center gap-3 relative">
-              <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
+              <div className="w-9 h-9 rounded-full bg-[#271520]/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
                 <span className="text-white text-sm font-serif font-semibold">
                   N
                 </span>
@@ -428,7 +428,7 @@ export function NoellSupportChat() {
             {/* Messages */}
             <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-cream"
+              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#1F1219]"
             >
               {messages.map((msg, i) => (
                 <MessageBubble
@@ -447,7 +447,7 @@ export function NoellSupportChat() {
                       key={chip}
                       type="button"
                       onClick={() => handleChip(chip)}
-                      className="text-xs px-3 py-1.5 rounded-full bg-white border border-warm-border text-charcoal/70 hover:bg-lilac-light hover:border-lilac-dark hover:text-lilac-dark transition-all"
+                      className="text-xs px-3 py-1.5 rounded-full bg-[#271520] border border-white/10 text-cream/70 hover:bg-lilac-light hover:border-lilac-dark hover:text-lilac-dark transition-all"
                     >
                       {chip}
                     </button>
@@ -457,10 +457,10 @@ export function NoellSupportChat() {
             </div>
 
             {/* Input */}
-            <div className="px-4 py-3 bg-white border-t border-warm-border">
+            <div className="px-4 py-3 bg-[#271520] border-t border-white/10">
               {fallbackMode ? (
                 leadStatus === "sent" ? (
-                  <p className="text-sm text-charcoal/80 text-center py-2">
+                  <p className="text-sm text-cream/80 text-center py-2">
                     Thanks — we&apos;ll be in touch soon.
                   </p>
                 ) : (
@@ -471,7 +471,7 @@ export function NoellSupportChat() {
                       onChange={(e) => setLeadName(e.target.value)}
                       placeholder="Your name"
                       disabled={leadStatus === "sending"}
-                      className="w-full h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
+                      className="w-full h-10 px-3.5 text-sm bg-[#301A26] rounded-[10px] border border-white/10 focus:outline-none focus:border-lilac-dark/60 focus:bg-[#271520] text-cream placeholder:text-cream/70 disabled:opacity-60"
                     />
                     <div className="flex items-center gap-2">
                       <input
@@ -481,7 +481,7 @@ export function NoellSupportChat() {
                         onKeyDown={(e) => e.key === "Enter" && submitLead()}
                         placeholder="Email address"
                         disabled={leadStatus === "sending"}
-                        className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
+                        className="flex-1 h-10 px-3.5 text-sm bg-[#301A26] rounded-[10px] border border-white/10 focus:outline-none focus:border-lilac-dark/60 focus:bg-[#271520] text-cream placeholder:text-cream/70 disabled:opacity-60"
                       />
                       <button
                         type="button"
@@ -513,7 +513,7 @@ export function NoellSupportChat() {
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   placeholder="Type a message..."
                   disabled={sending}
-                  className="flex-1 h-10 px-3.5 text-sm bg-cream-dark rounded-[10px] border border-warm-border focus:outline-none focus:border-lilac-dark/60 focus:bg-white text-charcoal placeholder:text-charcoal/70 disabled:opacity-60"
+                  className="flex-1 h-10 px-3.5 text-sm bg-[#301A26] rounded-[10px] border border-white/10 focus:outline-none focus:border-lilac-dark/60 focus:bg-[#271520] text-cream placeholder:text-cream/70 disabled:opacity-60"
                 />
                 <button
                   type="button"
@@ -608,7 +608,7 @@ function MessageBubble({
         className={cn(
           "max-w-[82%] px-4 py-2.5 text-sm leading-relaxed rounded-[17px] whitespace-pre-wrap",
           isAgent
-            ? "bg-white border border-warm-border text-charcoal rounded-bl-md shadow-sm"
+            ? "bg-[#271520] border border-white/10 text-cream rounded-bl-md shadow-sm"
             : "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white rounded-br-md shadow-md"
         )}
       >
@@ -625,7 +625,7 @@ function TypingIndicator() {
       animate={{ opacity: 1 }}
       className="flex justify-start"
     >
-      <div className="bg-white border border-warm-border rounded-[17px] rounded-bl-md px-4 py-3 flex items-center gap-1">
+      <div className="bg-[#271520] border border-white/10 rounded-[17px] rounded-bl-md px-4 py-3 flex items-center gap-1">
         {[0, 1, 2].map((i) => (
           <motion.span
             key={i}

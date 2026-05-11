@@ -61,10 +61,10 @@ export function Hero({
   ) as React.RefObject<HTMLDivElement>;
 
   const gradients = {
-    wine: "bg-gradient-to-t from-[rgba(107,45,62,0.65)] via-[rgba(240,224,214,0.75)] to-[rgba(250,246,241,1)]",
+    wine: "bg-gradient-to-t from-[rgba(139,42,66,0.50)] via-[rgba(31,18,25,0.90)] to-[rgba(31,18,25,1)]",
     lilac:
-      "bg-gradient-to-t from-[rgba(139,111,156,0.55)] via-[rgba(232,224,237,0.75)] to-[rgba(250,246,241,1)]",
-    sage: "bg-gradient-to-t from-[rgba(79,107,78,0.55)] via-[rgba(220,232,218,0.75)] to-[rgba(250,246,241,1)]",
+      "bg-gradient-to-t from-[rgba(155,111,184,0.40)] via-[rgba(31,18,25,0.90)] to-[rgba(31,18,25,1)]",
+    sage: "bg-gradient-to-t from-[rgba(79,107,78,0.40)] via-[rgba(31,18,25,0.90)] to-[rgba(31,18,25,1)]",
   };
 
   const accentGradient = {
@@ -92,13 +92,13 @@ export function Hero({
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-charcoal md:text-6xl lg:text-7xl leading-tight">
+      <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={false}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-block text-charcoal"
+            className="inline-block text-cream"
           >
             {headlineLine1Start}
             {headlineLine1Accent && (
@@ -122,7 +122,7 @@ export function Hero({
             <span
               className={cn(
                 headlineLine2Smaller &&
-                  "text-[0.78em] font-normal text-charcoal/85"
+                  "text-[0.78em] font-normal text-cream/85"
               )}
             >
               {headlineLine2Start}
@@ -148,7 +148,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-charcoal/70 font-sans"
+        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/70 font-sans"
       >
         {body}
       </motion.p>
@@ -158,7 +158,7 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-charcoal/70"
+          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-cream/70"
         >
           {footnote}
         </motion.p>
@@ -275,7 +275,7 @@ function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "s
         }}
       />
       <motion.div
-        className="absolute bg-white/5 z-[2] rounded-full border border-white/10 shadow-[0_0_200px_80px_rgba(255,255,255,0.1)]"
+        className="absolute bg-[#271520]/5 z-[2] rounded-full border border-white/10 shadow-[0_0_200px_80px_rgba(255,255,255,0.1)]"
         style={{ width: inner, height: inner }}
         animate={{ scale: [1, 1.03, 1], y: [0, -7, 0] }}
         transition={{
@@ -296,30 +296,30 @@ function DefaultMockScreen() {
       <div className="flex justify-between items-center w-full px-2 pb-2">
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-green-500" />
-          <span className="text-xs text-charcoal/70 font-medium">
+          <span className="text-xs text-cream/70 font-medium">
             System active
           </span>
         </div>
-        <span className="text-[10px] uppercase tracking-widest text-charcoal/70">
+        <span className="text-[10px] uppercase tracking-widest text-cream/70">
           today
         </span>
       </div>
 
       {/* New inquiry card */}
-      <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
+      <div className="bg-[#271520] rounded-2xl p-3 mx-1 border border-white/10/60 shadow-sm">
         <div className="flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
               New inquiry
             </p>
-            <p className="text-sm text-charcoal font-medium mt-0.5">Inbound lead</p>
-            <p className="text-[11px] text-charcoal/70">Qualified · 12s</p>
+            <p className="text-sm text-cream font-medium mt-0.5">Inbound lead</p>
+            <p className="text-[11px] text-cream/70">Qualified · 12s</p>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine">
+          <span className="text-[10px] px-2 py-0.5 rounded-full bg-wine/20 text-wine-light">
             triggered
           </span>
         </div>
-        <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
+        <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
           "Thanks for reaching out. A few quick questions to confirm we are the
           right fit — what does your current setup look like?"
         </div>
@@ -335,16 +335,16 @@ function DefaultMockScreen() {
       </div>
 
       {/* Meeting confirmed card */}
-      <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
+      <div className="bg-[#301A26] rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
               Meeting confirmed
             </p>
-            <p className="text-sm text-charcoal font-medium mt-0.5">
+            <p className="text-sm text-cream font-medium mt-0.5">
               Tuesday · 10:00 AM
             </p>
-            <p className="text-[11px] text-charcoal/70">
+            <p className="text-[11px] text-cream/70">
               Discovery call · 30 min
             </p>
           </div>

@@ -122,17 +122,17 @@ export default function VerticalsHubPage() {
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(106,44,62,0.45)] via-[rgba(240,228,232,0.70)] to-[rgba(250,245,240,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-charcoal/70">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70">
             the noell system / verticals
           </p>
         </div>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-cream leading-tight">
           Built for your vertical,{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             not every vertical.
           </span>
         </h1>
-        <p className="relative z-20 mt-6 max-w-2xl text-center text-charcoal/70 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/70 text-base md:text-lg leading-relaxed">
           Every vertical has its own operational reality. The Noell system
           ships with copy, cadences, routing, and integrations built for the
           one you actually run. Pick yours below.
@@ -154,29 +154,29 @@ export default function VerticalsHubPage() {
                 data-vertical={v.slug}
                 className="block h-full scroll-mt-32"
               >
-                <div className="group relative rounded-[22px] border border-warm-border bg-white p-7 h-full flex flex-col transition-all duration-200 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]">
+                <div className="group relative rounded-[22px] border border-white/10 bg-[#271520] p-7 h-full flex flex-col transition-all duration-200 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]">
                   <div className="flex items-start justify-between mb-5">
                     <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center">
                       {v.icon}
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                         online
                       </span>
                     </div>
                   </div>
 
-                  <h2 className="font-serif text-2xl font-semibold text-charcoal mb-1">
+                  <h2 className="font-serif text-2xl font-semibold text-cream mb-1">
                     {v.name}
                   </h2>
                   <p className="text-xs text-wine/80 mb-4">{v.tagline}</p>
-                  <p className="text-sm text-charcoal/70 leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-cream/70 leading-relaxed mb-6 flex-1">
                     {v.description}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-warm-border">
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                       {v.proof}
                     </p>
                     <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
@@ -188,7 +188,7 @@ export default function VerticalsHubPage() {
             ))}
           </div>
 
-          <p className="text-center text-xs text-charcoal/70 mt-10 max-w-2xl mx-auto">
+          <p className="text-center text-xs text-cream/70 mt-10 max-w-2xl mx-auto">
             Each page is built around the operational reality of that
             vertical. The install shapes the system further around your
             specific business. The audit is where we start.

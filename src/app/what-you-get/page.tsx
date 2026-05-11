@@ -61,19 +61,19 @@ const items: GetItem[] = [
       <ul className="mt-2 space-y-2 list-none pl-0">
         <li className="flex gap-2">
           <span className="text-wine font-semibold shrink-0">Front Desk</span>
-          <span className="text-charcoal/80">
+          <span className="text-cream/80">
             picks up calls and books appointments
           </span>
         </li>
         <li className="flex gap-2">
           <span className="text-wine font-semibold shrink-0">Care</span>
-          <span className="text-charcoal/80">
+          <span className="text-cream/80">
             sends reminders, follows up after visits, and recovers no-shows
           </span>
         </li>
         <li className="flex gap-2">
           <span className="text-wine font-semibold shrink-0">Support</span>
-          <span className="text-charcoal/80">
+          <span className="text-cream/80">
             runs the live chat on your website and your text inbox
           </span>
         </li>
@@ -105,11 +105,11 @@ const items: GetItem[] = [
       </>
     ),
     callout: (
-      <div className="mt-5 rounded-[18px] border border-wine/15 bg-blush-light/70 p-5 md:p-6">
+      <div className="mt-5 rounded-[18px] border border-wine/15 bg-[#231019]/70 p-5 md:p-6">
         <p className="text-[10px] uppercase tracking-[0.22em] text-wine font-medium mb-2">
           Example
         </p>
-        <p className="text-sm md:text-base text-charcoal/85 leading-relaxed">
+        <p className="text-sm md:text-base text-cream/85 leading-relaxed">
           You&apos;re with a client. A new customer texts asking about
           availability for a 90-minute appointment next Tuesday at 4 PM.
           Between appointments, you reply &ldquo;Yes, that time is open —
@@ -245,13 +245,13 @@ export default function WhatYouGetPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
           What you get
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           Stay focused on the client in front of you.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             We&apos;ll handle the phone.
           </span>
         </h1>
-        <p className="relative z-20 mt-6 max-w-2xl text-center text-charcoal/80 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           Ops by Noell builds an AI front desk that answers your calls, books
           your appointments, and texts your customers — so you can be present
           with the client you&apos;re serving without losing the next booking.
@@ -276,7 +276,7 @@ export default function WhatYouGetPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               The build
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               What you actually get{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 when you sign up.
@@ -288,20 +288,20 @@ export default function WhatYouGetPage() {
             {items.map((item) => (
               <article
                 key={item.number}
-                className="rounded-[22px] border border-warm-border bg-white p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+                className="rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-11 h-11 rounded-lg bg-wine/10 text-wine flex items-center justify-center">
                     {item.icon}
                   </div>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-charcoal/70">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-cream/70">
                     {item.number}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-3 leading-snug">
                   {item.title}
                 </h3>
-                <div className="text-sm md:text-base text-charcoal/80 leading-relaxed">
+                <div className="text-sm md:text-base text-cream/80 leading-relaxed">
                   {item.body}
                 </div>
                 {item.callout}
@@ -312,13 +312,13 @@ export default function WhatYouGetPage() {
       </section>
 
       {/* HOW WE'RE DIFFERENT */}
-      <section className="w-full px-4 py-16 md:py-20 bg-cream-dark/60">
+      <section className="w-full px-4 py-16 md:py-20 bg-[#301A26]/60">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               The difference
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               How we&apos;re{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 different.
@@ -330,12 +330,12 @@ export default function WhatYouGetPage() {
             {differentiators.map((d) => (
               <div
                 key={d.title}
-                className="rounded-[22px] border border-warm-border bg-white p-7 md:p-8"
+                className="rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8"
               >
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-charcoal mb-3 leading-snug">
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-cream mb-3 leading-snug">
                   {d.title}
                 </h3>
-                <p className="text-sm md:text-base text-charcoal/75 leading-relaxed">
+                <p className="text-sm md:text-base text-cream/75 leading-relaxed">
                   {d.body}
                 </p>
               </div>
@@ -351,13 +351,13 @@ export default function WhatYouGetPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               Pricing
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Three tiers.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
                 Pick where you start.
               </span>
             </h2>
-            <p className="mt-4 text-charcoal/70 text-sm md:text-base">
+            <p className="mt-4 text-cream/70 text-sm md:text-base">
               See full pricing on the{" "}
               <Link
                 href="/pricing"
@@ -375,8 +375,8 @@ export default function WhatYouGetPage() {
                 key={card.name}
                 className={
                   card.highlighted
-                    ? "rounded-[22px] border-2 border-wine bg-white p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(106,44,62,0.10),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
-                    : "rounded-[22px] border border-warm-border bg-white p-7 md:p-8"
+                    ? "rounded-[22px] border-2 border-wine bg-[#271520] p-7 md:p-8 shadow-[0px_34px_21px_0px_rgba(106,44,62,0.10),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
+                    : "rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8"
                 }
               >
                 {card.highlighted && (
@@ -384,13 +384,13 @@ export default function WhatYouGetPage() {
                     Recommended for revenue recovery
                   </p>
                 )}
-                <h3 className="font-serif text-2xl font-semibold text-charcoal mb-3">
+                <h3 className="font-serif text-2xl font-semibold text-cream mb-3">
                   {card.name}
                 </h3>
-                <p className="text-sm text-charcoal/80 leading-relaxed mb-4">
+                <p className="text-sm text-cream/80 leading-relaxed mb-4">
                   {card.body}
                 </p>
-                <p className="text-xs uppercase tracking-[0.18em] text-charcoal/60">
+                <p className="text-xs uppercase tracking-[0.18em] text-cream/60">
                   {card.bestFor}
                 </p>
               </div>

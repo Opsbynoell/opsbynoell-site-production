@@ -16,10 +16,10 @@ export function IntegrationBand({ className }: IntegrationBandProps) {
         <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           Integration
         </p>
-        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-tight">
+        <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight">
           Built around the booking workflows you already use.
         </h2>
-        <p className="mt-5 text-base text-charcoal/80 leading-relaxed">
+        <p className="mt-5 text-base text-cream/80 leading-relaxed">
           Designed to support service businesses across salons, spas, dental,
           and wellness — using whichever booking or practice management
           software you already run. Your booking system stays the system of

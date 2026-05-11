@@ -155,13 +155,13 @@ export default function AgentsPage() {
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-5">
           The AI layer
         </p>
-        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
+        <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           Three agents.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
             Working quietly, in the background.
           </span>
         </h1>
-        <p className="relative z-20 mt-6 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
+        <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
           Noell Support handles website chat. Noell Front Desk never misses a
           call. Noell Care takes rebooks and service questions. Works alongside
           the booking tool you already use.
@@ -197,7 +197,7 @@ export default function AgentsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
               the agents
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               What&apos;s included.
             </h2>
           </div>
@@ -207,7 +207,7 @@ export default function AgentsPage() {
               <div
                 key={agent.title}
                 className={cn(
-                  "relative rounded-[22px] border border-warm-border bg-white",
+                  "relative rounded-[22px] border border-white/10 bg-[#271520]",
                   "p-7 md:p-8",
                   "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
@@ -218,7 +218,7 @@ export default function AgentsPage() {
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    <span className="text-[10px] font-mono text-charcoal/70">
+                    <span className="text-[10px] font-mono text-cream/70">
                       0{index + 1}
                     </span>
                   </div>
@@ -226,14 +226,14 @@ export default function AgentsPage() {
                 <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
                   {agent.eyebrow}
                 </p>
-                <h3 className="font-serif text-2xl font-semibold text-charcoal mb-3">
+                <h3 className="font-serif text-2xl font-semibold text-cream mb-3">
                   {agent.title}
                 </h3>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
+                <p className="text-sm text-cream/80 leading-relaxed">
                   {agent.description}
                 </p>
-                <div className="mt-6 pt-4 border-t border-warm-border">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-charcoal/70">
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                     {agent.status}
                   </p>
                 </div>
@@ -246,8 +246,8 @@ export default function AgentsPage() {
       {/* What you get / what you don't */}
       <section className="w-full py-12 md:py-16 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-[22px] border border-warm-border bg-white p-7 md:p-8">
-            <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-5">
+          <div className="rounded-[22px] border border-white/10 bg-[#271520] p-7 md:p-8">
+            <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-5">
               You get
             </h3>
             <ul className="space-y-3">
@@ -256,7 +256,7 @@ export default function AgentsPage() {
                   <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-wine text-cream flex items-center justify-center">
                     <IconCheck size={12} strokeWidth={3} />
                   </span>
-                  <span className="text-sm md:text-base text-charcoal/85 leading-snug">
+                  <span className="text-sm md:text-base text-cream/85 leading-snug">
                     {item}
                   </span>
                 </li>
@@ -264,8 +264,8 @@ export default function AgentsPage() {
             </ul>
           </div>
 
-          <div className="rounded-[22px] border border-warm-border bg-cream-dark/40 p-7 md:p-8">
-            <h3 className="font-serif text-xl md:text-2xl font-semibold text-charcoal mb-5">
+          <div className="rounded-[22px] border border-white/10 bg-[#301A26]/40 p-7 md:p-8">
+            <h3 className="font-serif text-xl md:text-2xl font-semibold text-cream mb-5">
               You don&apos;t get
             </h3>
             <ul className="space-y-3">
@@ -274,7 +274,7 @@ export default function AgentsPage() {
                   <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-wine/15 text-wine/80 flex items-center justify-center">
                     <IconMinus size={12} strokeWidth={3} />
                   </span>
-                  <span className="text-sm md:text-base text-charcoal/75 leading-snug">
+                  <span className="text-sm md:text-base text-cream/75 leading-snug">
                     {item}
                   </span>
                 </li>
@@ -297,11 +297,11 @@ export default function AgentsPage() {
       {/* Pricing block */}
       <section className="w-full py-12 md:py-16 px-4">
         <div className="max-w-xl mx-auto">
-          <div className="relative rounded-[26px] border border-wine/25 bg-cream p-8 md:p-10 text-center shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+          <div className="relative rounded-[26px] border border-wine/25 bg-[#1F1219] p-8 md:p-10 text-center shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
               Noell agents &middot; founding rate
             </p>
-            <p className="font-serif text-2xl text-charcoal/70 line-through decoration-charcoal/55 mb-1">
+            <p className="font-serif text-2xl text-cream/70 line-through decoration-charcoal/55 mb-1">
               $297/mo
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
@@ -327,24 +327,24 @@ export default function AgentsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
               the trade
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               What we ask in return.
             </h2>
           </div>
 
           <ul className="space-y-5">
-            <li className="rounded-[18px] border border-warm-border bg-white p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-charcoal italic leading-snug">
+            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
+              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
                 A short written testimonial after 30 days.
               </p>
             </li>
-            <li className="rounded-[18px] border border-warm-border bg-white p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-charcoal italic leading-snug">
+            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
+              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
                 One 15-minute reference call with a future prospect.
               </p>
             </li>
-            <li className="rounded-[18px] border border-warm-border bg-white p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-charcoal italic leading-snug">
+            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
+              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
                 Optional: a full case study — in exchange, 3 additional months at the founding rate (15 months total).
               </p>
             </li>
@@ -363,8 +363,8 @@ export default function AgentsPage() {
 
       {/* Final CTA */}
       <section className="w-full px-4 my-16 md:my-20">
-        <div className="max-w-5xl mx-auto rounded-[32px] bg-cream-dark/70 border border-warm-border px-6 py-14 md:py-20 text-center">
-          <p className="font-serif italic text-xl md:text-3xl text-charcoal leading-snug">
+        <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
+          <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
             First 10 clients. $197/mo, locked for 12 months.
           </p>
           <div className="mt-8 flex justify-center">
