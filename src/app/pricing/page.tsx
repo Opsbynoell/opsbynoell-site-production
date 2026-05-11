@@ -48,6 +48,14 @@ const pricingFaqs: FaqItem[] = [
     answer:
       "The first 10 clients lock in $197/mo (vs $297/mo standard) for their first 12 months. In return we ask for a written testimonial after 30 days and one 15-minute reference call. Available to the first 10 clients — no expiry date, first come first served.",
   },
+  // Dashboard
+  {
+    id: "dashboard_included",
+    group: "features",
+    question: "Is the dashboard included? What does it show?",
+    answer:
+      "Yes. Every Noell engagement includes a live client dashboard. For service businesses, it shows your lead pipeline with HOT and WARM scoring, full conversation threads from every agent, conversion funnel from first contact to booked appointment, and date range filtering (7D, 30D, 90D, All Time). For B2B engagements, it shows deal stages, ICP scores, outreach status, pipeline value, and win rate. You see exactly what the system is doing and what it is recovering. No login required for your team — we send you a direct link.",
+  },
   // Existing — Group 1 — Commitment and terms
   {
     id: "commitment_month_to_month",

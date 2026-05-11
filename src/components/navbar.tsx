@@ -12,8 +12,7 @@ import React, { useRef, useState } from "react";
 import { Button } from "./button";
 import { Logo } from "./logo";
 import { trackAuditCtaClick } from "@/lib/analytics";
-
-// ─── Who We Help dropdown links ────────────────────────────────────────────
+// ─── Who We Help dropdown links ──────────────────────────────────────────
 const WHO_WE_HELP_LINKS = [
   {
     name: "Service Businesses",
@@ -26,8 +25,7 @@ const WHO_WE_HELP_LINKS = [
     description: "SaaS, AI vendors, and teams selling into enterprise",
   },
 ];
-
-// ─── Systems dropdown links (trimmed to 3) ─────────────────────────────────
+// ─── Systems dropdown links ───────────────────────────────────────────────────
 const SYSTEMS_LINKS = [
   { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
   { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
@@ -36,21 +34,38 @@ const SYSTEMS_LINKS = [
   { name: "Noell Pipeline", href: "/noell-pipeline", description: "B2B sales operations" },
   { name: "Noell Account", href: "/noell-account", description: "B2B account management" },
 ];
-
-// ─── Resources dropdown links (trimmed to 3) ──────────────────────────────
+// ─── Platform dropdown links ───────────────────────────────────────────────────
+const PLATFORM_LINKS = [
+  {
+    name: "Lead Intelligence Dashboard",
+    href: "https://noelldash-baxrcvz3.manus.space",
+    description: "Live leads, conversations, and conversion funnel",
+    external: true,
+  },
+  {
+    name: "B2B Pipeline Dashboard",
+    href: "https://noelldash-baxrcvz3.manus.space/b2b",
+    description: "Deal stages, ICP scores, and pipeline value",
+    external: true,
+  },
+  {
+    name: "ROI Calculator",
+    href: "/roi",
+    description: "Estimate your missed revenue",
+    external: false,
+  },
+];
+// ─── Resources dropdown links ──────────────────────────────────────────────────
 const RESOURCES_LINKS = [
   { name: "Case Studies", href: "/case-studies", description: "Real results from real clients" },
   { name: "Compare", href: "/compare", description: "How we stack up against alternatives" },
   { name: "ROI Calculator", href: "/roi", description: "Estimate your missed revenue" },
 ];
-
-type DropdownKey = "who-we-help" | "systems" | "resources" | null;
-
+type DropdownKey = "who-we-help" | "systems" | "platform" | "resources" | null;
 interface NavbarProps {
   visible: boolean;
 }
-
-// ─── Navbar root ──────────────────────────────────────────────────────────
+// ─── Navbar root ────────────────────────────────────────────────────────────
 export const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
@@ -61,7 +76,6 @@ export const Navbar = () => {
   useMotionValueEvent(scrollY, "change", (latest) => {
     setVisible(latest > 100);
   });
-
   return (
     <motion.nav
       ref={ref}
@@ -76,11 +90,9 @@ export const Navbar = () => {
     </motion.nav>
   );
 };
-
-// ─── Desktop nav ──────────────────────────────────────────────────────────
+// ─── Desktop nav ────────────────────────────────────────────────────────────
 const DesktopNav = ({ visible }: NavbarProps) => {
   const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
-
   return (
     <motion.div
       onMouseLeave={() => setOpenDropdown(null)}
@@ -102,10 +114,8 @@ const DesktopNav = ({ visible }: NavbarProps) => {
       )}
     >
       <Logo />
-
       {/* Nav items */}
       <div className="flex items-center gap-1">
-
         {/* Who We Help dropdown */}
         <div
           className="relative"
@@ -161,7 +171,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             )}
           </AnimatePresence>
         </div>
-
         {/* Systems dropdown */}
         <div
           className="relative"
@@ -217,7 +226,83 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             )}
           </AnimatePresence>
         </div>
-
+        {/* Platform dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("platform")}
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "platform" ? null : "platform")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "platform"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Platform
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "platform" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "platform" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                <p className="px-3.5 pt-1.5 pb-2 text-[10px] uppercase tracking-[0.2em] text-charcoal/40 font-medium">
+                  Live dashboards
+                </p>
+                {PLATFORM_LINKS.map((link) => (
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpenDropdown(null)}
+                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                    >
+                      <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors flex items-center gap-1.5">
+                        {link.name}
+                        <span className="text-[9px] uppercase tracking-wider bg-wine/10 text-wine px-1.5 py-0.5 rounded-full font-semibold">Live</span>
+                      </span>
+                      <span className="text-[11px] text-charcoal/55 mt-0.5">
+                        {link.description}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpenDropdown(null)}
+                      className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                    >
+                      <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                        {link.name}
+                      </span>
+                      <span className="text-[11px] text-charcoal/55 mt-0.5">
+                        {link.description}
+                      </span>
+                    </Link>
+                  )
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         {/* Resources dropdown */}
         <div
           className="relative"
@@ -273,7 +358,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             )}
           </AnimatePresence>
         </div>
-
         {/* Pricing */}
         <Link
           href="/pricing"
@@ -281,7 +365,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         >
           Pricing
         </Link>
-
         {/* About */}
         <Link
           href="/about"
@@ -290,7 +373,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           About
         </Link>
       </div>
-
       {/* Primary CTA */}
       <AnimatePresence mode="popLayout" initial={false}>
         {!visible && (
@@ -320,16 +402,13 @@ const DesktopNav = ({ visible }: NavbarProps) => {
     </motion.div>
   );
 };
-
-// ─── Mobile nav ───────────────────────────────────────────────────────────
+// ─── Mobile nav ────────────────────────────────────────────────────────────
 const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
-
-  const toggleSection = (key: "who-we-help" | "systems" | "resources") => {
+  const toggleSection = (key: "who-we-help" | "systems" | "platform" | "resources") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
-
   return (
     <motion.div
       animate={{
@@ -348,15 +427,13 @@ const MobileNav = ({ visible }: NavbarProps) => {
       initial={{ width: "95%", scale: 1, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={cn(
-        "flex relative flex-col lg:hidden w-full justify-between items-center max-w-[calc(100vw-1rem)] mx-auto z-50 border border-warm-border/40"
+        "flex lg:hidden self-center mx-auto relative z-[100] border border-warm-border/40"
       )}
     >
-      <div className="flex flex-row justify-between items-center w-full">
+      <div className="flex w-full items-center justify-between">
         <Logo />
         <motion.button
           type="button"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -378,7 +455,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
           )}
         </motion.button>
       </div>
-
       <AnimatePresence>
         {open && (
           <motion.div
@@ -435,7 +511,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
                 )}
               </AnimatePresence>
             </div>
-
             {/* Systems accordion */}
             <div className="w-full">
               <button
@@ -480,7 +555,69 @@ const MobileNav = ({ visible }: NavbarProps) => {
                 )}
               </AnimatePresence>
             </div>
-
+            {/* Platform accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("platform")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+              >
+                Platform
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "platform" ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "platform" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {PLATFORM_LINKS.map((link) => (
+                      link.external ? (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpen(false)}
+                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                        >
+                          <span className="text-sm text-charcoal/85 flex items-center gap-1.5">
+                            {link.name}
+                            <span className="text-[9px] uppercase tracking-wider bg-wine/10 text-wine px-1.5 py-0.5 rounded-full font-semibold">Live</span>
+                          </span>
+                          <span className="text-[11px] text-charcoal/50">
+                            {link.description}
+                          </span>
+                        </a>
+                      ) : (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setOpen(false)}
+                          className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                        >
+                          <span className="text-sm text-charcoal/85">
+                            {link.name}
+                          </span>
+                          <span className="text-[11px] text-charcoal/50">
+                            {link.description}
+                          </span>
+                        </Link>
+                      )
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             {/* Resources accordion */}
             <div className="w-full">
               <button
@@ -525,7 +662,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
                 )}
               </AnimatePresence>
             </div>
-
             {/* Pricing */}
             <Link
               href="/pricing"
@@ -534,7 +670,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
             >
               Pricing
             </Link>
-
             {/* About */}
             <Link
               href="/about"
@@ -543,7 +678,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
             >
               About
             </Link>
-
             {/* Book CTA */}
             <Button
               href="/book"
