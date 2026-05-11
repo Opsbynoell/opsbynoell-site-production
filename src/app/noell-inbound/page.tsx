@@ -78,8 +78,10 @@ export default function NoellInboundPage() {
       <Hero
         eyebrow="Noell Inbound · B2B Lead Qualification"
         headlineLine1Start="Your best leads are"
+        headlineLine1Accent=""
         headlineLine2Start="deciding in seconds."
         headlineLine2Accent="Are you ready?"
+        footnote="Built for B2B teams that cannot afford to lose a lead."
         body="Noell Inbound is the first-touch intake layer for B2B and enterprise sales teams. It responds instantly to every inbound inquiry, qualifies intent, and routes the right prospects to the right rep — before the lead goes cold."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}

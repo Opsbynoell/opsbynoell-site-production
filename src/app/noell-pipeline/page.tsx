@@ -79,8 +79,10 @@ export default function NoellPipelinePage() {
       <Hero
         eyebrow="Noell Pipeline · B2B Sales Operations"
         headlineLine1Start="Deals do not die in the pitch."
+        headlineLine1Accent=""
         headlineLine2Start="They die in the"
         headlineLine2Accent="follow-up."
+        footnote="Built for B2B sales teams that cannot afford to lose a deal."
         body="Noell Pipeline is the sales operations layer for B2B teams. It schedules demos, sends follow-up sequences, and keeps deals moving through your pipeline — without your reps manually managing every thread."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}

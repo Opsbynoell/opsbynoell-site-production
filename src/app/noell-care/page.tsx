@@ -152,6 +152,7 @@ export default function NoellCarePage() {
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
         sourcePage="noell_care"
+        footnote="Built for service businesses that cannot afford to lose a returning client."
       />
 
       <section id="capabilities" className="py-20 md:py-28 px-4">

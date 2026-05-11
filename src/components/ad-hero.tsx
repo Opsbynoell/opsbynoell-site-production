@@ -116,6 +116,7 @@ interface AdHeroProps {
   mockScreen?: React.ReactNode;
   sourcePage?: SourcePage;
   variant?: "wine" | "lilac" | "sage";
+  footnote?: string;
 }
 
 export function AdHero({
@@ -133,6 +134,7 @@ export function AdHero({
   mockScreen,
   sourcePage,
   variant,
+  footnote,
 }: AdHeroProps) {
   const [adOverride, setAdOverride] = useState<AdHeadline | null>(null);
 
@@ -159,6 +161,7 @@ export function AdHero({
       priceSignal={priceSignal}
       mockScreen={mockScreen}
       sourcePage={sourcePage}
+      footnote={footnote}
     />
   );
 }

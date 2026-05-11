@@ -199,6 +199,7 @@ export default function NoellFrontDeskPage() {
           </>
         }
         sourcePage="noell_front_desk"
+        footnote="Built for service businesses that cannot afford to lose a booking."
       />
 
       {/* 7 capabilities */}

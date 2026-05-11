@@ -200,6 +200,7 @@ export default function NoellSupportPage() {
           </>
         }
         sourcePage="noell_support"
+        footnote="Built for service businesses that cannot afford to miss a lead."
       />
 
       {/* Stats */}

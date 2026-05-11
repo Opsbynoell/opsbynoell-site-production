@@ -79,8 +79,10 @@ export default function NoellAccountPage() {
       <Hero
         eyebrow="Noell Account · B2B Account Management"
         headlineLine1Start="Winning the client is"
+        headlineLine1Accent=""
         headlineLine2Start="only half the"
         headlineLine2Accent="revenue."
+        footnote="Built for B2B account teams that cannot afford to lose a client."
         body="Noell Account is the post-sale operations layer for B2B and enterprise teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage — so your clients stay, grow, and refer."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
