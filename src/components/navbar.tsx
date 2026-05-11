@@ -19,8 +19,9 @@ const SYSTEMS_LINKS = [
   { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
   { name: "What You Get", href: "/what-you-get", description: "Everything included, end to end" },
   { name: "Noell Support", href: "/noell-support", description: "24/7 AI front desk agent" },
+  { name: "Noell Front Desk", href: "/noell-front-desk", description: "Calls, scheduling & reminders" },
+  { name: "Noell Care", href: "/noell-care", description: "Existing client support layer" },
   { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Signals before revenue leaves" },
-  { name: "Pricing", href: "/pricing", description: "Three tiers, plain pricing" },
 ];
 
 // ─── Verticals dropdown links ──────────────────────────────────────────────
@@ -33,7 +34,15 @@ const VERTICAL_LINKS = [
   { name: "HVAC", href: "/verticals/hvac" },
 ];
 
-type DropdownKey = "systems" | "service-businesses" | null;
+// ─── Resources dropdown links ──────────────────────────────────────────────
+const RESOURCES_LINKS = [
+  { name: "Case Studies", href: "/case-studies", description: "Real results from real clients" },
+  { name: "Compare", href: "/compare", description: "How we stack up against alternatives" },
+  { name: "ROI Calculator", href: "/roi", description: "Estimate your missed revenue" },
+  { name: "Articles", href: "/resources", description: "Guides for service business owners" },
+];
+
+type DropdownKey = "systems" | "service-businesses" | "resources" | null;
 
 interface NavbarProps {
   visible: boolean;
@@ -234,7 +243,63 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           B2B Businesses
         </Link>
 
-        {/* Pricing */}
+        {/* Resources dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("resources")}
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "resources" ? null : "resources")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "resources"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Resources
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "resources" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "resources" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {RESOURCES_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                  >
+                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Pricing — single top-level link */}
         <Link
           href="/pricing"
           className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
@@ -286,7 +351,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
 
-  const toggleSection = (key: "systems" | "service-businesses") => {
+  const toggleSection = (key: "systems" | "service-businesses" | "resources") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
 
@@ -469,7 +534,52 @@ const MobileNav = ({ visible }: NavbarProps) => {
               B2B Businesses
             </Link>
 
-            {/* Pricing */}
+            {/* Resources accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("resources")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+              >
+                Resources
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "resources" ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "resources" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {RESOURCES_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                      >
+                        <span className="text-sm text-charcoal/85">
+                          {link.name}
+                        </span>
+                        <span className="text-[11px] text-charcoal/50">
+                          {link.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Pricing — single top-level link */}
             <Link
               href="/pricing"
               onClick={() => setOpen(false)}
