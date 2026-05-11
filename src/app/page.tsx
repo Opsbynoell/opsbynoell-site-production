@@ -1,11 +1,8 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import CTA from "@/components/cta";
-import { ROICalculator } from "@/components/roi-calculator";
-import { SantaProofBlock } from "@/components/santa-proof-block";
 import { FounderQuote } from "@/components/founder-quote";
 import { PciBand } from "@/components/pci-band";
-import { IntegrationBand } from "@/components/integration-band";
 import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
@@ -32,19 +29,19 @@ const homepageFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
-  },
-  {
-    id: "switch-booking-systems",
-    question: "Do I need to switch booking systems?",
-    answer:
-      "No. We install the AI front desk around the booking system you already use. Your booking system stays the system of record.",
+      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your operations are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
   },
   {
     id: "who-is-this-for",
     question: "Who is this for?",
     answer:
       "Service businesses including dental practices, med spas, salons, massage therapists, and HVAC companies, as well as B2B companies including SaaS, AI vendors, and tech startups selling into enterprise accounts.",
+  },
+  {
+    id: "how-long-to-go-live",
+    question: "How long does it take to go live?",
+    answer:
+      "Most clients are live within 14 days of their first working session. We handle the build, the installation, and the ongoing operations. You do not manage the system — we do.",
   },
 ];
 
@@ -177,37 +174,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 3. PROOF ────────────────────────────────────────────────────────
-          Kill skepticism immediately. Real result, real number, real timeline.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <SantaProofBlock />
-
-      {/* ─── 4. TRUST ────────────────────────────────────────────────────────
+      {/* ─── 3. TRUST ────────────────────────────────────────────────────────
           "A real person built this." Photo + one paragraph. Short.
       ─────────────────────────────────────────────────────────────────────── */}
       <FounderQuote />
 
-      {/* ─── 5. PAIN MADE PERSONAL ───────────────────────────────────────────
-          The ROI calculator. Visitor stops skimming and starts calculating.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <section id="roi-calculator" className="w-full py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <ROICalculator />
-        </div>
-      </section>
-
-      {/* ─── 6. HOW IT WORKS ─────────────────────────────────────────────────
+      {/* ─── 4. HOW IT WORKS ─────────────────────────────────────────────────
           PCI differentiator band (tight, editorial) + three agents.
       ─────────────────────────────────────────────────────────────────────── */}
       <PciBand />
       <Systems />
 
-      {/* ─── 7. REMOVES THE LAST OBJECTION ───────────────────────────────────
-          "Works with the tools I already use."
-      ─────────────────────────────────────────────────────────────────────── */}
-      <IntegrationBand />
-
-      {/* ─── 8. FAQ + CTA ────────────────────────────────────────────────────
+      {/* ─── 5. FAQ + CTA ────────────────────────────────────────────────────
           Three objection killers. Then the button. End clean.
       ─────────────────────────────────────────────────────────────────────── */}
       <FAQ
@@ -215,13 +193,13 @@ export default function Home() {
         eyebrow="Questions"
         headlineStart="Straight"
         headlineAccent="answers."
-        body="Real questions from service business owners and B2B founders before they book their first working session."
+        body="Real questions from business owners and operators before they book their first working session."
       />
       <CTA
         eyebrow="The first step"
         headlineStart="Find out what your operations are"
         headlineAccent="missing."
-        body="In your free Revenue Signal Report, we map the leaks in your front desk, booking flow, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
+        body="In your free Revenue Signal Report, we map the leaks in your operations, front desk, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
