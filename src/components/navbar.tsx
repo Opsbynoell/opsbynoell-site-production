@@ -33,7 +33,7 @@ const VERTICAL_LINKS = [
   { name: "HVAC", href: "/verticals/hvac" },
 ];
 
-type DropdownKey = "systems" | "verticals" | null;
+type DropdownKey = "systems" | "service-businesses" | null;
 
 interface NavbarProps {
   visible: boolean;
@@ -158,42 +158,50 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           </AnimatePresence>
         </div>
 
-        {/* Verticals dropdown */}
+        {/* Service Businesses dropdown */}
         <div
           className="relative"
-          onMouseEnter={() => setOpenDropdown("verticals")}
+          onMouseEnter={() => setOpenDropdown("service-businesses")}
         >
           <button
             type="button"
             onClick={() =>
-              setOpenDropdown(openDropdown === "verticals" ? null : "verticals")
+              setOpenDropdown(openDropdown === "service-businesses" ? null : "service-businesses")
             }
             className={cn(
               "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
-              openDropdown === "verticals"
+              openDropdown === "service-businesses"
                 ? "text-wine bg-blush/60"
                 : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
             )}
           >
-            Verticals
+            Service Businesses
             <IconChevronDown
               size={13}
               className={cn(
                 "transition-transform duration-200",
-                openDropdown === "verticals" ? "rotate-180" : "rotate-0"
+                openDropdown === "service-businesses" ? "rotate-180" : "rotate-0"
               )}
             />
           </button>
           <AnimatePresence>
-            {openDropdown === "verticals" && (
+            {openDropdown === "service-businesses" && (
               <motion.div
                 initial={{ opacity: 0, y: 8, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 8, scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
+                <Link
+                  href="/for-service-businesses"
+                  onClick={() => setOpenDropdown(null)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-charcoal hover:text-wine hover:bg-blush/50 transition-colors"
+                >
+                  Service Businesses Overview
+                </Link>
+                <div className="border-t border-warm-border my-1.5" />
                 {VERTICAL_LINKS.map((link) => (
                   <Link
                     key={link.href}
@@ -217,14 +225,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
             )}
           </AnimatePresence>
         </div>
-
-        {/* Service Businesses — direct link */}
-        <Link
-          href="/for-service-businesses"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
-        >
-          Service Businesses
-        </Link>
 
         {/* B2B Businesses — direct link */}
         <Link
@@ -286,7 +286,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
 
-  const toggleSection = (key: "systems" | "verticals") => {
+  const toggleSection = (key: "systems" | "service-businesses") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
 
@@ -405,24 +405,24 @@ const MobileNav = ({ visible }: NavbarProps) => {
               </AnimatePresence>
             </div>
 
-            {/* Verticals accordion */}
+            {/* Service Businesses accordion */}
             <div className="w-full">
               <button
                 type="button"
-                onClick={() => toggleSection("verticals")}
+                onClick={() => toggleSection("service-businesses")}
                 className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
               >
-                Verticals
+                Service Businesses
                 <IconChevronDown
                   size={14}
                   className={cn(
                     "transition-transform duration-200",
-                    openSection === "verticals" ? "rotate-180" : "rotate-0"
+                    openSection === "service-businesses" ? "rotate-180" : "rotate-0"
                   )}
                 />
               </button>
               <AnimatePresence>
-                {openSection === "verticals" && (
+                {openSection === "service-businesses" && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
@@ -430,6 +430,14 @@ const MobileNav = ({ visible }: NavbarProps) => {
                     transition={{ duration: 0.18 }}
                     className="overflow-hidden pl-3"
                   >
+                    <Link
+                      href="/for-service-businesses"
+                      onClick={() => setOpen(false)}
+                      className="block px-3 py-2 rounded-xl text-sm font-medium text-charcoal/85 hover:text-wine hover:bg-blush/40 transition-colors"
+                    >
+                      Service Businesses Overview
+                    </Link>
+                    <div className="border-t border-warm-border my-1" />
                     {VERTICAL_LINKS.map((link) => (
                       <Link
                         key={link.href}
@@ -451,15 +459,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
                 )}
               </AnimatePresence>
             </div>
-
-            {/* Service Businesses — direct link */}
-            <Link
-              href="/for-service-businesses"
-              onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
-            >
-              Service Businesses
-            </Link>
 
             {/* B2B Businesses — direct link */}
             <Link
