@@ -399,7 +399,50 @@ export default function ForB2BPage() {
         </div>
       </section>
 
-      {/* ─── 6. LIVE PROOF ────────────────────────────────────────────────── */}
+      {/* ─── 5.5 PIPELINE DASHBOARD CALLOUT ───────────────────────────────── */}
+      <section className="w-full px-4 py-12 md:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-[22px] bg-white border border-warm-border p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-1">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
+                  B2B Pipeline Dashboard
+                </p>
+                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-snug mb-4">
+                  Your entire pipeline, visible in one place.
+                </h2>
+                <p className="text-charcoal/75 leading-relaxed mb-6">
+                  Every account your Noell agents touch is tracked in a live B2B pipeline dashboard. Deal stages, ICP scores, outreach status, pipeline value, and win rate. Table view or kanban. You see exactly what is moving and what is stalled.
+                </p>
+                <ul className="space-y-2.5">
+                  {[
+                    "Deal stages: Prospect, Qualified, Demo, Proposal, Negotiation, Closed",
+                    "ICP scoring and outreach status per account",
+                    "Pipeline value and win rate at a glance",
+                    "Full conversation threads from every B2B agent",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                      <IconCheck size={14} className="text-wine shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-shrink-0 flex flex-col gap-3 md:items-end">
+                <div className="rounded-[16px] bg-[#1a0d12] px-6 py-5 text-center min-w-[180px]">
+                  <p className="font-serif text-3xl font-semibold text-lilac-light mb-1">Live</p>
+                  <p className="text-[11px] text-white/60 uppercase tracking-wide">included with<br />every engagement</p>
+                </div>
+                <p className="text-[11px] text-charcoal/50 text-center">
+                  Included in all B2B engagements
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. LIVE PROOF ───────────────────────────────────────────────────── */}
       <section className="w-full px-4 py-14 md:py-16 bg-cream-dark">
         <div className="mx-auto max-w-2xl">
           <div className="rounded-[22px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">

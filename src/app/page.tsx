@@ -121,7 +121,7 @@ export default function Home() {
                 {[
                   "Missed-call recovery and front desk automation",
                   "Client retention and rebooking systems",
-                  "24/7 lead intake and qualification",
+                  "Live lead intelligence dashboard included",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
                     <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
@@ -155,7 +155,7 @@ export default function Home() {
                 {[
                   "Predictive Customer Intelligence for pipeline signals",
                   "AI-optimized GTM strategy for enterprise buyers",
-                  "Digital presence architecture that survives the seven-second test",
+                  "Live B2B pipeline dashboard included",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-cream/85">
                     <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-cream/20 text-cream flex items-center justify-center text-[10px] font-bold">

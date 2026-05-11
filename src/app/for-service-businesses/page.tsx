@@ -336,6 +336,51 @@ export default function ForServiceBusinessesPage() {
         </div>
       </section>
 
+      {/* ─── 4.5 DASHBOARD CALLOUT ───────────────────────────────────────── */}
+      <section className="w-full px-4 py-12 md:py-16 bg-cream-dark">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-[22px] bg-white border border-warm-border p-8 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-1">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
+                  Lead Intelligence Dashboard
+                </p>
+                <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-snug mb-4">
+                  See every lead, session, and conversation in one place.
+                </h2>
+                <p className="text-charcoal/75 leading-relaxed mb-6">
+                  Every client who contacts your business through Noell is tracked in a live dashboard. Hot leads, warm leads, agent attribution, conversion funnel, and every conversation thread. You see exactly what Noell is doing and what it is recovering.
+                </p>
+                <ul className="space-y-2.5">
+                  {[
+                    "HOT and WARM lead scoring with priority signals",
+                    "Full conversation threads from every agent",
+                    "Conversion funnel from first contact to booked",
+                    "Date range filtering: 7D, 30D, 90D, All Time",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-charcoal/80">
+                      <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
+                        <IconCheck size={10} />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex-shrink-0 flex flex-col gap-3 md:items-end">
+                <div className="rounded-[16px] bg-[#1a0d12] px-6 py-5 text-center min-w-[180px]">
+                  <p className="font-serif text-3xl font-semibold text-wine mb-1">Live</p>
+                  <p className="text-[11px] text-white/60 uppercase tracking-wide">included with<br />every system</p>
+                </div>
+                <p className="text-[11px] text-charcoal/50 text-center">
+                  Included in all Noell System tiers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── 5. HOW IT STARTS ─────────────────────────────────────────────── */}
       <section className="w-full px-4 py-16 md:py-24 bg-cream-dark">
         <div className="max-w-4xl mx-auto">

@@ -20,9 +20,9 @@ import {
 
 export const metadata = pageMetadata({
   path: "/pricing",
-  title: "Pricing — Revenue Recovery Systems for Service Businesses",
+  title: "Pricing — AI Operations for Service Businesses and B2B",
   description:
-    "Pricing for the intelligence layer that recovers revenue your booking software misses. Noell Agents at $197/mo, locked for your first 12 months. Or the full Noell System — Essentials $197, Growth $797, Custom Ops $1,497/mo.",
+    "Transparent pricing for both tracks. Service businesses: Noell Agents at $197/mo or the full Noell System from $197/mo. B2B and enterprise: scoped individually, starting with a free Digital Readiness Review.",
 });
 
 const pricingFaqs: FaqItem[] = [
@@ -203,15 +203,13 @@ export default function PricingPage() {
           Pricing
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
-          Two ways to recover the revenue your front desk is{" "}
+          Two tracks.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            missing.
+            One operational standard.
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-2xl text-center text-charcoal/75 text-sm md:text-base leading-relaxed">
-          Start with the agents if you need coverage fast. Choose the full
-          system if you want Ops by Noell to install and manage the recovery
-          layer end to end.
+          Service businesses: start with the agents or the full done-for-you system. B2B and enterprise: scoped individually, starting with a free Digital Readiness Review.
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
@@ -223,10 +221,10 @@ export default function PricingPage() {
           </a>
           {" · "}
           <Link
-            href="/predictive-customer-intelligence"
+            href="/for-b2b"
             className="underline underline-offset-4 decoration-charcoal/55 hover:text-charcoal"
           >
-            See how PCI works
+            B2B pricing
           </Link>
           .
         </p>
@@ -284,6 +282,37 @@ export default function PricingPage() {
         body={PRICING_FAQ_BODY}
         faqs={pricingFaqs}
       />
+
+      {/* ─── B2B PRICING CALLOUT ─────────────────────────────────────────── */}
+      <section className="w-full px-4 py-12 md:py-16">
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-[22px] bg-[#1a0d12] p-8 md:p-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-lilac-light font-medium mb-4">
+              B2B and Enterprise
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-white leading-snug mb-4">
+              B2B pricing is scoped to your operation.
+            </h2>
+            <p className="text-white/70 leading-relaxed mb-6">
+              Enterprise buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your current setup, identify the gaps costing you pipeline, and tell you exactly what we would build and what it costs. No pitch. No deck.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/book"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-wine text-cream font-medium text-sm hover:bg-wine/90 transition-colors"
+              >
+                Book a Digital Readiness Review
+              </Link>
+              <Link
+                href="/for-b2b"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white/20 text-white/80 font-medium text-sm hover:border-white/40 hover:text-white transition-colors"
+              >
+                See the B2B track
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <CTA sourcePage="pricing" />
     </div>

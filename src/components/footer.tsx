@@ -6,29 +6,26 @@ export function Footer() {
     { title: "Home", href: "/" },
     { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
     { title: "Systems", href: "/systems" },
-    { title: "Verticals", href: "/verticals" },
     { title: "Pricing", href: "/pricing" },
-    { title: "ROI calculator", href: "/roi" },
+    { title: "ROI Calculator", href: "/roi" },
     { title: "Resources", href: "/resources" },
     { title: "Revenue Signal Report", href: "/book" },
   ];
 
-  const products = [
+  const serviceProducts = [
     { title: "Noell Support", href: "/noell-support" },
     { title: "Noell Front Desk", href: "/noell-front-desk" },
     { title: "Noell Care", href: "/noell-care" },
     { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
-    { title: "Revenue Signal Report", href: "/book" },
+    { title: "For Service Businesses", href: "/for-service-businesses" },
   ];
 
-  const verticals = [
-    { title: "Dental Offices", href: "/verticals/dental" },
-    { title: "Med Spas", href: "/verticals/med-spas" },
-    { title: "Salons", href: "/verticals/salons" },
-    { title: "Massage Therapy", href: "/verticals/massage" },
-    { title: "Estheticians", href: "/verticals/estheticians" },
-    { title: "HVAC", href: "/verticals/hvac" },
-    { title: "All verticals", href: "/verticals" },
+  const b2bProducts = [
+    { title: "Noell Inbound", href: "/noell-inbound" },
+    { title: "Noell Pipeline", href: "/noell-pipeline" },
+    { title: "Noell Account", href: "/noell-account" },
+    { title: "For B2B and Enterprise", href: "/for-b2b" },
+    { title: "Digital Readiness Review", href: "/book" },
   ];
 
   const legal = [
@@ -46,8 +43,7 @@ export function Footer() {
           <div className="flex items-start flex-col max-w-sm">
             <Logo />
             <h2 className="font-serif text-xl md:text-2xl font-medium text-charcoal mt-6 leading-snug">
-              Systems that catch missed calls, follow up instantly, and keep
-              your calendar full.
+              AI-powered operations for service businesses and B2B teams. Built, installed, and managed end-to-end.
             </h2>
           </div>
 
@@ -72,10 +68,10 @@ export function Footer() {
 
             <div className="space-y-5">
               <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
-                The Noell system
+                Service Track
               </h3>
               <ul className="space-y-3">
-                {products.map((item, idx) => (
+                {serviceProducts.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
@@ -90,10 +86,10 @@ export function Footer() {
 
             <div className="space-y-5">
               <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
-                Verticals
+                B2B Track
               </h3>
               <ul className="space-y-3">
-                {verticals.map((item, idx) => (
+                {b2bProducts.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
@@ -128,11 +124,10 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 mt-12 border-t border-warm-border gap-3">
           <p className="text-xs text-muted-strong">
-            &copy; {new Date().getFullYear()} Ops by Noell. Quiet operations for
-            service businesses.
+            &copy; {new Date().getFullYear()} Ops by Noell. Quiet operations for service businesses and B2B teams.
           </p>
           <p className="text-xs text-muted-strong">
-            Built for service businesses. Managed end-to-end.
+            Built for both tracks. Managed end-to-end.
           </p>
         </div>
         <div className="pt-6 mt-6 border-t border-warm-border/60">
@@ -140,7 +135,7 @@ export function Footer() {
             Ops by Noell is an independent service provider. We are not
             affiliated with, endorsed by, or a certified partner of any
             third-party booking, scheduling, practice management, electronic
-            health record, or field service management platform. All
+            health record, CRM, or field service management platform. All
             third-party product names, logos, and brands referenced on this
             site are the property of their respective owners. Reference to a
             third-party platform is descriptive only and does not imply any
