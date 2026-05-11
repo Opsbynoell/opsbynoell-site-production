@@ -302,8 +302,23 @@ export default function PricingPage() {
               B2B pricing is scoped to your operation.
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
-              Enterprise buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your current setup, identify the gaps costing you pipeline, and tell you exactly what we would build and what it costs. No pitch. No deck.
+              Enterprise buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your digital presence against the enterprise buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. No pitch. No deck.
             </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {[
+                "Three B2B agents: Inbound, Pipeline, Account",
+                "Predictive Customer Intelligence signal layer",
+                "Live B2B pipeline dashboard included",
+                "Digital presence architecture for enterprise buyers",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2.5 text-sm text-white/70">
+                  <span className="flex-shrink-0 w-4 h-4 rounded-full bg-lilac-light/20 text-lilac-light flex items-center justify-center text-[10px]">
+                    ✓
+                  </span>
+                  {item}
+                </div>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/book"

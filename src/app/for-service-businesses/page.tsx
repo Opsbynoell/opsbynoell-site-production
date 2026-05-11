@@ -37,19 +37,19 @@ const signals: SignalCard[] = [
     icon: <IconPhoneCall size={20} />,
     tag: "Missed call",
     title: "The call went to voicemail. They booked someone else.",
-    body: "A prospect called during a client session. No one answered. No text went out. By the time you saw the missed call, they had already moved on. That is not a lead problem. That is a front desk problem.",
+    body: "A prospect called during a client session. No one answered. No text went out. Noell Front Desk would have replied within 5 minutes, qualified the lead, and routed them to booking. Instead, they found a competitor who answered.",
   },
   {
     icon: <IconCalendarEvent size={20} />,
     tag: "No follow-up",
     title: "They filled out the form. You never heard from them again.",
-    body: "The inquiry came in on a Saturday. You were with family. By Monday it felt awkward to follow up. They assumed you were not interested. You lost a client you never knew you had.",
+    body: "The inquiry came in on a Saturday. You were with family. By Monday it felt awkward to follow up. Noell Support responds instantly, 24/7, captures their information, and routes them to booking before the weekend is over.",
   },
   {
     icon: <IconHeartHandshake size={20} />,
     tag: "Quiet client",
     title: "A great client stopped booking. You never knew why.",
-    body: "They loved the work. Life got busy. No one reached out. No reminder. No check-in. They found someone else, not because they wanted to, but because no one made it easy to come back.",
+    body: "They loved the work. Life got busy. No one reached out. Noell Care monitors your client book for gaps and sends proactive reactivation messages before they find someone else. Retention on autopilot.",
   },
 ];
 
@@ -64,11 +64,11 @@ type SystemCard = {
 const systems: SystemCard[] = [
   {
     eyebrow: "Noell Support",
-    title: "24/7 website chat and lead intake",
+    title: "Every inquiry answered. 24/7. Before they move on.",
     description:
-      "Every inquiry that lands on your site gets a real response, around the clock. Noell Support qualifies the lead, captures contact information, and routes them to booking or your team. No more Saturday morning inbox surprises.",
+      "Noell Support sits on your website and responds to every inquiry the moment it comes in. It qualifies the lead, captures their contact information, and routes them to booking or your team. No more Saturday morning inbox surprises. No more lost weekends.",
     bullets: [
-      "24/7 website chat coverage",
+      "24/7 website chat with instant response",
       "Lead qualification and contact capture",
       "Routing to booking or your team",
       "Trained on your services, pricing, and voice",
@@ -77,27 +77,27 @@ const systems: SystemCard[] = [
   },
   {
     eyebrow: "Noell Front Desk",
-    title: "Calls, scheduling, and follow-up",
+    title: "Your phone answered. Every call. Every time.",
     description:
-      "Your phone gets answered. Every time. Noell Front Desk handles inbound calls, books appointments, sends confirmations, and follows up on no-shows. Built around the scheduling tool you already use.",
+      "Noell Front Desk handles inbound calls, books appointments, sends confirmations, and follows up on no-shows. Missed call? A recovery text goes out within 5 minutes. Built around the scheduling tool you already use. Nothing to replace.",
     bullets: [
       "Inbound call answering and booking",
       "Appointment confirmations and reminders",
-      "Missed-call recovery via SMS",
+      "Missed-call recovery via SMS within 5 minutes",
       "Works with your existing booking system",
     ],
     href: "/noell-front-desk",
   },
   {
     eyebrow: "Noell Care",
-    title: "Existing client retention and rebooking",
+    title: "Lapsed clients reactivated before they book elsewhere.",
     description:
-      "The clients already in your book are your most valuable asset. Noell Care handles rebooking requests, service questions, and proactive outreach to clients who have gone quiet. Retention on autopilot.",
+      "The clients already in your book are your most valuable asset. Noell Care monitors your client book for gaps, handles rebooking requests, and sends proactive reactivation messages to clients who have gone quiet. Retention on autopilot.",
     bullets: [
-      "Rebooking requests and scheduling",
       "Proactive outreach to lapsed clients",
-      "Service and account questions",
-      "Review capture after visits",
+      "Rebooking requests and scheduling",
+      "Service and account questions handled",
+      "Review capture after every visit",
     ],
     href: "/noell-care",
   },
@@ -194,8 +194,8 @@ export default function ForServiceBusinessesPage() {
         headlineLine2Start="Your front desk should"
         headlineLine2Accent="say so."
         headlineLine2Smaller={false}
-        body="You built a service business on the quality of your work. Ops by Noell makes sure your front desk, follow-up, and digital presence reflect that quality, so you stop losing clients to competitors who just look more polished."
-        footnote="Done for you. Built around the tools you already use. Live in 14 days."
+        body="You built a service business on the quality of your work. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Ops by Noell builds the front desk, follow-up, and retention system that catches it. Done for you, live in 14 days."
+        footnote="Three AI agents. One managed system. Built around the tools you already use."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
@@ -346,10 +346,10 @@ export default function ForServiceBusinessesPage() {
                   Lead Intelligence Dashboard
                 </p>
                 <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal leading-snug mb-4">
-                  See every lead, session, and conversation in one place.
+                  See every lead, conversation, and recovery in real time.
                 </h2>
                 <p className="text-charcoal/75 leading-relaxed mb-6">
-                  Every client who contacts your business through Noell is tracked in a live dashboard. Hot leads, warm leads, agent attribution, conversion funnel, and every conversation thread. You see exactly what Noell is doing and what it is recovering.
+                  Every client who contacts your business through Noell is tracked in a live dashboard. You see which leads are HOT, which are WARM, which agent handled them, and the full conversation thread. No guessing what the system is doing. No waiting for a monthly report.
                 </p>
                 <ul className="space-y-2.5">
                   {[

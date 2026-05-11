@@ -36,19 +36,19 @@ const trustSignals: TrustSignal[] = [
     icon: <IconBuildingSkyscraper size={20} />,
     tag: "The seven-second window",
     title: "The procurement team left the meeting and visited your site.",
-    body: "Your pitch landed. The champion is sold. Then the buying committee does their own research. They visit your site. In seven seconds, the trust you built in the boardroom either holds or collapses. Most B2B sites fail this test.",
+    body: "Your pitch landed. The champion is sold. Then the buying committee does their own research. They visit your site. In seven seconds, the trust you built in the boardroom either holds or collapses. Ops by Noell rebuilds the structural layer so it holds.",
   },
   {
     icon: <IconChartBar size={20} />,
     tag: "Consumer-grade copy",
     title: "Your website reads like a startup. Your buyers are enterprise.",
-    body: "Enterprise buyers are not reading your homepage for inspiration. They are looking for proof of operational maturity, security posture, and implementation credibility. If your copy sounds like a product hunt launch, you are losing deals you never knew you were in.",
+    body: "Enterprise buyers are not reading your homepage for inspiration. They are looking for proof of operational maturity, security posture, and implementation credibility. We rewrite the copy, reposition the proof, and rebuild the architecture for the buyer in the room.",
   },
   {
     icon: <IconShieldCheck size={20} />,
-    tag: "Missing proof layer",
-    title: "You have case studies. They are buried on page four.",
-    body: "The proof exists. The results are real. But the architecture of your site does not surface it at the moment the buyer needs it. The trust signal arrives too late, or not at all. That is a structural problem, not a content problem.",
+    tag: "Stalled pipeline",
+    title: "Deals are moving. But not fast enough. And some just go quiet.",
+    body: "Noell Inbound, Noell Pipeline, and Noell Account run your B2B revenue cycle end to end. First-touch qualification, demo scheduling, follow-up cadences, renewal sequences. Every deal tracked in a live pipeline dashboard.",
   },
 ];
 
@@ -62,24 +62,24 @@ type SystemCard = {
 const systems: SystemCard[] = [
   {
     eyebrow: "Predictive Customer Intelligence",
-    title: "Know who is about to move before they do.",
+    title: "Know which accounts are about to move. Before your team does.",
     description:
-      "PCI reads every signal in your pipeline, from engagement patterns to buying committee behavior, and surfaces the accounts most likely to close, expand, or churn before your team notices the shift. Not a dashboard. An operational layer that tells your team what to do next.",
+      "PCI reads every signal in your pipeline, from engagement patterns to buying committee behavior, and surfaces the accounts most likely to close, expand, or churn before your team notices the shift. Not a report. An operational layer that tells your reps what to do next, today.",
     bullets: [
-      "Account-level signal monitoring",
+      "Account-level signal monitoring across your stack",
       "Buying committee engagement tracking",
       "Churn and expansion prediction",
-      "Actionable next-step surfacing",
+      "Actionable next-step surfacing for each rep",
     ],
   },
   {
     eyebrow: "AI-Optimized GTM Strategy",
     title: "A go-to-market motion built for how enterprise buyers actually buy.",
     description:
-      "Enterprise buying is not linear. It involves multiple stakeholders, long timelines, and trust signals that most GTM strategies ignore. We build the operational layer that maps your motion to how procurement actually works, not how you wish it did.",
+      "Enterprise buying is not linear. It involves multiple stakeholders, long timelines, and trust signals that most GTM strategies ignore. We build the operational layer that maps your motion to how procurement actually works, not how you wish it did. Fewer stalled deals. Faster cycles.",
     bullets: [
       "Buying committee mapping and sequencing",
-      "Trust signal architecture by stage",
+      "Trust signal architecture by deal stage",
       "Content and proof layer alignment",
       "Outbound and inbound motion design",
     ],
@@ -88,9 +88,9 @@ const systems: SystemCard[] = [
     eyebrow: "Digital Presence Architecture",
     title: "A site that holds up when procurement does their research.",
     description:
-      "We rebuild the structural layer of your digital presence so that every page, every proof point, and every trust signal is positioned for the enterprise buyer who is evaluating you without your sales team in the room. Built to survive the seven-second test.",
+      "We rebuild the structural layer of your digital presence so that every page, every proof point, and every trust signal is positioned for the enterprise buyer evaluating you without your sales team in the room. Built to survive the seven-second test. Built to close.",
     bullets: [
-      "Enterprise-grade site architecture",
+      "Enterprise-grade site architecture and copy",
       "Proof layer positioning and sequencing",
       "Security and compliance trust signals",
       "Buyer-stage content mapping",
@@ -195,8 +195,8 @@ export default function ForB2BPage() {
         headlineLine2Start="We make sure you do not lose"
         headlineLine2Accent="on the internet."
         headlineLine2Smaller={false}
-        body="Enterprise buyers leave the meeting and do their own research. In seven seconds, the trust you built in the boardroom either holds or collapses. Ops by Noell builds the operational layer that makes sure it holds."
-        footnote="Predictive Customer Intelligence. AI-Optimized GTM. Digital Presence Architecture."
+        body="Enterprise buyers leave the meeting and do their own research. In seven seconds, the trust you built in the boardroom either holds or collapses. Ops by Noell builds the operational layer, the agents, and the pipeline visibility that makes sure it holds."
+        footnote="Three B2B agents. Predictive Customer Intelligence. Live pipeline dashboard. Done for you."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
         showProofBar={false}
@@ -339,28 +339,28 @@ export default function ForB2BPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
+              {[
               {
                 eyebrow: "Noell Inbound",
-                title: "First-touch lead qualification",
+                title: "Every inbound lead qualified before it goes cold.",
                 description:
-                  "Responds to every inbound inquiry in seconds, qualifies intent, and routes the right prospects to the right rep before the lead goes cold.",
+                  "Noell Inbound responds to every inquiry in seconds, qualifies intent against your ICP, and routes the right prospects to the right rep. No more leads sitting in an inbox for 48 hours.",
                 href: "/noell-inbound",
                 bullets: ["Instant first-touch response", "ICP-matched qualification", "Discovery call scheduling"],
               },
               {
                 eyebrow: "Noell Pipeline",
-                title: "Sales operations and follow-up",
+                title: "Deals moving. Follow-up handled. Nothing stalls.",
                 description:
-                  "Schedules demos, sends follow-up sequences, and keeps deals moving through your pipeline without your reps manually managing every thread.",
+                  "Noell Pipeline schedules demos, runs multi-touch follow-up cadences, and reactivates stalled deals without your reps manually managing every thread. Your team closes. Noell handles the motion.",
                 href: "/noell-pipeline",
                 bullets: ["Demo and call scheduling", "Multi-touch follow-up cadences", "Stalled deal reactivation"],
               },
               {
                 eyebrow: "Noell Account",
-                title: "Post-sale account management",
+                title: "Clients retained. Renewals handled. Expansion triggered.",
                 description:
-                  "Manages account health touchpoints, renewal sequences, and upsell triggers so your clients stay, grow, and refer.",
+                  "Noell Account manages health touchpoints, renewal sequences, and upsell triggers so your clients stay, grow, and refer. Post-sale revenue on autopilot.",
                 href: "/noell-account",
                 bullets: ["Health signal monitoring", "Renewal sequences", "Upsell trigger conversations"],
               },
@@ -450,25 +450,25 @@ export default function ForB2BPage() {
               Live implementation · Premier Tech Sales Inc.
             </p>
             <p className="font-serif text-xl md:text-2xl text-charcoal leading-snug mb-5">
-              Our current flagship B2B implementation is running inside a live enterprise sales operation today. We use it as a proof of concept in every sales conversation because it is the most honest demonstration we can offer.
+              Our current flagship B2B implementation is running inside a live enterprise sales operation today. Three agents, PCI, and a live pipeline dashboard. We show it on every Digital Readiness Review call because it is the most honest demonstration we can offer.
             </p>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">Live</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">production<br />system</p>
-              </div>
-              <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">3</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">integrated<br />systems</p>
+                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">B2B agents<br />running live</p>
               </div>
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">B2B</p>
-                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">enterprise<br />verified</p>
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">Live</p>
+                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">pipeline<br />dashboard</p>
+              </div>
+              <div className="text-center">
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">PCI</p>
+                <p className="text-[11px] text-charcoal/70 mt-1 uppercase tracking-wide">signal layer<br />active</p>
               </div>
             </div>
             <div className="border-l-2 border-wine/40 pl-4">
               <p className="text-sm md:text-base text-charcoal/80 italic leading-relaxed">
-                "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and enterprise-grade operational systems. That is the brief. That is what we built."
+                "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and enterprise-grade operational systems. That is the brief. That is what we built. And it is running right now."
               </p>
               <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-charcoal/80">
                 Nikki Noell · Ops by Noell
