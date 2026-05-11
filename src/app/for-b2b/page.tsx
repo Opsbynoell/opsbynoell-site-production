@@ -321,7 +321,85 @@ export default function ForB2BPage() {
         </div>
       </section>
 
-      {/* ─── 5. LIVE PROOF ────────────────────────────────────────────────── */}
+      {/* ─── 5. B2B AGENTS ────────────────────────────────────────────────── */}
+      <section className="w-full px-4 py-16 md:py-24 bg-[#1a0d12]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-lilac-light font-medium mb-4">
+              The agents
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-white leading-tight max-w-3xl mx-auto">
+              Three agents.{" "}
+              <span className="italic text-lilac-light">
+                One B2B operations layer.
+              </span>
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Each agent handles a distinct phase of the B2B revenue cycle. Together, they cover the full journey from first inbound signal to long-term account retention.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                eyebrow: "Noell Inbound",
+                title: "First-touch lead qualification",
+                description:
+                  "Responds to every inbound inquiry in seconds, qualifies intent, and routes the right prospects to the right rep before the lead goes cold.",
+                href: "/noell-inbound",
+                bullets: ["Instant first-touch response", "ICP-matched qualification", "Discovery call scheduling"],
+              },
+              {
+                eyebrow: "Noell Pipeline",
+                title: "Sales operations and follow-up",
+                description:
+                  "Schedules demos, sends follow-up sequences, and keeps deals moving through your pipeline without your reps manually managing every thread.",
+                href: "/noell-pipeline",
+                bullets: ["Demo and call scheduling", "Multi-touch follow-up cadences", "Stalled deal reactivation"],
+              },
+              {
+                eyebrow: "Noell Account",
+                title: "Post-sale account management",
+                description:
+                  "Manages account health touchpoints, renewal sequences, and upsell triggers so your clients stay, grow, and refer.",
+                href: "/noell-account",
+                bullets: ["Health signal monitoring", "Renewal sequences", "Upsell trigger conversations"],
+              },
+            ].map((agent, i) => (
+              <Link
+                key={i}
+                href={agent.href}
+                className={cn(
+                  "relative flex flex-col rounded-[22px] bg-white/5 border border-white/10 p-7 md:p-8",
+                  "hover:bg-white/10 transition-colors"
+                )}
+              >
+                <p className="text-[10px] uppercase tracking-[0.2em] text-lilac-light font-medium mb-2">
+                  {agent.eyebrow}
+                </p>
+                <h3 className="font-serif text-xl md:text-2xl font-semibold text-white mb-3 leading-snug">
+                  {agent.title}
+                </h3>
+                <p className="text-sm md:text-base text-white/60 leading-relaxed mb-6">
+                  {agent.description}
+                </p>
+                <ul className="space-y-2 flex-1">
+                  {agent.bullets.map((bullet, j) => (
+                    <li key={j} className="flex items-start gap-2.5">
+                      <IconCheck size={14} className="text-lilac-light shrink-0 mt-0.5" />
+                      <span className="text-sm text-white/70">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-lilac-light font-medium">
+                  Learn more →
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. LIVE PROOF ────────────────────────────────────────────────── */}
       <section className="w-full px-4 py-14 md:py-16 bg-cream-dark">
         <div className="mx-auto max-w-2xl">
           <div className="rounded-[22px] border border-warm-border bg-white p-7 md:p-10 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
@@ -357,7 +435,7 @@ export default function ForB2BPage() {
         </div>
       </section>
 
-      {/* ─── 6. HOW IT STARTS ─────────────────────────────────────────────── */}
+      {/* ─── 7. HOW IT STARTS ─────────────────────────────────────────────── */}
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -399,7 +477,7 @@ export default function ForB2BPage() {
         </div>
       </section>
 
-      {/* ─── 7. FAQ ───────────────────────────────────────────────────────── */}
+      {/* ─── 8. FAQ ───────────────────────────────────────────────────────── */}
       <FAQ
         faqs={b2bFaqs}
         eyebrow="Questions"
@@ -408,7 +486,7 @@ export default function ForB2BPage() {
         body="Real questions from B2B founders and revenue leaders before they book a Digital Readiness Review."
       />
 
-      {/* ─── 8. CTA ───────────────────────────────────────────────────────── */}
+      {/* ─── 9. CTA ───────────────────────────────────────────────────────── */}
       <CTA
         eyebrow="The first step"
         headlineStart="Let us talk about"

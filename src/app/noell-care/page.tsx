@@ -238,54 +238,6 @@ export default function NoellCarePage() {
         ]}
       />
 
-      {/* B2B context section */}
-      <section className="py-20 md:py-28 px-4 bg-[#0f1a0f]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-[#7a9c79] mb-4">
-              For B2B and enterprise teams
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-white leading-tight">
-              The account layer for{" "}
-              <span className="italic text-[#7a9c79]">
-                post-sale enterprise clients.
-              </span>
-            </h2>
-            <p className="mt-5 text-white/60 max-w-xl mx-auto">
-              Noell Care is not just for returning spa clients. For B2B teams, it is the account management layer that keeps enterprise clients engaged, informed, and retained after the deal closes.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-[#4f6b4e]/30 text-[#7a9c79] flex items-center justify-center mb-4">
-                <IconUser size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Account recognition and history</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                When an existing enterprise client reaches out, Noell Care recognizes them by contact or company, surfaces their account history, and responds with the context your team built. No client ever has to re-explain who they are.
-              </p>
-            </div>
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-[#4f6b4e]/30 text-[#7a9c79] flex items-center justify-center mb-4">
-                <IconHelpCircle size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Support triage and escalation</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                Post-sale support questions, contract queries, and account issues are triaged by Noell Care before they reach your team. Routine questions are answered from your knowledge base. Complex issues are escalated with full context.
-              </p>
-            </div>
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-[#4f6b4e]/30 text-[#7a9c79] flex items-center justify-center mb-4">
-                <IconShieldCheck size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Retention and upsell triggers</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                Noell Care monitors account engagement and flags clients who are going quiet, approaching contract end, or showing signals of expansion interest. Your team gets the right prompt at the right moment, not six months after the window closed.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <FAQ
         eyebrow="Care questions"
