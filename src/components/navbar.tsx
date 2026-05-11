@@ -13,36 +13,35 @@ import { Button } from "./button";
 import { Logo } from "./logo";
 import { trackAuditCtaClick } from "@/lib/analytics";
 
-// ─── Systems dropdown links ────────────────────────────────────────────────
+// ─── Who We Help dropdown links ────────────────────────────────────────────
+const WHO_WE_HELP_LINKS = [
+  {
+    name: "Service Businesses",
+    href: "/for-service-businesses",
+    description: "Consultants, agencies, salons, med spas, and more",
+  },
+  {
+    name: "B2B and Enterprise",
+    href: "/for-b2b",
+    description: "SaaS, AI vendors, and teams selling into enterprise",
+  },
+];
+
+// ─── Systems dropdown links (trimmed to 3) ─────────────────────────────────
 const SYSTEMS_LINKS = [
   { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
   { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
-  { name: "What You Get", href: "/what-you-get", description: "Everything included, end to end" },
-  { name: "Noell Support", href: "/noell-support", description: "24/7 AI front desk agent" },
-  { name: "Noell Front Desk", href: "/noell-front-desk", description: "Calls, scheduling & reminders" },
-  { name: "Noell Care", href: "/noell-care", description: "Existing client support layer" },
   { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Signals before revenue leaves" },
 ];
 
-// ─── Verticals dropdown links ──────────────────────────────────────────────
-const VERTICAL_LINKS = [
-  { name: "Dental Offices", href: "/verticals/dental" },
-  { name: "Med Spas", href: "/verticals/med-spas" },
-  { name: "Salons", href: "/verticals/salons" },
-  { name: "Massage Therapy", href: "/verticals/massage" },
-  { name: "Estheticians", href: "/verticals/estheticians" },
-  { name: "HVAC", href: "/verticals/hvac" },
-];
-
-// ─── Resources dropdown links ──────────────────────────────────────────────
+// ─── Resources dropdown links (trimmed to 3) ──────────────────────────────
 const RESOURCES_LINKS = [
   { name: "Case Studies", href: "/case-studies", description: "Real results from real clients" },
   { name: "Compare", href: "/compare", description: "How we stack up against alternatives" },
   { name: "ROI Calculator", href: "/roi", description: "Estimate your missed revenue" },
-  { name: "Articles", href: "/resources", description: "Guides for service business owners" },
 ];
 
-type DropdownKey = "systems" | "service-businesses" | "resources" | null;
+type DropdownKey = "who-we-help" | "systems" | "resources" | null;
 
 interface NavbarProps {
   visible: boolean;
@@ -103,13 +102,62 @@ const DesktopNav = ({ visible }: NavbarProps) => {
 
       {/* Nav items */}
       <div className="flex items-center gap-1">
-        {/* Home */}
-        <Link
-          href="/"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
+
+        {/* Who We Help dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setOpenDropdown("who-we-help")}
         >
-          Home
-        </Link>
+          <button
+            type="button"
+            onClick={() =>
+              setOpenDropdown(openDropdown === "who-we-help" ? null : "who-we-help")
+            }
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              openDropdown === "who-we-help"
+                ? "text-wine bg-blush/60"
+                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
+            )}
+          >
+            Who We Help
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                openDropdown === "who-we-help" ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {openDropdown === "who-we-help" && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                onMouseLeave={() => setOpenDropdown(null)}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {WHO_WE_HELP_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpenDropdown(null)}
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-blush/50 transition-colors group"
+                  >
+                    <span className="text-sm font-medium text-charcoal group-hover:text-wine transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="text-[11px] text-charcoal/55 mt-0.5">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* Systems dropdown */}
         <div
@@ -167,82 +215,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           </AnimatePresence>
         </div>
 
-        {/* Service Businesses dropdown */}
-        <div
-          className="relative"
-          onMouseEnter={() => setOpenDropdown("service-businesses")}
-        >
-          <button
-            type="button"
-            onClick={() =>
-              setOpenDropdown(openDropdown === "service-businesses" ? null : "service-businesses")
-            }
-            className={cn(
-              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
-              openDropdown === "service-businesses"
-                ? "text-wine bg-blush/60"
-                : "text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60"
-            )}
-          >
-            Service Businesses
-            <IconChevronDown
-              size={13}
-              className={cn(
-                "transition-transform duration-200",
-                openDropdown === "service-businesses" ? "rotate-180" : "rotate-0"
-              )}
-            />
-          </button>
-          <AnimatePresence>
-            {openDropdown === "service-businesses" && (
-              <motion.div
-                initial={{ opacity: 0, y: 8, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                transition={{ duration: 0.18, ease: "easeOut" }}
-                onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-2xl border border-warm-border bg-cream/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
-              >
-                <Link
-                  href="/for-service-businesses"
-                  onClick={() => setOpenDropdown(null)}
-                  className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-charcoal hover:text-wine hover:bg-blush/50 transition-colors"
-                >
-                  Service Businesses Overview
-                </Link>
-                <div className="border-t border-warm-border my-1.5" />
-                {VERTICAL_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpenDropdown(null)}
-                    className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-charcoal/80 hover:text-wine hover:bg-blush/50 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-                <div className="border-t border-warm-border mt-1.5 pt-1.5">
-                  <Link
-                    href="/verticals"
-                    onClick={() => setOpenDropdown(null)}
-                    className="block px-3.5 py-2 rounded-xl text-[11px] uppercase tracking-widest text-wine/70 hover:text-wine hover:bg-blush/50 transition-colors"
-                  >
-                    All verticals &rarr;
-                  </Link>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* B2B Businesses — direct link */}
-        <Link
-          href="/for-b2b"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
-        >
-          B2B Businesses
-        </Link>
-
         {/* Resources dropdown */}
         <div
           className="relative"
@@ -299,7 +271,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           </AnimatePresence>
         </div>
 
-        {/* Pricing — single top-level link */}
+        {/* Pricing */}
         <Link
           href="/pricing"
           className="px-3 py-1.5 rounded-full text-sm font-medium text-charcoal/80 hover:text-charcoal hover:bg-cream-dark/60 transition-colors"
@@ -351,7 +323,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
 
-  const toggleSection = (key: "systems" | "service-businesses" | "resources") => {
+  const toggleSection = (key: "who-we-help" | "systems" | "resources") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
 
@@ -416,14 +388,50 @@ const MobileNav = ({ visible }: NavbarProps) => {
             aria-label="Mobile navigation"
             className="flex rounded-2xl absolute top-16 backdrop-blur-xl bg-cream/95 inset-x-0 z-50 flex-col items-start justify-start gap-1 w-full px-4 py-4 shadow-lg border border-warm-border/40"
           >
-            {/* Home */}
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
-            >
-              Home
-            </Link>
+            {/* Who We Help accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => toggleSection("who-we-help")}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
+              >
+                Who We Help
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    openSection === "who-we-help" ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {openSection === "who-we-help" && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {WHO_WE_HELP_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-blush/40 transition-colors"
+                      >
+                        <span className="text-sm font-medium text-charcoal/85">
+                          {link.name}
+                        </span>
+                        <span className="text-[11px] text-charcoal/50">
+                          {link.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Systems accordion */}
             <div className="w-full">
@@ -470,70 +478,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
               </AnimatePresence>
             </div>
 
-            {/* Service Businesses accordion */}
-            <div className="w-full">
-              <button
-                type="button"
-                onClick={() => toggleSection("service-businesses")}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-charcoal/90 hover:bg-blush/40 transition-colors text-sm font-medium"
-              >
-                Service Businesses
-                <IconChevronDown
-                  size={14}
-                  className={cn(
-                    "transition-transform duration-200",
-                    openSection === "service-businesses" ? "rotate-180" : "rotate-0"
-                  )}
-                />
-              </button>
-              <AnimatePresence>
-                {openSection === "service-businesses" && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.18 }}
-                    className="overflow-hidden pl-3"
-                  >
-                    <Link
-                      href="/for-service-businesses"
-                      onClick={() => setOpen(false)}
-                      className="block px-3 py-2 rounded-xl text-sm font-medium text-charcoal/85 hover:text-wine hover:bg-blush/40 transition-colors"
-                    >
-                      Service Businesses Overview
-                    </Link>
-                    <div className="border-t border-warm-border my-1" />
-                    {VERTICAL_LINKS.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setOpen(false)}
-                        className="block px-3 py-2 rounded-xl text-sm text-charcoal/85 hover:text-wine hover:bg-blush/40 transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                    <Link
-                      href="/verticals"
-                      onClick={() => setOpen(false)}
-                      className="block px-3 py-2 rounded-xl text-[11px] uppercase tracking-widest text-wine/70 hover:text-wine hover:bg-blush/40 transition-colors"
-                    >
-                      All verticals &rarr;
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* B2B Businesses — direct link */}
-            <Link
-              href="/for-b2b"
-              onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-charcoal/90 hover:text-charcoal hover:bg-blush/40 transition-colors text-sm font-medium"
-            >
-              B2B Businesses
-            </Link>
-
             {/* Resources accordion */}
             <div className="w-full">
               <button
@@ -579,7 +523,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               </AnimatePresence>
             </div>
 
-            {/* Pricing — single top-level link */}
+            {/* Pricing */}
             <Link
               href="/pricing"
               onClick={() => setOpen(false)}
