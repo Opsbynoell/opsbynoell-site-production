@@ -449,54 +449,6 @@ export default function NoellSupportPage() {
         ]}
       />
 
-      {/* B2B context section */}
-      <section className="py-20 md:py-28 px-4 bg-[#1a0d12]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-lilac-light mb-4">
-              For B2B and enterprise teams
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-white leading-tight">
-              The same intake layer,{" "}
-              <span className="italic text-lilac-light">
-                built for enterprise pipelines.
-              </span>
-            </h2>
-            <p className="mt-5 text-white/60 max-w-xl mx-auto">
-              Noell Support is not just for booking-based businesses. If your team is selling into enterprise accounts, every inbound inquiry that goes unanswered is a deal that quietly dies.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-lilac/20 text-lilac-light flex items-center justify-center mb-4">
-                <IconBolt size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Inbound lead qualification</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                When a prospect fills out a contact form, clicks an ad, or opens a chat on your SaaS or AI vendor site, Noell Support responds instantly, qualifies intent, and captures the information your sales team needs before the lead goes cold.
-              </p>
-            </div>
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-lilac/20 text-lilac-light flex items-center justify-center mb-4">
-                <IconRoute size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Pipeline routing and handoff</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                Not every inbound is a fit. Noell Support identifies company size, use case, and urgency, then routes qualified prospects to the right rep with full context. Unqualified inquiries are handled gracefully without wasting your team's time.
-              </p>
-            </div>
-            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
-              <div className="w-10 h-10 rounded-lg bg-lilac/20 text-lilac-light flex items-center justify-center mb-4">
-                <IconUserCheck size={22} />
-              </div>
-              <h3 className="text-base font-semibold text-white mb-2">Discovery call scheduling</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
-                Once a prospect is qualified, Noell Support hands off a scheduling link for a discovery call or demo. No back-and-forth email chains. No dropped threads. The meeting lands on your calendar with everything your rep needs to walk in prepared.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <FAQ
         accent="lilac"

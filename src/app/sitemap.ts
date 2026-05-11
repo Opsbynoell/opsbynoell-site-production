@@ -41,6 +41,9 @@ const entries: Entry[] = [
   { path: "/noell-support", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
   { path: "/noell-front-desk", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
   { path: "/noell-care", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
+  { path: "/noell-inbound", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
+  { path: "/noell-pipeline", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
+  { path: "/noell-account", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
 
   { path: "/verticals", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
   { path: "/verticals/dental", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },

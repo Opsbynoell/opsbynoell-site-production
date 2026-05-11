@@ -32,6 +32,9 @@ const SYSTEMS_LINKS = [
   { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
   { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
   { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Signals before revenue leaves" },
+  { name: "Noell Inbound", href: "/noell-inbound", description: "B2B lead qualification" },
+  { name: "Noell Pipeline", href: "/noell-pipeline", description: "B2B sales operations" },
+  { name: "Noell Account", href: "/noell-account", description: "B2B account management" },
 ];
 
 // ─── Resources dropdown links (trimmed to 3) ──────────────────────────────

@@ -63,7 +63,10 @@ export type SourcePage =
   | "revenue_calculator"
   | "what_you_get"
   | "for_service_businesses"
-  | "for_b2b";
+  | "for_b2b"
+  | "noell_inbound"
+  | "noell_pipeline"
+  | "noell_account";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and
