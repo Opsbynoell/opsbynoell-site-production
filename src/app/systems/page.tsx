@@ -16,9 +16,9 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/systems",
-  title: "The Noell System — One System, Three Agents, Managed",
+  title: "The Noell System — Six Agents, Two Tracks, Managed End-to-End",
   description:
-    "A done-for-you front desk, intake, and retention layer for service businesses. Three managed agents on top of your existing tools. Live in 14 days.",
+    "Done-for-you AI operations for service businesses and B2B companies. Six managed agents across two tracks. Live in 14 days.",
 });
 
 type Agent = {
@@ -136,15 +136,15 @@ export default function SystemsPage() {
           </p>
         </div>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
-          One system. Three agents.{" "}
+          Two tracks. Six agents.{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            Managed end-to-end.
+            One operational standard.
           </span>
         </h1>
         <p className="relative z-20 mt-6 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
-          The Noell system is a done-for-you front desk, intake, and retention
-          engine for service businesses. Three agents run in the background.
-          You run the business.
+          Whether you run a service business or sell into enterprise, Ops by
+          Noell builds and manages the operational layer that keeps revenue from
+          slipping out. Six agents across two tracks. You run the business.
         </p>
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3">
           <Link
@@ -162,19 +162,25 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      {/* Three agents card grid */}
+      {/* Service Track agents */}
       <section className="w-full py-16 md:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
-              the noell system / agent roster
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-charcoal leading-tight">
-              Three agents.{" "}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-wine/10 border border-wine/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-wine" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-wine">Track 01 / Service Businesses</span>
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-charcoal leading-tight">
+              Three agents for your{" "}
               <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
-                One system.
+                front desk and retention.
               </span>
             </h2>
+            <p className="mt-3 text-charcoal/70 max-w-2xl leading-relaxed">
+              Built for consultants, agencies, coaches, salons, med spas, dental practices, and professional service businesses.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -217,6 +223,103 @@ export default function SystemsPage() {
                     {agent.status}
                   </p>
                   <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                    Learn more &rarr;
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* B2B Track agents */}
+      <section className="w-full py-8 md:py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-charcoal/8 border border-charcoal/15">
+                <span className="w-1.5 h-1.5 rounded-full bg-charcoal" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/70">Track 02 / B2B and Enterprise</span>
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-charcoal leading-tight">
+              Three agents for your{" "}
+              <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
+                pipeline and digital presence.
+              </span>
+            </h2>
+            <p className="mt-3 text-charcoal/70 max-w-2xl leading-relaxed">
+              Built for SaaS companies, AI vendors, and tech startups selling into enterprise accounts.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                handle: "@noell_pci",
+                eyebrow: "Predictive intelligence",
+                title: "Predictive Customer Intelligence",
+                description: "Reads every signal in your pipeline and surfaces the accounts most likely to close, expand, or churn before your team notices the shift.",
+                status: "status: online / continuous",
+                href: "/predictive-customer-intelligence",
+                index: 0,
+              },
+              {
+                handle: "@noell_gtm",
+                eyebrow: "Go-to-market strategy",
+                title: "AI-Optimized GTM Strategy",
+                description: "Maps your go-to-market motion to how enterprise buyers actually buy. Buying committee sequencing, trust signal architecture, and content alignment by stage.",
+                status: "status: online / strategic layer",
+                href: "/for-b2b",
+                index: 1,
+              },
+              {
+                handle: "@noell_dpa",
+                eyebrow: "Digital presence",
+                title: "Digital Presence Architecture",
+                description: "Rebuilds the structural layer of your digital presence so every page, proof point, and trust signal holds up when procurement does their research without your sales team in the room.",
+                status: "status: online / always-on",
+                href: "/for-b2b",
+                index: 2,
+              },
+            ].map((agent) => (
+              <Link
+                key={agent.handle}
+                href={agent.href}
+                className={cn(
+                  "group relative rounded-[22px] border border-charcoal/10 bg-charcoal",
+                  "p-7 md:p-8 transition-all duration-200",
+                  "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.08),0px_15px_15px_0px_rgba(28,25,23,0.10),0px_4px_8px_0px_rgba(28,25,23,0.08)]",
+                  "hover:-translate-y-1"
+                )}
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-wine/20 text-wine-light flex items-center justify-center">
+                    <IconBolt size={22} />
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                    <span className="text-[10px] font-mono text-cream/50">
+                      0{agent.index + 1}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-wine-light mb-1">
+                  {agent.eyebrow}
+                </p>
+                <h3 className="font-serif text-2xl font-semibold text-cream mb-1">
+                  {agent.title}
+                </h3>
+                <p className="font-mono text-[10px] text-cream/50 mb-3">
+                  {agent.handle}
+                </p>
+                <p className="text-sm text-cream/75 leading-relaxed">
+                  {agent.description}
+                </p>
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
+                    {agent.status}
+                  </p>
+                  <p className="text-xs text-wine-light font-medium opacity-70 group-hover:opacity-100 transition-opacity">
                     Learn more &rarr;
                   </p>
                 </div>
