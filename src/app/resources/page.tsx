@@ -6,9 +6,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/resources",
-  title: "Resources — Missed-Call Recovery and AI Front Desk for Service Businesses",
+  title: "Resources — Ops by Noell",
   description:
-    "Short, honest reads for service-business owners: missed-call recovery, what a real AI front desk looks like, and how to stop losing booked appointments to 9 p.m. phone tag.",
+    "The reading list for operators who do not want to be sold to. Missed-call recovery, AI operations, and what the numbers actually say. No hype. No pitch. Just what works.",
 });
 
 type Resource = {
@@ -137,14 +137,14 @@ export default function ResourcesPage() {
           Resources
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-charcoal leading-tight">
-          Short, honest reads for{" "}
+          The reading list for operators who{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            service-business owners.
+            do not want to be sold to.
           </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-charcoal/75 text-base md:text-lg leading-relaxed">
-          Missed-call recovery, what a real AI front desk looks like, and how
-          owners stop losing booked appointments to 9 p.m. phone tag.
+          Missed-call recovery, AI operations, and what the numbers actually
+          say. No hype. No pitch. Just what works.
         </p>
       </section>
 
