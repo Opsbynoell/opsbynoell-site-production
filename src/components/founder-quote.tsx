@@ -15,7 +15,7 @@ export function FounderQuote() {
   return (
     <section className="w-full px-4 my-10 md:my-16">
       <div className="max-w-4xl mx-auto">
-        <div className="relative rounded-[22px] border border-white/10 bg-gradient-to-b from-white via-cream to-white shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] overflow-hidden">
+        <div className="relative rounded-[22px] border border-white/10 bg-gradient-to-b from-[#301A26] via-[#271520] to-[#301A26] shadow-[0px_34px_21px_0px_rgba(0,0,0,0.20),0px_4px_8px_0px_rgba(0,0,0,0.10)] overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] items-stretch">
             {/* Photo column */}
             <div className="relative h-56 md:h-auto md:min-h-[320px] bg-charcoal/5">
@@ -28,7 +28,7 @@ export function FounderQuote() {
                 priority
               />
               {/* subtle gradient overlay at bottom to blend into card */}
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-cream/60 to-transparent md:hidden" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1F1219]/80 to-transparent md:hidden" />
             </div>
 
             {/* Text column */}

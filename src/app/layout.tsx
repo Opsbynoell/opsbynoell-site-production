@@ -97,7 +97,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-cream">
+      <body className="min-h-full flex flex-col bg-[#1F1219]">
         <JsonLd data={[organizationSchema, websiteSchema]} id="site" />
         <a href="#main-content" className="skip-link">
           Skip to main content

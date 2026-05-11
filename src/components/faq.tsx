@@ -131,7 +131,7 @@ export function FAQ({
             return (
               <div
                 key={index}
-                className="rounded-[17px] border border-white/10 bg-gradient-to-b from-white via-cream to-white shadow-[0px_61px_24px_0px_rgba(28,25,23,0.00),_0px_34px_21px_0px_rgba(28,25,23,0.04),_0px_15px_15px_0px_rgba(28,25,23,0.06),_0px_4px_8px_0px_rgba(28,25,23,0.08)] overflow-hidden"
+                className="rounded-[17px] border border-white/10 bg-gradient-to-b from-[#301A26] via-[#271520] to-[#301A26] shadow-[0px_34px_21px_0px_rgba(0,0,0,0.15),0px_4px_8px_0px_rgba(0,0,0,0.10)] overflow-hidden"
               >
                 <h3 className="m-0">
                   <button

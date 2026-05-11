@@ -15,7 +15,7 @@ export function NoellSupportSpotlight() {
   return (
     <section className="w-full px-4 my-16 md:my-24">
       <div className="max-w-6xl mx-auto">
-        <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-white via-cream to-blush-light overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+        <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-[#301A26] via-[#271520] to-[#231019] overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Left: message */}
             <div className="px-7 py-10 md:px-12 md:py-14 flex flex-col justify-center">

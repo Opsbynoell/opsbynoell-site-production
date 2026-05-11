@@ -9,7 +9,9 @@ import Link from "next/link";
  * LogoMark: the "O" favicon monogram at /images/logo-favicon-o.png.
  *   Used for: favicon, chat avatar, mobile compact marks, small badges.
  *
- * Logo: the full "Ops by Noell" lockup at /images/logo-ops-by-noell.png.
+ * Logo: the full "Ops by Noell" lockup.
+ *   Dark theme: /images/logo-ops-by-noell-dark.png (transparent bg, wine text)
+ *   Light theme: /images/logo-ops-by-noell.png (white bg, wine text)
  *   Used for: navbar, footer, email signatures, social previews.
  */
 
@@ -44,7 +46,7 @@ export const Logo = ({ className }: { className?: string }) => {
       )}
     >
       <Image
-        src="/images/logo-ops-by-noell.png"
+        src="/images/logo-ops-by-noell-dark.png"
         alt="Ops by Noell"
         width={979}
         height={740}

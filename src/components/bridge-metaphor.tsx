@@ -42,9 +42,9 @@ export function BridgeMetaphor() {
           </p>
         </div>
 
-        <div className="rounded-[22px] border border-white/10 bg-gradient-to-b from-white via-cream to-white overflow-hidden shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
+        <div className="rounded-[22px] border border-white/10 bg-gradient-to-b from-[#301A26] via-[#271520] to-[#301A26] overflow-hidden shadow-[0px_34px_21px_0px_rgba(0,0,0,0.20),0px_15px_15px_0px_rgba(0,0,0,0.15),0px_4px_8px_0px_rgba(0,0,0,0.10)]">
           {/* Header row */}
-          <div className="grid grid-cols-2 bg-charcoal/[0.03] border-b border-white/10">
+          <div className="grid grid-cols-2 bg-white/[0.03] border-b border-white/10">
             <div className="px-5 py-3 md:px-8 md:py-4 border-r border-white/10">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70">
                 then · 2003

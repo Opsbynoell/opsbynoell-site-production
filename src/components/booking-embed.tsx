@@ -90,7 +90,7 @@ function LoadingDots() {
 
 function BookingFallback() {
   return (
-    <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-cream to-white p-8 md:p-12">
+    <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-[#301A26] to-[#271520] p-8 md:p-12">
       <div className="max-w-lg mx-auto text-center">
         <div className="inline-flex items-center gap-2 mb-5">
           <span

@@ -72,7 +72,7 @@ export function Features({
             )}
           >
             <BackgroundGrid className="absolute rounded-xl inset-0 z-0" />
-            <div className="absolute z-0 inset-0 rounded-xl h-full bg-gradient-radial from-white/50 via-white/60 to-cream" />
+            <div className="absolute z-0 inset-0 rounded-xl h-full bg-gradient-radial from-[#301A26]/50 via-[#271520]/60 to-[#1F1219]" />
             <div className="relative">
               <p className="text-[10px] font-mono uppercase tracking-widest text-cream/70 mb-2">
                 {stat.label}

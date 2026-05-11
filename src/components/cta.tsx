@@ -46,7 +46,7 @@ export default function CTA({
       : "bg-gradient-to-br from-lilac-dark via-lilac-dark/90 to-[#6b4f80]";
 
   const accentGrad =
-    accent === "wine" ? "from-blush to-cream" : "from-lilac-light to-white";
+    accent === "wine" ? "from-cream to-cream-dark" : "from-lilac-light to-white";
 
   return (
     <section className="w-full px-4 my-16 md:my-24">
