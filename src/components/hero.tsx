@@ -21,7 +21,7 @@ export function Hero({
   headlineLine2Start = "somewhere",
   headlineLine2Accent = "else.",
   body = "We build, install, and manage the system that catches missed calls, follows up instantly, and keeps your calendar full, so you can stay focused on the client in front of you.",
-  footnote = "Built for massage therapists, med spas, salons, dental offices, and estheticians.",
+  footnote = "Built for service businesses and B2B teams that cannot afford to lose a lead.",
   primaryCta = { label: "Get Your Free Audit", href: "/book" },
   secondaryCta = { label: "See the system", href: "/#systems" },
   mockScreen,
@@ -305,23 +305,23 @@ function DefaultMockScreen() {
         </span>
       </div>
 
-      {/* Missed call recovery card */}
+      {/* New inquiry card */}
       <div className="bg-white rounded-2xl p-3 mx-1 border border-warm-border/60 shadow-sm">
         <div className="flex items-start justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
-              Missed-call recovery
+              New inquiry
             </p>
-            <p className="text-sm text-charcoal font-medium mt-0.5">Santa E.</p>
-            <p className="text-[11px] text-charcoal/70">Auto-text sent · 8s</p>
+            <p className="text-sm text-charcoal font-medium mt-0.5">Inbound lead</p>
+            <p className="text-[11px] text-charcoal/70">Qualified · 12s</p>
           </div>
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-blush text-wine">
             triggered
           </span>
         </div>
         <div className="mt-2 bg-cream-dark rounded-lg p-2 text-[11px] text-charcoal/80 leading-snug">
-          "Hi Santa, sorry I missed you. I can get you in Saturday 2pm or 3pm.
-          Which works?"
+          "Thanks for reaching out. A few quick questions to confirm we are the
+          right fit — what does your current setup look like?"
         </div>
       </div>
 
@@ -330,26 +330,26 @@ function DefaultMockScreen() {
         <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
           Revenue recovered
         </p>
-        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$960</p>
-        <p className="text-[11px] text-cream/60">from 4 missed calls · 14 days</p>
+        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$4,200</p>
+        <p className="text-[11px] text-cream/60">from 6 missed inquiries · 30 days</p>
       </div>
 
-      {/* Booking confirmed card */}
+      {/* Meeting confirmed card */}
       <div className="bg-blush-light rounded-2xl p-3 mx-1 mt-2 border border-wine/10 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
-              Booking confirmed
+              Meeting confirmed
             </p>
             <p className="text-sm text-charcoal font-medium mt-0.5">
-              Saturday · 2:00 PM
+              Tuesday · 10:00 AM
             </p>
             <p className="text-[11px] text-charcoal/70">
-              Deep tissue · 60 min
+              Discovery call · 30 min
             </p>
           </div>
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-wine text-cream">
-            $180
+            booked
           </span>
         </div>
       </div>
