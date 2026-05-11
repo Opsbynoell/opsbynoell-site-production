@@ -297,6 +297,55 @@ export default function NoellFrontDeskPage() {
         ]}
       />
 
+      {/* B2B context section */}
+      <section className="py-20 md:py-28 px-4 bg-[#1a0d12]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine-light mb-4">
+              For B2B and enterprise teams
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-white leading-tight">
+              The operations layer for{" "}
+              <span className="italic text-wine-light">
+                B2B sales pipelines.
+              </span>
+            </h2>
+            <p className="mt-5 text-white/60 max-w-xl mx-auto">
+              Noell Front Desk is not limited to appointment-based businesses. For B2B teams, it manages the operational touchpoints that keep deals moving and accounts retained.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
+              <div className="w-10 h-10 rounded-lg bg-wine/20 text-wine-light flex items-center justify-center mb-4">
+                <IconCalendarEvent size={22} />
+              </div>
+              <h3 className="text-base font-semibold text-white mb-2">Demo and discovery call scheduling</h3>
+              <p className="text-sm text-white/60 leading-relaxed">
+                Noell Front Desk handles meeting scheduling for your sales team. Confirmations, reminders, and reschedule requests are managed automatically so your reps show up to calls that actually happen.
+              </p>
+            </div>
+            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
+              <div className="w-10 h-10 rounded-lg bg-wine/20 text-wine-light flex items-center justify-center mb-4">
+                <IconBellRinging size={22} />
+              </div>
+              <h3 className="text-base font-semibold text-white mb-2">Follow-up and pipeline cadences</h3>
+              <p className="text-sm text-white/60 leading-relaxed">
+                Prospects who go quiet after a demo or proposal get a structured follow-up sequence. Noell Front Desk keeps your pipeline from going cold without your team manually chasing every thread.
+              </p>
+            </div>
+            <div className="rounded-[17px] border border-white/10 bg-white/5 p-6">
+              <div className="w-10 h-10 rounded-lg bg-wine/20 text-wine-light flex items-center justify-center mb-4">
+                <IconRefresh size={22} />
+              </div>
+              <h3 className="text-base font-semibold text-white mb-2">Renewal and reactivation workflows</h3>
+              <p className="text-sm text-white/60 leading-relaxed">
+                Contract renewals, dormant accounts, and lapsed enterprise clients are surfaced and re-engaged on a cadence. The system flags the right accounts at the right time so nothing slips through at the end of a contract cycle.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FAQ
         eyebrow="Front Desk questions"
         headlineStart="Straight"
