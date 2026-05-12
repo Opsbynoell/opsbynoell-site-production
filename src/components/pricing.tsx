@@ -368,7 +368,7 @@ export default function Pricing() {
           {/* Dashboard screenshot */}
           <div className="relative">
             <img
-              src="https://noelldash.manus.space/manus-storage/noell-ops-dashboard_b3d935f2.png"
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663120940829/iSNpIDnlLiHRnrsy.png"
               alt="Noell Ops CRM Lead Intelligence Dashboard"
               className="w-full block"
             />
