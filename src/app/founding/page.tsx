@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Founding Partner Offer — Ops by Noell",
-  description: "Private offer for founding partners. Not publicly listed.",
+  title: "Launch Pricing — Ops by Noell",
+  description: "Private pricing overview. Not publicly listed.",
   robots: { index: false, follow: false },
 };
 
 const SERVICE_TIERS = [
   {
     name: "Signal",
-    foundingPrice: "$397",
+    launchPrice: "$397",
     standardPrice: "$497",
     cadence: "/mo",
     highlight: false,
@@ -25,7 +25,7 @@ const SERVICE_TIERS = [
   },
   {
     name: "System",
-    foundingPrice: "$897",
+    launchPrice: "$897",
     standardPrice: "$1,097",
     cadence: "/mo",
     highlight: true,
@@ -42,7 +42,7 @@ const SERVICE_TIERS = [
   },
   {
     name: "Full Stack",
-    foundingPrice: "$1,197",
+    launchPrice: "$1,197",
     standardPrice: "$1,497",
     cadence: "/mo",
     highlight: false,
@@ -50,7 +50,7 @@ const SERVICE_TIERS = [
     includes: [
       "Everything in System",
       "Full website build or redesign",
-      "Noell Ops CRM (replaces GoHighLevel)",
+      "Noell Ops CRM — pipeline, iMessage outreach, email sequences",
       "Click-through audit and conversion optimization",
       "Dedicated ops partner",
       "Priority onboarding",
@@ -61,7 +61,7 @@ const SERVICE_TIERS = [
 const B2B_TIERS = [
   {
     name: "Prospect",
-    foundingPrice: "$497",
+    launchPrice: "$497",
     standardPrice: "$597",
     cadence: "/mo",
     highlight: false,
@@ -75,7 +75,7 @@ const B2B_TIERS = [
   },
   {
     name: "Pipeline",
-    foundingPrice: "$997",
+    launchPrice: "$997",
     standardPrice: "$1,197",
     cadence: "/mo",
     highlight: true,
@@ -92,7 +92,7 @@ const B2B_TIERS = [
   },
   {
     name: "Enterprise",
-    foundingPrice: "$1,997",
+    launchPrice: "$1,997",
     standardPrice: "$2,497",
     cadence: "/mo",
     highlight: false,
@@ -100,7 +100,7 @@ const B2B_TIERS = [
     includes: [
       "Everything in Pipeline",
       "Full website build or redesign",
-      "Noell Ops CRM (replaces GoHighLevel)",
+      "Noell Ops CRM — pipeline, sequences, iMessage + email reporting",
       "Custom account list research",
       "Digital presence architecture",
       "Dedicated pipeline partner",
@@ -132,7 +132,7 @@ function TierCard({
           {tier.name}
         </div>
         <div className="flex items-end gap-1 mb-2">
-          <span className="text-4xl font-bold text-[#F5EAE0]">{tier.foundingPrice}</span>
+          <span className="text-4xl font-bold text-[#F5EAE0]">{tier.launchPrice}</span>
           <span className="text-[#C4A8D4] text-sm mb-1">{tier.cadence}</span>
           <span className="text-[#7A5A65] text-sm mb-1 ml-2 line-through">{tier.standardPrice}/mo standard</span>
         </div>
@@ -153,7 +153,7 @@ function TierCard({
           href="/book"
           className="block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all bg-[#8B2A42] text-[#F5EAE0] hover:bg-[#B5415E]"
         >
-          Claim Founding Rate
+          Get Started
         </Link>
       </div>
     </div>
@@ -167,26 +167,26 @@ export default function FoundingPage() {
       <section className="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
         <div className="inline-flex items-center gap-2 bg-[#271520] border border-[#8B2A42]/40 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest text-[#8B2A42] uppercase mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[#8B2A42] animate-pulse" />
-          Private Offer — Not Publicly Listed
+          Launch Pricing — Limited Time
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-[#F5EAE0] mb-5 leading-tight">
-          Founding Partner Rates
+          Launch Pricing
         </h1>
         <p className="text-[#C4A8D4] text-lg max-w-2xl mx-auto leading-relaxed">
-          These rates are extended selectively to a small number of clients as Ops by Noell expands into new verticals. The founding rate is locked for 12 months. In exchange, we ask for a case study at the end of the engagement.
+          All tiers are available at launch pricing while we expand into new verticals. Standard rates are shown with a strikethrough. Your rate is locked from day one.
         </p>
       </section>
 
-      {/* What the founding offer includes */}
+      {/* What's included */}
       <section className="max-w-3xl mx-auto px-6 pb-14">
         <div className="bg-[#1F1219] border border-[#3D1F2B] rounded-2xl p-7 grid md:grid-cols-3 gap-6 text-center">
           <div>
-            <div className="text-2xl font-bold text-[#F5EAE0] mb-1">12 months</div>
-            <div className="text-sm text-[#C4A8D4]">Rate locked at founding price, regardless of future standard rate increases</div>
+            <div className="text-2xl font-bold text-[#F5EAE0] mb-1">Rate locked</div>
+            <div className="text-sm text-[#C4A8D4]">Your launch price is locked from day one, regardless of future standard rate increases</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-[#F5EAE0] mb-1">1 case study</div>
-            <div className="text-sm text-[#C4A8D4]">We ask for a documented case study at the end of the engagement. We write it for you.</div>
+            <div className="text-2xl font-bold text-[#F5EAE0] mb-1">Done for you</div>
+            <div className="text-sm text-[#C4A8D4]">Setup, onboarding, and ongoing tuning are all included in every tier</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-[#F5EAE0] mb-1">Month-to-month</div>
@@ -226,7 +226,7 @@ export default function FoundingPage() {
       {/* Footer note */}
       <section className="max-w-2xl mx-auto px-6 pb-20 text-center">
         <p className="text-[#7A5A65] text-sm leading-relaxed">
-          This page is not publicly listed or indexed. It is shared directly in sales conversations with prospective founding partners. If you received this link, it means we believe you are a strong fit for the founding cohort.
+          This page is not publicly listed or indexed. It is shared directly in sales conversations.
         </p>
         <p className="text-[#7A5A65] text-sm mt-3">
           Questions?{" "}

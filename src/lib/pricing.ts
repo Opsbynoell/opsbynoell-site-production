@@ -13,8 +13,8 @@ export interface PricingTier {
   track: TrackId;
   planId: string;
   tier: string;
-  priceFrom: string;
-  foundingPrice: string;
+  standardPrice: string;
+  launchPrice: string;
   cadence: string;
   bestFor?: string;
   summary?: string;
@@ -33,8 +33,8 @@ export const SERVICE_TIERS: PricingTier[] = [
     track: "service",
     planId: "signal",
     tier: "Signal",
-    priceFrom: "$497",
-    foundingPrice: "$397",
+    standardPrice: "$497",
+    launchPrice: "$397",
     cadence: "/mo",
     bestFor: "Solo service businesses who want to stop missing leads",
     summary: "Your first agent. The one that never misses.",
@@ -57,8 +57,8 @@ export const SERVICE_TIERS: PricingTier[] = [
     track: "service",
     planId: "system",
     tier: "System",
-    priceFrom: "$1,097",
-    foundingPrice: "$897",
+    standardPrice: "$1,097",
+    launchPrice: "$897",
     cadence: "/mo",
     bestFor: "Growing service businesses who want full coverage",
     summary: "Three agents. One system. Nothing falls through.",
@@ -83,8 +83,8 @@ export const SERVICE_TIERS: PricingTier[] = [
     track: "service",
     planId: "full_stack",
     tier: "Full Stack",
-    priceFrom: "$1,497",
-    foundingPrice: "$1,197",
+    standardPrice: "$1,497",
+    launchPrice: "$1,197",
     cadence: "/mo",
     bestFor: "Established service businesses who want Noell to run their ops",
     summary: "We run it. You grow it.",
@@ -93,7 +93,8 @@ export const SERVICE_TIERS: PricingTier[] = [
     features: [
       "Everything in System",
       "End-to-end website build or redesign (done for you)",
-      "Noell Ops CRM — pipeline, booking, SMS, all under your brand",
+      "Noell Ops CRM — pipeline, booking, iMessage outreach, all under your brand",
+      "Automated outreach sequences (iMessage + email, done for you)",
       "Click-through audit (full funnel analysis and conversion fixes)",
       "Monthly strategy call (60 min)",
       "Priority support (same-day response)",
@@ -112,8 +113,8 @@ export const B2B_TIERS: PricingTier[] = [
     track: "b2b",
     planId: "b2b_prospect",
     tier: "Prospect",
-    priceFrom: "$597",
-    foundingPrice: "$497",
+    standardPrice: "$597",
+    launchPrice: "$497",
     cadence: "/mo",
     bestFor: "B2B companies who want to stop losing warm leads",
     summary: "Your first B2B agent. Finds the right companies. Starts the conversation.",
@@ -136,8 +137,8 @@ export const B2B_TIERS: PricingTier[] = [
     track: "b2b",
     planId: "b2b_pipeline",
     tier: "Pipeline",
-    priceFrom: "$1,197",
-    foundingPrice: "$997",
+    standardPrice: "$1,197",
+    launchPrice: "$997",
     cadence: "/mo",
     bestFor: "B2B companies who want a full top-to-mid funnel system",
     summary: "Three agents. Full funnel. Fewer stalled deals.",
@@ -148,6 +149,7 @@ export const B2B_TIERS: PricingTier[] = [
       "Noell Qualify — AI qualification agent (scores leads, routes to sales)",
       "Noell Nurture — AI nurture agent (keeps warm leads engaged between calls)",
       "Full B2B Pipeline Dashboard (all three agents, unified view)",
+      "iMessage + email outreach sequences (automated, done for you)",
       "PCI signal layer (Prospect-Company-Intent data integration)",
       "Bi-weekly check-in calls",
       "Quarterly ICP refinement session",
@@ -163,8 +165,8 @@ export const B2B_TIERS: PricingTier[] = [
     track: "b2b",
     planId: "b2b_enterprise",
     tier: "Enterprise",
-    priceFrom: "$2,497",
-    foundingPrice: "$1,997",
+    standardPrice: "$2,497",
+    launchPrice: "$1,997",
     cadence: "/mo",
     bestFor: "B2B companies who want Noell to own their pipeline ops",
     summary: "We build the machine. You close the deals.",
@@ -174,7 +176,7 @@ export const B2B_TIERS: PricingTier[] = [
       "Everything in Pipeline",
       "Digital presence architecture (LinkedIn, website, content alignment)",
       "End-to-end website build optimized for B2B conversion",
-      "Noell Ops CRM — pipeline, sequences, reporting under your brand",
+      "Noell Ops CRM — pipeline, sequences, iMessage + email reporting under your brand",
       "Custom ICP research and account list build (up to 100 accounts per quarter)",
       "Monthly strategy call (90 min)",
       "Priority support (same-day response)",

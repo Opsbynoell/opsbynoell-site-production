@@ -58,7 +58,7 @@ interface StatsResponse {
 }
 
 const PLAN_LABELS: Record<string, string> = {
-  agents_founding: "Noell Agents — Founding Rate",
+  agents_founding: "Noell Agents — Launch Pricing",
   agents_standard: "Noell Agents",
   essentials: "Noell System — Essentials",
   growth: "Noell System — Growth",

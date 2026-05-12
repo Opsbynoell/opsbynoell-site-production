@@ -144,8 +144,7 @@ function BookingFallback() {
           why not self-serve right now?
         </p>
         <p className="mt-2 text-xs text-muted-medium leading-relaxed max-w-md mx-auto">
-          Audits are booked by hand while we onboard founding members. Self-serve
-          scheduling returns as soon as capacity opens back up.
+          Audits are booked by hand to ensure every engagement starts with the right fit. Self-serve scheduling opens as capacity allows.
         </p>
       </div>
     </div>

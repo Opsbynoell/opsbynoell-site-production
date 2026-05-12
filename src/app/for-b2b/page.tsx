@@ -48,7 +48,7 @@ const trustSignals: TrustSignal[] = [
     icon: <IconShieldCheck size={20} />,
     tag: "Stalled pipeline",
     title: "Deals are moving. But not fast enough. And some just go quiet.",
-    body: "Noell Inbound, Noell Pipeline, and Noell Account run your B2B revenue cycle end to end. First-touch qualification, demo scheduling, follow-up cadences, renewal sequences. Every deal tracked in a live pipeline dashboard.",
+    body: "Noell Inbound, Noell Pipeline, and Noell Account run your B2B revenue cycle end to end. First-touch qualification, demo scheduling, iMessage + email outreach sequences, and renewal cadences. Every deal tracked in the live Noell Ops CRM dashboard with HOT/WARM scoring and deal stage visibility.",
   },
 ];
 

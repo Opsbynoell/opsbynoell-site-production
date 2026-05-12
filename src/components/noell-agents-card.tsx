@@ -25,7 +25,7 @@ export function NoellAgentsCard() {
           {/* Founder banner */}
           <div className="md:absolute md:top-6 md:right-6 mb-4 md:mb-0">
             <span className="inline-flex items-center rounded-full bg-wine text-cream px-3.5 py-1.5 text-[11px] font-medium tracking-wide">
-              Founding rate — $397/mo, locked 12 months
+              Launch pricing — $397/mo
             </span>
           </div>
 
@@ -61,7 +61,7 @@ export function NoellAgentsCard() {
                 3 AI agents. Plug in. Go.
               </p>
               <p className="mt-3 text-sm text-wine font-medium">
-                Founding rate locked 12 months ($297/mo after)
+                Launch pricing (~~$497/mo~~ standard rate)
               </p>
               <p className="mt-1 text-sm text-cream/70">No setup fee</p>
               <div className="mt-6">

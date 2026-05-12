@@ -7,7 +7,7 @@ import { trackMetaEvent } from "@/lib/meta-pixel-track";
 type Variant = "primary" | "wine" | "secondary";
 
 export function AgentsFoundingCta({
-  planId = "agents_founding",
+  planId = "signal",
   href,
   className,
   children,
@@ -32,7 +32,7 @@ export function AgentsFoundingCta({
           trackMetaEvent("InitiateCheckout", {
             value: 197,
             currency: "USD",
-            content_name: "noell_agents_founding",
+            content_name: "noell_agents_launch",
           });
         }}
       >

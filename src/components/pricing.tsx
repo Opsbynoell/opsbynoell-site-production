@@ -85,12 +85,12 @@ export function PricingCard({
             </div>
             <div className="mt-3 flex items-baseline gap-2">
               <span className="font-serif text-3xl font-bold text-cream">
-                {tier.foundingPrice}
+                {tier.launchPrice}
               </span>
               <span className="text-xs text-cream/70">{tier.cadence}</span>
-              <span className="text-[10px] text-cream/40 line-through">{tier.priceFrom}</span>
+              <span className="text-[10px] text-cream/40 line-through">{tier.standardPrice}</span>
             </div>
-            <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Founding cohort rate</p>
+            <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Launch pricing</p>
           </div>
 
           <ul className="space-y-2 pt-1">
@@ -156,22 +156,22 @@ export function PricingCard({
               {tier.bestFor}
             </p>
           )}
-          {/* Founding cohort pricing display */}
+          {/* Launch pricing display */}
           <div className="mt-3 flex items-baseline gap-2 flex-wrap">
             <span className="font-serif text-4xl font-bold text-cream">
-              {tier.foundingPrice}
+              {tier.launchPrice}
             </span>
             {tier.cadence && (
               <span className="text-sm text-cream/70">
                 {tier.cadence}
               </span>
             )}
-            <span className="text-sm text-cream/35 line-through">{tier.priceFrom}</span>
+            <span className="text-sm text-cream/35 line-through">{tier.standardPrice}</span>
           </div>
           <div className="mt-1 inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
             <p className="text-xs font-medium text-wine">
-              Founding cohort rate — locked for 12 months
+              Launch pricing — limited time
             </p>
           </div>
           {tier.summary && (
@@ -292,14 +292,14 @@ export default function Pricing() {
   return (
     <div id="pricing" className="pt-10 md:pt-12 pb-24 px-4 max-w-7xl mx-auto">
 
-      {/* Founding cohort banner */}
+      {/* Launch pricing banner */}
       <div className="max-w-3xl mx-auto mb-12 rounded-[20px] border border-wine/30 bg-wine/10 p-5 text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
           <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Founding Cohort — First 10 Clients</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Launch Pricing — Limited Time</p>
         </div>
         <p className="text-sm text-cream/80 leading-relaxed">
-          Every tier is available at the founding rate for the first 10 clients. Rates are locked for 12 months from your start date. After the cohort closes, standard rates apply to all new clients.
+          All tiers are available at launch pricing while we expand into new verticals. Standard rates are shown with a strikethrough. Your rate is locked from day one.
         </p>
       </div>
 
