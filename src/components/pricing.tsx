@@ -378,6 +378,199 @@ export default function Pricing() {
         </div>
       </div>
 
+      {/* Build Your Own — Add-On Services */}
+      <div className="mt-24 mb-6">
+        {/* Section header */}
+        <div className="flex items-center gap-4 mb-10">
+          <div className="h-px flex-1 bg-white/10" />
+          <div className="text-center">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Beyond Enterprise</p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Build Your Own Stack</h2>
+            <p className="text-sm text-cream/60 mt-2 max-w-2xl">
+              Every add-on below is a service most businesses assume requires a full-time hire or agency retainer.
+              Layer any combination onto your base package.
+            </p>
+          </div>
+          <div className="h-px flex-1 bg-white/10" />
+        </div>
+
+        {/* Add-on grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          {/* Digital Infrastructure */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">01</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Digital Infrastructure</h3>
+            <p className="text-xs text-cream/50 mb-5">The foundation everything else runs on. Disconnected tools, zero automation, no single source of truth — this fixes that.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Tech Stack Audit + Cleanup</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">CRM + Pipeline Setup</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 setup + $197/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Workflow Automation (3/qtr)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Unified Analytics Dashboard</span>
+                <span className="text-xs text-wine whitespace-nowrap">$197/mo</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Online Presence */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">02</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Online Presence</h3>
+            <p className="text-xs text-cream/50 mb-5">Technical SEO, local search, and website performance. If they can't find you, they can't hire you.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Technical SEO Audit</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Local SEO Management</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">SEO Content Engine (4 posts/mo)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Website Performance Optimization</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297/mo</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">03</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Social Media</h3>
+            <p className="text-xs text-cream/50 mb-5">Consistency is the product. Most businesses post when they remember. This makes it automatic, on-brand, and strategic.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Content Calendar + Scheduling</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Short-Form Video Scripts (4/mo)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$197/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Social Listening + Engagement</span>
+                <span className="text-xs text-wine whitespace-nowrap">$197/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">LinkedIn B2B Outreach</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497/mo</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Brand Kit + Visual Identity */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">04</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Brand Kit + Visual Identity</h3>
+            <p className="text-xs text-cream/50 mb-5">The vibe is the first thing they feel. Before anyone reads a word, they've already decided if you're credible.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Brand Audit</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Full Brand Kit Build</span>
+                <span className="text-xs text-wine whitespace-nowrap">$997 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Copywriting Voice Guide</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Visual Templates (social, email, decks)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$297 one-time</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Psychology + Conversion */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">05</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Psychology + Conversion</h3>
+            <p className="text-xs text-cream/50 mb-5">The words and the flow that make people say yes. The difference between a site that explains and one that converts.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Conversion Copy Rewrite</span>
+                <span className="text-xs text-wine whitespace-nowrap">$997 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Full Funnel Design + Build</span>
+                <span className="text-xs text-wine whitespace-nowrap">$1,497 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">7-Email Nurture Sequence</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Offer Positioning Workshop (90 min)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Operational Systems */}
+          <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">06</p>
+            <h3 className="font-serif text-lg font-semibold text-cream mb-1">Operational Systems</h3>
+            <p className="text-xs text-cream/50 mb-5">The back office that runs itself. The stuff that eats your time and never shows up on a revenue report — until it breaks.</p>
+            <ul className="space-y-3">
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">SOP Documentation (5 processes)</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Client Onboarding System</span>
+                <span className="text-xs text-wine whitespace-nowrap">$697 one-time</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Automated Reporting + KPI Dashboard</span>
+                <span className="text-xs text-wine whitespace-nowrap">$197/mo</span>
+              </li>
+              <li className="flex justify-between items-start gap-4">
+                <span className="text-sm text-cream/80">Team Playbook</span>
+                <span className="text-xs text-wine whitespace-nowrap">$497 one-time</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Full Ops Partner CTA */}
+        <div className="mt-10 rounded-[20px] border border-wine/30 bg-wine/10 p-8 text-center">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-wine mb-3">Full Ops Partner</p>
+          <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-3">
+            $3,500 – $6,500 / mo
+          </h3>
+          <p className="text-sm text-cream/70 max-w-2xl mx-auto mb-2">
+            Base package + 3 to 5 add-ons + dedicated ops partner + monthly strategy session + quarterly business review.
+          </p>
+          <p className="text-xs text-cream/50 max-w-2xl mx-auto mb-6">
+            The equivalent of hiring a Director of Marketing, SEO Specialist, CRM Admin, Brand Designer, and Social Media Manager.
+            That's $318,000/yr in headcount — or $26,500/mo. With Ops by Noell, it's one retainer. No benefits. No turnover. No training.
+          </p>
+          <Link
+            href="/book"
+            className="inline-block bg-wine text-cream text-sm font-medium px-8 py-3 rounded-full hover:bg-wine/90 transition-colors"
+          >
+            Book a scoping call
+          </Link>
+        </div>
+      </div>
+
       <p className="text-center text-xs text-cream/50 mt-10 max-w-2xl mx-auto">
         All engagements start with a free audit call. No bait pricing, no mystery scope. Your rate is locked from day one.
       </p>
