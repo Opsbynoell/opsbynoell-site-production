@@ -212,25 +212,6 @@ export function PricingCard({
           </p>
         )}
 
-        {/* Dashboard preview — shown on Full Stack and Enterprise tiers only */}
-        {(tier.id === "full_stack" || tier.id === "b2b_enterprise") && (
-          <div className="mt-4 rounded-[16px] overflow-hidden border border-white/10">
-            <div className="flex items-center gap-1.5 px-3 py-2 bg-[#150D10] border-b border-white/10">
-              <span className="w-2 h-2 rounded-full bg-wine/60" />
-              <span className="text-[10px] font-mono text-cream/40 tracking-widest uppercase">Noell Ops CRM — Live Preview</span>
-            </div>
-            <div className="relative overflow-hidden" style={{ maxHeight: 220 }}>
-              <img
-                src="https://noelldash.manus.space/manus-storage/noell-ops-dashboard_b3d935f2.png"
-                alt="Noell Ops CRM Lead Intelligence Dashboard"
-                className="w-full object-cover object-top"
-                style={{ objectPosition: "top left" }}
-              />
-              {/* Fade-out gradient at the bottom */}
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1F1219] to-transparent pointer-events-none" />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -356,6 +337,44 @@ export default function Pricing() {
           {B2B_TIERS.map((tier) => (
             <PricingCard key={tier.id} tier={tier} sourcePage="pricing" />
           ))}
+        </div>
+      </div>
+
+      {/* Full-width Noell Ops CRM dashboard showcase */}
+      <div className="mt-20 mb-6">
+        <div className="text-center mb-8">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-2">Included in Full Stack and Enterprise</p>
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">
+            The Noell Ops CRM
+          </h2>
+          <p className="mt-3 text-sm text-cream/60 max-w-xl mx-auto">
+            A live pipeline dashboard built for your business. HOT/WARM lead scoring, iMessage and email outreach sequences, contact management, and one-click enrollment. Runs under your brand.
+          </p>
+        </div>
+
+        {/* Browser chrome wrapper */}
+        <div className="rounded-[20px] overflow-hidden border border-white/10 shadow-[0px_40px_80px_rgba(0,0,0,0.5)]">
+          {/* Browser chrome bar */}
+          <div className="flex items-center gap-2 px-4 py-3 bg-[#0E080C] border-b border-white/10">
+            <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+            <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+            <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+            <div className="flex-1 mx-4">
+              <div className="bg-[#1A0F14] rounded-md px-3 py-1 text-[11px] font-mono text-cream/30 text-center">
+                noelldash.manus.space
+              </div>
+            </div>
+          </div>
+          {/* Dashboard screenshot */}
+          <div className="relative">
+            <img
+              src="https://noelldash.manus.space/manus-storage/noell-ops-dashboard_b3d935f2.png"
+              alt="Noell Ops CRM Lead Intelligence Dashboard"
+              className="w-full block"
+            />
+            {/* Subtle fade at bottom */}
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#120A0F] to-transparent pointer-events-none" />
+          </div>
         </div>
       </div>
 
