@@ -211,6 +211,26 @@ export function PricingCard({
             {tier.note}
           </p>
         )}
+
+        {/* Dashboard preview — shown on Full Stack and Enterprise tiers only */}
+        {(tier.id === "full_stack" || tier.id === "b2b_enterprise") && (
+          <div className="mt-4 rounded-[16px] overflow-hidden border border-white/10">
+            <div className="flex items-center gap-1.5 px-3 py-2 bg-[#150D10] border-b border-white/10">
+              <span className="w-2 h-2 rounded-full bg-wine/60" />
+              <span className="text-[10px] font-mono text-cream/40 tracking-widest uppercase">Noell Ops CRM — Live Preview</span>
+            </div>
+            <div className="relative overflow-hidden" style={{ maxHeight: 220 }}>
+              <img
+                src="https://noelldash.manus.space/manus-storage/noell-ops-dashboard_b3d935f2.png"
+                alt="Noell Ops CRM Lead Intelligence Dashboard"
+                className="w-full object-cover object-top"
+                style={{ objectPosition: "top left" }}
+              />
+              {/* Fade-out gradient at the bottom */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#1F1219] to-transparent pointer-events-none" />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
