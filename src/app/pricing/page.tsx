@@ -38,14 +38,14 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($397/mo founding rate) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($647/mo founding rate) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,197/mo founding rate) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($397/mo founding rate) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($897/mo founding rate) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,197/mo founding rate) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
     group: "tracks",
     question: "What is the difference between Prospect, Pipeline, and Enterprise?",
     answer:
-      "Prospect ($497/mo founding rate) is one agent: Noell Prospect handles ICP research and first-touch outreach sequences. Pipeline ($797/mo founding rate) adds Noell Qualify (lead scoring and routing) and Noell Nurture (keeping warm leads engaged between calls), plus the PCI signal layer. Enterprise ($1,997/mo founding rate) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
+      "Prospect ($497/mo founding rate) is one agent: Noell Prospect handles ICP research and first-touch outreach sequences. Pipeline ($997/mo founding rate) adds Noell Qualify (lead scoring and routing) and Noell Nurture (keeping warm leads engaged between calls), plus the PCI signal layer. Enterprise ($1,997/mo founding rate) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
     id: "founding_member_offer",
@@ -104,7 +104,7 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "What's the difference between the three tiers in plain English?",
     answer:
-      "Essentials ($197/mo) is for solo operators who just need to stop missing calls. It adds A2P-registered texting, auto-reply when you miss a call, appointment confirmation texts, and one review-request sequence. It works alongside your existing booking tool — it doesn't talk to it directly. Think of it as a smart assistant sitting next to your current setup. Growth ($797/mo) is the full front desk system. Everything in Essentials, plus Noell Support AI Chat on your website handling conversations 24/7, no-show recovery sequences, Google review automation, lead pipeline management so nothing falls through the cracks, and a monthly strategy call. Growth also integrates directly with your PMS or booking tool — reading availability, writing confirmed bookings back in. Most practices start here. Custom Ops ($1,497/mo) is for multi-location or reactivation-heavy practices. Everything in Growth, plus reactivation campaigns that win back inactive clients, multi-location sync, a custom reporting dashboard, same-day priority support, and a quarterly business review. If you have unscheduled treatment worth reactivating or more than one location to run, this is the tier.",
+      "Signal ($397/mo) is the entry tier who just need to stop missing calls. It adds A2P-registered texting, auto-reply when you miss a call, appointment confirmation texts, and one review-request sequence. It works alongside your existing booking tool — it doesn't talk to it directly. Think of it as a smart assistant sitting next to your current setup. System ($897/mo) is the full front desk system. Everything in Essentials, plus Noell Support AI Chat on your website handling conversations 24/7, no-show recovery sequences, Google review automation, lead pipeline management so nothing falls through the cracks, and a monthly strategy call. Growth also integrates directly with your PMS or booking tool — reading availability, writing confirmed bookings back in. Most practices start here. Custom Ops ($1,497/mo) is for multi-location or reactivation-heavy practices. Everything in Growth, plus reactivation campaigns that win back inactive clients, multi-location sync, a custom reporting dashboard, same-day priority support, and a quarterly business review. If you have unscheduled treatment worth reactivating or more than one location to run, this is the tier.",
   },
   {
     id: "features_a2p_sms",
@@ -182,7 +182,7 @@ export default function PricingPage() {
               name: "Noell Agents",
               priceMonthly: 197,
               description:
-                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate $197/mo, locked for your first 12 months.",
+                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate $397/mo (Signal tier), locked for your first 12 months.",
               url: "/agents",
             },
             {
@@ -248,7 +248,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-[#301A26]/60 px-5 py-4 text-center">
           <p className="text-sm md:text-base text-cream/85 leading-relaxed">
             <span className="font-semibold text-cream">
-              Both plans start at $197/mo founding rate.
+              Service track starts at $397/mo (Signal). B2B track starts at $497/mo (Prospect).
             </span>{" "}
             The difference is scope — agents only, or the full system.
           </p>

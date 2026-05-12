@@ -193,7 +193,7 @@ export default function AboutPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
-            First 10 clients lock in $197/month for their first 12 months.
+            First 10 clients lock in their founding rate for 12 months.
           </p>
           <p className="mt-4 text-sm md:text-base text-cream/70">
             Standard rate is $297/month. You get the founding rate, direct access, and a real relationship with the team building this.

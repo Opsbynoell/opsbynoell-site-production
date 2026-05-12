@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $197/mo, locked for your first 12 months.",
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $397/mo, locked for your first 12 months.",
   ogTitle: "Noell Agents — AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
@@ -94,7 +94,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month toward System setup ($397) or two months toward Full Stack setup ($794). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
   },
   {
     id: "agents_time_to_live",
@@ -115,7 +115,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "What happens after the 12-month founding rate ends?",
     answer:
-      "Your rate rolls to the standard Noell Agents price at that time (currently $297/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founding clients who complete a full case study during their term get an additional 3 months at $197 before the rollover — 15 months total at the founding rate.",
+      "Your rate rolls to the standard Noell Agents price at that time (currently $497/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founding clients who complete a full case study during their term get an additional 3 months at the founding rate before rollover — 15 months total.",
   },
 ];
 
@@ -305,7 +305,7 @@ export default function AgentsPage() {
               $297/mo
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
-              $197<span className="text-2xl md:text-3xl font-normal">/mo</span>
+              $397<span className="text-2xl md:text-3xl font-normal">/mo</span>
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
               Founding rate &middot; Locked 12 months &middot; 10 spots only
@@ -365,7 +365,7 @@ export default function AgentsPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
-            First 10 clients. $197/mo, locked for 12 months.
+            First 10 clients. $397/mo, locked for 12 months.
           </p>
           <div className="mt-8 flex justify-center">
             <AgentsFoundingCta

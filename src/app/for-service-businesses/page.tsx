@@ -153,7 +153,7 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_pricing",
     question: "What does it cost?",
     answer:
-      "Pricing starts at $197/mo for Noell Agents (self-serve, three AI agents). The full done-for-you Noell System starts at $197/mo and scales based on the scope of your operation. We discuss fit and pricing on the free Revenue Signal Report call.",
+      "Pricing starts at $397/mo (Signal tier — one agent, done-for-you). The full three-agent System starts at $897/mo. We discuss fit and scope on the free Revenue Signal Report call. We discuss fit and pricing on the free Revenue Signal Report call.",
   },
   {
     id: "sb_contract",

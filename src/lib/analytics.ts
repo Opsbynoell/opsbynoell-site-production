@@ -121,7 +121,7 @@ export const ConversionEvents = {
   COMPARISON_AUDIT_CTA_CLICK: "comparison_audit_cta_click",
   /** User clicked a vertical card from the verticals hub. */
   VERTICAL_CARD_CLICK: "vertical_card_click",
-  /** A Noell Agent ($197/mo) founding-member CTA click. */
+  /** A Signal tier ($397/mo) founding-member CTA click. */
   AGENTS_FOUNDING_CTA_CLICK: "agents_founding_cta_click",
   /** Working-call request form submitted on /book. */
   AUDIT_REQUEST_SUBMITTED: "audit_request_submitted",

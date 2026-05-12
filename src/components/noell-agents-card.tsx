@@ -25,7 +25,7 @@ export function NoellAgentsCard() {
           {/* Founder banner */}
           <div className="md:absolute md:top-6 md:right-6 mb-4 md:mb-0">
             <span className="inline-flex items-center rounded-full bg-wine text-cream px-3.5 py-1.5 text-[11px] font-medium tracking-wide">
-              Founding rate — $197/mo, locked 12 months
+              Founding rate — $397/mo, locked 12 months
             </span>
           </div>
 
@@ -53,7 +53,7 @@ export function NoellAgentsCard() {
               <div className="flex items-baseline">
                 <span className="text-base text-cream/70 mr-2">From</span>
                 <span className="font-serif text-5xl md:text-6xl font-bold text-cream leading-none">
-                  $197
+                  $397
                 </span>
                 <span className="ml-1 text-lg text-cream/70">/mo</span>
               </div>

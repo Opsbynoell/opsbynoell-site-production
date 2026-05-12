@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Cost profile",
     opsByNoell:
-      "Flat monthly — $197/mo founding rate (Noell Agents, locked 12 months) or $197–$1,497/mo (full system). Predictable.",
+      "Flat monthly — $397/mo founding rate (Signal tier) to $1,197/mo (Full Stack). Predictable.",
     alternative:
       "Per-minute or per-call. Spikes in busy months.",
   },

@@ -192,7 +192,7 @@ export default function NoellFrontDeskPage() {
         mockScreen={frontDeskScreen}
         priceSignal={
           <>
-            Starts at $197/mo.{" "}
+            Starts at $397/mo (Signal tier).{" "}
             <Link href="/pricing" className="underline underline-offset-4 decoration-charcoal/55 hover:text-cream">
               See all tiers.
             </Link>

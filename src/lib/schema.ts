@@ -83,7 +83,7 @@ export function homepageLocalBusinessSchema() {
       "@type": "AdministrativeArea",
       name: "Orange County, California",
     },
-    priceRange: "$197\u2013$1,497/mo",
+    priceRange: "$397\u2013$1,197/mo",
     description:
       "Done-for-you AI front desk and managed operations for service businesses \u2014 dental, med spas, salons, massage, estheticians, and HVAC.",
     sameAs: [] as string[],

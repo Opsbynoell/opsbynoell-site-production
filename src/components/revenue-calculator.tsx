@@ -49,8 +49,8 @@ function calcResults(inputs: CalcInputs) {
   const monthlyLift = projectedMonthlyRevenue - currentMonthlyRevenue;
   const annualLift = monthlyLift * 12;
 
-  // Breakeven: Ops by Noell engagement cost ~$797/mo setup equiv. (Growth tier)
-  // Use $797 as the monthly equivalent investment figure
+  // Breakeven: Ops by Noell engagement cost ~$897/mo setup equiv. (System tier)
+  // Use $897 as the monthly equivalent investment figure
   const engagementCost = 797;
   const breakevenDays = monthlyLift > 0 ? Math.ceil((engagementCost / monthlyLift) * 30) : null;
 
@@ -320,7 +320,7 @@ export function RevenueCalculator() {
                     {results.breakevenDays} days
                   </p>
                   <p className="text-xs text-cream/60 mt-1">
-                    Based on Growth tier · $797/mo
+                    Based on System tier · $897/mo
                   </p>
                 </>
               ) : (

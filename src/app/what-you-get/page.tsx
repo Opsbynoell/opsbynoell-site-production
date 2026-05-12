@@ -172,7 +172,7 @@ type PricingCard = {
 const pricingCards: PricingCard[] = [
   {
     name: "Noell Agents",
-    body: "Three AI agents working alongside the booking tool you already use. $197/mo, locked for your first 12 months.",
+    body: "Three AI agents working alongside the booking tool you already use. $397/mo founding rate, locked for your first 12 months.",
     bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {

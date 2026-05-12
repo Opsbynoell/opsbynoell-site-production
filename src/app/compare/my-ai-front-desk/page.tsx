@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Founding rate",
     opsByNoell:
-      "$197/mo for Noell Agents, locked for 24 months. Full system from $197/mo with one-time setup.",
+      "$397/mo founding rate (Signal tier). Full system from $897/mo. Month-to-month.",
     alternative:
       "Published SaaS pricing. Quality of output depends heavily on your own tuning.",
   },

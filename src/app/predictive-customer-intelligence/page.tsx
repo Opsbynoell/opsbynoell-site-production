@@ -726,8 +726,8 @@ function PricingTeaserSection() {
           </span>
         </h2>
         <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
-          Self-serve agents start at $197/mo founding rate. The full
-          done-for-you operation runs $197 to $1,497/mo. Media buying retainers
+          Agents start at $397/mo (Signal tier). The full
+          done-for-you operation runs $397 to $1,197/mo. Media buying retainers
           are quoted based on spend and scope.
         </p>
         <div className="mt-8">
