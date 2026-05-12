@@ -365,6 +365,13 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         >
           Pricing
         </Link>
+        {/* Add-Ons */}
+        <Link
+          href="/add-ons"
+          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
+        >
+          Add-Ons
+        </Link>
         {/* About */}
         <Link
           href="/about"
@@ -669,6 +676,14 @@ const MobileNav = ({ visible }: NavbarProps) => {
               className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
             >
               Pricing
+            </Link>
+            {/* Add-Ons */}
+            <Link
+              href="/add-ons"
+              onClick={() => setOpen(false)}
+              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
+            >
+              Add-Ons
             </Link>
             {/* About */}
             <Link
