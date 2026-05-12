@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Cost profile",
     opsByNoell:
-      "Flat monthly — $397/mo founding rate (Signal tier) to $1,197/mo (Full Stack). Predictable.",
+      "Flat monthly — $497/mo (Signal) to $1,497/mo (Full Stack). Predictable.",
     alternative:
       "Per-minute or per-call. Spikes in busy months.",
   },

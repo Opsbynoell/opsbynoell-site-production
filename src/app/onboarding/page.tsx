@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { IconCheck, IconBolt, IconPhoneCall, IconHeartHandshake } from "@tabler/icons-react";
 
 const PLAN_LABELS: Record<string, string> = {
-  agents_founding: "Signal — Founding Rate ($397/mo, locked 12 months)",
+  agents_signal: "Signal ($497/mo)",
   agents_standard: "Noell Agents ($297/mo)",
   essentials: "Noell System — Signal ($397/mo)",
   growth: "Noell System — System ($897/mo)",
@@ -40,7 +40,7 @@ function OnboardingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const sessionId = searchParams.get("session_id") ?? "";
-  const planId = searchParams.get("plan") ?? "agents_founding";
+  const planId = searchParams.get("plan") ?? "agents_signal";
 
   const [step, setStep] = useState<"form" | "success">("form");
   const [loading, setLoading] = useState(false);

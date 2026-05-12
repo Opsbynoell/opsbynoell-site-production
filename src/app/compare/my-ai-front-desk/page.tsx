@@ -47,9 +47,9 @@ const rows: CompareRow[] = [
     alternative: "You.",
   },
   {
-    capability: "Founding rate",
+    capability: "Pricing",
     opsByNoell:
-      "$397/mo founding rate (Signal tier). Full system from $897/mo. Month-to-month.",
+      "$497/mo (Signal tier). Full system from $1,097/mo. Month-to-month.",
     alternative:
       "Published SaaS pricing. Quality of output depends heavily on your own tuning.",
   },

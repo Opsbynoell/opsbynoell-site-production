@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/pricing",
   title: "Pricing — AI Operations for Service Businesses and B2B",
   description:
-    "Two tracks. Six tiers. Founding cohort rates available now. Service businesses from $397/mo. B2B and enterprise from $497/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
+    "Two tracks. Six tiers. Service businesses from $497/mo. B2B from $597/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
 });
 
 const pricingFaqs: FaqItem[] = [
@@ -38,21 +38,21 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($397/mo founding rate) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($897/mo founding rate) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,197/mo founding rate) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($497/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($1,097/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
     group: "tracks",
     question: "What is the difference between Prospect, Pipeline, and Enterprise?",
     answer:
-      "Prospect ($497/mo founding rate) is one agent: Noell Prospect handles ICP research and first-touch outreach sequences. Pipeline ($997/mo founding rate) adds Noell Qualify (lead scoring and routing) and Noell Nurture (keeping warm leads engaged between calls), plus the PCI signal layer. Enterprise ($1,997/mo founding rate) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
+      "Prospect ($597/mo) is one agent: Noell Prospect handles ICP research and first-touch outreach sequences. Pipeline ($1,197/mo) adds Noell Qualify (lead scoring and routing) and Noell Nurture (keeping warm leads engaged between calls), plus the PCI signal layer. Enterprise ($2,497/mo) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
-    id: "founding_member_offer",
+    id: "no_contract",
     group: "tracks",
-    question: "What is the founding cohort rate and who qualifies?",
+    question: "Is there a contract or minimum commitment?",
     answer:
-      "The first 10 clients on each track lock in the founding rate for their first 12 months. Service track founding rates: Signal $397/mo (standard $497), System $647/mo (standard $797), Full Stack $1,197/mo (standard $1,497). B2B track founding rates: Prospect $497/mo (standard $597), Pipeline $797/mo (standard $997), Enterprise $1,997/mo (standard $2,497). After the cohort closes, standard rates apply to all new clients. In return we ask for a written testimonial after 30 days and one 15-minute reference call.",
+      "Month-to-month. No annual contract required. You can cancel with 30 days notice at any time. Your rate is locked at the price you signed up at for as long as you stay on that tier. Most clients stay because the agents pay for themselves within the first 60 days.",
   },
   // Dashboard
   {
@@ -182,7 +182,7 @@ export default function PricingPage() {
               name: "Noell Agents",
               priceMonthly: 197,
               description:
-                "Three managed AI agents covering chat, calls, and existing-client support. Founding rate $397/mo (Signal tier), locked for your first 12 months.",
+                "Three managed AI agents covering chat, calls, and existing-client support. Starting at $497/mo (Signal tier). Month-to-month.",
               url: "/agents",
             },
             {

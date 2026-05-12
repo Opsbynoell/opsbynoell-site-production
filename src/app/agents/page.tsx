@@ -9,7 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { AgentsPageAnalytics } from "@/components/agents-page-analytics";
-import { AgentsFoundingCta } from "@/components/agents-founding-cta";
+
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import {
@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Founding rate $397/mo, locked for your first 12 months.",
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Starting at $497/mo. Month-to-month.",
   ogTitle: "Noell Agents — AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
@@ -87,14 +87,14 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "What happens if I cancel?",
     answer:
-      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice — we turn the agents off at the end of your current billing month. If you cancel inside the first 30 days before you've produced your written testimonial, the founding rate offer doesn't transfer to a future re-subscribe.",
+      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice — we turn the agents off at the end of your current billing month. Cancel anytime with 30 days notice.",
   },
   {
     id: "agents_upgrade_to_system",
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month toward System setup ($397) or two months toward Full Stack setup ($794). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
+      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit your first month toward the System or Full Stack setup fee. Ask about upgrade pricing on your onboarding call.",
   },
   {
     id: "agents_time_to_live",
@@ -113,9 +113,9 @@ const agentsFaqs: FaqItem[] = [
   {
     id: "agents_post_founder_rate",
     group: "agents",
-    question: "What happens after the 12-month founding rate ends?",
+    question: "Is there a contract or commitment?",
     answer:
-      "Your rate rolls to the standard Noell Agents price at that time (currently $497/mo). We give 60 days notice before the renewal date so you can decide to continue, upgrade, or cancel. Founding clients who complete a full case study during their term get an additional 3 months at the founding rate before rollover — 15 months total.",
+      "Month-to-month. No annual contract required. You can cancel with 30 days notice at any time. Most clients stay because the agents pay for themselves within the first 60 days.",
   },
 ];
 
@@ -145,7 +145,7 @@ export default function AgentsPage() {
       <div className="w-full bg-wine text-cream">
         <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
           <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-center">
-            10 founding spots &middot; $197/mo locked 12 months &middot; first come, first served
+            Three agents. One system. Done for you.
           </p>
         </div>
       </div>
@@ -168,12 +168,12 @@ export default function AgentsPage() {
         </p>
 
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-stretch sm:items-center justify-center px-4">
-          <AgentsFoundingCta
-            variant="primary"
-            className="w-full sm:w-auto h-12 px-7"
+          <Link
+            href="/book"
+            className="inline-flex items-center justify-center w-full sm:w-auto h-12 px-7 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
           >
-            Claim your founding spot
-          </AgentsFoundingCta>
+            Get Started
+          </Link>
           <Link
             href="#whats-included"
             className="inline-flex items-center justify-center text-sm font-medium text-wine hover:text-wine-dark tap-target px-3"
@@ -183,7 +183,7 @@ export default function AgentsPage() {
         </div>
 
         <p className="relative z-20 mt-6 max-w-xl text-center text-xs italic text-muted-strong">
-          Founding rate locked 12 months &middot; 10 spots only &middot; $297/mo after
+          Month-to-month. Cancel anytime.
         </p>
       </section>
 
@@ -299,23 +299,20 @@ export default function AgentsPage() {
         <div className="max-w-xl mx-auto">
           <div className="relative rounded-[26px] border border-wine/25 bg-[#1F1219] p-8 md:p-10 text-center shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
-              Noell agents &middot; founding rate
-            </p>
-            <p className="font-serif text-2xl text-cream/70 line-through decoration-charcoal/55 mb-1">
-              $297/mo
+              Signal tier
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
-              $397<span className="text-2xl md:text-3xl font-normal">/mo</span>
+              $497<span className="text-2xl md:text-3xl font-normal">/mo</span>
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
-              Founding rate &middot; Locked 12 months &middot; 10 spots only
+              Done-for-you setup. Live in 5 business days.
             </p>
-            <AgentsFoundingCta
-              variant="primary"
-              className="w-full h-12 px-7"
+            <Link
+              href="/book"
+              className="inline-flex items-center justify-center w-full h-12 px-7 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
             >
-              Claim your founding spot
-            </AgentsFoundingCta>
+              Get Started
+            </Link>
           </div>
         </div>
       </section>
@@ -345,7 +342,7 @@ export default function AgentsPage() {
             </li>
             <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
               <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
-                Optional: a full case study — in exchange, 3 additional months at the founding rate (15 months total).
+                Optional: a full case study — in exchange, we will co-promote your business to our network.
               </p>
             </li>
           </ul>
@@ -365,18 +362,18 @@ export default function AgentsPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
-            First 10 clients. $397/mo, locked for 12 months.
+            Starting at $497/mo. Month-to-month.
           </p>
           <div className="mt-8 flex justify-center">
-            <AgentsFoundingCta
-              variant="primary"
-              className="h-12 px-8"
+            <Link
+              href="/book"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
             >
-              Claim your founding spot
-            </AgentsFoundingCta>
+              Get Started
+            </Link>
           </div>
           <p className="mt-6 text-xs italic text-muted-strong">
-            Founding rate locked 12 months &middot; 10 spots only &middot; $297/mo after
+            Month-to-month. Cancel anytime.
           </p>
         </div>
       </section>

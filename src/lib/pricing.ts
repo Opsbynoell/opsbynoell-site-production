@@ -47,10 +47,10 @@ export const SERVICE_TIERS: PricingTier[] = [
       "Initial setup and onboarding (done for you)",
       "1 monthly check-in call (30 min)",
     ],
-    ctaLabel: "Claim Founding Rate",
+    ctaLabel: "Get Started",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Founding cohort: $397/mo locked for 12 months. Standard rate $497/mo.",
+    note: "Month-to-month. Cancel anytime. Setup included.",
   },
   {
     id: "system",
@@ -72,11 +72,11 @@ export const SERVICE_TIERS: PricingTier[] = [
       "Bi-weekly check-in calls (30 min each)",
       "Quarterly site audit (conversion, copy, UX)",
     ],
-    ctaLabel: "Claim Founding Rate",
+    ctaLabel: "Get Started",
     ctaHref: "/book",
     useCheckout: false,
     isHighlighted: true,
-    note: "Founding cohort: $897/mo locked for 12 months. Standard rate $1,097/mo.",
+    note: "Month-to-month. Cancel anytime. Setup included.",
   },
   {
     id: "full_stack",
@@ -102,7 +102,7 @@ export const SERVICE_TIERS: PricingTier[] = [
     ctaLabel: "Book a scoping call",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Founding cohort: $1,197/mo locked for 12 months. Standard rate $1,497/mo.",
+    note: "Scoping call required. Setup included. Priority onboarding.",
   },
 ];
 
@@ -129,7 +129,7 @@ export const B2B_TIERS: PricingTier[] = [
     ctaLabel: "Start with Digital Readiness Review",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Founding cohort: $497/mo locked for 12 months. Standard rate $597/mo.",
+    note: "Month-to-month. Cancel anytime. Setup included.",
   },
   {
     id: "b2b_pipeline",
@@ -156,7 +156,7 @@ export const B2B_TIERS: PricingTier[] = [
     ctaHref: "/book",
     useCheckout: false,
     isHighlighted: true,
-    note: "Founding cohort: $997/mo locked for 12 months. Standard rate $1,197/mo.",
+    note: "Month-to-month. Cancel anytime. Setup included.",
   },
   {
     id: "b2b_enterprise",
@@ -183,7 +183,7 @@ export const B2B_TIERS: PricingTier[] = [
     ctaLabel: "Book a scoping call",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Founding cohort: $1,997/mo locked for 12 months. Standard rate $2,497/mo.",
+    note: "Scoping call required. Setup included. Dedicated ops partner.",
   },
 ];
 
