@@ -22,31 +22,37 @@ export const metadata = pageMetadata({
   path: "/pricing",
   title: "Pricing — AI Operations for Service Businesses and B2B",
   description:
-    "Transparent pricing for both tracks. Service businesses: Noell Agents at $197/mo or the full Noell System from $197/mo. B2B and enterprise: scoped individually, starting with a free Digital Readiness Review.",
+    "Two tracks. Six tiers. Founding cohort rates available now. Service businesses from $397/mo. B2B and enterprise from $497/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
 });
 
 const pricingFaqs: FaqItem[] = [
-  // NEW — Session 3 additions, at the top
   {
-    id: "agents_vs_system",
+    id: "track_difference",
     group: "tracks",
-    question: "What's the difference between Noell Agents and the Noell System?",
+    question: "What is the difference between the Service track and the B2B track?",
     answer:
-      "Noell Agents is just the AI layer — three agents handling chat, calls, and client support. You keep whatever booking tool you already use. The Noell System is the full done-for-you operations layer (client communication, scheduling, reminders, reviews, and reactivation) that we install and manage end-to-end around your booking system. Growth and Custom Ops include both.",
+      "The Service track is built for appointment-based businesses: salons, med spas, dental practices, HVAC, and similar. Three agents handle chat, phone, and client reactivation. The B2B track is built for companies selling to other businesses: SaaS, professional services, and enterprise sales. Three agents handle outbound prospecting, lead qualification, and pipeline nurturing. Both tracks include a live dashboard and done-for-you setup.",
   },
   {
-    id: "agents_upgrade_path",
+    id: "tier_difference_service",
     group: "tracks",
-    question: "Can I start with Noell Agents and upgrade to the full system later?",
+    question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit one month of agents toward Growth setup ($197) or two months toward Custom Ops setup ($394). The founding rate applies to Noell Agents specifically — the full system has its own pricing.",
+      "Signal ($397/mo founding rate) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($647/mo founding rate) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,197/mo founding rate) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+  },
+  {
+    id: "tier_difference_b2b",
+    group: "tracks",
+    question: "What is the difference between Prospect, Pipeline, and Enterprise?",
+    answer:
+      "Prospect ($497/mo founding rate) is one agent: Noell Prospect handles ICP research and first-touch outreach sequences. Pipeline ($797/mo founding rate) adds Noell Qualify (lead scoring and routing) and Noell Nurture (keeping warm leads engaged between calls), plus the PCI signal layer. Enterprise ($1,997/mo founding rate) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
     id: "founding_member_offer",
     group: "tracks",
-    question: "What is the founding rate and who qualifies?",
+    question: "What is the founding cohort rate and who qualifies?",
     answer:
-      "The first 10 clients lock in $197/mo (vs $297/mo standard) for their first 12 months. In return we ask for a written testimonial after 30 days and one 15-minute reference call. Available to the first 10 clients — no expiry date, first come first served.",
+      "The first 10 clients on each track lock in the founding rate for their first 12 months. Service track founding rates: Signal $397/mo (standard $497), System $647/mo (standard $797), Full Stack $1,197/mo (standard $1,497). B2B track founding rates: Prospect $497/mo (standard $597), Pipeline $797/mo (standard $997), Enterprise $1,997/mo (standard $2,497). After the cohort closes, standard rates apply to all new clients. In return we ask for a written testimonial after 30 days and one 15-minute reference call.",
   },
   // Dashboard
   {

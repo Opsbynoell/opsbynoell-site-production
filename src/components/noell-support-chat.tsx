@@ -317,8 +317,8 @@ export function NoellSupportChat() {
       onClick={() => setIsOpen((v) => !v)}
       className={cn(
         "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full",
-        "bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white",
-        "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.45),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,111,156,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.28)_inset]",
+        "bg-gradient-to-b from-[#B5415E] via-[#8B2A42] to-[#5C1A2A] text-cream",
+        "shadow-[0px_20px_40px_-10px_rgba(139,42,66,0.50),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,42,66,0.20),_0px_1px_1px_2px_rgba(255,255,255,0.18)_inset]",
         "flex items-center justify-center hover:scale-105 transition-transform"
       )}
       aria-label={isOpen ? "Close Noell Support chat" : "Open Noell Support chat"}
@@ -357,13 +357,13 @@ export function NoellSupportChat() {
       onClick={() => setIsOpen(true)}
       className={cn(
         "fixed bottom-6 right-6 z-50 h-11 pl-4 pr-5 rounded-full",
-        "bg-[#1F1219] text-cream border-2 border-lilac-dark",
-        "shadow-[0px_20px_40px_-10px_rgba(139,111,156,0.35),_0px_8px_16px_-4px_rgba(28,25,23,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.5)_inset]",
+        "bg-[#1F1219] text-cream border-2 border-[#8B2A42]",
+        "shadow-[0px_20px_40px_-10px_rgba(139,42,66,0.35),_0px_8px_16px_-4px_rgba(28,25,23,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.15)_inset]",
         "flex items-center gap-2 text-sm font-medium hover:bg-[#271520] transition-colors tap-target"
       )}
       aria-label="Open Noell Support chat"
     >
-      <span className="w-6 h-6 rounded-full bg-gradient-to-b from-lilac via-lilac-dark to-[#6b4f80] text-white flex items-center justify-center">
+      <span className="w-6 h-6 rounded-full bg-gradient-to-b from-[#B5415E] via-[#8B2A42] to-[#5C1A2A] text-cream flex items-center justify-center">
         <IconMessageCircle size={14} aria-hidden="true" />
       </span>
       Have a question? Chat with Noell
@@ -400,7 +400,7 @@ export function NoellSupportChat() {
             )}
           >
             {/* Header pill */}
-            <div className="bg-gradient-to-br from-lilac via-lilac-dark to-[#6b4f80] px-5 py-4 flex items-center gap-3 relative">
+            <div className="bg-gradient-to-br from-[#8B2A42] via-[#6B1A30] to-[#3D0F1C] px-5 py-4 flex items-center gap-3 relative">
               <div className="w-9 h-9 rounded-full bg-[#271520]/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
                 <span className="text-white text-sm font-serif font-semibold">
                   N

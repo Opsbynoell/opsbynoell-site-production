@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Button } from "./button";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { PRICING_TIERS, type PricingTier, type TierId } from "@/lib/pricing";
+import { SERVICE_TIERS, B2B_TIERS, PRICING_TIERS, type PricingTier, type TierId } from "@/lib/pricing";
 import { trackMetaCustomEvent } from "@/lib/meta-pixel-track";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Stripe Checkout CTA button
+// CTA button — all tiers link to /book (no Stripe checkout for now)
 // ─────────────────────────────────────────────────────────────────────────────
 function PricingCtaButton({
   tier,
@@ -17,58 +17,14 @@ function PricingCtaButton({
   tier: PricingTier;
   sourcePage: PricingSourcePage;
 }) {
-  const [loading, setLoading] = useState(false);
-
-  if (!tier.useCheckout || tier.ctaHref) {
-    return (
-      <Button
-        href={tier.ctaHref || "/book"}
-        variant={tier.isHighlighted ? "primary" : "secondary"}
-        className="w-full py-3"
-        onClick={() => trackTierClick(tier.id, sourcePage)}
-      >
-        {tier.ctaLabel}
-      </Button>
-    );
-  }
-
-  async function handleClick() {
-    if (loading) return;
-    setLoading(true);
-    trackTierClick(tier.id, sourcePage);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ planId: tier.planId }),
-      });
-      if (res.ok) {
-        const { url } = await res.json();
-        if (url) { window.location.href = url; return; }
-      }
-      window.location.href = "/book";
-    } catch {
-      window.location.href = "/book";
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
     <Button
+      href={tier.ctaHref || "/book"}
       variant={tier.isHighlighted ? "primary" : "secondary"}
       className="w-full py-3"
-      onClick={handleClick}
-      type="button"
+      onClick={() => trackTierClick(tier.id, sourcePage)}
     >
-      {loading ? (
-        <span className="flex items-center justify-center gap-2">
-          <span className="w-3.5 h-3.5 border-2 border-current/30 border-t-current rounded-full animate-spin" />
-          Loading...
-        </span>
-      ) : (
-        tier.ctaLabel
-      )}
+      {tier.ctaLabel}
     </Button>
   );
 }
@@ -100,6 +56,8 @@ export function PricingCard({
   variant?: "full" | "compact";
   sourcePage?: PricingSourcePage;
 }) {
+  const isB2B = tier.track === "b2b";
+
   if (variant === "compact") {
     const previewFeatures = tier.features.slice(0, 3);
     return (
@@ -107,7 +65,9 @@ export function PricingCard({
         className={cn(
           "relative rounded-[26px] flex flex-col gap-3 p-3",
           tier.isHighlighted
-            ? "border border-white bg-gradient-to-b from-wine-light via-wine to-wine-dark"
+            ? isB2B
+              ? "border border-white/20 bg-gradient-to-b from-[#4A2060] via-[#3A1850] to-[#2A1040]"
+              : "border border-white bg-gradient-to-b from-wine-light via-wine to-wine-dark"
             : "bg-warm-border/70"
         )}
       >
@@ -123,15 +83,14 @@ export function PricingCard({
                 </span>
               )}
             </div>
-            <div className="mt-3 flex items-baseline">
+            <div className="mt-3 flex items-baseline gap-2">
               <span className="font-serif text-3xl font-bold text-cream">
-                {tier.priceFrom}
+                {tier.foundingPrice}
               </span>
-              <span className="ml-1 text-xs text-cream/70">
-                {tier.cadence}
-              </span>
+              <span className="text-xs text-cream/70">{tier.cadence}</span>
+              <span className="text-[10px] text-cream/40 line-through">{tier.priceFrom}</span>
             </div>
-            <p className="text-[11px] text-cream/70 mt-1">{tier.note}</p>
+            <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Founding cohort rate</p>
           </div>
 
           <ul className="space-y-2 pt-1">
@@ -171,7 +130,9 @@ export function PricingCard({
       className={cn(
         "relative rounded-[37px] flex flex-col gap-3 p-4",
         tier.isHighlighted
-          ? "border border-white bg-gradient-to-b from-wine-light via-wine to-wine-dark"
+          ? isB2B
+            ? "border border-white/20 bg-gradient-to-b from-[#4A2060] via-[#3A1850] to-[#2A1040]"
+            : "border border-white bg-gradient-to-b from-wine-light via-wine to-wine-dark"
           : "bg-warm-border/70"
       )}
     >
@@ -182,8 +143,11 @@ export function PricingCard({
               {tier.tier}
             </h3>
             {tier.isHighlighted && (
-              <span className="inline-flex items-center rounded-full bg-wine text-cream px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em]">
-                Recommended for revenue recovery
+              <span className={cn(
+                "inline-flex items-center rounded-full px-3 py-1 text-[10px] font-mono uppercase tracking-[0.18em]",
+                isB2B ? "bg-[#4A2060] text-cream/90" : "bg-wine text-cream"
+              )}>
+                Most popular
               </span>
             )}
           </div>
@@ -192,18 +156,26 @@ export function PricingCard({
               {tier.bestFor}
             </p>
           )}
-          <div className="mt-3 flex items-baseline">
+          {/* Founding cohort pricing display */}
+          <div className="mt-3 flex items-baseline gap-2 flex-wrap">
             <span className="font-serif text-4xl font-bold text-cream">
-              {tier.priceFrom}
+              {tier.foundingPrice}
             </span>
             {tier.cadence && (
-              <span className="ml-1 text-sm text-cream/70">
+              <span className="text-sm text-cream/70">
                 {tier.cadence}
               </span>
             )}
+            <span className="text-sm text-cream/35 line-through">{tier.priceFrom}</span>
+          </div>
+          <div className="mt-1 inline-flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
+            <p className="text-xs font-medium text-wine">
+              Founding cohort rate — locked for 12 months
+            </p>
           </div>
           {tier.summary && (
-            <p className="mt-2 text-sm font-medium text-cream">
+            <p className="mt-3 text-sm font-medium text-cream">
               {tier.summary}
             </p>
           )}
@@ -235,7 +207,7 @@ export function PricingCard({
         </ul>
 
         {tier.note && (
-          <p className="text-[11px] text-cream/70 italic mt-2">
+          <p className="text-[11px] text-cream/50 italic mt-2">
             {tier.note}
           </p>
         )}
@@ -282,9 +254,9 @@ export function VerticalPricingSection({
             pricing, plain
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
-            The same three packages power{" "}
+            Three packages.{" "}
             <span className="italic bg-gradient-to-b from-wine to-wine-light bg-clip-text text-transparent">
-              every vertical.
+              One operational standard.
             </span>
           </h2>
           <p className="mt-5 text-cream/75 max-w-xl mx-auto">
@@ -293,7 +265,7 @@ export function VerticalPricingSection({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
-          {PRICING_TIERS.map((tier) => (
+          {SERVICE_TIERS.map((tier) => (
             <PricingCard
               key={tier.id}
               tier={tier}
@@ -308,7 +280,7 @@ export function VerticalPricingSection({
             href="/pricing"
             className="text-sm text-wine hover:text-wine-dark underline underline-offset-4 decoration-wine/30"
           >
-            See full feature list &rarr;
+            See full feature list and B2B pricing &rarr;
           </Link>
         </div>
       </div>
@@ -319,38 +291,59 @@ export function VerticalPricingSection({
 export default function Pricing() {
   return (
     <div id="pricing" className="pt-10 md:pt-12 pb-24 px-4 max-w-7xl mx-auto">
-      {/* Decision D: integration depth by tier (prevents Essentials mis-sale) */}
-      <div className="max-w-3xl mx-auto mb-14 rounded-[20px] border border-white/10 bg-[#1F1219]/70 p-6 md:p-7 text-sm md:text-[15px] text-cream/80 leading-relaxed space-y-3">
-        <p>
-          <span className="font-semibold text-cream">
-            All packages include:
-          </span>{" "}
-          vertical-appropriate copy and cadences, A2P-registered SMS,
-          missed-call text-back, and a 14-day install managed by the Noell team.
-        </p>
-        <p>
-          <span className="font-semibold text-cream">
-            Growth and Custom Ops also include
-          </span>{" "}
-          two-way integration with your existing booking or practice management
-          tool &mdash; reading availability out, writing confirmed bookings
-          back. Custom Ops adds multi-location sync.
+
+      {/* Founding cohort banner */}
+      <div className="max-w-3xl mx-auto mb-12 rounded-[20px] border border-wine/30 bg-wine/10 p-5 text-center">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Founding Cohort — First 10 Clients</p>
+        </div>
+        <p className="text-sm text-cream/80 leading-relaxed">
+          Every tier is available at the founding rate for the first 10 clients. Rates are locked for 12 months from your start date. After the cohort closes, standard rates apply to all new clients.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5 items-start">
-        {PRICING_TIERS.map((tier) => (
-          <PricingCard key={tier.id} tier={tier} sourcePage="pricing" />
-        ))}
+      {/* Service Track */}
+      <div className="mb-20">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px flex-1 bg-white/10" />
+          <div className="text-center">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Track 01</p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Service Businesses</h2>
+            <p className="text-sm text-cream/60 mt-1">Appointment-based, local, and consumer service</p>
+          </div>
+          <div className="h-px flex-1 bg-white/10" />
+        </div>
+        <div className="grid md:grid-cols-3 gap-5 items-start">
+          {SERVICE_TIERS.map((tier) => (
+            <PricingCard key={tier.id} tier={tier} sourcePage="pricing" />
+          ))}
+        </div>
       </div>
-      <p className="text-center text-xs text-cream/70 mt-10 max-w-2xl mx-auto">
-        Each package includes a one-time setup in addition to the monthly
-        subscription. Your audit is where we confirm the right fit, answer any
-        questions, and book the install. No bait pricing, no mystery scope.
+
+      {/* B2B Track */}
+      <div className="mb-16">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px flex-1 bg-white/10" />
+          <div className="text-center">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#9B6FC4]/70 mb-1">Track 02</p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">B2B and Enterprise</h2>
+            <p className="text-sm text-cream/60 mt-1">SaaS, professional services, and enterprise sales</p>
+          </div>
+          <div className="h-px flex-1 bg-white/10" />
+        </div>
+        <div className="grid md:grid-cols-3 gap-5 items-start">
+          {B2B_TIERS.map((tier) => (
+            <PricingCard key={tier.id} tier={tier} sourcePage="pricing" />
+          ))}
+        </div>
+      </div>
+
+      <p className="text-center text-xs text-cream/50 mt-10 max-w-2xl mx-auto">
+        All engagements start with a free audit call. No bait pricing, no mystery scope. Your rate is locked from day one.
       </p>
-      <p className="text-center text-[11px] italic text-cream/70 mt-3 max-w-2xl mx-auto">
-        Upgrading between tiers is prorated and takes effect immediately.
-        Downgrades take effect at the start of the next billing month.
+      <p className="text-center text-[11px] italic text-cream/40 mt-3 max-w-2xl mx-auto">
+        Upgrading between tiers is prorated and takes effect immediately. Downgrades take effect at the start of the next billing month.
       </p>
     </div>
   );
