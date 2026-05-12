@@ -146,9 +146,9 @@ export default function Home() {
             {/* Track 2: B2B and Enterprise */}
             <Link
               href="/for-b2b"
-              className="group relative flex flex-col rounded-[22px] bg-wine p-8 md:p-10 border border-wine hover:border-wine-dark transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(106,44,62,0.18),0px_15px_15px_0px_rgba(106,44,62,0.12)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.28)]"
+              className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-wine/40 hover:border-wine transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(106,44,62,0.12),0px_15px_15px_0px_rgba(106,44,62,0.08)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.22)]"
             >
-              <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-3">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-3">
                 Track 02
               </p>
               <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
@@ -164,14 +164,14 @@ export default function Home() {
                   "Live B2B pipeline dashboard tracks every deal and ICP score",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-cream/85">
-                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#1F1219]/20 text-cream flex items-center justify-center text-[10px] font-bold">
+                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
                       ✓
                     </span>
                     {item}
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto flex items-center gap-2 text-cream font-medium text-sm group-hover:gap-3 transition-all">
+              <div className="mt-auto flex items-center gap-2 text-wine font-medium text-sm group-hover:gap-3 transition-all">
                 See how it works for B2B companies
                 <span className="text-base">→</span>
               </div>

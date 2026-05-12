@@ -31,7 +31,7 @@ export function LegalShell({
 }) {
   return (
     <div>
-      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-16 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.65)] to-[rgba(250,246,241,1)]">
+      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-16 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-cream/70 mb-6">
           Legal · Last updated {legalUpdatedDate}
         </p>

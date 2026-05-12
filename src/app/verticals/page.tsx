@@ -119,7 +119,7 @@ export default function VerticalsHubPage() {
         id="verticals-hub"
       />
       {/* Hero */}
-      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(106,44,62,0.45)] via-[rgba(240,228,232,0.70)] to-[rgba(250,245,240,1)]">
+      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 pb-20 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(106,44,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70">

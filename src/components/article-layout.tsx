@@ -18,7 +18,7 @@ export function ArticleLayout({
 }) {
   return (
     <div>
-      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-10 mx-auto flex-col items-center justify-center pt-28 md:pt-32 pb-10 md:pb-14 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">
+      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-10 mx-auto flex-col items-center justify-center pt-28 md:pt-32 pb-10 md:pb-14 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.20)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
           {eyebrow}
         </p>

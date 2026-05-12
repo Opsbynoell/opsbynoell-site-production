@@ -128,7 +128,7 @@ export default function SystemsPage() {
       <SystemsPageAnalytics />
 
       {/* Hero */}
-      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-12 md:pb-16 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.35)] via-[rgba(240,224,214,0.60)] to-[rgba(250,246,241,1)]">
+      <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-12 md:pb-16 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <div className="relative z-20 flex items-center gap-2 mb-6">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/70">
