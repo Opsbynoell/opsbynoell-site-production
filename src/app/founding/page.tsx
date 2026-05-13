@@ -91,7 +91,7 @@ const B2B_TIERS = [
     ],
   },
   {
-    name: "Enterprise",
+    name: "Full Stack",
     launchPrice: "$1,997",
     standardPrice: "$2,497",
     cadence: "/mo",

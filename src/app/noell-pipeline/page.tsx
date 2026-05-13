@@ -62,7 +62,7 @@ export default function NoellPipelinePage() {
         data={[
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "B2B and Enterprise", path: "/for-b2b" },
+            { name: "B2B & SaaS", path: "/for-b2b" },
             { name: "Noell Pipeline", path: "/noell-pipeline" },
           ]),
           servicePageSchema({

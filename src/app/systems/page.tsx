@@ -239,7 +239,7 @@ export default function SystemsPage() {
             <div className="flex items-center gap-3 mb-6">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-charcoal/8 border border-charcoal/15">
                 <span className="w-1.5 h-1.5 rounded-full bg-charcoal" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">Track 02 / B2B and Enterprise</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">Track 02 / B2B & SaaS</span>
               </span>
             </div>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight">

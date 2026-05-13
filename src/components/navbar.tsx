@@ -20,7 +20,7 @@ const WHO_WE_HELP_LINKS = [
     description: "Consultants, agencies, salons, med spas, and more",
   },
   {
-    name: "B2B and Enterprise",
+    name: "B2B & SaaS",
     href: "/for-b2b",
     description: "SaaS, AI vendors, and teams selling into enterprise",
   },

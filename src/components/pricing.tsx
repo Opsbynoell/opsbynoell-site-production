@@ -336,7 +336,7 @@ export default function Pricing() {
           <div className="h-px flex-1 bg-white/10" />
           <div className="text-center">
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#9B6FC4]/70 mb-1">Track 02</p>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">B2B and Enterprise</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">B2B & SaaS</h2>
             <p className="text-sm text-cream/60 mt-1">SaaS, professional services, and enterprise sales</p>
           </div>
           <div className="h-px flex-1 bg-white/10" />

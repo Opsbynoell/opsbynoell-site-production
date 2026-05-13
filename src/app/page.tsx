@@ -143,7 +143,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Track 2: B2B and Enterprise */}
+            {/* Track 2: B2B & SaaS */}
             <Link
               href="/for-b2b"
               className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-wine/40 hover:border-wine transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(106,44,62,0.12),0px_15px_15px_0px_rgba(106,44,62,0.08)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.22)]"
@@ -152,7 +152,7 @@ export default function Home() {
                 Track 02
               </p>
               <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
-                B2B and Enterprise
+                B2B & SaaS
               </h3>
               <p className="text-cream/80 leading-relaxed mb-6 flex-1">
                 SaaS companies, AI vendors, and tech startups selling into enterprise accounts. Your pitch lands in the boardroom. Then procurement visits your website. In seven seconds, the deal either holds or collapses.

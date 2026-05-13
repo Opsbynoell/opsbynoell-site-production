@@ -4,7 +4,7 @@ export type TierId =
   | "full_stack"
   | "b2b_prospect"
   | "b2b_pipeline"
-  | "b2b_enterprise";
+  | "b2b_full_stack";
 
 export type TrackId = "service" | "b2b";
 
@@ -160,10 +160,10 @@ export const B2B_TIERS: PricingTier[] = [
     note: "Month-to-month. Cancel anytime. Setup included.",
   },
   {
-    id: "b2b_enterprise",
+    id: "b2b_full_stack",
     track: "b2b",
-    planId: "b2b_enterprise",
-    tier: "Enterprise",
+    planId: "b2b_full_stack",
+    tier: "Full Stack",
     standardPrice: "$2,497",
     cadence: "/mo",
     bestFor: "B2B companies who want Noell to own their pipeline ops",

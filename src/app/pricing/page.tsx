@@ -302,7 +302,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto">
           <div className="rounded-[22px] bg-[#1a0d12] p-8 md:p-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-lilac-light font-medium mb-4">
-              B2B and Enterprise
+              B2B & SaaS
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-white leading-snug mb-4">
               B2B pricing is scoped to your operation.

@@ -62,7 +62,7 @@ export default function NoellAccountPage() {
         data={[
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "B2B and Enterprise", path: "/for-b2b" },
+            { name: "B2B & SaaS", path: "/for-b2b" },
             { name: "Noell Account", path: "/noell-account" },
           ]),
           servicePageSchema({

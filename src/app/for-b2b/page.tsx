@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/for-b2b",
-  title: "AI-Optimized Digital Operations for B2B and Enterprise",
+  title: "AI-Optimized Digital Operations for B2B & SaaS",
   description:
     "You win in boardrooms. Ops by Noell makes sure you do not lose on the internet. Predictive customer intelligence, AI-optimized GTM strategy, and digital presence architecture for B2B companies selling into enterprise accounts.",
   ogTitle: "You win in boardrooms. We make sure you do not lose on the internet.",
@@ -169,7 +169,7 @@ export default function ForB2BPage() {
     <div>
       <JsonLd
         data={servicePageSchema({
-          name: "Ops by Noell for B2B and Enterprise",
+          name: "Ops by Noell for B2B & SaaS",
           description:
             "Predictive customer intelligence, AI-optimized GTM strategy, and digital presence architecture for B2B companies selling into enterprise accounts.",
           path: "/for-b2b",
@@ -179,7 +179,7 @@ export default function ForB2BPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "For B2B and Enterprise", path: "/for-b2b" },
+          { name: "For B2B & SaaS", path: "/for-b2b" },
         ])}
         id="b2b-breadcrumb"
       />

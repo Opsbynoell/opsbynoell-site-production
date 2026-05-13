@@ -24,7 +24,7 @@ export function Footer() {
     { title: "Noell Inbound", href: "/noell-inbound" },
     { title: "Noell Pipeline", href: "/noell-pipeline" },
     { title: "Noell Account", href: "/noell-account" },
-    { title: "For B2B and Enterprise", href: "/for-b2b" },
+    { title: "For B2B & SaaS", href: "/for-b2b" },
     { title: "Digital Readiness Review", href: "/book" },
   ];
 
@@ -86,7 +86,7 @@ export function Footer() {
 
             <div className="space-y-5">
               <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
-                B2B Track
+                B2B & SaaS
               </h3>
               <ul className="space-y-3">
                 {b2bProducts.map((item, idx) => (
