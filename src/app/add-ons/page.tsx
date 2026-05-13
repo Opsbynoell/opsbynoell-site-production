@@ -115,10 +115,10 @@ export default function AddOnsPage() {
             Layer any combination onto your base package. One partner. One invoice. No hand-holding required.
           </p>
           <div className="flex flex-wrap gap-4 mt-8">
-            <Button href="/pricing" variant="wine" size="md">
+            <Button href="/pricing" variant="wine">
               View base packages
             </Button>
-            <Button href="/book" variant="secondary" size="md">
+            <Button href="/book" variant="secondary">
               Book a scoping call
             </Button>
           </div>
@@ -226,7 +226,7 @@ export default function AddOnsPage() {
               <p className="text-2xl font-serif font-semibold text-cream">$3,500 – $6,500 / mo</p>
               <p className="text-xs text-cream/50 mt-0.5">One retainer. No benefits. No turnover. No training.</p>
             </div>
-            <Button href="/book" variant="wine" size="md">
+            <Button href="/book" variant="wine">
               Book a scoping call
             </Button>
           </div>
