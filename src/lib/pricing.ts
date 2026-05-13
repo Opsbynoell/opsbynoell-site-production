@@ -14,7 +14,7 @@ export interface PricingTier {
   planId: string;
   tier: string;
   standardPrice: string;
-  launchPrice: string;
+  launchPrice?: string;
   cadence: string;
   bestFor?: string;
   summary?: string;
@@ -84,7 +84,6 @@ export const SERVICE_TIERS: PricingTier[] = [
     planId: "full_stack",
     tier: "Full Stack",
     standardPrice: "$1,497",
-    launchPrice: "$1,197",
     cadence: "/mo",
     bestFor: "Established service businesses who want Noell to run their ops",
     summary: "We run it. You grow it.",
@@ -139,7 +138,6 @@ export const B2B_TIERS: PricingTier[] = [
     planId: "b2b_pipeline",
     tier: "Pipeline",
     standardPrice: "$1,197",
-    launchPrice: "$997",
     cadence: "/mo",
     bestFor: "B2B companies who want a full top-to-mid funnel system",
     summary: "Three agents. Full funnel. Fewer stalled deals.",
@@ -167,7 +165,6 @@ export const B2B_TIERS: PricingTier[] = [
     planId: "b2b_enterprise",
     tier: "Enterprise",
     standardPrice: "$2,497",
-    launchPrice: "$1,997",
     cadence: "/mo",
     bestFor: "B2B companies who want Noell to own their pipeline ops",
     summary: "We build the machine. You close the deals.",

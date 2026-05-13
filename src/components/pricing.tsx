@@ -85,12 +85,16 @@ export function PricingCard({
             </div>
             <div className="mt-3 flex items-baseline gap-2">
               <span className="font-serif text-3xl font-bold text-cream">
-                {tier.launchPrice}
+                {tier.launchPrice ?? tier.standardPrice}
               </span>
               <span className="text-xs text-cream/70">{tier.cadence}</span>
-              <span className="text-[10px] text-cream/40 line-through">{tier.standardPrice}</span>
+              {tier.launchPrice && (
+                <span className="text-[10px] text-cream/40 line-through">{tier.standardPrice}</span>
+              )}
             </div>
-            <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Launch pricing</p>
+            {tier.launchPrice && (
+              <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Launch pricing</p>
+            )}
           </div>
 
           <ul className="space-y-2 pt-1">
@@ -156,24 +160,28 @@ export function PricingCard({
               {tier.bestFor}
             </p>
           )}
-          {/* Launch pricing display */}
+          {/* Price display */}
           <div className="mt-3 flex items-baseline gap-2 flex-wrap">
             <span className="font-serif text-4xl font-bold text-cream">
-              {tier.launchPrice}
+              {tier.launchPrice ?? tier.standardPrice}
             </span>
             {tier.cadence && (
               <span className="text-sm text-cream/70">
                 {tier.cadence}
               </span>
             )}
-            <span className="text-sm text-cream/35 line-through">{tier.standardPrice}</span>
+            {tier.launchPrice && (
+              <span className="text-sm text-cream/35 line-through">{tier.standardPrice}</span>
+            )}
           </div>
-          <div className="mt-1 inline-flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
-            <p className="text-xs font-medium text-wine">
-              Launch pricing — limited time
-            </p>
-          </div>
+          {tier.launchPrice && (
+            <div className="mt-1 inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
+              <p className="text-xs font-medium text-wine">
+                Launch pricing — limited time
+              </p>
+            </div>
+          )}
           {tier.summary && (
             <p className="mt-3 text-sm font-medium text-cream">
               {tier.summary}
