@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         destination: "/pricing#faq",
         permanent: true,
       },
+      {
+        source: "/service-businesses",
+        destination: "/for-service-businesses",
+        permanent: true,
+      },
     ];
   },
   async headers() {

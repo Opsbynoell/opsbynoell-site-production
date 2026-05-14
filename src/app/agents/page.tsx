@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents — AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Starting at $497/mo. Month-to-month.",
+    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Starting at $397/mo. Month-to-month.",
   ogTitle: "Noell Agents — AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
@@ -302,7 +302,10 @@ export default function AgentsPage() {
               Signal tier
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
-              $497<span className="text-2xl md:text-3xl font-normal">/mo</span>
+              $397<span className="text-2xl md:text-3xl font-normal">/mo</span>
+            </p>
+            <p className="text-xs text-muted-strong mt-2">
+              <span className="line-through">$497/mo</span> standard rate — launch pricing
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
               Done-for-you setup. Live in 5 business days.
@@ -362,7 +365,7 @@ export default function AgentsPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
-            Starting at $497/mo. Month-to-month.
+            Starting at $397/mo. Month-to-month.
           </p>
           <div className="mt-8 flex justify-center">
             <Link
