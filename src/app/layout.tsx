@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -98,21 +97,6 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2GZSXLRT6C"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-2GZSXLRT6C');
-          `}
-        </Script>
-      </head>
       <body className="min-h-full flex flex-col bg-[#1F1219]">
         <JsonLd data={[organizationSchema, websiteSchema]} id="site" />
         <a href="#main-content" className="skip-link">
