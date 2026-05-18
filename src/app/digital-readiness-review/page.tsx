@@ -91,7 +91,7 @@ export default function DigitalReadinessReviewPage() {
             name: "Digital Readiness Review",
             description:
               "A focused audit of your digital presence, pipeline, and operational systems for B2B and SaaS companies.",
-            url: "https://www.opsbynoell.com/digital-readiness-review",
+            path: "/digital-readiness-review",
           }),
         ]}
         id="digital-readiness-review"
