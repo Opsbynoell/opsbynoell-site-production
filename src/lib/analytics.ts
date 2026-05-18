@@ -48,6 +48,7 @@ export type SourcePage =
   | "verticals_hvac"
   | "verticals_chiro"
   | "compare_index"
+  | "digital_readiness_review"
   | "compare_my_ai_front_desk"
   | "compare_podium"
   | "compare_ai_front_desk_alternatives"
