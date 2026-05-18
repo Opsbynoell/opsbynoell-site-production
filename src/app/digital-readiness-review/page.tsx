@@ -205,7 +205,7 @@ export default function DigitalReadinessReviewPage() {
         trustLine="Working deliverable included · No obligation · B2B & SaaS focused"
         primaryCta={{ label: "Request Your Review", href: "/book" }}
         secondaryCta={{ label: "See the full B2B track", href: "/for-b2b" }}
-        sourcePage="digital-readiness-review"
+        sourcePage="digital_readiness_review"
       />
     </div>
   );
