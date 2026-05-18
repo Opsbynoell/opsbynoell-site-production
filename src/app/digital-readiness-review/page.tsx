@@ -10,38 +10,38 @@ export const metadata = pageMetadata({
   path: "/digital-readiness-review",
   title: "Digital Readiness Review",
   description:
-    "A focused audit of your digital presence, pipeline, and operational systems. We identify the gaps between how your business looks online and how enterprise buyers actually evaluate vendors.",
+    "A focused $297 audit of your digital presence, pipeline, and operational systems. Identify the gaps holding your business back and get a clear roadmap to fix them. 100% of the fee applies toward your package.",
   ogTitle: "Digital Readiness Review by Ops by Noell",
   ogDescription:
-    "Find out exactly where your digital presence, pipeline, and operations are losing deals. A focused, no-fluff review built for B2B and SaaS companies.",
+    "Find out exactly where your digital presence, pipeline, and operations are costing you. A focused, no-fluff review for any business. $297, fully credited toward your package.",
 });
 
 const whatWeReview = [
   {
     icon: <IconSearch size={20} />,
     eyebrow: "Digital Presence",
-    title: "How your site reads to a buyer doing their own research.",
-    body: "We review your homepage, product pages, social proof, and trust signals against the standards enterprise procurement teams actually use. Most B2B sites pass the founder test and fail the buying committee test.",
+    title: "How your business shows up online.",
+    body: "We review your website, social proof, local listings, and trust signals against the standards real buyers use when researching a business. Most sites pass the owner test and fail the customer test.",
   },
   {
     icon: <IconChartBar size={20} />,
     eyebrow: "Pipeline Architecture",
-    title: "Where deals stall, go quiet, or never start.",
-    body: "We map your inbound motion, outbound sequences, and CRM hygiene. We identify the friction points that slow first-touch qualification, delay demo scheduling, and let warm accounts go cold.",
+    title: "Where leads stall, go quiet, or never start.",
+    body: "We map how new clients find you, how you follow up, and where the gaps are between interest and booking. We identify the friction points that slow first contact, delay decisions, and let warm leads go cold.",
   },
   {
     icon: <IconArrowRight size={20} />,
     eyebrow: "Operational Systems",
     title: "Whether your back-end matches your front-end promise.",
-    body: "A polished pitch backed by a slow, manual operation loses deals at the contract stage. We review your handoff flows, onboarding architecture, and renewal cadences to find the gaps before your buyers do.",
+    body: "A polished brand backed by a slow, manual operation loses clients at the experience stage. We review your workflows, tools, and handoff processes to find the gaps before your clients do.",
   },
 ];
 
 const deliverables = [
   "A written summary of your top three digital presence gaps",
-  "A prioritized list of pipeline friction points with estimated deal impact",
-  "A recommended operational track with a clear install path",
-  "Honest assessment of whether Ops by Noell is the right fit",
+  "A prioritized list of pipeline friction points with clear next steps",
+  "A recommended operational track with a straightforward install path",
+  "Honest assessment of whether Ops by Noell is the right fit for your business",
 ];
 
 const drrFaqs: FaqItem[] = [
@@ -49,19 +49,25 @@ const drrFaqs: FaqItem[] = [
     id: "what-is-a-drr",
     question: "What exactly is a Digital Readiness Review?",
     answer:
-      "It is a focused, one-session audit of your digital presence, pipeline, and operational systems. We look at your site, your inbound motion, and your back-end operations and tell you exactly where the gaps are and what to do about them.",
+      "It is a focused, one-session audit of your digital presence, pipeline, and operational systems. We look at your site, how you attract and convert clients, and how your business runs day-to-day. You walk away with a written summary of exactly where the gaps are and what to do about them.",
   },
   {
     id: "who-is-this-for",
     question: "Who is this for?",
     answer:
-      "B2B and SaaS companies that are actively selling into mid-market or enterprise accounts and suspect their digital presence, pipeline, or operations are costing them deals. If you are pre-revenue or still finding product-market fit, this is not the right starting point.",
+      "Any business owner who wants an honest, expert look at what is working and what is not. Whether you run a service business, a product company, or anything in between, the three pillars we review apply to every business.",
   },
   {
     id: "how-long",
     question: "How long does it take?",
     answer:
       "The review itself is a focused working session, typically sixty to ninety minutes. You receive a written summary within one business day.",
+  },
+  {
+    id: "what-does-it-cost",
+    question: "What does it cost?",
+    answer:
+      "The Digital Readiness Review is $297. If you move forward with any Ops by Noell package, the full $297 is credited toward your investment. You keep the deliverable either way.",
   },
   {
     id: "is-this-a-sales-call",
@@ -73,7 +79,7 @@ const drrFaqs: FaqItem[] = [
     id: "what-do-i-need",
     question: "What do I need to prepare?",
     answer:
-      "Nothing formal. If you have your website URL, a rough sense of your current pipeline stage distribution, and the name of your CRM, that is enough to start.",
+      "Nothing formal. Your website URL and a rough sense of how clients currently find and book you is enough to get started.",
   },
 ];
 
@@ -90,7 +96,7 @@ export default function DigitalReadinessReviewPage() {
           servicePageSchema({
             name: "Digital Readiness Review",
             description:
-              "A focused audit of your digital presence, pipeline, and operational systems for B2B and SaaS companies.",
+              "A focused audit of your digital presence, pipeline, and operational systems. $297, fully credited toward your Ops by Noell package.",
             path: "/digital-readiness-review",
           }),
         ]}
@@ -100,7 +106,7 @@ export default function DigitalReadinessReviewPage() {
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-4 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-6 md:pb-8 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.30)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
-          For B2B & SaaS
+          For Any Business
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream">
           Digital{" "}
@@ -110,15 +116,27 @@ export default function DigitalReadinessReviewPage() {
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           A focused audit of your digital presence, pipeline, and operational
-          systems. We find the gaps that are costing you deals before your
-          buyers find them first.
+          systems. We find the gaps that are costing you clients before your
+          clients find them first.
         </p>
-        <div className="relative z-20 mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+
+        {/* Pricing callout */}
+        <div className="relative z-20 mt-7 flex flex-col items-center gap-2">
+          <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-6 py-3">
+            <span className="font-serif text-3xl font-semibold text-cream">$297</span>
+            <div className="w-px h-8 bg-white/20" />
+            <span className="text-sm text-cream/70 leading-snug max-w-[200px]">
+              100% credited toward your Ops by Noell package
+            </span>
+          </div>
+        </div>
+
+        <div className="relative z-20 mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <Button href="/book" variant="wine" className="h-12 px-7 text-base">
             Request Your Review
           </Button>
-          <Button href="/for-b2b" variant="secondary" className="h-12 px-7 text-base">
-            See the full B2B track
+          <Button href="/pricing" variant="secondary" className="h-12 px-7 text-base">
+            View packages
           </Button>
         </div>
       </section>
@@ -180,8 +198,7 @@ export default function DigitalReadinessReviewPage() {
           </ul>
           <div className="mt-8 pt-6 border-t border-white/10">
             <p className="text-sm text-cream/70 italic leading-relaxed">
-              You keep the review regardless of whether we move forward. If it
-              is not a fit, we will say so and point you in the right direction.
+              You keep the review regardless of whether we move forward. If Ops by Noell is not the right fit, we will say so and point you in the right direction. The full $297 applies as a credit toward any package if you do.
             </p>
           </div>
         </div>
@@ -192,7 +209,7 @@ export default function DigitalReadinessReviewPage() {
         eyebrow="Before you request"
         headlineStart="Short answers."
         headlineAccent="No pressure."
-        body="The questions B2B founders ask before requesting a Digital Readiness Review."
+        body="The questions business owners ask before requesting a Digital Readiness Review."
         faqs={drrFaqs}
       />
 
@@ -201,10 +218,10 @@ export default function DigitalReadinessReviewPage() {
         eyebrow="Ready when you are"
         headlineStart="Request your"
         headlineAccent="Digital Readiness Review."
-        body="Tell us about your business and we will review your digital presence, pipeline, and operations personally. Reply within one business day."
-        trustLine="Working deliverable included · No obligation · B2B & SaaS focused"
-        primaryCta={{ label: "Request Your Review", href: "/book" }}
-        secondaryCta={{ label: "See the full B2B track", href: "/for-b2b" }}
+        body="Tell us about your business and we will review your digital presence, pipeline, and operations personally. Reply within one business day. $297, fully credited toward your package."
+        trustLine="$297 · 100% credited toward your package · Working deliverable included"
+        primaryCta={{ label: "Request Your Review — $297", href: "/book" }}
+        secondaryCta={{ label: "View packages", href: "/pricing" }}
         sourcePage="digital_readiness_review"
       />
     </div>
