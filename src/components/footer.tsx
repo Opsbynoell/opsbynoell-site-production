@@ -10,6 +10,7 @@ export function Footer() {
     { title: "ROI Calculator", href: "/roi" },
     { title: "Resources", href: "/resources" },
     { title: "Revenue Signal Report", href: "/book" },
+    { title: "Digital Readiness Review", href: "/digital-readiness-review" },
   ];
 
   const serviceProducts = [
@@ -25,7 +26,7 @@ export function Footer() {
     { title: "Noell Pipeline", href: "/noell-pipeline" },
     { title: "Noell Account", href: "/noell-account" },
     { title: "For B2B & SaaS", href: "/for-b2b" },
-    { title: "Digital Readiness Review", href: "/book" },
+    { title: "Digital Readiness Review", href: "/digital-readiness-review" },
   ];
 
   const legal = [

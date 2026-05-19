@@ -5,7 +5,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/massage-therapist-no-show-cost";
 const TITLE =
-  "How much are massage therapist no-shows actually costing you? The real math";
+  "Massage Therapist No-Show Cost: The Real Math";
 const DESCRIPTION =
   "An honest, math-first read for solo and small-team massage practices. The real no-show rate, the lost-revenue numbers, and what to do in the 48 hours after a missed appointment.";
 const PUBLISHED = "2026-05-04";

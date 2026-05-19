@@ -7,7 +7,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 const PATH =
   "/resources/rebooking-and-reactivation-for-med-spas-and-massage";
 const TITLE =
-  "Rebooking and reactivation for med spas and massage practices";
+  "Rebooking and Reactivation for Med Spas";
 const DESCRIPTION =
   "The single biggest growth lever in a premium service business isn't new leads, it's the regulars who quietly stopped coming in. Here's how to bring them back without sounding like a promo blast.";
 const PUBLISHED = "2026-04-24";

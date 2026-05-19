@@ -6,7 +6,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/review-velocity-local-seo-service-business";
 const TITLE =
-  "Review velocity and local SEO: how steady five-star cadence compounds for service businesses";
+  "Review Velocity and Local SEO";
 const DESCRIPTION =
   "A one-time batch of reviews barely moves the needle. A steady cadence of honest five-star reviews, every single week, is what actually moves you up the map pack. Here is the quiet discipline behind it.";
 const PUBLISHED = "2026-04-24";

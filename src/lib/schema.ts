@@ -64,7 +64,7 @@ export function localBusinessSchema(vertical: string) {
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
-      lowPrice: 197,
+      lowPrice: 397,
       highPrice: 1497,
     },
   };
@@ -85,7 +85,7 @@ export function homepageLocalBusinessSchema() {
     },
     priceRange: "$397\u2013$1,197/mo",
     description:
-      "Done-for-you AI front desk and managed operations for service businesses \u2014 dental, med spas, salons, massage, estheticians, and HVAC.",
+      "Done-for-you AI front desk and managed operations for service businesses: dental, med spas, salons, massage, estheticians, and HVAC.",
     sameAs: [] as string[],
   };
 }

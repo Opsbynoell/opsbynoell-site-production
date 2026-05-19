@@ -6,7 +6,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/dental-missed-call-leakage";
 const TITLE =
-  "Dental missed-call leakage: where new-patient revenue quietly disappears";
+  "Dental Missed-Call Leakage";
 const DESCRIPTION =
   "For most single-location dental offices, the largest source of lost new-patient revenue is a handful of calls that ring out between 11:30 and 1:00. Here is what is actually happening, and what a front desk layer does about it.";
 const PUBLISHED = "2026-04-24";

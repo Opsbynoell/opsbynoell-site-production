@@ -180,14 +180,14 @@ export default function PricingPage() {
           pricingProductSchema([
             {
               name: "Noell Agents",
-              priceMonthly: 197,
+              priceMonthly: 397,
               description:
                 "Three managed AI agents covering chat, calls, and existing-client support. Starting at $397/mo (Signal tier). Month-to-month.",
               url: "/agents",
             },
             {
               name: "Noell System: Essentials",
-              priceMonthly: 197,
+              priceMonthly: 397,
               description:
                 "Entry tier of the managed Noell System for service businesses.",
             },
@@ -327,7 +327,7 @@ export default function PricingPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/book"
+                href="/digital-readiness-review"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-wine text-cream font-medium text-sm hover:bg-wine/90 transition-colors"
               >
                 Book a Digital Readiness Review

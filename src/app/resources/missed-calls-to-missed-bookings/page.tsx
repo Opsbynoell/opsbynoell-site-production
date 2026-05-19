@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/missed-calls-to-missed-bookings";
-const TITLE = "From missed calls to missed bookings: how warm intent cools off quietly";
+const TITLE = "Missed Calls to Missed Bookings";
 const DESCRIPTION =
   "A missed call is only the visible half of the leak. The rest is the missed booking, the silent no-show, and the lead who moved on. Here's what's actually happening between the ring and the empty chair.";
 const PUBLISHED = "2026-04-24";

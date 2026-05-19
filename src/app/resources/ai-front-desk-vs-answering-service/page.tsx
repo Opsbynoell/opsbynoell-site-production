@@ -6,7 +6,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/ai-front-desk-vs-answering-service";
 const TITLE =
-  "AI front desk vs. answering service: what each one is actually good at";
+  "AI Front Desk vs. Answering Service";
 const DESCRIPTION =
   "An answering service takes messages. An AI front desk books appointments. Here's how they actually differ, when to use which, and why most service businesses are paying for the wrong one.";
 const PUBLISHED = "2026-04-24";

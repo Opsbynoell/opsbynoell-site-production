@@ -12,13 +12,14 @@ type Entry = {
 // Per-page lastmod dates. Update these alongside content changes so search
 // crawlers can prioritize freshly updated pages instead of seeing every
 // page share a single build timestamp.
-const TODAY = "2026-05-04";
+const TODAY = "2026-05-19";
+const SEO_FIXES = "2026-05-19";
 const LAUNCH_FIXES = "2026-05-04";
 
 const entries: Entry[] = [
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastmod: LAUNCH_FIXES },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastmod: SEO_FIXES },
   { path: "/about", changeFrequency: "monthly", priority: 0.8, lastmod: "2026-05-02" },
-  { path: "/agents", changeFrequency: "weekly", priority: 0.9, lastmod: LAUNCH_FIXES },
+  { path: "/agents", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/systems", changeFrequency: "weekly", priority: 0.9, lastmod: LAUNCH_FIXES },
   {
     path: "/predictive-customer-intelligence",
@@ -26,8 +27,11 @@ const entries: Entry[] = [
     priority: 0.95,
     lastmod: LAUNCH_FIXES,
   },
-  { path: "/pricing", changeFrequency: "weekly", priority: 0.9, lastmod: LAUNCH_FIXES },
-  { path: "/what-you-get", changeFrequency: "weekly", priority: 0.9, lastmod: LAUNCH_FIXES },
+  { path: "/pricing", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
+  { path: "/what-you-get", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
+  { path: "/add-ons", changeFrequency: "monthly", priority: 0.75, lastmod: SEO_FIXES },
+  { path: "/digital-readiness-review", changeFrequency: "monthly", priority: 0.85, lastmod: SEO_FIXES },
+  { path: "/chiropractor-automation", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
   { path: "/roi", changeFrequency: "monthly", priority: 0.7, lastmod: LAUNCH_FIXES },
   {
     path: "/resources/revenue-calculator",
@@ -112,14 +116,14 @@ const entries: Entry[] = [
   { path: "/case-studies", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7, lastmod: "2026-04-18" },
 
-  { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
-  { path: "/for-b2b", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
+  { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
+  { path: "/for-b2b", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
 
-  { path: "/compare", changeFrequency: "monthly", priority: 0.7, lastmod: TODAY },
-  { path: "/compare/my-ai-front-desk", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
+  { path: "/compare", changeFrequency: "monthly", priority: 0.7, lastmod: SEO_FIXES },
+  { path: "/compare/my-ai-front-desk", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
   { path: "/compare/podium", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/diy-ai-receptionist", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
-  { path: "/compare/human-answering-services", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
+  { path: "/compare/human-answering-services", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
   { path: "/compare/local-business-messaging-platforms", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/ai-front-desk-alternatives", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
 

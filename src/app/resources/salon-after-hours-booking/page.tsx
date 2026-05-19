@@ -6,7 +6,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 const PATH = "/resources/salon-after-hours-booking";
 const TITLE =
-  "Salon after-hours booking: why the 9 p.m. text is where your week actually gets made";
+  "Salon After-Hours Booking";
 const DESCRIPTION =
   "Most salon owners think their week is built at the chair. It isn't, it is built between 7 and 10 p.m., when clients are on the couch with their phones. Here is what an after-hours booking layer actually looks like.";
 const PUBLISHED = "2026-04-24";
