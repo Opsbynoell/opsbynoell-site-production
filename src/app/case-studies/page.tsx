@@ -7,7 +7,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/case-studies",
-  title: "Case Studies — Real Results from Ops by Noell Clients",
+  title: "Case Studies, Real Results from Ops by Noell Clients",
   description:
     "Real numbers from real service businesses. See how Ops by Noell clients have recovered missed revenue, rebooked lost clients, and filled their calendars with done-for-you AI operations.",
 });
@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 const caseStudies = [
   {
     href: "/case-studies/santa-e",
-    name: "Santa E. — Massage Therapist",
+    name: "Santa E.: Massage Therapist",
     result: "$960 recovered in 14 days",
     description:
       "A solo massage therapist in Orange County recovered four missed calls and rebooked them within 14 days of installing a done-for-you AI front desk.",

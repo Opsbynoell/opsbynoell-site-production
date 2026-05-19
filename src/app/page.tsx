@@ -16,10 +16,10 @@ import {
 export const metadata = pageMetadata({
   path: "/",
   absoluteTitle: true,
-  title: "AI Operations for Service Businesses and B2B — Ops by Noell",
+  title: "AI Operations for Service Businesses and B2B, Ops by Noell",
   description:
     "Ops by Noell builds and runs AI-powered operational systems for service-based businesses and B2B companies. Done for you. Live in 14 days.",
-  ogTitle: "Ops by Noell — AI Operations for Service Businesses and B2B",
+  ogTitle: "Ops by Noell, AI Operations for Service Businesses and B2B",
   ogDescription:
     "Whether you run a service business or sell into enterprise, Ops by Noell builds the operational layer that keeps revenue from slipping out. Free audit to start.",
 });

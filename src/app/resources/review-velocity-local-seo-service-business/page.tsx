@@ -41,7 +41,7 @@ export default function Article() {
       <ArticleLayout
         eyebrow="Article · 8 min"
         title="Review velocity and local SEO"
-        lead="A batch of reviews looks impressive for a weekend. Steady weekly cadence — four or five honest five-star reviews, every single week, in your own clients' words — is what actually moves you up the map pack."
+        lead="A batch of reviews looks impressive for a weekend. Steady weekly cadence, four or five honest five-star reviews, every single week, in your own clients' words, is what actually moves you up the map pack."
         meta="Published April 24, 2026 · Nikki Noell"
       >
         <p>
@@ -65,7 +65,7 @@ export default function Article() {
         <p>
           Review velocity is the simple, weekly rhythm at which new, honest
           reviews arrive on your Google Business Profile (and increasingly,
-          Yelp, Facebook, and the category-specific review surfaces — for
+          Yelp, Facebook, and the category-specific review surfaces, for
           example, Healthgrades for dental and RateABiz or Style Seat for
           salons). A healthy velocity, for a single-location service
           business, looks like:
@@ -80,7 +80,7 @@ export default function Article() {
             staffing change, a new service launch, or a seasonal peak.
           </li>
           <li>
-            Owner responses on <em>all</em> of them — the five-stars briefly
+            Owner responses on <em>all</em> of them, the five-stars briefly
             and warmly, the three-stars-and-below thoughtfully and publicly.
           </li>
         </ul>
@@ -110,13 +110,13 @@ export default function Article() {
             and then never do it.
           </li>
           <li>
-            Owners occasionally do a &ldquo;review push&rdquo; — a text blast
+            Owners occasionally do a &ldquo;review push&rdquo;, a text blast
             to the last 200 clients. Google sees a spike, then a long
             drought, and the spike barely moves rankings because it reads as
             coordinated.
           </li>
           <li>
-            Requests get sent at the wrong time of day — 9 a.m. on Monday,
+            Requests get sent at the wrong time of day, 9 a.m. on Monday,
             when the client is distracted. Most five-star reviews happen in
             the 6 p.m. to 9 p.m. window, on the same day or the next day.
           </li>
@@ -134,7 +134,7 @@ export default function Article() {
         <ol>
           <li>
             <strong>One review ask per completed visit.</strong> Not every
-            touch-point, not every invoice — every completed, paid visit
+            touch-point, not every invoice, every completed, paid visit
             where the client actually received the service.
           </li>
           <li>
@@ -223,9 +223,9 @@ export default function Article() {
         <h2>Where Predictive Customer Intelligence fits</h2>
         <p>
           The simple version of a review engine sends one ask per completed
-          visit. The smarter version — which is where{" "}
+          visit. The smarter version, which is where{" "}
           <Link href="/resources">Predictive Customer Intelligence</Link>{" "}
-          starts to matter — learns which clients actually leave reviews,
+          starts to matter, learns which clients actually leave reviews,
           which services produce the warmest responses, and which times of
           day land. Over a year, that&apos;s the difference between
           &ldquo;we get a few reviews a week&rdquo; and &ldquo;we reliably
@@ -241,7 +241,7 @@ export default function Article() {
         <h2>Where to start</h2>
         <p>
           Pull your last 90 days of Google reviews. Plot them on a calendar
-          — just count the number per week. If you see any stretch of
+         , just count the number per week. If you see any stretch of
           three or more weeks with zero new reviews, that is the leak.
           Closing it doesn&apos;t require a new marketing strategy. It
           requires the ask to actually go out, every single visit, written
@@ -260,26 +260,26 @@ export default function Article() {
             <Link href="/resources/missed-call-recovery-for-service-businesses">
               Missed-call recovery for service businesses
             </Link>{" "}
-            — the first half of the same problem.
+           , the first half of the same problem.
           </li>
           <li>
             <Link href="/resources/missed-calls-to-missed-bookings">
               From missed calls to missed bookings
             </Link>{" "}
-            — why the clients who would have left reviews often never
+           , why the clients who would have left reviews often never
             booked in the first place.
           </li>
           <li>
             <Link href="/resources/dental-missed-call-leakage">
               Dental missed-call leakage
             </Link>{" "}
-            — the same mechanics, specific to dental practices.
+           , the same mechanics, specific to dental practices.
           </li>
           <li>
             <Link href="/resources/salon-after-hours-booking">
               Salon after-hours booking
             </Link>{" "}
-            — the 9 p.m. window where review velocity actually gets made.
+           , the 9 p.m. window where review velocity actually gets made.
           </li>
         </ul>
       </ArticleLayout>

@@ -9,7 +9,7 @@ const PATH =
 const TITLE =
   "Rebooking and reactivation for med spas and massage practices";
 const DESCRIPTION =
-  "The single biggest growth lever in a premium service business isn't new leads — it's the regulars who quietly stopped coming in. Here's how to bring them back without sounding like a promo blast.";
+  "The single biggest growth lever in a premium service business isn't new leads, it's the regulars who quietly stopped coming in. Here's how to bring them back without sounding like a promo blast.";
 const PUBLISHED = "2026-04-24";
 
 export const metadata = pageMetadata({
@@ -42,7 +42,7 @@ export default function Article() {
       <ArticleLayout
         eyebrow="Article · 7 min"
         title="Rebooking and reactivation for med spas and massage"
-        lead="The single biggest growth lever in a premium service business isn't new leads. It's the regulars who quietly stopped coming in — and the rebookings that should have happened at checkout but didn't."
+        lead="The single biggest growth lever in a premium service business isn't new leads. It's the regulars who quietly stopped coming in, and the rebookings that should have happened at checkout but didn't."
         meta="Published April 24, 2026 · Nikki Noell"
       >
         <p>
@@ -89,13 +89,13 @@ export default function Article() {
             framed specifically.
           </li>
           <li>
-            Calendar friction — paper books, two screens, an app the
-            front desk can barely drive — kills the 15 seconds you have.
+            Calendar friction, paper books, two screens, an app the
+            front desk can barely drive, kills the 15 seconds you have.
           </li>
         </ul>
         <p>
           The fix is not a harder sell. The fix is removing the friction
-          so the rebook is a one-tap confirmation — and, separately, a
+          so the rebook is a one-tap confirmation, and, separately, a
           layer that handles the rebook after the client is already out
           the door.
         </p>
@@ -103,7 +103,7 @@ export default function Article() {
         <h2>What a post-visit rebook flow looks like</h2>
         <p>
           For a med spa, the ideal rebook flow runs on a per-service
-          cadence — a toxin client is on a different clock from a
+          cadence, a toxin client is on a different clock from a
           hydrafacial client, who is on a different clock from a laser
           package client. For massage, the cadence is usually monthly or
           bi-weekly, but varies by member vs. non-member status.
@@ -114,7 +114,7 @@ export default function Article() {
         <ol>
           <li>
             <strong>Thank-you message same day.</strong> Not a coupon, not
-            a survey — a warm note that sounds like the person who just
+            a survey, a warm note that sounds like the person who just
             did the service.
           </li>
           <li>
@@ -160,7 +160,7 @@ export default function Article() {
             open windows for it.
           </li>
           <li>
-            A third, optional message, which can be more direct — a
+            A third, optional message, which can be more direct, a
             thoughtfully-framed incentive for members or long-time
             regulars only, never for someone who has been in once.
           </li>
@@ -168,7 +168,7 @@ export default function Article() {
         <p>
           The combined response rate on a sequence like this, across the
           businesses we&apos;ve run it for, is meaningfully higher than a
-          single blast — because it sounds like a relationship, not a
+          single blast, because it sounds like a relationship, not a
           marketing calendar.
         </p>
 
@@ -192,7 +192,7 @@ export default function Article() {
         <h2>How Predictive Customer Intelligence changes the playbook</h2>
         <p>
           The traditional way to run rebooking and reactivation is
-          blunt — everyone on the 30-day list gets the same message,
+          blunt, everyone on the 30-day list gets the same message,
           everyone on the 90-day list gets another. The honest problem
           with that is the 30-day mark means something very different for
           a laser client than a toxin client than a massage regular.
@@ -202,7 +202,7 @@ export default function Article() {
           is how we move from &ldquo;everyone on day 30&rdquo; to &ldquo;this
           specific client, on her specific cadence, for her specific
           service.&rdquo; It&apos;s the same core idea as knowing your
-          clients by name — applied across the whole book, consistently,
+          clients by name, applied across the whole book, consistently,
           every month.
         </p>
 
@@ -214,7 +214,7 @@ export default function Article() {
         </p>
         <ul>
           <li>
-            A noticeable bump in post-visit rebook rate — often moving
+            A noticeable bump in post-visit rebook rate, often moving
             from the 30 to 40 percent range into the 55 to 70 percent
             range, depending on the service.
           </li>
@@ -238,8 +238,8 @@ export default function Article() {
         <p>
           Pull your client list. Sort by &ldquo;last visit&rdquo;. Anyone
           whose cadence has slipped by more than 150% of their normal
-          gap — a monthly regular who hasn&apos;t been in 45 days, a
-          six-week client who hasn&apos;t been in 9 weeks — is a candidate
+          gap, a monthly regular who hasn&apos;t been in 45 days, a
+          six-week client who hasn&apos;t been in 9 weeks, is a candidate
           for reactivation today. That list is almost always larger than
           owners expect.
         </p>
@@ -256,17 +256,17 @@ export default function Article() {
             <Link href="/resources/missed-calls-to-missed-bookings">
               From missed calls to missed bookings
             </Link>{" "}
-            — the leak between the first ring and the empty chair.
+           , the leak between the first ring and the empty chair.
           </li>
           <li>
             <Link href="/resources/missed-call-recovery-for-service-businesses">
               Missed-call recovery for service businesses
             </Link>{" "}
-            — the mechanics of the 60-second text-back.
+           , the mechanics of the 60-second text-back.
           </li>
           <li>
             <Link href="/verticals/med-spas">Med spas</Link> and{" "}
-            <Link href="/verticals/massage">massage</Link> — how the
+            <Link href="/verticals/massage">massage</Link>, how the
             system is set up specifically for each vertical.
           </li>
         </ul>

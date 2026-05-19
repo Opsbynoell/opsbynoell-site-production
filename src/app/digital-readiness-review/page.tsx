@@ -220,7 +220,7 @@ export default function DigitalReadinessReviewPage() {
         headlineAccent="Digital Readiness Review."
         body="Tell us about your business and we will review your digital presence, pipeline, and operations personally. Reply within one business day. $297, fully credited toward your package."
         trustLine="$297 · 100% credited toward your package · Working deliverable included"
-        primaryCta={{ label: "Request Your Review — $297", href: "/book" }}
+        primaryCta={{ label: "Request Your Review: $297", href: "/book" }}
         secondaryCta={{ label: "View packages", href: "/pricing" }}
         sourcePage="digital_readiness_review"
       />

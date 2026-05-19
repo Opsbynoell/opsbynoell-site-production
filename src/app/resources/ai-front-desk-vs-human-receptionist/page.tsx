@@ -46,7 +46,7 @@ export default function Article() {
           The framing of &ldquo;AI or human&rdquo; misses how service
           businesses actually work. Nobody is replacing the warm front-desk
           person who remembers your clients by name. The real question is what
-          happens on the calls, texts, and chats the human can&apos;t cover —
+          happens on the calls, texts, and chats the human can&apos;t cover , 
           after 6 p.m., on Sunday, while they&apos;re with another client, or
           while the phone is ringing off the hook during the morning rush.
         </p>
@@ -80,7 +80,7 @@ export default function Article() {
         <ul>
           <li>First-response speed, measured in seconds.</li>
           <li>
-            24/7 coverage. Not as a stunt — because inbound intent does not
+            24/7 coverage. Not as a stunt, because inbound intent does not
             respect your hours.
           </li>
           <li>

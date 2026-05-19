@@ -9,7 +9,7 @@ const ALT = "Podium";
 export const metadata = pageMetadata({
   path: PATH,
   title: `Ops by Noell vs. ${ALT}`,
-  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses — scope, done-for-you setup, and who the system is really for.`,
+  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses, scope, done-for-you setup, and who the system is really for.`,
 });
 
 const rows: CompareRow[] = [
@@ -75,7 +75,7 @@ export default function Compare() {
           <>
             <p>
               {ALT} is a general-purpose local-business messaging platform.
-              It&apos;s wide — messaging, reviews, text-to-pay — and your team
+              It&apos;s wide, messaging, reviews, text-to-pay, and your team
               operates it. Ops by Noell is narrow and deep: we install and
               manage an AI front desk shaped specifically for service
               businesses, in your voice, so your team doesn&apos;t run another
@@ -90,14 +90,14 @@ export default function Compare() {
               Choose {ALT} if you want a broad platform your front desk will
               operate day to day, with many features you can roll in over time.
               Choose Ops by Noell if you want the front-of-house handled for
-              you — missed-call recovery, confirmations, reminders, and
-              retention — by a team that writes and tunes it in your voice.
+              you, missed-call recovery, confirmations, reminders, and
+              retention, by a team that writes and tunes it in your voice.
             </p>
           </>
         }
         internalLinks={[
           { label: "See the Noell System", href: "/systems" },
-          { label: "Noell Front Desk — operations layer", href: "/noell-front-desk" },
+          { label: "Noell Front Desk: operations layer", href: "/noell-front-desk" },
           { label: "Read: Missed-call recovery for service businesses", href: "/resources/missed-call-recovery-for-service-businesses" },
         ]}
       />

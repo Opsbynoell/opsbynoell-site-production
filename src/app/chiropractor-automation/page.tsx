@@ -30,9 +30,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   path: "/chiropractor-automation",
-  title: "AI Front Desk for Chiropractic Offices — Ops by Noell",
+  title: "AI Front Desk for Chiropractic Offices, Ops by Noell",
   description:
-    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, reduce no-shows, reactivate lapsed patients, and run automated review requests — all without adding front desk staff.",
+    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, reduce no-shows, reactivate lapsed patients, and run automated review requests, all without adding front desk staff.",
 });
 
 const chiropractorStats = [
@@ -81,7 +81,7 @@ const chiroConcerns: ChiroConcern[] = [
     tag: "No-shows and cancellations",
     title: "A no-show at 9am costs you a 45-minute slot, not just one appointment.",
     worry:
-      "Chiropractic care plans depend on visit cadence. When patients cancel or no-show, they break their own recovery timeline — and your revenue timeline. Manual reminder calls are time-consuming and inconsistent.",
+      "Chiropractic care plans depend on visit cadence. When patients cancel or no-show, they break their own recovery timeline, and your revenue timeline. Manual reminder calls are time-consuming and inconsistent.",
     answer:
       "Automated appointment reminders go out 48 hours and 2 hours before every visit. Patients who do not confirm get a gentle follow-up. No-show rates drop, care plan completion rates rise.",
   },
@@ -92,7 +92,7 @@ const chiroConcerns: ChiroConcern[] = [
     worry:
       "Maintenance care and new injury visits are sitting in your database as silent revenue opportunities. Most practices let them lapse because manual reactivation campaigns are too time-intensive to run consistently.",
     answer:
-      "Reactivation runs automatically. Patients who have not visited in 60 or 90 days get a warm, personalized check-in via SMS or email — in your practice voice, at the cadence you set.",
+      "Reactivation runs automatically. Patients who have not visited in 60 or 90 days get a warm, personalized check-in via SMS or email, in your practice voice, at the cadence you set.",
   },
 ];
 
@@ -129,7 +129,7 @@ const chiroCapabilities = [
     icon: <IconUsers size={20} />,
     number: "05",
     title: "New patient intake",
-    description: "Noell Support qualifies new patient inquiries 24/7 via website chat — capturing contact info, insurance, and chief complaint before the first call.",
+    description: "Noell Support qualifies new patient inquiries 24/7 via website chat, capturing contact info, insurance, and chief complaint before the first call.",
     points: ["24/7 website chat qualification", "Insurance and chief complaint captured", "Booking handoff included"],
   },
   {
@@ -164,7 +164,7 @@ const chiroFaqs = [
     id: "chiro-front-desk-staff",
     question: "Do I need to change my front desk staffing?",
     answer:
-      "No. The AI front desk is additive, not a replacement. It handles the calls, texts, and follow-ups that currently fall through — after hours, during high-volume windows, and on weekends — so your staff can focus on the patients in the building.",
+      "No. The AI front desk is additive, not a replacement. It handles the calls, texts, and follow-ups that currently fall through, after hours, during high-volume windows, and on weekends, so your staff can focus on the patients in the building.",
   },
   {
     id: "chiro-new-patients",
@@ -176,7 +176,7 @@ const chiroFaqs = [
     id: "chiro-review-generation",
     question: "How does review generation work for a chiropractic office?",
     answer:
-      "After each appointment, a review request goes out via SMS at the moment patients are most satisfied — typically right after a session. The message links directly to your Google Business Profile. No follow-up needed from your team.",
+      "After each appointment, a review request goes out via SMS at the moment patients are most satisfied, typically right after a session. The message links directly to your Google Business Profile. No follow-up needed from your team.",
   },
 ];
 
@@ -188,7 +188,7 @@ export default function ChiropractorAutomationPage() {
           servicePageSchema({
             name: "AI front desk for chiropractic offices",
             description:
-              "Done-for-you AI front desk for chiropractic practices. Missed-call recovery, appointment reminders, lapsed patient reactivation, and review generation — installed around your existing EHR.",
+              "Done-for-you AI front desk for chiropractic practices. Missed-call recovery, appointment reminders, lapsed patient reactivation, and review generation, installed around your existing EHR.",
             path: "/chiropractor-automation",
             vertical: "chiropractic practices",
           }),
@@ -207,7 +207,7 @@ export default function ChiropractorAutomationPage() {
         headlineLine1Accent="once."
         headlineLine2Start="Your system should"
         headlineLine2Accent="answer every time."
-        body="A done-for-you AI front desk for chiropractic practices. Missed new-patient calls recovered in under 60 seconds, automated reminders that cut no-shows, and quiet reactivation that brings lapsed patients back — without adding staff."
+        body="A done-for-you AI front desk for chiropractic practices. Missed new-patient calls recovered in under 60 seconds, automated reminders that cut no-shows, and quiet reactivation that brings lapsed patients back, without adding staff."
         footnote="Works with most chiropractic EHR and practice management systems. Tell us what you run on your intro call and we will confirm fit."
         primaryCta={{ label: "Book a Free Chiropractic Audit", href: "/book" }}
         secondaryCta={{

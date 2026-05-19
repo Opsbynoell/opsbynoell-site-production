@@ -57,7 +57,7 @@ export default function Article() {
         <p>
           An answering service is, mechanically, a call center. A human
           picks up your phone using a script you provide, confirms it is
-          you, takes a message, and hands you the message — usually by
+          you, takes a message, and hands you the message, usually by
           email or SMS after the call ends. Some will do a warm transfer
           for urgent calls. Most will not.
         </p>
@@ -73,7 +73,7 @@ export default function Article() {
           </li>
           <li>
             Bilingual coverage, if the service you pick actually staffs
-            it — most claim to, fewer do it well.
+            it, most claim to, fewer do it well.
           </li>
         </ul>
         <p>
@@ -90,7 +90,7 @@ export default function Article() {
           </li>
           <li>
             First-response speed is only as fast as the agent picking up
-            — which is often not 60 seconds during busy hours.
+           , which is often not 60 seconds during busy hours.
           </li>
           <li>
             No visibility into your calendar. The agent cannot offer the
@@ -100,9 +100,9 @@ export default function Article() {
 
         <h2>What an AI front desk does differently</h2>
         <p>
-          An AI front desk — the kind we mean when we say a{" "}
+          An AI front desk, the kind we mean when we say a{" "}
           <em>done-for-you</em> AI front desk, not a raw chatbot dropped
-          on a website — handles the whole conversation end-to-end:
+          on a website, handles the whole conversation end-to-end:
         </p>
         <ul>
           <li>
@@ -120,7 +120,7 @@ export default function Article() {
           </li>
           <li>
             <strong>Hands off to a human</strong> the moment the
-            conversation needs one — a clinical question, an unhappy
+            conversation needs one, a clinical question, an unhappy
             client, anything off-script.
           </li>
           <li>
@@ -142,8 +142,8 @@ export default function Article() {
           booking personally, an answering service can work. If the goal
           is to end the interaction with an appointment already on the
           calendar, an AI front desk is the only one of the two that can
-          actually do that. Most service businesses — dental, med spa,
-          salon, massage, home services — lose money every hour a booking
+          actually do that. Most service businesses, dental, med spa,
+          salon, massage, home services, lose money every hour a booking
           sits in limbo.
         </p>
 
@@ -153,8 +153,8 @@ export default function Article() {
           overage thresholds. A busy day or a seasonal spike is a line
           item. An AI front desk is priced as a flat subscription, which
           means the marginal cost of a high-volume week is zero. For
-          service businesses with lumpy demand — spring at a med spa,
-          December at a dental office, summer at HVAC — this is usually
+          service businesses with lumpy demand, spring at a med spa,
+          December at a dental office, summer at HVAC, this is usually
           the single biggest financial difference between the two.
         </p>
 
@@ -165,7 +165,7 @@ export default function Article() {
           An AI front desk is always the fastest responder, at the same
           speed, at 9:47 p.m. on Saturday as at 10:00 a.m. on Tuesday. For
           anyone whose new-client inquiries come in after the lobby
-          closes — which is most service businesses — this is where the
+          closes, which is most service businesses, this is where the
           gap is widest.
         </p>
 
@@ -177,7 +177,7 @@ export default function Article() {
         </p>
         <ul>
           <li>
-            Emergency triage for trades — plumbing, HVAC, locksmith —
+            Emergency triage for trades, plumbing, HVAC, locksmith , 
             where the call often needs a human on the other end inside
             the first minute.
           </li>
@@ -191,7 +191,7 @@ export default function Article() {
           </li>
         </ul>
         <p>
-          In those cases, the right setup is usually <em>both</em> — an AI
+          In those cases, the right setup is usually <em>both</em>, an AI
           front desk for the 90% of calls that are bookings, reminders,
           and standard questions, and a small answering-service budget
           reserved for the narrow slice that genuinely needs a human
@@ -210,7 +210,7 @@ export default function Article() {
           A managed AI front desk is priced as a flat monthly
           subscription plus a one-time setup. For most single-location
           service businesses, the all-in monthly cost lands below the
-          equivalent answering-service bill — and it includes the things
+          equivalent answering-service bill, and it includes the things
           the answering service cannot do at all, like reminders, review
           requests, and{" "}
           <Link href="/resources/rebooking-and-reactivation-for-med-spas-and-massage">
@@ -230,8 +230,8 @@ export default function Article() {
         <p>
           The{" "}
           <Link href="/book">free 30-minute audit</Link> is where we look
-          at your actual call patterns — missed calls, after-hours
-          volume, message-vs-booking ratio — and tell you honestly which
+          at your actual call patterns, missed calls, after-hours
+          volume, message-vs-booking ratio, and tell you honestly which
           setup your numbers support. If an answering service is the
           better answer for your specific shop, we will say so.
         </p>
@@ -242,21 +242,21 @@ export default function Article() {
             <Link href="/resources/ai-front-desk-vs-human-receptionist">
               AI front desk vs. human receptionist
             </Link>{" "}
-            — the comparison one layer over, where both coexist in most
+           , the comparison one layer over, where both coexist in most
             shops.
           </li>
           <li>
             <Link href="/resources/missed-calls-to-missed-bookings">
               From missed calls to missed bookings
             </Link>{" "}
-            — why &ldquo;someone answered&rdquo; is not the same as
+           , why &ldquo;someone answered&rdquo; is not the same as
             &ldquo;someone booked&rdquo;.
           </li>
           <li>
             <Link href="/compare/human-answering-services">
               Compare: human answering services
             </Link>{" "}
-            — the short, side-by-side comparison page.
+           , the short, side-by-side comparison page.
           </li>
         </ul>
       </ArticleLayout>

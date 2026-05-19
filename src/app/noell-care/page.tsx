@@ -17,7 +17,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/noell-care",
-  title: "Noell Care — Existing-Client Support",
+  title: "Noell Care, Existing-Client Support",
   description:
     "Noell Care is the existing-client support layer of the Noell system. Rebooking, appointment changes, service questions, location logistics, and account support for the clients you already have.",
 });
@@ -45,7 +45,7 @@ const careCapabilities = [
     icon: <IconMap size={22} />,
     title: "Location & logistics",
     description:
-      "'Where do I park?' 'What door do I use?' Answered with your real location notes — not a generic 'see our website'.",
+      "'Where do I park?' 'What door do I use?' Answered with your real location notes, not a generic 'see our website'.",
   },
   {
     icon: <IconShieldCheck size={22} />,
@@ -65,7 +65,7 @@ const careFaqs = [
   {
     question: "How is Noell Care different from Noell Support?",
     answer:
-      "Support is for strangers — the new prospect reaching your site for the first time. Care is for people who already come here. The tone is 'welcome back,' not 'how can we help you.' Care recognizes the client if they're in your file, pulls their history, and answers from your knowledge base.",
+      "Support is for strangers: the new prospect reaching your site for the first time. Care is for people who already come here. The tone is 'welcome back,' not 'how can we help you.' Care recognizes the client if they're in your file, pulls their history, and answers from your knowledge base.",
   },
   {
     question: "What's in Noell Care's knowledge base?",
@@ -75,7 +75,7 @@ const careFaqs = [
   {
     question: "Does Noell Care book appointments?",
     answer:
-      "Care captures the intent conversationally and hands off to Noell Front Desk's scheduling path, which pushes the booking to whatever calendar or practice management system you already use. One system, two roles — Care handles the conversation, Front Desk handles the calendar.",
+      "Care captures the intent conversationally and hands off to Noell Front Desk's scheduling path, which pushes the booking to whatever calendar or practice management system you already use. One system, two roles, Care handles the conversation, Front Desk handles the calendar.",
   },
   {
     question: "What happens if Care cannot answer something?",
@@ -99,7 +99,7 @@ const careScreen = (
     </div>
 
     <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
-      Hey Sarah — good to hear from you. How was your deep tissue on Saturday?
+      Hey Sarah, good to hear from you. How was your deep tissue on Saturday?
     </div>
 
     <div className="flex justify-end mt-2 mx-1">
@@ -109,7 +109,7 @@ const careScreen = (
     </div>
 
     <div className="bg-[#271520] rounded-2xl rounded-bl-md p-3 mx-1 mt-2 border border-white/10/60 shadow-sm text-[11px] text-cream leading-snug">
-      Got it — Saturday at 2 with Maya, deep tissue 60. I&apos;ll lock it in.
+      Got it, Saturday at 2 with Maya, deep tissue 60. I&apos;ll lock it in.
     </div>
 
     <div className="bg-[#301A26] rounded-2xl p-2 mx-1 mt-2 border border-white/10/60 text-center">
@@ -126,7 +126,7 @@ export default function NoellCarePage() {
       <JsonLd
         data={[
           servicePageSchema({
-            name: "Noell Care — Existing-Client Support",
+            name: "Noell Care: Existing-Client Support",
             description:
               "Existing-client support layer of the Noell system: rebooking, appointment changes, service questions, location logistics, and account support.",
             path: "/noell-care",
@@ -206,7 +206,7 @@ export default function NoellCarePage() {
         eyebrow="How it fits"
         headlineStart="The third agent of"
         headlineAccent="the Noell system."
-        body="Care is the layer your existing clients meet. It never pretends to be scheduling or operations — it hands off cleanly."
+        body="Care is the layer your existing clients meet. It never pretends to be scheduling or operations, it hands off cleanly."
         capabilities={[
           {
             icon: <IconUser size={28} />,
@@ -252,7 +252,7 @@ export default function NoellCarePage() {
         eyebrow="The first step"
         headlineStart="See what your regulars"
         headlineAccent="are asking for."
-        body="Book a free audit. We'll review a sample of your inbound and show you how Care would handle it — on your voice, from your knowledge base."
+        body="Book a free audit. We'll review a sample of your inbound and show you how Care would handle it, on your voice, from your knowledge base."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
       />
     </div>

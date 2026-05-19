@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 /**
- * FounderQuote — early founder-presence band.
+ * FounderQuote, early founder-presence band.
  *
  * Lives near the top of the homepage, right after the hero, to trigger the
  * "a real person built this" signal within the first 10 seconds.
@@ -21,7 +21,7 @@ export function FounderQuote() {
             <div className="relative h-56 md:h-auto md:min-h-[320px] bg-charcoal/5">
               <Image
                 src="/images/about-noell-family.jpg"
-                alt="James and Nikki Noell — the family behind Ops by Noell"
+                alt="James and Nikki Noell: the family behind Ops by Noell"
                 fill
                 sizes="(min-width: 768px) 280px, 100vw"
                 className="object-cover object-top"

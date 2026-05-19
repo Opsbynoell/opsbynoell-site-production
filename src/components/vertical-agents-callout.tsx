@@ -9,8 +9,7 @@ export function VerticalAgentsCallout() {
             New · Self-serve option
           </p>
           <p className="text-sm md:text-base text-cream/85 leading-relaxed">
-            Want just the AI agents without the full system? See Noell Agents —
-            $397/mo launch pricing.{" "}
+            Want just the AI agents without the full system? See Noell Agents at $397/mo.{" "}
             <Link
               href="/agents"
               className="text-wine hover:text-wine-dark font-medium underline underline-offset-4 decoration-wine/30 whitespace-nowrap"

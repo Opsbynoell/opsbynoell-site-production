@@ -24,7 +24,7 @@ export const metadata = pageMetadata({
   ogDescription:
     "Know who is about to ghost before your calendar shows the gap. Free Revenue Signal Report.",
   imageAlt:
-    "Predictive Customer Intelligence by Ops by Noell — know who is about to ghost before your calendar shows the gap.",
+    "Predictive Customer Intelligence by Ops by Noell, know who is about to ghost before your calendar shows the gap.",
 });
 
 const SOURCE_PAGE = "predictive-customer-intelligence" as const;

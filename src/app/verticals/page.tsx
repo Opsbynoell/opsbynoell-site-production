@@ -15,7 +15,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata = pageMetadata({
   path: "/verticals",
   title:
-    "Verticals — AI Front Desk for Dental, Med Spas, Salons, Massage, Estheticians, HVAC",
+    "Verticals: AI Front Desk for Dental, Med Spas, Salons, Massage, Estheticians, HVAC",
   description:
     "Ops by Noell is a done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is shaped around the operational reality of your specific business.",
 });

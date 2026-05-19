@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Cost profile",
     opsByNoell:
-      "Flat monthly — $497/mo (Signal) to $1,497/mo (Full Stack). Predictable.",
+      "Flat monthly rate from $397/mo (Signal) to $1,497/mo (Full Stack). Predictable.",
     alternative:
       "Per-minute or per-call. Spikes in busy months.",
   },
@@ -78,7 +78,7 @@ export default function Compare() {
               that need voice coverage and can absorb per-minute pricing. They
               usually hand you message notes. Ops by Noell is a different
               shape: a managed AI front desk that books directly into your
-              calendar, confirms, reminds, and retains — at a flat monthly
+              calendar, confirms, reminds, and retains, at a flat monthly
               rate.
             </p>
           </>
@@ -90,15 +90,15 @@ export default function Compare() {
               Choose an answering service if voice-only coverage by a human is
               non-negotiable and you&apos;re comfortable with per-minute
               pricing. Choose Ops by Noell if you want the front of your
-              business handled end-to-end — calls, texts, chats, reminders,
-              retention — in your voice, with bookings landing on your real
+              business handled end-to-end, calls, texts, chats, reminders,
+              retention, in your voice, with bookings landing on your real
               calendar at a predictable monthly cost.
             </p>
           </>
         }
         internalLinks={[
-          { label: "Noell Front Desk — operations layer", href: "/noell-front-desk" },
-          { label: "Santa E. case study — $960 recovered in 14 days", href: "/case-studies/santa-e" },
+          { label: "Noell Front Desk: operations layer", href: "/noell-front-desk" },
+          { label: "Santa E. case study: $960 recovered in 14 days", href: "/case-studies/santa-e" },
           { label: "Read: AI front desk vs. human receptionist", href: "/resources/ai-front-desk-vs-human-receptionist" },
         ]}
       />

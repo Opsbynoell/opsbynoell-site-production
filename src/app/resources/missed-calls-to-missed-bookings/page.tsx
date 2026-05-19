@@ -40,7 +40,7 @@ export default function Article() {
       <ArticleLayout
         eyebrow="Article · 8 min"
         title="From missed calls to missed bookings"
-        lead="Warm intent cools off quietly. A missed call is only the visible half of the leak — the rest is the silent no-show, the unread text, and the lead who booked somewhere else before you ever saw her name."
+        lead="Warm intent cools off quietly. A missed call is only the visible half of the leak, the rest is the silent no-show, the unread text, and the lead who booked somewhere else before you ever saw her name."
         meta="Published April 24, 2026 · Nikki Noell"
       >
         <p>
@@ -82,7 +82,7 @@ export default function Article() {
           The research on lead response has been consistent for a decade:
           responses inside 60 seconds convert at roughly ten times the rate of
           responses after an hour. After fifteen minutes, most of that intent
-          is gone — not because the caller got angry, but because she already
+          is gone, not because the caller got angry, but because she already
           found someone else who said yes first.
         </p>
         <p>
@@ -133,7 +133,7 @@ export default function Article() {
         <h2>What a front desk layer actually does about it</h2>
         <p>
           The mistake most owners make is trying to solve this with a single
-          tool — a call forwarder, a text-back app, an answering service.
+          tool, a call forwarder, a text-back app, an answering service.
           Each fixes one link in the chain and lets the rest keep leaking. A
           managed front desk layer covers the whole chain instead:
         </p>
@@ -160,7 +160,7 @@ export default function Article() {
           </li>
           <li>
             <strong>Regulars who quietly drift</strong> get a short, human
-            reach-out when they&apos;re overdue — not spam, not a promo
+            reach-out when they&apos;re overdue, not spam, not a promo
             blast, one message that sounds like you noticed.
           </li>
         </ol>
@@ -189,7 +189,7 @@ export default function Article() {
           Those three lines, together, are almost always worth more than the
           system costs. That is why we open every conversation with a{" "}
           <Link href="/book">free 30-minute audit</Link> rather than a pitch
-          — if the math doesn&apos;t work on your actual numbers, we will
+         , if the math doesn&apos;t work on your actual numbers, we will
           tell you.
         </p>
 
@@ -204,7 +204,7 @@ export default function Article() {
         </p>
         <p>
           That is the <Link href="/resources">Predictive Customer
-          Intelligence</Link> layer — and it is what separates a
+          Intelligence</Link> layer, and it is what separates a
           missed-call fix from a front desk that gets smarter about your
           business every month. It is also why we treat the front desk as
           infrastructure, not as a widget.
@@ -225,20 +225,20 @@ export default function Article() {
             <Link href="/resources/missed-call-recovery-for-service-businesses">
               Missed-call recovery for service businesses
             </Link>{" "}
-            — the mechanics of what happens in the first 60 seconds.
+           , the mechanics of what happens in the first 60 seconds.
           </li>
           <li>
             <Link href="/resources/ai-front-desk-vs-human-receptionist">
               AI front desk vs. human receptionist
             </Link>{" "}
-            — where each one wins, where each one fails, and why most shops
+           , where each one wins, where each one fails, and why most shops
             end up running both.
           </li>
           <li>
             <Link href="/resources/rebooking-and-reactivation-for-med-spas-and-massage">
               Rebooking and reactivation for med spas and massage
             </Link>{" "}
-            — what to do about the regular who quietly stopped coming in.
+           , what to do about the regular who quietly stopped coming in.
           </li>
         </ul>
       </ArticleLayout>

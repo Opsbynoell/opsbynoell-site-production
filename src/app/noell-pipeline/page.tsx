@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/noell-pipeline",
-  title: "Noell Pipeline — B2B Sales Operations and Follow-Up",
+  title: "Noell Pipeline, B2B Sales Operations and Follow-Up",
   description:
     "Noell Pipeline handles demo scheduling, follow-up sequences, and deal-stage management for B2B sales teams. Keep deals moving without your reps manually managing every thread.",
 });
@@ -66,7 +66,7 @@ export default function NoellPipelinePage() {
             { name: "Noell Pipeline", path: "/noell-pipeline" },
           ]),
           servicePageSchema({
-            name: "Noell Pipeline — B2B Sales Operations",
+            name: "Noell Pipeline: B2B Sales Operations",
             description:
               "Demo scheduling, follow-up sequences, and deal-stage management for B2B sales teams.",
             path: "/noell-pipeline",
@@ -83,7 +83,7 @@ export default function NoellPipelinePage() {
         headlineLine2Start="They die in the"
         headlineLine2Accent="follow-up."
         footnote="Built for B2B sales teams that cannot afford to lose a deal."
-        body="Noell Pipeline is the sales operations layer for B2B teams. It schedules demos, sends follow-up sequences, and keeps deals moving through your pipeline — without your reps manually managing every thread."
+        body="Noell Pipeline is the sales operations layer for B2B teams. It schedules demos, sends follow-up sequences, and keeps deals moving through your pipeline, without your reps manually managing every thread."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}
@@ -157,7 +157,7 @@ export default function NoellPipelinePage() {
             number: "01",
             title: "Demo and discovery call scheduling",
             description:
-              "Noell Pipeline books the next step in your sales process automatically — no back-and-forth email chains, no manual calendar management. The meeting lands on your rep's calendar with full context.",
+              "Noell Pipeline books the next step in your sales process automatically, no back-and-forth email chains, no manual calendar management. The meeting lands on your rep's calendar with full context.",
             points: [
               "Calendar sync with your full team",
               "Automated reminders sent to prospects",

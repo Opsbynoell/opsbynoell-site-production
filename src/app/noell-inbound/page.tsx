@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/noell-inbound",
-  title: "Noell Inbound — B2B Lead Qualification and Intake",
+  title: "Noell Inbound, B2B Lead Qualification and Intake",
   description:
     "Noell Inbound handles first-touch lead qualification, intake routing, and discovery call scheduling for B2B and enterprise sales teams. Never lose a qualified lead again.",
 });
@@ -32,7 +32,7 @@ const inboundFaqs = [
     id: "inbound_how_qualify",
     question: "How does Noell Inbound qualify a lead?",
     answer:
-      "It captures company size, use case, urgency, and budget signals through a natural conversation — not a form. The result is a qualified lead profile that lands in your CRM or inbox with everything your sales rep needs to walk in prepared.",
+      "It captures company size, use case, urgency, and budget signals through a natural conversation, not a form. The result is a qualified lead profile that lands in your CRM or inbox with everything your sales rep needs to walk in prepared.",
   },
   {
     id: "inbound_not_a_fit",
@@ -65,7 +65,7 @@ export default function NoellInboundPage() {
             { name: "Noell Inbound", path: "/noell-inbound" },
           ]),
           servicePageSchema({
-            name: "Noell Inbound — B2B Lead Qualification",
+            name: "Noell Inbound: B2B Lead Qualification",
             description:
               "First-touch lead qualification, intake routing, and discovery call scheduling for B2B and enterprise sales teams.",
             path: "/noell-inbound",
@@ -82,7 +82,7 @@ export default function NoellInboundPage() {
         headlineLine2Start="deciding in seconds."
         headlineLine2Accent="Are you ready?"
         footnote="Built for B2B teams that cannot afford to lose a lead."
-        body="Noell Inbound is the first-touch intake layer for B2B and enterprise sales teams. It responds instantly to every inbound inquiry, qualifies intent, and routes the right prospects to the right rep — before the lead goes cold."
+        body="Noell Inbound is the first-touch intake layer for B2B and enterprise sales teams. It responds instantly to every inbound inquiry, qualifies intent, and routes the right prospects to the right rep, before the lead goes cold."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}
@@ -103,7 +103,7 @@ export default function NoellInboundPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              By the time your team follows up, the prospect has already had three conversations with your competitors. Noell Inbound responds in seconds — not hours — and qualifies the lead while their intent is highest.
+              By the time your team follows up, the prospect has already had three conversations with your competitors. Noell Inbound responds in seconds, not hours, and qualifies the lead while their intent is highest.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -121,7 +121,7 @@ export default function NoellInboundPage() {
               {
                 icon: <IconBolt size={26} />,
                 title: "Noell responds in seconds",
-                body: "Noell Inbound picks up every inquiry the moment it arrives — 24 hours a day, seven days a week — and begins qualifying before your team even sees the notification.",
+                body: "Noell Inbound picks up every inquiry the moment it arrives, 24 hours a day, seven days a week, and begins qualifying before your team even sees the notification.",
               },
             ].map((card, i) => (
               <div
@@ -148,7 +148,7 @@ export default function NoellInboundPage() {
         eyebrow="What Noell Inbound does"
         headlineStart="Three functions."
         headlineAccent="One intake layer."
-        body="Noell Inbound handles the full first-touch lifecycle — from the moment a prospect makes contact to the moment they land on your sales team's calendar."
+        body="Noell Inbound handles the full first-touch lifecycle, from the moment a prospect makes contact to the moment they land on your sales team's calendar."
         accent="lilac"
         capabilities={[
           {
@@ -156,7 +156,7 @@ export default function NoellInboundPage() {
             number: "01",
             title: "Instant first-touch response",
             description:
-              "Every inbound inquiry — contact form, ad click, website chat — receives an immediate, intelligent response. No auto-responder. A real conversation that captures intent.",
+              "Every inbound inquiry: contact form, ad click, website chat: receives an immediate, intelligent response. No auto-responder. A real conversation that captures intent.",
             points: [
               "Responds in under 60 seconds",
               "Trained in your brand voice",
@@ -180,7 +180,7 @@ export default function NoellInboundPage() {
             number: "03",
             title: "Routing and discovery call scheduling",
             description:
-              "Qualified leads are routed to the right rep with full context. Noell Inbound books the discovery call directly — no back-and-forth email chains.",
+              "Qualified leads are routed to the right rep with full context. Noell Inbound books the discovery call directly, no back-and-forth email chains.",
             points: [
               "CRM integration included",
               "Calendar sync with your team",
@@ -211,7 +211,7 @@ export default function NoellInboundPage() {
               },
               {
                 title: "AI vendors and technology providers",
-                body: "Enterprise buyers evaluating AI solutions expect instant, intelligent responses. Noell Inbound demonstrates the capability you are selling — by being the first thing they experience.",
+                body: "Enterprise buyers evaluating AI solutions expect instant, intelligent responses. Noell Inbound demonstrates the capability you are selling, by being the first thing they experience.",
               },
               {
                 title: "Professional services firms",
@@ -249,7 +249,7 @@ export default function NoellInboundPage() {
         eyebrow="Get started"
         headlineStart="See what Noell Inbound would catch"
         headlineAccent="on your site."
-        body="Book a free Digital Readiness Review and we will show you exactly how Noell Inbound would handle your current inbound leads — with your copy, in your voice, against your ICP."
+        body="Book a free Digital Readiness Review and we will show you exactly how Noell Inbound would handle your current inbound leads, with your copy, in your voice, against your ICP."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         trustLine="No pitch · No contracts · Live in 14 days"

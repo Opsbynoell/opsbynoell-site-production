@@ -8,7 +8,7 @@ const PATH = "/compare/ai-front-desk-alternatives";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "AI front desk alternatives — done-for-you vs. DIY vs. human",
+  title: "AI front desk alternatives, done-for-you vs. DIY vs. human",
   description:
     "A short, honest map of AI front desk alternatives for service businesses, and where Ops by Noell&apos;s done-for-you install fits among them.",
 });
@@ -116,7 +116,7 @@ export default function Compare() {
         verdict={
           <>
             <p>
-              There is no universal &ldquo;best&rdquo; here — only the best fit
+              There is no universal &ldquo;best&rdquo; here, only the best fit
               for how your business actually runs. If you want the front desk
               job handled in your voice without a dashboard to operate, the
               done-for-you install is the fit. If not, one of the other shapes

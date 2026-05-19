@@ -8,7 +8,7 @@ const PATH = "/resources/salon-after-hours-booking";
 const TITLE =
   "Salon after-hours booking: why the 9 p.m. text is where your week actually gets made";
 const DESCRIPTION =
-  "Most salon owners think their week is built at the chair. It isn't — it is built between 7 and 10 p.m., when clients are on the couch with their phones. Here is what an after-hours booking layer actually looks like.";
+  "Most salon owners think their week is built at the chair. It isn't, it is built between 7 and 10 p.m., when clients are on the couch with their phones. Here is what an after-hours booking layer actually looks like.";
 const PUBLISHED = "2026-04-24";
 
 export const metadata = pageMetadata({
@@ -41,7 +41,7 @@ export default function Article() {
       <ArticleLayout
         eyebrow="Article · 7 min"
         title="Salon after-hours booking"
-        lead="Most salon owners think their week is built at the chair. It isn't — it is built between 7 and 10 p.m., when clients are on the couch with their phones, deciding whether to text you or the new place down the street."
+        lead="Most salon owners think their week is built at the chair. It isn't, it is built between 7 and 10 p.m., when clients are on the couch with their phones, deciding whether to text you or the new place down the street."
         meta="Published April 24, 2026 · Nikki Noell"
       >
         <p>
@@ -49,7 +49,7 @@ export default function Article() {
           most undervalued window in your week is probably the three hours
           between dinner and bed. It is also the window where your front desk
           is already closed, where your stylists have gone home, and where
-          your only line of communication — for most shops — is a voicemail
+          your only line of communication, for most shops, is a voicemail
           box and a website contact form that nobody checks until 9:30 the
           next morning.
         </p>
@@ -71,7 +71,7 @@ export default function Article() {
         </p>
         <p>
           That timing is not random. Clients book hair appointments when
-          their day is done — after kids are in bed, after dinner is
+          their day is done, after kids are in bed, after dinner is
           cleared, on the couch. They are scrolling Instagram, a stylist&apos;s
           work catches their eye, they DM or text or tap through to a
           website. In that moment, whoever makes booking easiest wins.
@@ -101,7 +101,7 @@ export default function Article() {
           </li>
           <li>
             <strong>Web form submissions.</strong> &ldquo;Hi, I&apos;d love
-            to come in for balayage — when is your next availability?&rdquo;
+            to come in for balayage, when is your next availability?&rdquo;
             Sent at 9:14 p.m. Email arrives. Nobody sees it until the front
             desk opens email between clients at 11:30 a.m.
           </li>
@@ -125,8 +125,8 @@ export default function Article() {
         <p>
           The goal is not &ldquo;be open 24/7&rdquo; or &ldquo;automate the
           front desk.&rdquo; The goal is to make sure a client who wants to
-          book on her couch at 9 p.m. can book — or at minimum get a warm,
-          human-sounding reply with real times — inside the same window her
+          book on her couch at 9 p.m. can book, or at minimum get a warm,
+          human-sounding reply with real times, inside the same window her
           attention is on you.
         </p>
         <p>
@@ -137,7 +137,7 @@ export default function Article() {
             <strong>Every after-hours inbound channel is covered.</strong>{" "}
             Missed call, text, website chat, Google message, and Instagram
             DM all route into one place and all get a reply inside a few
-            minutes — in the salon&apos;s tone, not a canned auto-responder.
+            minutes, in the salon&apos;s tone, not a canned auto-responder.
           </li>
           <li>
             <strong>Real availability is offered.</strong> Not &ldquo;someone
@@ -147,7 +147,7 @@ export default function Article() {
           </li>
           <li>
             <strong>Service complexity is handled gracefully.</strong> Color
-            corrections, extensions, double processes — these can&apos;t be
+            corrections, extensions, double processes, these can&apos;t be
             booked blindly. The layer knows to collect photos, ask the three
             right questions, and hand the thread to the stylist or senior
             colorist the next morning with everything already in one place.
@@ -178,7 +178,7 @@ export default function Article() {
             have gone to voicemail or sat unread overnight.
           </li>
           <li>
-            A meaningful reduction in late-cancel and no-show losses — not
+            A meaningful reduction in late-cancel and no-show losses, not
             from being stricter with clients, but from sending a confirm,
             a 24-hour reminder, and a 2-hour reminder without anyone at the
             salon having to remember to.
@@ -196,7 +196,7 @@ export default function Article() {
         </ul>
         <p>
           Those four lines, stacked, almost always clear a multiple of what
-          the system costs — which is the entire reason we lead with the
+          the system costs, which is the entire reason we lead with the
           math instead of the pitch.
         </p>
 
@@ -212,7 +212,7 @@ export default function Article() {
         <p>
           <Link href="/resources">Predictive Customer Intelligence</Link> is
           the layer on top of the front desk that turns that noise into a
-          short, weekly list — the clients who should be rebooked this
+          short, weekly list, the clients who should be rebooked this
           week, the openings the salon should proactively fill, the regulars
           who should get a warm check-in before they drift further. Not
           automation for the sake of automation. A second set of eyes that
@@ -221,8 +221,8 @@ export default function Article() {
 
         <h2>Where to start</h2>
         <p>
-          Look at your last seven days of inbound — calls, texts, DMs, Google
-          messages, web forms — and mark the ones that came in between 7 p.m.
+          Look at your last seven days of inbound, calls, texts, DMs, Google
+          messages, web forms, and mark the ones that came in between 7 p.m.
           and 10 p.m. How many of them actually booked? If the answer is
           fewer than half, you have a repair job that is almost certainly
           worth doing this month.
@@ -239,23 +239,23 @@ export default function Article() {
             <Link href="/resources/missed-calls-to-missed-bookings">
               From missed calls to missed bookings
             </Link>{" "}
-            — warm intent cools off quietly, across every inbound channel.
+           , warm intent cools off quietly, across every inbound channel.
           </li>
           <li>
             <Link href="/resources/rebooking-and-reactivation-for-med-spas-and-massage">
               Rebooking and reactivation for med spas and massage
             </Link>{" "}
-            — the same mechanics, applied to the regulars who quietly
+           , the same mechanics, applied to the regulars who quietly
             stopped coming in.
           </li>
           <li>
             <Link href="/resources/review-velocity-local-seo-service-business">
               Review velocity and local SEO for service businesses
             </Link>{" "}
-            — the compounding effect of a steady five-star cadence.
+           , the compounding effect of a steady five-star cadence.
           </li>
           <li>
-            <Link href="/verticals/salons">Salons</Link> — how the system is
+            <Link href="/verticals/salons">Salons</Link>, how the system is
             set up specifically for salons and stylists.
           </li>
         </ul>

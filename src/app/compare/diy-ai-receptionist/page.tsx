@@ -72,7 +72,7 @@ export default function Compare() {
         summary={
           <>
             <p>
-              DIY AI receptionist tools can look appealing — low sticker price,
+              DIY AI receptionist tools can look appealing, low sticker price,
               fast signup. The real cost shows up in the hours you pour into
               prompts, cadences, and QA, and in the weeks it takes to get the
               tone right. Most owners we talk to either abandon the project or

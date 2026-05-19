@@ -10,7 +10,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/compare",
-  title: "Compare Ops by Noell — vs. My AI Front Desk, Podium, DIY AI, and More",
+  title: "Compare Ops by Noell, vs. My AI Front Desk, Podium, DIY AI, and More",
   description:
     "Side-by-side comparisons of Ops by Noell against the most common alternatives for service businesses. See how setup model, voice fit, retention, and ongoing management stack up.",
 });
@@ -48,7 +48,7 @@ const comparisons = [
   },
   {
     href: "/compare/ai-front-desk-alternatives",
-    name: "AI Front Desk Alternatives — Full Comparison",
+    name: "AI Front Desk Alternatives: Full Comparison",
     description:
       "A complete look at the AI front desk landscape for service businesses. What to look for, what to avoid, and how Ops by Noell fits.",
   },

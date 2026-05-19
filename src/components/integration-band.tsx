@@ -21,7 +21,7 @@ export function IntegrationBand({ className }: IntegrationBandProps) {
         </h2>
         <p className="mt-5 text-base text-cream/80 leading-relaxed">
           Designed to support service businesses across salons, spas, dental,
-          and wellness — using whichever booking or practice management
+          and wellness, using whichever booking or practice management
           software you already run. Your booking system stays the system of
           record. We build the front desk layer around it and run it every
           day.

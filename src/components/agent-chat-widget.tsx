@@ -4,8 +4,8 @@
  * Reusable chat widget for Noell Front Desk and Noell Care.
  *
  * Modes:
- *   - mode="demo"  — scripted, no backend. For the marketing pages.
- *   - mode="live"  — POSTs to /api/front-desk/message or /api/care/message
+ *   - mode="demo" , scripted, no backend. For the marketing pages.
+ *   - mode="live" , POSTs to /api/front-desk/message or /api/care/message
  *                    with a clientId provided via script tag data-*.
  *
  * GTM improvements applied:
@@ -146,7 +146,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
         ...prev,
         {
           from: "agent",
-          text: "Widget misconfigured — missing clientId. Please contact the business.",
+          text: "Widget misconfigured: missing clientId. Please contact the business.",
         },
       ]);
       setTyping(false);
@@ -181,7 +181,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
         ...prev,
         {
           from: "agent",
-          text: data.reply || data.error || "Sorry — lost that one. One sec.",
+          text: data.reply || data.error || "Sorry: lost that one. One sec.",
         },
       ]);
     } catch (e) {
@@ -259,7 +259,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               "shadow-xl flex flex-col max-h-[580px]"
             )}
           >
-            {/* Header — GTM item 7: subtitle carries social proof copy */}
+            {/* Header, GTM item 7: subtitle carries social proof copy */}
             <div className={cn("px-5 py-4 flex items-center gap-3", styles.header)}>
               <div className="w-9 h-9 rounded-full bg-[#271520]/20 flex items-center justify-center border border-white/20">
                 <span className="text-white text-sm font-serif font-semibold">N</span>
@@ -275,7 +275,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
                   </p>
                 </div>
               </div>
-              {/* GTM item 4: Replay button — only shown after conversation has started */}
+              {/* GTM item 4: Replay button, only shown after conversation has started */}
               {hasConversation && props.mode === "demo" && (
                 <button
                   type="button"

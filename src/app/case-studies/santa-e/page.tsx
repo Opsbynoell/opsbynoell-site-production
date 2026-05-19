@@ -8,14 +8,14 @@ import {
 } from "@/lib/schema";
 
 const PATH = "/case-studies/santa-e";
-const TITLE = "Santa E., massage therapist — $960 recovered in 14 days";
+const TITLE = "Santa E., massage therapist: $960 recovered in 14 days";
 const DESCRIPTION =
   "How one solo massage therapist in Orange County recovered four missed calls and rebooked them within 14 days of installing a done-for-you AI front desk.";
 const PUBLISHED = "2026-04-18";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "Santa E. case study — $960 recovered in 14 days",
+  title: "Santa E. case study, $960 recovered in 14 days",
   description: DESCRIPTION,
   type: "article",
   publishedTime: PUBLISHED,
@@ -43,14 +43,14 @@ export default function CaseStudy() {
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Case studies", path: "/case-studies/santa-e" },
-            { name: "Santa E. — massage therapist", path: PATH },
+            { name: "Santa E.: massage therapist", path: PATH },
           ]),
         ]}
         id="case-santa-e"
       />
       <ArticleLayout
         eyebrow="Case study · 4 min"
-        title="Santa E., massage therapist — $960 recovered in 14 days"
+        title="Santa E., massage therapist: $960 recovered in 14 days"
         lead="A solo practitioner. Four missed calls the old way would have eaten. All four rebooked within 14 days of install."
         meta="Orange County, CA · Solo massage practice · 14-day result"
       >
@@ -60,7 +60,7 @@ export default function CaseStudy() {
           calendar is regulars, but her growth engine has always been
           new-client intent from Google and word of mouth. Until install, that
           intent lived and died on voicemail. In session with a client, phone
-          ringing in the next room — by the time she could call back, the
+          ringing in the next room, by the time she could call back, the
           caller had already booked somewhere else.
         </p>
 
@@ -126,19 +126,19 @@ export default function CaseStudy() {
         </p>
         <ul>
           <li>
-            <strong>Noell Support</strong> — captured and qualified missed
+            <strong>Noell Support</strong>, captured and qualified missed
             inbound intent.
           </li>
           <li>
-            <strong>Noell Front Desk</strong> — helped turn missed calls into
+            <strong>Noell Front Desk</strong>, helped turn missed calls into
             booked appointments.
           </li>
           <li>
-            <strong>Noell Care</strong> — protected existing-client
+            <strong>Noell Care</strong>, protected existing-client
             follow-up and rebooking.
           </li>
           <li>
-            <strong>Predictive Customer Intelligence</strong> — identified
+            <strong>Predictive Customer Intelligence</strong>, identified
             the patterns that should become recovery signals.
           </li>
         </ul>

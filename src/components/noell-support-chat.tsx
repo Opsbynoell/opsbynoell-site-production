@@ -236,7 +236,7 @@ export function NoellSupportChat() {
         {
           from: "agent",
           text:
-            "Our team is setting things up — drop your name and email below and we'll reach out within 24 hours. You can also book a time at https://www.opsbynoell.com/book.",
+            "Our team is setting things up: drop your name and email below and we'll reach out within 24 hours. You can also book a time at https://www.opsbynoell.com/book.",
         },
       ]);
     } finally {
@@ -461,7 +461,7 @@ export function NoellSupportChat() {
               {fallbackMode ? (
                 leadStatus === "sent" ? (
                   <p className="text-sm text-cream/80 text-center py-2">
-                    Thanks — we&apos;ll be in touch soon.
+                    Thanks, we&apos;ll be in touch soon.
                   </p>
                 ) : (
                   <div className="space-y-2">

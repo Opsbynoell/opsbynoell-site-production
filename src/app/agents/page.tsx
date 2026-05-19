@@ -20,10 +20,10 @@ import {
 
 export const metadata = pageMetadata({
   path: "/agents",
-  title: "Noell Agents — AI Operations for Service Businesses",
+  title: "Noell Agents, AI Operations for Service Businesses",
   description:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Starting at $397/mo. Month-to-month.",
-  ogTitle: "Noell Agents — AI Operations for Service Businesses",
+  ogTitle: "Noell Agents, AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",
   imageAlt:
@@ -87,7 +87,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "What happens if I cancel?",
     answer:
-      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice — we turn the agents off at the end of your current billing month. Cancel anytime with 30 days notice.",
+      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice, we turn the agents off at the end of your current billing month. Cancel anytime with 30 days notice.",
   },
   {
     id: "agents_upgrade_to_system",
@@ -101,14 +101,14 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "How long until I'm live?",
     answer:
-      "Under a week on most agents-only installs. Light onboarding — we need your services, pricing, hours, and a couple of sample call/chat scenarios. A2P SMS registration runs in parallel on carrier timelines (usually 2–4 weeks); the agents handle chat and calls from day one, and SMS delivery switches on as soon as carriers approve.",
+      "Under a week on most agents-only installs. Light onboarding, we need your services, pricing, hours, and a couple of sample call/chat scenarios. A2P SMS registration runs in parallel on carrier timelines (usually 2–4 weeks); the agents handle chat and calls from day one, and SMS delivery switches on as soon as carriers approve.",
   },
   {
     id: "agents_booking_tools",
     group: "agents",
     question: "What booking tools do you work with?",
     answer:
-      "Any of them. Noell Agents is designed to sit alongside your existing booking or practice management tool, not replace it — across dental, salon and spa, wellness, home services, and general scheduling platforms. Deep two-way integration (read availability, write confirmed bookings back) is part of The Noell System, not the agents-only tier. Tell us what you use on your intro call and we will confirm fit.",
+      "Any of them. Noell Agents is designed to sit alongside your existing booking or practice management tool, not replace it, across dental, salon and spa, wellness, home services, and general scheduling platforms. Deep two-way integration (read availability, write confirmed bookings back) is part of The Noell System, not the agents-only tier. Tell us what you use on your intro call and we will confirm fit.",
   },
   {
     id: "agents_post_founder_rate",
@@ -305,7 +305,7 @@ export default function AgentsPage() {
               $397<span className="text-2xl md:text-3xl font-normal">/mo</span>
             </p>
             <p className="text-xs text-muted-strong mt-2">
-              <span className="line-through">$497/mo</span> standard rate — launch pricing
+              <span className="line-through">$497/mo</span> standard rate
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
               Done-for-you setup. Live in 5 business days.
@@ -345,7 +345,7 @@ export default function AgentsPage() {
             </li>
             <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
               <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
-                Optional: a full case study — in exchange, we will co-promote your business to our network.
+                Optional: a full case study, in exchange, we will co-promote your business to our network.
               </p>
             </li>
           </ul>
@@ -357,7 +357,7 @@ export default function AgentsPage() {
         eyebrow="Before you claim a spot"
         headlineStart="Quick"
         headlineAccent="answers."
-        body="Five questions we get most often on the agents-only offer. If yours isn't here, chat with Noell Support — she has the answers too."
+        body="Five questions we get most often on the agents-only offer. If yours isn't here, chat with Noell Support, she has the answers too."
         faqs={agentsFaqs}
       />
 

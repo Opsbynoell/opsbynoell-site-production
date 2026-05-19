@@ -20,9 +20,9 @@ import {
 
 export const metadata = pageMetadata({
   path: "/pricing",
-  title: "Pricing — AI Operations for Service Businesses and B2B",
+  title: "Pricing, AI Operations for Service Businesses and B2B",
   description:
-    "Two tracks. Six tiers. Service businesses from $497/mo. B2B from $597/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
+    "Two tracks. Six tiers. Service businesses from $397/mo. B2B from $597/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
 });
 
 const pricingFaqs: FaqItem[] = [
@@ -38,7 +38,7 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($497/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($1,097/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation) — all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($1,097/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
@@ -60,7 +60,7 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "Is the dashboard included? What does it show?",
     answer:
-      "Yes. Every Noell engagement includes a live client dashboard. For service businesses, it shows your lead pipeline with HOT and WARM scoring, full conversation threads from every agent, conversion funnel from first contact to booked appointment, and date range filtering (7D, 30D, 90D, All Time). For B2B engagements, it shows deal stages, ICP scores, outreach status, pipeline value, and win rate. You see exactly what the system is doing and what it is recovering. No login required for your team — we send you a direct link.",
+      "Yes. Every Noell engagement includes a live client dashboard. For service businesses, it shows your lead pipeline with HOT and WARM scoring, full conversation threads from every agent, conversion funnel from first contact to booked appointment, and date range filtering (7D, 30D, 90D, All Time). For B2B engagements, it shows deal stages, ICP scores, outreach status, pipeline value, and win rate. You see exactly what the system is doing and what it is recovering. No login required for your team, we send you a direct link.",
   },
   // Existing — Group 1 — Commitment and terms
   {
@@ -89,14 +89,14 @@ const pricingFaqs: FaqItem[] = [
     group: "commitment",
     question: "Can I upgrade or downgrade later?",
     answer:
-      "Yes. Upgrades are prorated and take effect immediately — the system grows with you. Downgrades take effect at the start of the next billing month so nothing gets orphaned mid-build. If you're on Custom Ops and we're still building your Reactivation Campaigns when you downgrade, we finish what we started on the original tier. No half-built systems.",
+      "Yes. Upgrades are prorated and take effect immediately, the system grows with you. Downgrades take effect at the start of the next billing month so nothing gets orphaned mid-build. If you're on Custom Ops and we're still building your Reactivation Campaigns when you downgrade, we finish what we started on the original tier. No half-built systems.",
   },
   {
     id: "commitment_guarantee",
     group: "commitment",
     question: "What if it doesn't work for my business?",
     answer:
-      "Every install includes a 90-day results check-in. If by day 90 the system hasn't produced measurable lift in at least one of: recovered calls, booked appointments, or captured reviews — we rebuild the core flows at no charge. If the rebuild hasn't moved the numbers by day 120, you can cancel your subscription with no further obligation. The one-time setup fee isn't refundable once provisioning has begun.",
+      "Every install includes a 90-day results check-in. If by day 90 the system hasn't produced measurable lift in at least one of: recovered calls, booked appointments, or captured reviews, we rebuild the core flows at no charge. If the rebuild hasn't moved the numbers by day 120, you can cancel your subscription with no further obligation. The one-time setup fee isn't refundable once provisioning has begun.",
   },
   // Group 2 — What you're actually buying
   {
@@ -104,21 +104,21 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "What's the difference between the three tiers in plain English?",
     answer:
-      "Signal ($397/mo) is the entry tier who just need to stop missing calls. It adds A2P-registered texting, auto-reply when you miss a call, appointment confirmation texts, and one review-request sequence. It works alongside your existing booking tool — it doesn't talk to it directly. Think of it as a smart assistant sitting next to your current setup. System ($897/mo) is the full front desk system. Everything in Essentials, plus Noell Support AI Chat on your website handling conversations 24/7, no-show recovery sequences, Google review automation, lead pipeline management so nothing falls through the cracks, and a monthly strategy call. Growth also integrates directly with your PMS or booking tool — reading availability, writing confirmed bookings back in. Most practices start here. Custom Ops ($1,497/mo) is for multi-location or reactivation-heavy practices. Everything in Growth, plus reactivation campaigns that win back inactive clients, multi-location sync, a custom reporting dashboard, same-day priority support, and a quarterly business review. If you have unscheduled treatment worth reactivating or more than one location to run, this is the tier.",
+      "Signal ($397/mo) is the entry tier who just need to stop missing calls. It adds A2P-registered texting, auto-reply when you miss a call, appointment confirmation texts, and one review-request sequence. It works alongside your existing booking tool, it doesn't talk to it directly. Think of it as a smart assistant sitting next to your current setup. System ($897/mo) is the full front desk system. Everything in Essentials, plus Noell Support AI Chat on your website handling conversations 24/7, no-show recovery sequences, Google review automation, lead pipeline management so nothing falls through the cracks, and a monthly strategy call. Growth also integrates directly with your PMS or booking tool, reading availability, writing confirmed bookings back in. Most practices start here. Custom Ops ($1,497/mo) is for multi-location or reactivation-heavy practices. Everything in Growth, plus reactivation campaigns that win back inactive clients, multi-location sync, a custom reporting dashboard, same-day priority support, and a quarterly business review. If you have unscheduled treatment worth reactivating or more than one location to run, this is the tier.",
   },
   {
     id: "features_a2p_sms",
     group: "features",
     question: "What is A2P-registered SMS and why does it matter?",
     answer:
-      "A2P stands for Application-to-Person. As of 2023, US carriers require every business that sends automated texts to be registered and approved. Unregistered senders get their messages blocked, filtered to spam, or worse — fined. A2P registration is a 2–4 week process involving business verification, campaign approval, and ongoing compliance. We handle it as part of setup. It's the reason your texts actually deliver.",
+      "A2P stands for Application-to-Person. As of 2023, US carriers require every business that sends automated texts to be registered and approved. Unregistered senders get their messages blocked, filtered to spam, or worse, fined. A2P registration is a 2–4 week process involving business verification, campaign approval, and ongoing compliance. We handle it as part of setup. It's the reason your texts actually deliver.",
   },
   {
     id: "features_support_ai_chat",
     group: "features",
     question: "What does Noell Support AI Chat (Growth and up) actually do?",
     answer:
-      "Noell Support is an AI chat agent on your website trained on your specific business — your services, pricing, hours, booking logic, tone. She handles the 80% of website conversations that are predictable: \"Do you take my insurance?\", \"What's the earliest appointment?\", \"How much is a deep tissue?\", \"Can I reschedule?\". She books appointments directly when she has enough information. When a conversation needs a human — refund requests, clinical questions, anything that smells like a complaint — she routes it to your team with the full chat context attached. She is not a generic ChatGPT wrapper.",
+      "Noell Support is an AI chat agent on your website trained on your specific business, your services, pricing, hours, booking logic, tone. She handles the 80% of website conversations that are predictable: \"Do you take my insurance?\", \"What's the earliest appointment?\", \"How much is a deep tissue?\", \"Can I reschedule?\". She books appointments directly when she has enough information. When a conversation needs a human, refund requests, clinical questions, anything that smells like a complaint, she routes it to your team with the full chat context attached. She is not a generic ChatGPT wrapper.",
   },
   {
     id: "features_no_show_recovery",
@@ -139,14 +139,14 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "What are reactivation campaigns (Custom Ops only)?",
     answer:
-      "Reactivation campaigns automatically identify and contact inactive clients — typically 6+ months since last visit — with a sequence built around why they probably stopped coming. For dental, that's often unscheduled treatment plans sitting in the PMS; we text a friendly nudge with a direct link to reschedule. For salons, it's clients who drifted after a stylist moved. For massage and spa, it's seasonal drop-offs. Reactivation is usually the highest-ROI automation a practice can run because the leads already know and trust you.",
+      "Reactivation campaigns automatically identify and contact inactive clients, typically 6+ months since last visit, with a sequence built around why they probably stopped coming. For dental, that's often unscheduled treatment plans sitting in the PMS; we text a friendly nudge with a direct link to reschedule. For salons, it's clients who drifted after a stylist moved. For massage and spa, it's seasonal drop-offs. Reactivation is usually the highest-ROI automation a practice can run because the leads already know and trust you.",
   },
   {
     id: "features_lead_pipeline",
     group: "features",
     question: "What is lead pipeline management (Growth and up)?",
     answer:
-      "Every lead that comes into your practice — web form, missed call, chat, direct text — gets logged, tagged, and tracked through a visible pipeline: new lead → contacted → booked → consulted → decision. Leads that go cold get automated follow-up, leads that book skip ahead, leads that ghost get categorized so you see what's actually happening. It replaces the sticky-notes-and-texts-with-myself workflow most practices still run on.",
+      "Every lead that comes into your practice, web form, missed call, chat, direct text, gets logged, tagged, and tracked through a visible pipeline: new lead → contacted → booked → consulted → decision. Leads that go cold get automated follow-up, leads that book skip ahead, leads that ghost get categorized so you see what's actually happening. It replaces the sticky-notes-and-texts-with-myself workflow most practices still run on.",
   },
   // Group 3 — Install, tools, logistics
   {
@@ -154,21 +154,21 @@ const pricingFaqs: FaqItem[] = [
     group: "logistics",
     question: "How long until the system is live?",
     answer:
-      "14 days from audit-to-live on most installs. A2P registration takes 2–4 weeks on the carrier side but runs in parallel, so your SMS delivery goes live as soon as carriers approve — usually within the first 14 days. Multi-location Custom Ops builds can take up to 21 days. Your audit call confirms the timeline for your specific setup.",
+      "14 days from audit-to-live on most installs. A2P registration takes 2–4 weeks on the carrier side but runs in parallel, so your SMS delivery goes live as soon as carriers approve, usually within the first 14 days. Multi-location Custom Ops builds can take up to 21 days. Your audit call confirms the timeline for your specific setup.",
   },
   {
     id: "logistics_replace_booking_tool",
     group: "logistics",
     question: "Do I need to replace my current booking tool?",
     answer:
-      "No. The Noell system layers on top of the booking, practice management, and field service software you already run — across dental, salon and spa, wellness, and home services. Your team keeps the tool they trained on. We layer the communication and scheduling automation on top. On Essentials, the system works alongside your tool via SMS; on Growth and Custom Ops, it integrates directly (reads availability, writes confirmed bookings back). Tell us what you use on your audit call and we will confirm fit.",
+      "No. The Noell system layers on top of the booking, practice management, and field service software you already run, across dental, salon and spa, wellness, and home services. Your team keeps the tool they trained on. We layer the communication and scheduling automation on top. On Essentials, the system works alongside your tool via SMS; on Growth and Custom Ops, it integrates directly (reads availability, writes confirmed bookings back). Tell us what you use on your audit call and we will confirm fit.",
   },
   {
     id: "logistics_managed_meaning",
     group: "logistics",
     question: "What does \"managed\" actually mean?",
     answer:
-      "You never touch the backend. Ongoing copy tweaks, automation adjustments, integration fixes, new review responses, seasonal campaign setup, messaging around holidays and closures — we handle all of it. The Noell team is the admin. You get the monthly report. If something isn't working, you tell us and we fix it. Managed means you don't become an ops person in addition to running your practice.",
+      "You never touch the backend. Ongoing copy tweaks, automation adjustments, integration fixes, new review responses, seasonal campaign setup, messaging around holidays and closures, we handle all of it. The Noell team is the admin. You get the monthly report. If something isn't working, you tell us and we fix it. Managed means you don't become an ops person in addition to running your practice.",
   },
 ];
 
@@ -182,23 +182,23 @@ export default function PricingPage() {
               name: "Noell Agents",
               priceMonthly: 197,
               description:
-                "Three managed AI agents covering chat, calls, and existing-client support. Starting at $497/mo (Signal tier). Month-to-month.",
+                "Three managed AI agents covering chat, calls, and existing-client support. Starting at $397/mo (Signal tier). Month-to-month.",
               url: "/agents",
             },
             {
-              name: "Noell System — Essentials",
+              name: "Noell System: Essentials",
               priceMonthly: 197,
               description:
                 "Entry tier of the managed Noell System for service businesses.",
             },
             {
-              name: "Noell System — Growth",
+              name: "Noell System: Growth",
               priceMonthly: 797,
               description:
                 "Full managed Noell System, expanded hours and deeper integrations.",
             },
             {
-              name: "Noell System — Custom Ops",
+              name: "Noell System: Custom Ops",
               priceMonthly: 1497,
               description:
                 "Custom-scoped operations engagement for multi-location and higher-volume service businesses.",
@@ -250,7 +250,7 @@ export default function PricingPage() {
             <span className="font-semibold text-cream">
               Service track starts at $397/mo (Signal). B2B track starts at $497/mo (Prospect).
             </span>{" "}
-            The difference is scope — agents only, or the full system.
+            The difference is scope, agents only, or the full system.
           </p>
         </div>
       </section>

@@ -9,7 +9,7 @@ const ALT = "My AI Front Desk";
 export const metadata = pageMetadata({
   path: PATH,
   title: `Ops by Noell vs. ${ALT}`,
-  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses — setup model, voice fit, retention, and what happens after go-live.`,
+  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses, setup model, voice fit, retention, and what happens after go-live.`,
 });
 
 const rows: CompareRow[] = [
@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Pricing",
     opsByNoell:
-      "$497/mo (Signal tier). Full system from $1,097/mo. Month-to-month.",
+      "$397/mo (Signal tier). Full system from $1,097/mo. Month-to-month.",
     alternative:
       "Published SaaS pricing. Quality of output depends heavily on your own tuning.",
   },
@@ -75,9 +75,9 @@ export default function Compare() {
           <>
             <p>
               Both options answer calls with AI. The difference is who builds
-              and runs it. {ALT} is a self-serve product — you configure the
+              and runs it. {ALT} is a self-serve product, you configure the
               agent, wire up the integrations, and babysit the tone over time.
-              Ops by Noell is a managed service — we build, install, voice,
+              Ops by Noell is a managed service, we build, install, voice,
               and tune the front desk layer for you, and keep tuning it week
               over week.
             </p>

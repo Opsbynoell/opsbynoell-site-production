@@ -1,6 +1,6 @@
 "use client";
 /**
- * AdHero — GTM item 1
+ * AdHero, GTM item 1
  *
  * A thin client wrapper around <Hero> that reads UTM parameters from the URL
  * and swaps the hero headline to match the ad angle that drove the click.

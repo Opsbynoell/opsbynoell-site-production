@@ -18,7 +18,7 @@ const rows: CompareRow[] = [
     opsByNoell:
       "Narrow and deep. AI front desk for service businesses, installed end-to-end.",
     alternative:
-      "Wide and shallow. Messaging, reviews, text marketing, payments, feedback — many modules.",
+      "Wide and shallow. Messaging, reviews, text marketing, payments, feedback, many modules.",
   },
   {
     capability: "Who runs it",
@@ -36,7 +36,7 @@ const rows: CompareRow[] = [
   {
     capability: "Retention layer",
     opsByNoell:
-      "Existing clients are held by Noell Care — rebook, reschedule, service questions.",
+      "Existing clients are held by Noell Care, rebook, reschedule, service questions.",
     alternative:
       "Retention typically handled via text marketing broadcasts.",
   },
@@ -94,8 +94,8 @@ export default function Compare() {
             <p>
               Choose a broad platform if your team has the bandwidth to run a
               wide product across many modules. Choose Ops by Noell if you
-              want the front of your business quietly handled — calls, texts,
-              confirmations, reminders, retention — without another dashboard
+              want the front of your business quietly handled, calls, texts,
+              confirmations, reminders, retention, without another dashboard
               to learn.
             </p>
           </>

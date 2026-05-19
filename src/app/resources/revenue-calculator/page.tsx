@@ -10,12 +10,12 @@ import {
 
 export const metadata = pageMetadata({
   path: "/resources/revenue-calculator",
-  title: "Revenue Calculator — See What You're Losing",
+  title: "Revenue Calculator, See What You're Losing",
   description:
     "Find out how much revenue your dental practice, med spa, or chiropractic office is losing to missed calls and no-shows. Takes 60 seconds.",
-  ogTitle: "See What You're Losing — Ops by Noell Revenue Calculator",
+  ogTitle: "See What You're Losing, Ops by Noell Revenue Calculator",
   ogDescription:
-    "Enter your monthly leads, booking rate, and no-show rate. We show you what the Noell System would recover — based on Santa's actual 75% no-show reduction and $960 recovered in 14 days.",
+    "Enter your monthly leads, booking rate, and no-show rate. We show you what the Noell System would recover, based on Santa's actual 75% no-show reduction and $960 recovered in 14 days.",
 });
 
 export default function RevenueCalculatorPage() {
@@ -51,7 +51,7 @@ export default function RevenueCalculatorPage() {
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           Every missed call, every no-show, every slow follow-up is revenue walking out the door.
-          Enter your numbers. We&apos;ll show you what the Noell System would recover — based on real proof.
+          Enter your numbers. We&apos;ll show you what the Noell System would recover, based on real proof.
         </p>
 
         {/* Stats strip */}
@@ -78,7 +78,7 @@ export default function RevenueCalculatorPage() {
           </div>
         </div>
         <p className="relative z-20 mt-3 text-[10px] text-cream/50 text-center">
-          Results from our pilot client, Healing Hands by Santa — Laguna Niguel, CA.
+          Results from our pilot client, Healing Hands by Santa, Laguna Niguel, CA.
         </p>
       </section>
 
@@ -87,7 +87,7 @@ export default function RevenueCalculatorPage() {
         <RevenueCalculator />
       </section>
 
-      {/* Santa proof block — medium variant */}
+      {/* Santa proof block, medium variant */}
       <SantaProofBlock />
 
       {/* Dark CTA band */}

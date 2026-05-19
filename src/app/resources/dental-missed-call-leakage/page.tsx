@@ -62,8 +62,8 @@ export default function Article() {
         <p>
           A new-patient call to a dental office is close to the highest-intent
           phone call a local service business can receive. The caller has a
-          specific problem — a cracked tooth, a cleaning overdue by a year, a
-          child who needs a first visit — and she is trying to hand someone
+          specific problem, a cracked tooth, a cleaning overdue by a year, a
+          child who needs a first visit, and she is trying to hand someone
           her insurance card. She is also, almost without exception, calling
           during <em>her</em> lunch break, which is why your phones spike
           between 11:30 and 1:00 in the first place.
@@ -95,7 +95,7 @@ export default function Article() {
           steady general-practice office takes somewhere between twenty and
           forty inbound calls on a normal day. Of those, three to eight are
           new-patient inquiries. Of the new-patient inquiries, a meaningful
-          slice — usually between 20 and 35 percent — hit the phones during
+          slice, usually between 20 and 35 percent, hit the phones during
           the lunch hour, the morning huddle, or the last forty-five minutes
           of the day, when the front desk is in a checkout stack.
         </p>
@@ -165,8 +165,8 @@ export default function Article() {
             bookable windows pulled from your schedule.
           </li>
           <li>
-            <strong>After-hours inquiries</strong> — form, chat, Google
-            message — get the same human-sounding reply at 8:45 p.m. that
+            <strong>After-hours inquiries</strong>, form, chat, Google
+            message, get the same human-sounding reply at 8:45 p.m. that
             they would have gotten at 10:45 a.m.
           </li>
           <li>
@@ -180,8 +180,8 @@ export default function Article() {
           </li>
           <li>
             <strong>Overdue recall patients</strong> get a short, warm
-            check-in written in the practice&apos;s voice — not a coupon, not
-            a postcard — at the cadence that matches their last-visit
+            check-in written in the practice&apos;s voice, not a coupon, not
+            a postcard, at the cadence that matches their last-visit
             history.
           </li>
         </ol>
@@ -189,7 +189,7 @@ export default function Article() {
         <h2>Where Predictive Customer Intelligence changes the picture</h2>
         <p>
           Catching the lunch-hour call is table stakes. What dental practices
-          have almost never had is visibility across the chair — which
+          have almost never had is visibility across the chair, which
           patients are drifting out of six-month cadence, which producers
           are quietly under-scheduled next week, which insurance plans are
           taking three touches to book instead of one.
@@ -224,7 +224,7 @@ export default function Article() {
             without a postcard.
           </li>
           <li>
-            A steadier, higher review cadence on Google — because the
+            A steadier, higher review cadence on Google, because the
             five-star patients you already have are being asked, once, at the
             right time of day.
           </li>
@@ -256,23 +256,23 @@ export default function Article() {
             <Link href="/resources/missed-calls-to-missed-bookings">
               From missed calls to missed bookings
             </Link>{" "}
-            — the leak between the first ring and the empty chair, across
+           , the leak between the first ring and the empty chair, across
             service businesses.
           </li>
           <li>
             <Link href="/resources/missed-call-recovery-for-service-businesses">
               Missed-call recovery for service businesses
             </Link>{" "}
-            — the mechanics of the 60-second text-back.
+           , the mechanics of the 60-second text-back.
           </li>
           <li>
             <Link href="/resources/review-velocity-local-seo-service-business">
               Review velocity and local SEO for service businesses
             </Link>{" "}
-            — why the practices that answer calls fastest also rank highest.
+           , why the practices that answer calls fastest also rank highest.
           </li>
           <li>
-            <Link href="/verticals/dental">Dental</Link> — how the system
+            <Link href="/verticals/dental">Dental</Link>, how the system
             is set up specifically for general and specialty dental offices.
           </li>
         </ul>

@@ -109,8 +109,8 @@ export default function Article() {
           This is not a call center, and it is not a robo-dialer. It does not
           try to sound like a human it is not. It does not interpret clinical
           questions, make pricing promises you wouldn&apos;t make, or push
-          customers who say no. It covers the operational gap — the texting,
-          the scheduling, the reminders — and hands any genuine conversation
+          customers who say no. It covers the operational gap, the texting,
+          the scheduling, the reminders, and hands any genuine conversation
           back to you.
         </p>
 

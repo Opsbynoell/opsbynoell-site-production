@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/noell-account",
-  title: "Noell Account — B2B Account Management and Retention",
+  title: "Noell Account, B2B Account Management and Retention",
   description:
     "Noell Account manages account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and enterprise teams. Keep clients, grow revenue, reduce churn.",
 });
@@ -33,7 +33,7 @@ const accountFaqs = [
     id: "account_churn",
     question: "How does Noell Account detect churn risk?",
     answer:
-      "It monitors engagement signals — response rates, usage patterns, support ticket frequency — and initiates a proactive check-in before disengagement becomes a decision to leave.",
+      "It monitors engagement signals: response rates, usage patterns, support ticket frequency: and initiates a proactive check-in before disengagement becomes a decision to leave.",
   },
   {
     id: "account_renewal",
@@ -66,7 +66,7 @@ export default function NoellAccountPage() {
             { name: "Noell Account", path: "/noell-account" },
           ]),
           servicePageSchema({
-            name: "Noell Account — B2B Account Management",
+            name: "Noell Account: B2B Account Management",
             description:
               "Account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and enterprise teams.",
             path: "/noell-account",
@@ -83,7 +83,7 @@ export default function NoellAccountPage() {
         headlineLine2Start="only half the"
         headlineLine2Accent="revenue."
         footnote="Built for B2B account teams that cannot afford to lose a client."
-        body="Noell Account is the post-sale operations layer for B2B and enterprise teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage — so your clients stay, grow, and refer."
+        body="Noell Account is the post-sale operations layer for B2B and enterprise teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage, so your clients stay, grow, and refer."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}
@@ -149,7 +149,7 @@ export default function NoellAccountPage() {
         eyebrow="What Noell Account does"
         headlineStart="Three functions."
         headlineAccent="One account layer."
-        body="Noell Account manages the full post-sale lifecycle — from onboarding through renewal and expansion — so your clients feel supported without your team manually managing every touchpoint."
+        body="Noell Account manages the full post-sale lifecycle, from onboarding through renewal and expansion, so your clients feel supported without your team manually managing every touchpoint."
         accent="lilac"
         capabilities={[
           {
@@ -157,7 +157,7 @@ export default function NoellAccountPage() {
             number: "01",
             title: "Account health and retention touchpoints",
             description:
-              "Noell Account monitors account health signals and sends proactive touchpoints before disengagement becomes churn. Check-ins, milestone acknowledgments, and relationship maintenance — all automated.",
+              "Noell Account monitors account health signals and sends proactive touchpoints before disengagement becomes churn. Check-ins, milestone acknowledgments, and relationship maintenance, all automated.",
             points: [
               "Health signal monitoring",
               "Proactive check-in sequences",
@@ -169,7 +169,7 @@ export default function NoellAccountPage() {
             number: "02",
             title: "Renewal sequences and contract management",
             description:
-              "Noell Account initiates renewal conversations at the right time — not too early to feel pushy, not too late to lose the deal. Renewal reminders, contract review scheduling, and negotiation prep are all handled.",
+              "Noell Account initiates renewal conversations at the right time, not too early to feel pushy, not too late to lose the deal. Renewal reminders, contract review scheduling, and negotiation prep are all handled.",
             points: [
               "Renewal timeline configured by you",
               "Multi-touch renewal sequences",

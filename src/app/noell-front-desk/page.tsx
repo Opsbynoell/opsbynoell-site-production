@@ -19,7 +19,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/noell-front-desk",
-  title: "Noell Front Desk — Operations Layer",
+  title: "Noell Front Desk, Operations Layer",
   description:
     "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles, managed for you.",
 });
@@ -165,7 +165,7 @@ export default function NoellFrontDeskPage() {
       <JsonLd
         data={[
           servicePageSchema({
-            name: "Noell Front Desk — Operations Layer",
+            name: "Noell Front Desk: Operations Layer",
             description:
               "Operations layer of the Noell system: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation.",
             path: "/noell-front-desk",

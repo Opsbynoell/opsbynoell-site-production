@@ -6,7 +6,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/resources",
-  title: "Resources — Ops by Noell",
+  title: "Resources, Ops by Noell",
   description:
     "The reading list for operators who do not want to be sold to. Missed-call recovery, AI operations, and what the numbers actually say. No hype. No pitch. Just what works.",
 });
@@ -36,7 +36,7 @@ const resources: Resource[] = [
     status: "live",
     title: "From missed calls to missed bookings",
     excerpt:
-      "Warm intent cools off quietly. The leak between the first ring and the empty chair — and what a full front desk layer actually does about it.",
+      "Warm intent cools off quietly. The leak between the first ring and the empty chair, and what a full front desk layer actually does about it.",
     href: "/resources/missed-calls-to-missed-bookings",
     minutes: "8 min",
   },
@@ -54,7 +54,7 @@ const resources: Resource[] = [
     status: "live",
     title: "Rebooking and reactivation for med spas and massage",
     excerpt:
-      "The biggest growth lever in a premium service business isn't new leads — it's the regulars who quietly stopped coming in. How to bring them back without sounding like a promo blast.",
+      "The biggest growth lever in a premium service business isn't new leads, it's the regulars who quietly stopped coming in. How to bring them back without sounding like a promo blast.",
     href: "/resources/rebooking-and-reactivation-for-med-spas-and-massage",
     minutes: "7 min",
   },
@@ -72,7 +72,7 @@ const resources: Resource[] = [
     status: "live",
     title: "Salon after-hours booking",
     excerpt:
-      "Most salon owners think their week is built at the chair. It isn't — it's built between 7 and 10 p.m., when clients are on the couch with their phones. What an after-hours booking layer actually looks like.",
+      "Most salon owners think their week is built at the chair. It isn't, it's built between 7 and 10 p.m., when clients are on the couch with their phones. What an after-hours booking layer actually looks like.",
     href: "/resources/salon-after-hours-booking",
     minutes: "7 min",
   },
@@ -106,7 +106,7 @@ const resources: Resource[] = [
   {
     kind: "Case study",
     status: "live",
-    title: "Santa E., massage therapist — $960 recovered in 14 days",
+    title: "Santa E., massage therapist, $960 recovered in 14 days",
     excerpt:
       "How one solo massage therapist in Orange County recovered four missed calls and booked them inside two weeks of install.",
     href: "/case-studies/santa-e",
@@ -117,7 +117,7 @@ const resources: Resource[] = [
     status: "coming",
     title: "Predictive Customer Intelligence for service businesses",
     excerpt:
-      "How the Noell system is learning to see across your book — which regulars are drifting, when to reach out, and what is quietly shifting in your service mix. Long-form piece in progress, shipping alongside the intelligence layer rollout.",
+      "How the Noell system is learning to see across your book, which regulars are drifting, when to reach out, and what is quietly shifting in your service mix. Long-form piece in progress, shipping alongside the intelligence layer rollout.",
     minutes: "Next drop",
   },
 ];
@@ -190,7 +190,7 @@ export default function ResourcesPage() {
             return (
               <div
                 key={`roadmap-${idx}`}
-                aria-label={`${r.title} — coming soon`}
+                aria-label={`${r.title}, coming soon`}
                 className="block rounded-[22px] border border-dashed border-white/10 bg-[#301A26]/60 p-7"
               >
                 {card}

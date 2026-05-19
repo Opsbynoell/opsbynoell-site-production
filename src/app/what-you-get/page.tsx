@@ -22,12 +22,12 @@ const PATH = "/what-you-get";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "What's Included — The Ops by Noell Revenue Recovery System",
+  title: "What's Included, The Ops by Noell Revenue Recovery System",
   description:
     "Everything inside the revenue recovery system: a business line that never misses a call, three agents working in the background, the dashboard that runs your front office, and done-for-you setup.",
   ogTitle: "Stay focused on the client in front of you. We'll handle the rest.",
   ogDescription:
-    "The intelligence layer and agents that recover the revenue your booking software is about to lose — answering calls, booking appointments, and re-engaging clients before they ghost.",
+    "The intelligence layer and agents that recover the revenue your booking software is about to lose, answering calls, booking appointments, and re-engaging clients before they ghost.",
 });
 
 type GetItem = {
@@ -46,7 +46,7 @@ const items: GetItem[] = [
     body: (
       <>
         A dedicated phone number (or we port the one you have), answered the
-        moment it rings — by an AI trained on your business, your hours, your
+        moment it rings, by an AI trained on your business, your hours, your
         services, your prices, and your booking rules. Calls get answered,
         qualified, and either booked, transferred, or texted back. No
         voicemail backlog.
@@ -86,7 +86,7 @@ const items: GetItem[] = [
     title: "The dashboard that runs your front office",
     body: (
       <>
-        One login. Every call, every text, every chat — organized by customer,
+        One login. Every call, every text, every chat, organized by customer,
         searchable, with full transcripts. Watch it work in real time, or
         check it once a day. Your call.
       </>
@@ -99,7 +99,7 @@ const items: GetItem[] = [
     body: (
       <>
         When a customer asks something only you can answer, your AI pauses and
-        texts you. You text back from your personal phone — your reply lands
+        texts you. You text back from your personal phone, your reply lands
         inside that customer&apos;s conversation as if you typed it from a
         desk. The AI stays out of the way until you&apos;re done.
       </>
@@ -112,7 +112,7 @@ const items: GetItem[] = [
         <p className="text-sm md:text-base text-cream/85 leading-relaxed">
           You&apos;re with a client. A new customer texts asking about
           availability for a 90-minute appointment next Tuesday at 4 PM.
-          Between appointments, you reply &ldquo;Yes, that time is open —
+          Between appointments, you reply &ldquo;Yes, that time is open , 
           here&apos;s the booking link.&rdquo; They book. Your current
           client&apos;s appointment was never interrupted.
         </p>
@@ -150,7 +150,7 @@ type Differentiator = { title: string; body: string };
 const differentiators: Differentiator[] = [
   {
     title: "Not another inbox.",
-    body: "Other tools give you a place to see missed messages. We give you a system that answers them — and only pulls you in when it actually needs you.",
+    body: "Other tools give you a place to see missed messages. We give you a system that answers them, and only pulls you in when it actually needs you.",
   },
   {
     title: "Not a chatbot.",
@@ -172,7 +172,7 @@ type PricingCard = {
 const pricingCards: PricingCard[] = [
   {
     name: "Noell Agents",
-    body: "Three AI agents working alongside the booking tool you already use. $397/mo launch pricing.",
+    body: "Three AI agents working alongside the booking tool you already use. $397/mo. Rate locked from day one.",
     bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {
@@ -226,7 +226,7 @@ export default function WhatYouGetPage() {
       <JsonLd
         data={[
           servicePageSchema({
-            name: "Ops by Noell — AI front desk for service businesses",
+            name: "Ops by Noell: AI front desk for service businesses",
             description:
               "Done-for-you AI front desk. Dedicated phone line, three AI agents (Front Desk, Care, Support), unified dashboard, tap-in human-handoff, A2P 10DLC compliance.",
             path: PATH,
@@ -253,7 +253,7 @@ export default function WhatYouGetPage() {
         </h1>
         <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
           Ops by Noell builds an AI front desk that answers your calls, books
-          your appointments, and texts your customers — so you can be present
+          your appointments, and texts your customers, so you can be present
           with the client you&apos;re serving without losing the next booking.
         </p>
         <div className="relative z-20 mt-8">

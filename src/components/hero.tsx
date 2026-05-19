@@ -321,7 +321,7 @@ function DefaultMockScreen() {
         </div>
         <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
           "Thanks for reaching out. A few quick questions to confirm we are the
-          right fit — what does your current setup look like?"
+          right fit, what does your current setup look like?"
         </div>
       </div>
 

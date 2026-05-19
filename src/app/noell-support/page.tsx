@@ -25,7 +25,7 @@ import {
 
 export const metadata = pageMetadata({
   path: "/noell-support",
-  title: "Noell Support — New-Prospect Intake",
+  title: "Noell Support, New-Prospect Intake",
   description:
     "Noell Support handles first response, qualification, contact capture, routing, and booking-link handoff. The new-prospect intake layer of the Noell system.",
 });
@@ -166,7 +166,7 @@ export default function NoellSupportPage() {
       <JsonLd
         data={[
           servicePageSchema({
-            name: "Noell Support — New-Prospect Intake",
+            name: "Noell Support: New-Prospect Intake",
             description:
               "New-prospect intake layer of the Noell system: first response, qualification, contact capture, routing, and booking-link handoff.",
             path: "/noell-support",
@@ -342,7 +342,7 @@ export default function NoellSupportPage() {
 
       {/* Relief, the step-by-step flow: how Noell responds */}
       <div id="how-noell-responds" className="scroll-mt-24" />
-      {/* GTM item 8: Scripted demo transcript — shows a full polished conversation */}
+      {/* GTM item 8: Scripted demo transcript, shows a full polished conversation */}
       <section className="py-16 md:py-20 px-4 bg-[#301A26]">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">

@@ -13,7 +13,7 @@ const PUBLISHED = "2026-05-04";
 export const metadata = pageMetadata({
   path: PATH,
   title:
-    "Massage Therapist No-Show Cost — The Real Math",
+    "Massage Therapist No-Show Cost: The Real Math",
   description:
     "The real no-show rate for massage therapists is around 18% without reminders. Here is the lost-revenue math, and the 48-hour playbook to recover it.",
   type: "article",

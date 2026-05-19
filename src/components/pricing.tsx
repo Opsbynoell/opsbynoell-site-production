@@ -93,7 +93,7 @@ export function PricingCard({
               )}
             </div>
             {tier.launchPrice && (
-              <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Launch pricing</p>
+              <p className="text-[10px] text-wine/80 mt-0.5 font-medium">Rate locked from day one</p>
             )}
           </div>
 
@@ -178,7 +178,7 @@ export function PricingCard({
             <div className="mt-1 inline-flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-wine animate-pulse" />
               <p className="text-xs font-medium text-wine">
-                Launch pricing — limited time
+                Current pricing
               </p>
             </div>
           )}
@@ -301,14 +301,14 @@ export default function Pricing() {
   return (
     <div id="pricing" className="pt-10 md:pt-12 pb-24 px-4 max-w-7xl mx-auto">
 
-      {/* Launch pricing banner */}
+      {/* Pricing banner */}
       <div className="max-w-3xl mx-auto mb-12 rounded-[20px] border border-wine/30 bg-wine/10 p-5 text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
           <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Launch Pricing — Limited Time</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Current Pricing</p>
         </div>
         <p className="text-sm text-cream/80 leading-relaxed">
-          All tiers are available at launch pricing while we expand into new verticals. Standard rates are shown with a strikethrough. Your rate is locked from day one.
+          Standard rates are shown with a strikethrough. Your rate is locked from the day you sign up.
         </p>
       </div>
 
@@ -386,7 +386,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      {/* Build Your Own — Add-On Services */}
+      {/* Build Your Own, Add-On Services */}
       <div className="mt-24 mb-6">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-10">
@@ -409,7 +409,7 @@ export default function Pricing() {
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
             <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">01</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Digital Infrastructure</h3>
-            <p className="text-xs text-cream/50 mb-5">The foundation everything else runs on. Disconnected tools, zero automation, no single source of truth — this fixes that.</p>
+            <p className="text-xs text-cream/50 mb-5">The foundation everything else runs on. Disconnected tools, zero automation, no single source of truth, this fixes that.</p>
             <ul className="space-y-3">
               <li className="flex justify-between items-start gap-4">
                 <span className="text-sm text-cream/80">Tech Stack Audit + Cleanup</span>
@@ -534,7 +534,7 @@ export default function Pricing() {
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
             <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">06</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Operational Systems</h3>
-            <p className="text-xs text-cream/50 mb-5">The back office that runs itself. The stuff that eats your time and never shows up on a revenue report — until it breaks.</p>
+            <p className="text-xs text-cream/50 mb-5">The back office that runs itself. The stuff that eats your time and never shows up on a revenue report, until it breaks.</p>
             <ul className="space-y-3">
               <li className="flex justify-between items-start gap-4">
                 <span className="text-sm text-cream/80">SOP Documentation (5 processes)</span>
@@ -568,7 +568,7 @@ export default function Pricing() {
           </p>
           <p className="text-xs text-cream/50 max-w-2xl mx-auto mb-6">
             The equivalent of hiring a Director of Marketing, SEO Specialist, CRM Admin, Brand Designer, and Social Media Manager.
-            That's $318,000/yr in headcount — or $26,500/mo. With Ops by Noell, it's one retainer. No benefits. No turnover. No training.
+            That's $318,000/yr in headcount, or $26,500/mo. With Ops by Noell, it's one retainer. No benefits. No turnover. No training.
           </p>
           <Link
             href="/book"
