@@ -203,6 +203,29 @@ export function pricingProductSchema(tiers: OfferTier[]) {
     description:
       "Done-for-you AI front desk and operations layer for service businesses.",
     brand: { "@id": `${SITE_URL}/#organization` },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        author: {
+          "@type": "Person",
+          name: "Santa E.",
+        },
+        reviewBody:
+          "I used to dread Mondays because there would always be gaps I didn't expect. Now I open my calendar and it's just full. The reminders go out and people show up. I don't think about it anymore.",
+      },
+    ],
     offers: tiers.map((t) => ({
       "@type": "Offer",
       name: t.name,
