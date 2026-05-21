@@ -21,7 +21,7 @@ export const metadata = pageMetadata({
     "Ops by Noell builds and runs AI-powered operational systems for service-based businesses and B2B companies. Done for you. Live in 14 days.",
   ogTitle: "Ops by Noell, AI Operations for Service Businesses and B2B",
   ogDescription:
-    "Whether you run a service business or sell into enterprise, Ops by Noell builds the operational layer that keeps revenue from slipping out. Free audit to start.",
+    "Whether you run a service business or sell to B2B and SaaS buyers, Ops by Noell builds the operational layer that keeps revenue from slipping out. Free audit to start.",
 });
 
 const homepageFaqs: FaqItem[] = [
@@ -81,7 +81,7 @@ export default function Home() {
         headlineLine2Start="is"
         headlineLine2Accent="missing."
         headlineLine2Smaller={false}
-        body="Every missed call, unanswered inquiry, and unprepared enterprise buyer is revenue that left quietly. Ops by Noell builds the operational layer that catches it. Done for you, live in 14 days, managed by our team."
+        body="Every missed call, unanswered inquiry, and unprepared B2B buyer is revenue that left quietly. Ops by Noell builds the operational layer that catches it. Done for you, live in 14 days, managed by our team."
         footnote="Service businesses and B2B companies. Two tracks. One standard."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
