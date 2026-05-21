@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
   path: "/noell-account",
   title: "Noell Account, B2B Account Management and Retention",
   description:
-    "Noell Account manages account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and enterprise teams. Keep clients, grow revenue, reduce churn.",
+    "Noell Account manages account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and SaaS teams. Keep clients, grow revenue, reduce churn.",
 });
 
 const accountFaqs = [
@@ -68,7 +68,7 @@ export default function NoellAccountPage() {
           servicePageSchema({
             name: "Noell Account: B2B Account Management",
             description:
-              "Account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and enterprise teams.",
+              "Account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and SaaS teams.",
             path: "/noell-account",
             serviceType: "B2B AI account management layer",
           }),
@@ -83,7 +83,7 @@ export default function NoellAccountPage() {
         headlineLine2Start="only half the"
         headlineLine2Accent="revenue."
         footnote="Built for B2B account teams that cannot afford to lose a client."
-        body="Noell Account is the post-sale operations layer for B2B and enterprise teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage, so your clients stay, grow, and refer."
+        body="Noell Account is the post-sale operations layer for B2B and SaaS teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage, so your clients stay, grow, and refer."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}

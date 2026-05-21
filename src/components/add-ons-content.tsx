@@ -15,7 +15,7 @@ const addOns = [
       { label: "Tech Stack Audit + Cleanup", price: "$297", cadence: "one-time" },
       { label: "CRM + Pipeline Setup", price: "$497 setup", cadence: "+ $197/mo" },
       { label: "Workflow Automation (3 per quarter)", price: "$297", cadence: "/mo" },
-      { label: "Unified Analytics Dashboard", price: "$197", cadence: "/mo" },
+      { label: "Noell Ops Dashboard (analytics, goals, and weekly digest)", price: "$197", cadence: "/mo" },
     ],
   },
   {
@@ -79,7 +79,7 @@ const addOns = [
     items: [
       { label: "SOP Documentation (5 core processes)", price: "$497", cadence: "one-time" },
       { label: "Client Onboarding System", price: "$697", cadence: "one-time" },
-      { label: "Automated Reporting + KPI Dashboard", price: "$197", cadence: "/mo" },
+      { label: "Automated Reporting + KPI Dashboard (weekly email digest, goal tracking, funnel analytics)", price: "$197", cadence: "/mo" },
       { label: "Team Playbook (role-specific guides for every hire)", price: "$497", cadence: "one-time" },
     ],
   },

@@ -160,7 +160,7 @@ const b2bFaqs: FaqItem[] = [
     id: "b2b_pricing",
     question: "How is this priced?",
     answer:
-      "B2B and enterprise engagements are scoped individually. We discuss fit, scope, and pricing on the Digital Readiness Review call. There is no standard package because enterprise buyers have different needs. We will tell you exactly what we would build and what it costs before you commit to anything.",
+      "B2B and SaaS engagements are scoped individually. We discuss fit, scope, and pricing on the Digital Readiness Review call. There is no standard package because every B2B operation has different needs. We will tell you exactly what we would build and what it costs before you commit to anything.",
   },
 ];
 
@@ -281,11 +281,11 @@ export default function ForB2BPage() {
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
               Three systems.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                One enterprise-grade operation.
+                One full-stack B2B operation.
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Every B2B engagement is built around three interconnected systems that cover the full enterprise buyer journey, from first signal to closed deal.
+              Every B2B engagement is built around three interconnected systems that cover the full buyer journey, from first signal to closed deal.
             </p>
           </div>
 

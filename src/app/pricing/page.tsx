@@ -60,7 +60,7 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "Is the dashboard included? What does it show?",
     answer:
-      "Yes. Every Noell engagement includes a live client dashboard. For service businesses, it shows your lead pipeline with HOT and WARM scoring, full conversation threads from every agent, conversion funnel from first contact to booked appointment, and date range filtering (7D, 30D, 90D, All Time). For B2B engagements, it shows deal stages, ICP scores, outreach status, pipeline value, and win rate. You see exactly what the system is doing and what it is recovering. No login required for your team, we send you a direct link.",
+      "Yes. Every Noell engagement includes the Noell Ops Dashboard, a live client dashboard built specifically for your business. For service businesses it shows your lead pipeline with HOT and WARM scoring, full conversation threads from every agent, conversion funnel from first contact to booked appointment, website analytics with top pages and traffic sources, and date range filtering (7D, 30D, 90D, All Time). For B2B engagements it shows deal stages, ICP scores, outreach status, pipeline value, and win rate. Every plan also includes a real-time notification feed so you are alerted the moment a new lead comes in, a reply arrives, or a sequence step completes. System and Full Stack tiers add analytics goals where you set monthly targets and track progress with live charts, plus an automated weekly report email every Monday summarizing leads, funnel performance, top pages, and goal progress. You see exactly what the system is doing and what it is recovering. No login required for your team, we send you a direct link.",
   },
   // Existing — Group 1 — Commitment and terms
   {
@@ -223,7 +223,7 @@ export default function PricingPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-2xl text-center text-cream/75 text-sm md:text-base leading-relaxed">
-          Service businesses: start with the agents or the full done-for-you system. B2B and enterprise: scoped individually, starting with a free Digital Readiness Review.
+          Service businesses: start with the agents or the full done-for-you system. B2B and SaaS: scoped individually, starting with a free Digital Readiness Review.
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
@@ -308,14 +308,14 @@ export default function PricingPage() {
               B2B pricing is scoped to your operation.
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
-              Enterprise buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your digital presence against the enterprise buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. No pitch. No deck.
+              B2B and SaaS buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your digital presence against the buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. No pitch. No deck.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {[
                 "Three B2B agents: Inbound, Pipeline, Account",
                 "Predictive Customer Intelligence signal layer",
                 "Live B2B pipeline dashboard included",
-                "Digital presence architecture for enterprise buyers",
+                "Digital presence architecture for B2B and SaaS buyers",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2.5 text-sm text-white/70">
                   <span className="flex-shrink-0 w-4 h-4 rounded-full bg-lilac-light/20 text-lilac-light flex items-center justify-center text-[10px]">

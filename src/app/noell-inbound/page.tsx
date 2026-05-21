@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
   path: "/noell-inbound",
   title: "Noell Inbound, B2B Lead Qualification and Intake",
   description:
-    "Noell Inbound handles first-touch lead qualification, intake routing, and discovery call scheduling for B2B and enterprise sales teams. Never lose a qualified lead again.",
+    "Noell Inbound handles first-touch lead qualification, intake routing, and discovery call scheduling for B2B and SaaS sales teams. Never lose a qualified lead again.",
 });
 
 const inboundFaqs = [
@@ -67,7 +67,7 @@ export default function NoellInboundPage() {
           servicePageSchema({
             name: "Noell Inbound: B2B Lead Qualification",
             description:
-              "First-touch lead qualification, intake routing, and discovery call scheduling for B2B and enterprise sales teams.",
+              "First-touch lead qualification, intake routing, and discovery call scheduling for B2B and SaaS sales teams.",
             path: "/noell-inbound",
             serviceType: "B2B AI lead qualification layer",
           }),
@@ -82,7 +82,7 @@ export default function NoellInboundPage() {
         headlineLine2Start="deciding in seconds."
         headlineLine2Accent="Are you ready?"
         footnote="Built for B2B teams that cannot afford to lose a lead."
-        body="Noell Inbound is the first-touch intake layer for B2B and enterprise sales teams. It responds instantly to every inbound inquiry, qualifies intent, and routes the right prospects to the right rep, before the lead goes cold."
+        body="Noell Inbound is the first-touch intake layer for B2B and SaaS sales teams. It responds instantly to every inbound inquiry, qualifies intent, and routes the right prospects to the right rep, before the lead goes cold."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}
