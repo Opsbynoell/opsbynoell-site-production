@@ -158,7 +158,7 @@ export const B2B_TIERS: PricingTier[] = [
       "Full B2B Pipeline Dashboard: all three agents, unified view",
       "iMessage and email outreach sequences (automated, done for you)",
       "Analytics dashboard: funnel performance, reply rates, and weekly digest email",
-      "PCI signal layer (Prospect-Company-Intent data integration)",
+      "PCI signal layer (Predictive Customer Intelligence)",
       "Bi-weekly check-in calls",
       "Quarterly ICP refinement session",
     ],

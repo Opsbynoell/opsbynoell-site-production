@@ -52,9 +52,9 @@ export const STRIPE_PLANS: StripePlan[] = [
     id: "agents_founding",
     name: "Noell Agents — Founding Rate",
     description:
-      "Three AI agents: Noell Support, Noell Front Desk, and Noell Care. Founding rate locked for 24 months.",
+      "Three AI agents: Noell Support, Noell Front Desk, and Noell Care. Founding rate locked from day one.",
     priceId: process.env.STRIPE_PRICE_AGENTS_FOUNDING ?? "",
-    amountCents: 19700,
+    amountCents: 39700,
     interval: "month",
     isFoundingRate: true,
   },
@@ -64,38 +64,35 @@ export const STRIPE_PLANS: StripePlan[] = [
     description:
       "Three AI agents: Noell Support, Noell Front Desk, and Noell Care.",
     priceId: process.env.STRIPE_PRICE_AGENTS_STANDARD ?? "",
-    amountCents: 29700,
+    amountCents: 49700,
     interval: "month",
   },
   {
     id: "essentials",
-    name: "Noell System — Essentials",
+    name: "Noell System — Signal",
     description:
-      "Full done-for-you operations layer. CRM, booking calendar, missed-call text-back, confirmations, and review requests.",
+      "One agent: Noell Support handles 24/7 website chat and lead capture with HOT/WARM scoring. Works alongside any existing booking tool.",
     priceId: process.env.STRIPE_PRICE_ESSENTIALS ?? "",
-    amountCents: 19700,
+    amountCents: 39700,
     interval: "month",
-    setupFeeAmountCents: 49700,
   },
   {
     id: "growth",
-    name: "Noell System — Growth",
+    name: "Noell System — System",
     description:
-      "Full operations layer plus all three AI agents, PCI signals, no-show recovery, and reputation workflows.",
+      "All three agents (Support, Front Desk, Care), deep two-way PMS or booking integration, no-show recovery, review automation, and the full Noell Ops Dashboard.",
     priceId: process.env.STRIPE_PRICE_GROWTH ?? "",
-    amountCents: 79700,
+    amountCents: 89700,
     interval: "month",
-    setupFeeAmountCents: 99700,
   },
   {
     id: "custom_ops",
-    name: "Noell System — Custom Ops",
+    name: "Noell System — Full Stack",
     description:
-      "Everything in Growth plus multi-location sync, reactivation campaigns, dedicated account manager, and client mobile app.",
+      "Everything in System, plus a full website build or redesign, the Noell Ops CRM, click-through audit, custom automation workflows, and a dedicated ops partner.",
     priceId: process.env.STRIPE_PRICE_CUSTOM_OPS ?? "",
     amountCents: 149700,
     interval: "month",
-    setupFeeAmountCents: 149700,
   },
 ];
 
