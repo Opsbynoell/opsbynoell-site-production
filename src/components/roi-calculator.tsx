@@ -7,8 +7,8 @@ export function ROICalculator() {
   const [avgTicket, setAvgTicket] = useState(150);
   const recoveryRate = 0.4;
   const monthly = missedCalls * 4.33 * avgTicket * recoveryRate;
-  const paybackMonthsEssentials = monthly > 0 ? 197 / monthly : Infinity;
-  const paybackMonthsGrowth = monthly > 0 ? 797 / monthly : Infinity;
+  const paybackMonthsSignal = monthly > 0 ? 397 / monthly : Infinity;
+  const paybackMonthsSystem = monthly > 0 ? 897 / monthly : Infinity;
 
   const formatPayback = (months: number) =>
     Number.isFinite(months) ? `${months.toFixed(1)} months` : "n/a";
@@ -75,9 +75,9 @@ export function ROICalculator() {
           </div>
         </div>
         <div className="text-sm text-cream/75 leading-relaxed">
-          Essentials pays for itself in {formatPayback(paybackMonthsEssentials)}.
+          Signal pays for itself in {formatPayback(paybackMonthsSignal)}.
           <br />
-          Growth pays for itself in {formatPayback(paybackMonthsGrowth)}.
+          System pays for itself in {formatPayback(paybackMonthsSystem)}.
         </div>
       </div>
       <div className="text-xs text-muted-medium mt-6 leading-relaxed">

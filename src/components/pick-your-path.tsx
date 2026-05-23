@@ -41,7 +41,7 @@ const cards: CardProps[] = [
       "The entire operations layer, your brand, installed and managed by our team.",
     bullets: [
       "Full done-for-you operations layer for client communication, scheduling, reminders, reviews, and reactivation.",
-      "Three AI agents included (Growth tier and up)",
+      "Three AI agents included (System tier and up)",
       "Read integration with your booking system",
       "Free 30-minute audit before you commit",
       "Managed install in 14 days",

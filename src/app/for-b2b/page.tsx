@@ -103,7 +103,7 @@ const processSteps = [
     number: "01",
     title: "Digital Readiness Review",
     description:
-      "A 30-minute working session. We audit your current digital presence against the enterprise buyer journey, identify the specific gaps that are costing you deals, and tell you exactly what we found. No pitch. No deck.",
+      "A focused working session ($297, fully credited toward your package if you move forward). We audit your current digital presence against the enterprise buyer journey, identify the specific gaps that are costing you deals, and tell you exactly what we found. No pitch. No deck.",
   },
   {
     number: "02",
@@ -142,7 +142,7 @@ const b2bFaqs: FaqItem[] = [
     id: "b2b_timeline",
     question: "How long does it take to see results?",
     answer:
-      "The Digital Readiness Review is 30 minutes and produces immediate findings. The Strategic Brief is delivered within five business days. System build timelines vary by scope, but most initial implementations are live within 30 days of signing.",
+      "The Digital Readiness Review is a focused working session that produces immediate findings ($297, fully credited toward your package if you move forward). The Strategic Brief is delivered within five business days. System build timelines vary by scope, but most initial implementations are live within 30 days of signing.",
   },
   {
     id: "b2b_existing_stack",
@@ -534,7 +534,7 @@ export default function ForB2BPage() {
         eyebrow="The first step"
         headlineStart="Let us talk about"
         headlineAccent="your pipeline."
-        body="In your free Digital Readiness Review, we audit your current digital presence against the enterprise buyer journey, identify the specific gaps costing you deals, and tell you exactly what we found."
+        body="In your Digital Readiness Review ($297, credited toward your package), we audit your current digital presence against the enterprise buyer journey, identify the specific gaps costing you deals, and tell you exactly what we found."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}

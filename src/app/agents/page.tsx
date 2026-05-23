@@ -94,7 +94,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit your first month toward the System or Full Stack setup fee. Ask about upgrade pricing on your onboarding call.",
+      "Yes. If you move to System or Full Stack within the first 6 months, we credit your first month toward the new tier's setup. Ask about upgrade pricing on your onboarding call.",
   },
   {
     id: "agents_time_to_live",
@@ -145,7 +145,7 @@ export default function AgentsPage() {
       <div className="w-full bg-wine text-cream">
         <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
           <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-center">
-            Three agents. One system. Done for you.
+            Three agents. Working in the background. Live in under a week.
           </p>
         </div>
       </div>

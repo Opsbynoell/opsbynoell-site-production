@@ -121,7 +121,7 @@ const deployments = [
       "The intelligence layer is built into a fully managed operations platform (CRM, calendars, marketing, agents, reporting) installed and managed by our team. Best for businesses ready to consolidate off five different tools.",
     bullets: [
       "Full white-labeled operations platform",
-      "Three AI agents included (Growth tier and up)",
+      "Three AI agents included (System tier and up)",
       "Read integration with your PMS or booking tool",
       "Managed install in 14 days, ongoing updates, no maintenance on your end",
     ],
