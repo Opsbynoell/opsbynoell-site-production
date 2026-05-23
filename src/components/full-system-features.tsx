@@ -56,7 +56,7 @@ const features: Feature[] = [
   {
     title: "Reactivation campaigns",
     description:
-      "Win back lapsed clients automatically (Custom Ops only).",
+      "Win back lapsed clients automatically (System and Full Stack).",
     icon: <IconRotate size={22} stroke={1.6} />,
   },
   {
@@ -95,7 +95,7 @@ export function FullSystemFeatures() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
-            The full system &middot; Included in Growth and Custom Ops
+            The full system &middot; Included in System and Full Stack
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Everything the front of your{" "}

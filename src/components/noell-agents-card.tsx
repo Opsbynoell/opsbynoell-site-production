@@ -112,7 +112,7 @@ export function NoellAgentsCard() {
               href="#noell-system"
               className="text-wine hover:text-wine-dark underline underline-offset-4 decoration-wine/30"
             >
-              Growth
+              System
             </Link>{" "}
             instead.
           </p>

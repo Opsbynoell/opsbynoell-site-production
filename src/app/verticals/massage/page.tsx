@@ -130,7 +130,7 @@ const massageFaqs = [
   {
     question: "I am a solo therapist. Is this overkill?",
     answer:
-      "Most Ops by Noell installs are solo practitioners or two-to-three-person teams. The Essentials package is built exactly for this: missed-call text-back, appointment confirmations, and one review request sequence. If you have more than eight to ten sessions a week, the system pays for itself from missed-call recovery alone.",
+      "Most Ops by Noell installs are solo practitioners or two-to-three-person teams. The Signal tier is built exactly for this: 24/7 website chat, lead capture, and HOT/WARM scoring. If you have more than eight to ten sessions a week, the system pays for itself from recovered leads alone.",
   },
   {
     question: "Does it work with my booking software?",

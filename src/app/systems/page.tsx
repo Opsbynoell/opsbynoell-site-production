@@ -416,7 +416,7 @@ export default function SystemsPage() {
           </p>
           <p className="text-center text-xs text-cream/65 mt-6 max-w-2xl mx-auto leading-relaxed">
             Deep two-way integration (read availability, write bookings back)
-            is available on Growth and Custom Ops. Essentials uses SMS/text
+            is available on System and Full Stack. Signal uses SMS and chat
             automations that work alongside any existing booking tool.{" "}
             <Link
               href="/pricing"

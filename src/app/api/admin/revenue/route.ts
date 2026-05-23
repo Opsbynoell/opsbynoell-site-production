@@ -51,9 +51,9 @@ interface OnboardingRow {
 const PLAN_LABELS: Record<string, string> = {
   agents_founding: "Noell Agents — Founding",
   agents_standard: "Noell Agents",
-  essentials: "Essentials",
-  growth: "Growth",
-  custom_ops: "Custom Ops",
+  essentials: "Signal",
+  growth: "System",
+  custom_ops: "Full Stack",
 };
 
 export async function GET(req: Request): Promise<Response> {

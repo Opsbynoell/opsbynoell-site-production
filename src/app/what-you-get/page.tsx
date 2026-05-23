@@ -171,20 +171,20 @@ type PricingCard = {
 
 const pricingCards: PricingCard[] = [
   {
-    name: "Noell Agents",
-    body: "Three AI agents working alongside the booking tool you already use. $397/mo. Rate locked from day one.",
+    name: "Signal",
+    body: "One agent: Noell Support handles 24/7 website chat and lead capture with HOT/WARM scoring. Works alongside the booking tool you already use. $397/mo. Rate locked from day one.",
     bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {
-    name: "Growth",
-    body: "The full recovery system: operations layer, three agents, no-show recovery, reputation workflows, and Predictive Customer Intelligence signals as they roll out.",
+    name: "System",
+    body: "All three agents (Support, Front Desk, Care), deep two-way PMS or booking integration, no-show recovery, review automation, and the full Noell Ops Dashboard. $897/mo.",
     bestFor: "Recommended for revenue recovery.",
     highlighted: true,
   },
   {
-    name: "Custom Ops",
-    body: "The full system for multi-location practices and operators running reactivation at scale. Dedicated account manager, custom reporting, and priority support.",
-    bestFor: "Best for 4+ teams or multi-location.",
+    name: "Full Stack",
+    body: "Everything in System, plus a full website build or redesign, the Noell Ops CRM, click-through audit, custom automation workflows, and a dedicated ops partner. $1,497/mo.",
+    bestFor: "Best for owners who want Noell to run their ops end-to-end.",
   },
 ];
 
