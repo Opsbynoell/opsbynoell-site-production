@@ -32,7 +32,7 @@ export const metadata = pageMetadata({
   path: "/verticals/dental",
   title: "AI Front Desk for Dental Offices",
   description:
-    "A done-for-you AI front desk for dental practices. Catch every new patient call in under 60 seconds, reactivate unscheduled treatment, and stop losing chair time to missed calls. Installed around your booking system.",
+    "Done-for-you AI front desk for dental practices. Catch every new-patient call in under 60 seconds, reactivate unscheduled treatment, protect chair time.",
 });
 
 const dentalStats = [

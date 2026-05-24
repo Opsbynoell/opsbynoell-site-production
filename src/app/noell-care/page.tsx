@@ -254,6 +254,7 @@ export default function NoellCarePage() {
         headlineAccent="are asking for."
         body="Book a free audit. We'll review a sample of your inbound and show you how Care would handle it, on your voice, from your knowledge base."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
+        sourcePage="noell_care"
       />
     </div>
   );

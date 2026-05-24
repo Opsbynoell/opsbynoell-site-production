@@ -21,7 +21,7 @@ export const metadata = pageMetadata({
   path: "/noell-front-desk",
   title: "Noell Front Desk, Operations Layer",
   description:
-    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles, managed for you.",
+    "Noell Front Desk is the operations layer of the Noell system. Calls, scheduling, confirmations, reminders, reschedules, and review capture, done for you.",
 });
 
 const frontDeskCapabilities = [
@@ -313,6 +313,7 @@ export default function NoellFrontDeskPage() {
         headlineAccent="leads are falling through."
         body="No pitch. No pressure. A 30-minute audit that gives you a clear map of what's leaking, whether you work with us or not."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
+        sourcePage="noell_front_desk"
       />
     </div>
   );

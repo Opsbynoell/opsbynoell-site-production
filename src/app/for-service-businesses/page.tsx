@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
   path: "/for-service-businesses",
   title: "AI Operations for Service-Based Businesses",
   description:
-    "You deliver exceptional work. Ops by Noell makes sure your digital presence and front desk reflect it. Done-for-you AI operations for consultants, agencies, coaches, and professional service businesses.",
+    "Done-for-you AI operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who look more polished.",
   ogTitle: "Your work is excellent. Your front desk should say so.",
   ogDescription:
     "Done-for-you AI operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who just look more polished.",
@@ -153,7 +153,7 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_pricing",
     question: "What does it cost?",
     answer:
-      "Pricing starts at $397/mo (Signal tier, one agent, done-for-you). The full three-agent System starts at $1,097/mo. We discuss fit and pricing on the free Revenue Signal Report call.",
+      "Pricing starts at $397/mo (Signal tier, one agent, done-for-you). The full three-agent System starts at $897/mo. We discuss fit and pricing on the free Revenue Signal Report call.",
   },
   {
     id: "sb_contract",

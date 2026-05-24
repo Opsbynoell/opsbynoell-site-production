@@ -211,6 +211,7 @@ export default function ResourcesPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · Live in 14 days · No contracts"
+        sourcePage="resources"
       />
     </div>
   );

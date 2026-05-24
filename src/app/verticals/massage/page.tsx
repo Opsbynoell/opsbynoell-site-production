@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/massage",
   title: "AI Front Desk for Massage Therapy",
   description:
-    "In session with a client while the phone rings. Ops by Noell catches missed calls, confirms appointments, and keeps your calendar full without making you feel like a salesperson on top of being a therapist.",
+    "AI front desk for massage therapists. Catch missed calls while you're in session, confirm appointments, and keep your calendar full without selling.",
 });
 
 const massageStats = [
