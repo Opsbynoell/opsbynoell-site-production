@@ -8,6 +8,7 @@ const ALT = "DIY AI receptionist tools";
 
 export const metadata = pageMetadata({
   path: PATH,
+  absoluteTitle: true,
   title: `Ops by Noell vs. ${ALT}`,
   description: `A done-for-you AI front desk for service businesses vs. DIY AI receptionist tools. Compare setup time, voice match, drift risk, and what happens after go-live.`,
 });

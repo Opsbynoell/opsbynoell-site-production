@@ -16,7 +16,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/systems",
-  title: "The Noell System, Six Agents, Two Tracks, Managed End-to-End",
+  title: "The Noell System: Two Tracks, Six Agents",
   description:
     "Done-for-you AI operations for service businesses and B2B companies. Six managed agents across two tracks. Live in 14 days.",
 });

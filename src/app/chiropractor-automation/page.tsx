@@ -32,7 +32,7 @@ export const metadata = pageMetadata({
   path: "/chiropractor-automation",
   title: "AI Front Desk for Chiropractic Offices, Ops by Noell",
   description:
-    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, reduce no-shows, reactivate lapsed patients, and run automated review requests, all without adding front desk staff.",
+    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls, reduce no-shows, reactivate lapsed patients, and run automated reviews.",
 });
 
 const chiropractorStats = [

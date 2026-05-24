@@ -271,7 +271,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                       key={link.href}
                       href={link.href}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       onClick={() => setOpenDropdown(null)}
                       className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
                     >
@@ -593,7 +593,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
                           key={link.href}
                           href={link.href}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer nofollow"
                           onClick={() => setOpen(false)}
                           className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                         >

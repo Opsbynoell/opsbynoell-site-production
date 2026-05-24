@@ -8,6 +8,7 @@ const ALT = "Podium";
 
 export const metadata = pageMetadata({
   path: PATH,
+  absoluteTitle: true,
   title: `Ops by Noell vs. ${ALT}`,
   description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses, scope, done-for-you setup, and who the system is really for.`,
 });

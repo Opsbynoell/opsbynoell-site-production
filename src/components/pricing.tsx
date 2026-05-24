@@ -373,12 +373,18 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-          {/* Dashboard screenshot */}
+          {/* Dashboard screenshot — remote CDN, explicit dimensions to avoid CLS,
+              lazy-loaded since it lives below the fold. */}
           <div className="relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663120940829/iSNpIDnlLiHRnrsy.png"
               alt="Noell Ops CRM Lead Intelligence Dashboard"
-              className="w-full block"
+              width={1440}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto block"
             />
             {/* Subtle fade at bottom */}
             <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#120A0F] to-transparent pointer-events-none" />

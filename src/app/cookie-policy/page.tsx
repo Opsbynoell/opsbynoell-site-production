@@ -1,5 +1,11 @@
 import { LegalShell, legalMetadataBase } from "@/components/legal-shell";
-export const metadata = legalMetadataBase("Cookie Policy");
+
+// Duplicate of /legal/cookies, kept indefinitely for any old inbound links.
+// Marked noindex so Google doesn't compete the two URLs.
+export const metadata = {
+  ...legalMetadataBase("Cookie Policy"),
+  robots: { index: false, follow: true },
+};
 export default function CookiePolicyPage() {
   return (
     <LegalShell

@@ -8,6 +8,7 @@ const ALT = "Broad local-business messaging platforms";
 
 export const metadata = pageMetadata({
   path: PATH,
+  absoluteTitle: true,
   title: `Ops by Noell vs. ${ALT}`,
   description: `Why service businesses often graduate from broad local messaging platforms to a done-for-you AI front desk. Compare scope, operating load, and what actually happens on the phone.`,
 });
