@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
   path: "/book",
   title: "Get Your Free Revenue Signal Report",
   description:
-    "Tell us what you use to book, where the front desk is leaking, and what kind of business you run. We will review it personally and reply within one business day with two or three times for a focused walkthrough.",
+    "Tell us where your front desk is leaking. We'll review it personally and reply within one business day with two or three times for a focused walkthrough.",
 });
 
 const bookFaqs: FaqItem[] = [
