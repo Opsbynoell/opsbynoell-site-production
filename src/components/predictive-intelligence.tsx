@@ -88,7 +88,7 @@ export function PredictiveIntelligence({
 
         {!compact && (
           <p className="text-center text-xs text-muted-strong mt-8 max-w-2xl mx-auto">
-            Rolling out to Growth and Custom Ops clients first.{" "}
+            Rolling out to System and Full Stack clients first.{" "}
             <Link
               href="/book"
               className="text-wine hover:text-wine-dark underline underline-offset-4"
@@ -287,7 +287,7 @@ export function PredictiveIntelligenceVerticalExample({
         </div>
 
         <p className="text-center text-xs text-muted-strong mt-8 max-w-2xl mx-auto">
-          Rolling out to Growth and Custom Ops clients first. The signals get
+          Rolling out to System and Full Stack clients first. The signals get
           tuned to your specific book during install.
         </p>
       </div>

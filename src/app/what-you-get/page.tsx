@@ -127,7 +127,7 @@ const items: GetItem[] = [
       <>
         We do the work. Number, AI training, automations, dashboard,
         deliverability. You get a login and a 10-minute walkthrough video.
-        You&apos;re live in a week.
+        You&apos;re live in 14 days.
       </>
     ),
   },
@@ -171,20 +171,20 @@ type PricingCard = {
 
 const pricingCards: PricingCard[] = [
   {
-    name: "Noell Agents",
-    body: "Three AI agents working alongside the booking tool you already use. $397/mo. Rate locked from day one.",
+    name: "Signal",
+    body: "Your first agent. Noell Support runs 24/7 website chat, captures every lead, and scores them HOT or WARM before you see them. $397/mo launch rate.",
     bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {
-    name: "Growth",
-    body: "The full recovery system: operations layer, three agents, no-show recovery, reputation workflows, and Predictive Customer Intelligence signals as they roll out.",
+    name: "System",
+    body: "Three agents running together: Noell Support, Front Desk, and Care. Unified dashboard, no-show recovery, reputation workflows, and the Predictive Customer Intelligence signals as they roll out. $1,097/mo.",
     bestFor: "Recommended for revenue recovery.",
     highlighted: true,
   },
   {
-    name: "Custom Ops",
-    body: "The full system for multi-location practices and operators running reactivation at scale. Dedicated account manager, custom reporting, and priority support.",
-    bestFor: "Best for 4+ teams or multi-location.",
+    name: "Full Stack",
+    body: "The complete done-for-you operations layer: three agents, full website build, the Noell Ops CRM under your brand, click-through audit, monthly strategy calls, priority support. $1,497/mo.",
+    bestFor: "Best for established or multi-location practices.",
   },
 ];
 

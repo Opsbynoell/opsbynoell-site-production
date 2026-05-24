@@ -224,7 +224,7 @@ export async function POST(req: Request): Promise<Response> {
       `Plan: ${planId}`,
       `Client ID: ${clientId}`,
       ``,
-      `Action needed: Configure their agents and go live within 5 business days.`,
+      `Action needed: Configure their agents and go live within 14 days.`,
       `Admin dashboard: https://www.opsbynoell.com/admin`,
     ].join("\n"),
   });

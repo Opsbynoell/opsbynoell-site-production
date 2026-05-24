@@ -121,7 +121,7 @@ const deployments = [
       "The intelligence layer is built into a fully managed operations platform (CRM, calendars, marketing, agents, reporting) installed and managed by our team. Best for businesses ready to consolidate off five different tools.",
     bullets: [
       "Full white-labeled operations platform",
-      "Three AI agents included (Growth tier and up)",
+      "Three AI agents included (System tier and up)",
       "Read integration with your PMS or booking tool",
       "Managed install in 14 days, ongoing updates, no maintenance on your end",
     ],
@@ -621,7 +621,7 @@ function HowItWorksSection() {
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Three steps.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-              Live in under a week.
+              Live in 14 days.
             </span>
           </h2>
         </div>

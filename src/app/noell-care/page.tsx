@@ -148,7 +148,7 @@ export default function NoellCarePage() {
         defaultHeadlineLine2Start="Recognized."
         defaultHeadlineLine2Accent="Not re-interrogated."
         defaultBody="Noell Care is the desk for your returning clients. It recognizes them, pulls their history, answers from your knowledge base, and hands rebooking to Front Desk. The warm third layer of the Noell system."
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
         sourcePage="noell_care"

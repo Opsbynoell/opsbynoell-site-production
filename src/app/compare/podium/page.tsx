@@ -49,7 +49,7 @@ const rows: CompareRow[] = [
   {
     capability: "Price signal",
     opsByNoell:
-      "From $397/mo (Signal tier) to $1,197/mo (Full Stack). Month-to-month, no setup fee.",
+      "From $397/mo (Signal tier) to $1,497/mo (Full Stack). Month-to-month, done-for-you setup included.",
     alternative:
       "Published SaaS pricing. Often higher when stacked with SMS/voice modules.",
   },

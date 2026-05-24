@@ -4,11 +4,19 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { IconCheck, IconBolt, IconPhoneCall, IconHeartHandshake } from "@tabler/icons-react";
 
 const PLAN_LABELS: Record<string, string> = {
+  // current plan IDs
+  signal: "Noell System: Signal ($397/mo)",
+  system: "Noell System: System ($1,097/mo)",
+  full_stack: "Noell System: Full Stack ($1,497/mo)",
+  b2b_prospect: "B2B: Inbound ($497/mo launch)",
+  b2b_pipeline: "B2B: Pipeline ($1,197/mo)",
+  b2b_full_stack: "B2B: Full Stack ($2,497/mo)",
+  // legacy plan IDs kept for in-flight checkouts; safe to remove once Stripe no longer has them
   agents_signal: "Signal ($397/mo)",
   agents_standard: "Noell Agents ($497/mo)",
   essentials: "Noell System: Signal ($397/mo)",
-  growth: "Noell System: System ($897/mo)",
-  custom_ops: "Noell System: Custom Ops ($1,497/mo)",
+  growth: "Noell System: System ($1,097/mo)",
+  custom_ops: "Noell System: Full Stack ($1,497/mo)",
 };
 
 const BOOKING_TOOLS = [
@@ -130,7 +138,7 @@ function OnboardingContent() {
               {[
                 { step: "1", label: "Confirmation email sent", sub: "Check your inbox for your receipt and portal login." },
                 { step: "2", label: "Noell reviews your setup", sub: "We configure your agents with your business details." },
-                { step: "3", label: "Go live in 5 business days", sub: "Your agents start working. We monitor the first 48 hours." },
+                { step: "3", label: "Go live in 14 days", sub: "Your agents start working. We monitor the first 48 hours." },
               ].map((item) => (
                 <div key={item.step} className="flex gap-3">
                   <div className="w-6 h-6 rounded-full bg-wine/10 text-wine text-xs font-semibold flex items-center justify-center shrink-0 mt-0.5">

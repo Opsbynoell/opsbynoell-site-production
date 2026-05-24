@@ -14,7 +14,7 @@ const SERVICE_TIERS = [
     standardPrice: "$497",
     cadence: "/mo",
     highlight: false,
-    description: "One agent. Done for you. Live in 5 business days.",
+    description: "One agent. Done for you. Live in 14 days.",
     includes: [
       "Noell Support: 24/7 website chat and lead capture",
       "HOT/WARM lead scoring on every conversation",
@@ -60,14 +60,14 @@ const SERVICE_TIERS = [
 
 const B2B_TIERS = [
   {
-    name: "Prospect",
+    name: "Inbound",
     launchPrice: "$497",
     standardPrice: "$597",
     cadence: "/mo",
     highlight: false,
-    description: "One agent. ICP research and first-touch outreach, done for you.",
+    description: "One agent. Qualifies every inbound lead and runs first-touch outreach, done for you.",
     includes: [
-      "Noell Prospect: ICP research and outreach sequences",
+      "Noell Inbound: AI inbound agent (qualification + first-touch sequences)",
       "Live B2B pipeline dashboard",
       "Monthly performance report",
       "Done-for-you setup and ongoing tuning",
@@ -81,10 +81,10 @@ const B2B_TIERS = [
     highlight: true,
     description: "Three agents. Full B2B pipeline coverage from first touch to close.",
     includes: [
-      "Noell Prospect: ICP research and outreach sequences",
-      "Noell Qualify: lead scoring and routing",
-      "Noell Nurture: warm lead engagement between calls",
-      "PCI (Predictive Customer Intelligence) signal layer",
+      "Noell Inbound: AI inbound qualification and first-touch sequences",
+      "Noell Pipeline: deal scoring, routing, and warm-deal nurture",
+      "Noell Account: post-close follow-up, expansion signals, retention",
+      "Predictive Customer Intelligence (PCI) signal layer",
       "Live B2B pipeline dashboard with deal stages and ICP scores",
       "Bi-weekly pipeline calls",
       "ICP refinement and list hygiene",

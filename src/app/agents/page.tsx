@@ -69,8 +69,8 @@ const youGet = [
   "24/7 coverage",
   "SMS-enabled",
   "Works with any booking tool",
-  "Light onboarding",
-  "Live in under a week",
+  "Done-for-you setup",
+  "Live in 14 days",
 ];
 
 const youDont = [
@@ -94,14 +94,14 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to Growth or Custom Ops within the first 6 months, we credit your first month toward the System or Full Stack setup fee. Ask about upgrade pricing on your onboarding call.",
+      "Yes. If you move to System or Full Stack within the first 6 months, we credit your first month toward the upgrade setup fee. Ask about upgrade pricing on your onboarding call.",
   },
   {
     id: "agents_time_to_live",
     group: "agents",
     question: "How long until I'm live?",
     answer:
-      "Under a week on most agents-only installs. Light onboarding, we need your services, pricing, hours, and a couple of sample call/chat scenarios. A2P SMS registration runs in parallel on carrier timelines (usually 2–4 weeks); the agents handle chat and calls from day one, and SMS delivery switches on as soon as carriers approve.",
+      "14 days on most agents-only installs. Done-for-you setup, we need your services, pricing, hours, and a couple of sample call/chat scenarios. A2P SMS registration runs in parallel on carrier timelines (usually 2–4 weeks); the agents handle chat and calls from day one, and SMS delivery switches on as soon as carriers approve.",
   },
   {
     id: "agents_booking_tools",
@@ -308,13 +308,13 @@ export default function AgentsPage() {
               <span className="line-through">$497/mo</span> standard rate
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
-              Done-for-you setup. Live in 5 business days.
+              Done-for-you setup. Live in 14 days.
             </p>
             <Link
               href="/book"
               className="inline-flex items-center justify-center w-full h-12 px-7 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
             >
-              Get Started
+              Get Your Free Revenue Signal Report
             </Link>
           </div>
         </div>
@@ -372,7 +372,7 @@ export default function AgentsPage() {
               href="/book"
               className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
             >
-              Get Started
+              Get Your Free Revenue Signal Report
             </Link>
           </div>
           <p className="mt-6 text-xs italic text-muted-strong">
