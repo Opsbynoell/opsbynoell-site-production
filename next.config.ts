@@ -40,6 +40,11 @@ const nextConfig: NextConfig = {
         destination: "/legal/cookies",
         permanent: true,
       },
+      {
+        source: "/chiropractor-automation",
+        destination: "/verticals/chiropractic",
+        permanent: true,
+      },
     ];
   },
   async headers() {

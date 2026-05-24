@@ -31,7 +31,7 @@ const entries: Entry[] = [
   { path: "/what-you-get", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/add-ons", changeFrequency: "monthly", priority: 0.75, lastmod: SEO_FIXES },
   { path: "/digital-readiness-review", changeFrequency: "monthly", priority: 0.85, lastmod: SEO_FIXES },
-  { path: "/chiropractor-automation", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
+  { path: "/verticals/chiropractic", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
   { path: "/roi", changeFrequency: "monthly", priority: 0.7, lastmod: LAUNCH_FIXES },
   {
     path: "/resources/revenue-calculator",

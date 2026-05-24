@@ -2,12 +2,8 @@ import Link from "next/link";
 import {
   IconPhoneCall,
   IconCalendarX,
-  IconStethoscope,
   IconRefresh,
   IconClock,
-  IconCircleCheck,
-  IconUsers,
-  IconBolt,
 } from "@tabler/icons-react";
 import { Hero } from "@/components/hero";
 import { Features } from "@/components/features";
@@ -29,13 +25,13 @@ import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  path: "/chiropractor-automation",
-  title: "AI Front Desk for Chiropractic Offices, Ops by Noell",
+  path: "/verticals/chiropractic",
+  title: "AI Front Desk for Chiropractic Offices",
   description:
-    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, reduce no-shows, reactivate lapsed patients, and run automated review requests, all without adding front desk staff.",
+    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, cut no-shows, reactivate lapsed patients, all without adding staff.",
 });
 
-const chiropractorStats = [
+const chiroStats = [
   {
     value: "<60s",
     label: "New patient",
@@ -51,14 +47,9 @@ const chiropractorStats = [
     label: "Coverage",
     detail: "new patient intake, after hours included",
   },
-  {
-    value: "14d",
-    label: "Live",
-    detail: "installed around your existing EHR",
-  },
 ];
 
-type ChiroConcern = {
+type Concern = {
   icon: React.ReactNode;
   tag: string;
   title: string;
@@ -66,85 +57,83 @@ type ChiroConcern = {
   answer: string;
 };
 
-const chiroConcerns: ChiroConcern[] = [
+const chiroConcerns: Concern[] = [
   {
     icon: <IconPhoneCall size={22} />,
     tag: "New patient calls",
-    title: "New patients call once. If you miss them, they book down the street.",
+    title:
+      "New patients call once. If you miss them, they book down the street.",
     worry:
-      "Your front desk is triaging insurance, handling check-ins, and answering existing patient questions. A new patient calls, gets voicemail, and books with the chiropractic office that answered. That missed call is a patient relationship that never starts.",
+      "Your front desk is triaging insurance, handling check-ins, and answering existing-patient questions. A new patient calls, gets voicemail, and books with the office that answered. That missed call is a patient relationship that never starts.",
     answer:
-      "Noell Front Desk sends an on-brand text in under 60 seconds: two available openings, a warm note, and a direct booking link. Most new patients self-book before your front desk can call back.",
+      "Noell Front Desk sends an on-brand text in under sixty seconds: two available openings, a warm note, and a direct booking link. Most new patients self-book before your front desk can call back.",
   },
   {
     icon: <IconCalendarX size={22} />,
     tag: "No-shows and cancellations",
-    title: "A no-show at 9am costs you a 45-minute slot, not just one appointment.",
+    title:
+      "A no-show at 9am costs you a 45-minute slot, not just one appointment.",
     worry:
       "Chiropractic care plans depend on visit cadence. When patients cancel or no-show, they break their own recovery timeline, and your revenue timeline. Manual reminder calls are time-consuming and inconsistent.",
     answer:
-      "Automated appointment reminders go out 48 hours and 2 hours before every visit. Patients who do not confirm get a gentle follow-up. No-show rates drop, care plan completion rates rise.",
+      "Automated reminders go out forty-eight hours and two hours before every visit. Patients who do not confirm get a gentle follow-up. No-show rates drop, care-plan completion rises.",
   },
   {
     icon: <IconRefresh size={22} />,
     tag: "Lapsed patient reactivation",
-    title: "Patients who finished a care plan rarely come back on their own.",
+    title:
+      "Patients who finished a care plan rarely come back on their own.",
     worry:
-      "Maintenance care and new injury visits are sitting in your database as silent revenue opportunities. Most practices let them lapse because manual reactivation campaigns are too time-intensive to run consistently.",
+      "Maintenance care and new-injury visits sit in your database as silent revenue opportunities. Most practices let them lapse because manual reactivation campaigns are too time-intensive to run consistently.",
     answer:
-      "Reactivation runs automatically. Patients who have not visited in 60 or 90 days get a warm, personalized check-in via SMS or email, in your practice voice, at the cadence you set.",
+      "Reactivation runs automatically. Patients who have not visited in sixty or ninety days get a warm, personalized check-in by SMS or email, in your practice voice, at the cadence you set.",
   },
 ];
 
 const chiroCapabilities = [
   {
-    icon: <IconPhoneCall size={20} />,
+    icon: <IconPhoneCall size={28} />,
     number: "01",
     title: "Missed-call recovery",
-    description: "Every missed call gets an on-brand text in under 60 seconds with available slots and a booking link. New patient calls don't fall through.",
-    points: ["On-brand text in <60 seconds", "Two available slots included", "Direct booking link"],
+    description:
+      "Every missed call gets an on-brand text in under sixty seconds with available slots and a direct booking link. New-patient calls do not fall through.",
+    points: [
+      "Under 60 second SMS reply",
+      "Two available slots included",
+      "Direct booking link in the message",
+    ],
   },
   {
-    icon: <IconClock size={20} />,
+    icon: <IconClock size={28} />,
     number: "02",
-    title: "Appointment reminders",
-    description: "Automated 48-hour and 2-hour reminders via SMS. Patients who don't confirm get a gentle follow-up. No-show rates drop without manual effort.",
-    points: ["48-hour and 2-hour reminder cadence", "Soft confirmation required", "No manual follow-up needed"],
+    title: "Reminder cadence that holds the calendar",
+    description:
+      "Forty-eight-hour and two-hour reminders by SMS. Patients who do not confirm get a soft follow-up. No-show rates drop without manual effort.",
+    points: [
+      "Two-step reminder cadence",
+      "Soft confirmation required",
+      "No manual follow-up needed",
+    ],
   },
   {
-    icon: <IconRefresh size={20} />,
+    icon: <IconRefresh size={28} />,
     number: "03",
-    title: "Lapsed patient reactivation",
-    description: "Patients who haven't visited in 60–90 days receive personalized outreach. Maintenance care and re-injury visits fill your schedule without ad spend.",
-    points: ["60 and 90 day reactivation windows", "Personalized in your practice voice", "Runs automatically"],
-  },
-  {
-    icon: <IconCircleCheck size={20} />,
-    number: "04",
-    title: "Google review generation",
-    description: "After each visit, a review request goes out at the right moment. Practices on our system average 40+ new reviews in the first 8 weeks.",
-    points: ["Post-visit timing optimization", "Direct Google Business Profile link", "40+ reviews avg in 8 weeks"],
-  },
-  {
-    icon: <IconUsers size={20} />,
-    number: "05",
-    title: "New patient intake",
-    description: "Noell Support qualifies new patient inquiries 24/7 via website chat, capturing contact info, insurance, and chief complaint before the first call.",
-    points: ["24/7 website chat qualification", "Insurance and chief complaint captured", "Booking handoff included"],
-  },
-  {
-    icon: <IconStethoscope size={20} />,
-    number: "06",
-    title: "EHR-compatible",
-    description: "Layers on top of the chiropractic EHR or practice management system you already use. No migration, no rip-and-replace.",
-    points: ["No EHR migration required", "Works alongside your billing system", "14-day install"],
+    title: "Lapsed-patient reactivation",
+    description:
+      "Patients who have not visited in 60 to 90 days receive personalized outreach in your practice voice. Maintenance care and re-injury visits fill the schedule without ad spend.",
+    points: [
+      "Sixty and ninety day reactivation windows",
+      "Personalized in your practice voice",
+      "Runs automatically",
+    ],
   },
 ];
 
 const chiroFaqs = [
   {
     id: "chiro-works-with-ehr",
-    question: "Does this work with my current EHR or practice management software?",
+    question:
+      "Does this work with my current EHR or practice management software?",
     answer:
       "Yes. We install the AI front desk around your existing chiropractic EHR or practice management system. Your patient records, billing, and clinical workflows stay exactly where they are. We handle the front desk layer.",
   },
@@ -158,7 +147,7 @@ const chiroFaqs = [
     id: "chiro-how-long",
     question: "How long does it take to go live?",
     answer:
-      "14 days from audit to activation. We handle the setup, integration, and testing. Your team learns one thing: how to review the dashboard. Everything else runs automatically.",
+      "Fourteen days from audit to activation. We handle the setup, integration, and testing. Your team learns one thing: how to review the dashboard. Everything else runs automatically.",
   },
   {
     id: "chiro-front-desk-staff",
@@ -166,21 +155,57 @@ const chiroFaqs = [
     answer:
       "No. The AI front desk is additive, not a replacement. It handles the calls, texts, and follow-ups that currently fall through, after hours, during high-volume windows, and on weekends, so your staff can focus on the patients in the building.",
   },
-  {
-    id: "chiro-new-patients",
-    question: "Will this actually help us get more new patients?",
-    answer:
-      "Yes, primarily by stopping the leaks. The biggest driver of new patient loss in chiropractic is the missed call. Our system catches those calls and responds in under 60 seconds. Most practices see measurable new patient conversion improvement in the first 30 days.",
-  },
-  {
-    id: "chiro-review-generation",
-    question: "How does review generation work for a chiropractic office?",
-    answer:
-      "After each appointment, a review request goes out via SMS at the moment patients are most satisfied, typically right after a session. The message links directly to your Google Business Profile. No follow-up needed from your team.",
-  },
 ];
 
-export default function ChiropractorAutomationPage() {
+const chiroScreen = (
+  <div className="flex w-full flex-col items-stretch px-3">
+    <div className="flex justify-between items-center w-full px-2 pb-2">
+      <div className="flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+        <span className="text-xs text-cream/70 font-medium">
+          Noell Front Desk, Chiropractic
+        </span>
+      </div>
+      <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
+        missed call
+      </span>
+    </div>
+
+    <div className="bg-[#271520] rounded-2xl p-3 mx-1 border border-white/10/60 shadow-sm">
+      <div className="flex items-start justify-between">
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-wine/85 font-medium">
+            New patient, low back
+          </p>
+          <p className="text-sm text-cream font-medium mt-0.5">Marcus T.</p>
+          <p className="text-[11px] text-cream/70">Replied in 47s</p>
+        </div>
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#2A1520] text-wine">
+          warm
+        </span>
+      </div>
+      <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
+        Hi Marcus, sorry we missed you. We have new-patient openings
+        Tuesday 3:15 or Wednesday 10:00 with Dr. Patel. Want me to lock one
+        in?
+      </div>
+    </div>
+
+    <div className="bg-wine rounded-2xl p-3 mx-1 mt-2 shadow-sm">
+      <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
+        New-patient consult booked
+      </p>
+      <p className="font-serif text-2xl font-bold text-cream mt-0.5">
+        Tue · 3:15 PM
+      </p>
+      <p className="text-[11px] text-cream/60">
+        Initial exam, 45 min · Dr. Patel
+      </p>
+    </div>
+  </div>
+);
+
+export default function ChiropracticVerticalPage() {
   return (
     <div>
       <JsonLd
@@ -188,18 +213,19 @@ export default function ChiropractorAutomationPage() {
           servicePageSchema({
             name: "AI front desk for chiropractic offices",
             description:
-              "Done-for-you AI front desk for chiropractic practices. Missed-call recovery, appointment reminders, lapsed patient reactivation, and review generation, installed around your existing EHR.",
-            path: "/chiropractor-automation",
+              "Done-for-you AI front desk for chiropractic practices. Missed-call recovery, appointment reminders, lapsed-patient reactivation, installed around your existing EHR.",
+            path: "/verticals/chiropractic",
             vertical: "chiropractic practices",
           }),
           localBusinessSchema("chiropractic practices"),
           faqPageSchema(chiroFaqs),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Chiropractor Automation", path: "/chiropractor-automation" },
+            { name: "Verticals", path: "/verticals" },
+            { name: "Chiropractic", path: "/verticals/chiropractic" },
           ]),
         ]}
-        id="vertical-chiro"
+        id="vertical-chiropractic"
       />
       <Hero
         eyebrow="Ops by Noell for Chiropractic Offices"
@@ -207,13 +233,15 @@ export default function ChiropractorAutomationPage() {
         headlineLine1Accent="once."
         headlineLine2Start="Your system should"
         headlineLine2Accent="answer every time."
-        body="A done-for-you AI front desk for chiropractic practices. Missed new-patient calls recovered in under 60 seconds, automated reminders that cut no-shows, and quiet reactivation that brings lapsed patients back, without adding staff."
+        body="A done-for-you AI front desk for chiropractic practices. Missed new-patient calls recovered in under sixty seconds, automated reminders that cut no-shows, and quiet reactivation that brings lapsed patients back, without adding staff."
         footnote="Works with most chiropractic EHR and practice management systems. Tell us what you run on your intro call and we will confirm fit."
         primaryCta={{ label: "Book a Free Chiropractic Audit", href: "/book" }}
         secondaryCta={{
           label: "See how it handles new patient calls",
           href: "#chiro-concerns",
         }}
+        sourcePage="verticals_chiro"
+        mockScreen={chiroScreen}
       />
 
       <VerticalAgentsCallout />
@@ -223,7 +251,7 @@ export default function ChiropractorAutomationPage() {
         headlineStart="Fewer missed calls."
         headlineAccent="More filled slots."
         body="Numbers from practices running the Ops by Noell front desk."
-        stats={chiropractorStats}
+        stats={chiroStats}
       />
 
       <section id="chiro-concerns" className="w-full py-20 md:py-24 px-4">
@@ -279,9 +307,9 @@ export default function ChiropractorAutomationPage() {
 
       <Features3
         eyebrow="What changes"
-        headlineStart="Six things your front desk"
-        headlineAccent="handles automatically."
-        body="Not a feature checklist. The six plays that run in the background while you adjust."
+        headlineStart="Three moves"
+        headlineAccent="your front desk handles automatically."
+        body="Not a feature list. The three plays that run in the background while you adjust."
         capabilities={chiroCapabilities}
       />
 

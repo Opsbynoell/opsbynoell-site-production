@@ -10,9 +10,9 @@ import {
 
 export const metadata = pageMetadata({
   path: "/roi",
-  title: "Missed-Call Recovery ROI Calculator",
+  title: "60-Second ROI Estimator",
   description:
-    "Estimate the monthly recovery a missed-call system could return for your service business. Enter calls per week and average ticket to see payback by tier.",
+    "Quick payback estimate. Enter calls per week and average ticket to see what a missed-call system could recover and how fast it pays back by tier.",
 });
 
 export default function RoiPage() {
@@ -35,7 +35,7 @@ export default function RoiPage() {
       />
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-24 md:pt-28 pb-6 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
-          ROI calculator
+          60-second estimator
         </p>
         <h1 className="relative z-20 max-w-3xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           What could this{" "}
@@ -44,8 +44,15 @@ export default function RoiPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-xl text-center text-cream/75 text-sm md:text-base leading-relaxed">
-          A quick back-of-napkin estimate. Tune the inputs to your shop, see the
-          monthly recovery, and check payback against each tier.
+          Back-of-napkin payback by tier. Want the industry-specific version
+          with no-show math and the Santa proof?{" "}
+          <Link
+            href="/resources/revenue-calculator"
+            className="text-wine underline underline-offset-4 decoration-wine/40 hover:decoration-wine"
+          >
+            Open the deep revenue calculator
+          </Link>
+          .
         </p>
       </section>
 
