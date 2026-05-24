@@ -398,9 +398,13 @@ export function RevenueCalculator() {
                     Just book a call
                   </a>
                 </div>
-                {formState === "error" && errorMessage && (
-                  <p className="text-sm text-wine mt-3">{errorMessage}</p>
-                )}
+                <p
+                  role="alert"
+                  aria-live="polite"
+                  className="text-sm text-wine mt-3 min-h-[1.25rem]"
+                >
+                  {formState === "error" && errorMessage ? errorMessage : ""}
+                </p>
                 <p className="text-[11px] text-cream/50 mt-3">
                   No pitch. No pressure. We reply within one business day.
                 </p>

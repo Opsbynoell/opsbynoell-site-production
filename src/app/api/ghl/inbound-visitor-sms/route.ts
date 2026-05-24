@@ -68,12 +68,18 @@ export async function POST(req: NextRequest): Promise<Response> {
   const expectedSecret = env.ghlWebhookSecret();
   const providedSecret = req.nextUrl.searchParams.get("secret");
 
-  if (!expectedSecret || providedSecret !== expectedSecret) {
-    console.warn("[inbound-visitor-sms] rejected — bad or missing secret");
-    // 200 so GHL does not retry storm on auth misconfig.
+  if (!expectedSecret) {
+    console.error("[inbound-visitor-sms] GHL_WEBHOOK_SECRET is not configured — refusing webhook");
+    return NextResponse.json(
+      { ok: false, reason: "server_not_configured" },
+      { status: 500 }
+    );
+  }
+  if (providedSecret !== expectedSecret) {
+    console.warn("[inbound-visitor-sms] rejected — bad secret");
     return NextResponse.json(
       { ok: false, reason: "unauthorized" },
-      { status: 200 }
+      { status: 401 }
     );
   }
 

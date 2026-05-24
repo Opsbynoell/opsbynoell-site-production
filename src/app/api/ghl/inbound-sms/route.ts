@@ -43,11 +43,17 @@ export async function POST(req: NextRequest): Promise<Response> {
   const expectedSecret = env.ghlWebhookSecret();
   const providedSecret = req.nextUrl.searchParams.get("secret");
 
-  if (!expectedSecret || providedSecret !== expectedSecret) {
-    console.warn("[inbound-sms] Rejected request — bad or missing secret");
-    // Return 200 so the caller does not retry. Auth failures should not
-    // cause GHL to queue up dozens of retries.
-    return NextResponse.json({ ok: false, reason: "unauthorized" }, { status: 200 });
+  if (!expectedSecret) {
+    // Server misconfig — every webhook would otherwise be silently dropped.
+    console.error("[inbound-sms] GHL_WEBHOOK_SECRET is not configured — refusing webhook");
+    return NextResponse.json(
+      { ok: false, reason: "server_not_configured" },
+      { status: 500 }
+    );
+  }
+  if (providedSecret !== expectedSecret) {
+    console.warn("[inbound-sms] Rejected request — bad secret");
+    return NextResponse.json({ ok: false, reason: "unauthorized" }, { status: 401 });
   }
 
   // ── Parse body ────────────────────────────────────────────────────────────

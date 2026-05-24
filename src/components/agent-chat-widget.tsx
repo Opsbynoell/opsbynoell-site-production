@@ -22,8 +22,13 @@ import { cn } from "@/lib/utils";
 export type AgentKind = "support" | "frontDesk" | "care";
 
 interface Message {
+  id: string;
   from: "agent" | "visitor";
   text: string;
+}
+
+function newMsgId(): string {
+  return `msg-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
 export interface AgentChatWidgetProps {
@@ -77,7 +82,7 @@ const endpointFor: Record<AgentKind, string> = {
 export function AgentChatWidget(props: AgentChatWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { from: "agent", text: props.greeting },
+    { id: newMsgId(), from: "agent", text: props.greeting },
   ]);
   const [inputValue, setInputValue] = useState("");
   const [typing, setTyping] = useState(false);
@@ -112,7 +117,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
 
   // GTM item 4: reset the demo conversation to a clean state.
   function handleReplay() {
-    setMessages([{ from: "agent", text: props.greeting }]);
+    setMessages([{ id: newMsgId(), from: "agent", text: props.greeting }]);
     setInputValue("");
     setTyping(false);
     if (props.mode === "live" && typeof window !== "undefined") {
@@ -122,7 +127,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
   }
 
   async function send(message: string) {
-    const userMsg: Message = { from: "visitor", text: message };
+    const userMsg: Message = { id: newMsgId(), from: "visitor", text: message };
     setMessages((prev) => [...prev, userMsg]);
     setTyping(true);
 
@@ -134,7 +139,10 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
         ];
       for (let i = 0; i < flow.length; i++) {
         await new Promise((r) => setTimeout(r, 700));
-        setMessages((prev) => [...prev, { from: "agent", text: flow[i] }]);
+        setMessages((prev) => [
+          ...prev,
+          { id: newMsgId(), from: "agent", text: flow[i] },
+        ]);
       }
       setTyping(false);
       return;
@@ -145,6 +153,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
       setMessages((prev) => [
         ...prev,
         {
+          id: newMsgId(),
           from: "agent",
           text: "Widget misconfigured: missing clientId. Please contact the business.",
         },
@@ -180,6 +189,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
       setMessages((prev) => [
         ...prev,
         {
+          id: newMsgId(),
           from: "agent",
           text: data.reply || data.error || "Sorry: lost that one. One sec.",
         },
@@ -188,6 +198,7 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
       setMessages((prev) => [
         ...prev,
         {
+          id: newMsgId(),
           from: "agent",
           text: "Hit a snag reaching the desk. Try again in a moment.",
         },
@@ -301,9 +312,9 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               ref={scrollRef}
               className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-[#1F1219]"
             >
-              {messages.map((msg, i) => (
+              {messages.map((msg) => (
                 <div
-                  key={i}
+                  key={msg.id}
                   className={cn(
                     "flex",
                     msg.from === "agent" ? "justify-start" : "justify-end"

@@ -61,20 +61,26 @@ async function fetchSessions(
   messagesTable: string,
   clientIds: string[] | null // null = no filter (super admin)
 ): Promise<NormalizedSession[]> {
-  // Build client_id filter for snake_case tables
+  // Legacy support uses camelCase columns; everything else is snake_case.
+  // PostgREST 400s if any column in select/order doesn't exist, so we have to
+  // pick the column set per table instead of asking for both at once.
+  const isLegacy = table === "chatSessions";
+  const sidCol = isLegacy ? "sessionId" : "session_id";
+  const createdCol = isLegacy ? "createdAt" : "created_at";
+  const updatedCol = isLegacy ? "updatedAt" : "updated_at";
+  const clientCol = isLegacy ? "clientId" : "client_id";
+
   let clientFilter = "";
   if (clientIds !== null && clientIds.length > 0) {
     const ids = clientIds.map(encodeURIComponent).join(",");
-    // snake_case tables use client_id; camelCase legacy uses clientId
-    const col = table === "chatSessions" ? "clientId" : "client_id";
-    clientFilter = `&${col}=in.(${ids})`;
+    clientFilter = `&${clientCol}=in.(${ids})`;
   } else if (clientIds !== null && clientIds.length === 0) {
     // No accessible clients — return empty
     return [];
   }
 
   const sessRes = await fetch(
-    `${restUrl(table)}?select=*&order=updated_at.desc,updatedAt.desc&limit=200${clientFilter}`,
+    `${restUrl(table)}?select=*&order=${updatedCol}.desc&limit=200${clientFilter}`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   if (!sessRes.ok) return [];
@@ -83,7 +89,7 @@ async function fetchSessions(
 
   // Fetch latest message per session
   const msgRes = await fetch(
-    `${restUrl(messagesTable)}?select=session_id,sessionId,content,role,created_at,createdAt&order=created_at.desc,createdAt.desc&limit=400`,
+    `${restUrl(messagesTable)}?select=${sidCol},content,role,${createdCol}&order=${createdCol}.desc&limit=400`,
     { headers: supabaseHeaders(), cache: "no-store" }
   );
   const allMessages = msgRes.ok
@@ -92,7 +98,7 @@ async function fetchSessions(
 
   const lastMsg: Record<string, string> = {};
   for (const m of allMessages) {
-    const sid = (m.session_id ?? m.sessionId) as string;
+    const sid = (m[sidCol]) as string;
     if (!lastMsg[sid] && (m.role === "visitor" || m.role === "bot")) {
       lastMsg[sid] = m.content as string;
     }
