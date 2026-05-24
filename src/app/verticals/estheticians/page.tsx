@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/estheticians",
   title: "AI Front Desk for Estheticians",
   description:
-    "Retention-first, never pushy. Ops by Noell protects treatment plan adherence, keeps skincare routines on cadence, and holds your membership pipeline without making the tone shift into sales.",
+    "AI front desk for estheticians. Retention-first cadence that holds treatment plans, protects your membership pipeline, and never lets the tone shift to salesy.",
 });
 
 const estheticianStats = [

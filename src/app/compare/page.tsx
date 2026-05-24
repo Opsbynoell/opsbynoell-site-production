@@ -10,9 +10,9 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/compare",
-  title: "Compare Ops by Noell, vs. My AI Front Desk, Podium, DIY AI, and More",
+  title: "Compare AI Front Desk Alternatives",
   description:
-    "Side-by-side comparisons of Ops by Noell against the most common alternatives for service businesses. See how setup model, voice fit, retention, and ongoing management stack up.",
+    "Side-by-side comparisons of Ops by Noell against the most common alternatives. See how setup, voice fit, retention, and management stack up.",
 });
 
 const comparisons = [

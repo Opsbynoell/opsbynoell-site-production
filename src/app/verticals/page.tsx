@@ -6,6 +6,7 @@ import {
   IconHandStop,
   IconHeart,
   IconSnowflake,
+  IconStethoscope,
 } from "@tabler/icons-react";
 import CTA from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
@@ -14,10 +15,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/verticals",
-  title:
-    "Verticals: AI Front Desk for Dental, Med Spas, Salons, Massage, Estheticians, HVAC",
+  title: "AI Front Desk by Vertical for Service Businesses",
   description:
-    "Ops by Noell is a done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is shaped around the operational reality of your specific business.",
+    "Done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is shaped around your operational reality.",
 });
 
 type Vertical = {
@@ -105,6 +105,18 @@ const verticals: VerticalLink[] = [
     status: "live",
     proof: "Emergency vs. scheduled, routed",
     ctaLabel: "AI front desk for HVAC contractors",
+  },
+  {
+    slug: "chiropractic",
+    href: "/verticals/chiropractic",
+    name: "Chiropractic Offices",
+    icon: <IconStethoscope size={24} />,
+    tagline: "For chiropractic and physical-therapy practices.",
+    description:
+      "New patients call once. The Noell system catches the missed call in under sixty seconds, runs reminder cadence to cut no-shows, and quietly reactivates lapsed patients on cadence.",
+    status: "live",
+    proof: "New-patient callback: under 60s",
+    ctaLabel: "AI front desk for chiropractic offices",
   },
 ];
 

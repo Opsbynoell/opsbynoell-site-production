@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
   path: "/for-b2b",
   title: "AI-Optimized Digital Operations for B2B & SaaS",
   description:
-    "You win in boardrooms. Ops by Noell makes sure you do not lose on the internet. Predictive customer intelligence, AI-optimized GTM strategy, and digital presence architecture for B2B companies selling into enterprise accounts.",
+    "Predictive customer intelligence, AI-optimized GTM, and digital presence architecture for B2B and SaaS companies selling into enterprise accounts.",
   ogTitle: "You win in boardrooms. We make sure you do not lose on the internet.",
   ogDescription:
     "Predictive customer intelligence, AI-optimized GTM, and enterprise-grade digital presence for B2B companies. The gap between your pitch and your website is costing you deals.",

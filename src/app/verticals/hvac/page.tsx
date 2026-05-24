@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/hvac",
   title: "AI Front Desk for HVAC Contractors",
   description:
-    "The emergency call and the maintenance call do not belong in the same queue. Ops by Noell triages HVAC inbound by service type, dispatches the right tech in the right window, and handles the seasonal surge without turning your office into a call center.",
+    "AI front desk for HVAC contractors. Triage emergency vs. maintenance calls, dispatch the right tech in the right window, and handle seasonal surge without a call center.",
 });
 
 const hvacStats = [

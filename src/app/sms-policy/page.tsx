@@ -4,7 +4,8 @@ export const dynamic = "force-static";
 
 export const metadata = {
   title: "SMS Policy — Ops by Noell",
-  description: "How we use SMS to communicate with visitors and clients.",
+  description:
+    "How Ops by Noell uses SMS with visitors and clients: consent, opt-in, opt-out, message frequency, carrier fees, and your data rights under A2P 10DLC.",
   alternates: { canonical: "https://www.opsbynoell.com/sms-policy" },
 };
 

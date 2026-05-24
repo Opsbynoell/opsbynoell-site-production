@@ -17,9 +17,9 @@ const PATH = "/predictive-customer-intelligence";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "Predictive Customer Intelligence for Service Businesses",
+  title: "Predictive Customer Intelligence",
   description:
-    "Know who is about to ghost before your calendar shows the gap. We watch your leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface. Get your free Revenue Signal Report.",
+    "Know who is about to ghost before your calendar shows the gap. We watch leads, clients, and rebooking patterns for revenue signals your booking software doesn't surface.",
   ogTitle: "Predictive Customer Intelligence for Service Businesses",
   ogDescription:
     "Know who is about to ghost before your calendar shows the gap. Free Revenue Signal Report.",
@@ -727,8 +727,8 @@ function PricingTeaserSection() {
         </h2>
         <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
           Agents start at $397/mo (Signal tier). The full
-          done-for-you operation runs $397 to $1,197/mo. Media buying retainers
-          are quoted based on spend and scope.
+          done-for-you operation runs $397 to $2,497/mo across the service and
+          B2B tracks. Media buying retainers are quoted based on spend and scope.
         </p>
         <div className="mt-8">
           <Button href="/pricing" variant="secondary" className="px-6 py-3">

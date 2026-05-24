@@ -22,9 +22,9 @@ const PATH = "/what-you-get";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "What's Included, The Ops by Noell Revenue Recovery System",
+  title: "What's Included in the Noell System",
   description:
-    "Everything inside the revenue recovery system: a business line that never misses a call, three agents working in the background, the dashboard that runs your front office, and done-for-you setup.",
+    "Everything inside the system: a business line that never misses a call, three agents in the background, and the dashboard that runs your front office.",
   ogTitle: "Stay focused on the client in front of you. We'll handle the rest.",
   ogDescription:
     "The intelligence layer and agents that recover the revenue your booking software is about to lose, answering calls, booking appointments, and re-engaging clients before they ghost.",

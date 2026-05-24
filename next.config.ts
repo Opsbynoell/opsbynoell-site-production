@@ -25,6 +25,26 @@ const nextConfig: NextConfig = {
         destination: "/for-service-businesses",
         permanent: true,
       },
+      {
+        source: "/privacy",
+        destination: "/legal/privacy",
+        permanent: true,
+      },
+      {
+        source: "/terms",
+        destination: "/legal/terms",
+        permanent: true,
+      },
+      {
+        source: "/cookie-policy",
+        destination: "/legal/cookies",
+        permanent: true,
+      },
+      {
+        source: "/chiropractor-automation",
+        destination: "/verticals/chiropractic",
+        permanent: true,
+      },
     ];
   },
   async headers() {

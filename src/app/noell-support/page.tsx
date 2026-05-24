@@ -469,6 +469,7 @@ export default function NoellSupportPage() {
         primaryCta={{ label: "Book Your Free Audit", href: "/book" }}
         secondaryCta={{ label: "Back to home", href: "/" }}
         trustLine="Free audit · No contracts · Installed in 14 days"
+        sourcePage="noell_support"
       />
     </div>
   );

@@ -38,14 +38,14 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($1,097/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($897/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
     group: "tracks",
     question: "What is the difference between Prospect, Pipeline, and Full Stack?",
     answer:
-      "Prospect ($597/mo) is one agent: Noell Inbound handles first-touch lead qualification, ICP scoring, and routing the right prospects to the right rep. Pipeline ($1,197/mo) adds Noell Pipeline (demo scheduling, follow-up sequences, stalled-deal nudges) and Noell Account (health touchpoints, renewal sequences, upsell triggers), plus the PCI signal layer. Full Stack ($2,497/mo) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
+      "Prospect ($497/mo) is one agent: Noell Inbound handles first-touch lead qualification, ICP scoring, and routing the right prospects to the right rep. Pipeline ($1,197/mo) adds Noell Pipeline (demo scheduling, follow-up sequences, stalled-deal nudges) and Noell Account (health touchpoints, renewal sequences, upsell triggers), plus the PCI signal layer. Full Stack ($2,497/mo) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
     id: "no_contract",

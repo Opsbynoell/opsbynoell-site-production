@@ -47,7 +47,7 @@ const cards: CardProps[] = [
       "Managed install in 14 days",
       "Ongoing updates, no maintenance on your end",
     ],
-    priceLine: "From $397/mo",
+    priceLine: "From $897/mo",
     ctaLabel: "Book a working call",
     ctaHref: "/book",
     highlighted: true,

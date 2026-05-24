@@ -23,31 +23,87 @@ export default function CookiesPage() {
         </li>
         <li>
           <strong>Analytics cookies</strong>, aggregated and anonymized usage
-          data so we understand what pages are helpful. You can opt out via
-          your browser&apos;s Do Not Track setting.
+          data so we understand what pages are helpful. We use Google
+          Analytics (G-01DGCY0GXZ) to collect this data. You can opt out via
+          your browser&apos;s Do Not Track setting or via{" "}
+          <a
+            href="https://myadcenter.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google&apos;s Ad Settings
+          </a>
+          .
+        </li>
+        <li>
+          <strong>Advertising cookies</strong>, if you have previously
+          visited this site, Google Ads may use cookies or device
+          identifiers to show you Ops by Noell ads on other websites. This
+          is called remarketing. You can opt out at{" "}
+          <a
+            href="https://myadcenter.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Google&apos;s Ad Settings
+          </a>{" "}
+          or via the{" "}
+          <a
+            href="https://optout.networkadvertising.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Network Advertising Initiative opt-out page
+          </a>
+          .
         </li>
         <li>
           <strong>Scheduling cookies</strong>, if you book via our embedded
-          scheduler, the scheduler provider sets its own cookies to support the
-          booking flow.
+          scheduler, the scheduler provider sets its own cookies to support
+          the booking flow.
+        </li>
+        <li>
+          <strong>Meta Pixel</strong>, we use the Meta Pixel to measure the
+          effectiveness of advertising on Meta platforms and to serve
+          relevant ads to people who have visited our site. You can manage
+          your preferences at{" "}
+          <a
+            href="https://www.facebook.com/adpreferences/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook Ad Preferences
+          </a>
+          .
         </li>
       </ul>
-      <p>
-        We do not use cookies for cross-site advertising or to build
-        advertising profiles.
-      </p>
 
       <h2>Managing cookies</h2>
       <p>
-        You can clear or block cookies through your browser settings. Blocking
-        essential cookies may prevent parts of the site from working.
+        You can clear or block cookies through your browser settings.
+        Blocking essential cookies may prevent parts of the site from
+        working. For advertising opt-outs, visit{" "}
+        <a
+          href="https://myadcenter.google.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google&apos;s Ad Settings
+        </a>{" "}
+        or the{" "}
+        <a
+          href="https://optout.networkadvertising.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Network Advertising Initiative opt-out page
+        </a>
+        .
       </p>
 
       <h2>Changes</h2>
       <p>
         If our cookie use changes materially, we&apos;ll update this page.
-        Questions?{" "}
-        <a href="mailto:hello@opsbynoell.com">hello@opsbynoell.com</a>.
       </p>
     </LegalShell>
   );
