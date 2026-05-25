@@ -69,13 +69,31 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
-  // 1. Validate the Stripe session and get the customer email
+  // 1. Validate the Stripe session and get the customer email.
+  // In production we REQUIRE a valid Stripe session — otherwise anyone could POST
+  // to this route and mint a client_portal_users row with a portal cookie.
   let stripeEmail = "";
   let stripeCustomerId = "";
+  const isProd = process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
 
-  if (stripeSessionId) {
+  if (!stripeSessionId) {
+    if (isProd) {
+      return NextResponse.json(
+        { error: "Checkout session is required. Please complete payment first." },
+        { status: 400 }
+      );
+    }
+  } else {
     try {
       const session = await getStripe().checkout.sessions.retrieve(stripeSessionId);
+      // Only sessions that paid (or are sub-trialing) should be allowed to onboard.
+      const paid = session.payment_status === "paid" || session.payment_status === "no_payment_required";
+      if (!paid) {
+        return NextResponse.json(
+          { error: "Payment is not complete for this checkout session." },
+          { status: 402 }
+        );
+      }
       stripeEmail = session.customer_details?.email ?? session.customer_email ?? "";
       stripeCustomerId =
         typeof session.customer === "string"
@@ -83,7 +101,12 @@ export async function POST(req: Request): Promise<Response> {
           : session.customer?.id ?? "";
     } catch (err) {
       console.error("[onboarding] Stripe session retrieval failed:", err);
-      // Non-blocking — proceed without Stripe validation in dev
+      if (isProd) {
+        return NextResponse.json(
+          { error: "Could not verify your checkout session. Please contact hello@opsbynoell.com." },
+          { status: 400 }
+        );
+      }
     }
   }
 
@@ -201,7 +224,7 @@ export async function POST(req: Request): Promise<Response> {
       `Plan: ${planId}`,
       `Client ID: ${clientId}`,
       ``,
-      `Action needed: Configure their agents and go live within 5 business days.`,
+      `Action needed: Configure their agents and go live within 14 days.`,
       `Admin dashboard: https://www.opsbynoell.com/admin`,
     ].join("\n"),
   });

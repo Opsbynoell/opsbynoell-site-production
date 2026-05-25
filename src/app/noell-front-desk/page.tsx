@@ -187,7 +187,7 @@ export default function NoellFrontDeskPage() {
         defaultHeadlineLine2Start="Everything a"
         defaultHeadlineLine2Accent="receptionist handles."
         defaultBody="Noell Front Desk runs the operational workload of your business: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={frontDeskScreen}
         priceSignal={

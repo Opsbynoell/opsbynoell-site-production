@@ -126,15 +126,14 @@ export function BookExitIntent() {
             <button
               type="submit"
               disabled={state === "sending"}
+              aria-busy={state === "sending"}
               className="rounded-full bg-wine text-cream text-sm font-medium px-5 py-3 tap-target hover:bg-wine-dark transition-colors disabled:opacity-60"
             >
               {state === "sending" ? "Sending..." : "Send me the audit framework"}
             </button>
-            {state === "error" && (
-              <p className="text-xs text-wine">
-                Something went wrong. Try again in a moment.
-              </p>
-            )}
+            <p role="alert" aria-live="polite" className="text-xs text-wine min-h-[1rem]">
+              {state === "error" ? "Something went wrong. Try again in a moment." : ""}
+            </p>
           </form>
         )}
       </div>

@@ -39,7 +39,7 @@ export const SERVICE_TIERS: PricingTier[] = [
     bestFor: "Solo service businesses who want to stop missing leads",
     summary: "Your first agent. The one that never misses.",
     tagline:
-      "Noell Support answers every website visitor, captures leads, and scores them HOT or WARM before you ever see them. Live in 5 business days.",
+      "Noell Support answers every website visitor, captures leads, and scores them HOT or WARM before you ever see them. Live in 14 days.",
     features: [
       "Noell Support: 24/7 AI chat agent on your website",
       "Noell Ops Dashboard: HOT/WARM lead scoring, conversation threads, and lead source breakdown",
@@ -51,7 +51,7 @@ export const SERVICE_TIERS: PricingTier[] = [
     ctaLabel: "Get Started",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Month-to-month. Cancel anytime. Setup included.",
+    note: "Month-to-month. Cancel anytime. Done-for-you setup included.",
   },
   {
     id: "system",
@@ -80,7 +80,7 @@ export const SERVICE_TIERS: PricingTier[] = [
     ctaHref: "/book",
     useCheckout: false,
     isHighlighted: true,
-    note: "Month-to-month. Cancel anytime. Setup included.",
+    note: "Month-to-month. Cancel anytime. Done-for-you setup included.",
   },
   {
     id: "full_stack",
@@ -110,7 +110,7 @@ export const SERVICE_TIERS: PricingTier[] = [
     ctaLabel: "Book a scoping call",
     ctaHref: "/book",
     useCheckout: false,
-    note: "Scoping call required. Setup included. Priority onboarding.",
+    note: "Scoping call required. Done-for-you setup included. Priority onboarding.",
   },
 ];
 
@@ -119,7 +119,7 @@ export const B2B_TIERS: PricingTier[] = [
     id: "b2b_prospect",
     track: "b2b",
     planId: "b2b_prospect",
-    tier: "Prospect",
+    tier: "Inbound",
     standardPrice: "$597",
     launchPrice: "$497",
     cadence: "/mo",
@@ -132,13 +132,13 @@ export const B2B_TIERS: PricingTier[] = [
       "B2B Pipeline Dashboard: deal stages, ICP scores, account tracking",
       "Real-time notification feed: alerted when a prospect replies or a sequence step completes",
       "Weekly pipeline report delivered to your inbox every Monday",
-      "Initial setup and onboarding (done for you, 7 business days)",
+      "Done-for-you setup (live in 14 days)",
       "1 monthly check-in call (30 min)",
     ],
-    ctaLabel: "Start with Digital Readiness Review",
-    ctaHref: "/book",
+    ctaLabel: "Book a Digital Readiness Review",
+    ctaHref: "/digital-readiness-review",
     useCheckout: false,
-    note: "Month-to-month. Cancel anytime. Setup included.",
+    note: "Month-to-month. Cancel anytime. Done-for-you setup included.",
   },
   {
     id: "b2b_pipeline",
@@ -152,21 +152,21 @@ export const B2B_TIERS: PricingTier[] = [
     tagline:
       "Inbound, Pipeline, and Account: three agents working the full revenue cycle while your team focuses on closing. PCI signal layer included.",
     features: [
-      "Everything in Prospect",
+      "Everything in Inbound",
       "Noell Pipeline: AI sales operations (demo scheduling, follow-up sequences, stalled-deal nudges)",
       "Noell Account: AI account management (health touchpoints, renewal sequences, upsell triggers)",
       "Full B2B Pipeline Dashboard: all three agents, unified view",
       "iMessage and email outreach sequences (automated, done for you)",
       "Analytics dashboard: funnel performance, reply rates, and weekly digest email",
-      "PCI signal layer (Predictive Customer Intelligence)",
+      "Predictive Customer Intelligence (PCI) signal layer",
       "Bi-weekly check-in calls",
       "Quarterly ICP refinement session",
     ],
-    ctaLabel: "Start with Digital Readiness Review",
-    ctaHref: "/book",
+    ctaLabel: "Book a Digital Readiness Review",
+    ctaHref: "/digital-readiness-review",
     useCheckout: false,
     isHighlighted: true,
-    note: "Month-to-month. Cancel anytime. Setup included.",
+    note: "Month-to-month. Cancel anytime. Done-for-you setup included.",
   },
   {
     id: "b2b_full_stack",
@@ -178,10 +178,11 @@ export const B2B_TIERS: PricingTier[] = [
     bestFor: "B2B and SaaS companies who want Noell to own their pipeline ops",
     summary: "We build the machine. You close the deals.",
     tagline:
-      "The complete B2B ops layer: three agents, PCI, digital presence architecture, website build, the full Noell Ops CRM, and a dedicated pipeline partner.",
+      "The complete B2B ops layer: three agents, the full PCI + GTM + DPA system, website build, the full Noell Ops CRM, and a dedicated pipeline partner.",
     features: [
       "Everything in Pipeline",
-      "Digital presence architecture (LinkedIn, website, content alignment)",
+      "Digital Presence Architecture (LinkedIn, website, content alignment)",
+      "AI-Optimized GTM Strategy (ICP, messaging, channel mix)",
       "End-to-end website build optimized for B2B conversion",
       "Full Noell Ops CRM: live pipeline dashboard, contact scoring, iMessage and email sequences, email templates with open tracking",
       "Quick Enroll: add any contact to an active outreach sequence in one click from the dashboard",
@@ -193,10 +194,10 @@ export const B2B_TIERS: PricingTier[] = [
       "Priority support (same-day response)",
       "Custom automation workflows (up to 5 per quarter)",
     ],
-    ctaLabel: "Book a scoping call",
-    ctaHref: "/book",
+    ctaLabel: "Book a Digital Readiness Review",
+    ctaHref: "/digital-readiness-review",
     useCheckout: false,
-    note: "Scoping call required. Setup included. Dedicated ops partner.",
+    note: "Scoping call required. Done-for-you setup included. Dedicated pipeline partner.",
   },
 ];
 

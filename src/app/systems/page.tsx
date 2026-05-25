@@ -16,7 +16,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/systems",
-  title: "The Noell System, Six Agents, Two Tracks, Managed End-to-End",
+  title: "The Noell System: Two Tracks, Six Agents",
   description:
     "Done-for-you AI operations for service businesses and B2B companies. Six managed agents across two tracks. Live in 14 days.",
 });
@@ -151,7 +151,7 @@ export default function SystemsPage() {
             href="/book"
             className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-wine text-cream font-medium hover:bg-wine-dark transition-colors"
           >
-            Get Your Free Audit
+            Get Your Free Revenue Signal Report
           </Link>
           <Link
             href="/noell-support"
@@ -434,7 +434,7 @@ export default function SystemsPage() {
         headlineStart="See how it layers on"
         headlineAccent="your business."
         body="A 30-minute audit gives you a clear map of what's leaking, whether you work with us or not. No pitch. No pressure."
-        primaryCta={{ label: "Book Your Free Audit", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{
           label: "Talk to Noell Support first",
           href: "/noell-support",

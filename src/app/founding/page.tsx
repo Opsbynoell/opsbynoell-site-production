@@ -14,7 +14,7 @@ const SERVICE_TIERS = [
     standardPrice: "$497",
     cadence: "/mo",
     highlight: false,
-    description: "One agent. Done for you. Live in 5 business days.",
+    description: "One agent. Done for you. Live in 14 days.",
     includes: [
       "Noell Support: 24/7 website chat and lead capture",
       "HOT/WARM lead scoring on every conversation",
@@ -60,7 +60,7 @@ const SERVICE_TIERS = [
 
 const B2B_TIERS = [
   {
-    name: "Prospect",
+    name: "Inbound",
     launchPrice: "$497",
     standardPrice: "$597",
     cadence: "/mo",

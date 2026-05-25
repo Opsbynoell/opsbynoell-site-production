@@ -621,7 +621,7 @@ function HowItWorksSection() {
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Three steps.{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-              Live in under a week.
+              Live in 14 days.
             </span>
           </h2>
         </div>

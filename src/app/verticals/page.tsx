@@ -15,9 +15,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/verticals",
-  title: "AI Front Desk by Vertical for Service Businesses",
+  title: "AI Front Desk by Vertical",
   description:
-    "Done-for-you AI front desk for service businesses. Pick your vertical to see how the Noell system is shaped around your operational reality.",
+    "Done-for-you AI front desk shaped per vertical: dental, med spas, salons, massage, estheticians, HVAC, chiropractic. Pick yours.",
 });
 
 type Vertical = {

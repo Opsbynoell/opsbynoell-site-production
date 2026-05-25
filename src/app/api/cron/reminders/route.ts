@@ -128,11 +128,17 @@ export async function GET(req: Request): Promise<Response> {
       );
       results.push({ id: rem.id, sent: true });
     } catch (e) {
-      await sbUpdate(
-        "reminders",
-        { id: `eq.${rem.id}` },
-        { status: "failed", last_error: (e as Error).message }
-      );
+      // The bookkeeping write can also throw (DB hiccup). Wrap it so a single
+      // failure doesn't break the rest of the batch.
+      try {
+        await sbUpdate(
+          "reminders",
+          { id: `eq.${rem.id}` },
+          { status: "failed", last_error: (e as Error).message }
+        );
+      } catch (bookkeepingErr) {
+        console.error("[cron-reminders] failed to record failure:", bookkeepingErr);
+      }
       results.push({ id: rem.id, sent: false, error: (e as Error).message });
     }
   }

@@ -43,9 +43,9 @@ const pricingFaqs: FaqItem[] = [
   {
     id: "tier_difference_b2b",
     group: "tracks",
-    question: "What is the difference between Prospect, Pipeline, and Full Stack?",
+    question: "What is the difference between Inbound, Pipeline, and Full Stack?",
     answer:
-      "Prospect ($497/mo) is one agent: Noell Inbound handles first-touch lead qualification, ICP scoring, and routing the right prospects to the right rep. Pipeline ($1,197/mo) adds Noell Pipeline (demo scheduling, follow-up sequences, stalled-deal nudges) and Noell Account (health touchpoints, renewal sequences, upsell triggers), plus the PCI signal layer. Full Stack ($2,497/mo) adds a full website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
+      "Inbound ($497/mo launch / $597/mo standard) is one agent: Noell Inbound handles first-touch lead qualification, ICP scoring, and routing the right prospects to the right rep. Pipeline ($1,197/mo) adds Noell Pipeline (demo scheduling, follow-up sequences, stalled-deal nudges) and Noell Account (health touchpoints, renewal sequences, upsell triggers), plus the PCI signal layer. Full Stack ($2,497/mo) adds Digital Presence Architecture, AI-Optimized GTM Strategy, a website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
     id: "no_contract",
@@ -179,17 +179,11 @@ export default function PricingPage() {
         data={[
           pricingProductSchema([
             {
-              name: "Noell Agents",
-              priceMonthly: 397,
-              description:
-                "Three managed AI agents covering chat, calls, and existing-client support. Starting at $397/mo (Signal tier). Month-to-month.",
-              url: "/agents",
-            },
-            {
               name: "Noell System: Signal",
               priceMonthly: 397,
               description:
-                "Entry tier of the managed Noell System for service businesses. One AI agent, Noell Support, on 24/7 website chat with HOT/WARM lead scoring.",
+                "Entry tier of the managed Noell System for service businesses. Noell Support 24/7 website chat, HOT/WARM lead scoring, real-time notifications, weekly report. Live in 14 days.",
+              url: "/pricing#noell-system",
             },
             {
               name: "Noell System: System",
@@ -248,7 +242,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-[#301A26]/60 px-5 py-4 text-center">
           <p className="text-sm md:text-base text-cream/85 leading-relaxed">
             <span className="font-semibold text-cream">
-              Service track starts at $397/mo (Signal). B2B track starts at $497/mo (Prospect).
+              Service track starts at $397/mo (Signal). B2B track starts at $497/mo (Inbound).
             </span>{" "}
             The difference is scope, agents only, or the full system.
           </p>

@@ -41,11 +41,18 @@ export async function GET(req: Request): Promise<Response> {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  const clients = await sbSelect<ClientRow>(
+  // PostgREST's JSON-path filter syntax was unreliable here (the audit caught
+  // it as a likely no-op). Pull active clients and filter the frontDesk flag in
+  // code — same result, no PostgREST quirks.
+  const allClients = await sbSelect<ClientRow>(
     "clients",
-    { active: "eq.true", "agents->frontDesk": "eq.true" },
+    { active: "eq.true" },
     { limit: 500 }
   );
+  const clients = allClients.filter((c) => {
+    const agents = (c as unknown as { agents?: { frontDesk?: boolean } }).agents;
+    return agents?.frontDesk === true;
+  });
 
   const processed: Array<{ clientId: string; queued: number }> = [];
 

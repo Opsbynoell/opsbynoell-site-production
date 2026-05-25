@@ -127,7 +127,7 @@ const items: GetItem[] = [
       <>
         We do the work. Number, AI training, automations, dashboard,
         deliverability. You get a login and a 10-minute walkthrough video.
-        You&apos;re live in a week.
+        You&apos;re live in 14 days.
       </>
     ),
   },

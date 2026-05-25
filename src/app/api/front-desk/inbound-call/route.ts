@@ -54,7 +54,13 @@ async function handle(req: NextRequest): Promise<Response> {
 
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const sigHeader = req.headers.get("x-twilio-signature");
-  if (authToken && sigHeader) {
+  // When TWILIO_AUTH_TOKEN is set, require the signature header — previously a
+  // request with no x-twilio-signature header silently bypassed validation
+  // and was used to enumerate clientIds + trigger Supabase lookups.
+  if (authToken) {
+    if (!sigHeader) {
+      return NextResponse.json({ error: "Missing signature" }, { status: 403 });
+    }
     const publicUrl =
       (process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
         `${url.protocol}//${url.host}`) +

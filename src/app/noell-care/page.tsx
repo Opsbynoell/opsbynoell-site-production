@@ -155,7 +155,7 @@ export default function NoellCarePage() {
         defaultHeadlineLine2Start="And handles them"
         defaultHeadlineLine2Accent="when they return."
         defaultBody="Noell Care reaches lapsed clients on a cadence built around your service intervals, in your voice, and recognizes returning clients the moment they reply. The warm third layer of the Noell system: reactivation by default, returning-client desk on top."
-        primaryCta={{ label: "Get Your Free Audit", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
         sourcePage="noell_care"

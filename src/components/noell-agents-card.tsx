@@ -10,7 +10,7 @@ const LEFT_ITEMS = [
 
 const RIGHT_ITEMS = [
   "Works alongside any booking tool",
-  "Light onboarding, live in under a week",
+  "Done-for-you setup, live in 14 days",
   "Testimonial required + 1 reference call",
 ];
 
@@ -61,9 +61,9 @@ export function NoellAgentsCard() {
                 3 AI agents. Plug in. Go.
               </p>
               <p className="mt-3 text-sm text-wine font-medium">
-                ~~$497/mo~~ standard rate
+                <span className="line-through">$497/mo</span> standard rate
               </p>
-              <p className="mt-1 text-sm text-cream/70">No setup fee</p>
+              <p className="mt-1 text-sm text-cream/70">Done-for-you setup included</p>
               <div className="mt-6">
                 <Button href="/agents" variant="primary" className="h-11 px-6">
                   Start the agents

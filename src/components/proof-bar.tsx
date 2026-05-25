@@ -38,8 +38,8 @@ const recoveryScenes: RecoveryRow[][] = [
 ];
 
 const sceneLabels = [
-  "case: santa_e · missed-call recovery",
-  "case: ops_demo · web-chat qualification",
+  "case: Healing Hands by Santa · missed-call recovery",
+  "case: web-chat qualification",
   "case: after-hours · deposit capture",
   "case: no-show recovery · rebooking",
 ];

@@ -69,8 +69,11 @@ export async function GET(
       fetchJson<Record<string, unknown>>(
         `${restUrl(sessionTable)}?id=eq.${id}&select=*`
       ),
+      // All three message tables (support_messages, front_desk_messages, care_messages)
+      // use snake_case. Filtering on a non-existent column 400s PostgREST and
+      // collapses the result to []. See audit note: never include sessionId here.
       fetch(
-        `${restUrl(messagesTable)}?session_id=eq.${id}&sessionId=eq.${id}&order=created_at.asc,createdAt.asc&select=*`,
+        `${restUrl(messagesTable)}?session_id=eq.${id}&order=created_at.asc&select=*`,
         { headers: supabaseHeaders(), cache: "no-store" }
       )
         .then((r) => (r.ok ? r.json() : []))

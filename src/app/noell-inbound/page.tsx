@@ -56,7 +56,7 @@ const inboundFaqs = [
 
 export default function NoellInboundPage() {
   return (
-    <div className="min-h-screen bg-[#f5f0eb]">
+    <div className="min-h-screen bg-[#130B0F]">
       <JsonLd
         data={[
           breadcrumbSchema([
@@ -127,7 +127,7 @@ export default function NoellInboundPage() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-[17px] bg-[#f5f0eb] border border-white/10 p-6",
+                  "rounded-[17px] bg-[#271520] border border-white/10 p-6",
                   "shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05)]"
                 )}
               >

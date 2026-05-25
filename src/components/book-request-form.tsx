@@ -221,6 +221,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
           <button
             type="submit"
             disabled={state === "submitting"}
+            aria-busy={state === "submitting"}
             className="rounded-full bg-wine text-cream text-sm font-medium px-6 py-3 tap-target hover:bg-wine-dark transition-colors disabled:opacity-60"
             data-event="audit_cta_click"
             data-source-page="book"
@@ -228,9 +229,9 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
           >
             {state === "submitting" ? "Sending..." : "Request a working call."}
           </button>
-          {state === "error" && (
-            <p className="text-sm text-wine">{errorMessage}</p>
-          )}
+          <p role="alert" aria-live="polite" className="text-sm text-wine min-h-[1.25rem]">
+            {state === "error" ? errorMessage : ""}
+          </p>
         </div>
       </div>
     </form>

@@ -8,6 +8,7 @@ const ALT = "Podium";
 
 export const metadata = pageMetadata({
   path: PATH,
+  absoluteTitle: true,
   title: `Ops by Noell vs. ${ALT}`,
   description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses, scope, done-for-you setup, and who the system is really for.`,
 });
@@ -49,7 +50,7 @@ const rows: CompareRow[] = [
   {
     capability: "Price signal",
     opsByNoell:
-      "From $397/mo (Signal tier) to $1,497/mo (Full Stack). Month-to-month, no setup fee.",
+      "From $397/mo (Signal tier) to $1,497/mo (Full Stack). Month-to-month, done-for-you setup included.",
     alternative:
       "Published SaaS pricing. Often higher when stacked with SMS/voice modules.",
   },

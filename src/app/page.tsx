@@ -76,12 +76,12 @@ export default function Home() {
           Brand-level headline. Speaks to both audiences.
       ─────────────────────────────────────────────────────────────────────── */}
       <Hero
-        headlineLine1Start="The operations layer your business"
+        headlineLine1Start="The AI front desk and pipeline"
         headlineLine1Accent=""
-        headlineLine2Start="is"
+        headlineLine2Start="your business is"
         headlineLine2Accent="missing."
         headlineLine2Smaller={false}
-        body="Every missed call, unanswered inquiry, and unprepared B2B buyer is revenue that left quietly. Ops by Noell builds the operational layer that catches it. Done for you, live in 14 days, managed by our team."
+        body="For service businesses: every call answered, every booking confirmed, every lapsed client recovered. For B2B: every lead qualified before it goes cold. Done for you. Live in 14 days. Managed by our team."
         footnote="Service businesses and B2B companies. Two tracks. One standard."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}

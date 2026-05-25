@@ -10,6 +10,7 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/compare",
+  absoluteTitle: true,
   title: "Compare AI Front Desk Alternatives",
   description:
     "Side-by-side comparisons of Ops by Noell against the most common alternatives. See how setup, voice fit, retention, and management stack up.",

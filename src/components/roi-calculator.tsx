@@ -75,9 +75,9 @@ export function ROICalculator() {
           </div>
         </div>
         <div className="text-sm text-cream/75 leading-relaxed">
-          Signal pays for itself in {formatPayback(paybackMonthsSignal)}.
+          Signal ($397/mo) pays for itself in {formatPayback(paybackMonthsSignal)}.
           <br />
-          System pays for itself in {formatPayback(paybackMonthsSystem)}.
+          System ($897/mo) pays for itself in {formatPayback(paybackMonthsSystem)}.
         </div>
       </div>
       <div className="text-xs text-muted-medium mt-6 leading-relaxed">
