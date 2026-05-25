@@ -391,9 +391,9 @@ export function AgentChatWidget(props: AgentChatWidgetProps) {
               </div>
               <p className="text-xs text-muted-medium mt-2 px-1">
                 By chatting, you agree to our{" "}
-                <a href="/privacy" target="_blank" rel="noopener" className="underline">Privacy Policy</a>
+                <a href="/legal/privacy" target="_blank" rel="noopener" className="underline">Privacy Policy</a>
                 {" "}and{" "}
-                <a href="/terms" target="_blank" rel="noopener" className="underline">Terms</a>.
+                <a href="/legal/terms" target="_blank" rel="noopener" className="underline">Terms</a>.
                 If you share your phone number, you agree to our{" "}
                 <a href="/sms-policy" target="_blank" rel="noopener" className="underline">SMS Policy</a>.
               </p>

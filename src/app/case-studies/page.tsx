@@ -7,9 +7,9 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/case-studies",
-  title: "Case Studies, Real Results from Ops by Noell Clients",
+  title: "Case Studies, Real Client Results",
   description:
-    "Real numbers from real service businesses. See how Ops by Noell clients have recovered missed revenue, rebooked lost clients, and filled their calendars with done-for-you AI operations.",
+    "Real numbers from real service businesses. See how Ops by Noell clients recovered missed revenue, rebooked lost clients, and filled their calendars.",
 });
 
 const caseStudies = [

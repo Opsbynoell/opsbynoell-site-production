@@ -69,6 +69,7 @@ export const SERVICE_TIERS: PricingTier[] = [
       "Everything in Signal",
       "Noell Front Desk: AI phone agent, answers calls and books appointments",
       "Noell Care: AI reactivation, wins back lapsed clients via SMS and email",
+      "Deep two-way PMS or booking integration (reads availability, writes confirmed bookings back)",
       "Full Noell Ops Dashboard: all three agents, unified lead and conversation view",
       "iMessage and email outreach sequences (automated, done for you)",
       "Analytics dashboard: website traffic, funnel performance, and weekly digest email",
@@ -123,11 +124,11 @@ export const B2B_TIERS: PricingTier[] = [
     launchPrice: "$497",
     cadence: "/mo",
     bestFor: "B2B and SaaS companies who want to stop losing warm leads",
-    summary: "Your first B2B agent. Catches every inbound lead and starts the conversation.",
+    summary: "Your first B2B agent. Catches every inbound. Qualifies before it goes cold.",
     tagline:
-      "Noell Inbound qualifies every inbound contact, researches the account, and starts the right conversation before anyone on your team has to react.",
+      "Noell Inbound responds to every inbound inquiry in seconds, qualifies intent against your ICP, and routes the right prospects to the right rep.",
     features: [
-      "Noell Inbound: AI inbound agent (qualifies leads, researches accounts, first-touch sequences)",
+      "Noell Inbound: AI lead qualification and intake (first-touch responses, ICP scoring, routing)",
       "B2B Pipeline Dashboard: deal stages, ICP scores, account tracking",
       "Real-time notification feed: alerted when a prospect replies or a sequence step completes",
       "Weekly pipeline report delivered to your inbox every Monday",
@@ -149,11 +150,11 @@ export const B2B_TIERS: PricingTier[] = [
     bestFor: "B2B and SaaS companies who want a full top-to-mid funnel system",
     summary: "Three agents. Full funnel. Fewer stalled deals.",
     tagline:
-      "Inbound, Pipeline, and Account: three agents working the full funnel while you focus on closing. PCI signal layer included.",
+      "Inbound, Pipeline, and Account: three agents working the full revenue cycle while your team focuses on closing. PCI signal layer included.",
     features: [
       "Everything in Inbound",
-      "Noell Pipeline: AI pipeline agent (scores deals, routes to sales, keeps warm deals warm)",
-      "Noell Account: AI account agent (post-close follow-up, expansion signals, retention)",
+      "Noell Pipeline: AI sales operations (demo scheduling, follow-up sequences, stalled-deal nudges)",
+      "Noell Account: AI account management (health touchpoints, renewal sequences, upsell triggers)",
       "Full B2B Pipeline Dashboard: all three agents, unified view",
       "iMessage and email outreach sequences (automated, done for you)",
       "Analytics dashboard: funnel performance, reply rates, and weekly digest email",

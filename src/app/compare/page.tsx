@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
   absoluteTitle: true,
   title: "Compare AI Front Desk Alternatives",
   description:
-    "Side-by-side comparisons of Ops by Noell against the most common alternatives for service businesses, setup, voice fit, retention, and ongoing management.",
+    "Side-by-side comparisons of Ops by Noell against the most common alternatives. See how setup, voice fit, retention, and management stack up.",
 });
 
 const comparisons = [

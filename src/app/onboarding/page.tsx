@@ -15,7 +15,7 @@ const PLAN_LABELS: Record<string, string> = {
   agents_signal: "Signal ($397/mo)",
   agents_standard: "Noell Agents ($497/mo)",
   essentials: "Noell System: Signal ($397/mo)",
-  growth: "Noell System: System ($1,097/mo)",
+  growth: "Noell System: System ($897/mo)",
   custom_ops: "Noell System: Full Stack ($1,497/mo)",
 };
 

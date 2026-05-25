@@ -10,7 +10,7 @@ export const metadata = pageMetadata({
   path: "/digital-readiness-review",
   title: "Digital Readiness Review",
   description:
-    "A focused $297 audit of your digital presence, pipeline, and ops. Identify the gaps holding your business back. Fee credits 100% toward your package.",
+    "A focused $297 audit of your digital presence, pipeline, and operations. Find the gaps, get a roadmap, credit the full fee toward your package.",
   ogTitle: "Digital Readiness Review by Ops by Noell",
   ogDescription:
     "Find out exactly where your digital presence, pipeline, and operations are costing you. A focused, no-fluff review for any business. $297, fully credited toward your package.",

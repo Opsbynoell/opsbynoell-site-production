@@ -8,7 +8,7 @@ export function ROICalculator() {
   const recoveryRate = 0.4;
   const monthly = missedCalls * 4.33 * avgTicket * recoveryRate;
   const paybackMonthsSignal = monthly > 0 ? 397 / monthly : Infinity;
-  const paybackMonthsSystem = monthly > 0 ? 1097 / monthly : Infinity;
+  const paybackMonthsSystem = monthly > 0 ? 897 / monthly : Infinity;
 
   const formatPayback = (months: number) =>
     Number.isFinite(months) ? `${months.toFixed(1)} months` : "n/a";
@@ -77,7 +77,7 @@ export function ROICalculator() {
         <div className="text-sm text-cream/75 leading-relaxed">
           Signal ($397/mo) pays for itself in {formatPayback(paybackMonthsSignal)}.
           <br />
-          System ($1,097/mo) pays for itself in {formatPayback(paybackMonthsSystem)}.
+          System ($897/mo) pays for itself in {formatPayback(paybackMonthsSystem)}.
         </div>
       </div>
       <div className="text-xs text-muted-medium mt-6 leading-relaxed">

@@ -38,14 +38,14 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($1,097/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($897/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
     group: "tracks",
     question: "What is the difference between Inbound, Pipeline, and Full Stack?",
     answer:
-      "Inbound ($497/mo launch / $597/mo standard) is one agent: Noell Inbound qualifies inbound leads, researches the account, and runs first-touch sequences. Pipeline ($1,197/mo) adds Noell Pipeline (deal scoring and warm-deal nurture) and Noell Account (post-close follow-up and expansion), plus the full Predictive Customer Intelligence signal layer. Full Stack ($2,497/mo) adds Digital Presence Architecture, AI-Optimized GTM Strategy, a website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
+      "Inbound ($497/mo launch / $597/mo standard) is one agent: Noell Inbound handles first-touch lead qualification, ICP scoring, and routing the right prospects to the right rep. Pipeline ($1,197/mo) adds Noell Pipeline (demo scheduling, follow-up sequences, stalled-deal nudges) and Noell Account (health touchpoints, renewal sequences, upsell triggers), plus the PCI signal layer. Full Stack ($2,497/mo) adds Digital Presence Architecture, AI-Optimized GTM Strategy, a website build, the Noell Ops CRM, custom account list research, and a dedicated pipeline partner.",
   },
   {
     id: "no_contract",
@@ -89,7 +89,7 @@ const pricingFaqs: FaqItem[] = [
     group: "commitment",
     question: "Can I upgrade or downgrade later?",
     answer:
-      "Yes. Upgrades are prorated and take effect immediately, the system grows with you. Downgrades take effect at the start of the next billing month so nothing gets orphaned mid-build. If you're on Full Stack and we're still building your reactivation campaigns when you downgrade, we finish what we started on the original tier. No half-built systems.",
+      "Yes. Upgrades are prorated and take effect immediately, the system grows with you. Downgrades take effect at the start of the next billing month so nothing gets orphaned mid-build. If you're on Full Stack and we're still building your site or migrating you onto the Noell Ops CRM when you downgrade, we finish what we started on the original tier. No half-built systems.",
   },
   {
     id: "commitment_guarantee",
@@ -104,7 +104,7 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "What's the difference between the three tiers in plain English?",
     answer:
-      "Signal ($397/mo launch / $497/mo standard) is your first agent: Noell Support running 24/7 website chat with HOT/WARM lead scoring, a real-time notification feed, and a weekly performance report. Works alongside the booking tool you already use. System ($1,097/mo) adds Noell Front Desk (AI phone, books appointments) and Noell Care (reactivation and existing-client support). All three agents run together with a unified dashboard, automated outreach sequences, analytics, bi-weekly check-ins, and a quarterly site audit. This is where most practices start. Full Stack ($1,497/mo) is the complete done-for-you operations layer: everything in System plus a full website build or redesign, the Noell Ops CRM under your brand, a click-through audit, monthly strategy calls, priority support, and custom automation workflows. If you want Noell to run your ops, this is the tier.",
+      "Signal ($397/mo) is the entry tier for owners who just need to stop missing leads. One agent, Noell Support, handles 24/7 website chat and lead capture with HOT/WARM scoring and a live dashboard. It works alongside your existing booking tool. System ($897/mo) is the full front desk. Everything in Signal, plus Noell Front Desk (AI phone, answers calls and books appointments), Noell Care (rebooks and reactivation), and deep two-way integration with your PMS or booking tool, reading availability and writing confirmed bookings back. Most practices start here. Full Stack ($1,497/mo) is for owners who want Noell to run the whole operation. Everything in System, plus a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, custom automation workflows, and a dedicated ops partner.",
   },
   {
     id: "features_a2p_sms",
@@ -116,7 +116,7 @@ const pricingFaqs: FaqItem[] = [
   {
     id: "features_support_ai_chat",
     group: "features",
-    question: "What does Noell Support AI Chat (System and up) actually do?",
+    question: "What does Noell Support AI Chat (Signal and up) actually do?",
     answer:
       "Noell Support is an AI chat agent on your website trained on your specific business, your services, pricing, hours, booking logic, tone. She handles the 80% of website conversations that are predictable: \"Do you take my insurance?\", \"What's the earliest appointment?\", \"How much is a deep tissue?\", \"Can I reschedule?\". She books appointments directly when she has enough information. When a conversation needs a human, refund requests, clinical questions, anything that smells like a complaint, she routes it to your team with the full chat context attached. She is not a generic ChatGPT wrapper.",
   },
@@ -137,7 +137,7 @@ const pricingFaqs: FaqItem[] = [
   {
     id: "features_reactivation",
     group: "features",
-    question: "What are reactivation campaigns (System and up)?",
+    question: "What is reactivation (System and Full Stack)?",
     answer:
       "Reactivation campaigns automatically identify and contact inactive clients, typically 6+ months since last visit, with a sequence built around why they probably stopped coming. For dental, that's often unscheduled treatment plans sitting in the PMS; we text a friendly nudge with a direct link to reschedule. For salons, it's clients who drifted after a stylist moved. For massage and spa, it's seasonal drop-offs. Reactivation is usually the highest-ROI automation a practice can run because the leads already know and trust you.",
   },
@@ -154,14 +154,14 @@ const pricingFaqs: FaqItem[] = [
     group: "logistics",
     question: "How long until the system is live?",
     answer:
-      "14 days from audit-to-live on most installs. A2P registration takes 2–4 weeks on the carrier side but runs in parallel, so your SMS delivery goes live as soon as carriers approve, usually within the first 14 days. Multi-location Full Stack builds can take up to 21 days. Your audit call confirms the timeline for your specific setup.",
+      "14 days from audit-to-live on most installs. A2P registration takes 2–4 weeks on the carrier side but runs in parallel, so your SMS delivery goes live as soon as carriers approve, usually within the first 14 days. Multi-location and Full Stack builds can take up to 21 days. Your audit call confirms the timeline for your specific setup.",
   },
   {
     id: "logistics_replace_booking_tool",
     group: "logistics",
     question: "Do I need to replace my current booking tool?",
     answer:
-      "No. The Noell system layers on top of the booking, practice management, and field service software you already run, across dental, salon and spa, wellness, and home services. Your team keeps the tool they trained on. We layer the communication and scheduling automation on top. On Signal, the system works alongside your tool via chat and SMS; on System and Full Stack, it integrates directly (reads availability, writes confirmed bookings back). Tell us what you use on your audit call and we will confirm fit.",
+      "No. The Noell system layers on top of the booking, practice management, and field service software you already run, across dental, salon and spa, wellness, and home services. Your team keeps the tool they trained on. We layer the communication and scheduling automation on top. On Signal, the system works alongside your tool via SMS and chat; on System and Full Stack, it integrates directly (reads availability, writes confirmed bookings back). Tell us what you use on your audit call and we will confirm fit.",
   },
   {
     id: "logistics_managed_meaning",
@@ -187,17 +187,15 @@ export default function PricingPage() {
             },
             {
               name: "Noell System: System",
-              priceMonthly: 1097,
+              priceMonthly: 897,
               description:
-                "All three agents: Noell Support, Front Desk, and Care. Unified dashboard, automated outreach sequences, bi-weekly check-ins, quarterly site audit. Live in 14 days.",
-              url: "/pricing#noell-system",
+                "Full managed Noell System: three agents (Support, Front Desk, Care), deep two-way PMS or booking integration, and the full Noell Ops Dashboard.",
             },
             {
               name: "Noell System: Full Stack",
               priceMonthly: 1497,
               description:
-                "The complete done-for-you operations layer: three agents, full website build, the Noell Ops CRM, click-through audit, monthly strategy calls, priority support.",
-              url: "/pricing#noell-system",
+                "Done-for-you operations engagement: everything in System, plus a full website build, the Noell Ops CRM, click-through audit, and a dedicated ops partner.",
             },
           ]),
           faqPageSchema(pricingFaqs),
@@ -219,7 +217,7 @@ export default function PricingPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-4 max-w-2xl text-center text-cream/75 text-sm md:text-base leading-relaxed">
-          Service businesses: start with the agents or the full done-for-you system. B2B and SaaS: scoped individually, starting with a free Digital Readiness Review.
+          Service businesses: start with the agents or the full done-for-you system. B2B and SaaS: scoped individually, starting with a Digital Readiness Review ($297, credited toward your package).
         </p>
         <p className="relative z-20 mt-3 text-xs text-muted-medium">
           Curious what you could recover?{" "}
@@ -304,7 +302,7 @@ export default function PricingPage() {
               B2B pricing is scoped to your operation.
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
-              B2B and SaaS buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a free 30-minute Digital Readiness Review where we audit your digital presence against the buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. No pitch. No deck.
+              B2B and SaaS buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a Digital Readiness Review: a focused working session where we audit your digital presence against the buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. $297, fully credited toward your package if you move forward. No pitch. No deck.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {[

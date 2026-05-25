@@ -249,7 +249,7 @@ export default function NoellInboundPage() {
         eyebrow="Get started"
         headlineStart="See what Noell Inbound would catch"
         headlineAccent="on your site."
-        body="Book a free Digital Readiness Review and we will show you exactly how Noell Inbound would handle your current inbound leads, with your copy, in your voice, against your ICP."
+        body="Book a Digital Readiness Review ($297, credited toward your package) and we will show you exactly how Noell Inbound would handle your current inbound leads, with your copy, in your voice, against your ICP."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         trustLine="No pitch · No contracts · Live in 14 days"

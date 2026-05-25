@@ -12,8 +12,8 @@ type Entry = {
 // Per-page lastmod dates. Update these alongside content changes so search
 // crawlers can prioritize freshly updated pages instead of seeing every
 // page share a single build timestamp.
-const TODAY = "2026-05-19";
-const SEO_FIXES = "2026-05-19";
+const TODAY = "2026-05-24";
+const SEO_FIXES = "2026-05-24";
 const LAUNCH_FIXES = "2026-05-04";
 
 const entries: Entry[] = [
@@ -25,13 +25,13 @@ const entries: Entry[] = [
     path: "/predictive-customer-intelligence",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastmod: LAUNCH_FIXES,
+    lastmod: SEO_FIXES,
   },
   { path: "/pricing", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/what-you-get", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/add-ons", changeFrequency: "monthly", priority: 0.75, lastmod: SEO_FIXES },
   { path: "/digital-readiness-review", changeFrequency: "monthly", priority: 0.85, lastmod: SEO_FIXES },
-  { path: "/chiropractor-automation", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
+  { path: "/verticals/chiropractic", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
   { path: "/roi", changeFrequency: "monthly", priority: 0.7, lastmod: LAUNCH_FIXES },
   {
     path: "/resources/revenue-calculator",
@@ -42,20 +42,20 @@ const entries: Entry[] = [
   { path: "/contact", changeFrequency: "monthly", priority: 0.6, lastmod: "2026-04-18" },
   { path: "/book", changeFrequency: "weekly", priority: 0.95, lastmod: LAUNCH_FIXES },
 
-  { path: "/noell-support", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
-  { path: "/noell-front-desk", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
-  { path: "/noell-care", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
+  { path: "/noell-support", changeFrequency: "weekly", priority: 0.85, lastmod: SEO_FIXES },
+  { path: "/noell-front-desk", changeFrequency: "weekly", priority: 0.85, lastmod: SEO_FIXES },
+  { path: "/noell-care", changeFrequency: "weekly", priority: 0.85, lastmod: SEO_FIXES },
   { path: "/noell-inbound", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
   { path: "/noell-pipeline", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
   { path: "/noell-account", changeFrequency: "weekly", priority: 0.85, lastmod: TODAY },
 
   { path: "/verticals", changeFrequency: "weekly", priority: 0.85, lastmod: "2026-04-18" },
-  { path: "/verticals/dental", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },
+  { path: "/verticals/dental", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
   { path: "/verticals/med-spas", changeFrequency: "weekly", priority: 0.8, lastmod: LAUNCH_FIXES },
   { path: "/verticals/salons", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },
-  { path: "/verticals/massage", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },
-  { path: "/verticals/estheticians", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },
-  { path: "/verticals/hvac", changeFrequency: "weekly", priority: 0.8, lastmod: "2026-04-18" },
+  { path: "/verticals/massage", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
+  { path: "/verticals/estheticians", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
+  { path: "/verticals/hvac", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
 
   { path: "/resources", changeFrequency: "weekly", priority: 0.7, lastmod: LAUNCH_FIXES },
   {
@@ -121,16 +121,16 @@ const entries: Entry[] = [
 
   { path: "/compare", changeFrequency: "monthly", priority: 0.7, lastmod: SEO_FIXES },
   { path: "/compare/my-ai-front-desk", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
-  { path: "/compare/podium", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
+  { path: "/compare/podium", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
   { path: "/compare/diy-ai-receptionist", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/human-answering-services", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
   { path: "/compare/local-business-messaging-platforms", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/ai-front-desk-alternatives", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
 
-  { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
-  { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
-  { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
-  { path: "/sms-policy", changeFrequency: "yearly", priority: 0.3, lastmod: "2026-05-02" },
+  { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
+  { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
+  { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
+  { path: "/sms-policy", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

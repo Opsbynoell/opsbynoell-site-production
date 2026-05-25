@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { RevenueCalculator } from "@/components/revenue-calculator";
 import { SantaProofBlock } from "@/components/santa-proof-block";
 import CTA from "@/components/cta";
@@ -10,10 +11,10 @@ import {
 
 export const metadata = pageMetadata({
   path: "/resources/revenue-calculator",
-  title: "Revenue Calculator, See What You're Losing",
+  title: "Industry Revenue Calculator: Dental, Med Spa, Chiropractic",
   description:
-    "Find out how much revenue your dental practice, med spa, or chiropractic office is losing to missed calls and no-shows. Takes 60 seconds.",
-  ogTitle: "See What You're Losing, Ops by Noell Revenue Calculator",
+    "Industry-specific revenue calculator for dental, med spa, and chiropractic practices. Monthly leads, booking rate, no-show rate, and the Santa proof math.",
+  ogTitle: "Industry Revenue Calculator, Ops by Noell",
   ogDescription:
     "Enter your monthly leads, booking rate, and no-show rate. We show you what the Noell System would recover, based on Santa's actual 75% no-show reduction and $960 recovered in 14 days.",
 });
@@ -41,7 +42,7 @@ export default function RevenueCalculatorPage() {
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-4 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-6 md:pb-8 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.30)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
         <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
-          Takes 60 seconds
+          Industry-specific · Dental, med spa, chiropractic
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           See what you&apos;re{" "}
@@ -50,8 +51,15 @@ export default function RevenueCalculatorPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
-          Every missed call, every no-show, every slow follow-up is revenue walking out the door.
-          Enter your numbers. We&apos;ll show you what the Noell System would recover, based on real proof.
+          Industry-specific math: monthly leads, booking rate, no-show rate.
+          We&apos;ll show you what the Noell System would recover, based on
+          real proof.{" "}
+          <Link
+            href="/roi"
+            className="text-wine underline underline-offset-4 decoration-wine/40 hover:decoration-wine"
+          >
+            Just want a quick payback estimate?
+          </Link>
         </p>
 
         {/* Stats strip */}

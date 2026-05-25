@@ -56,10 +56,10 @@ const agents: Agent[] = [
   },
   {
     title: "Noell Care",
-    eyebrow: "Existing clients",
+    eyebrow: "Returning clients",
     description:
-      "Handles rebooks and service questions for clients already in your book.",
-    status: "status: online / existing clients",
+      "Recognizes returning clients and handles rebooks and service questions. Reactivation campaigns ship with System tier.",
+    status: "status: online / returning clients",
     icon: <IconHeartHandshake size={22} />,
   },
 ];
@@ -94,7 +94,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "Can I upgrade to the full system later?",
     answer:
-      "Yes. If you move to System or Full Stack within the first 6 months, we credit your first month toward the upgrade setup fee. Ask about upgrade pricing on your onboarding call.",
+      "Yes. If you move to System or Full Stack within the first 6 months, we credit your first month toward the new tier's setup. Ask about upgrade pricing on your onboarding call.",
   },
   {
     id: "agents_time_to_live",
@@ -145,7 +145,7 @@ export default function AgentsPage() {
       <div className="w-full bg-wine text-cream">
         <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
           <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-center">
-            Three agents. One system. Done for you.
+            Three agents. Working in the background. Live in under a week.
           </p>
         </div>
       </div>
@@ -163,8 +163,8 @@ export default function AgentsPage() {
         </h1>
         <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
           Noell Support handles website chat. Noell Front Desk never misses a
-          call. Noell Care takes rebooks and service questions. Works alongside
-          the booking tool you already use.
+          call. Noell Care handles returning clients (rebooks and questions).
+          Works alongside the booking tool you already use.
         </p>
 
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-stretch sm:items-center justify-center px-4">

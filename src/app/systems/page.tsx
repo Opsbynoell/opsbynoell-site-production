@@ -416,7 +416,7 @@ export default function SystemsPage() {
           </p>
           <p className="text-center text-xs text-cream/65 mt-6 max-w-2xl mx-auto leading-relaxed">
             Deep two-way integration (read availability, write bookings back)
-            is available on System and Full Stack. Signal uses chat and SMS
+            is available on System and Full Stack. Signal uses SMS and chat
             automations that work alongside any existing booking tool.{" "}
             <Link
               href="/pricing"
@@ -440,6 +440,7 @@ export default function SystemsPage() {
           href: "/noell-support",
         }}
         trustLine="Free 30-minute audit · No contracts · Live in 14 days"
+        sourcePage="systems"
       />
     </div>
   );

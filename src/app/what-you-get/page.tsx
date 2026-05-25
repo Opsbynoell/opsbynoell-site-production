@@ -22,9 +22,9 @@ const PATH = "/what-you-get";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "What's Included, The Ops by Noell Revenue Recovery System",
+  title: "What's Included in the Noell System",
   description:
-    "Everything inside the revenue recovery system: a business line that never misses a call, three agents working in the background, the dashboard that runs your front office, and done-for-you setup.",
+    "Everything inside the system: a business line that never misses a call, three agents in the background, and the dashboard that runs your front office.",
   ogTitle: "Stay focused on the client in front of you. We'll handle the rest.",
   ogDescription:
     "The intelligence layer and agents that recover the revenue your booking software is about to lose, answering calls, booking appointments, and re-engaging clients before they ghost.",
@@ -172,19 +172,19 @@ type PricingCard = {
 const pricingCards: PricingCard[] = [
   {
     name: "Signal",
-    body: "Your first agent. Noell Support runs 24/7 website chat, captures every lead, and scores them HOT or WARM before you see them. $397/mo launch rate.",
+    body: "One agent: Noell Support handles 24/7 website chat and lead capture with HOT/WARM scoring. Works alongside the booking tool you already use. $397/mo. Rate locked from day one.",
     bestFor: "Best when you need coverage fast without a platform migration.",
   },
   {
     name: "System",
-    body: "Three agents running together: Noell Support, Front Desk, and Care. Unified dashboard, no-show recovery, reputation workflows, and the Predictive Customer Intelligence signals as they roll out. $1,097/mo.",
+    body: "All three agents (Support, Front Desk, Care), deep two-way PMS or booking integration, no-show recovery, review automation, and the full Noell Ops Dashboard. $897/mo.",
     bestFor: "Recommended for revenue recovery.",
     highlighted: true,
   },
   {
     name: "Full Stack",
-    body: "The complete done-for-you operations layer: three agents, full website build, the Noell Ops CRM under your brand, click-through audit, monthly strategy calls, priority support. $1,497/mo.",
-    bestFor: "Best for established or multi-location practices.",
+    body: "Everything in System, plus a full website build or redesign, the Noell Ops CRM, click-through audit, custom automation workflows, and a dedicated ops partner. $1,497/mo.",
+    bestFor: "Best for owners who want Noell to run their ops end-to-end.",
   },
 ];
 

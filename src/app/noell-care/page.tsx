@@ -3,6 +3,7 @@ import {
   IconRefresh,
   IconMap,
   IconCalendarEvent,
+  IconCalendarRepeat,
   IconHelpCircle,
   IconShieldCheck,
 } from "@tabler/icons-react";
@@ -17,20 +18,26 @@ import { breadcrumbSchema, servicePageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/noell-care",
-  title: "Noell Care, Existing-Client Support",
+  title: "Noell Care, AI Client Reactivation",
   description:
-    "Noell Care is the existing-client support layer of the Noell system. Rebooking, appointment changes, service questions, location logistics, and account support for the clients you already have.",
+    "Noell Care wins back lapsed clients and runs the returning-client desk. Reactivation campaigns, rebooking, service questions, and account support, all on your voice.",
 });
 
 const careCapabilities = [
   {
     icon: <IconRefresh size={22} />,
+    title: "Reactivation (System tier and up)",
+    description:
+      "Care reaches lapsed clients by SMS and email on a cadence built around your service intervals. Win-back sequences in your voice, paused the moment they reply or rebook.",
+  },
+  {
+    icon: <IconCalendarEvent size={22} />,
     title: "Rebooking",
     description:
       "Returning clients land in Care, get recognized by phone or email, and can rebook their usual in one reply.",
   },
   {
-    icon: <IconCalendarEvent size={22} />,
+    icon: <IconCalendarRepeat size={22} />,
     title: "Appointment changes",
     description:
       "Move a Tuesday to a Wednesday without a phone call. Care captures it and hands off to Front Desk for the calendar action.",
@@ -126,11 +133,11 @@ export default function NoellCarePage() {
       <JsonLd
         data={[
           servicePageSchema({
-            name: "Noell Care: Existing-Client Support",
+            name: "Noell Care: AI Reactivation and Returning-Client Desk",
             description:
-              "Existing-client support layer of the Noell system: rebooking, appointment changes, service questions, location logistics, and account support.",
+              "Reactivation layer of the Noell system: wins back lapsed clients via SMS and email, runs the returning-client desk for rebooking, service questions, and account support.",
             path: "/noell-care",
-            serviceType: "Existing-client AI support layer",
+            serviceType: "AI client reactivation and returning-client support",
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
@@ -142,17 +149,17 @@ export default function NoellCarePage() {
       <AdHero
         page="care"
         variant="sage"
-        defaultEyebrow="Noell Care · Existing-client layer"
-        defaultHeadlineLine1Start="For the clients"
-        defaultHeadlineLine1Accent="who already stayed."
-        defaultHeadlineLine2Start="Recognized."
-        defaultHeadlineLine2Accent="Not re-interrogated."
-        defaultBody="Noell Care is the desk for your returning clients. It recognizes them, pulls their history, answers from your knowledge base, and hands rebooking to Front Desk. The warm third layer of the Noell system."
+        defaultEyebrow="Noell Care · Reactivation + returning-client desk"
+        defaultHeadlineLine1Start="The agent that"
+        defaultHeadlineLine1Accent="wins them back."
+        defaultHeadlineLine2Start="And handles them"
+        defaultHeadlineLine2Accent="when they return."
+        defaultBody="Noell Care reaches lapsed clients on a cadence built around your service intervals, in your voice, and recognizes returning clients the moment they reply. The warm third layer of the Noell system: reactivation by default, returning-client desk on top."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
         sourcePage="noell_care"
-        footnote="Built for service businesses that cannot afford to lose a returning client."
+        footnote="Built for service businesses that cannot afford to lose a returning client. Reactivation campaigns ship with System tier and up."
       />
 
       <section id="capabilities" className="py-20 md:py-28 px-4">
@@ -162,14 +169,15 @@ export default function NoellCarePage() {
               What Noell Care runs
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
-              Six things,{" "}
+              Reactivation first.{" "}
               <span className="italic bg-gradient-to-b from-[#4f6b4e] to-[#7a9c79] bg-clip-text text-transparent">
-                done warmly.
+                Returning-client desk on top.
               </span>
             </h2>
             <p className="mt-5 text-cream/70 max-w-xl mx-auto">
-              Noell Care is the returning-client desk. Recognized, informed,
-              warm, and honest about what it does not know.
+              Care reaches lapsed clients on cadence and recognizes returning
+              ones the moment they reply. Warm, informed, and honest about what
+              it does not know.
             </p>
           </div>
 
@@ -244,7 +252,7 @@ export default function NoellCarePage() {
         eyebrow="Care questions"
         headlineStart="Warm"
         headlineAccent="answers."
-        body="What people ask before they install the existing-client layer."
+        body="What people ask before they install the reactivation and returning-client layer."
         faqs={careFaqs}
       />
 
@@ -254,6 +262,7 @@ export default function NoellCarePage() {
         headlineAccent="are asking for."
         body="Book a free audit. We'll review a sample of your inbound and show you how Care would handle it, on your voice, from your knowledge base."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
+        sourcePage="noell_care"
       />
     </div>
   );

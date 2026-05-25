@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/massage",
   title: "AI Front Desk for Massage Therapy",
   description:
-    "In session with a client while the phone rings. Ops by Noell catches missed calls, confirms appointments, and keeps your calendar full without making you feel like a salesperson on top of being a therapist.",
+    "AI front desk for massage therapists. Catch missed calls while you're in session, confirm appointments, and keep your calendar full without selling.",
 });
 
 const massageStats = [
@@ -130,7 +130,7 @@ const massageFaqs = [
   {
     question: "I am a solo therapist. Is this overkill?",
     answer:
-      "Most Ops by Noell installs are solo practitioners or two-to-three-person teams. The Signal tier is built exactly for this: 24/7 website chat, missed-call follow-up, appointment confirmations, and a weekly performance report. If you have more than eight to ten sessions a week, the system pays for itself from missed-call recovery alone.",
+      "Most Ops by Noell installs are solo practitioners or two-to-three-person teams. The Signal tier is built exactly for this: 24/7 website chat, lead capture, and HOT/WARM scoring. If you have more than eight to ten sessions a week, the system pays for itself from recovered leads alone.",
   },
   {
     question: "Does it work with my booking software?",

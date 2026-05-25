@@ -250,7 +250,7 @@ export default function NoellPipelinePage() {
         eyebrow="Get started"
         headlineStart="See what Noell Pipeline would do"
         headlineAccent="for your deals."
-        body="Book a free Digital Readiness Review and we will map your current sales process, identify where deals are dying, and show you exactly how Noell Pipeline would close the gaps."
+        body="Book a Digital Readiness Review ($297, credited toward your package) and we will map your current sales process, identify where deals are dying, and show you exactly how Noell Pipeline would close the gaps."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         trustLine="No pitch · No contracts · Live in 14 days"

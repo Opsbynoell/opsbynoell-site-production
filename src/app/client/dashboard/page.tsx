@@ -60,9 +60,9 @@ interface StatsResponse {
 const PLAN_LABELS: Record<string, string> = {
   agents_founding: "Noell Agents — Launch Pricing",
   agents_standard: "Noell Agents",
-  essentials: "Noell System — Essentials",
-  growth: "Noell System — Growth",
-  custom_ops: "Noell System — Custom Ops",
+  essentials: "Noell System — Signal",
+  growth: "Noell System — System",
+  custom_ops: "Noell System — Full Stack",
 };
 
 const SEVERITY_COLORS: Record<string, string> = {
