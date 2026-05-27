@@ -33,6 +33,8 @@ const entries: Entry[] = [
   { path: "/digital-readiness-review", changeFrequency: "monthly", priority: 0.85, lastmod: SEO_FIXES },
   { path: "/verticals/chiropractic", changeFrequency: "weekly", priority: 0.8, lastmod: SEO_FIXES },
   { path: "/roi", changeFrequency: "monthly", priority: 0.7, lastmod: LAUNCH_FIXES },
+  { path: "/platform/lead-intelligence", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
+  { path: "/platform/b2b-pipeline", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
   {
     path: "/resources/revenue-calculator",
     changeFrequency: "monthly",

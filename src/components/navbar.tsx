@@ -38,15 +38,15 @@ const SYSTEMS_LINKS = [
 const PLATFORM_LINKS = [
   {
     name: "Lead Intelligence Dashboard",
-    href: "https://noelldash-baxrcvz3.manus.space",
+    href: "/platform/lead-intelligence",
     description: "Live leads, conversations, and conversion funnel",
-    external: true,
+    external: false,
   },
   {
     name: "B2B Pipeline Dashboard",
-    href: "https://noelldash-baxrcvz3.manus.space/b2b",
+    href: "/platform/b2b-pipeline",
     description: "Deal stages, ICP scores, and pipeline value",
-    external: true,
+    external: false,
   },
   {
     name: "ROI Calculator",
@@ -263,7 +263,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
                 className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
               >
                 <p className="px-3.5 pt-1.5 pb-2 text-[10px] uppercase tracking-[0.2em] text-cream/40 font-medium">
-                  Live dashboards
+                  Platform previews
                 </p>
                 {PLATFORM_LINKS.map((link) => (
                   link.external ? (
