@@ -42,9 +42,9 @@ const bookFaqs: FaqItem[] = [
   },
   {
     id: "why-no-live-calendar",
-    question: "Why not a live calendar?",
+    question: "Can I book directly on a calendar?",
     answer:
-      "Audits are scheduled personally right now. You get a human reply, not a booking widget, because the first touchpoint should prove we actually run the front desk. When we add a real scheduler, it will be one we trust end to end. Not before.",
+      "Yes. Scroll down past the form to find the Revenue Signal Report Discovery Call calendar. Pick a Tuesday, Wednesday, or Thursday between 10 AM and 5 PM Pacific. If nothing works, email nikki@opsbynoell.com and she will make it happen.",
   },
   {
     id: "not-ready-after-call",
@@ -129,6 +129,22 @@ export default function BookPage() {
       {/* Form */}
       <section className="px-4 pt-4 pb-10">
         <BookRequestForm />
+      </section>
+
+      {/* GHL Revenue Signal Report Calendar */}
+      <section style={{ marginTop: '4rem', padding: '0 1rem 4rem' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 style={{ fontFamily: 'serif', fontSize: '1.75rem', fontWeight: 600, color: 'var(--color-cream, #f5f0eb)', marginBottom: '0.75rem' }}>Prefer to book directly?</h2>
+          <p style={{ color: 'rgba(245,240,235,0.75)', fontSize: '1rem', lineHeight: 1.6 }}>Pick a time that works for you. 30-minute Revenue Signal Report call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
+        </div>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/HRQS43hNklkuUBBgDTPe"
+          style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
+          title="Book Revenue Signal Report Call"
+          scrolling="no"
+          id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
+        />
+        <script src="https://link.msgsndr.com/js/form_embed.js" />
       </section>
 
       {/* What happens after you send it */}
