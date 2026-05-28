@@ -45,6 +45,21 @@ const nextConfig: NextConfig = {
         destination: "/verticals/chiropractic",
         permanent: true,
       },
+      {
+        source: "/revenue-signal-report",
+        destination: "/book",
+        permanent: true,
+      },
+      {
+        source: "/lp-service",
+        destination: "/for-service-businesses",
+        permanent: true,
+      },
+      {
+        source: "/lp-b2b",
+        destination: "/for-b2b",
+        permanent: true,
+      },
     ];
   },
   async headers() {
