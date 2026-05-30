@@ -60,6 +60,11 @@ const nextConfig: NextConfig = {
         destination: "/for-b2b",
         permanent: true,
       },
+      {
+        source: "/for-service-biz",
+        destination: "/for-service-businesses",
+        permanent: true,
+      },
     ];
   },
   async headers() {
