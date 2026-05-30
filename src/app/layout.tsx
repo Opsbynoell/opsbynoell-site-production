@@ -99,9 +99,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) — GA4 + Google Ads */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-01DGCY0GXZ"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18123945519"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -110,6 +110,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-01DGCY0GXZ');
+            gtag('config', 'AW-18123945519', { allow_enhanced_conversions: true });
           `}
         </Script>
       </head>

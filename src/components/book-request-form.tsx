@@ -5,6 +5,9 @@ import { trackConversion, ConversionEvents } from "@/lib/analytics";
 
 type FormState = "idle" | "submitting" | "sent" | "error";
 
+// Typed helper so TypeScript doesn't complain about window.gtag
+type GtagFn = (...args: unknown[]) => void;
+
 interface BookRequestFormProps {
   className?: string;
 }
@@ -58,6 +61,29 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
       }
 
       setState("sent");
+
+      // Enhanced Conversions: provide user_data so Google can match this
+      // conversion to a signed-in Google user. Must be set before the
+      // conversion event fires. Google hashes the values automatically when
+      // Enhanced Conversions is in auto-detect mode.
+      if (typeof window !== "undefined") {
+        const gtag = (window as Window & { gtag?: GtagFn }).gtag;
+        if (typeof gtag === "function") {
+          // Split name into first/last for best match rate
+          const nameParts = name.trim().split(" ");
+          const firstName = nameParts[0] ?? "";
+          const lastName = nameParts.slice(1).join(" ") || undefined;
+          gtag("set", "user_data", {
+            email: email.trim().toLowerCase(),
+            phone_number: phone.trim(),
+            address: {
+              first_name: firstName,
+              ...(lastName ? { last_name: lastName } : {}),
+            },
+          });
+        }
+      }
+
       trackConversion(ConversionEvents.AUDIT_REQUEST_SUBMITTED, {
         source_page: "book",
         source_section: "book_request_form",

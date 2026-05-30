@@ -1,8 +1,8 @@
 /**
  * Conversion analytics — event names and emission helpers.
  *
- * Today these events route through Meta Pixel (the only analytics provider
- * currently wired up). The helpers no-op safely when the pixel is missing.
+ * Events route through Meta Pixel and Google Ads. The helpers no-op safely
+ * when the respective tag is missing.
  *
  * Keep the event name list in sync with docs/analytics.md.
  *
@@ -21,6 +21,9 @@ import {
   trackMetaEvent,
   trackMetaCustomEvent,
 } from "@/lib/meta-pixel-track";
+
+// Typed helper so TypeScript doesn't complain about window.gtag
+type GtagFn = (...args: unknown[]) => void;
 
 /**
  * Pages that originate conversion clicks. When a CTA points at /book (or a
@@ -141,9 +144,15 @@ export interface ConversionContext {
 }
 
 /**
- * Fire a conversion event. Currently sends a Meta Pixel custom event and,
- * for primary audit CTAs, also fires the Meta standard `Contact` event so
- * existing pixel-based audiences keep working unchanged.
+ * Fire a conversion event. Sends a Meta Pixel custom event and, for primary
+ * audit CTAs, also fires the Meta standard `Contact` event so existing
+ * pixel-based audiences keep working unchanged.
+ *
+ * For AUDIT_REQUEST_SUBMITTED, also fires the Google Ads conversion event
+ * (AW-18123945519/UI5DCPOdgKYcEK_slcJD) with a $200 lead value so the
+ * "Submit Lead Form - Book Call" conversion action records correctly.
+ * Enhanced Conversions user_data (email, phone, name) should be set via
+ * gtag('set', 'user_data', {...}) in the form component before calling this.
  */
 export function trackConversion(
   event: ConversionEventName,
@@ -163,6 +172,17 @@ export function trackConversion(
       trackMetaEvent("Lead", {
         content_name: "audit_worksheet",
       });
+    }
+    // Google Ads: fire conversion on working-call form submit
+    if (event === ConversionEvents.AUDIT_REQUEST_SUBMITTED) {
+      const gtag = (window as Window & { gtag?: GtagFn }).gtag;
+      if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+          send_to: "AW-18123945519/UI5DCPOdgKYcEK_slcJD",
+          value: 200.0,
+          currency: "USD",
+        });
+      }
     }
   } catch {
     // Analytics must never break the UI.
