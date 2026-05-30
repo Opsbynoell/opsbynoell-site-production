@@ -65,6 +65,11 @@ const nextConfig: NextConfig = {
         destination: "/for-service-businesses",
         permanent: true,
       },
+      {
+        source: "/platform",
+        destination: "/systems",
+        permanent: true,
+      },
     ];
   },
   async headers() {
