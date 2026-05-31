@@ -215,7 +215,7 @@ export default function ForServiceBusinessesPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              The gap between delivering excellent work and running a business that captures and retains every client is an operations problem. Here is what it looks like in practice.
+              Here is what it looks like in practice.
             </p>
           </div>
 
@@ -294,7 +294,7 @@ export default function ForServiceBusinessesPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Every Ops by Noell engagement is built around three AI agents that cover the full client lifecycle, from first contact to retention. Installed and managed by our team.
+              Installed and managed by our team.
             </p>
           </div>
 
@@ -395,7 +395,7 @@ export default function ForServiceBusinessesPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-xl mx-auto leading-relaxed">
-              Every engagement starts with a free Revenue Signal Report. No pitch. No deck. Just a direct conversation about what is broken and what it is costing you.
+              No pitch. No deck. A direct conversation about what is broken and what it is costing you.
             </p>
           </div>
 

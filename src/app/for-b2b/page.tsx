@@ -90,7 +90,7 @@ const systems: SystemCard[] = [
     description:
       "We rebuild the structural layer of your digital presence so that every page, every proof point, and every trust signal is positioned for the enterprise buyer evaluating you without your sales team in the room. Built to survive the seven-second test. Built to close.",
     bullets: [
-      "Enterprise-grade site architecture and copy",
+                  "Site architecture and copy rebuilt for B2B buyers",
       "Proof layer positioning and sequencing",
       "Security and compliance trust signals",
       "Buyer-stage content mapping",
@@ -217,7 +217,7 @@ export default function ForB2BPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              B2B and SaaS buying committees do not make decisions in the room. They do their own research. Here is where the trust collapses.
+              Here is where the trust collapses.
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export default function ForB2BPage() {
             Your pipeline tells you what happened. We tell you what is about to.
           </h2>
           <p className="mt-6 text-base md:text-lg text-cream/85 leading-relaxed">
-            Every signal in your pipeline, from engagement patterns to buying committee behavior, is data your CRM is not reading. Ops by Noell reads it every day and surfaces the accounts most likely to close, expand, or churn before your team notices the shift. Not a dashboard you check. An operational layer that tells your team what to do next.
+            Every signal in your pipeline is data your CRM is not reading. Ops by Noell reads it every day and surfaces the accounts most likely to close, expand, or churn before your team notices the shift.
           </p>
           <p className="mt-8 font-serif italic text-lg md:text-xl text-cream">
             We do not just tell you who is interested. We tell you who is about to go quiet.
@@ -285,7 +285,7 @@ export default function ForB2BPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Every B2B engagement is built around three interconnected systems that cover the full buyer journey, from first signal to closed deal.
+              Three systems. First signal to closed deal.
             </p>
           </div>
 
@@ -449,9 +449,9 @@ export default function ForB2BPage() {
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
               Live implementation · Premier Tech Sales Inc.
             </p>
-            <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
-              Our current flagship B2B implementation is running inside a live B2B sales operation today. Three agents, PCI, and a live pipeline dashboard. We show it on every Digital Readiness Review call because it is the most honest demonstration we can offer.
-            </p>
+              <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
+                Three agents, PCI, and a live pipeline dashboard. Running inside a real B2B sales operation today. We show it on every Digital Readiness Review call.
+              </p>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">3</p>
@@ -492,7 +492,7 @@ export default function ForB2BPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-xl mx-auto leading-relaxed">
-              Every B2B engagement starts with a Digital Readiness Review. No pitch. No deck. A direct conversation about what is broken and what it is costing you in pipeline.
+              No pitch. No deck. A direct conversation about what is broken and what it is costing you.
             </p>
           </div>
 
