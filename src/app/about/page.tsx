@@ -83,16 +83,10 @@ export default function AboutPage() {
               Built by a family who watched too many good businesses bleed.
             </h1>
             <p className="mt-6 font-serif italic text-lg md:text-xl text-muted-strong leading-relaxed">
-              Ops by Noell is a family-run studio from Mission Viejo,
-              California.
+              A husband-and-wife team from Mission Viejo, California.
             </p>
             <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
-              We&apos;re James and Nikki Noell, a husband-and-wife team based
-              in Mission Viejo. Between us we&apos;ve spent years inside
-              growing businesses, from sales to operations, watching the same
-              pattern everywhere we went: smart owners, booked calendars, lean
-              teams, and money slipping out the back door. A missed call at 9
-              PM. A chat nobody answered. A client who never got a follow-up.
+              We spent years inside growing businesses watching the same pattern: smart owners, booked calendars, lean teams, and money slipping out the back door. A missed call at 9 PM. A chat nobody answered. A client who never got a follow-up. We built Ops by Noell to fix that.
             </p>
           </div>
         </div>
@@ -109,32 +103,10 @@ export default function AboutPage() {
           </h2>
           <div className="mt-10 space-y-6 text-base md:text-lg text-cream/80 leading-relaxed">
             <p>
-              We kept watching the same pattern. Brilliant owners running
-              service businesses, dental practices, med spas, salons, lash
-              studios, massage practices, HVAC companies, losing five-figure
-              revenue every month to the quietest problem in the business. A
-              ringing phone with nobody to answer it. A new client who chatted
-              on the website at 7:42 AM and never heard back. A loyal customer
-              nobody followed up with.
+              You&apos;re already booked. You&apos;re already great at what you do. You shouldn&apos;t have to hire a $4,200/mo front desk to stop losing $5,000 a month in missed calls. You shouldn&apos;t have to choose between answering the phone and finishing the appointment you&apos;re already in.
             </p>
             <p>
-              We started Ops by Noell to help service-business owners keep
-              more of the money they&apos;re already making, while running
-              lean teams, wearing every hat, and building something that
-              carries their name. You&apos;re already booked. You&apos;re
-              already great at what you do. You shouldn&apos;t have to hire a
-              $4,200/mo front desk to stop losing $5,000 a month in missed
-              calls. You shouldn&apos;t have to choose between answering the
-              phone and finishing the appointment you&apos;re already in.
-            </p>
-            <p>
-              The software existed. The AI existed. But nobody had put it
-              together in a way that an owner, not a software developer, not
-              a &ldquo;growth hacker&rdquo;, could actually install and run
-              without hiring three more people. So we built it. Three AI
-              agents that handle the front of the house, sitting on top of the
-              operations platform we use ourselves, in your brand, live in two
-              weeks.
+              The software existed. The AI existed. But nobody had put it together in a way that an owner could actually install and run without hiring three more people. So we built it.
             </p>
           </div>
         </div>
@@ -165,21 +137,10 @@ export default function AboutPage() {
       <section className="w-full px-4 py-16 md:py-20 bg-[#1F1219]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-2xl md:text-4xl font-semibold text-cream leading-tight">
-            Who we are.
+            Every account gets us directly.
           </h2>
           <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
-            James and Nikki Noell, based in Mission Viejo. Between us, years
-            of working inside growing businesses, sales, operations, the kind
-            of behind-the-scenes systems work that keeps good companies from
-            collapsing under their own success. We&apos;ve seen where
-            businesses leak, and we built Ops by Noell to plug it. The studio
-            is named for our family, and every account gets our attention
-            directly. When you sign up, you&apos;re not handed off to a
-            support team. You&apos;re working with us.
-          </p>
-          <p className="mt-6 font-serif italic text-muted-strong text-sm md:text-base">
-            If you&apos;d rather talk to a human than read more copy, our door
-            is open.
+            The studio is named for our family. When you sign up, you are not handed off to a support team. You are working with us. If you&apos;d rather talk than read, our door is open.
           </p>
           <div className="mt-6">
             <Button href="/book" variant="primary" className="h-11 px-6">
