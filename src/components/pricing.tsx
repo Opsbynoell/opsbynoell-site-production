@@ -337,7 +337,7 @@ export default function Pricing() {
           <div className="text-center">
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#9B6FC4]/70 mb-1">Track 02</p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">B2B & SaaS</h2>
-            <p className="text-sm text-cream/60 mt-1">SaaS, professional services, and enterprise sales</p>
+            <p className="text-sm text-cream/60 mt-1">SaaS, professional services, and B2B sales</p>
           </div>
           <div className="h-px flex-1 bg-white/10" />
         </div>
@@ -351,7 +351,7 @@ export default function Pricing() {
       {/* Full-width Noell Ops CRM dashboard showcase */}
       <div className="mt-20 mb-6">
         <div className="text-center mb-8">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-2">Included in Full Stack and Enterprise</p>
+          <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-2">Included in Full Stack and B2B packages</p>
           <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">
             The Noell Ops CRM
           </h2>
@@ -398,11 +398,11 @@ export default function Pricing() {
         <div className="flex items-center gap-4 mb-10">
           <div className="h-px flex-1 bg-white/10" />
           <div className="text-center">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Beyond Enterprise</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Beyond the Standard Package</p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Build Your Own Stack</h2>
             <p className="text-sm text-cream/60 mt-2 max-w-2xl">
-              Every add-on below is a service most businesses assume requires a full-time hire or agency retainer.
-              Layer any combination onto your base package.
+              Each add-on below is a capability most businesses outsource to agencies or hire for full-time.
+              Stack any combination onto your base package.
             </p>
           </div>
           <div className="h-px flex-1 bg-white/10" />

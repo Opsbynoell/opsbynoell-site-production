@@ -31,7 +31,7 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between the Service track and the B2B track?",
     answer:
-      "The Service track is built for appointment-based businesses: salons, med spas, dental practices, HVAC, and similar. Three agents handle chat, phone, and client reactivation. The B2B track is built for companies selling to other businesses: SaaS, professional services, and enterprise sales. Three agents handle outbound prospecting, lead qualification, and pipeline nurturing. Both tracks include a live dashboard and done-for-you setup.",
+      "The Service track is built for appointment-based businesses: salons, med spas, dental practices, HVAC, and similar. Three agents handle chat, phone, and client reactivation. The B2B track is built for companies selling to other businesses: SaaS, professional services, and B2B sales teams. Three agents handle outbound prospecting, lead qualification, and pipeline nurturing. Both tracks include a live dashboard and done-for-you setup.",
   },
   {
     id: "tier_difference_service",

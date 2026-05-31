@@ -171,7 +171,7 @@ export default function ForB2BPage() {
         data={servicePageSchema({
           name: "Ops by Noell for B2B & SaaS",
           description:
-            "Predictive customer intelligence, AI-optimized GTM strategy, and digital presence architecture for B2B companies selling into enterprise accounts.",
+            "Predictive customer intelligence, AI-optimized GTM strategy, and digital presence architecture for B2B and SaaS companies.",
           path: "/for-b2b",
         })}
         id="b2b-service"
@@ -195,7 +195,7 @@ export default function ForB2BPage() {
         headlineLine2Start="We make sure you do not lose"
         headlineLine2Accent="on the internet."
         headlineLine2Smaller={false}
-        body="Enterprise buyers leave the meeting and do their own research. In seven seconds, the trust you built in the boardroom either holds or collapses. Ops by Noell builds the operational layer, the agents, and the pipeline visibility that makes sure it holds."
+        body="B2B and SaaS buyers leave the meeting and do their own research. In seven seconds, the trust you built in the boardroom either holds or collapses. Ops by Noell builds the operational layer, the agents, and the pipeline visibility that makes sure it holds."
         footnote="Three B2B agents. Predictive Customer Intelligence. Live pipeline dashboard. Done for you."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
@@ -217,7 +217,7 @@ export default function ForB2BPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Enterprise buying committees do not make decisions in the room. They do their own research. Here is where the trust collapses.
+              B2B and SaaS buying committees do not make decisions in the room. They do their own research. Here is where the trust collapses.
             </p>
           </div>
 
@@ -450,7 +450,7 @@ export default function ForB2BPage() {
               Live implementation · Premier Tech Sales Inc.
             </p>
             <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
-              Our current flagship B2B implementation is running inside a live enterprise sales operation today. Three agents, PCI, and a live pipeline dashboard. We show it on every Digital Readiness Review call because it is the most honest demonstration we can offer.
+              Our current flagship B2B implementation is running inside a live B2B sales operation today. Three agents, PCI, and a live pipeline dashboard. We show it on every Digital Readiness Review call because it is the most honest demonstration we can offer.
             </p>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
@@ -468,7 +468,7 @@ export default function ForB2BPage() {
             </div>
             <div className="border-l-2 border-wine/40 pl-4">
               <p className="text-sm md:text-base text-cream/80 italic leading-relaxed">
-                "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and enterprise-grade operational systems. That is the brief. That is what we built. And it is running right now."
+                "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and B2B-grade operational systems. That is the brief. That is what we built. And it is running right now."
               </p>
               <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/80">
                 Nikki Noell · Ops by Noell
@@ -534,7 +534,7 @@ export default function ForB2BPage() {
         eyebrow="The first step"
         headlineStart="Let us talk about"
         headlineAccent="your pipeline."
-        body="In your Digital Readiness Review ($297, credited toward your package), we audit your current digital presence against the enterprise buyer journey, identify the specific gaps costing you deals, and tell you exactly what we found."
+        body="In your Digital Readiness Review ($297, credited toward your package), we audit your current digital presence against the B2B buyer journey, identify the specific gaps costing you deals, and tell you exactly what we found."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}

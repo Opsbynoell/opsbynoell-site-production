@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
     "A focused $297 audit of your digital presence, pipeline, and operations. Find the gaps, get a roadmap, credit the full fee toward your package.",
   ogTitle: "Digital Readiness Review by Ops by Noell",
   ogDescription:
-    "Find out exactly where your digital presence, pipeline, and operations are costing you. A focused, no-fluff review for any business. $297, fully credited toward your package.",
+    "Find out exactly where your business is leaking clients and revenue. A focused, no-fluff review for any business. $297, fully credited toward your package.",
 });
 
 const whatWeReview = [
@@ -218,7 +218,7 @@ export default function DigitalReadinessReviewPage() {
         eyebrow="Ready when you are"
         headlineStart="Request your"
         headlineAccent="Digital Readiness Review."
-        body="Tell us about your business and we will review your digital presence, pipeline, and operations personally. Reply within one business day. $297, fully credited toward your package."
+        body="Tell us about your business and we will review what is working, what is not, and what to do about it. Reply within one business day. $297, fully credited toward your package."
         trustLine="$297 · 100% credited toward your package · Working deliverable included"
         primaryCta={{ label: "Request Your Review: $297", href: "/book" }}
         secondaryCta={{ label: "View packages", href: "/pricing" }}

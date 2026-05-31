@@ -105,7 +105,7 @@ export function AddOnsContent() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-[11px] uppercase tracking-[0.3em] text-wine mb-4">
-            Beyond Enterprise
+            Beyond the Standard Package
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-cream leading-tight mb-6">
             Build Your Own Stack

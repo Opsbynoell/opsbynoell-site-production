@@ -215,7 +215,7 @@ export default function NoellAccountPage() {
                 body: "Agencies, consultancies, and advisory firms with ongoing client relationships need consistent, professional touchpoints between deliverables. Noell Account maintains the relationship without adding to your team's workload.",
               },
               {
-                title: "Enterprise accounts with complex relationships",
+                title: "B2B accounts with complex relationships",
                 body: "Large accounts have multiple stakeholders, long contract cycles, and high expansion potential. Noell Account tracks the relationship across contacts and ensures no thread goes unmanaged.",
               },
               {

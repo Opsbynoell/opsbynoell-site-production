@@ -249,7 +249,7 @@ export default function SystemsPage() {
               </span>
             </h2>
             <p className="mt-3 text-cream/70 max-w-2xl leading-relaxed">
-              Built for SaaS companies, AI vendors, and tech startups selling into enterprise accounts.
+              Built for B2B and SaaS companies, AI vendors, and tech startups.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -267,7 +267,7 @@ export default function SystemsPage() {
                 handle: "@noell_gtm",
                 eyebrow: "Go-to-market strategy",
                 title: "AI-Optimized GTM Strategy",
-                description: "Maps your go-to-market motion to how enterprise buyers actually buy. Buying committee sequencing, trust signal architecture, and content alignment by stage.",
+                description: "Maps your go-to-market motion to how B2B and SaaS buyers actually buy. Buying committee sequencing, trust signal architecture, and content alignment by stage.",
                 status: "status: online / strategic layer",
                 href: "/for-b2b",
                 index: 1,

@@ -22,7 +22,7 @@ const WHO_WE_HELP_LINKS = [
   {
     name: "B2B & SaaS",
     href: "/for-b2b",
-    description: "SaaS, AI vendors, and teams selling into enterprise",
+    description: "B2B and SaaS companies, AI vendors, and tech teams",
   },
 ];
 // ─── Systems dropdown links ───────────────────────────────────────────────────

@@ -87,7 +87,7 @@ const agentsFaqs: FaqItem[] = [
     group: "agents",
     question: "What happens if I cancel?",
     answer:
-      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice, we turn the agents off at the end of your current billing month. Cancel anytime with 30 days notice.",
+      "Month-to-month. No long-term contract. Cancel anytime with 30 days notice and we turn the agents off at the end of your current billing month.",
   },
   {
     id: "agents_upgrade_to_system",

@@ -211,7 +211,7 @@ export default function NoellInboundPage() {
               },
               {
                 title: "AI vendors and technology providers",
-                body: "Enterprise buyers evaluating AI solutions expect instant, intelligent responses. Noell Inbound demonstrates the capability you are selling, by being the first thing they experience.",
+                body: "B2B and SaaS buyers evaluating AI solutions expect instant, intelligent responses. Noell Inbound demonstrates the capability you are selling, by being the first thing they experience.",
               },
               {
                 title: "Professional services firms",

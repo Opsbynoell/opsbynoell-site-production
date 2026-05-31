@@ -167,7 +167,7 @@ export default function FoundingPage() {
       <section className="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
         <div className="inline-flex items-center gap-2 bg-[#271520] border border-[#8B2A42]/40 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest text-[#8B2A42] uppercase mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[#8B2A42] animate-pulse" />
-          Current Pricing
+          Private Pricing Overview
         </div>
         <h1 className="text-4xl md:text-5xl font-bold text-[#F5EAE0] mb-5 leading-tight">
           Current Pricing

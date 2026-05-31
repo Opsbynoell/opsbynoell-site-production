@@ -211,7 +211,7 @@ export default function NoellPipelinePage() {
                 body: "High-velocity pipelines require consistent follow-up at scale. Noell Pipeline handles the operational cadence so your reps can focus on closing, not chasing.",
               },
               {
-                title: "Enterprise sales with long cycles",
+                title: "B2B and SaaS sales with long cycles",
                 body: "Long B2B sales cycles require sustained, intelligent touchpoints over months. Noell Pipeline maintains the relationship between your conversations without your team manually tracking every thread.",
               },
               {

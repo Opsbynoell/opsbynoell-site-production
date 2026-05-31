@@ -35,7 +35,7 @@ const homepageFaqs: FaqItem[] = [
     id: "who-is-this-for",
     question: "Who is this for?",
     answer:
-      "Two types of business. Service businesses including dental practices, med spas, salons, coaches, agencies, and professional service firms where every missed call or slow follow-up costs a client. And B2B companies including SaaS, AI vendors, and tech startups selling into enterprise accounts where the gap between your pitch and your website is costing you deals.",
+      "Two types of business. Service businesses including dental practices, med spas, salons, coaches, agencies, and professional service firms where every missed call or slow follow-up costs a client. And B2B and SaaS companies including AI vendors and tech startups where the gap between your pitch and your website is costing you deals.",
   },
   {
     id: "what-does-done-for-you-mean",
@@ -155,7 +155,7 @@ export default function Home() {
                 B2B & SaaS
               </h3>
               <p className="text-cream/80 leading-relaxed mb-6 flex-1">
-                SaaS companies, AI vendors, and tech startups selling into enterprise accounts. Your pitch lands in the boardroom. Then procurement visits your website. In seven seconds, the deal either holds or collapses.
+                B2B and SaaS companies, AI vendors, and tech startups. Your pitch lands in the boardroom. Then procurement visits your website. In seven seconds, the deal either holds or collapses.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
