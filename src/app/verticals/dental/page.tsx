@@ -74,7 +74,7 @@ const dentalConcerns: DentalConcern[] = [
     worry:
       "Most dental offices are running an established practice management system. Rip-and-replace is a non-starter and you have already invested years of clinical data, templates, and staff training into your current system.",
     answer:
-      "The Noell system sits in front of your PMS. We read availability out of your practice management software, push confirmed bookings back in, and leave your clinical workflow alone. Your hygiene schedule, perio tracking, and insurance routing stay exactly where they are.",
+      "The Noell system sits in front of your PMS, reading availability and pushing confirmed bookings back in. Your hygiene schedule, perio tracking, and insurance routing stay exactly where they are.",
   },
   {
     icon: <IconShieldLock size={22} />,
@@ -83,7 +83,7 @@ const dentalConcerns: DentalConcern[] = [
     worry:
       "Anything that touches patient communication needs to feel appropriate for a clinical setting. A tone that works for a salon does not work when a patient is asking about a crown, a root canal consult, or an emergency after hours.",
     answer:
-      "Every outbound message is written in your office's voice, reviewed before install, and limited to operational content: appointment confirmations, reminders, reschedule links, new patient intake, and review requests. Clinical questions always route to a human at your practice. We do not give clinical advice, ever.",
+      "Every outbound message is written in your office's voice, reviewed before install, and limited to operational content. Clinical questions always route to a human at your practice.",
   },
   {
     icon: <IconUsersGroup size={22} />,
@@ -92,7 +92,7 @@ const dentalConcerns: DentalConcern[] = [
     worry:
       "A full-time front desk hire is $45,000 to $65,000 a year in most markets, plus benefits, plus training time, plus the turnover every 18 months. And the job keeps getting bigger: insurance, verification, new patient intake, reminders, rebook calls, review requests.",
     answer:
-      "The Noell system takes the repeatable work off your front desk so your existing team can focus on the patient in the chair. Missed-call recovery, appointment confirmations, reminders, reschedules, and review capture all run in the background. Your front desk handles the 10 percent that actually needs a human.",
+      "Missed-call recovery, confirmations, reminders, reschedules, and review capture run in the background. Your front desk handles the 10 percent that actually needs a human.",
   },
   {
     icon: <IconBolt size={22} />,
@@ -101,7 +101,7 @@ const dentalConcerns: DentalConcern[] = [
     worry:
       "The average dental office takes over an hour to return a new patient call. By then the patient has called the next office on Google. You paid for that click, that SEO, that referral, and you lost the appointment at the callback step.",
     answer:
-      "When a new patient call goes unanswered, Noell Front Desk sends an on-brand text in under 60 seconds with your booking link and the next two available new patient slots. Most patients book themselves before they would have called anyone else.",
+      "When a new patient call goes unanswered, Noell Front Desk sends an on-brand text in under 60 seconds with your booking link and next two available new patient slots.",
   },
 ];
 
@@ -285,7 +285,7 @@ export default function DentalVerticalPage() {
         headlineLine1Accent="the patient in the chair,"
         headlineLine2Start="the next one"
         headlineLine2Accent="is picking another office."
-        body="A done-for-you AI front desk for dental practices. Catch every new patient call in under 60 seconds, reactivate unscheduled treatment, and stop losing chair time to missed calls. We layer on top of your existing dental practice management system. Your clinical workflow does not change."
+        body="A done-for-you AI front desk for dental practices. Catch every new patient call in under 60 seconds, reactivate unscheduled treatment, and stop losing chair time to missed calls."
         footnote="Built for general, family, cosmetic, and pediatric dental practices running any major practice management system."
         primaryCta={{ label: "Get Your Free Dental Audit", href: "/book" }}
         secondaryCta={{ label: "See how it layers on your PMS", href: "#layers-on-pms" }}
@@ -375,11 +375,7 @@ export default function DentalVerticalPage() {
             Layers on top of the PMS{" "}
             <span className="italic text-wine-light">you already run.</span>
           </h2>
-          <p className="mt-5 text-cream/60 max-w-xl mx-auto">
-            Your clinical workflow does not change. Your front desk keeps
-            using the same software they trained on. We layer the
-            communication and scheduling side on top.
-          </p>
+
         </div>
 
         <div className="max-w-4xl mx-auto">

@@ -27,7 +27,7 @@ const accountFaqs = [
     id: "account_what_handles",
     question: "What does Noell Account actually manage?",
     answer:
-      "Account health touchpoints, renewal sequences, upsell trigger conversations, and support triage. Everything that happens after the deal closes to keep clients engaged and growing.",
+      "Account health, renewals, upsell triggers, and support triage. Everything post-deal to keep clients engaged and growing.",
   },
   {
     id: "account_churn",
@@ -83,7 +83,7 @@ export default function NoellAccountPage() {
         headlineLine2Start="only half the"
         headlineLine2Accent="revenue."
         footnote="Built for B2B account teams that cannot afford to lose a client."
-        body="Noell Account is the post-sale operations layer for B2B and SaaS teams. It manages account health touchpoints, renewal sequences, upsell triggers, and support triage, so your clients stay, grow, and refer."
+        body="Account health, renewals, upsell triggers, and support triage, so your clients stay, grow, and refer."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         showProofBar={false}
@@ -104,7 +104,7 @@ export default function NoellAccountPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Clients do not leave overnight. They go quiet. They stop engaging. They start evaluating alternatives. Noell Account detects the early signals and responds before the relationship reaches the point of no return.
+              Clients don't leave overnight. They disengage. Noell Account detects the early signals and responds before the relationship reaches the point of no return.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -112,12 +112,12 @@ export default function NoellAccountPage() {
               {
                 icon: <IconAlertTriangle size={26} />,
                 title: "Silent clients are at-risk clients",
-                body: "When a client stops reaching out, most teams assume everything is fine. Noell Account treats silence as a signal and initiates a check-in before disengagement becomes a decision.",
+                body: "Most teams assume silence means everything is fine. Noell Account treats silence as a signal and initiates a check-in before disengagement becomes a decision.",
               },
               {
                 icon: <IconUsers size={26} />,
                 title: "Account managers are stretched thin",
-                body: "When one account manager is covering 20 accounts, proactive touchpoints become reactive firefighting. Noell Account handles the cadence so your team can focus on the relationships that need them most.",
+                body: "With 20 accounts per manager, proactive touchpoints become reactive firefighting. Noell Account handles the cadence so your team focuses on the relationships that need them most.",
               },
               {
                 icon: <IconTrendingUp size={26} />,
@@ -149,7 +149,7 @@ export default function NoellAccountPage() {
         eyebrow="What Noell Account does"
         headlineStart="Three functions."
         headlineAccent="One account layer."
-        body="Noell Account manages the full post-sale lifecycle, from onboarding through renewal and expansion, so your clients feel supported without your team manually managing every touchpoint."
+        body="The full post-sale lifecycle, from onboarding through renewal and expansion, without your team manually managing every touchpoint."
         accent="lilac"
         capabilities={[
           {
@@ -157,7 +157,7 @@ export default function NoellAccountPage() {
             number: "01",
             title: "Account health and retention touchpoints",
             description:
-              "Noell Account monitors account health signals and sends proactive touchpoints before disengagement becomes churn. Check-ins, milestone acknowledgments, and relationship maintenance, all automated.",
+              "Health signal monitoring, proactive check-ins, milestone acknowledgments, and relationship maintenance, all automated.",
             points: [
               "Health signal monitoring",
               "Proactive check-in sequences",
@@ -169,7 +169,7 @@ export default function NoellAccountPage() {
             number: "02",
             title: "Renewal sequences and contract management",
             description:
-              "Noell Account initiates renewal conversations at the right time, not too early to feel pushy, not too late to lose the deal. Renewal reminders, contract review scheduling, and negotiation prep are all handled.",
+              "Renewal conversations initiated at the right time. Reminders, contract review scheduling, and negotiation prep, all handled.",
             points: [
               "Renewal timeline configured by you",
               "Multi-touch renewal sequences",
@@ -250,7 +250,7 @@ export default function NoellAccountPage() {
         eyebrow="Get started"
         headlineStart="See what Noell Account would do"
         headlineAccent="for your clients."
-        body="Book a Digital Readiness Review ($297, credited toward your package) and we will map your current account management process, identify where clients are at risk, and show you exactly how Noell Account would close the gaps."
+        body="Book a Digital Readiness Review ($297, credited to your package). We'll map your current process, identify at-risk clients, and show you how Noell Account closes the gaps."
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See all B2B agents", href: "/for-b2b" }}
         trustLine="No pitch · No contracts · Live in 14 days"

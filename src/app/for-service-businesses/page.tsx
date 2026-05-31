@@ -66,7 +66,7 @@ const systems: SystemCard[] = [
     eyebrow: "Noell Support",
     title: "Every inquiry answered. 24/7. Before they move on.",
     description:
-      "Noell Support sits on your website and responds to every inquiry the moment it comes in. It qualifies the lead, captures their contact information, and routes them to booking or your team. No more Saturday morning inbox surprises. No more lost weekends.",
+      "Noell Support sits on your website and responds to every inquiry the moment it comes in. It qualifies the lead, captures their contact information, and routes them to booking or your team.",
     bullets: [
       "24/7 website chat with instant response",
       "Lead qualification and contact capture",

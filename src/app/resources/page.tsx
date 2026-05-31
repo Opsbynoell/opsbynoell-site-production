@@ -210,7 +210,7 @@ export default function ResourcesPage() {
           label: "Talk to Noell Support first",
           href: "/noell-support",
         }}
-        trustLine="Free 30-minute audit · Live in 14 days · No contracts"
+        trustLine="Live in 14 days · No contracts"
         sourcePage="resources"
       />
     </div>

@@ -225,7 +225,7 @@ export default function MedSpasVerticalPage() {
         headlineLine1Accent="cools off quietly."
         headlineLine2Start="So do your"
         headlineLine2Accent="consult bookings."
-        body="A done-for-you AI front desk for aesthetic and wellness practices. Every inquiry gets a brand-voice reply in under ninety seconds. Your consult calendar fills without the tone shifting into hard sell."
+        body="Every inquiry gets a brand-voice reply in under ninety seconds. Your consult calendar fills without the tone shifting into hard sell."
         footnote="Built for injectables, laser, aesthetic, and wellness practices running any major booking platform."
         primaryCta={{ label: "Get Your Free Med Spa Audit", href: "/book" }}
         secondaryCta={{ label: "See how it protects the tone", href: "#med-spa-concerns" }}

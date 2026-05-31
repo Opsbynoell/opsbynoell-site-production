@@ -196,11 +196,7 @@ export default function DigitalReadinessReviewPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 pt-6 border-t border-white/10">
-            <p className="text-sm text-cream/70 italic leading-relaxed">
-              You keep the review regardless of whether we move forward. If Ops by Noell is not the right fit, we will say so and point you in the right direction. The full $297 applies as a credit toward any package if you do.
-            </p>
-          </div>
+
         </div>
       </section>
 

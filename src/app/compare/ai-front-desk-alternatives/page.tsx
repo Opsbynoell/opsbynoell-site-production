@@ -68,7 +68,7 @@ export default function Compare() {
         sourcePage="compare_ai_front_desk_alternatives"
         alternativeName="Other options"
         title="AI front desk alternatives"
-        lead="A short, honest map of the options, and where a done-for-you install fits among them."
+        lead=""
         summary={
           <>
             <p>
@@ -78,10 +78,6 @@ export default function Compare() {
               a traditional answering service, or hiring another human at the
               front desk. Each one wins somewhere. Each one loses somewhere
               specific.
-            </p>
-            <p>
-              Below is the short map. If you want the deeper comparison on a
-              specific one, jump into it.
             </p>
             <ul className="list-disc pl-5">
               <li>

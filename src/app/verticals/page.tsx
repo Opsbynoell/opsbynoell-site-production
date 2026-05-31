@@ -101,7 +101,7 @@ const verticals: VerticalLink[] = [
     icon: <IconSnowflake size={24} />,
     tagline: "For residential HVAC contractors.",
     description:
-      "Service-type routing for emergency vs. scheduled calls. The Noell system triages urgency, captures the right info, and dispatches the right tech without turning your office into a call center.",
+      "The Noell system triages urgency, captures the right info, and dispatches the right tech without turning your office into a call center.",
     status: "live",
     proof: "Emergency vs. scheduled, routed",
     ctaLabel: "AI front desk for HVAC contractors",

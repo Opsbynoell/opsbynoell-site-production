@@ -73,12 +73,7 @@ export default function Compare() {
         summary={
           <>
             <p>
-              DIY AI receptionist tools can look appealing, low sticker price,
-              fast signup. The real cost shows up in the hours you pour into
-              prompts, cadences, and QA, and in the weeks it takes to get the
-              tone right. Most owners we talk to either abandon the project or
-              end up running a version that embarrasses them in front of
-              callers.
+              DIY AI receptionist tools look appealing at signup. The real cost shows up in the hours you pour into prompts, cadences, and QA. Most owners either abandon the project or end up running a version that embarrasses them in front of callers.
             </p>
             <p>
               Ops by Noell is the other shape. We build, install, and tune the

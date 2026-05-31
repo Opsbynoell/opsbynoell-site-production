@@ -64,7 +64,7 @@ const chiroConcerns: Concern[] = [
     title:
       "New patients call once. If you miss them, they book down the street.",
     worry:
-      "Your front desk is triaging insurance, handling check-ins, and answering existing-patient questions. A new patient calls, gets voicemail, and books with the office that answered. That missed call is a patient relationship that never starts.",
+      "A new patient calls, gets voicemail, and books with the office that answered. That missed call is a patient relationship that never starts.",
     answer:
       "Noell Front Desk sends an on-brand text in under sixty seconds: two available openings, a warm note, and a direct booking link. Most new patients self-book before your front desk can call back.",
   },

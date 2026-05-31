@@ -10,7 +10,7 @@ const addOns = [
     name: "Digital Infrastructure",
     tagline: "The foundation everything else runs on.",
     description:
-      "Disconnected tools, manual handoffs, and no single source of truth are the silent killers of growth. This layer connects everything, automates the repetitive, and gives you one place to see what is actually happening in your business.",
+      "Connects your tools, automates the repetitive, and gives you one place to see what is actually happening in your business.",
     items: [
       { label: "Tech Stack Audit + Cleanup", price: "$297", cadence: "one-time" },
       { label: "CRM + Pipeline Setup", price: "$497 setup", cadence: "+ $197/mo" },
@@ -23,7 +23,7 @@ const addOns = [
     name: "Online Presence",
     tagline: "If they cannot find you, they cannot hire you.",
     description:
-      "Technical SEO, local search visibility, and website performance are the infrastructure layer of discoverability. Most businesses skip this entirely. The ones that do not compound quietly while everyone else wonders why their traffic is flat.",
+      "Technical SEO, local search visibility, and website performance. The infrastructure layer of discoverability most businesses skip.",
     items: [
       { label: "Technical SEO Audit", price: "$497", cadence: "one-time" },
       { label: "Local SEO Management", price: "$297", cadence: "/mo" },
@@ -36,7 +36,7 @@ const addOns = [
     name: "Social Media",
     tagline: "Consistency is the product.",
     description:
-      "Most businesses post when they remember. This makes it automatic, on-brand, and tied to a strategy rather than a mood. The goal is not virality. The goal is showing up every week so that when someone is ready to buy, you are already in their head.",
+      "Automatic, on-brand, and tied to a strategy rather than a mood. Showing up every week so that when someone is ready to buy, you are already in their head.",
     items: [
       { label: "Content Calendar + Scheduling (12 posts/mo, 2 platforms)", price: "$297", cadence: "/mo" },
       { label: "Short-Form Video Scripts (4 per month)", price: "$197", cadence: "/mo" },
@@ -49,7 +49,7 @@ const addOns = [
     name: "Brand Kit + Visual Identity",
     tagline: "The vibe is the first thing they feel.",
     description:
-      "Before anyone reads a word, they have already decided if you are credible. A mismatched logo, an inconsistent color palette, and copy that sounds like it was written by a committee will cost you deals you never knew you lost. This layer makes sure the answer is always yes.",
+      "Before anyone reads a word, they have already decided if you are credible. This layer makes sure the answer is yes.",
     items: [
       { label: "Brand Audit", price: "$297", cadence: "one-time" },
       { label: "Full Brand Kit Build", price: "$997", cadence: "one-time" },
@@ -62,7 +62,7 @@ const addOns = [
     name: "Psychology + Conversion",
     tagline: "The words and the flow that make people say yes.",
     description:
-      "This is the layer most businesses skip. It is the difference between a website that explains what you do and one that makes people want to buy it. Buyer psychology, decision architecture, and conversion copy built around how your specific customer actually thinks.",
+      "The difference between a website that explains what you do and one that makes people want to buy it. Built around how your specific customer actually thinks.",
     items: [
       { label: "Conversion Copy Rewrite (full site)", price: "$997", cadence: "one-time" },
       { label: "Full Funnel Design + Build", price: "$1,497", cadence: "one-time" },
@@ -75,7 +75,7 @@ const addOns = [
     name: "Operational Systems",
     tagline: "The back office that runs itself.",
     description:
-      "The processes that eat your time and never show up on a revenue report until they break. Documented, automated, and handed back to you so the business can run without you having to be in every room at once.",
+      "Documented, automated, and handed back to you so the business can run without you having to be in every room at once.",
     items: [
       { label: "SOP Documentation (5 core processes)", price: "$497", cadence: "one-time" },
       { label: "Client Onboarding System", price: "$697", cadence: "one-time" },

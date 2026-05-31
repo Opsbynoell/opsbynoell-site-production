@@ -228,7 +228,7 @@ export default function HvacVerticalPage() {
         headlineLine1Accent="and the maintenance call"
         headlineLine2Start="do not belong"
         headlineLine2Accent="in the same queue."
-        body="A done-for-you AI front desk for residential HVAC contractors. Every inbound call triaged by service type, emergency routing to the on-call tech in seconds, and seasonal surge absorbed without putting callers on hold."
+        body="Every inbound call triaged by service type, emergency routing to the on-call tech in seconds, and seasonal surge absorbed without putting callers on hold."
         footnote="Built for residential HVAC contractors running any major field service management platform."
         primaryCta={{ label: "Get Your Free HVAC Audit", href: "/book" }}
         secondaryCta={{
@@ -244,7 +244,7 @@ export default function HvacVerticalPage() {
         eyebrow="What HVAC contractors see"
         headlineStart="Every call triaged."
         headlineAccent="Nothing on hold."
-        body="Three numbers from residential HVAC installs, including the seasonal surge that breaks most office setups."
+        body="Three numbers from a live HVAC install."
         stats={hvacStats}
       />
 

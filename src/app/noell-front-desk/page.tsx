@@ -29,43 +29,43 @@ const frontDeskCapabilities = [
     icon: <IconPhoneCall size={22} />,
     title: "Calls",
     description:
-      "Missed-call recovery, call routing, and post-call follow-up. Every phone touchpoint is handled in seconds, not hours.",
+      "Missed-call recovery, call routing, and post-call follow-up.",
   },
   {
     icon: <IconCalendarEvent size={22} />,
     title: "Scheduling",
     description:
-      "Smart booking logic across your services, providers, and hours. Prospects book themselves into the right slot without thinking.",
+      "Smart booking logic across your services, providers, and hours.",
   },
   {
     icon: <IconCircleCheck size={22} />,
     title: "Confirmations",
     description:
-      "Instant booking confirmations on the right channel (SMS, email, or both) so clients know it's locked in.",
+      "Instant booking confirmations on the right channel (SMS, email, or both).",
   },
   {
     icon: <IconBellRinging size={22} />,
     title: "Reminders",
     description:
-      "Automated reminder cadence sized to your vertical. The gentle nudge that keeps no-shows from happening in the first place.",
+      "Automated reminder cadence sized to your vertical.",
   },
   {
     icon: <IconCalendarTime size={22} />,
     title: "Reschedules",
     description:
-      "When a client needs to move, they can, without a phone call. The system protects your calendar and keeps the appointment alive.",
+      "When a client needs to move, they can, without a phone call.",
   },
   {
     icon: <IconStar size={22} />,
     title: "Review capture",
     description:
-      "Post-visit review requests with filter routing, so the happy clients land on Google and the unhappy ones reach you first.",
+      "Post-visit review requests with filter routing.",
   },
   {
     icon: <IconRefresh size={22} />,
     title: "Reactivation",
     description:
-      "Dormant clients get a warm, on-brand invitation to come back. Your existing list is a pipeline, not an archive.",
+      "Dormant clients get a warm, on-brand invitation to come back.",
   },
 ];
 
@@ -186,7 +186,7 @@ export default function NoellFrontDeskPage() {
         defaultHeadlineLine1Accent="layer."
         defaultHeadlineLine2Start="Everything a"
         defaultHeadlineLine2Accent="receptionist handles."
-        defaultBody="Noell Front Desk runs the operational workload of your business: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
+        defaultBody="Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={frontDeskScreen}
@@ -215,10 +215,7 @@ export default function NoellFrontDeskPage() {
                 handled end to end.
               </span>
             </h2>
-            <p className="mt-5 text-cream/70 max-w-xl mx-auto">
-              Everything a receptionist handles, running quietly in the
-              background, covered by the Noell system.
-            </p>
+
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

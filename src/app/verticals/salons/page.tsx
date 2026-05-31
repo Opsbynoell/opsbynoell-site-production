@@ -222,7 +222,7 @@ export default function SalonsVerticalPage() {
         headlineLine1Accent="is a P&L."
         headlineLine2Start="Missed calls"
         headlineLine2Accent="close it early."
-        body="A done-for-you AI front desk for hair and color salons. Rebook rate protected by column, missed calls routed to the right stylist, and chair utilization climbing without adding a front-desk hire."
+        body="Rebook rate protected by column, missed calls routed to the right stylist, and chair utilization climbing without adding a front-desk hire."
         footnote="Built for full-service salons, color-specialist studios, and multi-stylist shops running any major booking platform."
         primaryCta={{ label: "Get Your Free Salon Audit", href: "/book" }}
         secondaryCta={{
@@ -238,7 +238,7 @@ export default function SalonsVerticalPage() {
         eyebrow="What salons see"
         headlineStart="Rebook rate climbs."
         headlineAccent="Empty columns fill."
-        body="The three numbers that move when rebook cadence and missed-call flow run without the front desk babysitting them."
+        body="Three numbers from a live salon install."
         stats={salonStats}
       />
 
@@ -335,7 +335,7 @@ export default function SalonsVerticalPage() {
         eyebrow="For salons"
         headlineStart="Get a free audit"
         headlineAccent="of your rebook flow."
-        body="A 30-minute review of your rebook rate by service, missed-call recovery, and per-stylist communication split. You walk away with a map of what is leaking."
+        body="A 30-minute review of your rebook rate by service, missed-call recovery, and per-stylist split. You walk away with a map of what is leaking."
         primaryCta={{ label: "Book Your Free Salon Audit", href: "/book" }}
         secondaryCta={{
           label: "Talk to Noell Support first",

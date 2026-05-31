@@ -116,16 +116,6 @@ export default function BookPage() {
         </p>
       </section>
 
-      {/* Form intro */}
-      <section className="px-4 pt-8 pb-2">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm md:text-base text-cream/75 leading-relaxed">
-            The report starts here. Six quick details help us map your
-            missed-call, rebooking, and follow-up leaks before the call.
-          </p>
-        </div>
-      </section>
-
       {/* Form */}
       <section className="px-4 pt-4 pb-10">
         <BookRequestForm />

@@ -95,7 +95,7 @@ const supportFaqs = [
   {
     question: "Is Noell Support a full AI receptionist?",
     answer:
-      "No, and we're careful about that line. Noell Support is the new-prospect intake layer. It handles the critical first minutes: responding, qualifying, capturing, routing, handing off. Noell Front Desk is the separate operations layer that handles calls, scheduling, and reminders.",
+      "Noell Support is the new-prospect intake layer. It handles the critical first minutes: responding, qualifying, capturing, routing, handing off. Noell Front Desk is the separate operations layer for calls, scheduling, and reminders.",
   },
   {
     question: "Where does Noell Support live?",
@@ -115,7 +115,7 @@ const supportFaqs = [
   {
     question: "How is this different from Noell Front Desk?",
     answer:
-      "Noell Front Desk is the operations layer of the system: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Noell Support is the entry layer for new prospects. They run together, but they are distinct agents in the Noell system.",
+      "Noell Front Desk is the operations layer: calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Noell Support is the entry layer for new prospects. Distinct agents, designed to run together.",
   },
 ];
 
@@ -272,11 +272,7 @@ export default function NoellSupportPage() {
             Prospect intake,{" "}
             <span className="italic text-lilac">not full front desk.</span>
           </h2>
-          <p className="mt-5 text-cream/65 max-w-xl mx-auto">
-            Noell Support handles the first minutes with new prospects. Noell
-            Front Desk is the separate operations layer that handles calls,
-            scheduling, and everything a receptionist runs.
-          </p>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">

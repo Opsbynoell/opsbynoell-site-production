@@ -75,12 +75,7 @@ export default function Compare() {
         summary={
           <>
             <p>
-              Traditional answering services are a real solution for businesses
-              that need voice coverage and can absorb per-minute pricing. They
-              usually hand you message notes. Ops by Noell is a different
-              shape: a managed AI front desk that books directly into your
-              calendar, confirms, reminds, and retains, at a flat monthly
-              rate.
+              Traditional answering services offer voice coverage at per-minute pricing and usually hand you message notes. Ops by Noell books directly into your calendar, confirms, reminds, and retains, at a flat monthly rate.
             </p>
           </>
         }
@@ -88,12 +83,7 @@ export default function Compare() {
         verdict={
           <>
             <p>
-              Choose an answering service if voice-only coverage by a human is
-              non-negotiable and you&apos;re comfortable with per-minute
-              pricing. Choose Ops by Noell if you want the front of your
-              business handled end-to-end, calls, texts, chats, reminders,
-              retention, in your voice, with bookings landing on your real
-              calendar at a predictable monthly cost.
+              Choose an answering service if voice-only human coverage is non-negotiable. Choose Ops by Noell if you want calls, texts, chats, reminders, and retention handled end-to-end in your voice at a predictable monthly cost.
             </p>
           </>
         }

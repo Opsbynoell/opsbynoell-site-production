@@ -154,7 +154,7 @@ export default function NoellCarePage() {
         defaultHeadlineLine1Accent="wins them back."
         defaultHeadlineLine2Start="And handles them"
         defaultHeadlineLine2Accent="when they return."
-        defaultBody="Noell Care reaches lapsed clients on a cadence built around your service intervals, in your voice, and recognizes returning clients the moment they reply. The warm third layer of the Noell system: reactivation by default, returning-client desk on top."
+        defaultBody="Reactivation on cadence, returning-client recognition on reply. The warm third layer of the Noell system."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
@@ -174,11 +174,7 @@ export default function NoellCarePage() {
                 Returning-client desk on top.
               </span>
             </h2>
-            <p className="mt-5 text-cream/70 max-w-xl mx-auto">
-              Care reaches lapsed clients on cadence and recognizes returning
-              ones the moment they reply. Warm, informed, and honest about what
-              it does not know.
-            </p>
+
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -214,7 +210,7 @@ export default function NoellCarePage() {
         eyebrow="How it fits"
         headlineStart="The third agent of"
         headlineAccent="the Noell system."
-        body="Care is the layer your existing clients meet. It never pretends to be scheduling or operations, it hands off cleanly."
+        body="Care never pretends to be scheduling or operations. It hands off cleanly."
         capabilities={[
           {
             icon: <IconUser size={28} />,
@@ -252,7 +248,7 @@ export default function NoellCarePage() {
         eyebrow="Care questions"
         headlineStart="Warm"
         headlineAccent="answers."
-        body="What people ask before they install the reactivation and returning-client layer."
+        body="Common questions about the reactivation and returning-client layer."
         faqs={careFaqs}
       />
 
@@ -260,7 +256,7 @@ export default function NoellCarePage() {
         eyebrow="The first step"
         headlineStart="See what your regulars"
         headlineAccent="are asking for."
-        body="Book a free audit. We'll review a sample of your inbound and show you how Care would handle it, on your voice, from your knowledge base."
+        body="Book a free audit. We'll review your inbound and show you how Care would handle it, in your voice, from your knowledge base."
         trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
         sourcePage="noell_care"
       />

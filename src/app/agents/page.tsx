@@ -141,14 +141,7 @@ export default function AgentsPage() {
       />
       <AgentsPageAnalytics />
 
-      {/* Urgency strip */}
-      <div className="w-full bg-wine text-cream">
-        <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
-          <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-center">
-            Three agents. Working in the background. Live in under a week.
-          </p>
-        </div>
-      </div>
+
 
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
@@ -182,9 +175,7 @@ export default function AgentsPage() {
           </Link>
         </div>
 
-        <p className="relative z-20 mt-6 max-w-xl text-center text-xs italic text-muted-strong">
-          Month-to-month. Cancel anytime.
-        </p>
+
       </section>
 
       {/* Three agents */}
@@ -308,7 +299,7 @@ export default function AgentsPage() {
               <span className="line-through">$497/mo</span> standard rate
             </p>
             <p className="text-xs text-muted-strong mt-4 mb-8">
-              Done-for-you setup. Live in 14 days.
+              Live in 14 days.
             </p>
             <Link
               href="/book"
@@ -365,7 +356,7 @@ export default function AgentsPage() {
       <section className="w-full px-4 my-16 md:my-20">
         <div className="max-w-5xl mx-auto rounded-[32px] bg-[#301A26]/70 border border-white/10 px-6 py-14 md:py-20 text-center">
           <p className="font-serif italic text-xl md:text-3xl text-cream leading-snug">
-            Starting at $397/mo. Month-to-month.
+            Starting at $397/mo.
           </p>
           <div className="mt-8 flex justify-center">
             <Link
@@ -375,9 +366,7 @@ export default function AgentsPage() {
               Get Your Free Revenue Signal Report
             </Link>
           </div>
-          <p className="mt-6 text-xs italic text-muted-strong">
-            Month-to-month. Cancel anytime.
-          </p>
+
         </div>
       </section>
     </div>

@@ -82,9 +82,7 @@ export default function AboutPage() {
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-[1.1]">
               Built by a family who watched too many good businesses bleed.
             </h1>
-            <p className="mt-6 font-serif italic text-lg md:text-xl text-muted-strong leading-relaxed">
-              A husband-and-wife team from Mission Viejo, California.
-            </p>
+
             <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
               We spent years inside growing businesses watching the same pattern: smart owners, booked calendars, lean teams, and money slipping out the back door. A missed call at 9 PM. A chat nobody answered. A client who never got a follow-up. We built Ops by Noell to fix that.
             </p>

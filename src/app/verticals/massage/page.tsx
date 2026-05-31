@@ -63,7 +63,7 @@ const massageConcerns: Concern[] = [
     tag: "In session with a client",
     title: "In session with a client while the phone rings.",
     worry:
-      "You are in a session. The phone buzzes in the other room. You hear it. You cannot answer it. By the time the appointment ends and the room is reset, the caller has already Googled another therapist in your zip code.",
+      "You're in session. The phone rings. You can't answer. By the time you're done, the caller has already found another therapist.",
     answer:
       "The missed call triggers an on-brand text in under ten seconds. Your next two openings, a warm note in your voice, and a direct booking link. Most prospects book themselves before you are even back at the front.",
   },
@@ -72,7 +72,7 @@ const massageConcerns: Concern[] = [
     tag: "Dead calendar days",
     title: "Dead days on the calendar stop feeling personal.",
     worry:
-      "A slow Tuesday is not just a slow Tuesday. It is the reminder that this business depends on you, and when you are not booked, no one else is picking up the slack. The anxiety leaks into the good weeks too.",
+      "A slow Tuesday is a reminder that when you're not booked, no one else is picking up the slack.",
     answer:
       "Reactivation runs quietly in the background. Clients who have not booked in sixty or ninety days get a gentle, warm check-in on the right cadence. Not pushy, not needy, written in your voice. Dead days fill before they even show up on the calendar.",
   },
@@ -81,7 +81,7 @@ const massageConcerns: Concern[] = [
     tag: "Not a salesperson",
     title: "You became a therapist. Not a salesperson.",
     worry:
-      "Every piece of business advice you hear tells you to follow up, upsell, capture reviews, post more, text more. You just want to do good work and have a full book. You would rather eat the slow week than feel like you are chasing clients.",
+      "You want a full book, not a sales job. You'd rather eat the slow week than feel like you're chasing clients.",
     answer:
       "The system does the ask, you do the work. Review requests, rebook nudges, and reactivation all run without you touching them. Every message is written in a quiet, warm tone that sounds like you, not a funnel.",
   },
@@ -93,7 +93,7 @@ const massageCapabilities = [
     number: "01",
     title: "Missed-call recovery, always on",
     description:
-      "Every call you miss gets an on-brand text in under ten seconds with your next two openings and a booking link. You finish the session. The lead still gets caught.",
+      "Every missed call gets an on-brand text in under ten seconds with your next two openings and a booking link.",
     points: [
       "Under 10 second response",
       "On-brand message in your voice",
@@ -105,7 +105,7 @@ const massageCapabilities = [
     number: "02",
     title: "Reminder cadence that keeps no-shows low",
     description:
-      "Confirmation, reminder, and self-serve reschedule sized to the way your clients actually book. No generic blast, no awkward night-before call.",
+      "Confirmation, reminder, and self-serve reschedule sized to how your clients actually book.",
     points: [
       "SMS confirmations",
       "Gentle day-before reminder",
@@ -117,7 +117,7 @@ const massageCapabilities = [
     number: "03",
     title: "Warm reactivation, not pushy",
     description:
-      "Clients who have drifted get a quiet note at the right window. The ones who want to come back, do. The ones who moved away, quietly unsubscribe.",
+      "Clients who have drifted get a quiet note at the right window. Those who want to come back, do.",
     points: [
       "60 and 90 day reactivation",
       "Tone written with you",

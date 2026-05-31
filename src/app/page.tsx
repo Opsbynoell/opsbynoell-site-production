@@ -81,8 +81,8 @@ export default function Home() {
         headlineLine2Start="your business is"
         headlineLine2Accent="missing."
         headlineLine2Smaller={false}
-        body="For service businesses: every call answered, every booking confirmed, every lapsed client recovered. For B2B: every lead qualified before it goes cold. Done for you. Live in 14 days. Managed by our team."
-        footnote="Service businesses and B2B companies. Two tracks. One standard."
+        body="Done for you. Live in 14 days. Managed by our team."
+        footnote=""
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
@@ -103,9 +103,7 @@ export default function Home() {
                 One operational standard.
               </span>
             </h2>
-            <p className="mt-5 text-cream/70 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-              Tell us which describes you and we will show you exactly what we build.
-            </p>
+
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 items-stretch">
@@ -205,7 +203,7 @@ export default function Home() {
         eyebrow="The first step"
         headlineStart="Find out what your operations are"
         headlineAccent="missing."
-        body="In your free Revenue Signal Report, we map the leaks in your operations, front desk, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
+        body="We map the leaks in your operations, front desk, and follow-up system. You will know what is being missed, what it may be worth, and which track fits."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}

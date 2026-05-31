@@ -142,9 +142,7 @@ export default function SystemsPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
-          Whether you run a service business or sell to B2B and SaaS buyers, Ops by
-          Noell builds and manages the operational layer that keeps revenue from
-          slipping out. Six agents across two tracks. You run the business.
+          Six managed agents across two tracks. You run the business.
         </p>
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3">
           <Link
@@ -430,7 +428,7 @@ export default function SystemsPage() {
       </section>
 
       <CTA
-        eyebrow="See how it layers on"
+        eyebrow="The first step"
         headlineStart="See how it layers on"
         headlineAccent="your business."
         body="A 30-minute audit gives you a clear map of what's leaking, whether you work with us or not. No pitch. No pressure."

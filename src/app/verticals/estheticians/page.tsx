@@ -63,7 +63,7 @@ const estheticianConcerns: Concern[] = [
     tag: "Treatment plan adherence",
     title: "The treatment plan is the product.",
     worry:
-      "You built a six-visit plan for a reason. Visit three is where most clients drift off, and by the time they come back, the skin is back where they started and they think the treatment did not work.",
+      "Visit three is where most clients drift. By the time they return, the skin has regressed and they blame the treatment.",
     answer:
       "The Noell system books the next visit in the plan from the chair, not from memory. A gentle reminder lands at the exact cadence window for the protocol, with context: where they are in the plan, what is next, and why timing matters.",
   },
@@ -72,7 +72,7 @@ const estheticianConcerns: Concern[] = [
     tag: "Routine rebooking",
     title: "Skincare is a habit, not a purchase.",
     worry:
-      "A great facial client who forgets to rebook becomes someone else's client inside of eight weeks. The miss is rarely about price. It is about the moment the client looks in the mirror, thinks about booking, gets distracted, and never opens the app.",
+      "A facial client who forgets to rebook becomes someone else's client inside of eight weeks. The miss is rarely about price.",
     answer:
       "Rebook nudges are sized to the treatment, not to a generic thirty-day window. Hydrafacial lands at four weeks, deep pore at six, routine facial at four to six based on the client's history. The nudge arrives at the moment of intent, not after it.",
   },
@@ -224,7 +224,7 @@ export default function EstheticiansVerticalPage() {
         headlineLine1Accent="for the skin."
         headlineLine2Start="The system keeps them"
         headlineLine2Accent="coming back for the routine."
-        body="A done-for-you AI front desk for licensed estheticians and skincare studios. Treatment plans held on cadence, routine facials rebooked at the right window, membership quietly protected. All in a tone that sounds like you."
+        body="Treatment plans held on cadence, routine facials rebooked at the right window, membership quietly protected. All in a tone that sounds like you."
         footnote="Built for licensed estheticians, skincare studios, and membership-based practices running any major booking platform."
         primaryCta={{ label: "Get Your Free Skincare Audit", href: "/book" }}
         secondaryCta={{
@@ -240,7 +240,7 @@ export default function EstheticiansVerticalPage() {
         eyebrow="What estheticians see"
         headlineStart="Plans adhere."
         headlineAccent="Routines rebook."
-        body="Three numbers that move when the treatment plan is held in the system, not in your head."
+        body="Three numbers from a live esthetician install."
         stats={estheticianStats}
       />
 
@@ -337,7 +337,7 @@ export default function EstheticiansVerticalPage() {
         eyebrow="For estheticians"
         headlineStart="Get a free audit"
         headlineAccent="of your retention layer."
-        body="A 30-minute review of your plan adherence, routine rebook cadence, and membership churn signals. You walk away with a map of what is drifting."
+        body="A 30-minute review of your plan adherence, rebook cadence, and membership churn signals. You walk away with a map of what is drifting."
         primaryCta={{
           label: "Book Your Free Skincare Audit",
           href: "/book",

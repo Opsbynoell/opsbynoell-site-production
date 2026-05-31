@@ -262,10 +262,7 @@ export default function PricingPage() {
               installed in 14 days.
             </span>
           </h2>
-          <p className="mt-5 text-cream/75 max-w-2xl mx-auto">
-            Three tiers. All include the done-for-you operations layer under
-            your brand. Agents are included in System and up.
-          </p>
+
         </div>
       </section>
 
@@ -302,7 +299,7 @@ export default function PricingPage() {
               B2B pricing is scoped to your operation.
             </h2>
             <p className="text-white/70 leading-relaxed mb-6">
-              B2B and SaaS buying cycles, pipeline complexity, and account management scope vary too much for a fixed-rate card. Every B2B engagement starts with a Digital Readiness Review: a focused working session where we audit your digital presence against the buyer journey, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. $297, fully credited toward your package if you move forward. No pitch. No deck.
+              Every B2B engagement starts with a Digital Readiness Review: we audit your digital presence, identify the gaps costing you deals, and tell you exactly what we would build and what it costs. $297, credited toward your package if you move forward.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {[

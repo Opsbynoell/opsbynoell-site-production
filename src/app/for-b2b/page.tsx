@@ -48,7 +48,7 @@ const trustSignals: TrustSignal[] = [
     icon: <IconShieldCheck size={20} />,
     tag: "Stalled pipeline",
     title: "Deals are moving. But not fast enough. And some just go quiet.",
-    body: "Noell Inbound, Noell Pipeline, and Noell Account run your B2B revenue cycle end to end. First-touch qualification, demo scheduling, iMessage + email outreach sequences, and renewal cadences. Every deal tracked in the live Noell Ops CRM dashboard with HOT/WARM scoring and deal stage visibility.",
+      body: "Noell Inbound, Noell Pipeline, and Noell Account run your B2B revenue cycle end to end. Every deal tracked in the live Noell Ops CRM dashboard with HOT/WARM scoring and deal stage visibility.",
   },
 ];
 
@@ -257,9 +257,7 @@ export default function ForB2BPage() {
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-wine leading-tight">
             Your pipeline tells you what happened. We tell you what is about to.
           </h2>
-          <p className="mt-6 text-base md:text-lg text-cream/85 leading-relaxed">
-            Every signal in your pipeline is data your CRM is not reading. Ops by Noell reads it every day and surfaces the accounts most likely to close, expand, or churn before your team notices the shift.
-          </p>
+
           <p className="mt-8 font-serif italic text-lg md:text-xl text-cream">
             We do not just tell you who is interested. We tell you who is about to go quiet.
           </p>
@@ -284,9 +282,7 @@ export default function ForB2BPage() {
                 One full-stack B2B operation.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Three systems. First signal to closed deal.
-            </p>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -491,9 +487,7 @@ export default function ForB2BPage() {
                 We run working sessions.
               </span>
             </h2>
-            <p className="mt-6 text-base md:text-lg text-cream/75 max-w-xl mx-auto leading-relaxed">
-              No pitch. No deck. A direct conversation about what is broken and what it is costing you.
-            </p>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
