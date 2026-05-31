@@ -60,12 +60,10 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
         throw new Error(data.error ?? "send_failed");
       }
 
-      setState("sent");
-
-      // Enhanced Conversions: provide user_data so Google can match this
-      // conversion to a signed-in Google user. Must be set before the
-      // conversion event fires. Google hashes the values automatically when
-      // Enhanced Conversions is in auto-detect mode.
+      // Enhanced Conversions: set user_data BEFORE the conversion event fires
+      // so Google can match this conversion to a signed-in Google user.
+      // Must happen before trackConversion() and before setState() to avoid
+      // any risk of the component unmounting mid-sequence.
       if (typeof window !== "undefined") {
         const gtag = (window as Window & { gtag?: GtagFn }).gtag;
         if (typeof gtag === "function") {
@@ -88,6 +86,8 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
         source_page: "book",
         source_section: "book_request_form",
       });
+
+      setState("sent");
     } catch (err) {
       const message = err instanceof Error ? err.message : "send_failed";
       setState("error");
