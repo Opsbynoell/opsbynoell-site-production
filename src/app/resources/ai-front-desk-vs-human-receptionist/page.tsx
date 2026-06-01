@@ -40,7 +40,7 @@ export default function Article() {
         eyebrow="Article · 7 min"
         title="AI front desk vs. human receptionist"
         lead="The honest comparison. Where each one wins, where each one fails, and why service businesses end up running both."
-        meta="Published April 18, 2026 · Nikki Noell"
+        meta="Published April 18, 2026 · Ops by Noell"
       >
         <p>
           The framing of &ldquo;AI or human&rdquo; misses how service

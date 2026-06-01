@@ -9,21 +9,20 @@ import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import {
   breadcrumbSchema,
-  jamesPersonSchema,
-  personSchema,
+  organizationSchema,
 } from "@/lib/schema";
 
-const FAMILY_PHOTO = "/images/about-noell-family.jpg";
-const FAMILY_PHOTO_ALT =
-  "James and Nikki Noell with their daughter, the family behind Ops by Noell, photographed in black and white.";
+const OFFICE_PHOTO = "/images/about-noell-family.jpg";
+const OFFICE_PHOTO_ALT =
+  "The Ops by Noell studio space in Mission Viejo, California, photographed in black and white.";
 
 export const metadata = pageMetadata({
   path: "/about",
-  title: "About James & Nikki Noell",
+  title: "About Ops by Noell",
   description:
-    "A family-run studio from Mission Viejo, CA, founded by James and Nikki Noell. We help service-business owners keep more of the revenue they are already earning.",
-  image: FAMILY_PHOTO,
-  imageAlt: FAMILY_PHOTO_ALT,
+    "An operations studio based in Mission Viejo, CA. We help service-business owners keep more of the revenue they are already earning.",
+  image: OFFICE_PHOTO,
+  imageAlt: OFFICE_PHOTO_ALT,
 });
 
 const credos = [
@@ -37,7 +36,7 @@ const credos = [
   },
   {
     icon: <IconHeart size={22} />,
-    text: "The best businesses are family-run. We're proud this one is.",
+    text: "The best businesses are run by tight-knit teams. We're proud this one is.",
   },
 ];
 
@@ -46,8 +45,7 @@ export default function AboutPage() {
     <div>
       <JsonLd
         data={[
-          personSchema(),
-          jamesPersonSchema(),
+          organizationSchema(),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
@@ -63,8 +61,8 @@ export default function AboutPage() {
             <div className="rounded-[28px] bg-[#301A26] p-3 md:p-4 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
               <div className="relative rounded-[22px] overflow-hidden aspect-[4/5] bg-charcoal/5">
                 <Image
-                  src={FAMILY_PHOTO}
-                  alt={FAMILY_PHOTO_ALT}
+                  src={OFFICE_PHOTO}
+                  alt={OFFICE_PHOTO_ALT}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
@@ -77,12 +75,14 @@ export default function AboutPage() {
           {/* RIGHT: editorial text */}
           <div className="order-2 md:order-2">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-5">
-              James &amp; Nikki Noell · Mission Viejo, CA
+              Ops by Noell · Mission Viejo, CA
             </p>
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-[1.1]">
-              Built by a family who watched too many good businesses bleed.
+              Built by an operations team who watched too many good businesses bleed.
             </h1>
-
+            <p className="mt-6 font-serif italic text-lg md:text-xl text-muted-strong leading-relaxed">
+              An operations studio based in Mission Viejo, California.
+            </p>
             <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
               We spent years inside growing businesses watching the same pattern: smart owners, booked calendars, lean teams, and money slipping out the back door. A missed call at 9 PM. A chat nobody answered. A client who never got a follow-up. We built Ops by Noell to fix that.
             </p>
@@ -138,7 +138,7 @@ export default function AboutPage() {
             Every account gets us directly.
           </h2>
           <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
-            The studio is named for our family. When you sign up, you are not handed off to a support team. You are working with us. If you&apos;d rather talk than read, our door is open.
+            When you sign up, you are not handed off to a support team. You are working with us. If you&apos;d rather talk than read, our door is open.
           </p>
           <div className="mt-6">
             <Button href="/book" variant="primary" className="h-11 px-6">

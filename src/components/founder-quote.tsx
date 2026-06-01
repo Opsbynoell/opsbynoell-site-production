@@ -21,7 +21,7 @@ export function FounderQuote() {
             <div className="relative h-56 md:h-auto md:min-h-[320px] bg-charcoal/5">
               <Image
                 src="/images/about-noell-family.jpg"
-                alt="James and Nikki Noell: the family behind Ops by Noell"
+                alt="Ops by Noell studio in Mission Viejo, CA"
                 fill
                 sizes="(min-width: 768px) 280px, 100vw"
                 className="object-cover object-top"
@@ -34,7 +34,7 @@ export function FounderQuote() {
             {/* Text column */}
             <div className="px-7 py-10 md:px-10 md:py-12 flex flex-col justify-center">
               <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
-                James &amp; Nikki Noell · Mission Viejo, CA
+                Ops by Noell · Mission Viejo, CA
               </p>
 
               <p className="font-serif text-xl md:text-2xl leading-snug text-cream tracking-tight">
@@ -54,7 +54,7 @@ export function FounderQuote() {
                 <div className="flex items-center gap-2">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500" />
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/60">
-                    The Noells · Ops by Noell
+                    Ops by Noell
                   </p>
                 </div>
                 <Link

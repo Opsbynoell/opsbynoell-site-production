@@ -7,7 +7,7 @@ export const metadata = pageMetadata({
   path: "/contact",
   title: "Contact",
   description:
-    "Contact Ops by Noell. Tell us about your service business and what you are trying to fix. Nikki personally reviews every inquiry and replies within one business day.",
+    "Contact Ops by Noell. Tell us about your service business and what you are trying to fix. We personally review every inquiry and reply within one business day.",
 });
 
 export default function ContactPage() {
@@ -25,7 +25,7 @@ export default function ContactPage() {
       </h1>
       <p className="mt-4 text-lg text-cream/70">
         Tell us about your service business and what you&apos;re trying to fix.
-        Nikki personally reviews every inquiry and replies within one business
+        We personally review every inquiry and reply within one business
         day. If you opt in to SMS, we&apos;ll also send you a confirmation text
         after you submit.
       </p>

@@ -467,7 +467,7 @@ export default function ForB2BPage() {
                 "The site must speak their language. Predictive customer intelligence, AI-optimized GTM, and B2B-grade operational systems. That is the brief. That is what we built. And it is running right now."
               </p>
               <footer className="mt-3 text-[11px] uppercase tracking-[0.2em] text-cream/80">
-                Nikki Noell · Ops by Noell
+                Ops by Noell
               </footer>
             </div>
           </div>

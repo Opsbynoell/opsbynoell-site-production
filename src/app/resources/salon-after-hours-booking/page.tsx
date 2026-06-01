@@ -42,7 +42,7 @@ export default function Article() {
         eyebrow="Article · 7 min"
         title="Salon after-hours booking"
         lead="Most salon owners think their week is built at the chair. It isn't, it is built between 7 and 10 p.m., when clients are on the couch with their phones, deciding whether to text you or the new place down the street."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           If you own a hair salon, blow-dry bar, or color studio, the single

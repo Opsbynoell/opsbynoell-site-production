@@ -56,7 +56,7 @@ export default function TermsPage() {
       <p>
         Information and communications from our AI assistants are
         informational and do not constitute a binding commitment by Ops by
-        Noell unless explicitly confirmed by Nikki Dowdell in writing.
+        Noell unless explicitly confirmed by Ops by Noell in writing.
         Pricing, timelines, and scope are always confirmed separately after
         a discovery call.
       </p>
@@ -82,7 +82,7 @@ export default function TermsPage() {
       <h2>4. AI-generated content disclaimer</h2>
       <p>
         Our AI assistants are trained on business context provided by Ops by
-        Noell and are designed to answer factually and escalate to Nikki
+        Noell and are designed to answer factually and escalate to our human team
         when uncertain. However:
       </p>
       <ul>
@@ -93,7 +93,7 @@ export default function TermsPage() {
         </li>
         <li>
           For anything custom, high-stakes, or unclear, conversations are
-          escalated to Nikki for human review
+          escalated for human review
         </li>
       </ul>
       <p>
@@ -218,8 +218,7 @@ export default function TermsPage() {
 
       <h2>10. Indemnification</h2>
       <p>
-        You agree to indemnify and hold harmless Ops by Noell, Nikki
-        Dowdell, and affiliated parties from any claims, damages, or
+        You agree to indemnify and hold harmless Ops by Noell and affiliated parties from any claims, damages, or
         expenses arising from your violation of these Terms or misuse of
         the Services.
       </p>

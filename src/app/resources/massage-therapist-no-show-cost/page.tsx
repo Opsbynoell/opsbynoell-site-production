@@ -43,7 +43,7 @@ export default function Article() {
         eyebrow="Article · 7 min"
         title={TITLE}
         lead="The real no-show rate for massage practices is closer to 18% than 5%. Here is what that costs over a year, and what to do in the 48 hours that decide whether you ever see that client again."
-        meta="Published May 4, 2026 · Nikki Noell"
+        meta="Published May 4, 2026 · Ops by Noell"
       >
         <p>
           The first time a massage therapist tells me her no-show rate is

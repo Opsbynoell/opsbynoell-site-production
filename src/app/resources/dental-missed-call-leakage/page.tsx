@@ -42,7 +42,7 @@ export default function Article() {
         eyebrow="Article · 7 min"
         title="Dental missed-call leakage"
         lead="For a single-location dental office, the most expensive part of the day isn't the two hygiene chairs running behind. It's the new-patient call that rang out at 12:40 p.m. and went to voicemail while the whole front desk was at lunch."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           When we audit dental practices, the owners almost always point at the

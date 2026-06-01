@@ -24,7 +24,7 @@ This SMS Policy explains how Ops by Noell ("we," "us," or "our") uses text messa
 
 If you opt in, Ops by Noell may send you SMS messages for these purposes:
 - **Lead follow-up:** confirming a discovery call, sending a calendar link, or responding to a question you raised in our chat assistant (Noell Support)
-- **Appointment confirmations and reminders:** confirming, reminding, or rescheduling a scheduled call with Nikki
+- **Appointment confirmations and reminders:** confirming, reminding, or rescheduling a scheduled call with our team
 - **Account and service notifications:** follow-up on a service inquiry, account updates, and related customer care
 
 We do not send marketing promotions, mass marketing campaigns, or unrelated third-party content via SMS.
@@ -34,7 +34,7 @@ We do not send marketing promotions, mass marketing campaigns, or unrelated thir
 You consent to receive SMS from Ops by Noell when:
 1. You engage in a conversation with Noell Support (our AI chat assistant) on www.opsbynoell.com and provide your phone number in response to an explicit disclosure that you will receive a text message
 2. You submit your phone number on a form on our website with an SMS consent checkbox
-3. You explicitly request an SMS follow-up during a call or email exchange with Nikki
+3. You explicitly request an SMS follow-up during a call or email exchange with our team
 
 The disclosure language you will see before consenting is substantially:
 

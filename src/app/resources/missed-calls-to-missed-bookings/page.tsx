@@ -41,7 +41,7 @@ export default function Article() {
         eyebrow="Article · 8 min"
         title="From missed calls to missed bookings"
         lead="Warm intent cools off quietly. A missed call is only the visible half of the leak, the rest is the silent no-show, the unread text, and the lead who booked somewhere else before you ever saw her name."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           Most owners we talk to can tell us, roughly, how many calls they

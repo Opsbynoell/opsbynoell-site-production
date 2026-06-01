@@ -42,7 +42,7 @@ export default function Article() {
         eyebrow="Article · 8 min"
         title="Review velocity and local SEO"
         lead="A batch of reviews looks impressive for a weekend. Steady weekly cadence, four or five honest five-star reviews, every single week, in your own clients' words, is what actually moves you up the map pack."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           Most service-business owners have been told that reviews matter for

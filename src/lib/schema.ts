@@ -119,29 +119,7 @@ export function faqPageSchema(faqs: FaqEntry[]) {
   };
 }
 
-export function personSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Nikki Noell",
-    jobTitle: "Co-founder",
-    worksFor: { "@id": `${SITE_URL}/#organization` },
-    affiliation: { "@id": `${SITE_URL}/#organization` },
-    url: `${SITE_URL}/about`,
-  };
-}
 
-export function jamesPersonSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "James Noell",
-    jobTitle: "Co-founder",
-    worksFor: { "@id": `${SITE_URL}/#organization` },
-    affiliation: { "@id": `${SITE_URL}/#organization` },
-    url: `${SITE_URL}/about`,
-  };
-}
 
 export function calculatorApplicationSchema(input: {
   name: string;
@@ -273,8 +251,8 @@ export function articleSchema(input: {
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
     author: {
-      "@type": "Person",
-      name: input.author ?? "Nikki Noell",
+      "@type": "Organization",
+      name: input.author ?? "Ops by Noell",
       url: `${SITE_URL}/about`,
     },
     publisher: { "@id": `${SITE_URL}/#organization` },
@@ -305,8 +283,8 @@ export function caseStudySchema(input: {
       : absoluteUrl("/images/og-grid-master.jpg"),
     about: input.about,
     author: {
-      "@type": "Person",
-      name: "Nikki Noell",
+      "@type": "Organization",
+      name: "Ops by Noell",
       url: `${SITE_URL}/about`,
     },
     publisher: { "@id": `${SITE_URL}/#organization` },

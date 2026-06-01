@@ -42,7 +42,7 @@ export default function Article() {
         eyebrow="Article · 6 min"
         title="AI front desk vs. answering service"
         lead="An answering service takes messages. An AI front desk books appointments. Most service businesses paying for one are actually paying to solve the wrong problem."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           On paper, an answering service and an AI front desk can sound

@@ -43,7 +43,7 @@ export default function Article() {
         eyebrow="Article · 7 min"
         title="Rebooking and reactivation for med spas and massage"
         lead="The single biggest growth lever in a premium service business isn't new leads. It's the regulars who quietly stopped coming in, and the rebookings that should have happened at checkout but didn't."
-        meta="Published April 24, 2026 · Nikki Noell"
+        meta="Published April 24, 2026 · Ops by Noell"
       >
         <p>
           Most med spas and massage practices spend the majority of their

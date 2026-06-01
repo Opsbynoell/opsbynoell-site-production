@@ -40,7 +40,7 @@ export default function Article() {
         eyebrow="Article · 6 min"
         title="Missed-call recovery for service businesses"
         lead="The missed call is the most expensive lead you'll ever own. Here is what to do about it, without hiring, outsourcing, or taking the phone to bed."
-        meta="Published April 18, 2026 · Nikki Noell"
+        meta="Published April 18, 2026 · Ops by Noell"
       >
         <p>
           The average service business misses a quarter of its inbound calls.
