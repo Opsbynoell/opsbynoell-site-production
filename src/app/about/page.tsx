@@ -45,7 +45,7 @@ export default function AboutPage() {
     <div>
       <JsonLd
         data={[
-          organizationSchema(),
+          organizationSchema,
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "About", path: "/about" },
