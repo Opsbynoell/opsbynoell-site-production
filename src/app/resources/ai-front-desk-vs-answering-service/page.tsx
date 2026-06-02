@@ -53,7 +53,7 @@ export default function Article() {
           most expensive mistakes a service-business owner can make.
         </p>
 
-        <h2>What an answering service actually does</h2>
+        <h2>AI front desk vs. answering service: cost and coverage compared</h2>
         <p>
           An answering service is, mechanically, a call center. A human
           picks up your phone using a script you provide, confirms it is

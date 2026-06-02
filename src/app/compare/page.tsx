@@ -48,6 +48,24 @@ const comparisons = [
       "Done-for-you AI operations versus a self-managed messaging tool. Coverage, retention, and what requires your attention.",
   },
   {
+    href: "/compare/weave",
+    name: "Ops by Noell vs. Weave",
+    description:
+      "Done-for-you AI front desk versus a patient communication and VoIP platform. Missed call recovery, setup model, and who actually operates it.",
+  },
+  {
+    href: "/compare/ruby-receptionists",
+    name: "Ops by Noell vs. Ruby Receptionists",
+    description:
+      "AI-powered 24/7 front desk versus a live virtual receptionist service. Coverage, cost, after-hours performance, and retention workflows.",
+  },
+  {
+    href: "/compare/birdeye",
+    name: "Ops by Noell vs. Birdeye",
+    description:
+      "Done-for-you AI operations versus a reputation management platform. Missed call recovery, review generation, and what each one actually covers.",
+  },
+  {
     href: "/compare/ai-front-desk-alternatives",
     name: "AI Front Desk Alternatives: Full Comparison",
     description:

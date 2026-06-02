@@ -61,7 +61,7 @@ export default function Article() {
           just review count.
         </p>
 
-        <h2>What review velocity is, in plain terms</h2>
+        <h2>How Google reviews affect local SEO for service businesses</h2>
         <p>
           Review velocity is the simple, weekly rhythm at which new, honest
           reviews arrive on your Google Business Profile (and increasingly,

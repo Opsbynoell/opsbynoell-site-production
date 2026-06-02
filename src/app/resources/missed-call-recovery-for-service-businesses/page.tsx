@@ -51,7 +51,7 @@ export default function Article() {
           about to call the next name Google shows them.
         </p>
 
-        <h2>The hidden cost of a missed call</h2>
+        <h2>What does a missed call cost a service business?</h2>
         <p>
           On average, a new-client phone call is worth several hundred dollars
           in immediate revenue, and several thousand in lifetime value. That is
@@ -74,7 +74,7 @@ export default function Article() {
           layer that catches the call when the humans can&apos;t.
         </p>
 
-        <h2>What missed-call recovery actually looks like</h2>
+        <h2>What missed call recovery for service businesses actually looks like</h2>
         <p>
           A managed front desk layer does three things within seconds of a
           missed call:

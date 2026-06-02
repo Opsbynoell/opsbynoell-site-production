@@ -59,7 +59,7 @@ export default function Article() {
           <li>Making the lobby feel like your business.</li>
         </ul>
 
-        <h2>What a human receptionist quietly can&apos;t do</h2>
+        <h2>AI front desk vs. human receptionist: where each one wins</h2>
         <ul>
           <li>
             Answer the phone at 9:13 p.m. on Tuesday when someone is searching

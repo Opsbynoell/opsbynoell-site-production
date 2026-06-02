@@ -71,7 +71,7 @@ export default function Article() {
           time.
         </p>
 
-        <h2>Why rebooking fails at the front desk</h2>
+        <h2>How to reactivate lapsed med spa and massage clients</h2>
         <p>
           Every owner we&apos;ve talked to says the same thing: &ldquo;we
           should be rebooking at checkout.&rdquo; And almost nobody does it
