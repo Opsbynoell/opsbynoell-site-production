@@ -49,20 +49,24 @@ function Reveal({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-// Calendly inline embed
-function CalendlyEmbed() {
+// GHL calendar embed
+function GHLCalendarEmbed() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
     script.async = true;
     document.body.appendChild(script);
-    return () => { document.body.removeChild(script); };
+    return () => {
+      if (document.body.contains(script)) document.body.removeChild(script);
+    };
   }, []);
   return (
-    <div
-      className="calendly-inline-widget"
-      data-url="https://calendly.com/opsbynoell/30-minute-meeting-clone?hide_event_type_details=1&hide_gdpr_banner=1&text_color=ffffff&primary_color=8B2A42&background_color=1F1219"
-      style={{ minWidth: 320, height: 700 }}
+    <iframe
+      src="https://api.leadconnectorhq.com/widget/booking/HRQS43hNklkuUBBgDTPe"
+      style={{ width: "100%", minHeight: 720, border: "none", display: "block" }}
+      title="Book Revenue Signal Report Call"
+      scrolling="no"
+      id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
     />
   );
 }
@@ -455,7 +459,7 @@ export function UpgradePageClient() {
           </Reveal>
           <Reveal delay={100}>
             <div className="rounded-[22px] overflow-hidden border border-white/10 shadow-[0px_4px_8px_0px_rgba(28,25,23,0.08)]">
-              <CalendlyEmbed />
+              <GHLCalendarEmbed />
             </div>
           </Reveal>
         </div>
