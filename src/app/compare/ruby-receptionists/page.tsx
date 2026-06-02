@@ -24,7 +24,7 @@ const rows: CompareRow[] = [
   {
     capability: "Primary job",
     opsByNoell:
-      "Catch missed calls, handle scheduling, run reminders, retain existing clients — automatically.",
+      "Catch missed calls, handle scheduling, run reminders, and retain existing clients. Automatically.",
     alternative:
       "Answer inbound calls during business hours and take messages or transfer calls.",
   },
@@ -51,7 +51,7 @@ const rows: CompareRow[] = [
   {
     capability: "Retention and reactivation",
     opsByNoell:
-      "Built-in reactivation sequences, reminder cadences, and review requests — all automated.",
+      "Built-in reactivation sequences, reminder cadences, and review requests. All automated.",
     alternative:
       "Not included. Ruby answers calls; it does not run follow-up or retention workflows.",
   },

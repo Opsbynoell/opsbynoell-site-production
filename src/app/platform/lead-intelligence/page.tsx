@@ -85,7 +85,7 @@ export default function LeadIntelligencePlatformPage() {
         </h1>
         <p className="mt-6 max-w-2xl text-cream/75 text-base md:text-lg leading-relaxed">
           Every Noell service engagement includes a live client dashboard.
-          Every lead, every conversation, every booking — scored, threaded,
+          Every lead, every conversation, every booking. Scored, threaded,
           and tracked. You see exactly what the system is doing and what it
           is recovering.
         </p>

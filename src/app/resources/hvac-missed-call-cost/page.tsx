@@ -7,7 +7,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 const PATH = "/resources/hvac-missed-call-cost";
 const TITLE = "How much does a missed call cost an HVAC company?";
 const DESCRIPTION =
-  "For an HVAC contractor, a missed call isn't a $150 missed appointment—it's a $5,000 install going to the next name on Google. Here is the math on what unanswered calls actually cost in the trades.";
+  "For an HVAC contractor, a missed call is not a $150 missed appointment. It is a $5,000 install going to the next name on Google. Here is the math on what unanswered calls actually cost in the trades.";
 const PUBLISHED = "2026-06-02";
 
 export const metadata = pageMetadata({
@@ -40,7 +40,7 @@ export default function Article() {
       <ArticleLayout
         eyebrow="Article · 6 min"
         title={TITLE}
-        lead="For an HVAC contractor, a missed call isn't a $150 missed appointment—it's a $5,000 install going to the next name on Google. Here is the math on what unanswered calls actually cost in the trades."
+        lead="For an HVAC contractor, a missed call is not a $150 missed appointment. It is a $5,000 install going to the next name on Google. Here is the math on what unanswered calls actually cost in the trades."
         meta="Published June 2, 2026 · Ops by Noell"
       >
         <p>

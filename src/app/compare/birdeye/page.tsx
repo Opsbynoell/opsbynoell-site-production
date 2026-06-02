@@ -24,7 +24,7 @@ const rows: CompareRow[] = [
   {
     capability: "Primary job",
     opsByNoell:
-      "Catch missed calls, handle scheduling, run reminders, retain existing clients — automatically.",
+      "Catch missed calls, handle scheduling, run reminders, and retain existing clients. Automatically.",
     alternative:
       "Collect reviews, manage listings, send surveys, and centralize messaging across locations.",
   },

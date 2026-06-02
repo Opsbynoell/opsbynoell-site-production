@@ -44,7 +44,7 @@ const bookFaqs: FaqItem[] = [
     id: "why-no-live-calendar",
     question: "Can I book directly on a calendar?",
     answer:
-      "Yes. Scroll down past the form to find the Revenue Signal Report Discovery Call calendar. Pick a Tuesday, Wednesday, or Thursday between 10 AM and 5 PM Pacific. If nothing works, email nikki@opsbynoell.com and she will make it happen.",
+      "Yes. Scroll down past the form to find the Revenue Signal Report Discovery Call calendar. Pick a Tuesday, Wednesday, or Thursday between 10 AM and 5 PM Pacific. If nothing works, email hello@opsbynoell.com and we will make it happen.",
   },
   {
     id: "not-ready-after-call",

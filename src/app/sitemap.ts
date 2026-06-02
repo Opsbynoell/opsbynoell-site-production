@@ -108,12 +108,9 @@ const entries: Entry[] = [
     priority: 0.7,
     lastmod: "2026-04-18",
   },
-  {
-    path: "/resources/massage-therapist-no-show-cost",
-    changeFrequency: "monthly",
-    priority: 0.75,
-    lastmod: LAUNCH_FIXES,
-  },
+  { path: "/resources/massage-therapist-no-show-cost", changeFrequency: "monthly", priority: 0.75, lastmod: LAUNCH_FIXES },
+  { path: "/resources/hvac-missed-call-cost", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
+  { path: "/resources/med-spa-client-reactivation", changeFrequency: "monthly", priority: 0.7, lastmod: TODAY },
 
   { path: "/case-studies", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7, lastmod: "2026-04-18" },
@@ -129,6 +126,9 @@ const entries: Entry[] = [
   { path: "/compare/human-answering-services", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },
   { path: "/compare/local-business-messaging-platforms", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
   { path: "/compare/ai-front-desk-alternatives", changeFrequency: "monthly", priority: 0.65, lastmod: "2026-04-18" },
+  { path: "/compare/birdeye", changeFrequency: "monthly", priority: 0.65, lastmod: TODAY },
+  { path: "/compare/ruby-receptionists", changeFrequency: "monthly", priority: 0.65, lastmod: TODAY },
+  { path: "/compare/weave", changeFrequency: "monthly", priority: 0.65, lastmod: TODAY },
 
   { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
   { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },

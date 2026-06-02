@@ -17,8 +17,8 @@ export function Footer() {
     { title: "Noell Support", href: "/noell-support" },
     { title: "Noell Front Desk", href: "/noell-front-desk" },
     { title: "Noell Care", href: "/noell-care" },
-    { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
     { title: "For Service Businesses", href: "/for-service-businesses" },
+    { title: "Upgrade Your AI Tool", href: "/upgrade" },
   ];
 
   const b2bProducts = [
@@ -26,7 +26,7 @@ export function Footer() {
     { title: "Noell Pipeline", href: "/noell-pipeline" },
     { title: "Noell Account", href: "/noell-account" },
     { title: "For B2B & SaaS", href: "/for-b2b" },
-    { title: "Digital Readiness Review", href: "/digital-readiness-review" },
+    { title: "Predictive Intelligence", href: "/predictive-customer-intelligence" },
   ];
 
   const legal = [
