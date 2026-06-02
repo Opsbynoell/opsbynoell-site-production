@@ -12,7 +12,7 @@ type Entry = {
 // Per-page lastmod dates. Update these alongside content changes so search
 // crawlers can prioritize freshly updated pages instead of seeing every
 // page share a single build timestamp.
-const TODAY = "2026-05-24";
+const TODAY = "2026-06-02";
 const SEO_FIXES = "2026-05-24";
 const LAUNCH_FIXES = "2026-05-04";
 
@@ -120,6 +120,7 @@ const entries: Entry[] = [
 
   { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/for-b2b", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
+  { path: "/upgrade", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
 
   { path: "/compare", changeFrequency: "monthly", priority: 0.7, lastmod: SEO_FIXES },
   { path: "/compare/my-ai-front-desk", changeFrequency: "monthly", priority: 0.65, lastmod: SEO_FIXES },

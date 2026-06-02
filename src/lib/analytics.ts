@@ -71,7 +71,10 @@ export type SourcePage =
   | "noell_inbound"
   | "noell_pipeline"
   | "noell_account"
-  | "upgrade";
+  | "upgrade"
+  | "compare_birdeye"
+  | "compare_ruby_receptionists"
+  | "compare_weave";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and
