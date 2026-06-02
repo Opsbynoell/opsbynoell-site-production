@@ -57,7 +57,7 @@ export default function Article() {
           than most owners realize.
         </p>
 
-        <h2>The real no-show rate</h2>
+        <h2>The true cost of no-shows for a massage therapist</h2>
         <p>
           Industry data consistently puts massage no-show rates around
           {" "}

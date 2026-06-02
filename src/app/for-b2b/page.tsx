@@ -277,9 +277,9 @@ export default function ForB2BPage() {
               What we build
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
-              Three systems.{" "}
+              Done-for-you AI operations.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                One full-stack B2B operation.
+                Built for B2B and SaaS.
               </span>
             </h2>
 

@@ -92,7 +92,7 @@ export default function Article() {
           her name.
         </p>
 
-        <h2>Where the leak actually lives</h2>
+        <h2>How automated missed call text back saves revenue</h2>
         <p>
           We audit a lot of service businesses. The pattern is nearly
           identical across dental offices, med spas, massage studios, and

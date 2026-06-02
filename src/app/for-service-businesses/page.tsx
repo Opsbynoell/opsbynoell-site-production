@@ -288,9 +288,9 @@ export default function ForServiceBusinessesPage() {
               What we build
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
-              Three agents.{" "}
+              A done-for-you AI front desk.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                One complete front desk.
+                Built for service businesses.
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">

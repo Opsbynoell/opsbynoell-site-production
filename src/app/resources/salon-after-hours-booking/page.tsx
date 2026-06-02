@@ -61,7 +61,7 @@ export default function Article() {
           had already booked somewhere else.
         </p>
 
-        <h2>When salon clients actually book</h2>
+        <h2>How to take bookings after hours for a salon</h2>
         <p>
           Open your own booking calendar and look at when new appointments
           get <em>created</em>, not when they happen. For most salons we

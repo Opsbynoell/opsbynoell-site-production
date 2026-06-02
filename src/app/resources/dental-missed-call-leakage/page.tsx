@@ -58,7 +58,7 @@ export default function Article() {
           insurance. In the lunch hour.
         </p>
 
-        <h2>Why the lunch-hour call is so expensive</h2>
+        <h2>How much does a missed call cost a dental office?</h2>
         <p>
           A new-patient call to a dental office is close to the highest-intent
           phone call a local service business can receive. The caller has a
