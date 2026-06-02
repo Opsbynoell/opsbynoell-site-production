@@ -70,7 +70,8 @@ export type SourcePage =
   | "for_b2b"
   | "noell_inbound"
   | "noell_pipeline"
-  | "noell_account";
+  | "noell_account"
+  | "upgrade";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and
