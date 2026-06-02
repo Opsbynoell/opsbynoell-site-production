@@ -87,7 +87,8 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
         source_section: "book_request_form",
       });
 
-      setState("sent");
+      // Redirect to /thank-you instead of showing inline success card
+      window.location.href = "/thank-you";
     } catch (err) {
       const message = err instanceof Error ? err.message : "send_failed";
       setState("error");
