@@ -150,7 +150,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
   }
 
   const selectClass =
-    "w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520] appearance-none cursor-pointer";
+    "w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520] appearance-none cursor-pointer";
 
   return (
     <form
@@ -175,7 +175,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoComplete="name"
-              className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
+              className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
           </label>
           <label className="block">
@@ -190,7 +190,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               value={business}
               onChange={(e) => setBusiness(e.target.value)}
               autoComplete="organization"
-              className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
+              className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
           </label>
           <label className="block">
@@ -205,7 +205,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               autoComplete="tel"
-              className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
+              className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
           </label>
           <label className="block">
@@ -220,7 +220,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
-              className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
+              className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
           </label>
         </div>
@@ -304,7 +304,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             type="submit"
             disabled={state === "submitting"}
             aria-busy={state === "submitting"}
-            className="rounded-full bg-wine text-cream text-sm font-medium px-6 py-3 tap-target hover:bg-wine-dark transition-colors disabled:opacity-60"
+            className="rounded-full bg-[linear-gradient(181deg,_#C45A2A_18%,_#9A3A18_100%)] text-white text-sm font-medium px-6 py-3 tap-target hover:brightness-110 transition-all shadow-[0px_4px_8px_0px_rgba(196,90,42,0.30)] disabled:opacity-60"
             data-event="audit_cta_click"
             data-source-page="book"
             data-source-section="book_request_form"

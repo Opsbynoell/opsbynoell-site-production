@@ -194,24 +194,41 @@ export function PricingCard({
 
         <PricingCtaButton tier={tier} sourcePage={sourcePage} />
 
-        <ul className="space-y-3 pt-2">
-          {tier.features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-2.5">
-              <span
-                className={cn(
-                  "flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center",
-                  tier.isHighlighted
-                    ? "bg-wine text-cream"
-                    : "bg-[#2A1520] text-wine"
+        <ul className="space-y-0 pt-2">
+          {tier.features.map((feature, index) => {
+            // Split on first colon to bold the label part (e.g. "Noell Support: ...")
+            const colonIdx = feature.indexOf(":");
+            const label = colonIdx > -1 ? feature.slice(0, colonIdx) : null;
+            const rest = colonIdx > -1 ? feature.slice(colonIdx) : feature;
+            // Add a faint divider after the first feature ("Everything in X" or first core item)
+            const showDivider = index === 0 && tier.features.length > 2;
+            return (
+              <>
+                <li key={index} className="flex items-start gap-2.5 py-2">
+                  <span
+                    className={cn(
+                      "flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center",
+                      tier.isHighlighted
+                        ? "bg-wine text-cream"
+                        : "bg-[#2A1520] text-wine"
+                    )}
+                  >
+                    <IconCheck size={11} strokeWidth={3} />
+                  </span>
+                  <span className="text-sm text-cream/80 leading-snug">
+                    {label ? (
+                      <><span className="font-semibold text-cream/95">{label}</span>{rest}</>
+                    ) : (
+                      feature
+                    )}
+                  </span>
+                </li>
+                {showDivider && (
+                  <li key={`divider-${index}`} aria-hidden="true" className="border-b border-cream/10 my-1" />
                 )}
-              >
-                <IconCheck size={11} strokeWidth={3} />
-              </span>
-              <span className="text-sm text-cream/80 leading-snug">
-                {feature}
-              </span>
-            </li>
-          ))}
+              </>
+            );
+          })}
         </ul>
 
         {tier.note && (

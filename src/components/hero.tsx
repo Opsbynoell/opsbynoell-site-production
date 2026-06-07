@@ -148,7 +148,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/70 font-sans"
+        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
       >
         {body}
       </motion.p>
@@ -158,7 +158,7 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-cream/70"
+          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-cream/80"
         >
           {footnote}
         </motion.p>

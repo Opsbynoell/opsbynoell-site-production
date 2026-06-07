@@ -37,11 +37,11 @@ const baseStyles = cn(
 const variantStyles: Record<ButtonVariant, string> = {
   primary: cn(
     "rounded-[8px]",
-    "bg-[linear-gradient(181deg,_#8B4D5E_18.12%,_#5A1F30_99.57%)]",
-    "shadow-[0px_4px_8px_0px_rgba(90,31,48,0.18),_0px_2px_4px_0px_rgba(90,31,48,0.12),",
-    "0px_0px_0px_1px_rgba(90,31,48,0.12),_0px_1px_1px_2px_rgba(255,255,255,0.28)_inset,",
-    "0px_-1px_5px_2px_rgba(255,255,255,0.20)_inset]",
-    "text-white"
+    "bg-[linear-gradient(181deg,_#C45A2A_18.12%,_#9A3A18_99.57%)]",
+    "shadow-[0px_4px_8px_0px_rgba(196,90,42,0.30),_0px_2px_4px_0px_rgba(196,90,42,0.18),",
+    "0px_0px_0px_1px_rgba(196,90,42,0.15),_0px_1px_1px_2px_rgba(255,255,255,0.22)_inset,",
+    "0px_-1px_5px_2px_rgba(255,255,255,0.15)_inset]",
+    "text-white hover:brightness-110"
   ),
   secondary: cn(
     "bg-[#271520] rounded-[8px] border border-white/10 text-cream"
