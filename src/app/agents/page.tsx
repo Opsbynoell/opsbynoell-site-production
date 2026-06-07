@@ -150,7 +150,7 @@ export default function AgentsPage() {
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
           Three agents.{" "}
-          <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+          <span className="italic bg-gradient-to-b from-[#D96B38] to-[#C45A2A] bg-clip-text text-transparent">
             Working quietly, in the background.
           </span>
         </h1>
@@ -163,13 +163,13 @@ export default function AgentsPage() {
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-stretch sm:items-center justify-center px-4">
           <Link
             href="/book"
-            className="inline-flex items-center justify-center w-full sm:w-auto h-12 px-7 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
+            className="inline-flex items-center justify-center w-full sm:w-auto h-12 px-7 rounded-xl bg-gradient-to-r from-[#C45A2A] to-[#9A3A18] text-cream font-semibold text-sm hover:from-[#D96B38] hover:to-[#C45A2A] transition-colors"
           >
             Get Started
           </Link>
           <Link
             href="#whats-included"
-            className="inline-flex items-center justify-center text-sm font-medium text-wine hover:text-wine-dark tap-target px-3"
+            className="inline-flex items-center justify-center text-sm font-medium text-[#C45A2A] hover:text-[#D96B38] tap-target px-3"
           >
             See what&apos;s included <span className="ml-1.5">&rarr;</span>
           </Link>
@@ -204,7 +204,7 @@ export default function AgentsPage() {
                 )}
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#C45A2A]/10 text-[#C45A2A] flex items-center justify-center">
                     {agent.icon}
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -244,7 +244,7 @@ export default function AgentsPage() {
             <ul className="space-y-3">
               {youGet.map((item) => (
                 <li key={item} className="flex items-start gap-2.5">
-                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-wine text-cream flex items-center justify-center">
+                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#C45A2A] text-cream flex items-center justify-center">
                     <IconCheck size={12} strokeWidth={3} />
                   </span>
                   <span className="text-sm md:text-base text-cream/85 leading-snug">
@@ -262,7 +262,7 @@ export default function AgentsPage() {
             <ul className="space-y-3">
               {youDont.map((item) => (
                 <li key={item} className="flex items-start gap-2.5">
-                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-wine/15 text-wine/80 flex items-center justify-center">
+                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-[#C45A2A]/15 text-[#C45A2A]/80 flex items-center justify-center">
                     <IconMinus size={12} strokeWidth={3} />
                   </span>
                   <span className="text-sm md:text-base text-cream/75 leading-snug">
@@ -278,7 +278,7 @@ export default function AgentsPage() {
           Need the full operations platform?{" "}
           <Link
             href="/pricing"
-            className="text-wine hover:text-wine-dark underline underline-offset-4 decoration-wine/30"
+            className="text-[#C45A2A] hover:text-[#D96B38] underline underline-offset-4 decoration-[#C45A2A]/30"
           >
             See The Noell System &rarr;
           </Link>
@@ -292,7 +292,7 @@ export default function AgentsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-4">
               Signal tier
             </p>
-            <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
+            <p className="font-serif text-5xl md:text-6xl font-bold text-cream leading-none">
               $397<span className="text-2xl md:text-3xl font-normal">/mo</span>
             </p>
             <p className="text-xs text-muted-strong mt-2">
@@ -303,7 +303,7 @@ export default function AgentsPage() {
             </p>
             <Link
               href="/book"
-              className="inline-flex items-center justify-center w-full h-12 px-7 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
+              className="inline-flex items-center justify-center w-full h-12 px-7 rounded-xl bg-gradient-to-r from-[#C45A2A] to-[#9A3A18] text-cream font-semibold text-sm hover:from-[#D96B38] hover:to-[#C45A2A] transition-colors"
             >
               Get Your Free Revenue Signal Report
             </Link>
@@ -361,7 +361,7 @@ export default function AgentsPage() {
           <div className="mt-8 flex justify-center">
             <Link
               href="/book"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-wine text-cream font-semibold text-sm hover:bg-wine-dark transition-colors"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-gradient-to-r from-[#C45A2A] to-[#9A3A18] text-cream font-semibold text-sm hover:from-[#D96B38] hover:to-[#C45A2A] transition-colors"
             >
               Get Your Free Revenue Signal Report
             </Link>

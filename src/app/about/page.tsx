@@ -80,7 +80,7 @@ export default function AboutPage() {
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-[1.1]">
               Built by an operations team who watched too many good businesses bleed.
             </h1>
-            <p className="mt-6 font-serif italic text-lg md:text-xl text-muted-strong leading-relaxed">
+            <p className="mt-6 font-serif italic text-lg md:text-xl text-cream/75 leading-relaxed">
               An operations studio based in Mission Viejo, California.
             </p>
             <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
@@ -95,7 +95,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight text-center">
             We built the system{" "}
-            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+            <span className="italic bg-gradient-to-b from-[#D96B38] to-[#C45A2A] bg-clip-text text-transparent">
               we wished existed.
             </span>
           </h2>
@@ -119,7 +119,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {credos.map((credo, i) => (
               <div key={i} className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-wine/10 text-wine flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-full bg-[#C45A2A]/10 text-[#C45A2A] flex items-center justify-center mb-5">
                   {credo.icon}
                 </div>
                 <p className="font-serif italic text-lg md:text-xl text-cream leading-snug max-w-xs">

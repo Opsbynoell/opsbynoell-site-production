@@ -165,9 +165,9 @@ export default function SystemsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-wine/10 border border-wine/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-wine" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-wine">Track 01 / Service Businesses</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#C45A2A]/10 border border-[#C45A2A]/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A]" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/70">Track 01 / Service Businesses</span>
               </span>
             </div>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight">
@@ -194,7 +194,7 @@ export default function SystemsPage() {
                 )}
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#C45A2A]/10 text-[#C45A2A] flex items-center justify-center">
                     {agent.icon}
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -204,7 +204,7 @@ export default function SystemsPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-1">
                   {agent.eyebrow}
                 </p>
                 <h3 className="font-serif text-2xl font-semibold text-cream mb-1">
@@ -220,7 +220,7 @@ export default function SystemsPage() {
                   <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
                     {agent.status}
                   </p>
-                  <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                  <p className="text-xs text-[#C45A2A] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
                     Learn more &rarr;
                   </p>
                 </div>
@@ -230,7 +230,7 @@ export default function SystemsPage() {
         </div>
       </section>
 
-      {/* B2B Track agents */}
+      {/* B2B Track agents */
       <section className="w-full py-8 md:py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
@@ -291,7 +291,7 @@ export default function SystemsPage() {
                 )}
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-wine/20 text-wine-light flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#C45A2A]/15 text-[#C45A2A] flex items-center justify-center">
                     <IconBolt size={22} />
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -301,7 +301,7 @@ export default function SystemsPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-wine-light mb-1">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-1">
                   {agent.eyebrow}
                 </p>
                 <h3 className="font-serif text-2xl font-semibold text-cream mb-1">
@@ -317,7 +317,7 @@ export default function SystemsPage() {
                   <p className="font-mono text-[10px] uppercase tracking-widest text-cream/50">
                     {agent.status}
                   </p>
-                  <p className="text-xs text-wine-light font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                  <p className="text-xs text-[#C45A2A] font-medium opacity-80 group-hover:opacity-100 transition-opacity">
                     Learn more &rarr;
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export default function SystemsPage() {
       <section className="w-full py-16 md:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 max-w-3xl mx-auto">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-cream/60 mb-4">
               audit &rarr; install &rarr; live
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
