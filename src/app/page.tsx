@@ -15,12 +15,12 @@ import {
 export const metadata = pageMetadata({
   path: "/",
   absoluteTitle: true,
-  title: "AI Operations for Service Businesses and B2B, Ops by Noell",
+  title: "AI Front Desk for Service Businesses | Ops by Noell",
   description:
-    "Ops by Noell builds and runs AI-powered operational systems for service-based businesses and B2B companies. Done for you. Live in 14 days.",
-  ogTitle: "Ops by Noell, AI Operations for Service Businesses and B2B",
+    "Ops by Noell builds and runs AI-powered front desk and operations systems for service-based businesses. Done for you. Live in 14 days.",
+  ogTitle: "Ops by Noell | AI Front Desk for Service Businesses",
   ogDescription:
-    "Whether you run a service business or sell to B2B and SaaS buyers, Ops by Noell builds the operational layer that keeps revenue from slipping out. Free audit to start.",
+    "Stop losing revenue to missed calls and slow follow-up. Ops by Noell builds and runs your AI front desk and operations system. Done for you. Live in 14 days.",
 });
 
 const homepageFaqs: FaqItem[] = [
@@ -75,12 +75,13 @@ export default function Home() {
           Brand-level headline. Speaks to both audiences.
       ─────────────────────────────────────────────────────────────────────── */}
       <Hero
+        eyebrow="For service-based businesses"
         headlineLine1Start="The AI front desk and pipeline"
         headlineLine1Accent=""
         headlineLine2Start="your business is"
         headlineLine2Accent="missing."
         headlineLine2Smaller={false}
-        body="Done for you. Live in 14 days. Managed by our team."
+        body="Done for you. Live in 14 days. Managed by our team. Built for service businesses."
         footnote=""
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
