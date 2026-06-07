@@ -101,17 +101,17 @@ export default function BookPage() {
 
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-4 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-6 md:pb-8 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.30)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
+        <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+          Free working session
+        </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream">
-          Get your free{" "}
+          Find out exactly what your front desk is{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            Revenue Signal Report.
+            costing you.
           </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
-          Tell us what you use to book, where the front desk is leaking, and
-          what kind of business you run. We will review it personally and
-          reply within one business day with two or three times for a focused
-          walkthrough.
+          We audit your missed call rate, follow-up gaps, and booking flow. You leave with a clear number: what is leaking, what it is worth, and what the fix looks like. No pitch. No deck. Just the findings.
         </p>
       </section>
 
@@ -180,17 +180,23 @@ export default function BookPage() {
             Currently running
           </p>
           <p className="font-serif text-lg md:text-xl text-cream leading-snug">
-            Currently keeping the front desk moving for Healing Hands by
-            Santa, a solo licensed therapeutic massage practice in Laguna
-            Niguel run by Santa, the owner. In fourteen days, four missed
-            calls turned into booked appointments and{" "}
-            <span className="text-wine">nine hundred sixty dollars</span> in
-            recovered revenue.
+            Healing Hands by Santa, a solo licensed massage practice in Laguna Niguel, was losing clients every time she was with a client. Her phone went quiet. No follow-up went out. Clients booked elsewhere. In fourteen days, four missed calls turned into booked appointments and{" "}
+            <span className="text-wine font-semibold">$960 in recovered revenue.</span> No new software. No configuration. We built it, installed it, and ran it.
           </p>
+          <div className="mt-5 grid grid-cols-3 gap-4 border-t border-white/10 pt-5">
+            {[
+              { stat: "4", label: "missed calls recovered" },
+              { stat: "$960", label: "revenue in 14 days" },
+              { stat: "75%", label: "fewer no-shows" },
+            ].map((item) => (
+              <div key={item.stat} className="text-center">
+                <p className="font-serif text-2xl font-semibold text-wine">{item.stat}</p>
+                <p className="text-[10px] text-cream/60 uppercase tracking-wide mt-1">{item.label}</p>
+              </div>
+            ))}
+          </div>
           <p className="mt-5 text-sm text-cream/70 leading-relaxed">
-            We work alongside the booking and practice management software
-            your business already uses. Based in Orange County, California.
-            Served nationally.
+            We work alongside the booking and practice management software your business already uses. No migration. No rip-and-replace. Based in Orange County, California. Served nationally.
           </p>
         </div>
       </section>

@@ -45,57 +45,72 @@ interface AdHeadline {
 
 const AD_HEADLINES: Record<AdPage, Record<string, AdHeadline>> = {
   frontDesk: {
+    // Hook type: Bleeding Money
     "missed-calls": {
-      eyebrow: "Noell Front Desk · You're losing revenue right now",
-      headlineLine1Start: "Every missed call is",
-      headlineLine1Accent: "$300 walking out.",
-      headlineLine2Start: "We stop that",
-      headlineLine2Accent: "today.",
-      body: "Noell Front Desk catches missed calls, texts back in under 10 seconds, and books the appointment before they call your competitor. Setup in 48 hours.",
+      eyebrow: "You are paying for leads that go to voicemail",
+      headlineLine1Start: "You paid $60 for that lead.",
+      headlineLine1Accent: "",
+      headlineLine2Start: "They heard your voicemail and called",
+      headlineLine2Accent: "someone else.",
+      body: "Noell Front Desk texts back within 5 minutes, qualifies the lead, and books the appointment before they call your competitor. Done for you. Live in 14 days.",
     },
+    // Hook type: Contrarian
     receptionist: {
-      eyebrow: "Noell Front Desk · Your front desk, upgraded",
-      headlineLine1Start: "Your receptionist",
-      headlineLine1Accent: "can't do all of this.",
-      headlineLine2Start: "Noell",
-      headlineLine2Accent: "can.",
-      body: "Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles, managed automatically.",
+      eyebrow: "Stop hiring receptionists who quit in three weeks",
+      headlineLine1Start: "Your receptionist quit.",
+      headlineLine1Accent: "",
+      headlineLine2Start: "Ours has never",
+      headlineLine2Accent: "missed a call.",
+      body: "Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Everything a receptionist handles, managed by our team. No hiring. No training. No turnover.",
+    },
+    // Hook type: Identity
+    reputation: {
+      eyebrow: "You built a great business",
+      headlineLine1Start: "Do not let a missed call",
+      headlineLine1Accent: "",
+      headlineLine2Start: "ruin your",
+      headlineLine2Accent: "reputation.",
+      body: "Your clients chose you because you are reliable. Noell Front Desk makes sure every call, inquiry, and follow-up reflects that. Done for you. No software to learn.",
     },
   },
   support: {
+    // Hook type: Bleeding Money
     "missed-calls": {
-      eyebrow: "Noell Support · Stop losing leads to missed calls",
-      headlineLine1Start: "You're missing calls",
-      headlineLine1Accent: "right now.",
-      headlineLine2Start: "Noell answers",
-      headlineLine2Accent: "in 10 seconds.",
-      body: "Noell Support is your AI front desk for new prospects. It catches missed calls, qualifies the lead, and books the appointment while you're with another client.",
+      eyebrow: "Your marketing is not failing you. Your front desk is.",
+      headlineLine1Start: "You are spending money on ads",
+      headlineLine1Accent: "",
+      headlineLine2Start: "to fill your",
+      headlineLine2Accent: "voicemail.",
+      body: "Noell Support is your AI front desk for new prospects. It catches every inquiry, qualifies the lead, and routes them to booking while you are with another client. Done for you.",
     },
+    // Hook type: Specificity
     "first-response": {
-      eyebrow: "Noell Support · First response wins the client",
-      headlineLine1Start: "Your first response",
-      headlineLine1Accent: "sets the tone.",
-      headlineLine2Start: "Make it",
-      headlineLine2Accent: "instant.",
-      body: "The business that responds first wins the client 78% of the time. Noell Support makes sure that business is always you.",
+      eyebrow: "Five minutes is the window",
+      headlineLine1Start: "After 5 minutes, your odds",
+      headlineLine1Accent: "",
+      headlineLine2Start: "of booking that lead drop by",
+      headlineLine2Accent: "80%.",
+      body: "Noell Support responds to every inquiry the moment it comes in, 24 hours a day, 7 days a week. The business that responds first wins the client. That business is now you.",
     },
   },
   care: {
+    // Hook type: Identity
     regulars: {
-      eyebrow: "Noell Care · For your best clients",
-      headlineLine1Start: "Your regulars deserve",
-      headlineLine1Accent: "better than a hold queue.",
-      headlineLine2Start: "Give them",
-      headlineLine2Accent: "that.",
-      body: "Noell Care recognizes your returning clients the moment they reach out. No re-explaining. No hold music. Just the experience that keeps them coming back.",
+      eyebrow: "Your best clients deserve better",
+      headlineLine1Start: "A great client stopped booking.",
+      headlineLine1Accent: "",
+      headlineLine2Start: "You found out",
+      headlineLine2Accent: "three months later.",
+      body: "Noell Care monitors your client book for gaps and sends proactive reactivation messages before they find someone else. Retention handled. No manual outreach required.",
     },
+    // Hook type: Competitor Frustration
     recognition: {
-      eyebrow: "Noell Care · Client recognition, automated",
+      eyebrow: "Noell Care · Client retention, managed for you",
       headlineLine1Start: "They stayed.",
       headlineLine1Accent: "Make sure they feel it.",
       headlineLine2Start: "Recognized.",
       headlineLine2Accent: "Not re-interrogated.",
-      body: "Noell Care knows your clients by name, history, and preference. Every interaction feels personal because it is.",
+      body: "Noell Care knows your clients by name, history, and preference. Every interaction feels personal because it is. No dashboard to manage. We handle it.",
     },
   },
 };

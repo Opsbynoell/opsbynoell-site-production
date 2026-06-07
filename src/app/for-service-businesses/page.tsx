@@ -209,13 +209,13 @@ export default function ForServiceBusinessesPage() {
               The quiet revenue leak
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
-              You are not losing clients because your work is bad.{" "}
+              Your work is excellent.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                You are losing them between sessions.
+                Your front desk is costing you clients.
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Here is what it looks like in practice.
+              You are not losing clients because your work is bad. You are losing them in the gaps between sessions. Here is what that looks like.
             </p>
           </div>
 
@@ -277,6 +277,59 @@ export default function ForServiceBusinessesPage() {
               Santa E. · Licensed Massage Therapist · Laguna Niguel CA
             </footer>
           </blockquote>
+        </div>
+      </section>
+
+      {/* ─── 3.5 MANAGED VS DIY DIFFERENTIATOR ─────────────────────────────────── */}
+      <section className="w-full px-4 py-14 md:py-16 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-[22px] bg-[#1c1210] border border-wine/20 p-8 md:p-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              Why Ops by Noell is different
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug mb-5">
+              Every other tool makes you do the work.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="rounded-[16px] bg-[#271520] border border-white/10 p-6">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-cream/40 mb-3">Other AI tools</p>
+                <ul className="space-y-2.5">
+                  {[
+                    "You configure the prompts",
+                    "You train the AI on your business",
+                    "You monitor the dashboard",
+                    "You troubleshoot when it breaks",
+                    "You figure out the integrations",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-cream/60">
+                      <span className="text-cream/30 mt-0.5">&#x2715;</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-[16px] bg-[#271520] border border-wine/30 p-6">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-wine mb-3">Ops by Noell</p>
+                <ul className="space-y-2.5">
+                  {[
+                    "We write the copy in your voice",
+                    "We build and train the agents",
+                    "We wire the integrations",
+                    "We run the monthly reporting",
+                    "You approve. Then you forget about it.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-cream/80">
+                      <span className="text-wine mt-0.5">&#x2713;</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p className="mt-6 text-sm text-cream/60 text-center">
+              This is not a software subscription. It is a managed operations service.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -435,10 +488,10 @@ export default function ForServiceBusinessesPage() {
       {/* ─── 7. CTA ───────────────────────────────────────────────────────── */}
       <CTA
         eyebrow="The first step"
-        headlineStart="Find the revenue your front desk is"
-        headlineAccent="missing."
-        body="In your free Revenue Signal Report, we map the leaks in your front desk, booking flow, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
-        trustLine="No pitch. No pressure. If it is not a fit, we will say so."
+        headlineStart="Find out exactly what your front desk is"
+        headlineAccent="costing you."
+        body="In your free Revenue Signal Report, we audit your front desk, missed call rate, and follow-up gaps. You leave with a clear number: what is leaking, what it is worth, and what the fix looks like. No pitch. No deck. Just the findings."
+        trustLine="If it is not a fit, we will say so. No chase. No pressure."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
         sourcePage="for_service_businesses"

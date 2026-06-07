@@ -76,12 +76,12 @@ export default function Home() {
       ─────────────────────────────────────────────────────────────────────── */}
       <Hero
         eyebrow="For service-based businesses"
-        headlineLine1Start="The AI front desk and pipeline"
+        headlineLine1Start="You are paying for leads"
         headlineLine1Accent=""
-        headlineLine2Start="your business is"
-        headlineLine2Accent="missing."
+        headlineLine2Start="that go straight to"
+        headlineLine2Accent="voicemail."
         headlineLine2Smaller={false}
-        body="Done for you. Live in 14 days. Managed by our team. Built for service businesses."
+        body="Every missed call is a job you already paid for going to your competitor. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days. No software to learn."
         footnote=""
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
@@ -173,6 +173,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── 2.5 PAIN AGITATION BAND ──────────────────────────────────────────
+          Loss-aversion framing before the calculator. Real language from real owners.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section className="px-4 py-12 md:py-14 border-t border-white/5 bg-[#1c1210]">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-wine mb-6">
+            The invisible cost
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                stat: "70%",
+                label: "of missed calls never leave a voicemail",
+                sub: "They just call the next business on Google.",
+              },
+              {
+                stat: "$60",
+                label: "average cost per inbound lead from paid ads",
+                sub: "Most service businesses answer fewer than half their calls.",
+              },
+              {
+                stat: "5 min",
+                label: "is the response window before a lead goes cold",
+                sub: "After five minutes, your odds of booking drop by over 80%.",
+              },
+            ].map((item) => (
+              <div
+                key={item.stat}
+                className="rounded-[18px] bg-[#271520] border border-wine/20 p-6 text-center"
+              >
+                <p className="font-serif text-4xl font-semibold text-wine mb-2">
+                  {item.stat}
+                </p>
+                <p className="text-sm text-cream/80 font-medium mb-1.5">{item.label}</p>
+                <p className="text-xs text-cream/50 leading-relaxed">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-8 text-base text-cream/70 max-w-2xl mx-auto leading-relaxed">
+            Your marketing is not failing you. Your front desk is. Ops by Noell fixes the part that runs while you are doing the actual work.
+          </p>
+        </div>
+      </section>
+
       {/* ─── 3. CALCULATE THE LOSS ───────────────────────────────────────────
           ROI Calculator moved here — while visitor is emotionally engaged.
           "Hook → Proof → Calculate your loss" before any explanation.
@@ -184,9 +228,9 @@ export default function Home() {
             60-second estimator
           </p>
           <h2 className="text-center font-serif text-2xl md:text-3xl font-semibold text-cream mb-8 leading-snug">
-            What could this{" "}
+            How much is your front desk{" "}
             <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-              recover for you?
+              costing you?
             </span>
           </h2>
           <ROICalculator />
@@ -206,7 +250,7 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
               Two types of business.{" "}
               <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                One operational standard.
+                One team that runs it for you.
               </span>
             </h2>
           </div>
@@ -224,16 +268,13 @@ export default function Home() {
                 Service-Based Businesses
               </h3>
               <p className="text-cream/75 leading-relaxed mb-6 flex-1">
-                Consultants, agencies, coaches, salons, med spas, dental
-                practices, and professional service businesses. You deliver
-                excellent work. Every missed call, slow follow-up, and lapsed
-                client is revenue your front desk is losing silently.
+                You built a great business. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Your competitors are not better than you. They just pick up the phone.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
                   "Every missed call recovered within 5 minutes via SMS",
-                  "Lapsed clients reactivated automatically before they book elsewhere",
-                  "Live lead intelligence dashboard included with every system",
+                  "Lapsed clients reactivated before they book elsewhere",
+                  "No software to learn. We build it, run it, and manage it.",
                 ].map((item) => (
                   <li
                     key={item}
