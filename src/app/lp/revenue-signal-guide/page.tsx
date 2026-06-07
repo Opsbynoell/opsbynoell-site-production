@@ -84,9 +84,10 @@ export default function RevenueSignalGuidePage() {
           <Image
             src="/images/logo-ops-by-noell-cream-text.png"
             alt="Ops by Noell"
-            width={140}
-            height={32}
-            className="h-8 w-auto"
+            width={979}
+            height={740}
+            className="h-10 w-auto"
+            priority
           />
         </Link>
       </header>
