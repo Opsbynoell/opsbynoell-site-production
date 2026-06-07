@@ -97,7 +97,7 @@ export function Systems() {
                   </span>
                 </div>
               </div>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-1">
                 {agent.eyebrow}
               </p>
               <h3 className="font-serif text-2xl font-semibold text-cream mb-1">
@@ -110,10 +110,10 @@ export function Systems() {
                 {agent.description}
               </p>
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-cream/70">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-cream/60">
                   {agent.uptime}
                 </p>
-                <p className="text-xs text-wine font-medium opacity-70 group-hover:opacity-100 transition-opacity">
+                <p className="text-xs text-[#C45A2A] font-medium group-hover:text-[#D96B38] transition-colors">
                   Learn more &rarr;
                 </p>
               </div>
