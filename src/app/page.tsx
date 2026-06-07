@@ -139,21 +139,32 @@ export default function Home() {
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
             Trusted by service businesses nationwide
           </p>
-          <div className="flex flex-wrap justify-center gap-2.5 md:gap-3">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
             {[
               "Med Spas",
               "Massage Practices",
               "Dental Offices",
               "Coaching Practices",
-              "Agencies",
-              "Contractors",
+              "Marketing Agencies",
+              "General Contractors",
               "Salons & Studios",
+              "HVAC Companies",
+              "Plumbing Services",
+              "Electrical Contractors",
+              "Pest Control",
+              "Landscaping & Lawn Care",
+              "Cleaning Services",
+              "Roofing Companies",
+              "Home Inspectors",
+              "Personal Trainers",
+              "Chiropractors",
+              "Veterinary Practices",
             ].map((label) => (
               <div
                 key={label}
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-[#271520] px-4 py-2 text-sm text-cream/75"
+                className="flex items-center gap-2 rounded-full border border-cream/20 bg-cream/8 px-3.5 py-1.5 text-xs font-medium text-cream"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-wine/70 flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A] flex-shrink-0" />
                 {label}
               </div>
             ))}
