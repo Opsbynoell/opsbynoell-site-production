@@ -12,6 +12,38 @@ interface BookRequestFormProps {
   className?: string;
 }
 
+// Dropdown options for booking/practice management software
+const BOOKING_SYSTEMS = [
+  "Acuity Scheduling",
+  "Boulevard",
+  "Calendly",
+  "Fresha",
+  "GlossGenius",
+  "GoHighLevel (GHL)",
+  "HoneyBook",
+  "Jane App",
+  "Mindbody",
+  "Noterro",
+  "Practice Better",
+  "ServiceTitan",
+  "SimplePractice",
+  "Square Appointments",
+  "Vagaro",
+  "Other / Not sure",
+];
+
+// Dropdown options for the primary front-desk leak
+const LEAK_OPTIONS = [
+  "Missed calls that never get followed up",
+  "Leads that go cold before I can respond",
+  "No-shows and last-minute cancellations",
+  "Manual follow-up taking too much of my time",
+  "Booking confirmations and reminders are inconsistent",
+  "Slow or no response to web form inquiries",
+  "Review generation — I'm not getting enough 5-star reviews",
+  "Something else",
+];
+
 export function BookRequestForm({ className }: BookRequestFormProps) {
   const [state, setState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -27,7 +59,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
     e.preventDefault();
     if (state === "submitting") return;
 
-    if (!name.trim() || !business.trim() || !phone.trim() || !email.trim() || !bookingSystem || !leakDescription.trim()) {
+    if (!name.trim() || !business.trim() || !phone.trim() || !email.trim() || !bookingSystem || !leakDescription) {
       setState("error");
       setErrorMessage("Please complete every field before sending.");
       return;
@@ -51,7 +83,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
           phone: phone.trim(),
           email: email.trim(),
           booking_system: bookingSystem,
-          leak_description: leakDescription.trim(),
+          leak_description: leakDescription,
         }),
       });
 
@@ -62,12 +94,9 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
 
       // Enhanced Conversions: set user_data BEFORE the conversion event fires
       // so Google can match this conversion to a signed-in Google user.
-      // Must happen before trackConversion() and before setState() to avoid
-      // any risk of the component unmounting mid-sequence.
       if (typeof window !== "undefined") {
         const gtag = (window as Window & { gtag?: GtagFn }).gtag;
         if (typeof gtag === "function") {
-          // Split name into first/last for best match rate
           const nameParts = name.trim().split(" ");
           const firstName = nameParts[0] ?? "";
           const lastName = nameParts.slice(1).join(" ") || undefined;
@@ -119,6 +148,9 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
       </div>
     );
   }
+
+  const selectClass =
+    "w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520] appearance-none cursor-pointer";
 
   return (
     <form
@@ -193,39 +225,62 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
           </label>
         </div>
 
+        {/* Booking system — dropdown instead of free text */}
         <label className="block mt-5">
           <span className="block text-sm text-cream/80 mb-2">
             Current booking or practice management software{" "}
             <span aria-hidden="true" className="text-wine">*</span>
             <span className="sr-only"> (required)</span>
           </span>
-          <input
-            type="text"
-            required
-            aria-required="true"
-            value={bookingSystem}
-            onChange={(e) => setBookingSystem(e.target.value)}
-            placeholder="What you use to manage appointments"
-            maxLength={120}
-            className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520]"
-          />
+          <div className="relative">
+            <select
+              required
+              aria-required="true"
+              value={bookingSystem}
+              onChange={(e) => setBookingSystem(e.target.value)}
+              className={selectClass}
+            >
+              <option value="" disabled>Select your booking software</option>
+              {BOOKING_SYSTEMS.map((sys) => (
+                <option key={sys} value={sys}>{sys}</option>
+              ))}
+            </select>
+            {/* Custom chevron */}
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-cream/50">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </div>
         </label>
 
+        {/* Primary leak — dropdown instead of open textarea */}
         <label className="block mt-5">
           <span className="block text-sm text-cream/80 mb-2">
-            One sentence on what is leaking at the front desk right now.{" "}
+            What is the biggest leak at your front desk right now?{" "}
             <span aria-hidden="true" className="text-wine">*</span>
             <span className="sr-only"> (required)</span>
           </span>
-          <textarea
-            required
-            aria-required="true"
-            value={leakDescription}
-            onChange={(e) => setLeakDescription(e.target.value)}
-            rows={3}
-            maxLength={500}
-            className="w-full rounded-lg border border-white/10 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60 focus:bg-[#271520] resize-y"
-          />
+          <div className="relative">
+            <select
+              required
+              aria-required="true"
+              value={leakDescription}
+              onChange={(e) => setLeakDescription(e.target.value)}
+              className={selectClass}
+            >
+              <option value="" disabled>Choose the one that hurts most</option>
+              {LEAK_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>{opt}</option>
+              ))}
+            </select>
+            {/* Custom chevron */}
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-cream/50">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </div>
         </label>
 
         {/* SMS / TCPA consent */}

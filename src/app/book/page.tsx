@@ -1,4 +1,6 @@
+import Script from "next/script";
 import { Button } from "@/components/button";
+import { StickyMobileBookCta } from "@/components/book-sticky-mobile-cta";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
 import { BookRequestForm } from "@/components/book-request-form";
@@ -132,9 +134,10 @@ export default function BookPage() {
           style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
           title="Book Revenue Signal Report Call"
           scrolling="no"
+          loading="lazy"
           id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
         />
-        <script src="https://link.msgsndr.com/js/form_embed.js" />
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
       </section>
 
       {/* What happens after you send it */}
@@ -239,6 +242,9 @@ export default function BookPage() {
         secondaryCta={null}
         sourcePage="book"
       />
+
+      {/* Sticky mobile CTA — appears when form scrolls out of view on mobile */}
+      <StickyMobileBookCta />
     </div>
   );
 }
