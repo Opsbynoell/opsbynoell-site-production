@@ -21,6 +21,7 @@ const entries: Entry[] = [
   { path: "/about", changeFrequency: "monthly", priority: 0.8, lastmod: "2026-05-02" },
   { path: "/agents", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/systems", changeFrequency: "weekly", priority: 0.9, lastmod: LAUNCH_FIXES },
+  { path: "/how-it-works", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
   {
     path: "/predictive-customer-intelligence",
     changeFrequency: "weekly",

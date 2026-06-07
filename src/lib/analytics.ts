@@ -74,7 +74,8 @@ export type SourcePage =
   | "upgrade"
   | "compare_birdeye"
   | "compare_ruby_receptionists"
-  | "compare_weave";
+  | "compare_weave"
+  | "how_it_works";
 
 /**
  * Semantic section where the click happened. Keep values kebab_case and

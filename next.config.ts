@@ -70,6 +70,14 @@ const nextConfig: NextConfig = {
         destination: "/systems",
         permanent: true,
       },
+      // Safety fallback: if /how-it-works page is ever removed, redirect to /systems
+      // rather than serving a 404. The dedicated page at src/app/how-it-works/page.tsx
+      // takes precedence over this redirect when it exists.
+      {
+        source: "/how-it-works-legacy",
+        destination: "/how-it-works",
+        permanent: true,
+      },
     ];
   },
   async headers() {
