@@ -53,7 +53,7 @@ export function Systems() {
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong">
               the noell system / agent roster
             </p>
           </div>

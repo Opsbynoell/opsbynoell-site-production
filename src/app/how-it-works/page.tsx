@@ -351,7 +351,7 @@ export default function HowItWorksPage() {
       <section className="w-full px-4 py-16 md:py-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
               The difference
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">

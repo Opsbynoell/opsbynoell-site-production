@@ -96,7 +96,7 @@ export default function ComparePage() {
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
       <section className="w-full bg-[#1F1219] pt-32 pb-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-wine/70 font-medium mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] text-cream/55 font-medium mb-4">
             Comparisons
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-cream leading-tight mb-6">

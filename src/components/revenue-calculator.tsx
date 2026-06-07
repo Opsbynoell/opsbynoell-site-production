@@ -155,7 +155,7 @@ export function RevenueCalculator() {
     <div className="max-w-4xl mx-auto px-4">
       {/* Inputs */}
       <div className="rounded-[24px] border border-white/10 bg-[#271520] p-7 md:p-10 shadow-[0px_15px_15px_0px_rgba(28,25,23,0.04),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-2">
+        <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-2">
           Revenue calculator
         </p>
         <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-6">
@@ -269,7 +269,7 @@ export function RevenueCalculator() {
       {/* Results */}
       {results && inputs.industry ? (
         <div className="mt-6 rounded-[24px] border border-white/10 bg-[#301A26] p-7 md:p-10">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
             Your results · {INDUSTRY_LABELS[inputs.industry as Industry]}
           </p>
 
@@ -287,7 +287,7 @@ export function RevenueCalculator() {
             </div>
 
             <div className="rounded-[16px] bg-[#271520] border border-wine/20 p-5 ring-1 ring-wine/10">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-wine mb-2">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-2">
                 Projected monthly revenue with PCI
               </p>
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">
@@ -347,7 +347,7 @@ export function RevenueCalculator() {
 
             {formState === "sent" ? (
               <div className="rounded-[16px] bg-wine/5 border border-wine/20 p-5 text-center">
-                <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-2">Got it</p>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-2">Got it</p>
                 <p className="font-serif text-lg text-cream">
                   Your results are on their way. We&apos;ll follow up within one business day.
                 </p>

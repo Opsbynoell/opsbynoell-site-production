@@ -16,7 +16,7 @@ export function ROICalculator() {
   return (
     <div className="rounded-2xl border border-white/10 bg-[#271520] p-8 md:p-10 max-w-3xl mx-auto relative z-10">
       <div className="mb-6">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+        <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
           ROI calculator
         </p>
         <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream">

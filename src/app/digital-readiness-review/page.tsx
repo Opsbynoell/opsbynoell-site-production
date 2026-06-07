@@ -145,7 +145,7 @@ export default function DigitalReadinessReviewPage() {
       <section className="px-4 py-16 md:py-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
               What we cover
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight">
@@ -180,7 +180,7 @@ export default function DigitalReadinessReviewPage() {
       {/* Deliverables */}
       <section className="px-4 py-12 md:py-14">
         <div className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-10">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
             What you walk away with
           </p>
           <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight mb-6">

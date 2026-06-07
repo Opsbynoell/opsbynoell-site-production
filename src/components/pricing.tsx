@@ -334,7 +334,7 @@ export default function Pricing() {
         <div className="flex items-center gap-4 mb-8">
           <div className="h-px flex-1 bg-white/10" />
           <div className="text-center">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Track 01</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-cream/55 mb-1">Track 01</p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Service Businesses</h2>
             <p className="text-sm text-cream/60 mt-1">Appointment-based, local, and consumer service</p>
           </div>
@@ -368,7 +368,7 @@ export default function Pricing() {
       {/* Full-width Noell Ops CRM dashboard showcase */}
       <div className="mt-20 mb-6">
         <div className="text-center mb-8">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-2">Included in Full Stack and B2B packages</p>
+          <p className="text-[10px] uppercase tracking-[0.3em] text-cream/55 mb-2">Included in Full Stack and B2B packages</p>
           <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">
             The Noell Ops CRM
           </h2>
@@ -415,7 +415,7 @@ export default function Pricing() {
         <div className="flex items-center gap-4 mb-10">
           <div className="h-px flex-1 bg-white/10" />
           <div className="text-center">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-wine/70 mb-1">Beyond the Standard Package</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-cream/55 mb-1">Beyond the Standard Package</p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Build Your Own Stack</h2>
             <p className="text-sm text-cream/60 mt-2 max-w-2xl">
               Each add-on below is a capability most businesses outsource to agencies or hire for full-time.
@@ -430,7 +430,7 @@ export default function Pricing() {
 
           {/* Digital Infrastructure */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">01</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">01</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Digital Infrastructure</h3>
             <p className="text-xs text-cream/50 mb-5">The foundation everything else runs on. Disconnected tools, zero automation, no single source of truth, this fixes that.</p>
             <ul className="space-y-3">
@@ -455,7 +455,7 @@ export default function Pricing() {
 
           {/* Online Presence */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">02</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">02</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Online Presence</h3>
             <p className="text-xs text-cream/50 mb-5">Technical SEO, local search, and website performance. If they can't find you, they can't hire you.</p>
             <ul className="space-y-3">
@@ -480,7 +480,7 @@ export default function Pricing() {
 
           {/* Social Media */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">03</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">03</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Social Media</h3>
             <p className="text-xs text-cream/50 mb-5">Consistency is the product. Most businesses post when they remember. This makes it automatic, on-brand, and strategic.</p>
             <ul className="space-y-3">
@@ -505,7 +505,7 @@ export default function Pricing() {
 
           {/* Brand Kit + Visual Identity */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">04</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">04</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Brand Kit + Visual Identity</h3>
             <p className="text-xs text-cream/50 mb-5">The vibe is the first thing they feel. Before anyone reads a word, they've already decided if you're credible.</p>
             <ul className="space-y-3">
@@ -530,7 +530,7 @@ export default function Pricing() {
 
           {/* Psychology + Conversion */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">05</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">05</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Psychology + Conversion</h3>
             <p className="text-xs text-cream/50 mb-5">The words and the flow that make people say yes. The difference between a site that explains and one that converts.</p>
             <ul className="space-y-3">
@@ -555,7 +555,7 @@ export default function Pricing() {
 
           {/* Operational Systems */}
           <div className="rounded-[16px] border border-white/10 bg-white/[0.03] p-6">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-wine/60 mb-2">06</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-2">06</p>
             <h3 className="font-serif text-lg font-semibold text-cream mb-1">Operational Systems</h3>
             <p className="text-xs text-cream/50 mb-5">The back office that runs itself. The stuff that eats your time and never shows up on a revenue report, until it breaks.</p>
             <ul className="space-y-3">

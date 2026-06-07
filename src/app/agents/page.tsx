@@ -145,7 +145,7 @@ export default function AgentsPage() {
 
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-8 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.25)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
-        <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-wine mb-5">
+        <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
           The AI layer
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
@@ -185,7 +185,7 @@ export default function AgentsPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-4">
               the agents
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
@@ -214,7 +214,7 @@ export default function AgentsPage() {
                     </span>
                   </div>
                 </div>
-                <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-1">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-1">
                   {agent.eyebrow}
                 </p>
                 <h3 className="font-serif text-2xl font-semibold text-cream mb-3">
@@ -289,7 +289,7 @@ export default function AgentsPage() {
       <section className="w-full py-12 md:py-16 px-4">
         <div className="max-w-xl mx-auto">
           <div className="relative rounded-[26px] border border-wine/25 bg-[#1F1219] p-8 md:p-10 text-center shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-4">
               Signal tier
             </p>
             <p className="font-serif text-5xl md:text-6xl font-bold text-wine leading-none">
@@ -315,7 +315,7 @@ export default function AgentsPage() {
       <section className="w-full py-16 md:py-20 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-4">
               the trade
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">

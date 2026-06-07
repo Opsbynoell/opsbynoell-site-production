@@ -65,7 +65,7 @@ function Card({ card }: { card: CardProps }) {
           : "border border-wine/20 shadow-[0_0_0_1px_rgba(139,42,66,0.12)]"
       )}
     >
-      <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-2">
+      <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-2">
         {card.eyebrow}
       </p>
       <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-3">
@@ -137,7 +137,7 @@ export function PickYourPath() {
     <section className="w-full py-16 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 max-w-3xl mx-auto">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
             Two ways to run it
           </p>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">

@@ -141,7 +141,7 @@ export default function BookPage() {
       <section className="px-4 py-14 md:py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
               What happens after you send it
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight">
@@ -176,7 +176,7 @@ export default function BookPage() {
       {/* Trust and proof block */}
       <section className="px-4 py-12 md:py-14">
         <div className="max-w-2xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-9">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
             Currently running
           </p>
           <p className="font-serif text-lg md:text-xl text-cream leading-snug">

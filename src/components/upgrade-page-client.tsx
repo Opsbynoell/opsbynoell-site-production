@@ -267,7 +267,7 @@ export function UpgradePageClient() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="text-center mb-12">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
                 The Problem
               </p>
               <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
@@ -283,7 +283,7 @@ export function UpgradePageClient() {
             {PAIN_POINTS.map((p, i) => (
               <Reveal key={p.number} delay={i * 80}>
                 <div className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-wine/20 hover:border-wine/40 transition-all duration-300 h-full shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05),0px_15px_15px_0px_rgba(28,25,23,0.04)]">
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-3">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 mb-3">
                     {p.number}
                   </p>
                   <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
@@ -307,7 +307,7 @@ export function UpgradePageClient() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="text-center mb-12">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
                 The Honest Comparison
               </p>
               <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight mb-4">
@@ -380,7 +380,7 @@ export function UpgradePageClient() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="text-center mb-12">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
                 From the field
               </p>
               <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
@@ -402,7 +402,7 @@ export function UpgradePageClient() {
                   <div>
                     <p className="text-sm font-semibold text-cream">{t.author}</p>
                     <p className="text-[11px] text-cream/50 mt-0.5">{t.role}</p>
-                    <p className="text-[11px] uppercase tracking-[0.15em] text-wine mt-3">{t.result}</p>
+                    <p className="text-[11px] uppercase tracking-[0.15em] text-cream/70 mt-3">{t.result}</p>
                   </div>
                 </div>
               </Reveal>
@@ -415,7 +415,7 @@ export function UpgradePageClient() {
       <section className="w-full py-12 px-4 border-t border-white/10">
         <Reveal>
           <div className="max-w-2xl mx-auto rounded-[22px] bg-[#271520] border border-wine/20 p-8 md:p-10 text-center shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05)]">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">Our Guarantee</p>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">Our Guarantee</p>
             <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
               Month-to-month. No surprises. 30-day refund.
             </h3>
@@ -443,7 +443,7 @@ export function UpgradePageClient() {
         <div className="max-w-3xl mx-auto">
           <Reveal>
             <div className="text-center mb-10">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
                 Book Your Free Audit
               </p>
               <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight mb-4">

@@ -14,7 +14,7 @@ export function PciBand({ className }: PciBandProps) {
   return (
     <section className={cn("w-full bg-[#301A26] py-16 md:py-20", className)}>
       <div className="mx-auto max-w-3xl px-4 text-center">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+        <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           Predictive Customer Intelligence
         </p>
         <h2 className="font-serif text-3xl md:text-4xl font-semibold text-wine leading-tight">

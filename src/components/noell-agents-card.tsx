@@ -29,13 +29,13 @@ export function NoellAgentsCard() {
             </span>
           </div>
 
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-cream/60 font-medium">
             The AI layer · Self-serve
           </p>
           <h2 className="mt-3 font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
             Noell Agents
           </h2>
-          <p className="mt-2 text-sm font-medium text-wine">
+          <p className="mt-2 text-sm font-medium text-cream/70">
             Best for businesses adding AI to an existing stack
           </p>
           <p className="mt-3 text-cream/75 text-base md:text-lg leading-relaxed max-w-2xl">

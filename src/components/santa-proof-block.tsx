@@ -14,7 +14,7 @@ export function SantaProofBlock({ className }: SantaProofBlockProps) {
   return (
     <section className={cn("w-full px-4 py-14 md:py-16", className)}>
       <div className="mx-auto max-w-2xl rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-10">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
+        <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
           Case study · Healing Hands by Santa · Laguna Niguel, CA
         </p>
         <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">

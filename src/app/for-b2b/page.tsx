@@ -207,7 +207,7 @@ export default function ForB2BPage() {
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
               The boardroom disconnect
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
@@ -273,7 +273,7 @@ export default function ForB2BPage() {
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
               What we build
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight max-w-3xl mx-auto">
@@ -478,7 +478,7 @@ export default function ForB2BPage() {
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-4">
               The process
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">

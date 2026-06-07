@@ -74,7 +74,7 @@ export default function AboutPage() {
 
           {/* RIGHT: editorial text */}
           <div className="order-2 md:order-2">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-5">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-5">
               Ops by Noell · Mission Viejo, CA
             </p>
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-[1.1]">
@@ -113,7 +113,7 @@ export default function AboutPage() {
       {/* 3. What we believe, three credos */}
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium text-center mb-10">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium text-center mb-10">
             What we believe
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">

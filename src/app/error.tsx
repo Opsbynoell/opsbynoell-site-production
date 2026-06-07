@@ -17,7 +17,7 @@ export default function GlobalError({
   return (
     <main className="min-h-[70vh] flex items-center justify-center px-4 py-24">
       <div className="max-w-xl text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-wine mb-5">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-5">
           Something broke
         </p>
         <h1 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight mb-5">
