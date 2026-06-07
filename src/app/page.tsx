@@ -7,6 +7,7 @@ import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
+import { ROICalculator } from "@/components/roi-calculator";
 import {
   servicePageSchema,
   homepageLocalBusinessSchema,
@@ -88,6 +89,80 @@ export default function Home() {
         showProofBar={false}
       />
 
+      {/* ─── 1b. SOCIAL PROOF ────────────────────────────────────────────────
+          Santa testimonial + client-type trust banner. Immediately after hero.
+          Mirrors what top competitors (Weave, Adminify) do above the fold.
+      ─────────────────────────────────────────────────────────────────────── */}
+
+      {/* Santa testimonial */}
+      <section className="px-4 pt-2 pb-8 md:pb-10">
+        <div className="max-w-3xl mx-auto rounded-[22px] border border-wine/30 bg-[#301A26] p-7 md:p-9">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
+            Currently running
+          </p>
+          <p className="font-serif text-lg md:text-xl text-cream leading-snug">
+            Keeping the front desk moving for Healing Hands by Santa, a solo
+            licensed therapeutic massage practice in Laguna Niguel. In fourteen
+            days, four missed calls turned into booked appointments and{" "}
+            <span className="text-wine font-semibold">
+              $960 in recovered revenue.
+            </span>
+          </p>
+          <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex items-center gap-1">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <svg
+                  key={s}
+                  className="w-4 h-4 text-wine"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p className="text-sm text-cream/70">
+              Santa E. &mdash; Healing Hands by Santa, Laguna Niguel CA
+            </p>
+            <Link
+              href="/case-studies/santa-e"
+              className="text-sm text-wine underline underline-offset-4 decoration-wine/40 hover:decoration-wine sm:ml-auto"
+            >
+              Read the full case study &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Client-type trust banner */}
+      <section className="px-4 pb-10 md:pb-14">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
+            Trusted by service businesses nationwide
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5 md:gap-3">
+            {[
+              "Med Spas",
+              "Massage Practices",
+              "Dental Offices",
+              "Coaching Practices",
+              "Agencies",
+              "Contractors",
+              "Salons & Studios",
+            ].map((label) => (
+              <div
+                key={label}
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-[#271520] px-4 py-2 text-sm text-cream/75"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-wine/70 flex-shrink-0" />
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── 2. AUDIENCE SPLIT ───────────────────────────────────────────────
           The moment the visitor self-identifies. Two tracks. Clean routing.
       ─────────────────────────────────────────────────────────────────────── */}
@@ -103,7 +178,6 @@ export default function Home() {
                 One operational standard.
               </span>
             </h2>
-
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 items-stretch">
@@ -119,7 +193,10 @@ export default function Home() {
                 Service-Based Businesses
               </h3>
               <p className="text-cream/75 leading-relaxed mb-6 flex-1">
-                Consultants, agencies, coaches, salons, med spas, dental practices, and professional service businesses. You deliver excellent work. Every missed call, slow follow-up, and lapsed client is revenue your front desk is losing silently.
+                Consultants, agencies, coaches, salons, med spas, dental
+                practices, and professional service businesses. You deliver
+                excellent work. Every missed call, slow follow-up, and lapsed
+                client is revenue your front desk is losing silently.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
@@ -127,7 +204,10 @@ export default function Home() {
                   "Lapsed clients reactivated automatically before they book elsewhere",
                   "Live lead intelligence dashboard included with every system",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-cream/80">
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-cream/80"
+                  >
                     <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
                       ✓
                     </span>
@@ -153,7 +233,9 @@ export default function Home() {
                 B2B & SaaS
               </h3>
               <p className="text-cream/80 leading-relaxed mb-6 flex-1">
-                B2B and SaaS companies, AI vendors, and tech startups. Your pitch lands in the boardroom. Then procurement visits your website. In seven seconds, the deal either holds or collapses.
+                B2B and SaaS companies, AI vendors, and tech startups. Your
+                pitch lands in the boardroom. Then procurement visits your
+                website. In seven seconds, the deal either holds or collapses.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {[
@@ -161,7 +243,10 @@ export default function Home() {
                   "Digital presence rebuilt to survive the procurement research window",
                   "Live B2B pipeline dashboard tracks every deal and ICP score",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-cream/85">
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-cream/85"
+                  >
                     <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
                       ✓
                     </span>
@@ -188,6 +273,25 @@ export default function Home() {
       ─────────────────────────────────────────────────────────────────────── */}
       <PciBand />
       <Systems />
+
+      {/* ─── 4b. ROI CALCULATOR ──────────────────────────────────────────────
+          Low-friction lead magnet. Two sliders, instant result, CTA to /book.
+          Mirrors Weave's ROI calculator — highest-converting competitor asset.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section className="px-4 py-12 md:py-16">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
+            60-second estimator
+          </p>
+          <h2 className="text-center font-serif text-2xl md:text-3xl font-semibold text-cream mb-8 leading-snug">
+            What could this{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              recover for you?
+            </span>
+          </h2>
+          <ROICalculator />
+        </div>
+      </section>
 
       {/* ─── 5. FAQ + CTA ────────────────────────────────────────────────────
           Three objection killers. Then the button. End clean.
