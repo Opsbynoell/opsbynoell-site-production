@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import CTA from "@/components/cta";
-import { FounderQuote } from "@/components/founder-quote";
-import { PciBand } from "@/components/pci-band";
 import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
@@ -89,9 +87,9 @@ export default function Home() {
         showProofBar={false}
       />
 
-      {/* ─── 1b. SOCIAL PROOF ────────────────────────────────────────────────
-          Santa testimonial + client-type trust banner. Immediately after hero.
-          Mirrors what top competitors (Weave, Adminify) do above the fold.
+      {/* ─── 2. PROOF ────────────────────────────────────────────────────────
+          Santa testimonial + client-type trust banner.
+          Visitor sees real ROI proof within 3 seconds of scrolling.
       ─────────────────────────────────────────────────────────────────────── */}
 
       {/* Santa testimonial */}
@@ -136,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Client-type trust banner */}
-      <section className="px-4 pb-10 md:pb-14">
+      <section className="px-4 pb-10 md:pb-12">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
             Trusted by service businesses nationwide
@@ -163,10 +161,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 2. AUDIENCE SPLIT ───────────────────────────────────────────────
-          The moment the visitor self-identifies. Two tracks. Clean routing.
+      {/* ─── 3. CALCULATE THE LOSS ───────────────────────────────────────────
+          ROI Calculator moved here — while visitor is emotionally engaged.
+          "Hook → Proof → Calculate your loss" before any explanation.
+          Two sliders, instant result, no email required.
       ─────────────────────────────────────────────────────────────────────── */}
-      <section className="w-full py-16 md:py-24 px-4">
+      <section className="px-4 py-12 md:py-16 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
+            60-second estimator
+          </p>
+          <h2 className="text-center font-serif text-2xl md:text-3xl font-semibold text-cream mb-8 leading-snug">
+            What could this{" "}
+            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+              recover for you?
+            </span>
+          </h2>
+          <ROICalculator />
+        </div>
+      </section>
+
+      {/* ─── 4. AUDIENCE SPLIT ───────────────────────────────────────────────
+          The moment the visitor self-identifies. Two tracks. Clean routing.
+          Now positioned after the "aha moment" from the calculator.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section className="w-full py-16 md:py-24 px-4 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
@@ -263,38 +282,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 3. TRUST ────────────────────────────────────────────────────────
-          "A real person built this." Photo + one paragraph. Short.
+      {/* ─── 5. THE SYSTEM ───────────────────────────────────────────────────
+          Three agents. PCI band collapsed — one tight "how it works" section.
+          FounderQuote removed — Santa testimonial above already handles trust.
       ─────────────────────────────────────────────────────────────────────── */}
-      <FounderQuote />
-
-      {/* ─── 4. HOW IT WORKS ─────────────────────────────────────────────────
-          PCI differentiator band (tight, editorial) + three agents.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <PciBand />
       <Systems />
 
-      {/* ─── 4b. ROI CALCULATOR ──────────────────────────────────────────────
-          Low-friction lead magnet. Two sliders, instant result, CTA to /book.
-          Mirrors Weave's ROI calculator — highest-converting competitor asset.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <section className="px-4 py-12 md:py-16">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
-            60-second estimator
-          </p>
-          <h2 className="text-center font-serif text-2xl md:text-3xl font-semibold text-cream mb-8 leading-snug">
-            What could this{" "}
-            <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-              recover for you?
-            </span>
-          </h2>
-          <ROICalculator />
-        </div>
-      </section>
-
-      {/* ─── 5. FAQ + CTA ────────────────────────────────────────────────────
-          Three objection killers. Then the button. End clean.
+      {/* ─── 6. FAQ + CTA ────────────────────────────────────────────────────
+          Four objection killers. Then the button. End clean.
       ─────────────────────────────────────────────────────────────────────── */}
       <FAQ
         faqs={homepageFaqs}
