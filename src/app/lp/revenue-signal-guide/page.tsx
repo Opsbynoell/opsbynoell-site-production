@@ -42,7 +42,7 @@ export default function RevenueSignalGuidePage() {
       // Fire Google Ads conversion event
       if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
         (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "conversion", {
-          send_to: "AW-16879938086/lead_magnet_download",
+          send_to: "AW-18123945519/fPkICIXqybocEK_slcJD",
         });
       }
 
