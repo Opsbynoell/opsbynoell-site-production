@@ -11,7 +11,6 @@ const LEFT_ITEMS = [
 const RIGHT_ITEMS = [
   "Works alongside any booking tool",
   "Done-for-you setup, live in 14 days",
-  "Testimonial required + 1 reference call",
 ];
 
 export function NoellAgentsCard() {
