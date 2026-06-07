@@ -284,15 +284,15 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
         </label>
 
         {/* SMS / TCPA consent */}
-        <div className="mt-6 flex items-start gap-3">
+        <div className="mt-6 flex items-start gap-3 rounded-xl border border-wine/25 bg-wine/5 p-4">
           <input
             type="checkbox"
             id="sms-consent"
             checked={smsConsent}
             onChange={(e) => setSmsConsent(e.target.checked)}
-            className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-white/10 accent-wine cursor-pointer"
+            className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-white/20 accent-wine cursor-pointer"
           />
-          <label htmlFor="sms-consent" className="text-xs text-cream/65 leading-relaxed cursor-pointer select-none">
+          <label htmlFor="sms-consent" className="text-xs text-cream/85 leading-relaxed cursor-pointer select-none">
             By checking this box, I consent to receive SMS messages from Ops by Noell regarding my Revenue Signal Report and related services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. View our{" "}
             <a href="/sms-policy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">SMS Policy</a>{" "}and{" "}
             <a href="/legal/privacy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">Privacy Policy</a>.
@@ -309,7 +309,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             data-source-page="book"
             data-source-section="book_request_form"
           >
-            {state === "submitting" ? "Sending..." : "Request a working call."}
+            {state === "submitting" ? "Sending..." : "Send my Revenue Signal Report request"}
           </button>
           <p role="alert" aria-live="polite" className="text-sm text-wine min-h-[1.25rem]">
             {state === "error" ? errorMessage : ""}

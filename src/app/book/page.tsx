@@ -101,9 +101,6 @@ export default function BookPage() {
 
       {/* Hero */}
       <section className="relative flex max-w-7xl rounded-b-3xl my-2 md:my-4 mx-auto flex-col items-center justify-center pt-20 md:pt-24 pb-6 md:pb-8 overflow-hidden px-4 md:px-8 bg-gradient-to-t from-[rgba(107,45,62,0.30)] via-[rgba(31,18,25,0.85)] to-[rgba(19,11,15,1)]">
-        <p className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
-          The first step
-        </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream">
           Get your free{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
