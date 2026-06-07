@@ -82,18 +82,12 @@ export default function RevenueSignalGuidePage() {
       <header className="relative z-10 w-full px-6 py-5 flex items-center border-b border-[rgba(245,234,224,0.08)]">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/images/logo-obn-cream.png"
+            src="/images/logo-ops-by-noell-cream-text.png"
             alt="Ops by Noell"
-            width={28}
-            height={28}
-            className="h-7 w-auto"
+            width={140}
+            height={32}
+            className="h-8 w-auto"
           />
-          <span
-            className="font-serif text-lg font-semibold"
-            style={{ color: "#F5EAE0" }}
-          >
-            Ops by Noell
-          </span>
         </Link>
       </header>
 
