@@ -311,37 +311,6 @@ export default function AgentsPage() {
         </div>
       </section>
 
-      {/* What we ask in return */}
-      <section className="w-full py-16 md:py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-strong mb-4">
-              the trade
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
-              What we ask in return.
-            </h2>
-          </div>
-
-          <ul className="space-y-5">
-            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
-                A short written testimonial after 30 days.
-              </p>
-            </li>
-            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
-                One 15-minute reference call with a future prospect.
-              </p>
-            </li>
-            <li className="rounded-[18px] border border-white/10 bg-[#271520] p-5 md:p-6">
-              <p className="font-serif text-lg md:text-xl text-cream italic leading-snug">
-                Optional: a full case study, in exchange, we will co-promote your business to our network.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
 
       {/* Condensed FAQ */}
       <FAQ
