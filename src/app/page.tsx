@@ -76,12 +76,12 @@ export default function Home() {
       ─────────────────────────────────────────────────────────────────────── */}
       <Hero
         eyebrow="For service-based businesses"
-        headlineLine1Start="You are paying for leads"
+        headlineLine1Start="While you are with a client,"
         headlineLine1Accent=""
-        headlineLine2Start="that go straight to"
-        headlineLine2Accent="voicemail."
+        headlineLine2Start="someone else is answering"
+        headlineLine2Accent="your phone."
         headlineLine2Smaller={false}
-        body="Every missed call is a job you already paid for going to your competitor. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days. No software to learn."
+        body="Every missed call is a client who called the next business on Google. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days. No software to learn."
         footnote=""
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
