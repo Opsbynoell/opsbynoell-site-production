@@ -7,7 +7,8 @@ import { AgentRouter } from "./agent-router";
 
 /**
  * Renders the public chrome (Navbar, Footer, AgentRouter) on every page
- * EXCEPT /admin/* routes, which manage their own layout.
+ * EXCEPT /admin/* routes (which manage their own layout) and
+ * /lp/* routes (ad landing pages — no nav/footer distractions).
  */
 export function ConditionalShell({
   children,
@@ -16,8 +17,9 @@ export function ConditionalShell({
 }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin");
+  const isLandingPage = pathname.startsWith("/lp");
 
-  if (isAdmin) {
+  if (isAdmin || isLandingPage) {
     return <>{children}</>;
   }
 
