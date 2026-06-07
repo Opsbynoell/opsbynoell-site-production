@@ -17,12 +17,12 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/for-service-businesses",
-  title: "AI Operations for Service-Based Businesses",
+  title: "AI Front Desk for Service-Based Businesses | Ops by Noell",
   description:
-    "AI receptionist and done-for-you operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who look more polished.",
-  ogTitle: "Your work is excellent. Your front desk should say so.",
+    "While you are with a client, someone else is answering your phone. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days.",
+  ogTitle: "While you are with a client, someone else is answering your phone.",
   ogDescription:
-    "AI receptionist and done-for-you operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who just look more polished.",
+    "Every missed call is a client who called the next business on Google. Ops by Noell builds and runs your AI front desk. Done for you. Live in 14 days.",
 });
 
 type SignalCard = {
@@ -36,20 +36,20 @@ const signals: SignalCard[] = [
   {
     icon: <IconPhoneCall size={20} />,
     tag: "Missed call",
-    title: "The call went to voicemail. They booked someone else.",
-    body: "A prospect called during a client session. No one answered. No text went out. Noell Front Desk would have replied within 5 minutes, qualified the lead, and routed them to booking. Instead, they found a competitor who answered.",
+    title: "You paid $60 for that lead. They heard your voicemail and called someone else.",
+    body: "A prospect called during a client session. No one answered. No text went out. Noell Front Desk replies within 5 minutes, qualifies the lead, and routes them to booking. The competitor who answered got the job. You paid for the lead.",
   },
   {
     icon: <IconCalendarEvent size={20} />,
     tag: "No follow-up",
-    title: "They filled out the form. You never heard from them again.",
-    body: "The inquiry came in on a Saturday. You were with family. By Monday it felt awkward to follow up. Noell Support responds instantly, 24/7, captures their information, and routes them to booking before the weekend is over.",
+    title: "They filled out the form on Saturday. By Monday they had already booked somewhere else.",
+    body: "The inquiry came in while you were with family. By Monday it felt awkward to follow up. Noell Support responds instantly, 24/7, captures their information, and routes them to booking before the weekend is over. No awkward Monday calls.",
   },
   {
     icon: <IconHeartHandshake size={20} />,
     tag: "Quiet client",
-    title: "A great client stopped booking. You never knew why.",
-    body: "They loved the work. Life got busy. No one reached out. Noell Care monitors your client book for gaps and sends proactive reactivation messages before they find someone else. Retention on autopilot.",
+    title: "A great client stopped booking. You found out three months later.",
+    body: "They loved the work. Life got busy. No one reached out. Noell Care monitors your client book for gaps and sends proactive reactivation messages before they find someone else. Retention handled. No manual outreach.",
   },
 ];
 
@@ -130,12 +130,30 @@ const processSteps = [
   },
 ];
 
+const objections = [
+  {
+    question: "I already have a booking system.",
+    answer:
+      "We work around the tools you already use. No migration. No rip-and-replace. The system layers on top of your existing scheduling, CRM, or practice management software. Jane App, Mindbody, GHL, Vagaro, Square — we have seen them all.",
+  },
+  {
+    question: "I am not a tech person.",
+    answer:
+      "That is exactly why this exists. You do not touch it. We configure the prompts, train the agents, wire the integrations, and run the monthly reporting. You approve it once and then you forget about it.",
+  },
+  {
+    question: "I cannot afford a full-time receptionist.",
+    answer:
+      "You are not hiring one. You are getting a managed front desk that runs 24 hours a day, 7 days a week, for a fraction of the cost. No salary. No benefits. No turnover. No training. No Monday morning no-shows.",
+  },
+];
+
 const serviceFaqs: FaqItem[] = [
   {
     id: "sb_who_is_this_for",
     question: "What types of service businesses do you work with?",
     answer:
-      "We work with consultants, agencies, coaches, freelancers, and professional service businesses where client relationships are the core of the business. If you deliver exceptional work but your AI front desk, follow-up, or digital presence is not keeping up, we are a fit. Think of us as a virtual receptionist and operations team — without the overhead of hiring.",
+      "Hair salons, barbershops, med spas, massage practices, dental offices, chiropractic clinics, aestheticians, nail studios, personal trainers, and any service business where the owner or team is hands-on with clients and cannot always answer the phone. If you deliver excellent work but your front desk, follow-up, or client retention is not keeping up, we are a fit.",
   },
   {
     id: "sb_existing_tools",
@@ -189,17 +207,53 @@ export default function ForServiceBusinessesPage() {
 
       {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
       <Hero
-        headlineLine1Start="Your work is excellent."
+        eyebrow="Done for you. Live in 14 days."
+        headlineLine1Start="While you are with a client,"
         headlineLine1Accent=""
-        headlineLine2Start="Your front desk should"
-        headlineLine2Accent="say so."
+        headlineLine2Start="someone else is answering"
+        headlineLine2Accent="your phone."
         headlineLine2Smaller={false}
-        body="You built a service business on the quality of your work. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Ops by Noell is the AI front desk and done-for-you operations system that catches it — AI receptionist, follow-up, and retention, all managed for you. Live in 14 days."
-        footnote="Three AI agents. One complete AI front desk. Built around the tools you already use."
+        body="That someone works for your competitor. And they just booked your client. Ops by Noell builds and runs your AI front desk so nothing slips through. No software to learn. No staff to train. We handle it."
+        footnote="Three AI agents. One complete front desk. Built around the tools you already use."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
       />
+
+      {/* ─── 1.5 PAIN AGITATION ───────────────────────────────────────────── */}
+      <section className="w-full px-4 py-14 md:py-20 border-b border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-6">
+            The trap every service business lives in
+          </p>
+          <div className="space-y-5 text-base md:text-lg text-cream/80 leading-relaxed">
+            <p>
+              You did not miss that call because you do not care. You missed it because you were doing the work. You were in the treatment room. You were mid-cut. You were finishing a filling. You were under a sink.
+            </p>
+            <p>
+              That is the trap. The better you are at your job, the more often your phone goes unanswered. And the client on the other end does not wait. They scroll down. They call the next name on Google. They book. They move on.
+            </p>
+            <p>
+              Most missed calls never leave a voicemail. They just disappear. No record. No callback. No second chance. You will never know how many clients you lost this month. That is what makes it so expensive. It is invisible.
+            </p>
+          </div>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { stat: "70%", label: "of missed calls never leave a voicemail" },
+              { stat: "5 min", label: "is the window before a lead goes cold" },
+              { stat: "78%", label: "of clients book with whoever responds first" },
+            ].map((item) => (
+              <div
+                key={item.stat}
+                className="rounded-[16px] bg-[#271520] border border-wine/20 p-5 text-center"
+              >
+                <p className="font-serif text-3xl font-semibold text-wine mb-2">{item.stat}</p>
+                <p className="text-xs text-cream/60 leading-snug">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── 2. THE REAL PROBLEM ──────────────────────────────────────────── */}
       <section className="w-full px-4 py-16 md:py-24">
@@ -253,9 +307,9 @@ export default function ForServiceBusinessesPage() {
             Case study · Healing Hands by Santa · Laguna Niguel, CA
           </p>
           <p className="font-serif text-xl md:text-2xl text-cream leading-snug mb-5">
-            Santa, a licensed massage therapist with 25 years of experience, was losing clients every time she was with a client. Her phone went quiet. No follow-up went out. Clients booked elsewhere.
+            Santa is a solo licensed massage therapist with 25 years of experience. She was losing clients every time she was in session. Her phone went quiet. No follow-up went out. Clients booked elsewhere. She did not change anything about how she works. She just stopped losing clients between sessions.
           </p>
-          <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-3 gap-4 mb-6 border-t border-white/10 pt-6">
             <div className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">4</p>
               <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">missed calls<br />recovered</p>
@@ -280,16 +334,19 @@ export default function ForServiceBusinessesPage() {
         </div>
       </section>
 
-      {/* ─── 3.5 MANAGED VS DIY DIFFERENTIATOR ─────────────────────────────────── */}
+      {/* ─── 3.5 MANAGED VS DIY DIFFERENTIATOR ───────────────────────────── */}
       <section className="w-full px-4 py-14 md:py-16 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <div className="rounded-[22px] bg-[#1c1210] border border-wine/20 p-8 md:p-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               Why Ops by Noell is different
             </p>
-            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug mb-5">
-              Every other tool makes you do the work.
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug mb-3">
+              Not a tool you configure.
             </h2>
+            <p className="text-base text-cream/70 leading-relaxed mb-7">
+              Every other AI product makes you do the work. You configure the prompts. You train the AI on your business. You monitor the dashboard. You troubleshoot when it breaks. You figure out the integrations. That is a second job. This is not that.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="rounded-[16px] bg-[#271520] border border-white/10 p-6">
                 <p className="text-[11px] uppercase tracking-[0.2em] text-cream/40 mb-3">Other AI tools</p>
@@ -347,7 +404,7 @@ export default function ForServiceBusinessesPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Service business automation, installed and managed by our team. No hiring. No training.
+              Three AI agents. Installed and managed by our team. No hiring. No training. No turnover.
             </p>
           </div>
 
@@ -469,6 +526,35 @@ export default function ForServiceBusinessesPage() {
                 </h3>
                 <p className="text-sm md:text-base text-cream/75 leading-relaxed">
                   {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5.5 OBJECTION HANDLING ───────────────────────────────────────── */}
+      <section className="w-full px-4 py-14 md:py-16 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              Before you ask
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug">
+              The three things every service business owner says first.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {objections.map((obj, i) => (
+              <div
+                key={i}
+                className="rounded-[22px] bg-[#271520] border border-wine/20 p-7"
+              >
+                <p className="font-serif text-lg font-semibold text-cream leading-snug mb-3">
+                  "{obj.question}"
+                </p>
+                <p className="text-sm text-cream/70 leading-relaxed">
+                  {obj.answer}
                 </p>
               </div>
             ))}
