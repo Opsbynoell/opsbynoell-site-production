@@ -19,10 +19,10 @@ export const metadata = pageMetadata({
   path: "/for-service-businesses",
   title: "AI Operations for Service-Based Businesses",
   description:
-    "Done-for-you AI operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who look more polished.",
+    "AI receptionist and done-for-you operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who look more polished.",
   ogTitle: "Your work is excellent. Your front desk should say so.",
   ogDescription:
-    "Done-for-you AI operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who just look more polished.",
+    "AI receptionist and done-for-you operations for service businesses. Catch every missed call, follow up instantly, and stop losing clients to competitors who just look more polished.",
 });
 
 type SignalCard = {
@@ -135,13 +135,13 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_who_is_this_for",
     question: "What types of service businesses do you work with?",
     answer:
-      "We work with consultants, agencies, coaches, freelancers, and professional service businesses where client relationships are the core of the business. If you deliver exceptional work but your front desk, follow-up, or digital presence is not keeping up, we are a fit.",
+      "We work with consultants, agencies, coaches, freelancers, and professional service businesses where client relationships are the core of the business. If you deliver exceptional work but your AI front desk, follow-up, or digital presence is not keeping up, we are a fit. Think of us as a virtual receptionist and operations team — without the overhead of hiring.",
   },
   {
     id: "sb_existing_tools",
     question: "Do I need to replace my current booking or CRM tools?",
     answer:
-      "No. We build around the tools you already use. The Ops by Noell system layers on top of your existing scheduling, CRM, or practice management software. No migration, no rip-and-replace.",
+      "No. We build around the tools you already use. The Ops by Noell system layers on top of your existing scheduling, CRM, or practice management software. No migration, no rip-and-replace. It is done-for-you operations — we handle the setup, the integrations, and the ongoing management.",
   },
   {
     id: "sb_timeline",
@@ -194,8 +194,8 @@ export default function ForServiceBusinessesPage() {
         headlineLine2Start="Your front desk should"
         headlineLine2Accent="say so."
         headlineLine2Smaller={false}
-        body="You built a service business on the quality of your work. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Ops by Noell builds the front desk, follow-up, and retention system that catches it. Done for you, live in 14 days."
-        footnote="Three AI agents. One managed system. Built around the tools you already use."
+        body="You built a service business on the quality of your work. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Ops by Noell is the AI front desk and done-for-you operations system that catches it — AI receptionist, follow-up, and retention, all managed for you. Live in 14 days."
+        footnote="Three AI agents. One complete AI front desk. Built around the tools you already use."
         primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
@@ -294,7 +294,7 @@ export default function ForServiceBusinessesPage() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-cream/75 max-w-2xl mx-auto leading-relaxed">
-              Installed and managed by our team.
+              Service business automation, installed and managed by our team. No hiring. No training.
             </p>
           </div>
 
