@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/hvac",
   title: "AI Front Desk for HVAC Contractors",
   description:
-    "AI front desk for HVAC contractors. Triage emergency vs. maintenance calls, dispatch the right tech in the right window, and handle seasonal surge without a call center.",
+    "AI front desk for HVAC contractors. Triage emergency vs. maintenance calls, dispatch faster, and never miss a service request.",
 });
 
 const hvacStats = [

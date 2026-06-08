@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/agents",
   title: "Noell Agents, AI Operations for Service Businesses",
   description:
-    "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside your booking tool. Starting at $397/mo. Month-to-month.",
+    "Three managed AI agents covering website chat, inbound calls, and existing client care. Done for you, live in 14 days.",
   ogTitle: "Noell Agents, AI Operations for Service Businesses",
   ogDescription:
     "Three managed AI agents covering website chat, calls and scheduling, and existing-client support. Works alongside any booking tool.",

@@ -9,7 +9,7 @@ const ALT = "My AI Front Desk";
 export const metadata = pageMetadata({
   path: PATH,
   absoluteTitle: true,
-  title: `Ops by Noell vs. ${ALT}`,
+  title: "Ops by Noell vs. My AI Front Desk — Managed vs. DIY",
   description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses, setup model, voice fit, retention, and what happens after go-live.`,
 });
 

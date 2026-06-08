@@ -10,7 +10,7 @@ import {
 
 export const metadata = pageMetadata({
   path: "/roi",
-  title: "60-Second ROI Estimator",
+  title: "60-Second ROI Estimator — Ops by Noell",
   description:
     "Quick payback estimate. Enter calls per week and average ticket to see what a missed-call system could recover and how fast it pays back by tier.",
 });

@@ -20,7 +20,7 @@ export const metadata = pageMetadata({
   path: "/noell-care",
   title: "Noell Care, AI Client Reactivation",
   description:
-    "Noell Care wins back lapsed clients and runs the returning-client desk. Reactivation campaigns, rebooking, service questions, and account support, all on your voice.",
+    "Noell Care wins back lapsed clients and runs the returning-client desk. Reactivation sequences, rebooking, and retention automation.",
 });
 
 const careCapabilities = [

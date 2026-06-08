@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
   path: "/noell-pipeline",
   title: "Noell Pipeline, B2B Sales Operations and Follow-Up",
   description:
-    "Noell Pipeline handles demo scheduling, follow-up sequences, and deal-stage management for B2B sales teams. Keep deals moving without your reps manually managing every thread.",
+    "Noell Pipeline handles demo scheduling, follow-up sequences, and deal-stage management for B2B teams.",
 });
 
 const pipelineFaqs = [

@@ -26,9 +26,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   path: "/verticals/med-spas",
-  title: "AI Front Desk for Med Spas",
+  title: "AI Front Desk for Med Spas — Ops by Noell",
   description:
-    "Warm intent cools off quietly. Ops by Noell catches med spa consult inquiries in seconds without degrading your premium positioning. Built for aesthetic and wellness practices.",
+    "Done-for-you AI receptionist for med spas. Catch consult inquiries, reduce no-shows, and reactivate lapsed clients. Live in 14 days.",
 });
 
 const medSpaStats = [

@@ -8,7 +8,7 @@ import { IconCheck, IconSearch, IconChartBar, IconArrowRight } from "@tabler/ico
 
 export const metadata = pageMetadata({
   path: "/digital-readiness-review",
-  title: "Digital Readiness Review",
+  title: "Digital Readiness Review — Is Your Business AI-Ready?",
   description:
     "A focused $297 audit of your digital presence, pipeline, and operations. Find the gaps, get a roadmap, credit the full fee toward your package.",
   ogTitle: "Digital Readiness Review by Ops by Noell",

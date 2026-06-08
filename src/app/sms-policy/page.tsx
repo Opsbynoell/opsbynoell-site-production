@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal-page";
 export const dynamic = "force-static";
 
 export const metadata = {
-  title: "SMS Policy, Ops by Noell",
+  title: "SMS Policy — Ops by Noell",
   description:
     "How Ops by Noell uses SMS with visitors and clients: consent, opt-in, opt-out, message frequency, carrier fees, and your data rights under A2P 10DLC.",
   alternates: { canonical: "https://www.opsbynoell.com/sms-policy" },

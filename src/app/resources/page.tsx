@@ -6,9 +6,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/resources",
-  title: "Resources, Ops by Noell",
+  title: "Resources for Service Business Operators — Ops by Noell",
   description:
-    "The reading list for operators who do not want to be sold to. Missed-call recovery, AI operations, and what the numbers actually say. No hype. No pitch. Just what works.",
+    "Guides, calculators, and case studies for service business owners who want to stop losing clients to missed calls and slow follow-up.",
 });
 
 type Resource = {

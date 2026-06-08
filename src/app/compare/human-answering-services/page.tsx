@@ -9,8 +9,8 @@ const ALT = "Human answering services";
 export const metadata = pageMetadata({
   path: PATH,
   absoluteTitle: true,
-  title: `Ops by Noell vs. ${ALT}`,
-  description: `A done-for-you AI front desk for service businesses vs. traditional human answering services. Compare response speed, voice match, cost, and what happens after hours.`,
+  title: "Ops by Noell vs. Human Answering Services — AI Front Desk",
+  description: `A done-for-you AI front desk for service businesses vs. traditional human answering services. Cost, coverage, and conversion compared.`,
 });
 
 const rows: CompareRow[] = [

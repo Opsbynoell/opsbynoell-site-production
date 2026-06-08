@@ -12,14 +12,14 @@ import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
-import { breadcrumbSchema, faqPageSchema, servicePageSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqPageSchema, servicePageSchema, localBusinessSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/for-service-businesses",
   title: "AI Front Desk for Service-Based Businesses",
   description:
-    "While you are with a client, someone else is answering your phone. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days.",
+    "While you are with a client, someone else is answering your phone. Ops by Noell builds your AI front desk. Done for you, live in 14 days.",
   ogTitle: "While you are with a client, someone else is answering your phone.",
   ogDescription:
     "Every missed call is a client who called the next business on Google. Ops by Noell builds and runs your AI front desk. Done for you. Live in 14 days.",
@@ -203,6 +203,10 @@ export default function ForServiceBusinessesPage() {
       <JsonLd
         data={faqPageSchema(serviceFaqs)}
         id="sb-faq"
+      />
+      <JsonLd
+        data={localBusinessSchema("service-based businesses including salons, med spas, dental offices, chiropractic practices, and massage therapists")}
+        id="sb-localbusiness"
       />
 
       {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
@@ -571,7 +575,49 @@ export default function ForServiceBusinessesPage() {
         body="Real questions from service business owners before they request a Revenue Signal Report."
       />
 
-      {/* ─── 7. CTA ───────────────────────────────────────────────────────── */}
+      {/* ─── 7. INTERNAL LINKS ─────────────────────────────────────────── */}
+      <section className="w-full px-4 py-12 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-6 text-center">
+            Further reading
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                href: "/resources/missed-call-recovery-for-service-businesses",
+                label: "Missed-Call Recovery for Service Businesses",
+                desc: "What happens to the calls you miss and how to get them back.",
+              },
+              {
+                href: "/resources/missed-calls-to-missed-bookings",
+                label: "Missed Calls to Missed Bookings",
+                desc: "The data behind why unanswered calls become lost revenue.",
+              },
+              {
+                href: "/resources/ai-front-desk-vs-answering-service",
+                label: "AI Front Desk vs. Answering Service",
+                desc: "How a managed AI system compares to a traditional answering service.",
+              },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group rounded-[16px] bg-[#271520] border border-wine/15 p-5 hover:border-wine/40 transition-colors"
+              >
+                <p className="text-sm font-semibold text-cream group-hover:text-wine transition-colors leading-snug mb-2">
+                  {link.label}
+                </p>
+                <p className="text-xs text-cream/55 leading-relaxed">{link.desc}</p>
+                <p className="text-xs text-wine mt-3 flex items-center gap-1">
+                  Read <IconArrowRight size={12} />
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 8. CTA ───────────────────────────────────────────────────────── */}
       <CTA
         eyebrow="The first step"
         headlineStart="Find out exactly what your front desk is"

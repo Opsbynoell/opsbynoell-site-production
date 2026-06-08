@@ -18,7 +18,7 @@ export const metadata = pageMetadata({
   path: "/noell-inbound",
   title: "Noell Inbound, B2B Lead Qualification and Intake",
   description:
-    "Noell Inbound handles first-touch lead qualification, intake routing, and discovery call scheduling for B2B and SaaS sales teams. Never lose a qualified lead again.",
+    "Noell Inbound handles first-touch lead qualification, intake routing, and discovery scheduling for service businesses.",
 });
 
 const inboundFaqs = [

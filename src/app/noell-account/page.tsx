@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
   path: "/noell-account",
   title: "Noell Account, B2B Account Management and Retention",
   description:
-    "Noell Account manages account health touchpoints, renewal sequences, upsell triggers, and support triage for B2B and SaaS teams. Keep clients, grow revenue, reduce churn.",
+    "Noell Account manages account health, renewal sequences, and upsell triggers for B2B teams. Fully managed, no software to learn.",
 });
 
 const accountFaqs = [

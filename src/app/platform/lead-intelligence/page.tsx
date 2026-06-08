@@ -14,7 +14,7 @@ const LEADS_ALT =
 
 export const metadata = pageMetadata({
   path: "/platform/lead-intelligence",
-  title: "Lead Intelligence Dashboard",
+  title: "Lead Intelligence Dashboard — Ops by Noell Platform",
   description:
     "The live dashboard included with every Noell service engagement: HOT and WARM lead scoring, conversation threads, lead source breakdown, and conversion funnel.",
 });

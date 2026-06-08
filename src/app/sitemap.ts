@@ -12,7 +12,7 @@ type Entry = {
 // Per-page lastmod dates. Update these alongside content changes so search
 // crawlers can prioritize freshly updated pages instead of seeing every
 // page share a single build timestamp.
-const TODAY = "2026-06-02";
+const TODAY = "2026-06-08";
 const SEO_FIXES = "2026-05-24";
 const LAUNCH_FIXES = "2026-05-04";
 
@@ -116,7 +116,7 @@ const entries: Entry[] = [
   { path: "/case-studies", changeFrequency: "monthly", priority: 0.75, lastmod: TODAY },
   { path: "/case-studies/santa-e", changeFrequency: "monthly", priority: 0.7, lastmod: "2026-04-18" },
 
-  { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
+  { path: "/for-service-businesses", changeFrequency: "weekly", priority: 0.95, lastmod: TODAY },
   { path: "/for-b2b", changeFrequency: "weekly", priority: 0.9, lastmod: SEO_FIXES },
   { path: "/upgrade", changeFrequency: "weekly", priority: 0.9, lastmod: TODAY },
 
@@ -135,6 +135,8 @@ const entries: Entry[] = [
   { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
   { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
   { path: "/sms-policy", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
+  { path: "/lp/revenue-signal-guide", changeFrequency: "monthly", priority: 0.85, lastmod: TODAY },
+  { path: "/lp/service-businesses", changeFrequency: "monthly", priority: 0.85, lastmod: TODAY },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

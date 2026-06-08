@@ -9,8 +9,8 @@ const ALT = "Birdeye";
 export const metadata = pageMetadata({
   path: PATH,
   absoluteTitle: true,
-  title: `Ops by Noell vs. ${ALT}`,
-  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for dental offices, med spas, and service businesses. Compare reviews, missed call recovery, and setup.`,
+  title: "Ops by Noell vs. Birdeye — AI Front Desk for Service Businesses",
+  description: `How a done-for-you AI front desk from Ops by Noell compares to Birdeye for dental offices, med spas, and service businesses.`,
 });
 
 const rows: CompareRow[] = [

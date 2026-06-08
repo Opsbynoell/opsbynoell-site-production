@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/pricing",
   title: "Pricing, AI Operations for Service Businesses and B2B",
   description:
-    "Two tracks. Six tiers. Service businesses from $397/mo. B2B from $597/mo. Every engagement includes a live dashboard, done-for-you setup, and a dedicated ops partner.",
+    "Two tracks. Six tiers. Service businesses from $397/mo. B2B from $597/mo. Every plan is fully managed.",
 });
 
 const pricingFaqs: FaqItem[] = [

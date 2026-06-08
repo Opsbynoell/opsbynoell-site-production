@@ -19,7 +19,7 @@ export const metadata = pageMetadata({
   path: PATH,
   title: "Predictive Customer Intelligence",
   description:
-    "Know who is about to ghost before your calendar shows the gap. We watch leads, clients, and rebooking patterns for revenue signals your booking software doesn't surface.",
+    "Know who is about to ghost before your calendar shows the gap. Predictive client intelligence for service businesses.",
   ogTitle: "Predictive Customer Intelligence for Service Businesses",
   ogDescription:
     "Know who is about to ghost before your calendar shows the gap. Free Revenue Signal Report.",

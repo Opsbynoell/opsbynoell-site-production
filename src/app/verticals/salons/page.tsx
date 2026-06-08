@@ -26,9 +26,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   path: "/verticals/salons",
-  title: "AI Front Desk for Salons",
+  title: "AI Front Desk for Salons and Barbershops — Ops by Noell",
   description:
-    "Every chair is a P&L. Ops by Noell protects rebook rate, catches missed calls before they walk next door, and keeps chair utilization climbing without adding front desk work.",
+    "Protect rebook rate and catch missed calls for salons and barbershops. Done-for-you AI front desk, live in 14 days.",
 });
 
 const salonStats = [

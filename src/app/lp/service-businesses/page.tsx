@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
   path: "/lp/service-businesses",
   title: "AI Receptionist for Service Businesses — Ops by Noell",
   description:
-    "Stop losing clients to missed calls. Ops by Noell installs a done-for-you AI receptionist and virtual front desk for service businesses. Live in 14 days. Get your free Revenue Signal Report.",
+    "Stop losing clients to missed calls. Ops by Noell installs a done-for-you AI receptionist for service businesses. Live in 14 days.",
   ogTitle: "Every missed call is a client you lost. Let's fix that.",
   ogDescription:
     "Ops by Noell is the AI receptionist and done-for-you operations system for service businesses. Catch every call, follow up instantly, keep your calendar full.",
@@ -32,7 +32,7 @@ const painPoints = [
     icon: <IconCalendarEvent size={20} />,
     tag: "No follow-up",
     title: "They filled out your form on Saturday. You followed up Monday. Too late.",
-    body: "Noell Support responds to every web inquiry instantly, 24/7 — capturing contact info and routing to booking before the weekend is over.",
+    body: "Noell Support responds to every web inquiry instantly, 24/7, capturing contact info and routing to booking before the weekend is over.",
   },
   {
     icon: <IconHeartHandshake size={20} />,
@@ -43,12 +43,12 @@ const painPoints = [
 ];
 
 const proofPoints = [
-  "AI receptionist answers every call — 24/7",
-  "Missed-call SMS recovery within 5 minutes",
+  "AI receptionist answers every call, 24/7",
+  "Missed-call text recovery within 5 minutes",
   "Instant response to every web inquiry",
   "Appointment confirmations and reminders automated",
   "Lapsed client reactivation on autopilot",
-  "Built around the tools you already use — nothing to replace",
+  "Built around the tools you already use. Nothing to replace.",
   "Live in 14 days",
 ];
 
@@ -64,7 +64,7 @@ const testimonials = [
     quote:
       "The setup was painless. They built everything around my existing booking system. I didn't have to change a single tool. It just works.",
     name: "Service Business Owner",
-    role: "Consulting Practice",
+    role: "Service Business Owner",
     initials: "C",
   },
 ];
@@ -125,7 +125,7 @@ export default function LpServiceBusinessesPage() {
             Get Your Free Revenue Signal Report
           </a>
           <p className="text-sm text-cream/50">
-            No pitch. No deck. Just a real audit of where you're losing revenue.
+            No pitch. No deck. Just a real audit of where you are losing revenue.
           </p>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function LpServiceBusinessesPage() {
           </span>
           <span className="flex items-center gap-1.5">
             <IconCheck size={14} className="text-wine" />
-            Med spas, consultants, coaches, agencies
+            Salons, med spas, dental offices, massage
           </span>
           <span className="flex items-center gap-1.5">
             <IconCheck size={14} className="text-wine" />
@@ -151,6 +151,17 @@ export default function LpServiceBusinessesPage() {
           </span>
         </div>
       </section>
+
+      {/* ─── STICKY MOBILE CTA ───────────────────────────────────────────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1F1219]/95 backdrop-blur-sm border-t border-wine/20 px-6 py-4 flex items-center justify-between md:hidden">
+        <p className="text-sm text-cream/80 font-medium">Free revenue audit</p>
+        <a
+          href="#form"
+          className="bg-wine hover:bg-wine-dark text-cream font-semibold px-5 py-2.5 rounded-full text-sm transition-colors"
+        >
+          Get Free Audit
+        </a>
+      </div>
 
       {/* ─── PAIN POINTS ────────────────────────────────────────────────── */}
       <section className="w-full px-6 py-16 md:py-20 max-w-5xl mx-auto">
@@ -270,16 +281,19 @@ export default function LpServiceBusinessesPage() {
               Get your free Revenue Signal Report
             </h2>
             <p className="text-base text-cream/70 leading-relaxed">
-              Tell us where your front desk is leaking. We'll review it personally and reply within
+              Tell us where your front desk is leaking. We will review it personally and reply within
               one business day with two or three times for a focused 30-minute walkthrough.
-              You'll leave with a clear map of exactly where you're losing revenue — whether you
-              work with us or not.
+              You will leave with a clear map of exactly where you are losing revenue and what it is worth.
+              Whether you work with us or not.
             </p>
           </div>
           <div className="rounded-[24px] bg-[#1F1219] border border-wine/20 p-8">
             <BookRequestForm />
           </div>
-          <p className="text-center text-xs text-cream/40 mt-6">
+          <p className="text-center text-sm text-wine font-medium mt-4">
+            We review a limited number of new requests each month. Spots are first-come, first-served.
+          </p>
+          <p className="text-center text-xs text-cream/40 mt-3">
             Month-to-month. No contracts. Cancel anytime. Starts at $397/mo.
           </p>
         </div>

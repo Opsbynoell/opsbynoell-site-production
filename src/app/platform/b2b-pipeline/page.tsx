@@ -14,7 +14,7 @@ const STAGE_ALT =
 
 export const metadata = pageMetadata({
   path: "/platform/b2b-pipeline",
-  title: "B2B Pipeline Dashboard",
+  title: "B2B Pipeline Dashboard — Ops by Noell Platform",
   description:
     "The live B2B dashboard that ships with the Inbound, Pipeline, and Full Stack tiers. Deal stages, ICP scores, account tracking, pipeline value.",
 });

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Current Pricing, Ops by Noell",
+  title: "Founding Member Pricing — Ops by Noell",
   description: "Private pricing overview. Not publicly listed.",
   robots: { index: false, follow: false },
 };

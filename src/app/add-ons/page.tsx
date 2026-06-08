@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
   path: PATH,
   title: "Add-On Services, Build Your Own Stack",
   description:
-    "Layer additional services onto any Ops by Noell base package. SEO, social media, brand identity, conversion copy, operational systems, and more. One partner, one invoice.",
+    "Layer additional services onto any Ops by Noell base package. SEO, social media, and automation add-ons for service businesses.",
 });
 
 export default function AddOnsPage() {

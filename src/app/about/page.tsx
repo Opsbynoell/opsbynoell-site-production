@@ -18,7 +18,7 @@ const OFFICE_PHOTO_ALT =
 
 export const metadata = pageMetadata({
   path: "/about",
-  title: "About Ops by Noell",
+  title: "About Ops by Noell — The Team Behind Your AI Front Desk",
   description:
     "An operations studio based in Mission Viejo, CA. We help service-business owners keep more of the revenue they are already earning.",
   image: OFFICE_PHOTO,

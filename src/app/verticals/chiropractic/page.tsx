@@ -28,7 +28,7 @@ export const metadata = pageMetadata({
   path: "/verticals/chiropractic",
   title: "AI Front Desk for Chiropractic Offices",
   description:
-    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls in under 60 seconds, cut no-shows, reactivate lapsed patients, all without adding staff.",
+    "Done-for-you AI front desk for chiropractic practices. Catch missed new-patient calls and reduce no-shows. Live in 14 days.",
 });
 
 const chiroStats = [

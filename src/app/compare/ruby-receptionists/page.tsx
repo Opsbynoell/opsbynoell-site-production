@@ -9,8 +9,8 @@ const ALT = "Ruby Receptionists";
 export const metadata = pageMetadata({
   path: PATH,
   absoluteTitle: true,
-  title: `Ops by Noell vs. ${ALT}`,
-  description: `How a done-for-you AI front desk from Ops by Noell compares to ${ALT} for service businesses. Compare missed call recovery, cost, voice fit, and done-for-you setup.`,
+  title: "Ops by Noell vs. Ruby Receptionists — AI vs. Human",
+  description: `How a done-for-you AI front desk from Ops by Noell compares to Ruby Receptionists for service businesses.`,
 });
 
 const rows: CompareRow[] = [

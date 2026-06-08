@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/contact",
-  title: "Contact",
+  title: "Contact Ops by Noell — Get in Touch",
   description:
     "Contact Ops by Noell. Tell us about your service business and what you are trying to fix. We personally review every inquiry and reply within one business day.",
 });
