@@ -462,7 +462,7 @@ export default function NoellSupportPage() {
         headlineStart="See what it would catch"
         headlineAccent="on your site."
         body="Book a free audit and we'll show you exactly how Noell Support would handle your current missed calls and chats, with your copy, in your voice."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "Back to home", href: "/" }}
         trustLine="Free audit · No contracts · Installed in 14 days"
         sourcePage="noell_support"

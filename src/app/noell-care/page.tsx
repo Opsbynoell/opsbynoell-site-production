@@ -155,7 +155,7 @@ export default function NoellCarePage() {
         defaultHeadlineLine2Start="And handles them"
         defaultHeadlineLine2Accent="when they return."
         defaultBody="Reactivation on cadence, returning-client recognition on reply. The warm third layer of the Noell system."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={careScreen}
         sourcePage="noell_care"

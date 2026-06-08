@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
     "Know who is about to ghost before your calendar shows the gap. Predictive client intelligence for service businesses.",
   ogTitle: "Predictive Customer Intelligence for Service Businesses",
   ogDescription:
-    "Know who is about to ghost before your calendar shows the gap. Free Revenue Signal Report.",
+    "Know who is about to ghost before your calendar shows the gap. Free Missed Call Audit.",
   imageAlt:
     "Predictive Customer Intelligence by Ops by Noell, know who is about to ghost before your calendar shows the gap.",
 });
@@ -157,7 +157,7 @@ const steps = [
     n: "02",
     title: "Predict",
     body:
-      "Within 48 hours, your first Revenue Signal Report: every account at risk, every lead worth re-engaging, every rebooking you're missing, ranked by dollar impact.",
+      "Within 48 hours, your first Missed Call Audit: every account at risk, every lead worth re-engaging, every rebooking you're missing, ranked by dollar impact.",
   },
   {
     n: "03",
@@ -201,13 +201,13 @@ const pciFaqs: FaqItem[] = [
   },
   {
     id: "pci-no-action",
-    question: "What if I don't act on the Revenue Signal Report?",
+    question: "What if I don't act on the Missed Call Audit?",
     answer:
       "You still walk away with a free, prioritized list of revenue you're leaving on the table. Take it, fix it yourself, and we part as friends.",
   },
   {
     id: "pci-what-do-i-get",
-    question: "What do I get from the free Revenue Signal Report?",
+    question: "What do I get from the free Missed Call Audit?",
     answer:
       "A clear map of where your front desk, booking flow, and follow-up system are leaking revenue, plus the recommended Ops by Noell track for recovering it.",
   },
@@ -771,7 +771,7 @@ export default function PredictiveCustomerIntelligencePage() {
         headlineLine2Smaller
         body="Ops by Noell watches your leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface. When a signal fires, the right recovery action is queued for your agents."
         footnote="The same system recovered $960 in 14 days for a solo massage practice in Orange County."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See a Sample Signal", href: "#sample-signal" }}
         showProofBar={false}
         sourcePage={SOURCE_PAGE}
@@ -806,8 +806,8 @@ export default function PredictiveCustomerIntelligencePage() {
         eyebrow="Proof"
         headlineStart="The first proof came from a"
         headlineAccent="solo practice."
-        body="Healing Hands by Santa recovered $960 in 14 days after Ops by Noell caught missed-call and booking-flow leakage. The next step is turning that same recovery logic into Revenue Signal Reports for every service business vertical we serve."
-        ctaLabel="Get your Revenue Signal Report"
+        body="Healing Hands by Santa recovered $960 in 14 days after Ops by Noell caught missed-call and booking-flow leakage. The next step is turning that same recovery logic into Missed Call Audits for every service business vertical we serve."
+        ctaLabel="Get your Missed Call Audit"
         sourcePage={SOURCE_PAGE}
         sourceSection="proof"
       />
@@ -816,9 +816,9 @@ export default function PredictiveCustomerIntelligencePage() {
         eyebrow="The first step"
         headlineStart="Find the revenue before it"
         headlineAccent="leaves."
-        body="Your first Revenue Signal Report shows what your booking software is not telling you yet. No pitch. No pressure. If it is not a fit, we will say so."
+        body="Your first Missed Call Audit shows what your booking software is not telling you yet. No pitch. No pressure. If it is not a fit, we will say so."
         trustLine="Free · Reviewed personally · Reply within one business day"
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         sourcePage={SOURCE_PAGE}
         sourceSection="offer"
@@ -840,7 +840,7 @@ export default function PredictiveCustomerIntelligencePage() {
         headlineAccent="already yours."
         body="Spend a few minutes. Get the map of what's leaking. Decide what's next from there."
         trustLine=""
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         sourcePage={SOURCE_PAGE}
         sourceSection="final"

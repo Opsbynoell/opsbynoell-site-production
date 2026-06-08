@@ -48,7 +48,7 @@ export function ArticleLayout({
                   href="/book"
                   className="text-wine font-semibold underline underline-offset-4"
                 >
-                  Get your free Revenue Signal Report
+                  Get your free Missed Call Audit
                 </Link>
                 . We&apos;ll map the gaps and show exactly what a Noell install
                 would catch.

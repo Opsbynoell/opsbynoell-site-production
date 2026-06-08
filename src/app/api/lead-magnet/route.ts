@@ -60,7 +60,7 @@ Email: ${email}
 Source: ${source}
 Time: ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PT
 
-They downloaded the Revenue Signal Report Guide. Follow up within 24 hours.
+They downloaded the Missed Call Audit Guide. Follow up within 24 hours.
       `.trim(),
     });
   } catch (err) {

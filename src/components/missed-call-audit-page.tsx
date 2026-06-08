@@ -20,7 +20,7 @@ const socialProof = [
   { stat: "24/7", label: "Front desk coverage" },
 ];
 
-export function RevenueSignalGuidePageClient() {
+export function MissedCallAuditPageClient() {
   const [state, setState] = useState<FormState>("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ export function RevenueSignalGuidePageClient() {
       const res = await fetch("/api/lead-magnet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, source: "revenue-signal-guide-lp" }),
+        body: JSON.stringify({ name, email, source: "missed-call-audit-lp" }),
       });
 
       if (!res.ok) {
@@ -366,7 +366,7 @@ export function RevenueSignalGuidePageClient() {
                     className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:opacity-80"
                     style={{ color: "#B5415E" }}
                   >
-                    Get your free Revenue Signal Report call
+                    Get your free Missed Call Audit call
                     <IconArrowRight size={14} />
                   </Link>
                 </div>

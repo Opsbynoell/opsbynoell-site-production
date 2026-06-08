@@ -336,11 +336,11 @@ const DesktopNav = ({ visible }: NavbarProps) => {
               onClick={() =>
                 trackAuditCtaClick("navbar", "navbar_primary", {
                   destination: "/book",
-                  cta_label: "Free Revenue Signal Report",
+                  cta_label: "Free Missed Call Audit",
                 })
               }
             >
-              Free Revenue Signal Report
+              Free Missed Call Audit
             </Button>
           </motion.div>
         )}
@@ -612,11 +612,11 @@ const MobileNav = ({ visible }: NavbarProps) => {
               onClick={() =>
                 trackAuditCtaClick("navbar", "navbar_mobile", {
                   destination: "/book",
-                  cta_label: "Free Revenue Signal Report",
+                  cta_label: "Free Missed Call Audit",
                 })
               }
             >
-              Free Revenue Signal Report
+              Free Missed Call Audit
             </Button>
           </motion.div>
         )}

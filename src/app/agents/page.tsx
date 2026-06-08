@@ -305,7 +305,7 @@ export default function AgentsPage() {
               href="/book"
               className="inline-flex items-center justify-center w-full h-12 px-7 rounded-xl bg-gradient-to-r from-[#C45A2A] to-[#9A3A18] text-cream font-semibold text-sm hover:from-[#D96B38] hover:to-[#C45A2A] transition-colors"
             >
-              Get Your Free Revenue Signal Report
+              Get Your Free Missed Call Audit
             </Link>
           </div>
         </div>
@@ -332,7 +332,7 @@ export default function AgentsPage() {
               href="/book"
               className="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-gradient-to-r from-[#C45A2A] to-[#9A3A18] text-cream font-semibold text-sm hover:from-[#D96B38] hover:to-[#C45A2A] transition-colors"
             >
-              Get Your Free Revenue Signal Report
+              Get Your Free Missed Call Audit
             </Link>
           </div>
 

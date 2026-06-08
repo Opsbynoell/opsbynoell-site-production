@@ -106,7 +106,7 @@ const systems: SystemCard[] = [
 const processSteps = [
   {
     number: "01",
-    title: "Revenue Signal Report",
+    title: "Missed Call Audit",
     description:
       "We start with a free 30-minute working session. We audit your current front desk, identify where leads and revenue are slipping out, and tell you exactly what we found. No pitch. No deck.",
   },
@@ -171,7 +171,7 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_pricing",
     question: "What does it cost?",
     answer:
-      "Pricing starts at $397/mo (Signal tier, one agent, done-for-you). The full three-agent System starts at $897/mo. We discuss fit and pricing on the free Revenue Signal Report call.",
+      "Pricing starts at $397/mo (Signal tier, one agent, done-for-you). The full three-agent System starts at $897/mo. We discuss fit and pricing on the free Missed Call Audit call.",
   },
   {
     id: "sb_contract",
@@ -219,7 +219,7 @@ export default function ForServiceBusinessesPage() {
         headlineLine2Smaller={false}
         body="That someone works for your competitor. And they just booked your client. Ops by Noell builds and runs your AI front desk so nothing slips through. No software to learn. No staff to train. We handle it."
         footnote="Three AI agents. One complete front desk. Built around the tools you already use."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
       />
@@ -572,7 +572,7 @@ export default function ForServiceBusinessesPage() {
         eyebrow="Questions"
         headlineStart="Straight"
         headlineAccent="answers."
-        body="Real questions from service business owners before they request a Revenue Signal Report."
+        body="Real questions from service business owners before they request a Missed Call Audit."
       />
 
       {/* ─── 7. INTERNAL LINKS ─────────────────────────────────────────── */}
@@ -622,9 +622,9 @@ export default function ForServiceBusinessesPage() {
         eyebrow="The first step"
         headlineStart="Find out exactly what your front desk is"
         headlineAccent="costing you."
-        body="In your free Revenue Signal Report, we audit your front desk, missed call rate, and follow-up gaps. You leave with a clear number: what is leaking, what it is worth, and what the fix looks like. No pitch. No deck. Just the findings."
+        body="In your free Missed Call Audit, we audit your front desk, missed call rate, and follow-up gaps. You leave with a clear number: what is leaking, what it is worth, and what the fix looks like. No pitch. No deck. Just the findings."
         trustLine="If it is not a fit, we will say so. No chase. No pressure."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
         sourcePage="for_service_businesses"
       />

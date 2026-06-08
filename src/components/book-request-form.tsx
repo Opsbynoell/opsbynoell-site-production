@@ -293,7 +293,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-white/20 accent-wine cursor-pointer"
           />
           <label htmlFor="sms-consent" className="text-xs text-cream/85 leading-relaxed cursor-pointer select-none">
-            By checking this box, I consent to receive SMS messages from Ops by Noell regarding my Revenue Signal Report and related services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. View our{" "}
+            By checking this box, I consent to receive SMS messages from Ops by Noell regarding my Missed Call Audit and related services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. View our{" "}
             <a href="/sms-policy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">SMS Policy</a>{" "}and{" "}
             <a href="/legal/privacy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">Privacy Policy</a>.
           </label>
@@ -309,7 +309,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             data-source-page="book"
             data-source-section="book_request_form"
           >
-            {state === "submitting" ? "Sending..." : "Send my Revenue Signal Report request"}
+            {state === "submitting" ? "Sending..." : "Send my Missed Call Audit request"}
           </button>
           <p role="alert" aria-live="polite" className="text-sm text-wine min-h-[1.25rem]">
             {state === "error" ? errorMessage : ""}

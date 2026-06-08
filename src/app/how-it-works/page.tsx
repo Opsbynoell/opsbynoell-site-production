@@ -22,7 +22,7 @@ export const metadata = pageMetadata({
   path: "/how-it-works",
   title: "How It Works: From Audit to Live in 14 Days",
   description:
-    "A simple four-step process: free Revenue Signal Report, strategic brief, system build, and ongoing operations. Done for you, live in 14 days.",
+    "A simple four-step process: free Missed Call Audit, strategic brief, system build, and ongoing operations. Done for you, live in 14 days.",
   ogTitle: "From a 30-minute call to a live front desk in 14 days.",
   ogDescription:
     "We audit your front desk, build the system around the tools you already use, and run it for you. No setup on your end. Live in 14 days.",
@@ -44,7 +44,7 @@ const processSteps: ProcessStep[] = [
     number: "01",
     icon: <IconSearch size={22} />,
     eyebrow: "Day 0",
-    title: "Revenue Signal Report",
+    title: "Missed Call Audit",
     body: "A free 30-minute working session. We audit your current front desk, identify where leads and revenue are slipping out, and tell you exactly what we found.",
     detail: "No pitch. No deck. You leave with a clear map of what is leaking, what it may be worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
   },
@@ -160,7 +160,7 @@ const faqs: FaqItem[] = [
       "No. We integrate with the major scheduling and practice management platforms. The Noell system layers on top with missed-call recovery, reminders, and reactivation. Nothing gets replaced.",
   },
   {
-    question: "What happens on the Revenue Signal Report call?",
+    question: "What happens on the Missed Call Audit call?",
     answer:
       "It is a 30-minute working session, not a sales call. We audit your current front desk, identify where leads and revenue are slipping out, and tell you exactly what we found. You leave with a clear map of what is leaking and what it may be worth, whether you work with us or not.",
   },
@@ -192,7 +192,7 @@ export default function HowItWorksPage() {
     servicePageSchema({
       name: "How the Noell System Works",
       description:
-        "A four-step process: free Revenue Signal Report, strategic brief, system build, and ongoing operations. Done for you, live in 14 days.",
+        "A four-step process: free Missed Call Audit, strategic brief, system build, and ongoing operations. Done for you, live in 14 days.",
       path: "/how-it-works",
     }),
     faqPageSchema(
@@ -213,7 +213,7 @@ export default function HowItWorksPage() {
         headlineLine2Accent="14 days."
         body="We audit your front desk, build the system around the tools you already use, and run it for you. No setup on your end. No software to learn."
         footnote="Done for you. Live in 14 days. Managed by our team."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See the agents", href: "#agents" }}
         showProofBar
         sourcePage="how_it_works"
@@ -425,7 +425,7 @@ export default function HowItWorksPage() {
         eyebrow="Questions"
         headlineStart="Common questions"
         headlineAccent="before you start."
-        body="Real questions from service business owners before they request a Revenue Signal Report."
+        body="Real questions from service business owners before they request a Missed Call Audit."
         faqs={faqs}
       />
 
@@ -434,8 +434,8 @@ export default function HowItWorksPage() {
         eyebrow="The first step"
         headlineStart="See how it works for"
         headlineAccent="your business."
-        body="A free 30-minute Revenue Signal Report gives you a clear map of what is leaking, what it may be worth, and which Ops by Noell track fits. Whether you work with us or not."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        body="A free 30-minute Missed Call Audit gives you a clear map of what is leaking, what it may be worth, and which Ops by Noell track fits. Whether you work with us or not."
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
         trustLine="Free audit · Done-for-you setup · Live in 14 days · No contracts"
         sourcePage="how_it_works"

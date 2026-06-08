@@ -7,7 +7,7 @@ export const metadata = pageMetadata({
   path: "/thank-you",
   title: "We Got Your Request",
   description:
-    "Your Revenue Signal Report request is in. A real person on our team will review it and reply within one business day.",
+    "Your Missed Call Audit request is in. A real person on our team will review it and reply within one business day.",
   noindex: true,
 });
 
@@ -94,7 +94,7 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      {/* GHL Revenue Signal Report Calendar */}
+      {/* GHL Missed Call Audit Calendar */}
       <section style={{ marginTop: "2rem", padding: "0 1rem 4rem" }}>
         <div
           style={{
@@ -122,7 +122,7 @@ export default function ThankYouPage() {
               lineHeight: 1.6,
             }}
           >
-            Pick a time that works for you. 30-minute Revenue Signal Report
+            Pick a time that works for you. 30-minute Missed Call Audit
             call, Tuesday through Thursday, 10 AM to 5 PM Pacific.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function ThankYouPage() {
             maxWidth: "800px",
             margin: "0 auto",
           }}
-          title="Book Revenue Signal Report Call"
+          title="Book Missed Call Audit Call"
           scrolling="no"
           id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
         />

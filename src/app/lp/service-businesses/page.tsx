@@ -122,7 +122,7 @@ export default function LpServiceBusinessesPage() {
             href="#form"
             className="inline-flex items-center gap-2 bg-wine hover:bg-wine-dark text-cream font-semibold px-8 py-4 rounded-full text-base transition-colors shadow-lg"
           >
-            Get Your Free Revenue Signal Report
+            Get Your Free Missed Call Audit
           </a>
           <p className="text-sm text-cream/50">
             No pitch. No deck. Just a real audit of where you are losing revenue.
@@ -223,7 +223,7 @@ export default function LpServiceBusinessesPage() {
               href="#form"
               className="inline-flex items-center gap-2 bg-wine hover:bg-wine-dark text-cream font-semibold px-8 py-4 rounded-full text-base transition-colors"
             >
-              Get Your Free Revenue Signal Report
+              Get Your Free Missed Call Audit
             </a>
           </div>
         </div>
@@ -278,7 +278,7 @@ export default function LpServiceBusinessesPage() {
               Free · No pitch · No deck
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight mb-4">
-              Get your free Revenue Signal Report
+              Get your free Missed Call Audit
             </h2>
             <p className="text-base text-cream/70 leading-relaxed">
               Tell us where your front desk is leaking. We will review it personally and reply within

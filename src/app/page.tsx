@@ -28,7 +28,7 @@ const homepageFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. The Revenue Signal Report and the Digital Readiness Review are both working deliverables. You leave with a clear map of what is leaking, what it is worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
+      "No. The Missed Call Audit and the Digital Readiness Review are both working deliverables. You leave with a clear map of what is leaking, what it is worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
   },
   {
     id: "who-is-this-for",
@@ -83,7 +83,7 @@ export default function Home() {
         headlineLine2Smaller={false}
         body="Every missed call is a client who called the next business on Google. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days. No software to learn."
         footnote=""
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         showProofBar={false}
       />
@@ -357,7 +357,7 @@ export default function Home() {
         headlineAccent="missing."
         body="We map the leaks in your operations, front desk, and follow-up system. You will know what is being missed, what it may be worth, and which track fits."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
         sourcePage="home"
       />

@@ -149,7 +149,7 @@ export default function SystemsPage() {
             href="/book"
             className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-wine text-cream font-medium hover:bg-wine-dark transition-colors"
           >
-            Get Your Free Revenue Signal Report
+            Get Your Free Missed Call Audit
           </Link>
           <Link
             href="/noell-support"
@@ -432,7 +432,7 @@ export default function SystemsPage() {
         headlineStart="See how it layers on"
         headlineAccent="your business."
         body="A 30-minute audit gives you a clear map of what's leaking, whether you work with us or not. No pitch. No pressure."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{
           label: "Talk to Noell Support first",
           href: "/noell-support",

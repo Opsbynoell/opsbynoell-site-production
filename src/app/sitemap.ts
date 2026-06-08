@@ -135,7 +135,7 @@ const entries: Entry[] = [
   { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
   { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
   { path: "/sms-policy", changeFrequency: "yearly", priority: 0.3, lastmod: TODAY },
-  { path: "/lp/revenue-signal-guide", changeFrequency: "monthly", priority: 0.85, lastmod: TODAY },
+  { path: "/lp/missed-call-audit", changeFrequency: "monthly", priority: 0.85, lastmod: TODAY },
   { path: "/lp/service-businesses", changeFrequency: "monthly", priority: 0.85, lastmod: TODAY },
 ];
 

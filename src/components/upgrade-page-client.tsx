@@ -64,7 +64,7 @@ function GHLCalendarEmbed() {
     <iframe
       src="https://api.leadconnectorhq.com/widget/booking/HRQS43hNklkuUBBgDTPe"
       style={{ width: "100%", minHeight: 720, border: "none", display: "block" }}
-      title="Book Revenue Signal Report Call"
+      title="Book Missed Call Audit Call"
       scrolling="no"
       id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
     />
@@ -219,7 +219,7 @@ export function UpgradePageClient() {
             >
               <div className="hidden sm:block">
                 <p className="text-[11px] uppercase tracking-[0.2em] text-cream/60 leading-none mb-0.5">
-                  Free Revenue Signal Report
+                  Free Missed Call Audit
                 </p>
                 <p className="text-sm text-cream/70">
                   Find out what your front desk is missing.
@@ -250,7 +250,7 @@ export function UpgradePageClient() {
         headlineLine2Smaller={false}
         body="Rosie AI and Goodcall are fine for voicemail replacement. When you need real CRM integration, a voice that sounds human, and a team that manages it for you, there is only one option."
         footnote="Built for service businesses that have already tried the basic tools and need more."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See the comparison", href: "#comparison" }}
         showProofBar={true}
       />
@@ -480,7 +480,7 @@ export function UpgradePageClient() {
         headlineStart="Find out what your operations"
         headlineAccent="are missing."
         body="We map the leaks in your front desk and follow-up system. You will know what is being missed, what it may be worth, and whether Ops by Noell is the right fit."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See How It Works", href: "/systems" }}
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
         sourcePage="upgrade"

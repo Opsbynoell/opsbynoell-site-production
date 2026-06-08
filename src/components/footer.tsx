@@ -9,7 +9,7 @@ export function Footer() {
     { title: "Pricing", href: "/pricing" },
     { title: "ROI Calculator", href: "/roi" },
     { title: "Resources", href: "/resources" },
-    { title: "Revenue Signal Report", href: "/book" },
+    { title: "Missed Call Audit", href: "/book" },
     { title: "Digital Readiness Review", href: "/digital-readiness-review" },
   ];
 

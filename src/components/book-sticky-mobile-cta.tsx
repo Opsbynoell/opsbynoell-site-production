@@ -50,7 +50,7 @@ export function StickyMobileBookCta() {
         onClick={handleClick}
         className="w-full rounded-full bg-wine text-cream text-sm font-medium py-3.5 tap-target hover:bg-wine-dark transition-colors"
       >
-        Get Your Free Revenue Signal Report
+        Get Your Free Missed Call Audit
       </button>
     </div>
   );

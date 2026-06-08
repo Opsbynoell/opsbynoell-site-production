@@ -149,9 +149,9 @@ export default function ComparePage() {
         eyebrow="The first step"
         headlineStart="Find the revenue your booking software is"
         headlineAccent="missing."
-        body="In your free Revenue Signal Report, we map the leaks in your front desk, booking flow, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
+        body="In your free Missed Call Audit, we map the leaks in your front desk, booking flow, and follow-up system. You will know what is being missed, what it may be worth, and which Ops by Noell track fits."
         trustLine="No pitch. No pressure. If it is not a fit, we will say so."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
         sourcePage="compare_index"
       />

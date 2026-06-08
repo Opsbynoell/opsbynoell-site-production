@@ -12,7 +12,7 @@ import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/book",
-  title: "Get Your Free Revenue Signal Report",
+  title: "Free Missed Call Audit — Most Businesses Find $3K+ in Missing Revenue",
   description:
     "Tell us where your front desk is leaking. We'll review it personally and reply within one business day with two or three times for a focused walkthrough.",
 });
@@ -22,7 +22,7 @@ const bookFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. The Revenue Signal Report is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
+      "No. The Missed Call Audit is a working deliverable. You will leave with a clear map of where your front desk, booking flow, and follow-up system are leaking revenue, and whether Ops by Noell is a fit. If it is not, we will say so.",
   },
   {
     id: "switch-booking-systems",
@@ -46,7 +46,7 @@ const bookFaqs: FaqItem[] = [
     id: "why-no-live-calendar",
     question: "Can I book directly on a calendar?",
     answer:
-      "Yes. Scroll down past the form to find the Revenue Signal Report Discovery Call calendar. Pick a Tuesday, Wednesday, or Thursday between 10 AM and 5 PM Pacific. If nothing works, email hello@opsbynoell.com and we will make it happen.",
+      "Yes. Scroll down past the form to find the Missed Call Audit Discovery Call calendar. Pick a Tuesday, Wednesday, or Thursday between 10 AM and 5 PM Pacific. If nothing works, email hello@opsbynoell.com and we will make it happen.",
   },
   {
     id: "not-ready-after-call",
@@ -120,16 +120,16 @@ export default function BookPage() {
         <BookRequestForm />
       </section>
 
-      {/* GHL Revenue Signal Report Calendar */}
+      {/* GHL Missed Call Audit Calendar */}
       <section style={{ marginTop: '4rem', padding: '0 1rem 4rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '2rem' }}>
           <h2 style={{ fontFamily: 'serif', fontSize: '1.75rem', fontWeight: 600, color: 'var(--color-cream, #f5f0eb)', marginBottom: '0.75rem' }}>Prefer to book directly?</h2>
-          <p style={{ color: 'rgba(245,240,235,0.75)', fontSize: '1rem', lineHeight: 1.6 }}>Pick a time that works for you. 30-minute Revenue Signal Report call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
+          <p style={{ color: 'rgba(245,240,235,0.75)', fontSize: '1rem', lineHeight: 1.6 }}>Pick a time that works for you. 30-minute Missed Call Audit call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
         </div>
         <iframe
           src="https://api.leadconnectorhq.com/widget/booking/HRQS43hNklkuUBBgDTPe"
           style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
-          title="Book Revenue Signal Report Call"
+          title="Book Missed Call Audit Call"
           scrolling="no"
           loading="lazy"
           id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
@@ -237,11 +237,11 @@ export default function BookPage() {
 
       <CTA
         eyebrow="Still thinking"
-        headlineStart="The Revenue Signal Report is"
+        headlineStart="The Missed Call Audit is"
         headlineAccent="here when you are."
         body="You can always come back. We do not chase, and we do not add you to a list."
         trustLine="Free · Reviewed personally · Reply within one business day"
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         sourcePage="book"
       />

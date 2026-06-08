@@ -264,7 +264,7 @@ export default function WhatYouGetPage() {
             data-source-page="what_you_get"
             data-source-section="hero"
           >
-            Get Your Free Revenue Signal Report &rarr;
+            Get Your Free Missed Call Audit &rarr;
           </Button>
         </div>
       </section>
@@ -405,7 +405,7 @@ export default function WhatYouGetPage() {
               data-source-page="what_you_get"
               data-source-section="pricing"
             >
-              Get Your Free Revenue Signal Report &rarr;
+              Get Your Free Missed Call Audit &rarr;
             </Button>
             <Button href="/pricing" variant="secondary">
               See full pricing &rarr;
@@ -428,8 +428,8 @@ export default function WhatYouGetPage() {
         eyebrow="The first step"
         headlineStart="Stop missing the next booking"
         headlineAccent="while you're with the current one."
-        body="Your free Revenue Signal Report maps the leaks in your front desk, booking flow, and follow-up system, and shows what fits."
-        primaryCta={{ label: "Get Your Free Revenue Signal Report", href: "/book" }}
+        body="Your free Missed Call Audit maps the leaks in your front desk, booking flow, and follow-up system, and shows what fits."
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See full pricing", href: "/pricing" }}
         trustLine="Done-for-you setup · Live in 14 days · No contracts"
         sourcePage="what_you_get"
