@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata = pageMetadata({
   path: "/for-service-businesses",
-  title: "AI Front Desk for Service-Based Businesses | Ops by Noell",
+  title: "AI Front Desk for Service-Based Businesses",
   description:
     "While you are with a client, someone else is answering your phone. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days.",
   ogTitle: "While you are with a client, someone else is answering your phone.",
