@@ -136,13 +136,13 @@ export default function SystemsPage() {
           </p>
         </div>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream leading-tight">
-          Two tracks. Six agents.{" "}
+          Your entire front desk,{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            One operational standard.
+            handled.
           </span>
         </h1>
         <p className="relative z-20 mt-6 max-w-2xl text-center text-cream/75 text-base md:text-lg leading-relaxed">
-          Six managed agents across two tracks. You run the business.
+          Calls answered. Bookings confirmed. Follow-ups sent. Six managed agents across two tracks, installed in 14 days. You run the business.
         </p>
         <div className="relative z-20 mt-10 flex flex-col sm:flex-row gap-3">
           <Link
@@ -160,8 +160,82 @@ export default function SystemsPage() {
         </div>
       </section>
 
+      {/* Which track is right for me? */}
+      <section className="w-full px-4 pt-6 pb-2 md:pt-8 md:pb-4">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
+            Which track is right for me?
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Service Track */}
+            <Link
+              href="#service-track"
+              className="group rounded-[20px] border border-[#C45A2A]/25 bg-[#271520] p-6 hover:border-[#C45A2A]/50 transition-colors"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#C45A2A]" />
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#C45A2A]">Track 01</p>
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-cream mb-2">
+                Service Businesses
+              </h3>
+              <p className="text-sm text-cream/70 leading-relaxed mb-4">
+                You run an appointment-based business: salon, med spa, dental practice, massage, home services, or similar. You are losing clients to missed calls and no-shows.
+              </p>
+              <ul className="space-y-1.5 mb-5">
+                {[
+                  "Calls answered and bookings confirmed 24/7",
+                  "No-show recovery and client reactivation",
+                  "Works on top of your existing booking tool",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-xs text-cream/65">
+                    <span className="mt-0.5 flex-shrink-0 text-[#C45A2A]">&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-[#C45A2A] font-medium group-hover:underline">
+                See the service agents &rarr;
+              </p>
+            </Link>
+
+            {/* B2B Track */}
+            <Link
+              href="#b2b-track"
+              className="group rounded-[20px] border border-white/10 bg-charcoal p-6 hover:border-white/25 transition-colors"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-cream/50" />
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/60">Track 02</p>
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-cream mb-2">
+                B2B &amp; SaaS
+              </h3>
+              <p className="text-sm text-cream/70 leading-relaxed mb-4">
+                You sell to other businesses: SaaS, professional services, or B2B sales teams. You are losing deals to slow follow-up and weak digital presence.
+              </p>
+              <ul className="space-y-1.5 mb-5">
+                {[
+                  "Inbound lead qualification and ICP scoring",
+                  "Pipeline follow-up and stalled-deal nudges",
+                  "Digital presence architecture for B2B buyers",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-xs text-cream/65">
+                    <span className="mt-0.5 flex-shrink-0 text-cream/40">&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-cream/60 font-medium group-hover:text-cream/80 group-hover:underline transition-colors">
+                See the B2B agents &rarr;
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Service Track agents */}
-      <section className="w-full py-16 md:py-20 px-4">
+      <section id="service-track" className="w-full py-16 md:py-20 px-4 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
@@ -231,7 +305,7 @@ export default function SystemsPage() {
       </section>
 
       {/* B2B Track agents */}
-      <section className="w-full py-8 md:py-12 px-4">
+      <section id="b2b-track" className="w-full py-8 md:py-12 px-4 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
