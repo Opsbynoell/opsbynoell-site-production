@@ -154,7 +154,7 @@ export interface ConversionContext {
  * pixel-based audiences keep working unchanged.
  *
  * For AUDIT_REQUEST_SUBMITTED, also fires the Google Ads conversion event
- * (AW-18123945519/vpq9CNbp8rYcEK_slcJD) — "Book a Working Call - Form Submit"
+ * (AW-18123945519/UI5DCPOdgKYcEK_slcJD) — "Submit Lead Form - Book Call"
  * conversion action. Value is $200 — estimated lead value based on average
  * first-90-day client revenue discounted by close rate from working call to signed.
  * Enhanced Conversions user_data (email, phone, name) should be set via
@@ -184,7 +184,7 @@ export function trackConversion(
       const gtag = (window as Window & { gtag?: GtagFn }).gtag;
       if (typeof gtag === "function") {
         gtag("event", "conversion", {
-          send_to: "AW-18123945519/vpq9CNbp8rYcEK_slcJD",
+          send_to: "AW-18123945519/UI5DCPOdgKYcEK_slcJD",
           value: 200.0,
           currency: "USD",
         });
