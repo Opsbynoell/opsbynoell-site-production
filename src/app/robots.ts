@@ -13,6 +13,33 @@ export default function robots(): MetadataRoute.Robots {
         // protection — they are removed here.
         disallow: ["/admin", "/admin/", "/api/"],
       },
+      // AI Search & Answer Engine Crawlers — explicitly welcomed
+      // These bots power ChatGPT Search, Perplexity, and Claude web search.
+      // Explicit rules ensure they are never accidentally blocked.
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Claude-SearchBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Claude-User",
+        allow: "/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,

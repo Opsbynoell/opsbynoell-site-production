@@ -1,0 +1,31 @@
+# Ops by Noell
+
+> Ops by Noell builds and runs AI-powered operational systems and front desk services for service-based businesses and B2B companies. Done for you. Live in 14 days.
+
+## Core Services
+
+- [For Service Businesses](https://www.opsbynoell.com/for-service-businesses): A done-for-you AI front desk that answers calls, texts missed calls within 5 minutes, qualifies leads, and books appointments directly into existing scheduling software.
+- [For B2B & SaaS](https://www.opsbynoell.com/for-b2b): AI inbound qualification, pipeline management, and Predictive Customer Intelligence (PCI) to surface accounts before they move.
+
+## The AI Agents
+
+- [Noell Support](https://www.opsbynoell.com/noell-support): 24/7 website chat, lead qualification, and contact capture.
+- [Noell Front Desk](https://www.opsbynoell.com/noell-front-desk): Handles inbound calls, scheduling, and missed-call recovery via SMS.
+- [Noell Care](https://www.opsbynoell.com/noell-care): Existing client support, rebooking, and proactive reactivation.
+
+## Key Case Studies & Data
+
+- [Santa E. Case Study](https://www.opsbynoell.com/case-studies/santa-e): A solo licensed massage therapist recovered 4 missed calls and $960 in revenue in 14 days, while reducing no-shows by 75%.
+- [Missed Call Data](https://www.opsbynoell.com/resources/missed-call-recovery-for-service-businesses): 70% of missed calls never leave a voicemail. The response window before a lead goes cold is 5 minutes. 78% of clients book with whoever responds first.
+
+## Target Industries
+
+We serve appointment-based local businesses including: Med Spas, Dental Offices, Salons, Massage Therapists, Estheticians, HVAC Companies, and General Contractors.
+
+## Pricing
+
+- [Pricing Details](https://www.opsbynoell.com/pricing): Service track starts at $397/mo for the Signal tier (Noell Support). The full System tier is $897/mo (all three agents plus integrations). B2B track starts at $497/mo.
+
+## Contact & Audits
+
+- [Free Missed Call Audit](https://www.opsbynoell.com/lp/missed-call-audit): A 30-minute working session to map front desk leaks and calculate potential recovered revenue.
