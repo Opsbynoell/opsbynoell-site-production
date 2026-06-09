@@ -238,6 +238,50 @@ export default function PricingPage() {
         </p>
       </section>
 
+      {/* ─── ABOVE-THE-FOLD CONVERSION CTA ─────────────────────────────── */}
+      <section className="w-full px-4 pt-8 md:pt-10">
+        <div className="max-w-3xl mx-auto">
+          {/* Social proof stat strip */}
+          <div className="flex flex-wrap justify-center gap-6 mb-6">
+            {[
+              { value: "$960", label: "Recovered in 14 days" },
+              { value: "75%", label: "Fewer no-shows" },
+              { value: "14 days", label: "Audit to live" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-serif text-2xl md:text-3xl font-semibold text-cream">{stat.value}</p>
+                <p className="text-[10px] text-cream/50 uppercase tracking-[0.18em] mt-0.5">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          {/* Primary CTA */}
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] px-6 py-7 md:px-10 md:py-8 text-center">
+            <p className="text-xs text-wine uppercase tracking-[0.22em] font-medium mb-2">Not sure which tier fits?</p>
+            <p className="text-base md:text-lg text-cream font-medium mb-1">
+              Start with a free Missed Call Audit.
+            </p>
+            <p className="text-sm text-cream/65 leading-relaxed mb-5">
+              We audit your front desk, show you exactly what is leaking, and tell you which tier makes sense for your business. No pitch. If it is not a fit, we will say so.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/book"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[linear-gradient(181deg,_#C45A2A_18%,_#9A3A18_100%)] text-white text-sm font-medium hover:brightness-110 transition-all shadow-[0px_4px_8px_0px_rgba(196,90,42,0.30)]"
+              >
+                Get Your Free Missed Call Audit
+              </Link>
+              <a
+                href="#roi-calculator"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-cream/20 text-cream/75 text-sm font-medium hover:border-cream/40 hover:text-cream transition-colors"
+              >
+                Run the ROI calculator
+              </a>
+            </div>
+            <p className="text-[11px] text-cream/40 mt-4">Free · Reviewed personally · Reply within one business day</p>
+          </div>
+        </div>
+      </section>
+
       <section className="w-full px-4 pt-6 md:pt-10">
         <div className="max-w-3xl mx-auto rounded-[18px] border border-wine/25 bg-[#301A26]/60 px-5 py-4 text-center">
           <p className="text-sm md:text-base text-cream/85 leading-relaxed">

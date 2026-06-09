@@ -420,6 +420,32 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* ─── MID-PAGE CONVERSION NUDGE ──────────────────────────────── */}
+      <section className="w-full px-4 py-10 md:py-12">
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-[22px] border border-wine/25 bg-[#1F1219] px-7 py-8 md:px-10 md:py-9 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs text-wine uppercase tracking-[0.22em] font-medium mb-2">Ready to see it for your business?</p>
+              <p className="text-lg md:text-xl font-serif font-semibold text-cream leading-snug mb-2">
+                The audit is free. The findings are yours to keep.
+              </p>
+              <p className="text-sm text-cream/65 leading-relaxed">
+                No pitch. No deck. You leave with a clear map of what is leaking and what the fix looks like — whether you work with us or not.
+              </p>
+            </div>
+            <div className="flex-shrink-0 flex flex-col items-center gap-3">
+              <Link
+                href="/book"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[linear-gradient(181deg,_#C45A2A_18%,_#9A3A18_100%)] text-white text-sm font-medium hover:brightness-110 transition-all shadow-[0px_4px_8px_0px_rgba(196,90,42,0.30)] whitespace-nowrap"
+              >
+                Get Your Free Missed Call Audit
+              </Link>
+              <p className="text-[11px] text-cream/40 text-center">Free · Reply within one business day</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <FAQ
         eyebrow="Questions"
