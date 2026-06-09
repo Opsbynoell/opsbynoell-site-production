@@ -40,6 +40,31 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Google-Extended",
         allow: "/",
       },
+      // Tier 2 AI Crawlers — Apple Intelligence, TikTok, You.com, Meta AI, Diffbot, Amazon
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "Bytespider",
+        allow: "/",
+      },
+      {
+        userAgent: "YouBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Meta-ExternalAgent",
+        allow: "/",
+      },
+      {
+        userAgent: "Diffbot",
+        allow: "/",
+      },
+      {
+        userAgent: "Amazonbot",
+        allow: "/",
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
