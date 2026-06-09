@@ -115,26 +115,31 @@ export default function BookPage() {
         </p>
       </section>
 
-      {/* Form */}
+      {/* GHL Missed Call Audit Calendar — primary conversion element, shown first */}
       <section className="px-4 pt-4 pb-10">
-        <BookRequestForm />
-      </section>
-
-      {/* GHL Missed Call Audit Calendar */}
-      <section style={{ marginTop: '4rem', padding: '0 1rem 4rem' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '2rem' }}>
-          <h2 style={{ fontFamily: 'serif', fontSize: '1.75rem', fontWeight: 600, color: 'var(--color-cream, #f5f0eb)', marginBottom: '0.75rem' }}>Prefer to book directly?</h2>
-          <p style={{ color: 'rgba(245,240,235,0.75)', fontSize: '1rem', lineHeight: 1.6 }}>Pick a time that works for you. 30-minute Missed Call Audit call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Book your free audit call</h2>
+          <p className="mt-2 text-cream/70 text-sm md:text-base">Pick a time that works for you. 30-minute Missed Call Audit call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
         </div>
         <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/HRQS43hNklkuUBBgDTPe"
+          src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
           style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
           title="Book Missed Call Audit Call"
           scrolling="no"
           loading="lazy"
-          id="HRQS43hNklkuUBBgDTPe_msgsndr-calendar"
+          id="ko7eXb5zooItceadiV02_1781044970554"
         />
         <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+      </section>
+
+      {/* Form — secondary option below the calendar */}
+      <section className="px-4 pt-0 pb-10">
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong">Prefer to send a message first?</p>
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream mt-2">Tell us about your front desk</h2>
+          <p className="mt-2 text-cream/70 text-sm">Fill out the form and we will reply within one business day with available times.</p>
+        </div>
+        <BookRequestForm />
       </section>
 
       {/* What happens after you send it */}
