@@ -64,11 +64,6 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
       setErrorMessage("Please complete every field before sending.");
       return;
     }
-    if (!smsConsent) {
-      setState("error");
-      setErrorMessage("Please confirm your consent to receive SMS messages to continue.");
-      return;
-    }
 
     setState("submitting");
     setErrorMessage("");
@@ -207,6 +202,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               autoComplete="tel"
               className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
+            <p className="mt-1.5 text-[11px] text-cream/45">Used only to send you calendar options.</p>
           </label>
           <label className="block">
             <span className="block text-sm text-cream/80 mb-2">
@@ -222,6 +218,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
               autoComplete="email"
               className="w-full rounded-lg border border-cream/20 bg-[#1F1219] px-3 py-3 tap-target text-cream focus:outline-none focus:border-[#C45A2A]/70 focus:bg-[#271520]"
             />
+            <p className="mt-1.5 text-[11px] text-cream/45">Where we send your audit summary.</p>
           </label>
         </div>
 
@@ -293,7 +290,7 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
             className="mt-0.5 h-5 w-5 flex-shrink-0 rounded border-white/20 accent-wine cursor-pointer"
           />
           <label htmlFor="sms-consent" className="text-xs text-cream/85 leading-relaxed cursor-pointer select-none">
-            By checking this box, I consent to receive SMS messages from Ops by Noell regarding my Missed Call Audit and related services. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. View our{" "}
+            <span className="font-medium text-cream/90">Optional:</span> Send me text updates about my Missed Call Audit. Message and data rates may apply. Reply STOP to opt out at any time. View our{" "}
             <a href="/sms-policy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">SMS Policy</a>{" "}and{" "}
             <a href="/legal/privacy" className="underline underline-offset-2 text-wine/70 hover:text-wine transition-colors">Privacy Policy</a>.
           </label>
