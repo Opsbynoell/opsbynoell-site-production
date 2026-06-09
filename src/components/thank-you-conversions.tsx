@@ -3,28 +3,17 @@
 import { useEffect } from "react";
 
 /**
- * Fires Google Ads conversion + Meta Pixel Lead event once on mount.
- * Placed on the /thank-you page so the conversion fires on page load
- * after a successful form submission redirect.
+ * Fires Meta Pixel Lead event once on mount when the visitor lands on /thank-you.
+ *
+ * NOTE: The Google Ads conversion event (AW-18123945519/UI5DCPOdgKYcEK_slcJD)
+ * is intentionally NOT fired here. It fires exactly once at the point of form
+ * submission inside book-request-form.tsx via trackConversion(). Firing it
+ * again on page load would double-count conversions and corrupt Smart Bidding.
  */
-
-type GtagFn = (...args: unknown[]) => void;
 
 export function ThankYouConversions() {
   useEffect(() => {
-    // Google Ads conversion
-    if (typeof window !== "undefined") {
-      const gtag = (window as Window & { gtag?: GtagFn }).gtag;
-      if (typeof gtag === "function") {
-        gtag("event", "conversion", {
-          send_to: "AW-18123945519/vpq9CNbp8rYcEK_slcJD",
-          value: 200.0,
-          currency: "USD",
-        });
-      }
-    }
-
-    // Meta Pixel Lead event
+    // Meta Pixel Lead event — fires on /thank-you page load
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
       window.fbq("track", "Lead");
     }
