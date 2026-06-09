@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
 const whatHappensNext = [
   {
     number: "01",
-    title: "A real person reviews your request.",
+    title: "Your request is already in our queue.",
     detail:
       "Someone on our team reads what you sent, usually the same day, within one business day always.",
   },
@@ -50,16 +50,87 @@ export default function ThankYouPage() {
           Got it
         </p>
         <h1 className="relative z-20 max-w-4xl text-center font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-cream">
-          We got your request!{" "}
+          Your audit is{" "}
           <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-            Here&rsquo;s what happens next.
+            in good hands.
           </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
-          A real person on our team will read what you sent, usually the same
-          day, within one business day always. You will get a reply by email or
-          text with two or three time windows that fit your schedule.
+          We have what we need. If you want to lock in a time right now rather
+          than wait for our reply, pick a slot below and we will confirm it
+          within the hour.
         </p>
+      </section>
+
+      {/* GHL Calendar — moved to top, primary action while intent is highest */}
+      <section className="px-4 pt-8 pb-10">
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-2">
+            Skip the wait
+          </p>
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">
+            Book your audit call directly.
+          </h2>
+          <p className="mt-2 text-cream/70 text-sm md:text-base">
+            30-minute Missed Call Audit call, Tuesday through Thursday, 10 AM
+            to 5 PM Pacific.
+          </p>
+        </div>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+          style={{
+            width: "100%",
+            minHeight: "720px",
+            border: "none",
+            display: "block",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+          title="Book Missed Call Audit Call"
+          scrolling="no"
+          id="ko7eXb5zooItceadiV02_1781044970554"
+        />
+        <Script
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
+      </section>
+
+      {/* Social proof — reinforce the decision just made */}
+      <section className="px-4 py-10 md:py-12">
+        <div className="max-w-2xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-9">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
+            Currently running
+          </p>
+          <p className="font-serif text-lg md:text-xl text-cream leading-snug">
+            Healing Hands by Santa, a solo licensed massage practice in Laguna
+            Niguel, was losing clients every time she was with a client. Her
+            phone went quiet. No follow-up went out. Clients booked elsewhere.
+            In fourteen days, four missed calls turned into booked appointments
+            and{" "}
+            <span className="text-wine font-semibold">
+              $960 in recovered revenue.
+            </span>{" "}
+            No new software. No configuration. We built it, installed it, and
+            ran it.
+          </p>
+          <div className="mt-5 grid grid-cols-3 gap-4 border-t border-white/10 pt-5">
+            {[
+              { stat: "4", label: "missed calls recovered" },
+              { stat: "$960", label: "revenue in 14 days" },
+              { stat: "75%", label: "fewer no-shows" },
+            ].map((item) => (
+              <div key={item.stat} className="text-center">
+                <p className="font-serif text-2xl font-semibold text-wine">
+                  {item.stat}
+                </p>
+                <p className="text-[10px] text-cream/60 uppercase tracking-wide mt-1">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* What happens next steps */}
@@ -67,7 +138,7 @@ export default function ThankYouPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
-              What happens after you send it
+              Here is what happens now
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight">
               No widget. No queue. A human reply.
@@ -94,59 +165,7 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      {/* GHL Missed Call Audit Calendar */}
-      <section style={{ marginTop: "2rem", padding: "0 1rem 4rem" }}>
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            textAlign: "center",
-            marginBottom: "2rem",
-          }}
-        >
-          <h2
-            style={{
-              fontFamily: "serif",
-              fontSize: "1.75rem",
-              fontWeight: 600,
-              color: "var(--color-cream, #f5f0eb)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Want to skip the wait? Book directly.
-          </h2>
-          <p
-            style={{
-              color: "rgba(245,240,235,0.75)",
-              fontSize: "1rem",
-              lineHeight: 1.6,
-            }}
-          >
-            Pick a time that works for you. 30-minute Missed Call Audit
-            call, Tuesday through Thursday, 10 AM to 5 PM Pacific.
-          </p>
-        </div>
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-          style={{
-            width: "100%",
-            minHeight: "720px",
-            border: "none",
-            display: "block",
-            maxWidth: "800px",
-            margin: "0 auto",
-          }}
-          title="Book Missed Call Audit Call"
-          scrolling="no"
-          id="ko7eXb5zooItceadiV02_1781044970554"
-        />
-        <Script
-          src="https://link.msgsndr.com/js/form_embed.js"
-          strategy="afterInteractive"
-        />
-      </section>
-
-      {/* Soft exit */}
+      {/* Soft exit — replaced "Back to home" with a high-value resource */}
       <section className="px-4 pb-20">
         <div className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.2em] text-muted-strong mb-3 inline-flex items-center gap-2">
@@ -157,15 +176,19 @@ export default function ThankYouPage() {
             Ask Noell Support anything.
           </h3>
           <p className="text-sm text-cream/70 max-w-md mx-auto mb-6">
-            Pop open the chat in the bottom-right and ask anything. It routes to
-            Noell when you are ready.
+            Pop open the chat in the bottom-right and ask anything. It routes
+            to Noell when you are ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button href="/noell-support" variant="lilac" className="h-11 px-6">
               See what Noell Support does
             </Button>
-            <Button href="/" variant="secondary" className="h-11 px-6">
-              Back to home
+            <Button
+              href="/resources/missed-call-recovery-for-service-businesses"
+              variant="secondary"
+              className="h-11 px-6"
+            >
+              Read: Missed Call Recovery
             </Button>
           </div>
         </div>
