@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import {
   IconCalendarEvent,
   IconPhoneCall,
@@ -607,11 +608,11 @@ export default function ForServiceBusinessesPage() {
             </div>
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
               scrolling="no"
               id="sb-mid-page-booking"
             />
-            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
             <p className="text-[11px] text-cream/40 text-center mt-4">Free · No pitch · Reply within one business day</p>
           </div>
         </div>

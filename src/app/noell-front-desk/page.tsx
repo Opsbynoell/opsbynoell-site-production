@@ -8,6 +8,7 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import Script from "next/script";
 import { AdHero } from "@/components/ad-hero";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
@@ -326,11 +327,11 @@ export default function NoellFrontDeskPage() {
           <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
               scrolling="no"
               id="nfd-footer-booking"
             />
-            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
             <p className="text-[11px] text-cream/40 text-center mt-4">
               Free 30-minute audit &middot; No contracts required &middot; Live in 14 days
             </p>

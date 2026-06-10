@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Script from "next/script";
 import { motion } from "motion/react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
@@ -101,11 +102,11 @@ export default function CTA({
             <div className="mt-10">
               <iframe
                 src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
                 scrolling="no"
                 id={`cta-booking-${sourceSection ?? "default"}`}
               />
-              <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
               {trustLine && (
                 <p className="mt-4 text-xs text-white/40">{trustLine}</p>
               )}
