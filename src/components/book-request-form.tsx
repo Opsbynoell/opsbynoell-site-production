@@ -106,13 +106,38 @@ export function BookRequestForm({ className }: BookRequestFormProps) {
         }
       }
 
-      trackConversion(ConversionEvents.AUDIT_REQUEST_SUBMITTED, {
-        source_page: "book",
-        source_section: "book_request_form",
-      });
+      // Fire Google Ads conversion with event_callback so the redirect
+      // waits until the conversion ping is acknowledged (or 1 s timeout).
+      // This prevents the page navigation from dropping the gtag hit.
+      const doRedirect = () => { window.location.href = "/thank-you"; };
 
-      // Redirect to /thank-you instead of showing inline success card
-      window.location.href = "/thank-you";
+      if (typeof window !== "undefined") {
+        const gtag = (window as Window & { gtag?: GtagFn }).gtag;
+        if (typeof gtag === "function") {
+          // Also fire Meta Pixel Lead event
+          trackConversion(ConversionEvents.AUDIT_REQUEST_SUBMITTED, {
+            source_page: "book",
+            source_section: "book_request_form",
+          });
+          // Re-fire Google Ads conversion with event_callback for reliable delivery
+          gtag("event", "conversion", {
+            send_to: "AW-18123945519/UI5DCPOdgKYcEK_slcJD",
+            value: 200.0,
+            currency: "USD",
+            event_callback: doRedirect,
+          });
+          // Safety fallback: redirect after 1 s even if callback never fires
+          setTimeout(doRedirect, 1000);
+        } else {
+          trackConversion(ConversionEvents.AUDIT_REQUEST_SUBMITTED, {
+            source_page: "book",
+            source_section: "book_request_form",
+          });
+          doRedirect();
+        }
+      } else {
+        doRedirect();
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : "send_failed";
       setState("error");
