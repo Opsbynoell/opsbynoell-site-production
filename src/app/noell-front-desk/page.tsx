@@ -181,12 +181,12 @@ export default function NoellFrontDeskPage() {
       <AdHero
         page="frontDesk"
         variant="wine"
-        defaultEyebrow="Noell Front Desk · Operations layer"
-        defaultHeadlineLine1Start="The operations"
-        defaultHeadlineLine1Accent="layer."
-        defaultHeadlineLine2Start="Everything a"
-        defaultHeadlineLine2Accent="receptionist handles."
-        defaultBody="Calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. The Noell system, doing the quiet work."
+        defaultEyebrow="Noell Front Desk · Done for you"
+        defaultHeadlineLine1Start="Your phone answered."
+        defaultHeadlineLine1Accent=""
+        defaultHeadlineLine2Start="Every call."
+        defaultHeadlineLine2Accent="Every time."
+        defaultBody="No more missed calls becoming lost bookings. Noell Front Desk handles calls, scheduling, confirmations, reminders, reschedules, review capture, and reactivation. Built around the tools you already use. Nothing to replace."
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See the capabilities", href: "#capabilities" }}
         mockScreen={frontDeskScreen}
@@ -304,14 +304,39 @@ export default function NoellFrontDeskPage() {
         faqs={frontDeskFaqs}
       />
 
-      <CTA
-        eyebrow="The first step"
-        headlineStart="See exactly where"
-        headlineAccent="leads are falling through."
-        body="No pitch. No pressure. A 30-minute audit that gives you a clear map of what's leaking, whether you work with us or not."
-        trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
-        sourcePage="noell_front_desk"
-      />
+      {/* ─── INLINE BOOKING ───────────────────────────────────────────────
+          Replace outbound CTA link with inline booking widget.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section className="w-full px-4 py-16 md:py-24 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
+              The first step
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight mb-4">
+              See exactly where leads are{" "}
+              <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+                falling through.
+              </span>
+            </h2>
+            <p className="text-base text-cream/70 max-w-xl mx-auto leading-relaxed">
+              No pitch. No pressure. A 30-minute audit that gives you a clear map of what is leaking, whether you work with us or not.
+            </p>
+          </div>
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              scrolling="no"
+              id="nfd-footer-booking"
+            />
+            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <p className="text-[11px] text-cream/40 text-center mt-4">
+              Free 30-minute audit &middot; No contracts required &middot; Live in 14 days
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
