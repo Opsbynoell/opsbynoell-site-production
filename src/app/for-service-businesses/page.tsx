@@ -594,26 +594,25 @@ export default function ForServiceBusinessesPage() {
             <p className="text-xs text-cream/45 mt-3">No migration. No rip-and-replace. We layer on top of the tools you already use.</p>
           </div>
 
-          {/* Mid-page conversion nudge */}
-          <div className="rounded-[22px] border border-wine/30 bg-[#271520] px-7 py-8 md:px-10 md:py-9 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-            <div className="flex-1 text-center md:text-left">
+          {/* Mid-page inline booking widget */}
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] px-7 py-8 md:px-10 md:py-10">
+            <div className="text-center mb-6">
               <p className="text-xs text-wine uppercase tracking-[0.22em] font-medium mb-2">The first step costs nothing</p>
               <p className="text-lg md:text-xl font-serif font-semibold text-cream leading-snug mb-2">
                 Find out what your front desk is costing you.
               </p>
-              <p className="text-sm text-cream/65 leading-relaxed">
-                Santa recovered $960 in 14 days without changing how she works. The audit shows you your number — what is leaking, what it is worth, and what the fix looks like.
+              <p className="text-sm text-cream/65 leading-relaxed max-w-xl mx-auto">
+                Santa recovered $960 in 14 days without changing how she works. Pick a time below and we will audit your front desk on the call.
               </p>
             </div>
-            <div className="flex-shrink-0 flex flex-col items-center gap-3">
-              <Link
-                href="/book"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[linear-gradient(181deg,_#C45A2A_18%,_#9A3A18_100%)] text-white text-sm font-medium hover:brightness-110 transition-all shadow-[0px_4px_8px_0px_rgba(196,90,42,0.30)] whitespace-nowrap"
-              >
-                Get Your Free Missed Call Audit
-              </Link>
-              <p className="text-[11px] text-cream/40 text-center">Free · No pitch · Reply within one business day</p>
-            </div>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              scrolling="no"
+              id="sb-mid-page-booking"
+            />
+            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <p className="text-[11px] text-cream/40 text-center mt-4">Free · No pitch · Reply within one business day</p>
           </div>
         </div>
       </section>
