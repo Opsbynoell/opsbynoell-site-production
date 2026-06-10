@@ -351,16 +351,41 @@ export default function Home() {
         headlineAccent="answers."
         body="Real questions from business owners and operators before they book their first working session."
       />
-      <CTA
-        eyebrow="The first step"
-        headlineStart="Find out what your operations are"
-        headlineAccent="missing."
-        body="We map the leaks in your operations, front desk, and follow-up system. You will know what is being missed, what it may be worth, and which track fits."
-        trustLine="No pitch. No pressure. If it is not a fit, we will say so."
-        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
-        secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
-        sourcePage="home"
-      />
+      {/* ─── 7. INLINE BOOKING ───────────────────────────────────────────────
+          Replace the outbound CTA link with an inline booking widget.
+          Visitors who scroll to the bottom are the most qualified — give them
+          a calendar, not another page to navigate to.
+      ─────────────────────────────────────────────────────────────────────── */}
+      <section className="w-full px-4 py-16 md:py-24 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
+              The first step
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight mb-4">
+              Find out what your operations are{" "}
+              <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+                missing.
+              </span>
+            </h2>
+            <p className="text-base text-cream/70 max-w-xl mx-auto leading-relaxed">
+              We map the leaks in your front desk, follow-up, and operations. You will know what is being missed, what it is worth, and which track fits. No pitch. No pressure.
+            </p>
+          </div>
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              scrolling="no"
+              id="home-footer-booking"
+            />
+            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <p className="text-[11px] text-cream/40 text-center mt-4">
+              Free &middot; No pitch &middot; If it is not a fit, we will say so
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
