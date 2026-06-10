@@ -4,6 +4,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ConditionalShell } from "@/components/conditional-shell";
+import { BookExitIntent } from "@/components/book-exit-intent";
 import { MetaPixel } from "@/components/meta-pixel";
 import { JsonLd } from "@/components/json-ld";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -121,6 +122,7 @@ export default function RootLayout({
         </a>
         <MetaPixel />
         <ConditionalShell>{children}</ConditionalShell>
+        <BookExitIntent />
         <Analytics />
         <SpeedInsights />
       </body>

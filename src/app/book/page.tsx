@@ -4,7 +4,6 @@ import { StickyMobileBookCta } from "@/components/book-sticky-mobile-cta";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
 import { BookRequestForm } from "@/components/book-request-form";
-import { BookExitIntent } from "@/components/book-exit-intent";
 import { BookingLeadTracker } from "@/components/booking-lead-tracker";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -96,7 +95,6 @@ export default function BookPage() {
         ]}
         id="book"
       />
-      <BookExitIntent />
       <BookingLeadTracker />
 
       {/* Hero */}

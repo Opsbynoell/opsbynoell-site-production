@@ -1,18 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { trackConversion, ConversionEvents } from "@/lib/analytics";
 
 const STORAGE_KEY = "book-exit-shown";
+const GHL_BOOKING_ID = "ko7eXb5zooItceadiV02";
 
 export function BookExitIntent() {
   const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  const scriptLoaded = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -41,26 +39,16 @@ export function BookExitIntent() {
     return () => document.removeEventListener("mouseleave", onMouseLeave);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setState("sending");
-    try {
-      const res = await fetch("/api/book-followup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim() }),
-      });
-      if (!res.ok) throw new Error("send failed");
-      setState("sent");
-      trackConversion(ConversionEvents.AUDIT_WORKSHEET_REQUEST, {
-        source_page: "book",
-        source_section: "book_exit_intent",
-      });
-    } catch {
-      setState("error");
-    }
-  };
+  // Load the GHL embed script once the modal opens
+  useEffect(() => {
+    if (!open || scriptLoaded.current) return;
+    const script = document.createElement("script");
+    script.src = "https://link.msgsndr.com/js/form_embed.js";
+    script.type = "text/javascript";
+    script.async = true;
+    document.body.appendChild(script);
+    scriptLoaded.current = true;
+  }, [open]);
 
   if (!open) return null;
 
@@ -68,20 +56,24 @@ export function BookExitIntent() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-labelledby="book-exit-title"
+      aria-labelledby="exit-intent-title"
       className="fixed inset-0 z-[60] flex items-center justify-center px-4"
     >
+      {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-charcoal/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-charcoal/60 backdrop-blur-sm"
         onClick={() => setOpen(false)}
       />
+
+      {/* Modal panel */}
       <div
         className={cn(
-          "relative w-full max-w-md rounded-[22px] bg-[#1F1219] border border-white/10",
-          "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.10),0px_15px_15px_0px_rgba(28,25,23,0.14),0px_4px_8px_0px_rgba(28,25,23,0.18)]",
-          "p-8"
+          "relative w-full max-w-2xl rounded-[22px] bg-[#1F1219] border border-white/10",
+          "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.18),0px_15px_15px_0px_rgba(28,25,23,0.22),0px_4px_8px_0px_rgba(28,25,23,0.26)]",
+          "p-8 md:p-10 max-h-[90vh] overflow-y-auto"
         )}
       >
+        {/* Close button */}
         <button
           type="button"
           onClick={() => setOpen(false)}
@@ -91,51 +83,32 @@ export function BookExitIntent() {
           <IconX size={18} />
         </button>
 
+        {/* Header copy */}
         <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
           Before you go
         </p>
         <h3
-          id="book-exit-title"
-          className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-3 leading-snug"
+          id="exit-intent-title"
+          className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-2 leading-snug"
         >
-          Want the audit framework as a PDF?
+          Pick a time before you leave.
         </h3>
         <p className="text-sm text-cream/70 leading-relaxed mb-6">
-          Same questions we work through on the call, yours to run on your own
-          before we talk.
+          A free 20-minute audit. We will show you exactly where your front desk is losing revenue and what it would take to fix it. No pitch. No pressure.
         </p>
 
-        {state === "sent" ? (
-          <p className="text-sm text-cream/80">
-            On its way. Check your inbox in a minute or two.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <label className="block">
-              <span className="sr-only">Email address</span>
-              <input
-                type="email"
-                required
-                autoFocus
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@business.com"
-                className="w-full rounded-lg border border-white/10 bg-[#271520] px-3 py-3 tap-target text-cream focus:outline-none focus:border-wine/60"
-              />
-            </label>
-            <button
-              type="submit"
-              disabled={state === "sending"}
-              aria-busy={state === "sending"}
-              className="rounded-full bg-wine text-cream text-sm font-medium px-5 py-3 tap-target hover:bg-wine-dark transition-colors disabled:opacity-60"
-            >
-              {state === "sending" ? "Sending..." : "Send me the audit framework"}
-            </button>
-            <p role="alert" aria-live="polite" className="text-xs text-wine min-h-[1rem]">
-              {state === "error" ? "Something went wrong. Try again in a moment." : ""}
-            </p>
-          </form>
-        )}
+        {/* GHL Booking Widget */}
+        <iframe
+          src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
+          style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "560px" }}
+          scrolling="no"
+          id="exit-intent-booking"
+        />
+
+        {/* Trust line */}
+        <p className="text-[11px] text-cream/40 text-center mt-4">
+          Free &middot; No contracts &middot; If it is not a fit, we will say so
+        </p>
       </div>
     </div>
   );
