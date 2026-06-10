@@ -81,7 +81,7 @@ export default function AboutPage() {
               Built by an operations team who watched too many good businesses bleed.
             </h1>
             <p className="mt-6 font-serif italic text-lg md:text-xl text-cream/75 leading-relaxed">
-              An operations studio based in Mission Viejo, California.
+              We build and run AI front desk systems for service businesses. Installed in 14 days, managed end-to-end.
             </p>
             <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
               We spent years inside growing businesses watching the same pattern: smart owners, booked calendars, lean teams, and money slipping out the back door. A missed call at 9 PM. A chat nobody answered. A client who never got a follow-up. We built Ops by Noell to fix that.
@@ -110,6 +110,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* 2b. Healing Hands proof block */}
+      <section className="w-full px-4 py-12 md:py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-8 md:p-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
+              Client result
+            </p>
+            <blockquote className="font-serif italic text-xl md:text-2xl text-cream leading-snug mb-6">
+              &ldquo;In fourteen days, four missed calls turned into booked appointments and $960 in recovered revenue.&rdquo;
+            </blockquote>
+            <p className="text-sm text-cream/60 mb-8">
+              Santa E. &mdash; Healing Hands by Santa, Laguna Niguel CA
+            </p>
+            <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+              <div className="text-center">
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">$960</p>
+                <p className="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Recovered in 14 days</p>
+              </div>
+              <div className="text-center">
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">75%</p>
+                <p className="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Reduction in missed calls</p>
+              </div>
+              <div className="text-center">
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">14</p>
+                <p className="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Days to go live</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. What we believe, three credos */}
       <section className="w-full px-4 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
@@ -131,7 +162,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Who we are, short bio */}
+      {/* 4. Who we are, short bio + inline booking */}
       <section className="w-full px-4 py-16 md:py-20 bg-[#1F1219]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-2xl md:text-4xl font-semibold text-cream leading-tight">
@@ -140,10 +171,20 @@ export default function AboutPage() {
           <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
             When you sign up, you are not handed off to a support team. You are working with us. If you&apos;d rather talk than read, our door is open.
           </p>
-          <div className="mt-6">
-            <Button href="/book" variant="primary" className="h-11 px-6">
+          <div className="mt-8 rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4 text-center">
               Book a free 30-minute audit
-            </Button>
+            </p>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "600px" }}
+              scrolling="no"
+              id="about-booking"
+            />
+            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" />
+            <p className="text-[11px] text-cream/40 text-center mt-4">
+              Free &middot; No pitch &middot; If it is not a fit, we will say so
+            </p>
           </div>
         </div>
       </section>
