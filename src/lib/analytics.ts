@@ -198,15 +198,28 @@ export function trackConversion(
 }
 
 /**
- * Fire conversion tracking when the GHL calendar widget confirms a booking.
- * Sends the "Booked Audit - Calendar" Google Ads conversion action and a
- * GA4 `booking_confirmed` event. Only called from the GHL booking
- * confirmation postMessage handler (ghl-booking-conversion.tsx) — distinct
- * from the form-submit conversion fired by AUDIT_REQUEST_SUBMITTED above.
- * Value mirrors AUDIT_REQUEST_SUBMITTED: $200 estimated lead value.
+ * Fire conversion tracking for a confirmed calendar booking. Sends the
+ * "Booked Audit - Calendar" Google Ads conversion action and a GA4
+ * `booking_confirmed` event.
+ *
+ * Two callers share this: the /book/thanks confirmation page (primary,
+ * via the GHL calendar redirect) and the postMessage fallback in
+ * ghl-booking-conversion.tsx. The `bookingConvFired` sessionStorage guard
+ * lives here so the two paths can never both fire for one booking, and so
+ * refreshes or back-navigation to /book/thanks do not double fire.
+ *
+ * Distinct from the form-submit conversion fired by AUDIT_REQUEST_SUBMITTED
+ * above. Value mirrors it: $200 estimated lead value.
  */
 export function trackBookingConfirmed(context: ConversionContext = {}): void {
   if (typeof window === "undefined") return;
+  try {
+    if (sessionStorage.getItem("bookingConvFired") === "1") return;
+    sessionStorage.setItem("bookingConvFired", "1");
+  } catch {
+    // sessionStorage unavailable (private mode) — still fire below; the
+    // worst case is a duplicate on refresh, not a lost conversion.
+  }
   try {
     const gtag = (window as Window & { gtag?: GtagFn }).gtag;
     if (typeof gtag === "function") {

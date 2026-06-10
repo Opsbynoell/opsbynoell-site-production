@@ -21,13 +21,15 @@ function isGhlOrigin(origin: string): boolean {
 }
 
 /**
- * Global listener for the GHL calendar widget's booking-confirmation
- * postMessage. Mounted once in the root layout so it covers every page with
- * an embedded calendar.
+ * Fallback listener for the GHL calendar widget's booking-confirmation
+ * postMessage, mounted once in the root layout.
  *
- * The confirmation filter is a heuristic until we verify the exact event
- * shape GHL sends — in development every message from a GHL origin is
- * logged raw to the console for that purpose.
+ * The primary conversion path is the /book/thanks page load: the GHL
+ * calendar redirects the top window there after every booking. This
+ * listener only matters for an embed mode that does not redirect. Both
+ * paths call trackBookingConfirmed(), which dedupes via the shared
+ * `bookingConvFired` sessionStorage guard, so they can never both fire
+ * for one booking.
  */
 export function GhlBookingConversion() {
   const fired = useRef(false);
@@ -35,15 +37,6 @@ export function GhlBookingConversion() {
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
       if (!isGhlOrigin(event.origin)) return;
-
-      if (process.env.NODE_ENV === "development") {
-        // Raw payload, so we can verify the real shape of the booking
-        // confirmation event before tightening the filter below.
-        console.log("[ghl-booking-conversion] message", {
-          origin: event.origin,
-          data: event.data,
-        });
-      }
 
       let text = "";
       if (typeof event.data === "string") {
