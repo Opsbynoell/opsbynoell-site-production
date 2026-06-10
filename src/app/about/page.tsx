@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Script from "next/script";
 import {
   IconUser,
   IconVolume,
@@ -172,18 +171,14 @@ export default function AboutPage() {
           <p className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed">
             When you sign up, you are not handed off to a support team. You are working with us. If you&apos;d rather talk than read, our door is open.
           </p>
-          <div className="mt-8 rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4 text-center">
+          <div className="mt-8 rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8 text-center">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-4">
               Book a free 30-minute audit
             </p>
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-              scrolling="no"
-              id="about-booking"
-            />
-            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
-            <p className="text-[11px] text-cream/40 text-center mt-4">
+            <Button href="/book" variant="primary" className="h-12 px-8">
+              Book Your Free Audit
+            </Button>
+            <p className="text-[11px] text-cream/40 mt-4">
               Free &middot; No pitch &middot; If it is not a fit, we will say so
             </p>
           </div>

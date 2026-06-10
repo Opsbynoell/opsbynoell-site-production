@@ -1,5 +1,5 @@
-import Script from "next/script";
 import { Button } from "@/components/button";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 import { ThankYouConversions } from "@/components/thank-you-conversions";
 import { pageMetadata } from "@/lib/seo";
 
@@ -56,9 +56,7 @@ export default function ThankYouPage() {
           </span>
         </h1>
         <p className="relative z-20 mt-5 max-w-2xl text-center text-cream/80 text-base md:text-lg leading-relaxed">
-          We have what we need. If you want to lock in a time right now rather
-          than wait for our reply, pick a slot below and we will confirm it
-          within the hour.
+          A real person will read what you sent within one business day.
         </p>
       </section>
 
@@ -76,23 +74,9 @@ export default function ThankYouPage() {
             to 5 PM Pacific.
           </p>
         </div>
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-          style={{
-            width: "100%",
-            minHeight: "720px",
-            border: "none",
-            display: "block",
-            maxWidth: "800px",
-            margin: "0 auto",
-          }}
-          title="Book Missed Call Audit Call"
-          scrolling="no"
-          id="ko7eXb5zooItceadiV02_1781044970554"
-        />
-        <Script
-          src="https://link.msgsndr.com/js/form_embed.js"
-          strategy="afterInteractive"
+        <BookingCalendarEmbed
+          id="thank-you-booking"
+          maxWidth="800px"
         />
       </section>
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Script from "next/script";
 import {
   IconCalendarEvent,
   IconPhoneCall,
@@ -11,6 +10,8 @@ import {
 import { Hero } from "@/components/hero";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
+import { ServiceBusinessesStickyCta } from "@/components/sb-sticky-mobile-cta";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
 import { breadcrumbSchema, faqPageSchema, servicePageSchema, localBusinessSchema } from "@/lib/schema";
@@ -596,7 +597,10 @@ export default function ForServiceBusinessesPage() {
           </div>
 
           {/* Mid-page inline booking widget */}
-          <div className="rounded-[22px] border border-wine/30 bg-[#271520] px-7 py-8 md:px-10 md:py-10">
+          <div
+            id="sb-booking-section"
+            className="rounded-[22px] border border-wine/30 bg-[#271520] px-7 py-8 md:px-10 md:py-10 scroll-mt-20"
+          >
             <div className="text-center mb-6">
               <p className="text-xs text-wine uppercase tracking-[0.22em] font-medium mb-2">The first step costs nothing</p>
               <p className="text-lg md:text-xl font-serif font-semibold text-cream leading-snug mb-2">
@@ -606,13 +610,10 @@ export default function ForServiceBusinessesPage() {
                 Santa recovered $960 in 14 days without changing how she works. Pick a time below and we will audit your front desk on the call.
               </p>
             </div>
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-              scrolling="no"
+            <BookingCalendarEmbed
               id="sb-mid-page-booking"
+              scriptStrategy="afterInteractive"
             />
-            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
             <p className="text-[11px] text-cream/40 text-center mt-4">Free · No pitch · Reply within one business day</p>
           </div>
         </div>
@@ -679,7 +680,12 @@ export default function ForServiceBusinessesPage() {
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See Pricing", href: "/pricing" }}
         sourcePage="for_service_businesses"
+        variant="calendar"
+        calendarScriptStrategy="afterInteractive"
       />
+
+      {/* Sticky mobile CTA — scrolls to the inline calendar section */}
+      <ServiceBusinessesStickyCta />
     </div>
   );
 }

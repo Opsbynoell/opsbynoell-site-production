@@ -134,6 +134,8 @@ export const ConversionEvents = {
   AGENTS_FOUNDING_CTA_CLICK: "agents_founding_cta_click",
   /** Working-call request form submitted on /book. */
   AUDIT_REQUEST_SUBMITTED: "audit_request_submitted",
+  /** GHL calendar widget confirmed a booking (postMessage from the iframe). */
+  BOOKING_CONFIRMED: "booking_confirmed",
 } as const;
 
 export type ConversionEventName =
@@ -190,6 +192,31 @@ export function trackConversion(
         });
       }
     }
+  } catch {
+    // Analytics must never break the UI.
+  }
+}
+
+/**
+ * Fire conversion tracking when the GHL calendar widget confirms a booking.
+ * Sends the Google Ads conversion action and a GA4 `booking_confirmed`
+ * event. Value mirrors AUDIT_REQUEST_SUBMITTED: $200 estimated lead value.
+ */
+export function trackBookingConfirmed(context: ConversionContext = {}): void {
+  if (typeof window === "undefined") return;
+  try {
+    const gtag = (window as Window & { gtag?: GtagFn }).gtag;
+    if (typeof gtag === "function") {
+      // Google Ads conversion
+      gtag("event", "conversion", {
+        send_to: "AW-18123945519/UI5DCPOdgKYcEK_slcJD",
+        value: 200.0,
+        currency: "USD",
+      });
+      // GA4 event
+      gtag("event", ConversionEvents.BOOKING_CONFIRMED, context);
+    }
+    trackMetaCustomEvent(ConversionEvents.BOOKING_CONFIRMED, context);
   } catch {
     // Analytics must never break the UI.
   }
