@@ -1,5 +1,7 @@
-import Link from "next/link";
 import React from "react";
+import Script from "next/script";
+
+const GHL_BOOKING_ID = "ko7eXb5zooItceadiV02";
 
 export function ArticleLayout({
   eyebrow,
@@ -42,17 +44,24 @@ export function ArticleLayout({
           {footerCta && (
             <>
               <hr className="my-10 border-white/10" />
-              <p className="text-sm text-cream/70">
-                Want your own look at where leads are leaking?{" "}
-                <Link
-                  href="/book"
-                  className="text-wine font-semibold underline underline-offset-4"
-                >
-                  Get your free Missed Call Audit
-                </Link>
-                . We&apos;ll map the gaps and show exactly what a Noell install
-                would catch.
-              </p>
+              <div className="not-prose">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3 text-center">
+                  Want your own look at where leads are leaking?
+                </p>
+                <p className="text-sm text-cream/70 text-center mb-6">
+                  Book a free Missed Call Audit. We will map the gaps and show exactly what a Noell install would catch.
+                </p>
+                <iframe
+                  src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
+                  style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "580px" }}
+                  scrolling="no"
+                  id="article-footer-booking"
+                />
+                <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+                <p className="text-[11px] text-cream/40 text-center mt-3">
+                  Free &middot; No pitch &middot; If it is not a fit, we will say so
+                </p>
+              </div>
             </>
           )}
         </article>
