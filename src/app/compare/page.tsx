@@ -94,23 +94,38 @@ export default function ComparePage() {
       />
 
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="w-full bg-[#1F1219] pt-32 pb-20 px-4">
+      <section className="w-full bg-[#1F1219] pt-32 pb-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-cream/55 font-medium mb-4">
             Comparisons
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-cream leading-tight mb-6">
-            How Ops by Noell compares to{" "}
+            Stop paying for tools that need{" "}
             <em className="italic bg-gradient-to-r from-wine to-wine/70 bg-clip-text text-transparent">
-              the alternatives.
+              you to run them.
             </em>
           </h1>
           <p className="text-cream/70 text-lg leading-relaxed max-w-2xl mx-auto">
-            Every comparison below is written for service business owners who are
-            evaluating their options honestly. No hype. Just what each tool
-            actually covers, what it leaves out, and where Ops by Noell fits.
+            Most AI receptionist and messaging platforms are self-serve. You set them up, tune them, and manage them. Ops by Noell is done for you. Every comparison below covers setup model, coverage, cost, and what happens after go-live.
           </p>
         </div>
+
+        {/* Proof strip */}
+        <div className="max-w-2xl mx-auto mt-12 grid grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-[#271520]/60 px-6 py-6">
+          {[
+            { stat: "$960", label: "recovered in 14 days" },
+            { stat: "75%", label: "fewer no-shows" },
+            { stat: "14 days", label: "to live, fully managed" },
+          ].map((item) => (
+            <div key={item.stat} className="text-center">
+              <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">{item.stat}</p>
+              <p className="text-[10px] text-cream/55 uppercase tracking-wide mt-1">{item.label}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-center text-xs text-cream/40 mt-3 max-w-xs mx-auto">
+          Healing Hands by Santa, Laguna Niguel CA
+        </p>
       </section>
 
       {/* ─── COMPARISON CARDS ─────────────────────────────────────────────── */}
