@@ -199,17 +199,20 @@ export function trackConversion(
 
 /**
  * Fire conversion tracking when the GHL calendar widget confirms a booking.
- * Sends the Google Ads conversion action and a GA4 `booking_confirmed`
- * event. Value mirrors AUDIT_REQUEST_SUBMITTED: $200 estimated lead value.
+ * Sends the "Booked Audit - Calendar" Google Ads conversion action and a
+ * GA4 `booking_confirmed` event. Only called from the GHL booking
+ * confirmation postMessage handler (ghl-booking-conversion.tsx) — distinct
+ * from the form-submit conversion fired by AUDIT_REQUEST_SUBMITTED above.
+ * Value mirrors AUDIT_REQUEST_SUBMITTED: $200 estimated lead value.
  */
 export function trackBookingConfirmed(context: ConversionContext = {}): void {
   if (typeof window === "undefined") return;
   try {
     const gtag = (window as Window & { gtag?: GtagFn }).gtag;
     if (typeof gtag === "function") {
-      // Google Ads conversion
+      // Google Ads conversion — "Booked Audit - Calendar"
       gtag("event", "conversion", {
-        send_to: "AW-18123945519/UI5DCPOdgKYcEK_slcJD",
+        send_to: "AW-18123945519/t-SsCJHv1bwcEK_slcJD",
         value: 200.0,
         currency: "USD",
       });

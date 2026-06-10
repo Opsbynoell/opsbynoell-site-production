@@ -58,7 +58,7 @@ Do not hardcode event-name strings in components — import the constant.
 | `audit_page_view` | The `/book` page mounts (funnel-entry marker). | `source_page: "book"` |
 | `audit_exit_intent_shown` | The desktop exit-intent modal opens (fires only on `/book`, `/pricing`, `/for-service-businesses`; suppressed 7 days via the `exitIntentDismissed` localStorage timestamp). | `source_page`, `source_section: "book_exit_intent"` |
 | `audit_worksheet_request` | The exit-intent worksheet email form submits successfully. | — |
-| `booking_confirmed` | The GHL calendar iframe posts a booking-confirmation message (global listener in `ghl-booking-conversion.tsx`). Also fires the Google Ads conversion action via `trackBookingConfirmed()`. | `source_section: "booking_embed"`, `destination` (pathname) |
+| `booking_confirmed` | The GHL calendar iframe posts a booking-confirmation message (global listener in `ghl-booking-conversion.tsx`). Also fires the Google Ads conversion action **"Booked Audit - Calendar"** (label `t-SsCJHv1bwcEK_slcJD`) via `trackBookingConfirmed()`. The form-submit conversion ("Submit Lead Form - Book Call", label `UI5DCPOdgKYcEK_slcJD`) remains separate and unchanged. | `source_section: "booking_embed"`, `destination` (pathname) |
 | `booking_fallback_email_click` | The manual-scheduling email CTA on `/book` is clicked (the fallback shown when no live scheduler URL is configured). | `source_page: "book"` |
 | `tier_card_click` | A pricing tier CTA is clicked anywhere on the site. Already emitted pre-this-pass. | `tier`, `source_page` |
 | `vertical_pricing_shown` | The vertical pricing section scrolls into view. Emitted by `VerticalPricingSection`. | `vertical` |
