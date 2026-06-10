@@ -126,10 +126,9 @@ export default function BookPage() {
           style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
           title="Book Missed Call Audit Call"
           scrolling="no"
-          loading="lazy"
           id="ko7eXb5zooItceadiV02_1781044970554"
         />
-        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
       </section>
 
       {/* Form — secondary option below the calendar */}
