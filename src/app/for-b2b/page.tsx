@@ -515,7 +515,31 @@ export default function ForB2BPage() {
       </section>
 
       {/* ─── 8. FAQ ───────────────────────────────────────────────────────── */}
-      <FAQ
+      {/* ─── 7.5 MID-PAGE BOOKING ─────────────────────────────────────────── */}
+      <section className="w-full px-4 py-14 md:py-16">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong font-medium mb-3">
+            The first step
+          </p>
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream leading-tight mb-4">
+            Book a Digital Readiness Review.
+          </h2>
+          <p className="text-cream/70 text-base leading-relaxed max-w-xl mx-auto">
+            A focused working session ($297, fully credited toward your package). We audit your digital presence against the B2B buyer journey, identify the gaps costing you deals, and tell you exactly what we found. No pitch. No deck.
+          </p>
+        </div>
+        <div className="max-w-3xl mx-auto">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
+            style={{ width: "100%", minHeight: "720px", border: "none", display: "block" }}
+            title="Book a Digital Readiness Review"
+            scrolling="no"
+          />
+        </div>
+        <p className="text-center text-xs text-cream/40 mt-4">$297 credited toward your package if you move forward</p>
+      </section>
+
+            <FAQ
         faqs={b2bFaqs}
         eyebrow="Questions"
         headlineStart="Straight"
