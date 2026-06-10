@@ -391,7 +391,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <CTA sourcePage="pricing" />
+      <CTA sourcePage="pricing" variant="calendar" />
     </div>
   );
 }

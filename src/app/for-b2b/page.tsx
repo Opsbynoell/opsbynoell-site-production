@@ -8,6 +8,7 @@ import {
 import { Hero } from "@/components/hero";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 import { Button } from "@/components/button";
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -529,11 +530,9 @@ export default function ForB2BPage() {
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-            style={{ width: "100%", minHeight: "720px", border: "none", display: "block" }}
+          <BookingCalendarEmbed
+            id="b2b-mid-page-booking"
             title="Book a Digital Readiness Review"
-            scrolling="no"
           />
         </div>
         <p className="text-center text-xs text-cream/40 mt-4">$297 credited toward your package if you move forward</p>
@@ -557,6 +556,7 @@ export default function ForB2BPage() {
         primaryCta={{ label: "Book a Digital Readiness Review", href: "/book" }}
         secondaryCta={{ label: "See How PCI Works", href: "/predictive-customer-intelligence" }}
         sourcePage="for_b2b"
+        variant="calendar"
       />
     </div>
   );

@@ -8,7 +8,6 @@ import {
   IconRefresh,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import Script from "next/script";
 import { AdHero } from "@/components/ad-hero";
 import { Features3 } from "@/components/features3";
 import { FAQ } from "@/components/faq";
@@ -305,39 +304,16 @@ export default function NoellFrontDeskPage() {
         faqs={frontDeskFaqs}
       />
 
-      {/* ─── INLINE BOOKING ───────────────────────────────────────────────
-          Replace outbound CTA link with inline booking widget.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <section className="w-full px-4 py-16 md:py-24 border-t border-white/5">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine font-medium mb-3">
-              The first step
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-cream leading-tight mb-4">
-              See exactly where leads are{" "}
-              <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                falling through.
-              </span>
-            </h2>
-            <p className="text-base text-cream/70 max-w-xl mx-auto leading-relaxed">
-              No pitch. No pressure. A 30-minute audit that gives you a clear map of what is leaking, whether you work with us or not.
-            </p>
-          </div>
-          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-              scrolling="no"
-              id="nfd-footer-booking"
-            />
-            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
-            <p className="text-[11px] text-cream/40 text-center mt-4">
-              Free 30-minute audit &middot; No contracts required &middot; Live in 14 days
-            </p>
-          </div>
-        </div>
-      </section>
+      <CTA
+        eyebrow="The first step"
+        headlineStart="See exactly where leads are"
+        headlineAccent="falling through."
+        body="No pitch. No pressure. A 30-minute audit that gives you a clear map of what is leaking, whether you work with us or not."
+        trustLine="Free 30-minute audit · No contracts required · Live in 14 days"
+        primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
+        secondaryCta={null}
+        sourcePage="noell_front_desk"
+      />
     </div>
   );
 }

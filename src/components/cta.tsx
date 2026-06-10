@@ -1,16 +1,14 @@
 "use client";
 import React from "react";
-import Script from "next/script";
 import { motion } from "motion/react";
 import { Button } from "./button";
+import { BookingCalendarEmbed } from "./booking-calendar-embed";
 import { cn } from "@/lib/utils";
 import {
   trackAuditCtaClick,
   type SourcePage,
   type SourceSection,
 } from "@/lib/analytics";
-
-const GHL_BOOKING_ID = "ko7eXb5zooItceadiV02";
 
 export default function CTA({
   eyebrow = "The first step",
@@ -23,7 +21,8 @@ export default function CTA({
   accent = "wine",
   sourcePage,
   sourceSection = "final_cta",
-  inlineBooking = true,
+  variant = "button",
+  calendarScriptStrategy = "lazyOnload",
 }: {
   eyebrow?: string;
   headlineStart?: string;
@@ -35,8 +34,10 @@ export default function CTA({
   accent?: "wine" | "lilac";
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
-  /** When true, renders the GHL booking widget inline instead of a button link */
-  inlineBooking?: boolean;
+  /** "calendar" renders the GHL booking widget inline; "button" links to /book */
+  variant?: "calendar" | "button";
+  /** Loading strategy for GHL's form_embed.js when variant="calendar" */
+  calendarScriptStrategy?: "lazyOnload" | "afterInteractive";
 }) {
   const handlePrimary = () => {
     if (primaryCta.href === "/book") {
@@ -97,16 +98,13 @@ export default function CTA({
             {body}
           </p>
 
-          {inlineBooking ? (
+          {variant === "calendar" ? (
             /* Inline GHL booking widget */
             <div className="mt-10">
-              <iframe
-                src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-                scrolling="no"
+              <BookingCalendarEmbed
                 id={`cta-booking-${sourceSection ?? "default"}`}
+                scriptStrategy={calendarScriptStrategy}
               />
-              <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
               {trustLine && (
                 <p className="mt-4 text-xs text-white/40">{trustLine}</p>
               )}

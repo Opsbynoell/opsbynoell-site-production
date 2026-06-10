@@ -134,6 +134,8 @@ export const ConversionEvents = {
   AGENTS_FOUNDING_CTA_CLICK: "agents_founding_cta_click",
   /** Working-call request form submitted on /book. */
   AUDIT_REQUEST_SUBMITTED: "audit_request_submitted",
+  /** GHL calendar widget confirmed a booking (postMessage from the iframe). */
+  BOOKING_CONFIRMED: "booking_confirmed",
 } as const;
 
 export type ConversionEventName =
@@ -190,6 +192,47 @@ export function trackConversion(
         });
       }
     }
+  } catch {
+    // Analytics must never break the UI.
+  }
+}
+
+/**
+ * Fire conversion tracking for a confirmed calendar booking. Sends the
+ * "Booked Audit - Calendar" Google Ads conversion action and a GA4
+ * `booking_confirmed` event.
+ *
+ * Two callers share this: the /book/thanks confirmation page (primary,
+ * via the GHL calendar redirect) and the postMessage fallback in
+ * ghl-booking-conversion.tsx. The `bookingConvFired` sessionStorage guard
+ * lives here so the two paths can never both fire for one booking, and so
+ * refreshes or back-navigation to /book/thanks do not double fire.
+ *
+ * Distinct from the form-submit conversion fired by AUDIT_REQUEST_SUBMITTED
+ * above. Value mirrors it: $200 estimated lead value.
+ */
+export function trackBookingConfirmed(context: ConversionContext = {}): void {
+  if (typeof window === "undefined") return;
+  try {
+    if (sessionStorage.getItem("bookingConvFired") === "1") return;
+    sessionStorage.setItem("bookingConvFired", "1");
+  } catch {
+    // sessionStorage unavailable (private mode) — still fire below; the
+    // worst case is a duplicate on refresh, not a lost conversion.
+  }
+  try {
+    const gtag = (window as Window & { gtag?: GtagFn }).gtag;
+    if (typeof gtag === "function") {
+      // Google Ads conversion — "Booked Audit - Calendar"
+      gtag("event", "conversion", {
+        send_to: "AW-18123945519/t-SsCJHv1bwcEK_slcJD",
+        value: 200.0,
+        currency: "USD",
+      });
+      // GA4 event
+      gtag("event", ConversionEvents.BOOKING_CONFIRMED, context);
+    }
+    trackMetaCustomEvent(ConversionEvents.BOOKING_CONFIRMED, context);
   } catch {
     // Analytics must never break the UI.
   }

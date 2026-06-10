@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Script from "next/script";
 import { Hero } from "@/components/hero";
-import CTA from "@/components/cta";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
@@ -374,13 +373,7 @@ export default function Home() {
             </p>
           </div>
           <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-              style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "720px" }}
-              scrolling="no"
-              id="home-footer-booking"
-            />
-            <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+            <BookingCalendarEmbed id="home-footer-booking" />
             <p className="text-[11px] text-cream/40 text-center mt-4">
               Free &middot; No pitch &middot; If it is not a fit, we will say so
             </p>

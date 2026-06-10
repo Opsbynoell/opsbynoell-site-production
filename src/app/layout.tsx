@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ConditionalShell } from "@/components/conditional-shell";
 import { BookExitIntent } from "@/components/book-exit-intent";
+import { GhlBookingConversion } from "@/components/ghl-booking-conversion";
 import { MetaPixel } from "@/components/meta-pixel";
 import { JsonLd } from "@/components/json-ld";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
@@ -123,6 +124,7 @@ export default function RootLayout({
         <MetaPixel />
         <ConditionalShell>{children}</ConditionalShell>
         <BookExitIntent />
+        <GhlBookingConversion />
         <Analytics />
         <SpeedInsights />
       </body>

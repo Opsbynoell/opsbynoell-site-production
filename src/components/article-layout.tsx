@@ -1,7 +1,5 @@
 import React from "react";
-import Script from "next/script";
-
-const GHL_BOOKING_ID = "ko7eXb5zooItceadiV02";
+import { Button } from "@/components/button";
 
 export function ArticleLayout({
   eyebrow,
@@ -51,13 +49,11 @@ export function ArticleLayout({
                 <p className="text-sm text-cream/70 text-center mb-6">
                   Book a free Missed Call Audit. We will map the gaps and show exactly what a Noell install would catch.
                 </p>
-                <iframe
-                  src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
-                  style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "580px" }}
-                  scrolling="no"
-                  id="article-footer-booking"
-                />
-                <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+                <div className="flex justify-center">
+                  <Button href="/book" variant="primary" className="h-12 px-8">
+                    Book Your Free Audit
+                  </Button>
+                </div>
                 <p className="text-[11px] text-cream/40 text-center mt-3">
                   Free &middot; No pitch &middot; If it is not a fit, we will say so
                 </p>

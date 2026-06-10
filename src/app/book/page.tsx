@@ -1,5 +1,5 @@
-import Script from "next/script";
 import { Button } from "@/components/button";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 import { StickyMobileBookCta } from "@/components/book-sticky-mobile-cta";
 import { FAQ, type FaqItem } from "@/components/faq";
 import CTA from "@/components/cta";
@@ -119,14 +119,11 @@ export default function BookPage() {
           <h2 className="font-serif text-2xl md:text-3xl font-semibold text-cream">Book your free audit call</h2>
           <p className="mt-2 text-cream/70 text-sm md:text-base">Pick a time that works for you. 30-minute Missed Call Audit call, Tuesday through Thursday, 10 AM to 5 PM Pacific.</p>
         </div>
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/ko7eXb5zooItceadiV02"
-          style={{ width: '100%', minHeight: '720px', border: 'none', display: 'block', maxWidth: '800px', margin: '0 auto' }}
-          title="Book Missed Call Audit Call"
-          scrolling="no"
-          id="ko7eXb5zooItceadiV02_1781044970554"
+        <BookingCalendarEmbed
+          id="book-page-booking"
+          scriptStrategy="afterInteractive"
+          maxWidth="800px"
         />
-        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
       </section>
 
       {/* Form — secondary option below the calendar */}
@@ -246,6 +243,8 @@ export default function BookPage() {
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         sourcePage="book"
+        variant="calendar"
+        calendarScriptStrategy="afterInteractive"
       />
 
       {/* Sticky mobile CTA — appears when form scrolls out of view on mobile */}
