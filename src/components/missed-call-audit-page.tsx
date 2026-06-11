@@ -227,7 +227,7 @@ export function MissedCallAuditPageClient() {
                   className="text-sm mb-6"
                   style={{ color: "rgba(245,234,224,0.55)" }}
                 >
-                  Enter your name and email — we&apos;ll send it right over.
+                  Enter your name and email. We&apos;ll send it right over.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -359,7 +359,7 @@ export function MissedCallAuditPageClient() {
                     className="text-sm mb-4"
                     style={{ color: "rgba(245,234,224,0.55)" }}
                   >
-                    Want us to run the audit for you — for free?
+                    Want us to run the audit for you, for free?
                   </p>
                   <Link
                     href="/book"

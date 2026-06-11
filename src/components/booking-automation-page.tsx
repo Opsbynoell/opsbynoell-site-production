@@ -10,7 +10,7 @@ type FormState = "idle" | "submitting" | "done" | "error";
 const benefitItems = [
   "How to stop losing booked jobs to no-shows and last-minute cancellations",
   "The 3 booking gaps that cost service businesses 5–8 jobs per month",
-  "How AI handles your calendar 24/7 — even when you're on a job",
+  "How AI handles your calendar 24/7, even when you're on a job",
   "The exact automation stack we use to get clients live in 14 days",
 ];
 
@@ -129,7 +129,7 @@ export function BookingAutomationPageClient() {
           className="text-center text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto"
           style={{ color: "rgba(245,234,224,0.65)" }}
         >
-          A practical guide to automating your client booking system — so your
+          A practical guide to automating your client booking system, so your
           calendar fills itself, even when you&apos;re on a job. Free. No credit
           card. Instant download.
         </p>
@@ -228,7 +228,7 @@ export function BookingAutomationPageClient() {
                   className="text-sm mb-6"
                   style={{ color: "rgba(245,234,224,0.55)" }}
                 >
-                  Enter your name and email — we&apos;ll send it right over.
+                  Enter your name and email. We&apos;ll send it right over.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -346,7 +346,7 @@ export function BookingAutomationPageClient() {
                     className="text-sm mb-4"
                     style={{ color: "rgba(245,234,224,0.55)" }}
                   >
-                    Want us to set up your booking automation — for free?
+                    Want us to set up your booking automation, for free?
                   </p>
                   <Link
                     href="/book"

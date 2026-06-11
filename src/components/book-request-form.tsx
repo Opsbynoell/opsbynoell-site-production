@@ -40,7 +40,7 @@ const LEAK_OPTIONS = [
   "Manual follow-up taking too much of my time",
   "Booking confirmations and reminders are inconsistent",
   "Slow or no response to web form inquiries",
-  "Review generation — I'm not getting enough 5-star reviews",
+  "Review generation: I'm not getting enough 5-star reviews",
   "Something else",
 ];
 

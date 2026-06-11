@@ -9,6 +9,7 @@ export const metadata = pageMetadata({
   ogTitle: "Automate Client Booking — Stop Losing Jobs to No-Shows",
   ogDescription:
     "Most service businesses lose 5–8 jobs per month to no-shows and missed booking requests. This free guide shows you exactly how to automate your calendar and recover that revenue.",
+  noindex: true,
 });
 
 export default function BookingAutomationPage() {
