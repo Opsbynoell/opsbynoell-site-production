@@ -9,6 +9,7 @@ export const metadata = pageMetadata({
   ogTitle: "Free Missed Call Audit — Find out what your front desk is costing you.",
   ogDescription:
     "Most service businesses lose 3-5 clients a week to missed calls and slow follow-up. This audit shows you exactly where the leaks are and what to do about them.",
+  noindex: true,
 });
 
 export default function MissedCallAuditPage() {

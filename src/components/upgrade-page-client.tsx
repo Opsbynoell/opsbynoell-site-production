@@ -77,7 +77,7 @@ function AudioDemo() {
     <div className="w-full max-w-xl mx-auto mt-6">
       <div className="rounded-[22px] bg-[#271520] border border-white/10 p-5 shadow-[0px_4px_8px_0px_rgba(28,25,23,0.08)]">
         <p className="text-[10px] uppercase tracking-[0.2em] text-cream/60 mb-3 text-center">
-          Hear Nova · Noell Front Desk AI · Live demo call
+          Noell Front Desk AI · Live demo call
         </p>
         <audio
           controls
@@ -89,7 +89,7 @@ function AudioDemo() {
           Your browser does not support audio playback.
         </audio>
         <p className="text-[10px] text-cream/40 text-center mt-2">
-          AI-generated demo · Nova (Noell Front Desk AI) + caller · Not a real client call
+          AI-generated demo · Noell Front Desk AI + caller · Not a real client call
         </p>
       </div>
     </div>

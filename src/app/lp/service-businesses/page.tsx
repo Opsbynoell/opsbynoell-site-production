@@ -19,6 +19,7 @@ export const metadata = pageMetadata({
   ogTitle: "Every missed call is a client you lost. Let's fix that.",
   ogDescription:
     "Ops by Noell is the AI receptionist and done-for-you operations system for service businesses. Catch every call, follow up instantly, keep your calendar full.",
+  noindex: true,
 });
 
 const painPoints = [
