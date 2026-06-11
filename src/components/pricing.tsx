@@ -322,10 +322,10 @@ export default function Pricing() {
       <div className="max-w-3xl mx-auto mb-12 rounded-[20px] border border-wine/30 bg-wine/10 p-5 text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
           <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
-          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Launch Pricing — Live Now</p>
+          <p className="text-xs font-mono uppercase tracking-[0.2em] text-wine">Launch Pricing: Live Now</p>
         </div>
         <p className="text-sm text-cream/80 leading-relaxed">
-          The price you see is what you pay today. The <span className="line-through text-cream/40">strikethrough</span> is the standard rate this tier moves to. Your rate is locked from the day you sign up — no surprises.
+          The price you see is what you pay today. The <span className="line-through text-cream/40">strikethrough</span> is the standard rate this tier moves to. Your rate is locked from the day you sign up. No surprises.
         </p>
       </div>
 

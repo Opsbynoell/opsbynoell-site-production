@@ -121,7 +121,7 @@ export default function AboutPage() {
               &ldquo;In fourteen days, four missed calls turned into booked appointments and $960 in recovered revenue.&rdquo;
             </blockquote>
             <p className="text-sm text-cream/60 mb-8">
-              Santa E. &mdash; Healing Hands by Santa, Laguna Niguel CA
+              Santa E., Healing Hands by Santa, Laguna Niguel CA
             </p>
             <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
               <div className="text-center">

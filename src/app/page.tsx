@@ -122,7 +122,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-sm text-cream/70">
-              Santa E. &mdash; Healing Hands by Santa, Laguna Niguel CA
+              Santa E., Healing Hands by Santa, Laguna Niguel CA
             </p>
             <Link
               href="/case-studies/santa-e"

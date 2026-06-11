@@ -430,7 +430,7 @@ export default function HowItWorksPage() {
                 The audit is free. The findings are yours to keep.
               </p>
               <p className="text-sm text-cream/65 leading-relaxed">
-                No pitch. No deck. You leave with a clear map of what is leaking and what the fix looks like — whether you work with us or not.
+                No pitch. No deck. You leave with a clear map of what is leaking and what the fix looks like, whether you work with us or not.
               </p>
             </div>
             <div className="flex-shrink-0 flex flex-col items-center gap-3">

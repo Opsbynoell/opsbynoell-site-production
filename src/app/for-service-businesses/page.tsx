@@ -136,7 +136,7 @@ const objections = [
   {
     question: "I already have a booking system.",
     answer:
-      "We work around the tools you already use. No migration. No rip-and-replace. The system layers on top of your existing scheduling, CRM, or practice management software. Jane App, Mindbody, GHL, Vagaro, Square — we have seen them all.",
+      "We work around the tools you already use. No migration. No rip-and-replace. The system layers on top of your existing scheduling, CRM, or practice management software. Jane App, Mindbody, GHL, Vagaro, Square. We have seen them all.",
   },
   {
     question: "I am not a tech person.",
@@ -161,7 +161,7 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_existing_tools",
     question: "Do I need to replace my current booking or CRM tools?",
     answer:
-      "No. We build around the tools you already use. The Ops by Noell system layers on top of your existing scheduling, CRM, or practice management software. No migration, no rip-and-replace. It is done-for-you operations — we handle the setup, the integrations, and the ongoing management.",
+      "No. We build around the tools you already use. The Ops by Noell system layers on top of your existing scheduling, CRM, or practice management software. No migration, no rip-and-replace. It is done-for-you operations: we handle the setup, the integrations, and the ongoing management.",
   },
   {
     id: "sb_timeline",

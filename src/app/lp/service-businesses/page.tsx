@@ -87,13 +87,10 @@ export default function LpServiceBusinessesPage() {
         <Link href="/" className="flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/logo-obn-cream.png"
+            src="/images/logo-ops-by-noell-cream-text.png"
             alt="Ops by Noell"
             className="h-7 w-auto"
           />
-          <span className="font-serif text-lg font-semibold text-cream">
-            Ops by Noell
-          </span>
         </Link>
         <a
           href="#form"
@@ -154,7 +151,7 @@ export default function LpServiceBusinessesPage() {
 
       {/* ─── STICKY MOBILE CTA ───────────────────────────────────────────────── */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#1F1219]/95 backdrop-blur-sm border-t border-wine/20 px-6 py-4 flex items-center justify-between md:hidden">
-        <p className="text-sm text-cream/80 font-medium">Free revenue audit</p>
+        <p className="text-sm text-cream/80 font-medium">Free Missed Call Audit</p>
         <a
           href="#form"
           className="bg-wine hover:bg-wine-dark text-cream font-semibold px-5 py-2.5 rounded-full text-sm transition-colors"

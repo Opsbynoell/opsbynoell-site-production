@@ -62,7 +62,7 @@ export function Footer() {
                 ))}
               </div>
               <div>
-                <p className="text-xs font-semibold text-cream leading-none">5.0 &mdash; Rated by clients</p>
+                <p className="text-xs font-semibold text-cream leading-none">5.0, rated by clients</p>
                 <p className="text-[10px] text-cream/50 mt-0.5">Service businesses nationwide</p>
               </div>
             </div>

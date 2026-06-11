@@ -11,9 +11,10 @@ import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   path: "/book",
-  title: "Free Missed Call Audit — Most Businesses Find $3K+ in Missing Revenue",
+  title: "Book Your Free Missed Call Audit | Ops by Noell",
+  absoluteTitle: true,
   description:
-    "Tell us where your front desk is leaking. We'll review it personally and reply within one business day with two or three times for a focused walkthrough.",
+    "Pick a time for your free 30-minute Missed Call Audit. We walk your missed call rate, follow-up gaps, and booking flow, and show you what the leaks are worth.",
 });
 
 const bookFaqs: FaqItem[] = [
