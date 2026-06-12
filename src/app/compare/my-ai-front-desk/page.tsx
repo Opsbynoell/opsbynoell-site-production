@@ -94,7 +94,7 @@ export default function Compare() {
         verdict={
           <>
             <p>
-              Choose {ALT} if you want a standalone AI receptionist product and
+              Choose {ALT}{" "}if you want a standalone AI receptionist product and
               you&apos;re comfortable configuring and tuning it yourself.
               Choose Ops by Noell if you want an installed, managed operations
               layer that covers the whole front of your business and stays

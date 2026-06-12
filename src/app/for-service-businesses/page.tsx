@@ -173,7 +173,7 @@ const serviceFaqs: FaqItem[] = [
     id: "sb_pricing",
     question: "What does it cost?",
     answer:
-      "Pricing starts at $397/mo (Signal tier, one agent, done-for-you). The full three-agent System starts at $897/mo. We discuss fit and pricing on the free Missed Call Audit call.",
+      "All three agents, Noell Support, Noell Front Desk, and Noell Care, are included from $397/mo (Signal tier, launch rate, normally $497). The System tier at $897/mo keeps the three agents and adds deep two-way integration with your booking or practice management software, reactivation campaigns, no-show recovery, and review automation. We discuss fit and pricing on the free Missed Call Audit call.",
   },
   {
     id: "sb_contract",
@@ -594,6 +594,14 @@ export default function ForServiceBusinessesPage() {
               ))}
             </div>
             <p className="text-xs text-cream/45 mt-3">No migration. No rip-and-replace. We layer on top of the tools you already use.</p>
+          </div>
+
+          {/* Pricing strip — plainly visible, directly above the booking section */}
+          <div className="rounded-[16px] border border-wine/30 bg-wine/10 px-5 py-3.5 text-center mb-4">
+            <p className="text-sm md:text-base text-cream font-medium">
+              All three agents from $397/mo.{" "}
+              <span className="text-cream/65 font-normal">Launch rate, normally $497.</span>
+            </p>
           </div>
 
           {/* Mid-page inline booking widget */}

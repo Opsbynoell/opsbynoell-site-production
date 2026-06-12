@@ -145,6 +145,7 @@ export function CompareLayout({
         trustLine="Free 30-minute audit · Live in 14 days · No contracts"
         sourcePage={sourcePage}
         sourceSection="comparison_cta"
+        variant="calendar"
       />
     </div>
   );

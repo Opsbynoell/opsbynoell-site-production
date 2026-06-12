@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { AgentsPageAnalytics } from "@/components/agents-page-analytics";
+import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 
 import { JsonLd } from "@/components/json-ld";
 import { pageMetadata } from "@/lib/seo";
@@ -76,7 +77,7 @@ const youGet = [
 const youDont = [
   "No PMS integration",
   "No platform migration",
-  "No managed install",
+  "No custom automation workflows",
   "No reactivation campaigns",
   "No dedicated account manager",
 ];
@@ -311,6 +312,27 @@ export default function AgentsPage() {
         </div>
       </section>
 
+
+      {/* Inline booking calendar */}
+      <section className="w-full py-12 md:py-16 px-4">
+        <div className="max-w-4xl mx-auto rounded-[22px] border border-wine/30 bg-[#271520] px-7 py-8 md:px-10 md:py-10">
+          <div className="text-center mb-6">
+            <p className="text-xs text-[#C45A2A] uppercase tracking-[0.22em] font-medium mb-2">
+              The first step costs nothing
+            </p>
+            <p className="text-lg md:text-xl font-serif font-semibold text-cream leading-snug mb-2">
+              Pick a time for your free Missed Call Audit.
+            </p>
+            <p className="text-sm text-cream/65 leading-relaxed max-w-xl mx-auto">
+              We audit your front desk on the call and tell you whether the agents are the right fit. No pitch.
+            </p>
+          </div>
+          <BookingCalendarEmbed id="agents-inline-booking" />
+          <p className="text-[11px] text-cream/40 text-center mt-4">
+            Free · No pitch · Reply within one business day
+          </p>
+        </div>
+      </section>
 
       {/* Condensed FAQ */}
       <FAQ

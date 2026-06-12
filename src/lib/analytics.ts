@@ -233,6 +233,9 @@ export function trackBookingConfirmed(context: ConversionContext = {}): void {
       gtag("event", ConversionEvents.BOOKING_CONFIRMED, context);
     }
     trackMetaCustomEvent(ConversionEvents.BOOKING_CONFIRMED, context);
+    // Meta standard event for a completed booking. Shares the
+    // bookingConvFired guard above, so it can never double fire.
+    trackMetaEvent("Schedule", context);
   } catch {
     // Analytics must never break the UI.
   }

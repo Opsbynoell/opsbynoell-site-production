@@ -14,7 +14,7 @@ export default function CTA({
   eyebrow = "The first step",
   headlineStart = "Start with a",
   headlineAccent = "working call.",
-  body = "We walk your front desk and show you where warm intent is cooling off. Twenty focused minutes. Personally scheduled.",
+  body = "We walk your front desk and show you where warm intent is cooling off. Thirty focused minutes. Personally scheduled.",
   primaryCta = { label: "Book Your Free Audit", href: "/book" },
   secondaryCta = { label: "Talk to Noell Support first", href: "/noell-support" },
   trustLine = "No pitch. No pressure. If it's not a fit, we'll say so.",

@@ -12,6 +12,10 @@ const GHL_BOOKING_ID = "ko7eXb5zooItceadiV02";
  *
  * form_embed.js resizes the iframe to its content once loaded, so the
  * min(720px, 85vh) minHeight is only a fallback to avoid layout shift.
+ *
+ * Until the iframe's load event fires, a fixed-height skeleton at the same
+ * min(720px, 85vh) reserves the space and shows a loading line, so the
+ * booking section never renders as a blank region.
  */
 export function BookingCalendarEmbed({
   id,
@@ -29,6 +33,7 @@ export function BookingCalendarEmbed({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -51,11 +56,30 @@ export function BookingCalendarEmbed({
   }, []);
 
   return (
-    <div ref={containerRef} style={{ minHeight: "min(720px, 85vh)" }}>
+    <div
+      ref={containerRef}
+      style={{ position: "relative", minHeight: "min(720px, 85vh)" }}
+    >
+      {!loaded && (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-[16px] border border-white/10 bg-white/[0.03]"
+          style={{
+            height: "min(720px, 85vh)",
+            ...(maxWidth ? { maxWidth, margin: "0 auto", left: 0, right: 0 } : {}),
+          }}
+        >
+          <span className="w-8 h-8 rounded-full border-2 border-white/15 border-t-white/60 animate-spin" />
+          <p className="text-sm text-cream/60 animate-pulse">
+            Loading available times...
+          </p>
+        </div>
+      )}
       {visible && (
         <>
           <iframe
             src={`https://api.leadconnectorhq.com/widget/booking/${GHL_BOOKING_ID}`}
+            onLoad={() => setLoaded(true)}
             style={{
               width: "100%",
               minHeight: "min(720px, 85vh)",
