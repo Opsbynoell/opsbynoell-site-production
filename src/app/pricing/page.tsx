@@ -38,7 +38,7 @@ const pricingFaqs: FaqItem[] = [
     group: "tracks",
     question: "What is the difference between Signal, System, and Full Stack?",
     answer:
-      "Signal ($397/mo) is one agent: Noell Support handles 24/7 website chat and lead capture. System ($897/mo) adds Noell Front Desk (AI phone) and Noell Care (client reactivation), all three agents running together. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
+      "Signal ($397/mo) includes all three agents: Noell Support (24/7 website chat and lead capture), Noell Front Desk (answers calls, schedules, confirms, sends reminders), and Noell Care (returning clients, rebooks and service questions), working alongside your existing booking tool. System ($897/mo) keeps the three agents and adds operational depth: deep two-way PMS or booking integration, reactivation campaigns, no-show recovery, and review automation. Full Stack ($1,497/mo) adds a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, and a dedicated ops partner.",
   },
   {
     id: "tier_difference_b2b",
@@ -104,7 +104,7 @@ const pricingFaqs: FaqItem[] = [
     group: "features",
     question: "What's the difference between the three tiers in plain English?",
     answer:
-      "Signal ($397/mo) is the entry tier for owners who just need to stop missing leads. One agent, Noell Support, handles 24/7 website chat and lead capture with HOT/WARM scoring and a live dashboard. It works alongside your existing booking tool. System ($897/mo) is the full front desk. Everything in Signal, plus Noell Front Desk (AI phone, answers calls and books appointments), Noell Care (rebooks and reactivation), and deep two-way integration with your PMS or booking tool, reading availability and writing confirmed bookings back. Most practices start here. Full Stack ($1,497/mo) is for owners who want Noell to run the whole operation. Everything in System, plus a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, custom automation workflows, and a dedicated ops partner.",
+      "Signal ($397/mo) is the entry tier for owners who just need to stop missing leads. All three agents are included: Noell Support handles 24/7 website chat and lead capture with HOT/WARM scoring, Noell Front Desk answers calls and schedules, and Noell Care handles returning clients, all working alongside your existing booking tool. System ($897/mo) is the same three agents with the operational depth turned on: deep two-way integration with your PMS or booking tool (reading availability and writing confirmed bookings back), reactivation campaigns, no-show recovery, and review automation. Most practices start here. Full Stack ($1,497/mo) is for owners who want Noell to run the whole operation. Everything in System, plus a full website build or redesign, the Noell Ops CRM replacing GoHighLevel, a click-through audit, custom automation workflows, and a dedicated ops partner.",
   },
   {
     id: "features_a2p_sms",
@@ -182,14 +182,14 @@ export default function PricingPage() {
               name: "Noell System: Signal",
               priceMonthly: 397,
               description:
-                "Entry tier of the managed Noell System for service businesses. Noell Support 24/7 website chat, HOT/WARM lead scoring, real-time notifications, weekly report. Live in 14 days.",
+                "Entry tier of the managed Noell System for service businesses. All three agents (Noell Support, Noell Front Desk, Noell Care), HOT/WARM lead scoring, real-time notifications, weekly report. Live in 14 days.",
               url: "/pricing#noell-system",
             },
             {
               name: "Noell System: System",
               priceMonthly: 897,
               description:
-                "Full managed Noell System: three agents (Support, Front Desk, Care), deep two-way PMS or booking integration, and the full Noell Ops Dashboard.",
+                "Full managed Noell System: everything in Signal, plus deep two-way PMS or booking integration, reactivation campaigns, no-show recovery, and the full Noell Ops Dashboard.",
             },
             {
               name: "Noell System: Full Stack",

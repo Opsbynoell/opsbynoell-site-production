@@ -12,8 +12,12 @@ the analytics tool, questions like:
 ## Provider assumption
 
 The only analytics provider currently wired up is **Meta Pixel**
-(`src/components/meta-pixel.tsx`). It is enabled when
-`NEXT_PUBLIC_META_PIXEL_ID` is set. All events described here route through
+(`src/components/meta-pixel.tsx`). The base code is mounted sitewide from
+the root layout and is guarded by the `NEXT_PUBLIC_META_PIXEL_ID` env var:
+when the variable is unset the component renders nothing, so no pixel
+script, noscript beacon, or events ship at all. When set, the base code
+fires `PageView` on load and on every client-side navigation. All events
+described here route through
 `trackMetaCustomEvent` (and, for the core `audit_cta_click` / worksheet
 events, also through the Meta standard `Contact` / `Lead` events for
 compatibility with existing Pixel audiences).
@@ -58,7 +62,7 @@ Do not hardcode event-name strings in components — import the constant.
 | `audit_page_view` | The `/book` page mounts (funnel-entry marker). | `source_page: "book"` |
 | `audit_exit_intent_shown` | The desktop exit-intent modal opens (fires only on `/book`, `/pricing`, `/for-service-businesses`; suppressed 7 days via the `exitIntentDismissed` localStorage timestamp). | `source_page`, `source_section: "book_exit_intent"` |
 | `audit_worksheet_request` | The exit-intent worksheet email form submits successfully. | — |
-| `booking_confirmed` | **Primary:** the `/book/thanks` confirmation page loads — the GHL calendar redirects the top window there after every booking, so its redirect URL must point to `https://www.opsbynoell.com/book/thanks`. **Fallback:** the GHL iframe posts a booking-confirmation message (global listener in `ghl-booking-conversion.tsx`), for any embed mode that does not redirect. Both paths call `trackBookingConfirmed()`, which fires the Google Ads conversion action **"Booked Audit - Calendar"** (label `t-SsCJHv1bwcEK_slcJD`) and dedupes via the `bookingConvFired` sessionStorage guard so the two paths (or a refresh of `/book/thanks`) can never double fire. The form-submit conversion ("Submit Lead Form - Book Call", label `UI5DCPOdgKYcEK_slcJD`) remains separate and unchanged. | `source_section: "booking_embed"`, `destination` (pathname) |
+| `booking_confirmed` | **Primary:** the `/book/thanks` confirmation page loads — the GHL calendar redirects the top window there after every booking, so its redirect URL must point to `https://www.opsbynoell.com/book/thanks`. **Fallback:** the GHL iframe posts a booking-confirmation message (global listener in `ghl-booking-conversion.tsx`), for any embed mode that does not redirect. Both paths call `trackBookingConfirmed()`, which fires the Google Ads conversion action **"Booked Audit - Calendar"** (label `t-SsCJHv1bwcEK_slcJD`) plus the Meta standard `Schedule` event, and dedupes via the `bookingConvFired` sessionStorage guard so the two paths (or a refresh of `/book/thanks`) can never double fire. The form-submit conversion ("Submit Lead Form - Book Call", label `UI5DCPOdgKYcEK_slcJD`) remains separate and unchanged. | `source_section: "booking_embed"`, `destination` (pathname) |
 | `booking_fallback_email_click` | The manual-scheduling email CTA on `/book` is clicked (the fallback shown when no live scheduler URL is configured). | `source_page: "book"` |
 | `tier_card_click` | A pricing tier CTA is clicked anywhere on the site. Already emitted pre-this-pass. | `tier`, `source_page` |
 | `vertical_pricing_shown` | The vertical pricing section scrolls into view. Emitted by `VerticalPricingSection`. | `vertical` |
@@ -76,6 +80,7 @@ Pixel audiences keep working:
 | --- | --- |
 | `Contact` | Every `audit_cta_click` |
 | `Lead` | `audit_worksheet_request` and existing booking-confirmation postMessage handler |
+| `Schedule` | Every `booking_confirmed` (fired inside `trackBookingConfirmed`, so it shares the `bookingConvFired` sessionStorage guard with the Google Ads conversion and can never double fire) |
 | `InitiateCheckout` | `agents_founding_cta_click` (in `agents-founding-cta.tsx`) |
 | `ViewContent` | `/agents` page view (in `agents-page-analytics.tsx`) |
 | `PageView` | Every client-side navigation (in `meta-pixel.tsx`) |

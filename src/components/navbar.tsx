@@ -8,10 +8,12 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { Button } from "./button";
 import { Logo } from "./logo";
 import { trackAuditCtaClick } from "@/lib/analytics";
+import { useMediaQuery } from "@/hooks/use-media-query";
 // ─── Systems dropdown links ───────────────────────────────────────────────────
 const SYSTEMS_LINKS = [
   { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
@@ -52,6 +54,12 @@ type DropdownKey = "systems" | "platform" | "resources" | null;
 interface NavbarProps {
   visible: boolean;
 }
+/** Active when the visitor is on the link's page or one of its children. */
+function useIsActivePath() {
+  const pathname = usePathname();
+  return (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+}
 // ─── Navbar root ────────────────────────────────────────────────────────────
 export const Navbar = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,11 +88,15 @@ export const Navbar = () => {
 // ─── Desktop nav ────────────────────────────────────────────────────────────
 const DesktopNav = ({ visible }: NavbarProps) => {
   const [openDropdown, setOpenDropdown] = useState<DropdownKey>(null);
+  const isActive = useIsActivePath();
+  // Below 2xl the full item row plus the CTA button needs more of the
+  // viewport, otherwise nav items collide with the button around 1450px.
+  const isWide = useMediaQuery("(min-width: 1536px)");
   return (
     <motion.div
       onMouseLeave={() => setOpenDropdown(null)}
       animate={{
-        width: visible ? "70%" : "88%",
+        width: visible ? (isWide ? "70%" : "85%") : (isWide ? "88%" : "96%"),
         backgroundColor: visible
           ? "rgba(31, 18, 25, 0.97)"
           : "rgba(31, 18, 25, 0.88)",
@@ -106,14 +118,24 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         {/* For Service Businesses — primary track */}
         <Link
           href="/for-service-businesses"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
+          className={cn(
+            "px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+            isActive("/for-service-businesses")
+              ? "text-[#C45A2A]"
+              : "text-cream/80 hover:text-cream hover:bg-wine/10"
+          )}
         >
           For Service Businesses
         </Link>
-        {/* For B2B & SaaS — secondary track, visually distinct */}
+        {/* For B2B & SaaS — accent only when it is the current page */}
         <Link
           href="/for-b2b"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-[#C45A2A]/90 hover:text-[#C45A2A] hover:bg-[#C45A2A]/10 transition-colors"
+          className={cn(
+            "px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+            isActive("/for-b2b")
+              ? "text-[#C45A2A]"
+              : "text-cream/80 hover:text-cream hover:bg-wine/10"
+          )}
         >
           For B2B &amp; SaaS
         </Link>
@@ -307,14 +329,24 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         {/* Pricing */}
         <Link
           href="/pricing"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
+          className={cn(
+            "px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+            isActive("/pricing")
+              ? "text-[#C45A2A]"
+              : "text-cream/80 hover:text-cream hover:bg-wine/10"
+          )}
         >
           Pricing
         </Link>
         {/* About */}
         <Link
           href="/about"
-          className="px-3 py-1.5 rounded-full text-sm font-medium text-cream/80 hover:text-cream hover:bg-wine/10 transition-colors"
+          className={cn(
+            "px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+            isActive("/about")
+              ? "text-[#C45A2A]"
+              : "text-cream/80 hover:text-cream hover:bg-wine/10"
+          )}
         >
           About
         </Link>
@@ -352,6 +384,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
 const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const [openSection, setOpenSection] = useState<DropdownKey>(null);
+  const isActive = useIsActivePath();
   const toggleSection = (key: "systems" | "platform" | "resources") => {
     setOpenSection((prev) => (prev === key ? null : key));
   };
@@ -421,15 +454,25 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <Link
               href="/for-service-businesses"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
+              className={cn(
+                "w-full px-3 py-2.5 rounded-xl transition-colors text-sm font-medium",
+                isActive("/for-service-businesses")
+                  ? "text-[#C45A2A]"
+                  : "text-cream/90 hover:text-cream hover:bg-wine/10"
+              )}
             >
               For Service Businesses
             </Link>
-            {/* For B2B & SaaS — secondary track */}
+            {/* For B2B & SaaS — accent only when it is the current page */}
             <Link
               href="/for-b2b"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-[#C45A2A]/90 hover:text-[#C45A2A] hover:bg-[#C45A2A]/10 transition-colors text-sm font-medium"
+              className={cn(
+                "w-full px-3 py-2.5 rounded-xl transition-colors text-sm font-medium",
+                isActive("/for-b2b")
+                  ? "text-[#C45A2A]"
+                  : "text-cream/90 hover:text-cream hover:bg-wine/10"
+              )}
             >
               For B2B &amp; SaaS
             </Link>

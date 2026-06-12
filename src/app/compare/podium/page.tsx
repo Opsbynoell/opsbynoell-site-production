@@ -75,7 +75,7 @@ export default function Compare() {
         summary={
           <>
             <p>
-              {ALT} is a general-purpose local-business messaging platform.
+              {ALT}{" "}is a general-purpose local-business messaging platform.
               It&apos;s wide, messaging, reviews, text-to-pay, and your team
               operates it. Ops by Noell is narrow and deep: we install and
               manage an AI front desk shaped specifically for service

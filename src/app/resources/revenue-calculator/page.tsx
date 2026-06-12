@@ -103,7 +103,7 @@ export default function RevenueCalculatorPage() {
         eyebrow="Book a working call"
         headlineStart="Start with a"
         headlineAccent="working call."
-        body="We walk your front desk and show you where warm intent is cooling off. Twenty focused minutes. Personally scheduled."
+        body="We walk your front desk and show you where warm intent is cooling off. Thirty focused minutes. Personally scheduled."
         primaryCta={{ label: "Book a Free Audit", href: "/book" }}
         secondaryCta={null}
         trustLine="No pitch. No pressure. If it's not a fit, we'll say so."

@@ -75,6 +75,12 @@ export function NoellSupportChat() {
   const pathname = usePathname();
   const isBookPage = pathname === "/book";
   const isSupportPage = pathname === "/noell-support";
+  // Ad landing pages: never auto-open the panel. The launcher pill stays
+  // visible and clickable; the visitor opens it themselves.
+  const isAutoOpenSuppressed =
+    pathname === "/for-service-businesses" ||
+    pathname === "/agents" ||
+    pathname.startsWith("/compare");
 
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialConversation);
@@ -117,7 +123,7 @@ export function NoellSupportChat() {
   // GTM item 2: delay increased from 8s to 14s so visitors read the headline first.
   // dismissed the widget this session. Dismissal is sticky per session.
   useEffect(() => {
-    if (isBookPage) return;
+    if (isBookPage || isAutoOpenSuppressed) return;
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(DISMISS_KEY)) return;
 
@@ -170,7 +176,7 @@ export function NoellSupportChat() {
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [isBookPage, isSupportPage, pathname]);
+  }, [isBookPage, isSupportPage, isAutoOpenSuppressed, pathname]);
 
   useEffect(() => {
     if (scrollRef.current) {
