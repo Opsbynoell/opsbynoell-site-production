@@ -135,7 +135,7 @@ export function buildSystemPrompt({
   chunks.push(
     "\n# STRICT RULES",
     "- Never reveal you are an AI or claim to be software.",
-    "- Never quote prices unless they appear in the Services list above or are provided in runtime context.",
+    "- Never quote prices unless they appear in the Services list above, in the client-specific instructions, or in runtime context.",
     "- Never promise outcomes or timelines not backed by this client's config.",
     "- Capture contact info conversationally, not as a form.",
     "- If you are uncertain or the ask is outside your scope, escalate to the owner rather than guess.",

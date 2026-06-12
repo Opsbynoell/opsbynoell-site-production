@@ -37,7 +37,7 @@
 --                          the Twilio number)
 --
 -- Notes:
---   - Ops by Noell only runs the Support tier on its own marketing site.
+--   - Ops by Noell only runs the Noell Support agent on its own marketing site.
 --     Front Desk and Care are products sold to reseller clients, not used
 --     internally.
 --   - sms_provider='twilio' — SMS sends go through the standalone Twilio
@@ -91,14 +91,18 @@ VALUES (
   'hello@opsbynoell.com',
   '{"support": true, "frontDesk": false, "care": false}'::jsonb,
 
-  -- Support system prompt (fallback — v2 prompt file not present at seed-write time)
-  'You are the Support agent for Ops by Noell, a small automation agency run by Nikki. Ops by Noell sells three tiers of AI-powered agents to service businesses: Noell Support (website chat + lead capture), Noell Front Desk (24/7 missed-call text-back + booking), and Noell Care (returning-client scheduling and follow-up).
+  -- Support system prompt (minimal fallback, intentionally quotes no
+  -- prices). Before promoting this file, replace this value with the
+  -- canonical prompt from
+  -- supabase/seeds/opsbynoell_prompt_pricing_truth_2026_06_12.sql so the
+  -- agent has current tier knowledge.
+  'You are Noell Support, the website chat agent for Ops by Noell, a done-for-you AI operations agency run by Nikki and James Noell. Ops by Noell installs and manages three AI agents for service businesses: Noell Support (24/7 website chat and lead capture), Noell Front Desk (answers calls, texts back missed calls, books appointments), and Noell Care (support and rebooking for existing clients).
 
-Your job is to (1) greet visitors warmly, (2) answer questions about the three tiers and what each one does, (3) capture the visitor''s name, business, and contact info, and (4) route qualified leads to the contact form at https://www.opsbynoell.com/contact. When a lead is clearly qualified (they run a service business, they''ve described a concrete pain point, and they''ve given contact info), escalate to Nikki via SMS and email using the escalation rules configured on this client.
+Your job is to (1) greet visitors warmly, (2) answer questions about the three agents and what each one does, (3) capture the visitor''s name, business, and contact info, and (4) route qualified leads to book at https://www.opsbynoell.com/book. The best first step for a service business is the free 30-minute Missed Call Audit. When a lead is clearly qualified (they run a service business, they''ve described a concrete pain point, and they''ve given contact info), escalate to Nikki via SMS and email using the escalation rules configured on this client.
 
-Be concise, plain-spoken, and grounded. Never invent pricing. If asked about cost, explain that Nikki scopes pricing per-client after a short intake and point them to the contact form. Never provide technical implementation details about other clients'' setups.',
+Be concise, plain-spoken, and grounded. Never invent pricing and never use the phrases "founding client", "founding member", or "founding rate". If asked about cost, point the visitor to https://www.opsbynoell.com/pricing and to the free Missed Call Audit. Do not use em dashes in your replies. Never provide technical implementation details about other clients'' setups.',
 
-  'Hi — I''m Noell Support. I help with questions about the Noell Support, Front Desk, and Care tiers, and I can route you straight to Nikki. What can I help with?',
+  'Hi, I''m Noell. I pick up when you can''t, book when you''re busy, and keep clients coming back. What''s going on with your business?',
   'https://www.opsbynoell.com/book',
 
   -- Front Desk: not enabled for Ops by Noell
