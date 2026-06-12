@@ -24,7 +24,7 @@ We serve appointment-based local businesses including: Med Spas, Dental Offices,
 
 ## Pricing
 
-- [Pricing Details](https://www.opsbynoell.com/pricing): Service track starts at $397/mo for the Signal tier (Noell Support). The full System tier is $897/mo (all three agents plus integrations). B2B track starts at $497/mo.
+- [Pricing Details](https://www.opsbynoell.com/pricing): Service track: the Signal tier is $397/mo launch rate (normally $497/mo) and includes all three agents (Noell Support, Noell Front Desk, and Noell Care). The System tier is $897/mo launch rate and adds deep two-way booking or PMS integration, reactivation campaigns, and no-show recovery. B2B track starts at $497/mo launch rate for the Inbound tier.
 
 ## Contact & Audits
 
