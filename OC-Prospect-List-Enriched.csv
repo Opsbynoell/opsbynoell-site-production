@@ -1,0 +1,97 @@
+business_name,category,city,phone,rating,review_count,closed_days,website,email,owner_name,booking_tech,notes
+Irvine Smile Dentistry,dental,Irvine,+1 949-552-1701,4.9,117,"Wed, Sun",https://irvinesmiledentistry.com,info@irvinesmiledentistry.com,,contact form,"Email from search snippet, not page-confirmed (WebFetch blocked)"
+Irvine Modern Dentistry,dental,Irvine,+1 949-336-8782,4.9,204,"Mon, Sat, Sun",https://www.irvinemoderndentistry.com,none found,Dr. Jerome Tsang,contact form,No email surfaced; WebFetch blocked
+Irvine Dentistry,dental,Irvine,+1 949-552-1757,4.7,67,Sun,https://irvinedentistry.com,none found,,contact form,Live chat + contact form; no email found; WebFetch blocked
+Irvine Dental Center,dental,Irvine,+1 949-551-5888,4.9,209,"Tue, Sun",https://irvine-dental.com,none found,Dr. Wu,contact form,No literal email found; WebFetch blocked
+Parkview Dental Group,dental,Irvine,+1 949-622-0001,4.9,420,"Sat, Sun",https://parkviewdentalgroup.com,parkviewdentalgroup@gmail.com,Dr. Jonathan Cho,contact form,"Email from search snippet, not page-confirmed"
+Serene Dental Center,dental,Irvine,+1 949-748-7373,4.9,747,"Sat, Sun",https://www.serenedentalcenter.com,office@serenedentalcenter.com,Dr. Ali Mansouri; Dr. Shery Mansouri,contact form,"Email from search snippet, not page-confirmed"
+Dentists of Irvine Dental Group,dental,Irvine,+1 949-236-6527,4.5,255,"Sat, Sun",https://www.dentistsofirvine.com,none found,,contact form,Request-appointment + form; no email found; WebFetch blocked
+Blue Brush Dental,dental,Irvine,+1 949-828-4772,5.0,734,Sun,https://www.bluebrushdental.com,none found,Dr. Sean Chang,LocalMed,LocalMed booking confirmed via listing; only garbled email string seen (excluded)
+Sand Canyon Dental,dental,Irvine,+1 949-727-9077,4.9,405,"Sat, Sun",https://www.sandcanyondentistry.com,info@sandcanyondentistry.com,Dr. Najaran; Dr. Samonte-Mora,contact form,"Email from search snippet, not page-confirmed"
+Elite Dental Irvine,dental,Irvine,+1 949-552-2828,5.0,110,"Mon, Sat, Sun",https://www.elitedentalirvine.com,form only,Dr. Yuting Alice Yang,contact form,Site shows obfuscated email placeholder only; WebFetch blocked
+Anaheim Dentist - Open 7 Days,dental,Anaheim,+1 714-527-7775,4.3,613,none,https://adentist4me.com,help@adentist4me.com,"Behnaz Nonahal, DDS",none found,"Email/owner from search snippets, not page-confirmed"
+Dentist of Anaheim,dental,Anaheim,+1 657-567-7872,4.6,193,Sun,https://anaheimdentist.com,none found,Dr. Hamid Barkhordar,none found,Owner from snippet; no published email surfaced
+7 Day Dental (N Euclid),dental,Anaheim,+1 714-772-2893,4.4,1471,none,https://www.7daydental.com,euclid@7daydental.com,,none found,"Location email from snippet (637 N Euclid St), not page-confirmed"
+Anaheim Dental Group,dental,Anaheim,+1 714-870-6611,4.7,59,"Wed, Sun",https://www.anaheimdentalgroup.com,none found,"Dr. Steven Son, DDS",none found,Owner from snippet; info@ candidate was AI-inferred (excluded)
+MY Dental Center,dental,Anaheim,+1 714-776-8681,5.0,567,Sun,https://www.mydentalctr.com,none found,Dr. Maria (Mi Young) Chung; Dr. David Yi; Dr. Ella Han,none found,Email candidate masked in snippet; owners from snippet
+Dental Wellness of Anaheim,dental,Anaheim,+1 714-535-3254,4.5,105,Sun,https://dentalwellnessca.com,none found,,none found,Part of Dental Wellness & Implant Center group; no email surfaced
+7 Day Dental (W Lincoln),dental,Anaheim,+1 714-491-8600,4.4,1471,none,https://www.7daydental.com,lincoln@7daydental.com,,none found,"Location email from snippet (2265 W Lincoln Ave), not page-confirmed"
+SMILEE DENTAL (pediatric),dental,Anaheim,+1 657-655-4321,5.0,965,"Wed, Sun",https://www.smileedental.net,none found,,none found,Santa Ana-based site; Anaheim office 1686 W Katella; no email surfaced
+Jungle Dental (pediatric),dental,Anaheim,+1 714-707-6719,4.8,614,"Thu, Sat, Sun",https://jungledentalkids.com,none found,Dr. Selvana Sorour,none found,Owner from snippet; no email surfaced
+Anaheim Dental & Orthodontics,dental,Anaheim,+1 714-520-8888,4.8,383,Sun,https://www.anaheimdentalortho.com,none found,"Dr. Omid Mehdipour, DDS",none found,Owner from snippet; only RocketReach 'likely format' email (excluded)
+Huntington Beach Dental Center,dental,Huntington Beach,+1 714-252-7312,4.9,621,Sun,https://www.huntingtonbeachdentalcenter.com,none found,,,Locally owned 30+ yrs; owner/booking not in snippets
+Dentists of Huntington Beach,dental,Huntington Beach,+1 714-594-7039,4.8,224,"Sat, Sun",https://www.dentistsofhuntingtonbeach.com,none found,,,Pacific Dental Services / Smile Generation DSO-affiliated office
+Harbor Smiles Dental Care,dental,Huntington Beach,+1 714-844-5240,4.8,422,"Sat, Sun",https://www.hbsdentalstudio.com,none found,Dr. Manali S. Patel,,Older Weebly site also exists; no email in snippets
+Beach City Dental,dental,Huntington Beach,+1 714-442-7724,5.0,574,"Sat, Sun",https://beachcitydental.com,none found,Dr. Andrew G. Mortensen,,Own 'Book Appointment' page; platform not identified in snippets
+Allure Family Dental & Specialty,dental,Huntington Beach,+1 714-581-8989,4.9,699,"Sat, Sun",https://allurefamilydentalgroup.com,none found,Dr. Miele; Dr. Savedra,,alluredentalspecialist.com also resolves here; no email in snippets
+Smiles Cafe Dentistry,dental,Huntington Beach,+1 714-369-5267,5.0,1254,"Sat, Sun",https://www.smilescafedentistry.com,none found,Dr. Tahir Khan; Dr. Lily Yao,,No email in snippets
+HB Smile Dental,dental,Huntington Beach,+1 657-329-4100,5.0,244,"Mon, Sun",https://www.hbsmiledental.com,none found,,,Distinct from smilehbdental.com and hbsmilecare.com; owner not in snippets
+Huntington Beach Modern Dentistry,dental,Huntington Beach,+1 714-536-2383,4.5,339,"Sat, Sun",https://www.huntingtonbeachmoderndentistry.com,none found,,,Pacific Dental Services / Smile Generation DSO-affiliated office
+Seaside Dental Care,dental,Huntington Beach,+1 714-536-6633,4.9,231,Sun,https://seasidedentalcare.com,none found,Dr. Majid Kashani,,Owner not fully confirmed in snippets; no email
+Huntington Smile Care,dental,Huntington Beach,+1 714-602-3505,5.0,99,"Wed, Sat, Sun",https://www.hbsmilecare.com,none found,Dr. Nathan Dinh,,Default-template Wix build; no email in snippets
+New Generation Dentistry,dental,Mission Viejo,+1 949-354-5620,5.0,647,"Sat, Sun",https://newgenerationdentistry.com,info@newgenerationdentistry.com,Dr. Sara Khoshbin; Dr. Ahmad (Sasha) Aghakhan Moheb,,"Email from search snippet, not page-confirmed; WebFetch blocked"
+Mission Dental Group,dental,Mission Viejo,+1 949-582-8400,4.7,255,"Sat, Sun",https://www.mvdentalgroup.com,none found,,,Smile Generation / Smile Brands office; no email found
+Mission Viejo Dental Associates,dental,Mission Viejo,+1 949-586-6200,5.0,71,"Sat, Sun",https://www.mvdentalassociates.com,none found,Dr. Robert Stalcup,,Conflicting emails in search (unverified); Smile Brands-affiliated
+Hada Family Dental,dental,Mission Viejo,+1 949-951-1067,5.0,1412,"Sat, Sun",https://www.mymissionviejodentist.com,none found,Dr. Richard Hada,,Search-suggested email looked fabricated (excluded)
+Saddleback Dental Associates,dental,Mission Viejo,+1 949-457-0223,5.0,77,"Sat, Sun",https://mymissionviejodental.com,none found,Dr. Alex (Alexander) Marose,,Only masked ZoomInfo email existed (excluded)
+Mission Viejo Dental Specialists,dental,Mission Viejo,+1 949-877-3345,4.8,34,Sun,https://dentistmissionviejooc.com,none found,Dr. Karen Lin; Dr. Nina Sharma; Dr. Norma Lantzsch,,Single-source unverified email seen (excluded); affiliated w/ 7 Day Dental
+Los Alisos Dentistry,dental,Mission Viejo,+1 949-380-9506,4.8,104,"Sat, Sun",https://www.losalisosdentistry.com,none found,Dr. Avani Sarvaiya,,No email surfaced in search
+Vartanian Dental Group,dental,Mission Viejo,+1 949-586-5669,4.9,1383,"Sat, Sun",https://www.vartaniandentalgroup.com,none found,Dr. James Vartanian,,No email surfaced in search
+OC Smile Dental & Orthodontics,dental,Mission Viejo,+1 949-461-0000,4.4,153,Sun,https://ocsmile.com,none found,,,Multi-location (Mission Viejo + Fullerton); no email surfaced
+Smile Dental Boutique,dental,Mission Viejo,+1 949-273-1900,4.9,161,"Sat, Sun",https://www.smiledentalboutiquemv.com,none found,Dr. Pegah Naji,,Only masked ZoomInfo email existed (excluded)
+Lake Forest Dental Health Care,dental,Lake Forest,+1 949-581-1000,5.0,365,Sun,https://lakeforestdentalhealthcare.com,none found,,,Booking tech not identified in search results
+Lake Forest Dental Center,dental,Lake Forest,+1 949-855-1161,4.9,249,"Sat, Sun",https://lakeforestdentalcenter.com,none found,"Dr. Farshin Farokhian, DDS",,Operating since 1983; owner from snippet
+Smiles West Dental & Orthodontics,dental,Lake Forest,+1 949-635-7509,4.3,271,"Sat, Sun",https://smileswest.com/lake-forest,none found,,,Multi-location Smiles West group; no email/owner in snippets
+Dental Wellness of Lake Forest,dental,Lake Forest,+1 949-444-5833,4.4,117,Sun,https://dentalwellnessca.com,none found,"Dr. Maryam Waheed, DDS",,Domain shared with Dental Wellness & Implant Center
+Smile on You Dentistry,dental,Lake Forest,+1 949-716-4892,4.9,123,"Sat, Sun",https://smileonyoudentistry.com,none found,"Dr. Sooji H. Lee, DDS",,Multi-location; Dr. Lee & Dr. Ritchie Park for Lake Forest
+Lake Forest Dental Group and Orthodontics,dental,Lake Forest,+1 949-770-9355,4.3,203,"Sat, Sun",https://lakeforestdentalgroup.com,none found,"Dr. Elham McMurray, DDS",,Smile Generation-affiliated office; owner from snippet
+Smile Works Dentistry & Orthodontics,dental,Lake Forest,+1 949-472-4200,4.9,68,"Sat, Sun",https://smileworksoc.com,none found,,,Formerly Chapman Family Dentistry; current owner not named in snippets
+Forest Family Dentistry,dental,Lake Forest,+1 949-583-1558,4.8,47,"Sat, Sun",https://forestfamilydental.com,none found,"Dr. Shervin Ahmadnia, DDS",,Practice opened 1990; owner from snippet
+Baker Ranch Dental Spa & Implant Center,dental,Lake Forest,+1 949-919-6140,4.8,293,Sun,https://bakerranchdentistry.com,none found,"Dr. Ramin Khoshsar, DDS",,info@ surfaced only via RocketReach (excluded); owner from snippet
+LF Dental,dental,Lake Forest,+1 949-446-0700,5.0,46,Sun,https://lfdentaloffice.com,none found,"Dr. Leo Man, DDS",,Identity ambiguous: a separate 'LF Dental' ties to Jino Park / lfdentalgroup.com
+Newport Beach MedSpa,med spa,Newport Beach,+1 949-631-2800,4.8,274,Sun,https://www.newportbeachmedspa.com,none found,,,Only data-broker emails found (excluded); 100 W Coast Hwy Ste 102
+NakedMD Med Spa,med spa,Newport Beach,+1 949-379-8758,4.9,1681,Sun,https://www.nakedmd.com,concierge@nakedmd.com,,Shopify,Multi-location chain; email from official contact page snippet
+Beauty Boost Med Spa,med spa,Newport Beach,+1 949-514-8602,4.9,207,Sun,https://beautyboostmedspa.com,info@beautyboostmedspa.com,Dr. Steve Yoelin,Vagaro,Vagaro booking confirmed via listing; founded 2018
+BioRevive Med & Wellness Spa,med spa,Newport Beach,+1 949-867-7833,5.0,108,Sat,https://biorevivespa.com,info@biorevivespa.com,,Shopify,Email tied to official site/Facebook
+South Coast MedSpa,med spa,Newport Beach,+1 949-650-7267,4.7,309,Sun,https://www.southcoastmedspa.com,none found,,,LA-based chain w/ Newport location; info@ only via broker (excluded)
+MeSO Medspa,med spa,Newport Beach,+1 949-617-1221,4.8,356,none,https://www.mesospa.com,none found,,LeadConnector/GoHighLevel,GoHighLevel detected (contact page via app.gohighlevel.com); no email confirmed
+BioSpa,med spa,Newport Beach,+1 949-732-3888,4.9,416,"Sat, Sun",https://www.mybiospa.com,contact@mybiospa.com,Dr. Horowitz; Dr. Nichter,,Board-certified plastic surgeons; email from official contact page
+LunaGlow MedSpa,med spa,Newport Beach,+1 949-734-0747,5.0,36,Sun,https://lunaglowmedspa.com,none found,,Fresha / WellnessLiving,Booking listings on Fresha and WellnessLiving; no qualifying email
+Akari Medspa,med spa,Newport Beach,+1 949-628-6949,4.9,68,Sun,https://akarimedspa.com,none found,,Jane App,Booking via akarimedspa.janeapp.com; no qualifying email
+Beyond Beauty Medical Spa,med spa,Newport Beach,+1 949-203-3434,5.0,226,"Sat, Sun",https://bbspamed.com,info@bbspamed.com,Asil Dakak,,Founder is board-certified NP; email from official contact page
+Deluxe Med Spa & Wellness,med spa,Irvine,+1 949-350-8889,4.5,113,none,https://www.deluxemedspa.com,none found,,,"Multi-location LA/OC chain; form/phone only, no published email"
+Masters Medspa,med spa,Irvine,+1 949-334-6003,5.0,157,"Mon, Sat, Sun",https://masters-medspa.com,manager@masters-medspa.com,Dr. Chantal Lunderville (Medical Director),Jane App,Email from contact page; booking via mastersmedspa.janeapp.com
+LA Queen Med Spa,med spa,Irvine,+1 949-981-1186,4.9,82,"Mon, Sun",https://laqueenmedspa.com,laqueenmarketing@gmail.com,,,Gmail published as business contact
+Amoderm Cosmetic and Wellness,med spa,Irvine,+1 949-266-7346,4.9,699,Sun,https://www.amoderm.com,info@amoderm.com,"Dr. Elham Jafarimojarrad, MD",,info@ published on contact page
+Supreme Beauty Life Spa,med spa,Irvine,+1 949-377-1868,4.9,79,none,https://www.supremebeautylife.com,none found,,Fresha,admin@ only via Yahoo listing (excluded); books via Fresha
+Lux Medical OC,med spa,Irvine,+1 949-776-0606,5.0,101,"Sat, Sun",https://www.luxmedicaloc.com,info@luxmedicaloc.com,,Fresha,info@ listed as business contact; also bookable via Fresha; est. 2021
+Concierge Aesthetics,med spa,Irvine,+1 949-767-0000,4.9,226,"Sat, Sun",https://www.conciergeaesthetics.com,none found,"Stacy Vencill, PA-C (Founder)",,Only media@ (media inquiries) surfaced; no general contact email
+Avant Medspa,med spa,Irvine,+1 949-656-8999,4.6,10,Sun,https://avant-medspa.com,janice@avant-medspa.com,,WellnessLiving,Email from contact page; listed on WellnessLiving
+Dream Med Spa,med spa,Tustin,+1 714-417-9550,5.0,345,Sun,https://dreammedspaoc.com,dreammedspaoc@gmail.com,"Carrie (co-owner, FNP)",Fresha,Gmail published as contact; owner last name not in snippets
+Beautiful Med Spa,med spa,Costa Mesa,+1 714-855-8958,5.0,57,"Mon, Sat, Sun",none found,none found,,none found,No dedicated official site found (Yelp/Facebook/Birdeye only)
+MySkin Medical Spa,med spa,Costa Mesa,+1 949-209-8953,4.9,101,Sun,https://myskinmedicalspa.com,contactus@myskinmedicalspa.com,,WellnessLiving,Email on official contact page
+Celle Medical Aesthetics & Wellness,med spa,Costa Mesa,+1 949-981-2262,5.0,14,"Mon, Sun",https://cellemedspa.com,none found,,,Site uses contact form; no published email/owner in snippets
+GLO Bar MedSpa,med spa,Costa Mesa,+1 714-410-5685,4.9,81,Sun,https://globarmedspa.com,hello@globarmedspa.com,,,"Email published as contact; women-founded, owner not named in snippets"
+Park Medspa,med spa,Costa Mesa,+1 714-391-5064,5.0,18,"Mon, Tue, Wed, Thu, Sat, Sun",https://parkmedspa.com,none found,,,Multi-location CA brand inside Mane-Tained Salon; NJ 'Park MedSpa' unrelated
+Iconique Medical Aesthetics,med spa,Costa Mesa,+1 949-207-7207,5.0,132,"Sat, Sun",https://iconiquemedspa.com,info@iconiquemedspa.com,,,Email published as contact; multiple related domains
+OmniaPiel Facial Aesthetics,med spa,Costa Mesa,+1 714-716-5031,4.9,73,Sun,https://omniapiel.com,info@omniapiel.com,,Fresha,Email published; Shopify site; Fresha booking listing
+Gold Coast Aesthetics,med spa,Costa Mesa,+1 949-998-4611,4.9,195,Sun,https://goldcoastaesthetics.com,info@goldcoastaesthetics.com,Karina Seuser (FNP),Fresha,Email and FNP owner in snippets; Fresha booking listing
+Skin Perfect Medical Aesthetics,med spa,Costa Mesa,+1 714-485-3212,4.8,211,Sun,https://skinperfectmedical.com,none found,Erin Borini,,Multi-location; email snippets truncated/inferred (excluded); CM lead provider Erin Borini
+LYVE Medspa,med spa,Costa Mesa,+1 949-828-3424,5.0,52,Sun,https://lyvemedspa.com,none found,,,"Two domains (lyvemedspa.com, lyvewellness.com); no published email/owner"
+Squeeze Massage,massage,Laguna Niguel,+1 949-799-4995,4.9,55,none,https://www.squeezemassage.com,none found,,Squeeze app (proprietary),National franchise (Drybar founders); Laguna Niguel location page; no location email
+Balance Massage & Facial,massage,Laguna Niguel,+1 949-886-6088,4.9,112,none,https://mybalancemassage.com,none found,,,"Has contact-us page; contact form only, no published email"
+The NOW Massage,massage,Laguna Niguel,+1 949-538-5665,5.0,69,none,https://www.thenowmassage.com,lagunaniguel@thenowmassage.com,,Proprietary/app booking,National franchise; Laguna Niguel boutique page; location email from snippet
+Royal Thai Massage and Healing Center,massage,Laguna Niguel,+1 949-503-2692,4.9,267,none,https://royalthaimassagehealing.com,royalthaimassage.ln@gmail.com,,Square,Email from snippet; also lists on Fresha
+Heavenly Thai Massage,massage,Laguna Niguel,+1 949-245-9727,5.0,54,none,https://www.heavenly-thaimassage.com,none found,,Setmore,Also Square; no published email in snippets
+On Point Massage,massage,Laguna Niguel,+1 949-800-8161,4.8,70,none,https://www.onpointmassagespa.com,none found,,Fresha,On Point Massage Therapy Inc; no published email in snippets
+Relax Body & Mind Spa,massage,Laguna Niguel,+1 949-388-9991,4.6,76,none,https://relaxbodymindspalagunaniguel.com,none found,,Fresha,Also booked via Fresha; no published email in snippets
+Sun Rise World Therapies,massage,Laguna Niguel,+1 626-241-2852,5.0,51,"Mon, Wed",https://sunriseworldtherapies.com,none found,Dr. Fadia Aboraid,MassageBook,LLC; also on ClassPass; owner from snippet; no email
+OC Therapeutic Massage Inc,massage,Laguna Niguel,+1 949-779-0682,5.0,24,"Mon, Sun",https://www.octherapeuticmassage.com,dj@octherapeuticmassage.com,"DJ (founder, first name only)",Square,Also MassageBook; Wix site; email & founder first name from snippets
+Tustin Hair Salon,salon,Tustin,+1 714-486-1310,4.6,160,Mon,https://www.tustin-hairsalon.com,none found,,,"Unverified gmail (tustinhairsalon2022@gmail.com) appeared only in an AI summary, not a literal snippet (excluded); booking by phone"
+The Young American Salon - Old Town,salon,Tustin,+1 714-838-8076,4.8,109,Sun,https://www.theyoungamerican.com/california/old-town,none found,,WellnessLiving,150 E Main St; shares site/phone with Southern; only data-broker emails (excluded)
+The Young American Salon - Southern,salon,Tustin,+1 714-838-8076,4.9,176,none,https://www.theyoungamerican.com/california/southern-local,none found,,WellnessLiving,720 W First St; same salon/site as Old Town; no verified published email
+Bloom Hair Studio,salon,Tustin,+1 714-946-8609,5.0,11,"Mon, Sun",https://taddeohair.glossgenius.com,none found,,GlossGenius,No independent domain; GlossGenius page is main web presence; IG @bloomhairstudio_oc
+Haute & Knotty Salon,salon,Tustin,+1 714-617-5663,4.8,30,"Mon, Sun",https://hautenknotty.com,hautenknotty@gmail.com,,Vagaro,Email from contact-us page snippet; booking via Vagaro
+Salon Ara,salon,Tustin,+1 714-508-7782,4.6,70,"Mon, Sun",none found,none found,Kathy An (likely owner),Fresha,"No own website (Fresha/directories only); Kathy An is registered agent of Salon Ara Kay, Inc"
+LIMITLESS SALON SUITES,salon,Tustin,+1 714-277-9921,5.0,22,Sun,https://limitlesssalonsuites.com,none found,,Booksy,"Barber private-suite concept, 13132 Newport Ave; booking via Booksy"
+Best Hair Care,salon,Tustin,+1 714-832-1182,4.6,45,Sun,none found,none found,,Fresha,No official own site (Fresha listing + directory only)
