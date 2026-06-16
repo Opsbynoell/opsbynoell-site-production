@@ -17,6 +17,8 @@ interface StickyMobileBookCtaProps {
    */
   href?: string;
   label?: string;
+  /** Button color. "orange" matches the primary site CTA. */
+  accent?: "wine" | "orange";
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }
@@ -34,15 +36,16 @@ interface StickyMobileBookCtaProps {
 export function StickyMobileBookCta({
   href,
   label = "Get Your Free Missed Call Audit",
+  accent = "wine",
   sourcePage = "home",
   sourceSection = "sticky_mobile",
 }: StickyMobileBookCtaProps = {}) {
   const [visible, setVisible] = useState(false);
 
-  // href mode: reveal after scrolling past the hero.
+  // href mode: reveal once the visitor scrolls past the hero, then stay pinned.
   useEffect(() => {
     if (!href) return;
-    const onScroll = () => setVisible(window.scrollY > 600);
+    const onScroll = () => setVisible(window.scrollY > 320);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -81,7 +84,9 @@ export function StickyMobileBookCta({
   ].join(" ");
 
   const buttonClass =
-    "block w-full text-center rounded-full bg-wine text-cream text-sm font-medium py-3.5 tap-target hover:bg-wine-dark transition-colors";
+    accent === "orange"
+      ? "block w-full text-center rounded-full bg-gradient-to-b from-[#C45A2A] to-[#9A3A18] text-white text-sm font-semibold py-3.5 tap-target hover:brightness-110 transition-all"
+      : "block w-full text-center rounded-full bg-wine text-cream text-sm font-medium py-3.5 tap-target hover:bg-wine-dark transition-colors";
 
   return (
     <div aria-hidden={!visible} className={wrapperClass}>

@@ -29,6 +29,8 @@ export function Hero({
   priceSignal,
   headlineLine2Smaller = false,
   softHalo = false,
+  proofBadge,
+  pinnedProof = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -49,6 +51,10 @@ export function Hero({
   /** Soften the decorative ring outlines (ambient glow + animation stay) so
       they don't slice across hero copy that sits over the arc. */
   softHalo?: boolean;
+  /** Small proof badge shown under the headline on mobile only. */
+  proofBadge?: string;
+  /** Pin the proof bar to its first (missed-call recovery) scene, no rotation. */
+  pinnedProof?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -83,7 +89,7 @@ export function Hero({
     <div
       ref={parentRef}
       className={cn(
-        "relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-32 overflow-hidden px-4 md:px-8",
+        "relative flex max-w-7xl rounded-b-3xl my-2 md:my-20 mx-auto flex-col items-center justify-center pt-24 md:pt-32 overflow-hidden px-4 md:px-8",
         gradients[variant]
       )}
     >
@@ -91,12 +97,12 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="relative z-20 text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-6"
+        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-3 md:mb-6"
       >
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
+      <div className="text-balance relative z-20 mx-auto mb-3 md:mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={false}
@@ -148,11 +154,20 @@ export function Hero({
         </Balancer>
       </div>
 
+      {proofBadge && (
+        <div className="md:hidden relative z-20 mb-1 flex justify-center px-4">
+          <span className="inline-flex items-center gap-2 rounded-full border border-wine/40 bg-wine/15 px-3.5 py-1.5 text-[13px] font-medium text-cream text-center">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A] flex-shrink-0" />
+            {proofBadge}
+          </span>
+        </div>
+      )}
+
       <motion.p
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
+        className="relative z-20 mx-auto mt-3 md:mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
       >
         {body}
       </motion.p>
@@ -172,7 +187,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.7 }}
-        className="mb-8 mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
+        className="mb-8 mt-5 md:mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
       >
         <Button
           href={primaryCta.href}
@@ -199,7 +214,7 @@ export function Hero({
       </motion.div>
 
       {priceSignal && (
-        <div className="relative z-20 -mt-4 mb-6 text-center text-xs text-muted-strong">
+        <div className="relative z-20 -mt-3 mb-6 text-center text-sm text-cream/70 px-4">
           {priceSignal}
         </div>
       )}
@@ -211,7 +226,7 @@ export function Hero({
           transition={{ duration: 0.4, delay: 0.75 }}
           className="relative z-20 w-full flex justify-center px-4 mb-8 md:mb-12"
         >
-          <ProofBar className="mt-0 md:mt-0" />
+          <ProofBar className="mt-0 md:mt-0" pinned={pinnedProof} />
         </motion.div>
       )}
 
