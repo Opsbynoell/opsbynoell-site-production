@@ -770,7 +770,7 @@ export default function PredictiveCustomerIntelligencePage() {
         headlineLine2Accent="gap."
         headlineLine2Smaller
         body="Ops by Noell watches your leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface. When a signal fires, the right recovery action is queued for your agents."
-        footnote="The same system recovered $960 in 14 days for a solo massage practice in Orange County."
+        footnote="The same system recovered $2,560 in 30 days for a solo massage practice in Orange County."
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={{ label: "See a Sample Signal", href: "#sample-signal" }}
         showProofBar={false}
@@ -806,7 +806,7 @@ export default function PredictiveCustomerIntelligencePage() {
         eyebrow="Proof"
         headlineStart="The first proof came from a"
         headlineAccent="solo practice."
-        body="Healing Hands by Santa recovered $960 in 14 days after Ops by Noell caught missed-call and booking-flow leakage. The next step is turning that same recovery logic into Missed Call Audits for every service business vertical we serve."
+        body="Healing Hands by Santa recovered $2,560 in 30 days after Ops by Noell caught missed-call and booking-flow leakage. The next step is turning that same recovery logic into Missed Call Audits for every service business vertical we serve."
         ctaLabel="Get your Missed Call Audit"
         sourcePage={SOURCE_PAGE}
         sourceSection="proof"
