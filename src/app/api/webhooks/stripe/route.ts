@@ -89,7 +89,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   const email = session.customer_details?.email ?? session.customer_email ?? "";
   const name = session.customer_details?.name ?? "";
-  const planId = session.metadata?.plan_id ?? "agents_founding";
+  const planId = session.metadata?.plan_id ?? "signal";
 
   if (!stripeCustomerId || !stripeSubscriptionId) {
     console.error("[stripe-webhook] Missing customer or subscription ID in checkout session");
