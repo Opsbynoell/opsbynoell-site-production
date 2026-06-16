@@ -83,7 +83,7 @@ export default function Home() {
         headlineLine2Accent="picking up?"
         headlineLine2Smaller={false}
         body="We build and run an AI front desk that answers and follows up on every call, day or night, so a Laguna Niguel practice recovered $2,560 in 30 days. Done for you. Live in 14 days."
-        footnote="Who's answering the phone? Who's following up on every missed call? Who's there after you close?"
+        footnote=""
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         showProofBar={true}
@@ -246,6 +246,17 @@ export default function Home() {
           Three agents. PCI band collapsed — one tight "how it works" section.
           FounderQuote removed — Santa testimonial above already handles trust.
       ─────────────────────────────────────────────────────────────────────── */}
+      {/* Agitation lead-in (relocated from the hero) — sits directly above
+          the "Three jobs, handled" block as its question header. */}
+      <section className="px-4 pt-20 md:pt-28 text-center -mb-10 md:-mb-16 border-t border-white/5">
+        <p className="max-w-3xl mx-auto font-serif text-2xl md:text-3xl font-semibold text-cream leading-snug">
+          Who&apos;s answering the phone? Who&apos;s following up on every missed
+          call?{" "}
+          <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
+            Who&apos;s there after you close?
+          </span>
+        </p>
+      </section>
       <Systems />
 
       {/* ─── 6. FAQ + CTA ────────────────────────────────────────────────────
