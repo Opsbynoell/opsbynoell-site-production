@@ -5,7 +5,7 @@ interface PciBandProps {
 }
 
 /**
- * Predictive Customer Intelligence homepage band (copy pack Section 11).
+ * Smart Call & Client Insights homepage band (copy pack Section 11).
  * Full-width cream band, wine headline, charcoal body. Editorial tone.
  * No SaaS-grid feature tiles. No infrastructure language. PCI is described
  * as an outcome layer only.
@@ -15,7 +15,7 @@ export function PciBand({ className }: PciBandProps) {
     <section className={cn("w-full bg-[#301A26] py-16 md:py-20", className)}>
       <div className="mx-auto max-w-3xl px-4 text-center">
         <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-4">
-          Predictive Customer Intelligence
+          Smart Call & Client Insights
         </p>
         <h2 className="font-serif text-3xl md:text-4xl font-semibold text-wine leading-tight">
           Your front desk does more than answer. It watches.

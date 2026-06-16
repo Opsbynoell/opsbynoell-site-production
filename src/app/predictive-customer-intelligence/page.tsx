@@ -17,14 +17,14 @@ const PATH = "/predictive-customer-intelligence";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "Predictive Customer Intelligence",
+  title: "Smart Call & Client Insights",
   description:
-    "Know who is about to ghost before your calendar shows the gap. Predictive client intelligence for service businesses.",
-  ogTitle: "Predictive Customer Intelligence for Service Businesses",
+    "Know who is about to ghost before your calendar shows the gap. Smart Call & Client Insights for service businesses.",
+  ogTitle: "Smart Call & Client Insights for Service Businesses",
   ogDescription:
     "Know who is about to ghost before your calendar shows the gap. Free Missed Call Audit.",
   imageAlt:
-    "Predictive Customer Intelligence by Ops by Noell, know who is about to ghost before your calendar shows the gap.",
+    "Smart Call & Client Insights by Ops by Noell, know who is about to ghost before your calendar shows the gap.",
 });
 
 const SOURCE_PAGE = "predictive-customer-intelligence" as const;
@@ -179,7 +179,7 @@ const pciFaqs: FaqItem[] = [
     question:
       "How is this different from the reports my booking software gives me?",
     answer:
-      "Your booking software tells you what happened. Predictive Customer Intelligence tells you what's about to happen, and gives you a window to act on it.",
+      "Your booking software tells you what happened. Smart Call & Client Insights tells you what's about to happen, and gives you a window to act on it.",
   },
   {
     id: "pci-three-deployments",
@@ -341,7 +341,7 @@ function ComparisonBlock() {
             </div>
             <div className="px-6 py-4 md:px-8 border-t md:border-t-0 md:border-l border-white/10">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-wine">
-                Predictive Customer Intelligence catches
+                Smart Call & Client Insights catches
               </p>
             </div>
           </div>
@@ -503,7 +503,7 @@ function SolutionSection() {
             </span>
           </h2>
           <p className="mt-5 text-cream/75 max-w-2xl mx-auto leading-relaxed">
-            Predictive Customer Intelligence is the operating layer underneath
+            Smart Call & Client Insights is the operating layer underneath
             everything Ops by Noell deploys. It connects to the systems you
             already use, scores every client, lead, and rebooking on a 6-hour cadence,
             and tells the rest of the stack exactly what to do next.
@@ -747,23 +747,23 @@ export default function PredictiveCustomerIntelligencePage() {
         id="pci-page"
         data={[
           servicePageSchema({
-            name: "Predictive Customer Intelligence",
+            name: "Smart Call & Client Insights",
             description:
               "Know who is about to ghost before your calendar shows the gap. Watches leads, clients, rebooking patterns, and service history for revenue signals your booking software does not surface, then queues the right recovery action for your agents.",
             path: PATH,
-            serviceType: "Predictive customer intelligence for service businesses",
+            serviceType: "Smart Call & Client Insights for service businesses",
           }),
           faqPageSchema(
             pciFaqs.map((f) => ({ question: f.question, answer: f.answer })),
           ),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Predictive Customer Intelligence", path: PATH },
+            { name: "Smart Call & Client Insights", path: PATH },
           ]),
         ]}
       />
       <Hero
-        eyebrow="Predictive Customer Intelligence · Ops by Noell"
+        eyebrow="Smart Call & Client Insights · Ops by Noell"
         headlineLine1Start="Know who is about to"
         headlineLine1Accent="ghost"
         headlineLine2Start="before your calendar shows the"
@@ -830,7 +830,7 @@ export default function PredictiveCustomerIntelligencePage() {
         eyebrow="Questions"
         headlineStart="Straight"
         headlineAccent="answers."
-        body="The questions we get most often about Predictive Customer Intelligence."
+        body="The questions we get most often about Smart Call & Client Insights."
         faqs={pciFaqs}
       />
 

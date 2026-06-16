@@ -105,8 +105,8 @@ export function NoellAgentsCard() {
           </div>
 
           <p className="mt-8 pt-6 border-t border-white/10 text-sm italic text-muted-strong leading-relaxed max-w-3xl">
-            Need PMS integration, reactivation, or Predictive Customer
-            Intelligence? Start with{" "}
+            Need PMS integration, reactivation, or Smart Call &amp; Client
+            Insights? Start with{" "}
             <Link
               href="#noell-system"
               className="text-wine hover:text-wine-dark underline underline-offset-4 decoration-wine/30"

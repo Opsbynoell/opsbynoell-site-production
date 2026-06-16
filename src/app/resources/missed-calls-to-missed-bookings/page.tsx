@@ -193,7 +193,7 @@ export default function Article() {
           tell you.
         </p>
 
-        <h2>Where Predictive Customer Intelligence comes in</h2>
+        <h2>Where Smart Call & Client Insights comes in</h2>
         <p>
           Catching the missed call is table stakes. What happens next is the
           part most owners have never had a tool for: seeing across the book.
@@ -203,8 +203,8 @@ export default function Article() {
           average.
         </p>
         <p>
-          That is the <Link href="/resources">Predictive Customer
-          Intelligence</Link> layer, and it is what separates a
+          That is the <Link href="/resources">Smart Call &amp; Client
+          Insights</Link> layer, and it is what separates a
           missed-call fix from a front desk that gets smarter about your
           business every month. It is also why we treat the front desk as
           infrastructure, not as a widget.

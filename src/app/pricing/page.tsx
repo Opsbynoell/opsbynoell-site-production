@@ -361,7 +361,7 @@ export default function PricingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
               {[
                 "Three B2B agents: Inbound, Pipeline, Account",
-                "Predictive Customer Intelligence signal layer",
+                "Smart Call & Client Insights signal layer",
                 "Live B2B pipeline dashboard included",
                 "Digital presence architecture for B2B and SaaS buyers",
               ].map((item) => (

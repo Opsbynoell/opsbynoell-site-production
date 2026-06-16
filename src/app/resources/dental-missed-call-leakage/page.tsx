@@ -186,7 +186,7 @@ export default function Article() {
           </li>
         </ol>
 
-        <h2>Where Predictive Customer Intelligence changes the picture</h2>
+        <h2>Where Smart Call & Client Insights changes the picture</h2>
         <p>
           Catching the lunch-hour call is table stakes. What dental practices
           have almost never had is visibility across the chair, which
@@ -195,7 +195,7 @@ export default function Article() {
           taking three touches to book instead of one.
         </p>
         <p>
-          <Link href="/resources">Predictive Customer Intelligence</Link> is
+          <Link href="/resources">Smart Call & Client Insights</Link> is
           the layer that sits on top of the front desk and turns the patterns
           into a short, weekly list the office manager can actually act on.
           It is not a dashboard for the sake of a dashboard. It is a quiet

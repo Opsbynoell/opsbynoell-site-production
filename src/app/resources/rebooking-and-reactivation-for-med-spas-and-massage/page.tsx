@@ -189,7 +189,7 @@ export default function Article() {
           compounds and one that churns.
         </p>
 
-        <h2>How Predictive Customer Intelligence changes the playbook</h2>
+        <h2>How Smart Call & Client Insights changes the playbook</h2>
         <p>
           The traditional way to run rebooking and reactivation is
           blunt, everyone on the 30-day list gets the same message,
@@ -198,7 +198,7 @@ export default function Article() {
           a laser client than a toxin client than a massage regular.
         </p>
         <p>
-          <Link href="/resources">Predictive Customer Intelligence</Link>{" "}
+          <Link href="/resources">Smart Call & Client Insights</Link>{" "}
           is how we move from &ldquo;everyone on day 30&rdquo; to &ldquo;this
           specific client, on her specific cadence, for her specific
           service.&rdquo; It&apos;s the same core idea as knowing your
