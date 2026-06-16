@@ -4,19 +4,21 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { IconCheck, IconBolt, IconPhoneCall, IconHeartHandshake } from "@tabler/icons-react";
 
 const PLAN_LABELS: Record<string, string> = {
-  // current plan IDs
+  // Service track
   signal: "Noell System: Signal ($397/mo)",
-  system: "Noell System: System ($1,097/mo)",
+  system: "Noell System: System ($897/mo)",
   full_stack: "Noell System: Full Stack ($1,497/mo)",
-  b2b_prospect: "B2B: Inbound ($497/mo launch)",
+  // B2B track
+  b2b_inbound: "B2B: Inbound ($497/mo)",
   b2b_pipeline: "B2B: Pipeline ($1,197/mo)",
   b2b_full_stack: "B2B: Full Stack ($2,497/mo)",
-  // legacy plan IDs kept for in-flight checkouts; safe to remove once Stripe no longer has them
-  agents_signal: "Signal ($397/mo)",
-  agents_standard: "Noell Agents ($497/mo)",
+  // Legacy aliases for in-flight checkouts
+  agents_founding: "Noell System: Signal ($397/mo)",
+  agents_standard: "Noell System: Signal ($397/mo)",
   essentials: "Noell System: Signal ($397/mo)",
   growth: "Noell System: System ($897/mo)",
   custom_ops: "Noell System: Full Stack ($1,497/mo)",
+  b2b_prospect: "B2B: Inbound ($497/mo)",
 };
 
 const BOOKING_TOOLS = [

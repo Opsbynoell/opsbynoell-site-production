@@ -58,11 +58,19 @@ interface StatsResponse {
 }
 
 const PLAN_LABELS: Record<string, string> = {
-  agents_founding: "Noell Agents — Launch Pricing",
-  agents_standard: "Noell Agents",
+  signal: "Noell System — Signal",
+  system: "Noell System — System",
+  full_stack: "Noell System — Full Stack",
+  b2b_inbound: "B2B — Inbound",
+  b2b_pipeline: "B2B — Pipeline",
+  b2b_full_stack: "B2B — Full Stack",
+  // Legacy aliases
+  agents_founding: "Noell System — Signal",
+  agents_standard: "Noell System — Signal",
   essentials: "Noell System — Signal",
   growth: "Noell System — System",
   custom_ops: "Noell System — Full Stack",
+  b2b_prospect: "B2B — Inbound",
 };
 
 const SEVERITY_COLORS: Record<string, string> = {
