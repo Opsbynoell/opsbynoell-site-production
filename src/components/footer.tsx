@@ -16,6 +16,7 @@ export function Footer() {
     { title: "Noell Support", href: "/noell-support" },
     { title: "Noell Front Desk", href: "/noell-front-desk" },
     { title: "Noell Care", href: "/noell-care" },
+    { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
     { title: "For Service Businesses", href: "/for-service-businesses" },
     { title: "Upgrade Your AI Tool", href: "/upgrade" },
   ];

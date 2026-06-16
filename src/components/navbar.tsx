@@ -16,6 +16,7 @@ import { trackAuditCtaClick } from "@/lib/analytics";
 import { useMediaQuery } from "@/hooks/use-media-query";
 // ─── Resources dropdown links ──────────────────────────────────────────────────
 const RESOURCES_LINKS = [
+  { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Spot clients before they ghost" },
   { name: "Case Studies", href: "/case-studies", description: "Real results from real clients" },
   { name: "Compare", href: "/compare", description: "How we stack up against alternatives" },
   { name: "ROI Calculator", href: "/roi", description: "Estimate your missed revenue" },
