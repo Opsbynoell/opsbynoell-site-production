@@ -28,6 +28,7 @@ export function Hero({
   showProofBar = true,
   priceSignal,
   headlineLine2Smaller = false,
+  clipHalo = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -45,6 +46,9 @@ export function Hero({
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
   headlineLine2Smaller?: boolean;
+  /** Contain the decorative ring halo to the mockup area so it never bleeds
+      up across the hero copy. */
+  clipHalo?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -220,13 +224,21 @@ export function Hero({
         >
           <IphoneMockup>{mockScreen ?? <DefaultMockScreen />}</IphoneMockup>
         </motion.div>
-        <BackgroundShape variant={variant} />
+        <BackgroundShape variant={variant} clip={clipHalo} />
       </div>
     </div>
   );
 }
 
-function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "sage" }) {
+function BackgroundShape({
+  variant = "wine",
+  clip = false,
+}: {
+  variant?: "wine" | "lilac" | "sage";
+  /** Clip the decorative rings to the mockup area so they never bleed up
+      across the hero text (used where the copy sits over the ring arc). */
+  clip?: boolean;
+}) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const sizes = isMobile
     ? { outer: 800, middle: 600, inner: 400 }
@@ -247,7 +259,12 @@ function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "s
         : "rgba(251,240,235,0.8)";
 
   return (
-    <div className="absolute inset-0 z-0 flex items-center justify-center">
+    <div
+      className={cn(
+        "absolute inset-0 z-0 flex items-center justify-center",
+        clip && "overflow-hidden"
+      )}
+    >
       <div
         className="absolute z-0 rounded-full border border-white/30"
         style={{ width: outer, height: outer }}

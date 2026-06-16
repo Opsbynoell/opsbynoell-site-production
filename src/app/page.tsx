@@ -87,6 +87,7 @@ export default function Home() {
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         showProofBar={true}
+        clipHalo={true}
         priceSignal={
           <>Free. No pitch. If we can&apos;t find recoverable revenue, we&apos;ll tell you.</>
         }
