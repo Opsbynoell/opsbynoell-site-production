@@ -18,10 +18,6 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 const SYSTEMS_LINKS = [
   { name: "Systems Overview", href: "/systems", description: "The full operations platform" },
   { name: "Agents", href: "/agents", description: "Noell Support, Front Desk & Care" },
-  { name: "Predictive Intelligence", href: "/predictive-customer-intelligence", description: "Signals before revenue leaves" },
-  { name: "Noell Inbound", href: "/noell-inbound", description: "B2B lead qualification" },
-  { name: "Noell Pipeline", href: "/noell-pipeline", description: "B2B sales operations" },
-  { name: "Noell Account", href: "/noell-account", description: "B2B account management" },
 ];
 // ─── Platform dropdown links ───────────────────────────────────────────────────
 const PLATFORM_LINKS = [
@@ -29,12 +25,6 @@ const PLATFORM_LINKS = [
     name: "Lead Intelligence Dashboard",
     href: "/platform/lead-intelligence",
     description: "Live leads, conversations, and conversion funnel",
-    external: false,
-  },
-  {
-    name: "B2B Pipeline Dashboard",
-    href: "/platform/b2b-pipeline",
-    description: "Deal stages, ICP scores, and pipeline value",
     external: false,
   },
   {
@@ -126,18 +116,6 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           )}
         >
           For Service Businesses
-        </Link>
-        {/* For B2B & SaaS — accent only when it is the current page */}
-        <Link
-          href="/for-b2b"
-          className={cn(
-            "px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
-            isActive("/for-b2b")
-              ? "text-[#C45A2A]"
-              : "text-cream/80 hover:text-cream hover:bg-wine/10"
-          )}
-        >
-          For B2B &amp; SaaS
         </Link>
         {/* Systems dropdown */}
         <div
@@ -462,19 +440,6 @@ const MobileNav = ({ visible }: NavbarProps) => {
               )}
             >
               For Service Businesses
-            </Link>
-            {/* For B2B & SaaS — accent only when it is the current page */}
-            <Link
-              href="/for-b2b"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "w-full px-3 py-2.5 rounded-xl transition-colors text-sm font-medium",
-                isActive("/for-b2b")
-                  ? "text-[#C45A2A]"
-                  : "text-cream/90 hover:text-cream hover:bg-wine/10"
-              )}
-            >
-              For B2B &amp; SaaS
             </Link>
             <div className="w-full h-px bg-white/8 my-1" />
             {/* Systems accordion */}

@@ -4,7 +4,6 @@ import { Logo } from "./logo";
 export function Footer() {
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Predictive Customer Intelligence", href: "/predictive-customer-intelligence" },
     { title: "Systems", href: "/systems" },
     { title: "Pricing", href: "/pricing" },
     { title: "ROI Calculator", href: "/roi" },
@@ -19,14 +18,6 @@ export function Footer() {
     { title: "Noell Care", href: "/noell-care" },
     { title: "For Service Businesses", href: "/for-service-businesses" },
     { title: "Upgrade Your AI Tool", href: "/upgrade" },
-  ];
-
-  const b2bProducts = [
-    { title: "Noell Inbound", href: "/noell-inbound" },
-    { title: "Noell Pipeline", href: "/noell-pipeline" },
-    { title: "Noell Account", href: "/noell-account" },
-    { title: "For B2B & SaaS", href: "/for-b2b" },
-    { title: "Predictive Intelligence", href: "/predictive-customer-intelligence" },
   ];
 
   const legal = [
@@ -44,7 +35,7 @@ export function Footer() {
           <div className="flex items-start flex-col max-w-sm">
             <Logo />
             <h2 className="font-serif text-xl md:text-2xl font-medium text-cream mt-6 leading-snug">
-              AI-powered operations for service businesses and B2B teams. Built, installed, and managed end-to-end.
+              AI-powered operations for service businesses. Built, installed, and managed end-to-end.
             </h2>
             {/* Review badge */}
             <div className="mt-6 flex items-center gap-3 rounded-xl border border-white/10 bg-[#271520] px-4 py-3">
@@ -68,7 +59,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             <div className="space-y-5">
               <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
                 Pages
@@ -107,24 +98,6 @@ export function Footer() {
 
             <div className="space-y-5">
               <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
-                B2B & SaaS
-              </h3>
-              <ul className="space-y-3">
-                {b2bProducts.map((item, idx) => (
-                  <li key={idx}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-cream/70 hover:text-cream inline-flex items-center tap-target"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-5">
-              <h3 className="text-[11px] uppercase tracking-widest text-muted-strong">
                 Legal
               </h3>
               <ul className="space-y-3">
@@ -145,10 +118,10 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 mt-12 border-t border-white/10 gap-3">
           <p className="text-xs text-muted-strong">
-            &copy; {new Date().getFullYear()} Ops by Noell. Quiet operations for service businesses and B2B teams.
+            &copy; {new Date().getFullYear()} Ops by Noell. Quiet operations for service businesses.
           </p>
           <p className="text-xs text-muted-strong">
-            Built for both tracks. Managed end-to-end.
+            Done for you. Managed end-to-end.
           </p>
         </div>
         <div className="pt-6 mt-6 border-t border-white/10/60">
