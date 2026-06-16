@@ -24,7 +24,7 @@ export async function POST(req: Request): Promise<Response> {
     return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
   }
 
-  const planId = body.planId ?? "agents_founding";
+  const planId = body.planId ?? "signal";
   const plan = getPlanById(planId);
 
   if (!plan) {

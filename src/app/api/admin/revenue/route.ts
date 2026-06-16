@@ -49,11 +49,19 @@ interface OnboardingRow {
 }
 
 const PLAN_LABELS: Record<string, string> = {
-  agents_founding: "Noell Agents — Founding",
-  agents_standard: "Noell Agents",
+  signal: "Signal",
+  system: "System",
+  full_stack: "Full Stack",
+  b2b_inbound: "B2B Inbound",
+  b2b_pipeline: "B2B Pipeline",
+  b2b_full_stack: "B2B Full Stack",
+  // Legacy aliases
+  agents_founding: "Signal",
+  agents_standard: "Signal",
   essentials: "Signal",
   growth: "System",
   custom_ops: "Full Stack",
+  b2b_prospect: "B2B Inbound",
 };
 
 export async function GET(req: Request): Promise<Response> {
