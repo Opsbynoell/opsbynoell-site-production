@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconX, IconChevronDown } from "@tabler/icons-react";
 import {
   motion,
   AnimatePresence,
@@ -14,6 +14,12 @@ import { Button } from "./button";
 import { Logo } from "./logo";
 import { trackAuditCtaClick } from "@/lib/analytics";
 import { useMediaQuery } from "@/hooks/use-media-query";
+// ─── Resources dropdown links ──────────────────────────────────────────────────
+const RESOURCES_LINKS = [
+  { name: "Case Studies", href: "/case-studies", description: "Real results from real clients" },
+  { name: "Compare", href: "/compare", description: "How we stack up against alternatives" },
+  { name: "ROI Calculator", href: "/roi", description: "Estimate your missed revenue" },
+];
 interface NavbarProps {
   visible: boolean;
 }
@@ -50,6 +56,7 @@ export const Navbar = () => {
 };
 // ─── Desktop nav ────────────────────────────────────────────────────────────
 const DesktopNav = ({ visible }: NavbarProps) => {
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const isActive = useIsActivePath();
   // Below 2xl the full item row plus the CTA button needs more of the
   // viewport, otherwise nav items collide with the button around 1450px.
@@ -88,6 +95,59 @@ const DesktopNav = ({ visible }: NavbarProps) => {
         >
           For Service Businesses
         </Link>
+        {/* Resources dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setResourcesOpen(true)}
+          onMouseLeave={() => setResourcesOpen(false)}
+        >
+          <button
+            type="button"
+            onClick={() => setResourcesOpen((v) => !v)}
+            className={cn(
+              "flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors",
+              resourcesOpen
+                ? "text-wine bg-wine/15"
+                : "text-cream/80 hover:text-cream hover:bg-wine/10"
+            )}
+          >
+            Resources
+            <IconChevronDown
+              size={13}
+              className={cn(
+                "transition-transform duration-200",
+                resourcesOpen ? "rotate-180" : "rotate-0"
+              )}
+            />
+          </button>
+          <AnimatePresence>
+            {resourcesOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-2xl border border-white/10 bg-[#1F1219]/98 backdrop-blur-xl shadow-[0_20px_40px_-10px_rgba(28,25,23,0.12)] p-2 z-50"
+              >
+                {RESOURCES_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setResourcesOpen(false)}
+                    className="flex flex-col px-3.5 py-2.5 rounded-xl hover:bg-wine/10 transition-colors group"
+                  >
+                    <span className="text-sm font-medium text-cream group-hover:text-wine transition-colors">
+                      {link.name}
+                    </span>
+                    <span className="text-[11px] text-cream/55 mt-0.5">
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         {/* Pricing */}
         <Link
           href="/pricing"
@@ -145,6 +205,7 @@ const DesktopNav = ({ visible }: NavbarProps) => {
 // ─── Mobile nav ────────────────────────────────────────────────────────────
 const MobileNav = ({ visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const isActive = useIsActivePath();
   return (
     <motion.div
@@ -217,6 +278,50 @@ const MobileNav = ({ visible }: NavbarProps) => {
             >
               For Service Businesses
             </Link>
+            {/* Resources accordion */}
+            <div className="w-full">
+              <button
+                type="button"
+                onClick={() => setResourcesOpen((v) => !v)}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
+              >
+                Resources
+                <IconChevronDown
+                  size={14}
+                  className={cn(
+                    "transition-transform duration-200",
+                    resourcesOpen ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {resourcesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden pl-3"
+                  >
+                    {RESOURCES_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
+                      >
+                        <span className="text-sm text-cream/85">
+                          {link.name}
+                        </span>
+                        <span className="text-[11px] text-cream/50">
+                          {link.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             {/* Pricing */}
             <Link
               href="/pricing"

@@ -28,7 +28,7 @@ export function Hero({
   showProofBar = true,
   priceSignal,
   headlineLine2Smaller = false,
-  clipHalo = false,
+  softHalo = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -46,9 +46,9 @@ export function Hero({
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
   headlineLine2Smaller?: boolean;
-  /** Contain the decorative ring halo to the mockup area so it never bleeds
-      up across the hero copy. */
-  clipHalo?: boolean;
+  /** Soften the decorative ring outlines (ambient glow + animation stay) so
+      they don't slice across hero copy that sits over the arc. */
+  softHalo?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -224,7 +224,7 @@ export function Hero({
         >
           <IphoneMockup>{mockScreen ?? <DefaultMockScreen />}</IphoneMockup>
         </motion.div>
-        <BackgroundShape variant={variant} clip={clipHalo} />
+        <BackgroundShape variant={variant} soft={softHalo} />
       </div>
     </div>
   );
@@ -232,12 +232,12 @@ export function Hero({
 
 function BackgroundShape({
   variant = "wine",
-  clip = false,
+  soft = false,
 }: {
   variant?: "wine" | "lilac" | "sage";
-  /** Clip the decorative rings to the mockup area so they never bleed up
-      across the hero text (used where the copy sits over the ring arc). */
-  clip?: boolean;
+  /** Soften the bright ring outlines (keeping the ambient glow + animation)
+      so the rings don't slice across hero copy that sits over the arc. */
+  soft?: boolean;
 }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const sizes = isMobile
@@ -259,18 +259,19 @@ function BackgroundShape({
         : "rgba(251,240,235,0.8)";
 
   return (
-    <div
-      className={cn(
-        "absolute inset-0 z-0 flex items-center justify-center",
-        clip && "overflow-hidden"
-      )}
-    >
+    <div className="absolute inset-0 z-0 flex items-center justify-center">
       <div
-        className="absolute z-0 rounded-full border border-white/30"
+        className={cn(
+          "absolute z-0 rounded-full border",
+          soft ? "border-white/10" : "border-white/30"
+        )}
         style={{ width: outer, height: outer }}
       />
       <motion.div
-        className="absolute z-0 rounded-full border border-white"
+        className={cn(
+          "absolute z-0 rounded-full border",
+          soft ? "border-white/20" : "border-white"
+        )}
         style={{
           width: middle,
           height: middle,
