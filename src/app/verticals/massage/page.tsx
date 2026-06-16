@@ -33,9 +33,9 @@ export const metadata = pageMetadata({
 
 const massageStats = [
   {
-    value: "$960",
+    value: "$2,560",
     label: "Recovered",
-    detail: "in 14 days from missed calls, real install",
+    detail: "in 30 days from missed calls, real install",
   },
   {
     value: "<1",
@@ -145,7 +145,7 @@ const massageFaqs = [
   {
     question: "How long is install and how much do I have to set up?",
     answer:
-      "Most massage installs are live in fourteen days. You do not configure anything. We write the copy with you, plug in your booking tool, and handle the routing. Your part is roughly a sixty-minute voice-match call during install and a short weekly report after that.",
+      "Most massage installs are live in 14 days. You do not configure anything. We write the copy with you, plug in your booking tool, and handle the routing. Your part is roughly a sixty-minute voice-match call during install and a short weekly report after that.",
   },
 ];
 
@@ -184,9 +184,9 @@ const massageScreen = (
 
     <div className="bg-wine rounded-2xl p-3 mx-1 mt-2 shadow-sm">
       <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
-        Recovered, 14 days
+        Recovered, 30 days
       </p>
-      <p className="font-serif text-3xl font-bold text-cream mt-0.5">$960</p>
+      <p className="font-serif text-3xl font-bold text-cream mt-0.5">$2,560</p>
       <p className="text-[11px] text-cream/60">
         from 4 missed calls, all booked
       </p>
@@ -297,7 +297,7 @@ export default function MassageVerticalPage() {
         role="licensed massage therapist"
         business="Laguna Niguel"
         metrics={[
-          { label: "Recovered", value: "$960" },
+          { label: "Recovered", value: "$2,560" },
           { label: "Days live", value: "14" },
           { label: "Rebooks", value: "4" },
         ]}

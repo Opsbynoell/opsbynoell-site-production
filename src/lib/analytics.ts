@@ -105,7 +105,8 @@ export type SourceSection =
   | "offer"
   | "final"
   | "calculator_results"
-  | "calculator_lead_form";
+  | "calculator_lead_form"
+  | "sticky_mobile";
 
 /**
  * The canonical conversion events. Narrow set on purpose — each has a

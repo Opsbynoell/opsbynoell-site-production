@@ -18,7 +18,7 @@ const recoveryScenes: RecoveryRow[][] = [
   [
     { time: "09:14", action: "missed-call-recovery", sep: "·", result: "triggered" },
     { time: "09:14", action: "auto-reply sent", sep: "·", result: "lead engaged" },
-    { time: "09:17", action: "appointment confirmed", sep: "·", result: "$960 recovered" },
+    { time: "09:17", action: "appointment confirmed", sep: "·", result: "$2,560 recovered" },
   ],
   [
     { time: "14:22", action: "web-chat opened", sep: "·", result: "qualified" },

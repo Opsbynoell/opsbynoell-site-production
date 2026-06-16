@@ -28,6 +28,7 @@ export function Hero({
   showProofBar = true,
   priceSignal,
   headlineLine2Smaller = false,
+  softHalo = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -40,11 +41,14 @@ export function Hero({
   body?: string;
   footnote?: string;
   primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string } | null;
   mockScreen?: React.ReactNode;
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
   headlineLine2Smaller?: boolean;
+  /** Soften the decorative ring outlines (ambient glow + animation stay) so
+      they don't slice across hero copy that sits over the arc. */
+  softHalo?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -158,7 +162,7 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.6 }}
-          className="relative z-20 mx-auto mt-3 max-w-xl px-4 text-center text-sm text-cream/80"
+          className="relative z-20 mx-auto mt-6 md:mt-8 max-w-xl px-4 text-center text-sm text-cream/80 leading-relaxed"
         >
           {footnote}
         </motion.p>
@@ -181,15 +185,17 @@ export function Hero({
         >
           {primaryCta.label}
         </Button>
-        <Button
-          href={secondaryCta.href}
-          variant="secondary"
-          className="w-full sm:w-auto h-12 px-7"
-          data-source-page={sourcePage}
-          data-source-section={sourceSection}
-        >
-          {secondaryCta.label}
-        </Button>
+        {secondaryCta && (
+          <Button
+            href={secondaryCta.href}
+            variant="secondary"
+            className="w-full sm:w-auto h-12 px-7"
+            data-source-page={sourcePage}
+            data-source-section={sourceSection}
+          >
+            {secondaryCta.label}
+          </Button>
+        )}
       </motion.div>
 
       {priceSignal && (
@@ -218,13 +224,21 @@ export function Hero({
         >
           <IphoneMockup>{mockScreen ?? <DefaultMockScreen />}</IphoneMockup>
         </motion.div>
-        <BackgroundShape variant={variant} />
+        <BackgroundShape variant={variant} soft={softHalo} />
       </div>
     </div>
   );
 }
 
-function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "sage" }) {
+function BackgroundShape({
+  variant = "wine",
+  soft = false,
+}: {
+  variant?: "wine" | "lilac" | "sage";
+  /** Soften the bright ring outlines (keeping the ambient glow + animation)
+      so the rings don't slice across hero copy that sits over the arc. */
+  soft?: boolean;
+}) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const sizes = isMobile
     ? { outer: 800, middle: 600, inner: 400 }
@@ -247,11 +261,17 @@ function BackgroundShape({ variant = "wine" }: { variant?: "wine" | "lilac" | "s
   return (
     <div className="absolute inset-0 z-0 flex items-center justify-center">
       <div
-        className="absolute z-0 rounded-full border border-white/30"
+        className={cn(
+          "absolute z-0 rounded-full border",
+          soft ? "border-white/10" : "border-white/30"
+        )}
         style={{ width: outer, height: outer }}
       />
       <motion.div
-        className="absolute z-0 rounded-full border border-white"
+        className={cn(
+          "absolute z-0 rounded-full border",
+          soft ? "border-white/20" : "border-white"
+        )}
         style={{
           width: middle,
           height: middle,
@@ -320,8 +340,8 @@ function DefaultMockScreen() {
           </span>
         </div>
         <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
-          "Thanks for reaching out. A few quick questions to confirm we are the
-          right fit, what does your current setup look like?"
+          &ldquo;Thanks for reaching out. A few quick questions to confirm we are the
+          right fit, what does your current setup look like?&rdquo;
         </div>
       </div>
 
@@ -330,8 +350,8 @@ function DefaultMockScreen() {
         <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
           Revenue recovered
         </p>
-        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$4,200</p>
-        <p className="text-[11px] text-cream/60">from 6 missed inquiries · 30 days</p>
+        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$2,560</p>
+        <p className="text-[11px] text-cream/60">from recovered missed calls · 30 days</p>
       </div>
 
       {/* Meeting confirmed card */}

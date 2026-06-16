@@ -16,11 +16,11 @@ const caseStudies = [
   {
     href: "/case-studies/santa-e",
     name: "Santa E.: Massage Therapist",
-    result: "$960 recovered in 14 days",
+    result: "$2,560 recovered in 30 days",
     description:
-      "A solo massage therapist in Orange County recovered four missed calls and rebooked them within 14 days of installing a done-for-you AI front desk.",
+      "A solo massage therapist in Orange County recovered missed calls and rebooked them within 30 days of installing a done-for-you AI front desk.",
     vertical: "Massage Therapy",
-    timeline: "14 days",
+    timeline: "30 days",
   },
 ];
 

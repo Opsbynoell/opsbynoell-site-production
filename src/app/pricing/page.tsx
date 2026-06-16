@@ -250,15 +250,15 @@ export default function PricingPage() {
             <p className="font-serif text-base md:text-lg text-cream leading-snug">
               Healing Hands by Santa, a solo licensed massage practice in Laguna Niguel, was losing
               clients every time she was with a client. Her phone went quiet. No follow-up went out.
-              Clients booked elsewhere. In fourteen days, four missed calls turned into booked
+              Clients booked elsewhere. In thirty days, four missed calls turned into booked
               appointments and{" "}
-              <span className="text-wine font-semibold">$960 in recovered revenue.</span> No new
+              <span className="text-wine font-semibold">$2,560 in recovered revenue.</span> No new
               software. No configuration. We built it, installed it, and ran it.
             </p>
             <div className="mt-5 grid grid-cols-3 gap-4 border-t border-white/10 pt-5">
               {[
                 { stat: "4", label: "Missed calls recovered" },
-                { stat: "$960", label: "Revenue in 14 days" },
+                { stat: "$2,560", label: "Revenue in 30 days" },
                 { stat: "75%", label: "Fewer no-shows" },
               ].map((item) => (
                 <div key={item.stat} className="text-center">

@@ -118,15 +118,15 @@ export default function AboutPage() {
               Client result
             </p>
             <blockquote className="font-serif italic text-xl md:text-2xl text-cream leading-snug mb-6">
-              &ldquo;In fourteen days, four missed calls turned into booked appointments and $960 in recovered revenue.&rdquo;
+              &ldquo;In thirty days, four missed calls turned into booked appointments and $2,560 in recovered revenue.&rdquo;
             </blockquote>
             <p className="text-sm text-cream/60 mb-8">
               Santa E., Healing Hands by Santa, Laguna Niguel CA
             </p>
             <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
               <div className="text-center">
-                <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">$960</p>
-                <p className="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Recovered in 14 days</p>
+                <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">$2,560</p>
+                <p className="text-[11px] uppercase tracking-widest text-cream/50 mt-1">Recovered in 30 days</p>
               </div>
               <div className="text-center">
                 <p className="font-serif text-3xl md:text-4xl font-semibold text-cream">75%</p>
