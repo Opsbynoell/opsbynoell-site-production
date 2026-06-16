@@ -66,7 +66,7 @@ export function VerticalCaseStudyPlaceholder({ vertical }: PlaceholderProps) {
         </div>
         <div className="flex gap-8 flex-wrap">
           <div>
-            <div className="font-serif text-2xl text-cream">$960</div>
+            <div className="font-serif text-2xl text-cream">$2,560</div>
             <div className="text-xs uppercase tracking-wider text-cream/70">
               Recovered in first month
             </div>

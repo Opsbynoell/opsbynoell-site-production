@@ -16,7 +16,7 @@ export const metadata = pageMetadata({
     "Industry-specific revenue calculator for dental, med spa, and chiropractic practices. Monthly leads, booking rate, no-show rate, and the Santa proof math.",
   ogTitle: "Industry Revenue Calculator, Ops by Noell",
   ogDescription:
-    "Enter your monthly leads, booking rate, and no-show rate. We show you what the Noell System would recover, based on Santa's actual 75% no-show reduction and $960 recovered in 14 days.",
+    "Enter your monthly leads, booking rate, and no-show rate. We show you what the Noell System would recover, based on Santa's actual 75% no-show reduction and $2,560 recovered in 30 days.",
 });
 
 export default function RevenueCalculatorPage() {
@@ -72,9 +72,9 @@ export default function RevenueCalculatorPage() {
           </div>
           <div className="hidden md:block w-px bg-warm-border self-stretch" />
           <div className="text-center">
-            <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">$960</p>
+            <p className="font-serif text-2xl md:text-3xl font-semibold text-wine">$2,560</p>
             <p className="text-[10px] uppercase tracking-[0.2em] text-cream/70 mt-1">
-              recovered in 14 days
+              recovered in 30 days
             </p>
           </div>
           <div className="hidden md:block w-px bg-warm-border self-stretch" />

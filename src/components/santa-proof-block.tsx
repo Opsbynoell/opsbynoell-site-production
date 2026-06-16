@@ -29,8 +29,8 @@ export function SantaProofBlock({ className }: SantaProofBlockProps) {
             <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">missed calls<br/>recovered</p>
           </div>
           <div className="text-center">
-            <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">$960</p>
-            <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">recovered<br/>in 14 days</p>
+            <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">$2,560</p>
+            <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">recovered<br/>in 30 days</p>
           </div>
           <div className="text-center">
             <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">75%</p>

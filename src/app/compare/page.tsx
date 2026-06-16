@@ -113,7 +113,7 @@ export default function ComparePage() {
         {/* Proof strip */}
         <div className="max-w-2xl mx-auto mt-12 grid grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-[#271520]/60 px-6 py-6">
           {[
-            { stat: "$960", label: "recovered in 14 days" },
+            { stat: "$2,560", label: "recovered in 30 days" },
             { stat: "75%", label: "fewer no-shows" },
             { stat: "14 days", label: "to live, fully managed" },
           ].map((item) => (

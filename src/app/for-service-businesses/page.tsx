@@ -321,8 +321,8 @@ export default function ForServiceBusinessesPage() {
               <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">missed calls<br />recovered</p>
             </div>
             <div className="text-center">
-              <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">$960</p>
-              <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">recovered<br />in 14 days</p>
+              <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">$2,560</p>
+              <p className="text-[11px] text-cream/70 mt-1 uppercase tracking-wide">recovered<br />in 30 days</p>
             </div>
             <div className="text-center">
               <p className="font-serif text-3xl md:text-4xl font-semibold text-wine">75%</p>
@@ -615,7 +615,7 @@ export default function ForServiceBusinessesPage() {
                 Find out what your front desk is costing you.
               </p>
               <p className="text-sm text-cream/65 leading-relaxed max-w-xl mx-auto">
-                Santa recovered $960 in 14 days without changing how she works. Pick a time below and we will audit your front desk on the call.
+                Santa recovered $2,560 in 30 days without changing how she works. Pick a time below and we will audit your front desk on the call.
               </p>
             </div>
             <BookingCalendarEmbed

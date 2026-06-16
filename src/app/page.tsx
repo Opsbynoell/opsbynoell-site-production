@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
+import { StickyMobileBookCta } from "@/components/book-sticky-mobile-cta";
 import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
@@ -28,13 +29,13 @@ const homepageFaqs: FaqItem[] = [
     id: "is-this-a-sales-pitch",
     question: "Is this a sales pitch?",
     answer:
-      "No. The Missed Call Audit and the Digital Readiness Review are both working deliverables. You leave with a clear map of what is leaking, what it is worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
+      "No. The Missed Call Audit is a working deliverable. You leave with a clear map of what is leaking, what it is worth, and whether Ops by Noell is the right fit. If it is not, we will say so.",
   },
   {
     id: "who-is-this-for",
     question: "Who is this for?",
     answer:
-      "Two types of business. Service businesses including dental practices, med spas, salons, coaches, agencies, and professional service firms where every missed call or slow follow-up costs a client. And B2B and SaaS companies including AI vendors and tech startups where the gap between your pitch and your website is costing you deals.",
+      "Local appointment-based service businesses: dental practices, med spas, salons, massage and wellness practices, and other professional service firms where every missed call or slow follow-up costs a booked appointment.",
   },
   {
     id: "what-does-done-for-you-mean",
@@ -46,7 +47,7 @@ const homepageFaqs: FaqItem[] = [
     id: "how-long-to-go-live",
     question: "How long until the system is live?",
     answer:
-      "Most service business installs are live within 14 days. B2B engagements vary based on scope but start with a Digital Readiness Review that delivers findings within the first session.",
+      "Most service business installs are live within 14 days. Your free Missed Call Audit delivers findings within the first session, before anything is built.",
   },
 ];
 
@@ -57,7 +58,7 @@ export default function Home() {
         data={servicePageSchema({
           name: "Ops by Noell AI Operations",
           description:
-            "Done-for-you AI operational systems for service businesses and B2B companies. Built, installed, and managed by our team.",
+            "Done-for-you AI front desk and operations systems for local appointment-based service businesses. Built, installed, and managed by our team.",
           path: "/",
         })}
         id="home-service"
@@ -72,20 +73,23 @@ export default function Home() {
       />
 
       {/* ─── 1. HOOK ─────────────────────────────────────────────────────────
-          Brand-level headline. Speaks to both audiences.
+          Service-business headline. Single audience, single primary CTA.
       ─────────────────────────────────────────────────────────────────────── */}
       <Hero
-        eyebrow="For service-based businesses"
-        headlineLine1Start="While you are with a client,"
+        eyebrow="For local practices and solo operators who can't catch every call"
+        headlineLine1Start="While you're with a client,"
         headlineLine1Accent=""
-        headlineLine2Start="someone else is answering"
-        headlineLine2Accent="your phone."
+        headlineLine2Start="who's"
+        headlineLine2Accent="picking up?"
         headlineLine2Smaller={false}
-        body="Every missed call is a client who called the next business on Google. Ops by Noell builds and runs your AI front desk so nothing slips through. Done for you. Live in 14 days. No software to learn."
-        footnote=""
+        body="We build and run an AI front desk that answers and follows up on every call, day or night, so a Laguna Niguel practice recovered $2,560 in 30 days. Done for you. Live in 14 days."
+        footnote="Who's answering the phone? Who's following up on every missed call? Who's there after you close?"
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
-        secondaryCta={{ label: "See How It Works", href: "/systems" }}
-        showProofBar={false}
+        secondaryCta={null}
+        showProofBar={true}
+        priceSignal={
+          <>Free. No pitch. If we can&apos;t find recoverable revenue, we&apos;ll tell you.</>
+        }
       />
 
       {/* ─── 2. PROOF ────────────────────────────────────────────────────────
@@ -101,10 +105,10 @@ export default function Home() {
           </p>
           <p className="font-serif text-lg md:text-xl text-cream leading-snug">
             Keeping the front desk moving for Healing Hands by Santa, a solo
-            licensed therapeutic massage practice in Laguna Niguel. In fourteen
-            days, four missed calls turned into booked appointments and{" "}
+            licensed therapeutic massage practice in Laguna Niguel. In 30 days,
+            missed calls turned into booked appointments and{" "}
             <span className="text-wine font-semibold">
-              $960 in recovered revenue.
+              $2,560 in recovered revenue.
             </span>
           </p>
           <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-4">
@@ -237,104 +241,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 4. AUDIENCE SPLIT ───────────────────────────────────────────────
-          The moment the visitor self-identifies. Two tracks. Clean routing.
-          Now positioned after the "aha moment" from the calculator.
-      ─────────────────────────────────────────────────────────────────────── */}
-      <section className="w-full py-16 md:py-24 px-4 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-4">
-              Who we work with
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-cream leading-tight">
-              Two types of business.{" "}
-              <span className="italic bg-gradient-to-b from-wine-light to-wine bg-clip-text text-transparent">
-                One team that runs it for you.
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 items-stretch">
-            {/* Track 1: Service Businesses */}
-            <Link
-              href="/for-service-businesses"
-              className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-white/10 hover:border-wine/40 transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(28,25,23,0.05),0px_15px_15px_0px_rgba(28,25,23,0.04)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.12)]"
-            >
-              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-3">
-                Track 01
-              </p>
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
-                Service-Based Businesses
-              </h3>
-              <p className="text-cream/75 leading-relaxed mb-6 flex-1">
-                You built a great business. But every missed call, slow follow-up, and lapsed client is revenue leaving quietly. Your competitors are not better than you. They just pick up the phone.
-              </p>
-              <ul className="space-y-2.5 mb-8">
-                {[
-                  "Every missed call recovered within 5 minutes via SMS",
-                  "Lapsed clients reactivated before they book elsewhere",
-                  "No software to learn. We build it, run it, and manage it.",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-sm text-cream/80"
-                  >
-                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto flex items-center gap-2 text-wine font-medium text-sm group-hover:gap-3 transition-all">
-                See how it works for service businesses
-                <span className="text-base">→</span>
-              </div>
-            </Link>
-
-            {/* Track 2: B2B & SaaS */}
-            <Link
-              href="/for-b2b"
-              className="group relative flex flex-col rounded-[22px] bg-[#271520] p-8 md:p-10 border border-wine/40 hover:border-wine transition-all duration-300 shadow-[0px_4px_8px_0px_rgba(106,44,62,0.12),0px_15px_15px_0px_rgba(106,44,62,0.08)] hover:shadow-[0px_8px_24px_0px_rgba(106,44,62,0.22)]"
-            >
-              <p className="text-[11px] uppercase tracking-[0.2em] text-wine/85 mb-3">
-                Track 02
-              </p>
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-cream mb-4 leading-snug">
-                B2B & SaaS
-              </h3>
-              <p className="text-cream/80 leading-relaxed mb-6 flex-1">
-                B2B and SaaS companies, AI vendors, and tech startups. Your
-                pitch lands in the boardroom. Then procurement visits your
-                website. In seven seconds, the deal either holds or collapses.
-              </p>
-              <ul className="space-y-2.5 mb-8">
-                {[
-                  "Predictive Customer Intelligence surfaces accounts before they move",
-                  "Digital presence rebuilt to survive the procurement research window",
-                  "Live B2B pipeline dashboard tracks every deal and ICP score",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-sm text-cream/85"
-                  >
-                    <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-wine/10 text-wine flex items-center justify-center text-[10px] font-bold">
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto flex items-center gap-2 text-wine font-medium text-sm group-hover:gap-3 transition-all">
-                See how it works for B2B companies
-                <span className="text-base">→</span>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ─── 5. THE SYSTEM ───────────────────────────────────────────────────
           Three agents. PCI band collapsed — one tight "how it works" section.
           FounderQuote removed — Santa testimonial above already handles trust.
@@ -369,7 +275,7 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-base text-cream/70 max-w-xl mx-auto leading-relaxed">
-              We map the leaks in your front desk, follow-up, and operations. You will know what is being missed, what it is worth, and which track fits. No pitch. No pressure.
+              We map the leaks in your front desk, follow-up, and operations. You will know what is being missed, what it is worth, and what the fix looks like. No pitch. No pressure.
             </p>
           </div>
           <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
@@ -380,6 +286,13 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Persistent mobile CTA — appears once the visitor scrolls past the hero */}
+      <StickyMobileBookCta
+        href="/book"
+        sourcePage="home"
+        sourceSection="sticky_mobile"
+      />
     </div>
   );
 }

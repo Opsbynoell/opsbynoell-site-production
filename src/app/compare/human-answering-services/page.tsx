@@ -89,7 +89,7 @@ export default function Compare() {
         }
         internalLinks={[
           { label: "Noell Front Desk: operations layer", href: "/noell-front-desk" },
-          { label: "Santa E. case study: $960 recovered in 14 days", href: "/case-studies/santa-e" },
+          { label: "Santa E. case study: $2,560 recovered in 30 days", href: "/case-studies/santa-e" },
           { label: "Read: AI front desk vs. human receptionist", href: "/resources/ai-front-desk-vs-human-receptionist" },
         ]}
       />

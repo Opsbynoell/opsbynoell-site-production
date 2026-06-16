@@ -10,7 +10,7 @@ interface StatCard {
 }
 
 const defaultStats: StatCard[] = [
-  { value: "$960", label: "Revenue", detail: "recovered in 14 days" },
+  { value: "$2,560", label: "Revenue", detail: "recovered in 30 days" },
   { value: "40+", label: "Reviews", detail: "Google reviews in 6 weeks" },
   { value: "<1", label: "No-shows", detail: "per week, down from 4" },
   { value: "14d", label: "Live", detail: "to get the system running" },

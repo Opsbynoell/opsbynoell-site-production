@@ -106,7 +106,7 @@ const resources: Resource[] = [
   {
     kind: "Case study",
     status: "live",
-    title: "Santa E., massage therapist, $960 recovered in 14 days",
+    title: "Santa E., massage therapist, $2,560 recovered in 30 days",
     excerpt:
       "How one solo massage therapist in Orange County recovered four missed calls and booked them inside two weeks of install.",
     href: "/case-studies/santa-e",

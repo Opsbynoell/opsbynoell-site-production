@@ -351,9 +351,9 @@ const DesktopNav = ({ visible }: NavbarProps) => {
           About
         </Link>
       </div>
-      {/* Primary CTA */}
+      {/* Primary CTA — appears once the user scrolls past the hero */}
       <AnimatePresence mode="popLayout" initial={false}>
-        {!visible && (
+        {visible && (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0, transition: { duration: 0.2 } }}

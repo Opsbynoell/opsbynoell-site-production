@@ -395,7 +395,7 @@ export default function HowItWorksPage() {
             <div className="mt-8 flex flex-wrap justify-center gap-8">
               {[
                 { value: "4", label: "Missed calls recovered" },
-                { value: "$960", label: "Recovered in 14 days" },
+                { value: "$2,560", label: "Recovered in 30 days" },
                 { value: "75%", label: "Fewer no-shows" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">

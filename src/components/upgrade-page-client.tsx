@@ -140,7 +140,7 @@ const TESTIMONIALS = [
     quote: "I used to dread Mondays because there would always be gaps I didn't expect. Now I open my calendar and it's just full. The reminders go out and people show up. I don't think about it anymore.",
     author: "Santa E.",
     role: "Licensed Massage Therapist · Laguna Niguel, CA",
-    result: "$960 recovered in 14 days",
+    result: "$2,560 recovered in 30 days",
   },
   {
     quote: "We tried Rosie first. It was fine for answering calls but we couldn't get it to connect to our booking software the way we needed. Ops by Noell had it wired in a week and we haven't touched it since.",

@@ -40,7 +40,7 @@ export function Hero({
   body?: string;
   footnote?: string;
   primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string } | null;
   mockScreen?: React.ReactNode;
   showProofBar?: boolean;
   priceSignal?: React.ReactNode;
@@ -181,15 +181,17 @@ export function Hero({
         >
           {primaryCta.label}
         </Button>
-        <Button
-          href={secondaryCta.href}
-          variant="secondary"
-          className="w-full sm:w-auto h-12 px-7"
-          data-source-page={sourcePage}
-          data-source-section={sourceSection}
-        >
-          {secondaryCta.label}
-        </Button>
+        {secondaryCta && (
+          <Button
+            href={secondaryCta.href}
+            variant="secondary"
+            className="w-full sm:w-auto h-12 px-7"
+            data-source-page={sourcePage}
+            data-source-section={sourceSection}
+          >
+            {secondaryCta.label}
+          </Button>
+        )}
       </motion.div>
 
       {priceSignal && (
@@ -320,8 +322,8 @@ function DefaultMockScreen() {
           </span>
         </div>
         <div className="mt-2 bg-[#301A26] rounded-lg p-2 text-[11px] text-cream/80 leading-snug">
-          "Thanks for reaching out. A few quick questions to confirm we are the
-          right fit, what does your current setup look like?"
+          &ldquo;Thanks for reaching out. A few quick questions to confirm we are the
+          right fit, what does your current setup look like?&rdquo;
         </div>
       </div>
 
@@ -330,8 +332,8 @@ function DefaultMockScreen() {
         <p className="text-[10px] uppercase tracking-widest text-cream/70 font-medium">
           Revenue recovered
         </p>
-        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$4,200</p>
-        <p className="text-[11px] text-cream/60">from 6 missed inquiries · 30 days</p>
+        <p className="font-serif text-3xl font-bold text-cream mt-0.5">$2,560</p>
+        <p className="text-[11px] text-cream/60">from recovered missed calls · 30 days</p>
       </div>
 
       {/* Meeting confirmed card */}

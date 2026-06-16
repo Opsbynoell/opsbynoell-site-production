@@ -8,14 +8,14 @@ import {
 } from "@/lib/schema";
 
 const PATH = "/case-studies/santa-e";
-const TITLE = "Santa E., massage therapist: $960 recovered in 14 days";
+const TITLE = "Santa E., massage therapist: $2,560 recovered in 30 days";
 const DESCRIPTION =
-  "How one solo massage therapist in Orange County recovered four missed calls and rebooked them within 14 days of installing a done-for-you AI front desk.";
+  "How one solo massage therapist in Orange County recovered $2,560 in 30 days by catching missed calls and rebooking them, after installing a done-for-you AI front desk.";
 const PUBLISHED = "2026-04-18";
 
 export const metadata = pageMetadata({
   path: PATH,
-  title: "Santa E. case study, $960 recovered in 14 days",
+  title: "Santa E. case study, $2,560 recovered in 30 days",
   description: DESCRIPTION,
   type: "article",
   publishedTime: PUBLISHED,
@@ -50,9 +50,9 @@ export default function CaseStudy() {
       />
       <ArticleLayout
         eyebrow="Case study · 4 min"
-        title="Santa E., massage therapist: $960 recovered in 14 days"
-        lead="A solo practitioner. Four missed calls the old way would have eaten. All four rebooked within 14 days of install."
-        meta="Orange County, CA · Solo massage practice · 14-day result"
+        title="Santa E., massage therapist: $2,560 recovered in 30 days"
+        lead="A solo practitioner. Missed calls the old way would have eaten, caught and rebooked. $1,060 back in the first 14 days, $2,560 by day 30."
+        meta="Orange County, CA · Solo massage practice · 30-day result"
       >
         <p>
           Santa, owner of Healing Hands by Santa, has run a solo licensed
@@ -107,16 +107,24 @@ export default function CaseStudy() {
           a client who has since rebooked twice.
         </p>
 
-        <h2>The fourteen-day result</h2>
+        <h2>The first fourteen days</h2>
         <ul>
           <li>Four new-client missed calls caught by the text-back layer.</li>
           <li>All four rebooked inside the same week.</li>
-          <li>$960 in recovered revenue, net.</li>
+          <li>$1,060 in recovered revenue, net, in the first two weeks.</li>
           <li>
             Zero additional work for Santa. No dashboard, no configuration, no
             &ldquo;training the AI.&rdquo;
           </li>
         </ul>
+
+        <h2>The thirty-day result</h2>
+        <p>
+          The text-back layer kept catching missed calls through the rest of
+          the month. By day 30, the system had recovered{" "}
+          <strong>$2,560 in booked revenue</strong>, net, for a practice that
+          had been letting that intent die on voicemail.
+        </p>
 
         <h2>What made the recovery possible</h2>
         <p>
