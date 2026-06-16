@@ -220,11 +220,11 @@ export default function Article() {
           </li>
         </ul>
 
-        <h2>Where Predictive Customer Intelligence fits</h2>
+        <h2>Where Smart Call & Client Insights fits</h2>
         <p>
           The simple version of a review engine sends one ask per completed
           visit. The smarter version, which is where{" "}
-          <Link href="/resources">Predictive Customer Intelligence</Link>{" "}
+          <Link href="/resources">Smart Call & Client Insights</Link>{" "}
           starts to matter, learns which clients actually leave reviews,
           which services produce the warmest responses, and which times of
           day land. Over a year, that&apos;s the difference between

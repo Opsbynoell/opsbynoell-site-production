@@ -140,7 +140,7 @@ export function FAQ({
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggle(index)}
-                    className="w-full px-6 py-5 flex items-center gap-3 text-left tap-target"
+                    className="w-full px-4 md:px-6 py-5 flex items-center gap-3 text-left tap-target"
                   >
                     <motion.span
                       aria-hidden="true"
@@ -191,10 +191,10 @@ export function FAQ({
                           },
                         },
                       }}
-                      className="px-6 overflow-hidden"
+                      className="px-4 md:px-6 overflow-hidden"
                     >
-                      <div className="pb-5 pl-8">
-                        <p className="text-cream/70 leading-relaxed text-sm md:text-base">
+                      <div className="pb-5 md:pl-8">
+                        <p className="text-cream/80 leading-relaxed text-sm md:text-base">
                           {faq.answer}
                         </p>
                       </div>

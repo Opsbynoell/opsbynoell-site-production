@@ -84,9 +84,11 @@ export default function Home() {
         headlineLine2Smaller={false}
         body="We build and run an AI front desk that answers and follows up on every call, day or night, so a Laguna Niguel practice recovered $2,560 in 30 days. Done for you. Live in 14 days."
         footnote=""
+        proofBadge="$2,560 recovered in 30 days · Laguna Niguel"
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         showProofBar={true}
+        pinnedProof={true}
         softHalo={true}
         priceSignal={
           <>Free. No pitch. If we can&apos;t find recoverable revenue, we&apos;ll tell you.</>
@@ -212,7 +214,7 @@ export default function Home() {
                   {item.stat}
                 </p>
                 <p className="text-sm text-cream/80 font-medium mb-1.5">{item.label}</p>
-                <p className="text-xs text-cream/50 leading-relaxed">{item.sub}</p>
+                <p className="text-sm text-cream/90 leading-relaxed">{item.sub}</p>
               </div>
             ))}
           </div>
@@ -290,7 +292,7 @@ export default function Home() {
               We map the leaks in your front desk, follow-up, and operations. You will know what is being missed, what it is worth, and what the fix looks like. No pitch. No pressure.
             </p>
           </div>
-          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-6 md:p-8">
+          <div className="rounded-[22px] border border-wine/30 bg-[#271520] p-3 sm:p-6 md:p-8">
             <BookingCalendarEmbed id="home-footer-booking" />
             <p className="text-[11px] text-cream/40 text-center mt-4">
               Free &middot; No pitch &middot; If it is not a fit, we will say so
@@ -302,6 +304,8 @@ export default function Home() {
       {/* Persistent mobile CTA — appears once the visitor scrolls past the hero */}
       <StickyMobileBookCta
         href="/book"
+        label="Book Your Free Audit"
+        accent="orange"
         sourcePage="home"
         sourceSection="sticky_mobile"
       />

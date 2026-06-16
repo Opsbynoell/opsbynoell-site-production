@@ -328,8 +328,8 @@ export default function SystemsPage() {
             {[
               {
                 handle: "@noell_pci",
-                eyebrow: "Predictive intelligence",
-                title: "Predictive Customer Intelligence",
+                eyebrow: "Smart insights",
+                title: "Smart Call & Client Insights",
                 description: "Reads every signal in your pipeline and surfaces the accounts most likely to close, expand, or churn before your team notices the shift.",
                 status: "status: online / continuous",
                 href: "/predictive-customer-intelligence",

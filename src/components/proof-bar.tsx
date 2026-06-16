@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 
 interface ProofBarProps {
   className?: string;
+  /** Pin to the first (missed-call recovery) scene and disable rotation. */
+  pinned?: boolean;
 }
 
 type RecoveryRow = {
@@ -44,7 +46,7 @@ const sceneLabels = [
   "case: no-show recovery · rebooking",
 ];
 
-export function ProofBar({ className }: ProofBarProps) {
+export function ProofBar({ className, pinned = false }: ProofBarProps) {
   const [sceneIndex, setSceneIndex] = useState(0);
   // Lazy initializer reads matchMedia synchronously when available (SSR returns
   // false), avoiding react-hooks/set-state-in-effect and matching the pattern
@@ -63,14 +65,15 @@ export function ProofBar({ className }: ProofBarProps) {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  // Auto-rotate scenes every 3.5s, but pause entirely when reduced motion is requested.
+  // Auto-rotate scenes every 3.5s, but pause when reduced motion is requested
+  // or when pinned to the missed-call recovery scene.
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || pinned) return;
     const interval = setInterval(() => {
       setSceneIndex((prev) => (prev + 1) % recoveryScenes.length);
     }, 3500);
     return () => clearInterval(interval);
-  }, [reducedMotion]);
+  }, [reducedMotion, pinned]);
 
   const rows = recoveryScenes[sceneIndex];
   const label = sceneLabels[sceneIndex];
@@ -105,20 +108,20 @@ export function ProofBar({ className }: ProofBarProps) {
         <motion.p
           key={`label-${sceneIndex}`}
           {...labelMotion}
-          className="font-mono text-[11px] uppercase tracking-widest text-cream/70 text-center mb-3"
+          className="font-mono text-[10px] md:text-[11px] uppercase tracking-wider md:tracking-widest text-cream/70 text-center mb-3 px-1"
         >
           {label}
         </motion.p>
       </AnimatePresence>
-      <div className="rounded-2xl bg-[#301A26] border border-white/10 p-4 md:p-5">
+      <div className="rounded-2xl bg-[#301A26] border border-white/10 p-3.5 md:p-5 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.ul
             key={`scene-${sceneIndex}`}
             {...sceneMotion}
-            className="font-mono text-xs md:text-sm space-y-1.5 text-left"
+            className="font-mono text-[11px] md:text-sm space-y-1.5 text-left"
           >
             {rows.map((row) => (
-              <li key={`${row.time}-${row.action}`} className="flex items-baseline gap-2 md:gap-3">
+              <li key={`${row.time}-${row.action}`} className="flex items-baseline gap-1.5 md:gap-3 min-w-0">
                 <span className="text-cream/70 tabular-nums">{row.time}</span>
                 <span className="text-wine font-semibold">{row.action}</span>
                 <span className="text-cream/70">{row.sep}</span>

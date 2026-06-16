@@ -146,8 +146,9 @@ export default function CaseStudy() {
             follow-up and rebooking.
           </li>
           <li>
-            <strong>Predictive Customer Intelligence</strong>, identified
-            the patterns that should become recovery signals.
+            <strong>Smart Call &amp; Client Insights</strong>, spots which
+            missed calls and clients are worth the most, so you follow up with
+            the right people first and win back clients before they drift.
           </li>
         </ul>
 

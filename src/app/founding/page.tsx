@@ -84,7 +84,7 @@ const B2B_TIERS = [
       "Noell Inbound: lead qualification and intake",
       "Noell Pipeline: demo scheduling, follow-up sequences, stalled-deal nudges",
       "Noell Account: health touchpoints, renewal sequences, upsell triggers",
-      "PCI (Predictive Customer Intelligence) signal layer",
+      "Smart Call & Client Insights signal layer",
       "Live B2B pipeline dashboard with deal stages and ICP scores",
       "Bi-weekly pipeline calls",
       "ICP refinement and list hygiene",

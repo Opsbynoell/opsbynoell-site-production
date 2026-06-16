@@ -108,7 +108,7 @@ export default function Article() {
 
         <h2>How AI automates the concierge experience</h2>
         <p>
-          This is exactly the problem Predictive Customer Intelligence is built to solve. An AI operations layer integrates with your booking system and constantly monitors the cadence of every patient.
+          This is exactly the problem Smart Call & Client Insights is built to solve. An AI operations layer integrates with your booking system and constantly monitors the cadence of every patient.
         </p>
         <p>
           When Sarah hits day 120 since her last Dysport appointment, the system notices. It drafts the highly specific, personalized text message in your spa's voice, mentioning her specific treatment and her specific provider. It sends the text automatically. When Sarah replies "Yes, next Thursday afternoon?", the AI handles the back-and-forth scheduling and puts her on the calendar.

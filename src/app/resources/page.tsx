@@ -115,7 +115,7 @@ const resources: Resource[] = [
   {
     kind: "Roadmap",
     status: "coming",
-    title: "Predictive Customer Intelligence for service businesses",
+    title: "Smart Call & Client Insights for service businesses",
     excerpt:
       "How the Noell system is learning to see across your book, which regulars are drifting, when to reach out, and what is quietly shifting in your service mix. Long-form piece in progress, shipping alongside the intelligence layer rollout.",
     minutes: "Next drop",

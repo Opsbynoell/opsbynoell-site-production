@@ -200,7 +200,7 @@ export default function Article() {
           math instead of the pitch.
         </p>
 
-        <h2>Where Predictive Customer Intelligence fits</h2>
+        <h2>Where Smart Call & Client Insights fits</h2>
         <p>
           Answering the 9 p.m. text is the first job. The second job is
           noticing the patterns that a busy salon owner simply cannot see in
@@ -210,7 +210,7 @@ export default function Article() {
           over month.
         </p>
         <p>
-          <Link href="/resources">Predictive Customer Intelligence</Link> is
+          <Link href="/resources">Smart Call & Client Insights</Link> is
           the layer on top of the front desk that turns that noise into a
           short, weekly list, the clients who should be rebooked this
           week, the openings the salon should proactively fill, the regulars
