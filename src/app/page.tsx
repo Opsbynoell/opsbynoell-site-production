@@ -103,7 +103,7 @@ export default function Home() {
 
       {/* Santa testimonial */}
       <section className="px-4 pt-2 pb-8 md:pb-10">
-        <div className="max-w-3xl mx-auto rounded-[22px] border border-wine/30 bg-[#301A26] p-7 md:p-9">
+        <div className="max-w-3xl mx-auto rounded-[22px] border border-wine/30 bg-[#301A26] p-5 sm:p-7 md:p-9">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
             Currently running
           </p>
@@ -209,9 +209,9 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.stat}
-                className="rounded-[18px] bg-[#271520] border border-wine/20 p-6 text-center"
+                className="rounded-[18px] bg-[#271520] border border-wine/20 p-5 sm:p-6 text-center"
               >
-                <p className="font-serif text-4xl font-semibold text-wine mb-2">
+                <p className="font-serif text-3xl sm:text-4xl font-semibold text-wine mb-2">
                   {item.stat}
                 </p>
                 <p className="text-sm text-cream/80 font-medium mb-1.5">{item.label}</p>

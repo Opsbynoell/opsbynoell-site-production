@@ -106,7 +106,7 @@ export function Hero({
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-3 md:mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
+      <div className="text-balance relative z-20 mx-auto mb-3 md:mb-4 max-w-5xl text-center font-serif text-3xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={false}

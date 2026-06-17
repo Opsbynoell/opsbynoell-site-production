@@ -70,12 +70,12 @@ export function Systems() {
               data-agent={agent.slug}
               className={cn(
                 "group relative rounded-[22px] border border-wine/20 bg-[#271520] shadow-[0_0_0_1px_rgba(139,42,66,0.10),0_8px_32px_rgba(139,42,66,0.06)]",
-                "p-7 md:p-8 transition-all duration-200",
+                "p-5 sm:p-7 md:p-8 transition-all duration-200",
                 "shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)]",
                 "hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]"
               )}
             >
-              <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center mb-6 mx-auto md:mx-0">
+              <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center mb-4 md:mb-6 mx-auto md:mx-0">
                 {agent.icon}
               </div>
               <h3 className="font-serif text-2xl font-semibold text-cream mb-3 text-center md:text-left">
@@ -84,7 +84,7 @@ export function Systems() {
               <p className="text-sm text-cream/80 leading-relaxed text-center md:text-left">
                 {agent.description}
               </p>
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-center md:justify-end">
+              <div className="mt-4 pt-3 md:mt-6 md:pt-4 border-t border-white/10 flex items-center justify-center md:justify-end">
                 <p className="text-sm text-[#C45A2A] font-medium group-hover:text-[#D96B38] transition-colors">
                   Learn more &rarr;
                 </p>
