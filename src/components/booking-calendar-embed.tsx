@@ -58,7 +58,14 @@ export function BookingCalendarEmbed({
   return (
     <div
       ref={containerRef}
-      style={{ position: "relative", minHeight: "min(720px, 85vh)" }}
+      style={{
+        position: "relative",
+        minHeight: "min(720px, 85vh)",
+        width: "100%",
+        maxWidth: "100%",
+        overflowX: "hidden",
+        margin: "0 auto",
+      }}
     >
       {!loaded && (
         <div

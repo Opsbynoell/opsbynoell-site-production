@@ -24,11 +24,11 @@ const recoveryScenes: RecoveryRow[][] = [
   ],
   [
     { time: "14:22", action: "web-chat opened", sep: "·", result: "qualified" },
-    { time: "14:23", action: "Noell Support", sep: "·", result: "booking link sent" },
+    { time: "14:23", action: "qualifying reply", sep: "·", result: "booking link sent" },
     { time: "14:24", action: "audit booked", sep: "·", result: "Tue 11am" },
   ],
   [
-    { time: "18:03", action: "after-hours text", sep: "·", result: "Noell Front Desk" },
+    { time: "18:03", action: "after-hours text", sep: "·", result: "after-hours cover" },
     { time: "18:04", action: "deposit requested", sep: "·", result: "link sent" },
     { time: "18:05", action: "deposit captured", sep: "·", result: "$300 secured" },
   ],

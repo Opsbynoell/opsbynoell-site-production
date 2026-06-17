@@ -14,7 +14,7 @@ export function ROICalculator() {
     Number.isFinite(months) ? `${months.toFixed(1)} months` : "n/a";
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#271520] p-8 md:p-10 max-w-3xl mx-auto relative z-10">
+    <div className="rounded-2xl border border-white/10 bg-[#271520] p-5 sm:p-8 md:p-10 max-w-3xl mx-auto relative z-10">
       <div className="mb-6">
         <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
           ROI calculator

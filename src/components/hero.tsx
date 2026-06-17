@@ -31,6 +31,7 @@ export function Hero({
   softHalo = false,
   proofBadge,
   pinnedProof = false,
+  calmMobile = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -55,6 +56,9 @@ export function Hero({
   proofBadge?: string;
   /** Pin the proof bar to its first (missed-call recovery) scene, no rotation. */
   pinnedProof?: boolean;
+  /** On mobile, hide the proof bar, phone mockup, and background decor for a
+      calm, centered single-column hero (desktop unchanged). */
+  calmMobile?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -97,12 +101,12 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-3 md:mb-6"
+        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-5 md:mb-6 text-center"
       >
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-3 md:mb-4 max-w-5xl text-center font-serif text-4xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
+      <div className="text-balance relative z-20 mx-auto mb-5 md:mb-4 max-w-5xl text-center font-serif text-3xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={false}
@@ -155,7 +159,7 @@ export function Hero({
       </div>
 
       {proofBadge && (
-        <div className="md:hidden relative z-20 mb-1 flex justify-center px-4">
+        <div className="md:hidden relative z-20 mb-5 mt-1 flex justify-center px-4">
           <span className="inline-flex items-center gap-2 rounded-full border border-wine/40 bg-wine/15 px-3.5 py-1.5 text-[13px] font-medium text-cream text-center">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A] flex-shrink-0" />
             {proofBadge}
@@ -167,7 +171,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-3 md:mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
+        className="relative z-20 mx-auto mt-4 md:mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
       >
         {body}
       </motion.p>
@@ -187,7 +191,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.7 }}
-        className="mb-8 mt-5 md:mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
+        className="mb-8 mt-7 md:mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
       >
         <Button
           href={primaryCta.href}
@@ -214,7 +218,7 @@ export function Hero({
       </motion.div>
 
       {priceSignal && (
-        <div className="relative z-20 -mt-3 mb-6 text-center text-sm text-cream/70 px-4">
+        <div className="relative z-20 -mt-1 mb-8 text-center text-sm text-cream/70 px-4">
           {priceSignal}
         </div>
       )}
@@ -224,13 +228,21 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.75 }}
-          className="relative z-20 w-full flex justify-center px-4 mb-8 md:mb-12"
+          className={cn(
+            "relative z-20 w-full justify-center px-4 mb-8 md:mb-12",
+            calmMobile ? "hidden md:flex" : "flex"
+          )}
         >
           <ProofBar className="mt-0 md:mt-0" pinned={pinnedProof} />
         </motion.div>
       )}
 
-      <div className="pt-[2rem] w-full min-h-[21rem] relative">
+      <div
+        className={cn(
+          "pt-[2rem] w-full min-h-[21rem] relative",
+          calmMobile && "hidden md:block"
+        )}
+      >
         <motion.div
           initial={false}
           animate={{ y: 0, opacity: 1 }}
@@ -255,6 +267,7 @@ function BackgroundShape({
   soft?: boolean;
 }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const sizes = isMobile
     ? { outer: 800, middle: 600, inner: 400 }
     : { outer: 1400, middle: 1100, inner: 800 };
@@ -301,24 +314,22 @@ function BackgroundShape({
             )
           `,
         }}
-        animate={{ scale: [1, 1.02, 1], y: [0, -5, 0] }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-          times: [0, 0.5, 1],
-        }}
+        animate={reduceMotion ? { scale: 1, y: 0 } : { scale: [1, 1.02, 1], y: [0, -5, 0] }}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : { duration: 2, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }
+        }
       />
       <motion.div
         className="absolute bg-[#271520]/5 z-[2] rounded-full border border-white/10 shadow-[0_0_200px_80px_rgba(255,255,255,0.1)]"
         style={{ width: inner, height: inner }}
-        animate={{ scale: [1, 1.03, 1], y: [0, -7, 0] }}
-        transition={{
-          duration: 2.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          times: [0, 0.5, 1],
-        }}
+        animate={reduceMotion ? { scale: 1, y: 0 } : { scale: [1, 1.03, 1], y: [0, -7, 0] }}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : { duration: 2.5, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }
+        }
       />
     </div>
   );

@@ -326,7 +326,7 @@ export function NoellSupportChat() {
       onClick={() => setIsOpen((v) => !v)}
       className={cn(
         "fixed right-6 z-50 w-14 h-14 rounded-full",
-        raised ? "bottom-24 sm:bottom-6" : "bottom-6",
+        raised ? "bottom-20 sm:bottom-6" : "bottom-6",
         "bg-gradient-to-b from-[#B5415E] via-[#8B2A42] to-[#5C1A2A] text-cream",
         "shadow-[0px_20px_40px_-10px_rgba(139,42,66,0.50),_0px_8px_16px_-4px_rgba(28,25,23,0.15),_0px_0px_0px_1px_rgba(139,42,66,0.20),_0px_1px_1px_2px_rgba(255,255,255,0.18)_inset]",
         "flex items-center justify-center hover:scale-105 transition-transform"
@@ -383,8 +383,16 @@ export function NoellSupportChat() {
 
   return (
     <>
-      {/* Launcher: orb on /book, pill everywhere else (when closed). Orb also when open. */}
-      {isOpen || isBookPage ? OrbButton : PillButton}
+      {/* Launcher: orb on /book and on mobile (compact), pill on desktop
+          elsewhere when closed. Orb also whenever the panel is open. */}
+      {isOpen || isBookPage ? (
+        OrbButton
+      ) : (
+        <>
+          <div className="sm:hidden">{OrbButton}</div>
+          <div className="hidden sm:block">{PillButton}</div>
+        </>
+      )}
 
       {/* Panel */}
       <AnimatePresence>
