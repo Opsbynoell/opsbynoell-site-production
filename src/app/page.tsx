@@ -102,7 +102,7 @@ export default function Home() {
       ─────────────────────────────────────────────────────────────────────── */}
 
       {/* Santa testimonial */}
-      <section className="px-4 pt-2 pb-8 md:pb-10">
+      <section className="px-4 pt-4 pb-12 md:pb-10">
         <div className="max-w-3xl mx-auto rounded-[22px] border border-wine/30 bg-[#301A26] p-5 sm:p-7 md:p-9">
           <p className="text-[11px] uppercase tracking-[0.25em] text-wine mb-3">
             Currently running
@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Client-type trust banner */}
-      <section className="px-4 pb-10 md:pb-12">
+      <section className="px-4 pb-14 md:pb-12">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-5">
             Trusted by service businesses nationwide
@@ -151,12 +151,13 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-2 md:gap-2.5">
             {[
               "Med Spas",
-              "Massage Practices",
               "Dental Offices",
+              "Salons & Studios",
+              "Massage Practices",
+              "Chiropractors",
               "Coaching Practices",
               "Marketing Agencies",
               "General Contractors",
-              "Salons & Studios",
               "HVAC Companies",
               "Plumbing Services",
               "Electrical Contractors",
@@ -166,12 +167,13 @@ export default function Home() {
               "Roofing Companies",
               "Home Inspectors",
               "Personal Trainers",
-              "Chiropractors",
               "Veterinary Practices",
-            ].map((label) => (
+            ].map((label, i) => (
               <div
                 key={label}
-                className="flex items-center gap-2 rounded-full border border-cream/20 bg-cream/8 px-3.5 py-1.5 text-xs font-medium text-cream"
+                className={`items-center gap-2 rounded-full border border-cream/20 bg-cream/8 px-3.5 py-1.5 text-xs font-medium text-cream ${
+                  i >= 6 ? "hidden md:flex" : "flex"
+                }`}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A] flex-shrink-0" />
                 {label}
@@ -184,7 +186,7 @@ export default function Home() {
       {/* ─── 2.5 PAIN AGITATION BAND ──────────────────────────────────────────
           Loss-aversion framing before the calculator. Real language from real owners.
       ─────────────────────────────────────────────────────────────────────── */}
-      <section className="px-4 py-12 md:py-14 border-t border-white/5 bg-[#1c1210]">
+      <section className="px-4 py-16 md:py-14 border-t border-white/5 bg-[#1c1210]">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-wine mb-6">
             The invisible cost
@@ -229,8 +231,9 @@ export default function Home() {
           ROI Calculator moved here — while visitor is emotionally engaged.
           "Hook → Proof → Calculate your loss" before any explanation.
           Two sliders, instant result, no email required.
+          Hidden on mobile to keep the phone experience calm.
       ─────────────────────────────────────────────────────────────────────── */}
-      <section className="px-4 py-12 md:py-16 border-t border-white/5">
+      <section className="hidden md:block px-4 py-12 md:py-16 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
             60-second estimator
