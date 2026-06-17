@@ -101,7 +101,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-3 md:mb-6"
+        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-3 md:mb-6 text-center"
       >
         {eyebrow}
       </motion.p>
