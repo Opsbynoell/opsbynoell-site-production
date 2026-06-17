@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
 import { StickyMobileBookCta } from "@/components/book-sticky-mobile-cta";
+import { TextbackCard } from "@/components/textback-card";
 import { Systems } from "@/components/systems";
 import { FAQ, type FaqItem } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
@@ -84,7 +85,8 @@ export default function Home() {
         headlineLine2Smaller={false}
         body="We build and run an AI front desk that answers and follows up on every call, day or night. Done for you. Live in 14 days."
         footnote=""
-        proofBadge="$2,560 recovered in 30 days · Laguna Niguel"
+        proofBadge="$2,560 recovered in 30 days for a Laguna Niguel practice"
+        mobileVisual={<TextbackCard />}
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
         secondaryCta={null}
         showProofBar={true}
