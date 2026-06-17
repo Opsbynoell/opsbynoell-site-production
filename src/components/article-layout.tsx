@@ -36,7 +36,7 @@ export function ArticleLayout({
       </section>
 
       <section className="px-4 pb-16 md:pb-20">
-        <article className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#271520] p-8 md:p-12 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] prose prose-sm md:prose-base prose-headings:font-serif prose-headings:text-cream prose-headings:font-semibold prose-p:text-cream/75 prose-li:text-cream/75 prose-a:text-wine prose-strong:text-cream prose-blockquote:text-cream/80 prose-blockquote:border-wine/30">
+        <article className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#271520] p-5 sm:p-8 md:p-12 shadow-[0px_34px_21px_0px_rgba(28,25,23,0.04),0px_15px_15px_0px_rgba(28,25,23,0.06),0px_4px_8px_0px_rgba(28,25,23,0.05)] prose prose-sm md:prose-base prose-headings:font-serif prose-headings:text-cream prose-headings:font-semibold prose-p:text-cream/75 prose-li:text-cream/75 prose-a:text-wine prose-strong:text-cream prose-blockquote:text-cream/80 prose-blockquote:border-wine/30">
           {children}
 
           {footerCta && (

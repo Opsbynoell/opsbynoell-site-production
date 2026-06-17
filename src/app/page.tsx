@@ -89,6 +89,7 @@ export default function Home() {
         secondaryCta={null}
         showProofBar={true}
         pinnedProof={true}
+        calmMobile={true}
         softHalo={true}
         priceSignal={
           <>Free. No pitch. If we can&apos;t find recoverable revenue, we&apos;ll tell you.</>

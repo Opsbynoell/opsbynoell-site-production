@@ -31,6 +31,7 @@ export function Hero({
   softHalo = false,
   proofBadge,
   pinnedProof = false,
+  calmMobile = false,
   sourcePage = "home",
   sourceSection = "hero",
 }: {
@@ -55,6 +56,9 @@ export function Hero({
   proofBadge?: string;
   /** Pin the proof bar to its first (missed-call recovery) scene, no rotation. */
   pinnedProof?: boolean;
+  /** On mobile, hide the proof bar, phone mockup, and background decor for a
+      calm, centered single-column hero (desktop unchanged). */
+  calmMobile?: boolean;
   sourcePage?: SourcePage;
   sourceSection?: SourceSection;
 }) {
@@ -224,13 +228,21 @@ export function Hero({
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.75 }}
-          className="relative z-20 w-full flex justify-center px-4 mb-8 md:mb-12"
+          className={cn(
+            "relative z-20 w-full justify-center px-4 mb-8 md:mb-12",
+            calmMobile ? "hidden md:flex" : "flex"
+          )}
         >
           <ProofBar className="mt-0 md:mt-0" pinned={pinnedProof} />
         </motion.div>
       )}
 
-      <div className="pt-[2rem] w-full min-h-[21rem] relative">
+      <div
+        className={cn(
+          "pt-[2rem] w-full min-h-[21rem] relative",
+          calmMobile && "hidden md:block"
+        )}
+      >
         <motion.div
           initial={false}
           animate={{ y: 0, opacity: 1 }}
@@ -255,6 +267,7 @@ function BackgroundShape({
   soft?: boolean;
 }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const sizes = isMobile
     ? { outer: 800, middle: 600, inner: 400 }
     : { outer: 1400, middle: 1100, inner: 800 };
@@ -301,24 +314,22 @@ function BackgroundShape({
             )
           `,
         }}
-        animate={{ scale: [1, 1.02, 1], y: [0, -5, 0] }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-          times: [0, 0.5, 1],
-        }}
+        animate={reduceMotion ? { scale: 1, y: 0 } : { scale: [1, 1.02, 1], y: [0, -5, 0] }}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : { duration: 2, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }
+        }
       />
       <motion.div
         className="absolute bg-[#271520]/5 z-[2] rounded-full border border-white/10 shadow-[0_0_200px_80px_rgba(255,255,255,0.1)]"
         style={{ width: inner, height: inner }}
-        animate={{ scale: [1, 1.03, 1], y: [0, -7, 0] }}
-        transition={{
-          duration: 2.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          times: [0, 0.5, 1],
-        }}
+        animate={reduceMotion ? { scale: 1, y: 0 } : { scale: [1, 1.03, 1], y: [0, -7, 0] }}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : { duration: 2.5, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }
+        }
       />
     </div>
   );

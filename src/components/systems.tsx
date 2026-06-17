@@ -75,17 +75,17 @@ export function Systems() {
                 "hover:-translate-y-1 hover:shadow-[0px_44px_24px_0px_rgba(28,25,23,0.06),0px_18px_18px_0px_rgba(28,25,23,0.08),0px_6px_10px_0px_rgba(28,25,23,0.06)]"
               )}
             >
-              <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-xl bg-wine/10 text-wine flex items-center justify-center mb-6 mx-auto md:mx-0">
                 {agent.icon}
               </div>
-              <h3 className="font-serif text-2xl font-semibold text-cream mb-3">
+              <h3 className="font-serif text-2xl font-semibold text-cream mb-3 text-center md:text-left">
                 {agent.title}
               </h3>
-              <p className="text-sm text-cream/80 leading-relaxed">
+              <p className="text-sm text-cream/80 leading-relaxed text-center md:text-left">
                 {agent.description}
               </p>
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-end">
-                <p className="text-xs text-[#C45A2A] font-medium group-hover:text-[#D96B38] transition-colors">
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-center md:justify-end">
+                <p className="text-sm text-[#C45A2A] font-medium group-hover:text-[#D96B38] transition-colors">
                   Learn more &rarr;
                 </p>
               </div>

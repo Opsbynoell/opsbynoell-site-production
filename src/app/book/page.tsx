@@ -152,9 +152,9 @@ export default function BookPage() {
             {whatHappensNext.map((step) => (
               <div
                 key={step.number}
-                className="rounded-[20px] border border-white/10 bg-[#271520] p-6 md:p-7"
+                className="rounded-[20px] border border-white/10 bg-[#271520] p-5 sm:p-6 md:p-7"
               >
-                <span className="font-mono text-[10px] text-cream/70">
+                <span className="font-mono text-[11px] text-cream/70">
                   {step.number}
                 </span>
                 <h3 className="mt-3 font-serif text-xl font-semibold text-cream">
@@ -166,7 +166,7 @@ export default function BookPage() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-xs md:text-sm text-cream/70 italic max-w-xl mx-auto leading-relaxed">
+          <p className="mt-8 text-center text-sm text-cream/70 italic max-w-xl mx-auto leading-relaxed">
             We do not chase. We do not add you to a list. If it is not a fit,
             we will say so.
           </p>
@@ -175,7 +175,7 @@ export default function BookPage() {
 
       {/* Trust and proof block */}
       <section className="px-4 py-12 md:py-14">
-        <div className="max-w-2xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-7 md:p-9">
+        <div className="max-w-2xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-5 sm:p-7 md:p-9">
           <p className="text-[11px] uppercase tracking-[0.25em] text-muted-strong mb-3">
             Currently running
           </p>
@@ -212,7 +212,7 @@ export default function BookPage() {
 
       {/* Soft exit. Noell Support fallback. */}
       <section className="px-4 pb-20">
-        <div className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-8 text-center">
+        <div className="max-w-3xl mx-auto rounded-[22px] border border-white/10 bg-[#301A26] p-5 sm:p-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.2em] text-muted-strong mb-3 inline-flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-lilac-dark" />
             Not ready to send the form?
