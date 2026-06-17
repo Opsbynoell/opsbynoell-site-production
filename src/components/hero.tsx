@@ -101,12 +101,12 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-3 md:mb-6 text-center"
+        className="relative z-20 text-[14px] md:text-[15px] uppercase tracking-[0.18em] text-cream/75 mb-5 md:mb-6 text-center"
       >
         {eyebrow}
       </motion.p>
 
-      <div className="text-balance relative z-20 mx-auto mb-3 md:mb-4 max-w-5xl text-center font-serif text-3xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
+      <div className="text-balance relative z-20 mx-auto mb-5 md:mb-4 max-w-5xl text-center font-serif text-3xl font-semibold tracking-tight text-cream md:text-6xl lg:text-7xl leading-tight">
         <Balancer>
           <motion.h1
             initial={false}
@@ -159,7 +159,7 @@ export function Hero({
       </div>
 
       {proofBadge && (
-        <div className="md:hidden relative z-20 mb-1 flex justify-center px-4">
+        <div className="md:hidden relative z-20 mb-5 mt-1 flex justify-center px-4">
           <span className="inline-flex items-center gap-2 rounded-full border border-wine/40 bg-wine/15 px-3.5 py-1.5 text-[13px] font-medium text-cream text-center">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C45A2A] flex-shrink-0" />
             {proofBadge}
@@ -171,7 +171,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.5 }}
-        className="relative z-20 mx-auto mt-3 md:mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
+        className="relative z-20 mx-auto mt-4 md:mt-6 max-w-2xl px-4 text-center text-lg md:text-xl leading-relaxed text-cream/85 font-sans"
       >
         {body}
       </motion.p>
@@ -191,7 +191,7 @@ export function Hero({
         initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.7 }}
-        className="mb-8 mt-5 md:mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
+        className="mb-8 mt-7 md:mt-8 z-10 sm:mb-10 flex w-full flex-col items-center justify-center gap-3 px-4 sm:flex-row md:mb-16"
       >
         <Button
           href={primaryCta.href}
@@ -218,7 +218,7 @@ export function Hero({
       </motion.div>
 
       {priceSignal && (
-        <div className="relative z-20 -mt-3 mb-6 text-center text-sm text-cream/70 px-4">
+        <div className="relative z-20 -mt-1 mb-8 text-center text-sm text-cream/70 px-4">
           {priceSignal}
         </div>
       )}

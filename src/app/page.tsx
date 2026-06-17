@@ -82,7 +82,7 @@ export default function Home() {
         headlineLine2Start="who's"
         headlineLine2Accent="picking up?"
         headlineLine2Smaller={false}
-        body="We build and run an AI front desk that answers and follows up on every call, day or night, so a Laguna Niguel practice recovered $2,560 in 30 days. Done for you. Live in 14 days."
+        body="We build and run an AI front desk that answers and follows up on every call, day or night. Done for you. Live in 14 days."
         footnote=""
         proofBadge="$2,560 recovered in 30 days · Laguna Niguel"
         primaryCta={{ label: "Get Your Free Missed Call Audit", href: "/book" }}
