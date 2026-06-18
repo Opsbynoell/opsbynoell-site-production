@@ -4,17 +4,17 @@
  * Variant 8 — "Trust · On-Brand"
  *
  * Rebuild of Variation 8 from the Figma Make preview
- * (mono-vocal-40356019.figma.site): the burgundy-on-white palette and copy.
+ * (mono-vocal-40356019.figma.site): burgundy-on-white palette and copy.
  *
- * The original Figma frame is mobile-only (390px mockups), so the mobile
- * layout mirrors it closely while the desktop layout is a purpose-built
- * marketing page: two-column hero, alternating section bands, two-column
- * FAQ, full-bleed CTA, and a footer.
+ * The original Figma frame is mobile-only, so mobile mirrors it while desktop
+ * is a purpose-built "bold SaaS" landing page: an animated live-call device
+ * mockup in the hero, a trust strip, alternating section bands, a two-column
+ * FAQ, a full-bleed CTA, and a footer.
  *
  * Motion (motion/react) mirrors the original's framer-motion technique:
- * a fade + rise reveal on an ease-out curve. It degrades safely — when the
- * visitor prefers reduced motion, every element renders fully visible with
- * no transform (no more stuck/invisible content).
+ * staggered fade + rise reveals (ease-out) and a count-up on the proof stat
+ * ($0 → $2,560 over ~2.2s — matching the original). Everything degrades safely
+ * under prefers-reduced-motion (fully visible, no movement).
  *
  * Palette (sampled from the Figma render):
  *   burgundy #7B2044   ink #101828   body #475569   muted #717182
@@ -32,17 +32,17 @@ import {
   type Variants,
 } from "motion/react";
 import {
-  IconMessage,
-  IconDeviceMobile,
-  IconCalendarCheck,
   IconUsers,
   IconCpu,
   IconPhoneRinging,
   IconMessage2Bolt,
+  IconCalendarCheck,
   IconShieldCheck,
   IconCircleCheck,
   IconChevronDown,
   IconArrowRight,
+  IconStarFilled,
+  IconCheck,
 } from "@tabler/icons-react";
 
 const BOOK_HREF = "/book";
@@ -56,6 +56,15 @@ const stagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
 };
+
+const trustedBy = [
+  "Med Spas",
+  "Dental",
+  "Salons",
+  "Massage",
+  "Chiropractic",
+  "Estheticians",
+];
 
 const stats = [
   { figure: "70%", label: "of missed calls never leave a voicemail" },
@@ -113,128 +122,6 @@ const paths = {
   },
 } as const;
 
-/** Counts up to `to` when scrolled into view; shows the final value under reduced motion. */
-function CountUp({
-  to,
-  prefix = "$",
-  className,
-}: {
-  to: number;
-  prefix?: string;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-  const ref = useRef<HTMLParagraphElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, {
-      duration: reduce ? 0 : 1.6,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate: (v) => setValue(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [inView, reduce, to]);
-
-  return (
-    <p
-      ref={ref}
-      className={className}
-      aria-label={`${prefix}${to.toLocaleString("en-US")}`}
-    >
-      {prefix}
-      {value.toLocaleString("en-US")}
-    </p>
-  );
-}
-
-/** Fade + rise on scroll-into-view; renders statically under reduced motion. */
-function Reveal({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: EASE_OUT, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/** Staggered reveal group; static under reduced motion. */
-function StaggerGroup({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
-  return (
-    <motion.div
-      className={className}
-      variants={stagger}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function StaggerItem({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
-  return (
-    <motion.div className={className} variants={rise}>
-      {children}
-    </motion.div>
-  );
-}
-
-function SectionHeading({
-  children,
-  align = "center",
-}: {
-  children: React.ReactNode;
-  align?: "center" | "left";
-}) {
-  return (
-    <div className={align === "center" ? "text-center" : "text-left"}>
-      <h2 className="text-2xl font-bold tracking-tight text-[#101828] sm:text-3xl lg:text-4xl">
-        {children}
-      </h2>
-      <div
-        className={`mt-3 h-[3px] w-12 rounded-full bg-[#7B2044] ${
-          align === "center" ? "mx-auto" : ""
-        }`}
-      />
-    </div>
-  );
-}
-
 export function Variant8Page() {
   const reduce = useReducedMotion();
   const [activePath, setActivePath] = useState<keyof typeof paths>("team");
@@ -267,7 +154,7 @@ export function Variant8Page() {
           </nav>
           <Link
             href={BOOK_HREF}
-            className="rounded-full border border-[#7B2044] px-4 py-1.5 text-xs font-bold text-[#7B2044] transition-colors hover:bg-[#7B2044] hover:text-white md:px-5 md:py-2 md:text-sm"
+            className="rounded-full bg-[#7B2044] px-4 py-1.5 text-xs font-bold text-white transition-colors hover:bg-[#651838] md:px-5 md:py-2 md:text-sm"
           >
             Book a Call
           </Link>
@@ -275,31 +162,35 @@ export function Variant8Page() {
       </header>
 
       {/* ── Hero ───────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FDF4F7] to-white">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-14 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+      <section className="relative overflow-x-clip">
+        {/* depth: soft radial glow + faint grid */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#FDF4F7] to-white" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[36rem] w-[36rem] rounded-full bg-[#7B2044]/10 blur-3xl" />
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 pb-24 pt-14 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pb-28 lg:pt-24">
           {/* Left: copy + CTA */}
           <motion.div
             initial={reduce ? false : "hidden"}
             animate="show"
             variants={stagger}
-            className="text-center lg:text-left"
+            className="relative text-center lg:text-left"
           >
-            <motion.p
+            <motion.span
               variants={rise}
-              className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7B2044] md:text-xs"
+              className="inline-flex items-center gap-2 rounded-full border border-[#EAD3DF] bg-white/70 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#7B2044] shadow-sm backdrop-blur md:text-xs"
             >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#16A34A]" />
               Done-for-you AI front desk · Orange County
-            </motion.p>
+            </motion.span>
             <motion.h1
               variants={rise}
-              className="mx-auto mt-5 max-w-[18ch] text-[34px] font-bold leading-[1.08] tracking-tight sm:text-5xl lg:mx-0 lg:text-6xl"
+              className="mx-auto mt-6 max-w-[16ch] text-[38px] font-bold leading-[1.04] tracking-tight sm:text-5xl lg:mx-0 lg:text-[68px]"
             >
               While you&apos;re with a client,{" "}
               <span className="text-[#7B2044]">who&apos;s picking up?</span>
             </motion.h1>
             <motion.p
               variants={rise}
-              className="mx-auto mt-5 max-w-[46ch] text-base leading-relaxed text-[#475569] lg:mx-0 lg:text-lg"
+              className="mx-auto mt-6 max-w-[46ch] text-base leading-relaxed text-[#475569] lg:mx-0 lg:text-lg"
             >
               An AI front desk that answers every call, texts back the ones you
               miss, and books appointments straight into your calendar — built,
@@ -307,72 +198,68 @@ export function Variant8Page() {
             </motion.p>
             <motion.div
               variants={rise}
-              className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+              className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
             >
               <Link
                 href={BOOK_HREF}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#7B2044] px-7 py-4 text-base font-bold text-white shadow-sm transition-colors hover:bg-[#651838] sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#7B2044] px-7 py-4 text-base font-bold text-white shadow-[0_12px_24px_-8px_rgba(123,32,68,0.5)] transition-colors hover:bg-[#651838] sm:w-auto"
               >
                 Get Your Free Missed Call Audit
                 <IconArrowRight className="h-5 w-5" stroke={2} />
               </Link>
+              <a
+                href="#how"
+                className="inline-flex items-center justify-center gap-1.5 rounded-xl px-5 py-4 text-base font-bold text-[#7B2044] transition-colors hover:bg-[#7B2044]/5"
+              >
+                See how it works
+              </a>
             </motion.div>
             <motion.div
               variants={rise}
-              className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-[#717182] sm:text-sm lg:justify-start"
+              className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-[#717182] sm:text-sm lg:justify-start"
             >
               <span className="flex items-center gap-1.5">
                 <IconShieldCheck className="h-4 w-4 text-[#7B2044]" stroke={1.8} />
                 HIPAA Compliant
               </span>
-              <span className="text-[#D9A8BC]">·</span>
               <span className="flex items-center gap-1.5">
                 <IconCircleCheck className="h-4 w-4 text-[#16A34A]" stroke={1.8} />
-                Free. No pitch. Zero obligation.
+                Free. No pitch.
+              </span>
+              <span className="flex items-center gap-1">
+                <span className="flex">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <IconStarFilled key={i} className="h-3.5 w-3.5 text-[#E0A500]" />
+                  ))}
+                </span>
+                <span className="ml-1">Loved by local owners</span>
               </span>
             </motion.div>
           </motion.div>
 
-          {/* Right: visual card (icon flow + proof) */}
-          <Reveal delay={reduce ? 0 : 0.15}>
-            <div className="relative mx-auto w-full max-w-md rounded-3xl border border-[#EAD3DF] bg-white/80 p-7 shadow-[0_24px_60px_-20px_rgba(123,32,68,0.25)] backdrop-blur md:p-9">
-              <div className="flex items-center justify-center gap-2 md:gap-3">
-                <IconTile>
-                  <IconMessage className="h-7 w-7 md:h-8 md:w-8" stroke={1.6} />
-                </IconTile>
-                <Dashes />
-                <IconTile className="relative">
-                  <IconDeviceMobile className="h-7 w-7 md:h-8 md:w-8" stroke={1.6} />
-                  <span className="absolute -right-1.5 -top-1.5 rounded-full bg-[#7B2044] px-1.5 py-0.5 text-[8px] font-bold text-white">
-                    AI
-                  </span>
-                </IconTile>
-                <Dashes />
-                <IconTile>
-                  <IconCalendarCheck className="h-7 w-7 md:h-8 md:w-8" stroke={1.6} />
-                </IconTile>
-              </div>
-
-              <div className="mt-8 rounded-2xl border border-[#D9A8BC] bg-white p-6 text-center">
-                <CountUp
-                  to={2560}
-                  className="text-4xl font-bold leading-none text-[#7B2044]"
-                />
-                <p className="mt-2 text-sm font-semibold text-[#717182]">
-                  recovered in 30 days
-                </p>
-                <div className="my-4 flex items-center justify-center gap-3">
-                  <span className="h-px w-14 bg-[#EAD3DF]" />
-                  <span className="text-xs text-[#D9A8BC]">✦</span>
-                  <span className="h-px w-14 bg-[#EAD3DF]" />
-                </div>
-                <p className="text-base font-bold text-[#101828]">
-                  Healing Hands by Santa
-                </p>
-                <p className="text-sm text-[#717182]">Laguna Niguel</p>
-              </div>
-            </div>
+          {/* Right: animated live-call device mockup */}
+          <Reveal delay={reduce ? 0 : 0.15} className="relative">
+            <LiveCallMockup />
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Trust strip ────────────────────────────────────────────── */}
+      <section className="border-y border-[#F1E4EB] bg-white px-6 py-7 md:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-x-8 gap-y-3 md:flex-row md:justify-between">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#717182]">
+            Trusted by Orange County service businesses
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {trustedBy.map((t) => (
+              <span
+                key={t}
+                className="text-sm font-semibold text-[#7B2044]/70"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -383,7 +270,6 @@ export function Variant8Page() {
             <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-[#717182] md:text-xs">
               How would you like to work with us?
             </p>
-
             <div className="relative mt-5 grid grid-cols-2 gap-2 rounded-2xl border border-[#EAD3DF] bg-[#FDF4F7] p-1.5">
               {(Object.keys(paths) as Array<keyof typeof paths>).map((key) => {
                 const isActive = key === activePath;
@@ -413,7 +299,6 @@ export function Variant8Page() {
                 );
               })}
             </div>
-
             <div className="mt-6 min-h-[6rem] md:min-h-[5rem]">
               <AnimatePresence mode="wait">
                 <motion.p
@@ -487,9 +372,9 @@ export function Variant8Page() {
         <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal className="lg:sticky lg:top-28 lg:self-start">
             <div className="text-center lg:text-left">
-              <SectionHeading align="center">
-                <span className="lg:hidden">Frequently asked</span>
-              </SectionHeading>
+              <div className="lg:hidden">
+                <SectionHeading>Frequently asked</SectionHeading>
+              </div>
               <div className="hidden lg:block">
                 <SectionHeading align="left">Frequently asked</SectionHeading>
               </div>
@@ -569,12 +454,14 @@ export function Variant8Page() {
       </section>
 
       {/* ── Closing CTA (full-bleed) ───────────────────────────────── */}
-      <section className="bg-[#7B2044] px-6 py-20 md:px-8 md:py-28">
-        <Reveal className="mx-auto w-full max-w-3xl text-center">
+      <section className="relative overflow-hidden bg-[#7B2044] px-6 py-20 md:px-8 md:py-28">
+        <div className="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 -top-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <Reveal className="relative mx-auto w-full max-w-3xl text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/15">
             <IconCircleCheck className="h-8 w-8 text-white" stroke={1.8} />
           </div>
-          <h2 className="mx-auto mt-6 max-w-[20ch] text-3xl font-bold leading-[1.15] text-white md:text-5xl">
+          <h2 className="mx-auto mt-6 max-w-[20ch] text-3xl font-bold leading-[1.12] text-white md:text-5xl">
             Ready to recover lost revenue?
           </h2>
           <p className="mx-auto mt-5 max-w-[48ch] text-base leading-relaxed text-white/80 md:text-lg">
@@ -583,7 +470,7 @@ export function Variant8Page() {
           </p>
           <Link
             href={BOOK_HREF}
-            className="mx-auto mt-8 inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 text-base font-bold text-[#7B2044] transition-colors hover:bg-[#FDF4F7]"
+            className="mx-auto mt-8 inline-flex w-full max-w-md items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 text-base font-bold text-[#7B2044] shadow-lg transition-colors hover:bg-[#FDF4F7]"
           >
             Book Your Free Missed Call Audit
             <IconArrowRight className="h-5 w-5" stroke={2} />
@@ -623,28 +510,260 @@ export function Variant8Page() {
   );
 }
 
-function IconTile({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+/* ─────────────────────────── Live-call mockup ─────────────────────────── */
+
+function LiveCallMockup() {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const show = reduce || inView;
+
+  const captions = [
+    { side: "in" as const, text: "Hi, do you have anything Tuesday afternoon?" },
+    { side: "ai" as const, text: "Yes — 2:00 PM is open. I can book that for you now." },
+  ];
+
   return (
-    <div
-      className={`flex h-16 w-16 items-center justify-center rounded-2xl border border-[#D9A8BC] bg-[#FDF4F7] text-[#7B2044] ${className}`}
-    >
-      {children}
+    <div ref={ref} className="relative mx-auto w-full max-w-[22rem] pb-10">
+      {/* phone shell */}
+      <div className="rounded-[2.4rem] border border-[#EAD3DF] bg-white p-2.5 shadow-[0_40px_90px_-30px_rgba(123,32,68,0.45)]">
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#FDF4F7] to-white p-5 pb-16">
+          {/* notch */}
+          <div className="mx-auto mb-4 h-1.5 w-16 rounded-full bg-[#EAD3DF]" />
+
+          {/* header */}
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#7B2044]">
+              Ops AI · Front Desk
+            </span>
+            <span className="flex items-center gap-1 text-[11px] font-semibold text-[#16A34A]">
+              <span className="relative flex h-2 w-2">
+                {!reduce && (
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#16A34A]/60" />
+                )}
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#16A34A]" />
+              </span>
+              Live
+            </span>
+          </div>
+
+          {/* caller */}
+          <div className="mt-5 flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7B2044] text-sm font-bold text-white">
+              HH
+            </span>
+            <div className="leading-tight">
+              <p className="text-sm font-bold text-[#101828]">
+                Healing Hands by Santa
+              </p>
+              <p className="text-xs text-[#717182]">
+                Incoming call · Laguna Niguel
+              </p>
+            </div>
+          </div>
+
+          {/* waveform */}
+          <div className="mt-5 flex h-10 items-center justify-center gap-[3px]">
+            {Array.from({ length: 22 }).map((_, i) => (
+              <motion.span
+                key={i}
+                className="w-[3px] rounded-full bg-[#7B2044]/70"
+                style={{ height: 8 + ((i * 7) % 18) }}
+                animate={
+                  reduce ? undefined : { scaleY: [0.4, 1, 0.55, 0.9, 0.4] }
+                }
+                transition={{
+                  duration: 1.1,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: (i % 6) * 0.08,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* captions */}
+          <div className="mt-4 space-y-2">
+            {captions.map((c, i) => (
+              <motion.div
+                key={i}
+                initial={reduce ? false : { opacity: 0, y: 8 }}
+                animate={show ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: reduce ? 0 : 0.5 + i * 0.7, duration: 0.4, ease: EASE_OUT }}
+                className={c.side === "ai" ? "flex justify-end" : "flex justify-start"}
+              >
+                <span
+                  className={`max-w-[80%] rounded-2xl px-3.5 py-2 text-xs leading-snug ${
+                    c.side === "ai"
+                      ? "rounded-br-sm bg-[#7B2044] text-white"
+                      : "rounded-bl-sm bg-white text-[#475569] shadow-sm"
+                  }`}
+                >
+                  {c.text}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* booked confirmation */}
+          <motion.div
+            initial={reduce ? false : { opacity: 0, scale: 0.9 }}
+            animate={show ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: reduce ? 0 : 2.1, type: "spring", stiffness: 300, damping: 20 }}
+            className="mt-4 flex items-center gap-2 rounded-xl border border-[#16A34A]/30 bg-[#16A34A]/10 px-3.5 py-2.5"
+          >
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#16A34A] text-white">
+              <IconCheck className="h-4 w-4" stroke={3} />
+            </span>
+            <span className="text-xs font-bold text-[#15803D]">
+              Appointment booked · Tue 2:00 PM
+            </span>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* floating proof stat card */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 16 }}
+        animate={show ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: reduce ? 0 : 0.9, duration: 0.5, ease: EASE_OUT }}
+        className="absolute -bottom-1 left-1/2 w-[14rem] -translate-x-1/2 rounded-2xl border border-[#EAD3DF] bg-white/95 p-4 text-center shadow-[0_20px_50px_-20px_rgba(123,32,68,0.4)] backdrop-blur"
+      >
+        <CountUp
+          to={2560}
+          className="text-3xl font-bold leading-none text-[#7B2044]"
+          start={show}
+        />
+        <p className="mt-1 text-[11px] font-semibold text-[#717182]">
+          recovered in 30 days · Healing Hands by Santa
+        </p>
+      </motion.div>
     </div>
   );
 }
 
-function Dashes() {
+/* ─────────────────────────── Reusable helpers ─────────────────────────── */
+
+/** Counts up to `to` when scrolled into view; final value under reduced motion. */
+function CountUp({
+  to,
+  prefix = "$",
+  className,
+  start,
+}: {
+  to: number;
+  prefix?: string;
+  className?: string;
+  start?: boolean;
+}) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLParagraphElement>(null);
+  const ownInView = useInView(ref, { once: true, amount: 0.6 });
+  const trigger = start ?? ownInView;
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!trigger) return;
+    const controls = animate(0, to, {
+      duration: reduce ? 0 : 2.2,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setValue(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [trigger, reduce, to]);
+
   return (
-    <span className="flex items-center gap-1" aria-hidden="true">
-      {[0, 1, 2].map((i) => (
-        <span key={i} className="h-[2px] w-1.5 rounded-full bg-[#D9A8BC]" />
-      ))}
-    </span>
+    <p
+      ref={ref}
+      className={className}
+      aria-label={`${prefix}${to.toLocaleString("en-US")}`}
+    >
+      {prefix}
+      {value.toLocaleString("en-US")}
+    </p>
+  );
+}
+
+/** Fade + rise on scroll-into-view; renders statically under reduced motion. */
+function Reveal({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: EASE_OUT, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function StaggerGroup({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <motion.div
+      className={className}
+      variants={stagger}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function StaggerItem({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <motion.div className={className} variants={rise}>
+      {children}
+    </motion.div>
+  );
+}
+
+function SectionHeading({
+  children,
+  align = "center",
+}: {
+  children: React.ReactNode;
+  align?: "center" | "left";
+}) {
+  return (
+    <div className={align === "center" ? "text-center" : "text-left"}>
+      <h2 className="text-2xl font-bold tracking-tight text-[#101828] sm:text-3xl lg:text-4xl">
+        {children}
+      </h2>
+      <div
+        className={`mt-3 h-[3px] w-12 rounded-full bg-[#7B2044] ${
+          align === "center" ? "mx-auto" : ""
+        }`}
+      />
+    </div>
   );
 }
