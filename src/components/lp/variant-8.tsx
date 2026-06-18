@@ -21,9 +21,16 @@
  *   pink hair #D9A8BC / #EAD3DF   hero wash #FDF4F7   cream #FAF6F1
  */
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence, useReducedMotion, type Variants } from "motion/react";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+  useInView,
+  animate,
+  type Variants,
+} from "motion/react";
 import {
   IconMessage,
   IconDeviceMobile,
@@ -105,6 +112,43 @@ const paths = {
     body: "Hand the phones over entirely. The AI answers every call, follows up on every missed one, and books straight into your calendar — day or night, no front-desk staff required.",
   },
 } as const;
+
+/** Counts up to `to` when scrolled into view; shows the final value under reduced motion. */
+function CountUp({
+  to,
+  prefix = "$",
+  className,
+}: {
+  to: number;
+  prefix?: string;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLParagraphElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, to, {
+      duration: reduce ? 0 : 1.6,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setValue(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [inView, reduce, to]);
+
+  return (
+    <p
+      ref={ref}
+      className={className}
+      aria-label={`${prefix}${to.toLocaleString("en-US")}`}
+    >
+      {prefix}
+      {value.toLocaleString("en-US")}
+    </p>
+  );
+}
 
 /** Fade + rise on scroll-into-view; renders statically under reduced motion. */
 function Reveal({
@@ -310,7 +354,10 @@ export function Variant8Page() {
               </div>
 
               <div className="mt-8 rounded-2xl border border-[#D9A8BC] bg-white p-6 text-center">
-                <p className="text-4xl font-bold leading-none text-[#7B2044]">$223</p>
+                <CountUp
+                  to={2560}
+                  className="text-4xl font-bold leading-none text-[#7B2044]"
+                />
                 <p className="mt-2 text-sm font-semibold text-[#717182]">
                   recovered in 30 days
                 </p>
