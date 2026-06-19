@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { BookingCalendarEmbed } from "@/components/booking-calendar-embed";
@@ -148,7 +148,13 @@ export default function V8Page() {
           </FlowCard>
           <Connector />
           <FlowCard label="Texts back" accent>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8B2A42] text-xs font-bold text-white">AI</span>
+            <motion.span
+              animate={{ scale: [1, 1.12, 1], boxShadow: ["0 0 0 0 rgba(139,42,66,0.45)", "0 0 0 9px rgba(139,42,66,0)", "0 0 0 0 rgba(139,42,66,0)"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8B2A42] text-xs font-bold text-white"
+            >
+              AI
+            </motion.span>
           </FlowCard>
           <Connector />
           <FlowCard label="Booked">
@@ -179,7 +185,7 @@ export default function V8Page() {
       <section className="px-5 pb-14">
         <Reveal className="mx-auto max-w-md">
           <div className="rounded-3xl border border-[#EAD3CB] bg-white p-7 text-center shadow-[0_12px_34px_-14px_rgba(32,19,28,0.16)] md:p-9">
-            <p className="font-serif text-5xl font-semibold text-[#8B2A42] md:text-6xl">$2,560</p>
+            <p className="font-serif text-5xl font-semibold text-[#8B2A42] md:text-6xl"><CountUp to={2560} prefix="$" /></p>
             <p className="mt-1 text-sm text-[#6E5B66]">recovered in 30 days</p>
             <p className="my-4 text-[#B5415E]">&#9670;</p>
             <p className="font-semibold">Healing Hands by Santa</p>
@@ -263,7 +269,7 @@ export default function V8Page() {
         <div className="mx-auto mt-9 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.05}>
-              <div className="h-full rounded-3xl border border-[#F0DAD3] bg-[#FBEEE9] px-6 py-8 text-center">
+              <div className="h-full rounded-3xl border border-[#F0DAD3] bg-[#FBEEE9] px-6 py-8 text-center transition-transform duration-300 hover:-translate-y-1">
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#F6E2DC] text-[#8B2A42]">
                   <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{f.icon}</svg>
                 </span>
@@ -284,7 +290,7 @@ export default function V8Page() {
         <div className="mx-auto mt-9 grid max-w-5xl gap-5 md:grid-cols-3">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 0.06}>
-              <div className="h-full rounded-3xl border border-[#EAD3CB] bg-white p-6 shadow-[0_8px_22px_-14px_rgba(32,19,28,0.12)]">
+              <div className="h-full rounded-3xl border border-[#EAD3CB] bg-white p-6 shadow-[0_8px_22px_-14px_rgba(32,19,28,0.12)] transition-transform duration-300 hover:-translate-y-1">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#8B2A42] font-serif text-lg italic text-white">{s.n}</span>
                 <p className="mt-4 text-[11px] font-bold uppercase tracking-wider text-[#8B2A42]">{s.when}</p>
                 <h3 className="mt-1 font-serif text-xl font-semibold italic">{s.title}</h3>
@@ -304,7 +310,7 @@ export default function V8Page() {
         <div className="mx-auto mt-9 grid max-w-4xl gap-5 md:grid-cols-2">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.06}>
-              <div className="h-full rounded-3xl border border-[#F0DAD3] bg-[#FBEEE9] p-7">
+              <div className="h-full rounded-3xl border border-[#F0DAD3] bg-[#FBEEE9] p-7 transition-transform duration-300 hover:-translate-y-1">
                 <Stars />
                 <p className="mt-4 text-[15px] italic leading-relaxed text-[#4A3A44]">&ldquo;{t.quote}&rdquo;</p>
                 <div className="mt-6 flex items-center gap-3">
@@ -403,8 +409,51 @@ function Connector() {
   return (
     <div className="flex items-center">
       <span className="h-px w-3 bg-[#E0C4BC] md:w-5" />
-      <span className="h-1.5 w-1.5 rounded-full bg-[#B5415E]" />
+      <motion.span
+        animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.25, 0.8] }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        className="h-1.5 w-1.5 rounded-full bg-[#B5415E]"
+      />
       <span className="h-px w-3 bg-[#E0C4BC] md:w-5" />
     </div>
   );
+}
+
+/** Eased count-up that runs once when scrolled into view. */
+function CountUp({ to, prefix = "" }: { to: number; prefix?: string }) {
+  const [n, setN] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let raf = 0;
+    let started = false;
+    const run = () => {
+      const dur = 1300;
+      let start = 0;
+      const tick = (t: number) => {
+        if (!start) start = t;
+        const p = Math.min(1, (t - start) / dur);
+        setN(Math.round(to * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !started) {
+          started = true;
+          run();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [to]);
+  return <span ref={ref}>{prefix}{n.toLocaleString("en-US")}</span>;
 }
