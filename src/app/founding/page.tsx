@@ -162,7 +162,7 @@ function TierCard({
 
 export default function FoundingPage() {
   return (
-    <main className="min-h-screen bg-[#130B0F] text-[#F5EAE0]">
+    <div className="min-h-screen bg-[#130B0F] text-[#F5EAE0]">
       {/* Header */}
       <section className="max-w-4xl mx-auto px-6 pt-20 pb-12 text-center">
         <div className="inline-flex items-center gap-2 bg-[#271520] border border-[#8B2A42]/40 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest text-[#8B2A42] uppercase mb-6">
@@ -239,6 +239,6 @@ export default function FoundingPage() {
           </a>
         </p>
       </section>
-    </main>
+    </div>
   );
 }

@@ -90,6 +90,8 @@ export default function LpServiceBusinessesPage() {
           <img
             src="/images/logo-ops-by-noell-cream-text.png"
             alt="Ops by Noell"
+            width={140}
+            height={28}
             className="h-7 w-auto"
           />
         </Link>

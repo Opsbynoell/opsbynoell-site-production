@@ -140,8 +140,8 @@
 
 @layer utilities {
   .tap-target {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 48px;
+    min-width: 48px;
   }
 }
 

@@ -95,7 +95,7 @@ const headcountComparison = [
 
 export function AddOnsContent() {
   return (
-    <main className="bg-[#1F1219] min-h-screen text-cream">
+    <div className="bg-[#1F1219] min-h-screen text-cream">
 
       {/* Hero */}
       <section className="pt-28 pb-16 px-6 max-w-5xl mx-auto">
@@ -245,6 +245,6 @@ export function AddOnsContent() {
         </p>
       </section>
 
-    </main>
+    </div>
   );
 }

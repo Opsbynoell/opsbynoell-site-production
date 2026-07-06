@@ -55,7 +55,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs font-semibold text-cream leading-none">5.0, rated by clients</p>
-                <p className="text-[10px] text-cream/50 mt-0.5">Service businesses nationwide</p>
+                <p className="text-[10px] text-cream/70 mt-0.5">Service businesses nationwide</p>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ export function Footer() {
           </p>
         </div>
         <div className="pt-6 mt-6 border-t border-white/10/60">
-          <p className="text-[11px] leading-relaxed text-muted-strong/80 max-w-4xl">
+          <p className="text-[11px] leading-relaxed text-muted-strong max-w-4xl">
             Ops by Noell is an independent service provider. We are not
             affiliated with, endorsed by, or a certified partner of any
             third-party booking, scheduling, practice management, electronic

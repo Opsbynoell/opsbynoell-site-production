@@ -271,7 +271,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               href="/for-service-businesses"
               onClick={() => setOpen(false)}
               className={cn(
-                "w-full px-3 py-2.5 rounded-xl transition-colors text-sm font-medium",
+                "w-full flex items-center min-h-[48px] px-3 py-2.5 rounded-xl transition-colors text-sm font-medium",
                 isActive("/for-service-businesses")
                   ? "text-[#C45A2A]"
                   : "text-cream/90 hover:text-cream hover:bg-wine/10"
@@ -284,7 +284,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
               <button
                 type="button"
                 onClick={() => setResourcesOpen((v) => !v)}
-                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
+                className="w-full flex items-center justify-between min-h-[48px] px-3 py-2.5 rounded-xl text-cream/90 hover:bg-wine/10 transition-colors text-sm font-medium"
               >
                 Resources
                 <IconChevronDown
@@ -309,7 +309,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
+                        className="flex flex-col justify-center min-h-[48px] px-3 py-2 rounded-xl hover:bg-wine/10 transition-colors"
                       >
                         <span className="text-sm text-cream/85">
                           {link.name}
@@ -327,7 +327,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <Link
               href="/pricing"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
+              className="w-full flex items-center min-h-[48px] px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
             >
               Pricing
             </Link>
@@ -335,7 +335,7 @@ const MobileNav = ({ visible }: NavbarProps) => {
             <Link
               href="/about"
               onClick={() => setOpen(false)}
-              className="w-full px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
+              className="w-full flex items-center min-h-[48px] px-3 py-2.5 rounded-xl text-cream/90 hover:text-cream hover:bg-wine/10 transition-colors text-sm font-medium"
             >
               About
             </Link>
